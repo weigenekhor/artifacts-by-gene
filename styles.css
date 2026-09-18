@@ -621,9 +621,6 @@ i {
   stroke-dasharray: 700;
   stroke-dashoffset: 0;
 }
-.system-panel.is-changing .diagram-primary {
-  animation: trace-in 0.7s var(--ease);
-}
 .diagram-secondary {
   stroke: #84939b;
   stroke-width: 1;
@@ -813,7 +810,7 @@ i {
   font-weight: 450;
   margin: 25px 0 0 -6px;
 }
-.gene-title span {
+.gene-title .name-period {
   color: var(--accent);
 }
 .about-copy h3 {
@@ -905,28 +902,6 @@ i {
   font-size: 8px;
   color: var(--muted);
   letter-spacing: 0.04em;
-}
-.reveal {
-  opacity: 1;
-}
-.motion-ready .reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity 0.8s var(--ease),
-    transform 0.8s var(--ease);
-}
-.motion-ready .reveal.is-visible {
-  opacity: 1;
-  transform: none;
-}
-@keyframes trace-in {
-  from {
-    stroke-dashoffset: 700;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
 }
 dialog {
   width: min(620px, calc(100% - 40px));
@@ -1457,9 +1432,5 @@ dialog > p,
   *:after {
     animation: none !important;
     transition: none !important;
-  }
-  .motion-ready .reveal {
-    opacity: 1;
-    transform: none;
   }
 }

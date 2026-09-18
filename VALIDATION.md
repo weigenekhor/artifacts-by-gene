@@ -1,20 +1,36 @@
-# Validation
+# Motion and interaction validation
 
-Verified in headless Microsoft Edge on 18 September 2026.
+Verified in Microsoft Edge (Chromium), 18 September 2026. Run `pnpm test` to reproduce the browser checks; the test server starts automatically. Reports and screenshots are written to the ignored `.qa/` directory.
 
-- WebGL shader compiles and renders the hero surface.
-- All four project selectors update content and selected state correctly.
-- Arrow-key project selection, Home/End handling, and tab focus are implemented.
-- Project notes show the active system. Escape closes the native dialog and restores focus to its trigger.
-- No horizontal document overflow at 320, 375, 390, 768, 1024, 1440, and 1920 pixels.
-- Desktop and mobile hero, system section, full mobile layout, and social preview visually inspected.
-- Reduced-motion mode disables smooth scrolling and animated reveals; the shader renders a still frame.
-- Without JavaScript, the main editorial content and CSS hero surface remain available.
-- Simulated WebGL context loss restores the CSS surface.
-- Instrumented draw calls confirm animation on desktop, zero ongoing draws offscreen, correct resume on return, and zero ongoing draws in reduced-motion and mobile modes.
-- No page exceptions or failed page resources during the interaction checks.
-- axe-core 4.10.3 reported zero WCAG 2 A/AA and WCAG 2.1 A/AA violations with motion disabled for a stable contrast scan. Automated checks do not replace manual assistive-technology testing.
+## Layout and interaction
 
-The surface renderer is capped at 60 Hz on desktop, pauses offscreen and in hidden tabs, caps pixel density, and renders a static mobile view. Frame-rate targets have not been benchmarked on physical desktop or mobile devices.
+- Visually inspected 1920 × 1080, 1440 × 900, 1366 × 768, 834 × 1112, 390 × 844, and 320 × 740 layouts. No horizontal document overflow; the full title fits each viewport.
+- Refined letter-mask clearance, wafer material variation, tablet wafer framing, zone-marker alignment, and mobile technical labels after the first render pass.
+- Section reveals are triggered by the position of each composed group. Keyboard focus exposes a pending group immediately.
+- All four projects have distinct representative visuals. Intermediary SVG paths differ from both their starting and final paths, verifying actual interpolation.
+- Rapid project changes settle correctly. Arrow keys, Home, End, click, and emulated mobile touch are tested. Hover selection yields to active keyboard focus.
+- Modal content follows the active project. Escape closes it and restores focus to its trigger.
+- Back to surface uses native anchor navigation. No wheel interception, scroll locks, or artificial loading gate.
 
-The implementation targets `main` in `https://github.com/weigenekhor/artifacts-by-gene`. The repository's original history and `CNAME` are preserved. Repository updates use the authenticated GitHub connection rather than command-line Git credentials. GitHub Pages serves the repository's static files; deployment status is checked separately after the repository update.
+## Accessibility and resilience
+
+- axe-core 4.10.3 reports no WCAG 2 A/AA or WCAG 2.1 A/AA violations in desktop or mobile scans with reduced motion enabled. Automated scans are supplemented by keyboard checks; screen-reader testing remains a useful manual check.
+- Reduced-motion preference changes are handled while the page is open. Nonessential animation and smooth scrolling stop, project changes are immediate, and the Motion control reflects the system preference.
+- The Motion on/off control pauses the continuous renderer and remembers the choice for the session.
+- No-JavaScript editorial content and the CSS wafer remain visible. Project controls still function when WebGL is unavailable.
+- Forced WebGL context loss restores the CSS fallback. Context restoration recreates the renderer.
+- No uncaught page errors or missing resources in the browser suite.
+
+## Performance
+
+A warmed three-second desktop hero sample on an NVIDIA GeForce RTX 4060 Laptop GPU recorded approximately 60 frames/second, a 16.7 ms median frame interval, a 16.8 ms 95th-percentile interval, no long tasks during the sample, and zero measured cumulative layout shift in the run. These are local Chromium measurements, not a guarantee for every browser or device.
+
+Separate three-second scroll and repeated-project-transition samples also recorded 16.7 ms median and 16.8 ms 95th-percentile frame intervals with no long tasks. The compact renderer produced 49 draws over two seconds, consistent with its 24 Hz target. A simulated visibility-change event stopped all draws and rendering resumed after visibility was restored. Hover selection and keyboard priority were checked separately.
+
+The wafer uses one triangle and one draw call, with no texture downloads, meshes, or ray-marching loop. Desktop shader resolution is capped at 1.1 million pixels; compact layouts at 420,000 pixels. Desktop targets 60 Hz and compact layouts 24 Hz. Sustained slow frames reduce rendering resolution. Rendering stops when the surface is offscreen, the document is hidden, motion is paused, or reduced motion is requested. Offscreen pause, user pause, preference changes, and context recovery are covered by automated checks.
+
+Physical iOS/Safari, Android battery behavior, and lower-end GPU performance have not been measured. Visually review the title entrance, pointer-delayed wafer lighting, the hero-to-ecosystem scroll, and rapid system changes on your everyday devices.
+
+## Review and deployment
+
+This motion update is prepared in `weigenekhor/artifacts-by-gene` for review against `main`. The existing custom domain and GitHub Pages configuration are preserved. The site still deploys as static files with no build step and no runtime packages. Playwright and axe-core are development-only dependencies for the reproducible browser checks.

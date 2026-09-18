@@ -1,0 +1,12 @@
+{
+  "name": "artifacts-by-gene",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/browser.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "4.10.3",
+    "playwright": "1.62.1"
+  }
+}

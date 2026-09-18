@@ -26,7 +26,18 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="motion.css" />
+    <link
+      rel="preload"
+      href="assets/fonts/Geist-Latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <script src="script.js" type="module"></script>
+    <link rel="modulepreload" href="js/motion.js" />
+    <link rel="modulepreload" href="js/systems.js" />
+    <link rel="modulepreload" href="js/surface.js" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -79,6 +90,15 @@
         <div class="hero-foot">
           <span class="hero-foot-label"
             >SEMICONDUCTORS <span>/</span> SOFTWARE <span>/</span> SYSTEMS</span
+          ><button
+            type="button"
+            id="motion-toggle"
+            class="motion-toggle"
+            aria-label="Animation enabled"
+            aria-pressed="true"
+            hidden
+          >
+            <i aria-hidden="true"></i><span>MOTION ON</span></button
           ><a href="#overview" class="scroll-cue"
             ><span>SCROLL TO DISCOVER</span
             ><svg viewBox="0 0 16 24" aria-hidden="true">
@@ -269,9 +289,13 @@
                   class="diagram-ticks"
                   d="M50 280v6m100-6v6m100-6v6m100-6v6m100-6v6m100-6v6"
                 />
-                <text x="50" y="310">INPUT</text>
-                <text x="507" y="310">RESPONSE</text>
-                <text x="50" y="25" id="diagram-label">THERMAL / STUDY 01</text>
+                <text x="50" y="310" id="diagram-left">PROFILE</text>
+                <text x="550" y="310" id="diagram-right" text-anchor="end">
+                  RESPONSE
+                </text>
+                <text x="50" y="25" id="diagram-label">
+                  THERMAL / PROFILE STUDY
+                </text>
               </svg>
               <span class="diagram-caption"
                 >CONCEPTUAL VISUALIZATION · NOT LIVE DATA</span
@@ -393,7 +417,7 @@
               >ENGINEER / BUILDER / SYSTEMS THINKER</span
             >
             <h2 id="gene-title" class="gene-title reveal">
-              Gene<span>.</span>
+              Gene<span class="name-period">.</span>
             </h2>
           </div>
           <!-- CONTENT PLACEHOLDER: replace or approve this introduction; add verified biography, CV, and contact information later. -->
