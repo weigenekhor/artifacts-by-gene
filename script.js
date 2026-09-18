@@ -1,8 +1,7 @@
 import { initializeMotion } from "./js/motion.js";
-import { initializeSystems } from "./js/systems.js";
 import { initializeSurface } from "./js/surface.js";
-
+import { initializeExhibition } from "./js/exhibition.js";
 initializeMotion();
-initializeSystems();
+initializeExhibition();
 initializeSurface();
 document.querySelector("#year").textContent = new Date().getFullYear();

@@ -4,40 +4,38 @@ import { createServer } from "node:http";
 import { readFile, mkdir, writeFile } from "node:fs/promises";
 import { resolve, extname, sep } from "node:path";
 import assert from "node:assert/strict";
-
 const require = createRequire(import.meta.url);
-const root = resolve(import.meta.dirname, "..");
-const output = resolve(root, ".qa");
+const root = resolve(import.meta.dirname, ".."),
+  output = resolve(root, ".qa");
 await mkdir(output, { recursive: true });
-const types = {
+const mime = {
   ".html": "text/html",
   ".css": "text/css",
   ".js": "text/javascript",
   ".svg": "image/svg+xml",
-  ".woff2": "font/woff2",
+  ".webp": "image/webp",
   ".png": "image/png",
+  ".woff2": "font/woff2",
 };
+// Also test the exact site under a repository prefix, as on GitHub Pages.
 const server = createServer(async (req, res) => {
-  const path = resolve(
-    root,
-    "." +
-      new URL(req.url, "http://localhost").pathname.replace(
-        /\/$/,
-        "/index.html",
-      ),
+  const pathname = new URL(req.url, "http://localhost").pathname.replace(
+    /^\/artifacts-by-gene\//,
+    "/",
   );
+  const path = resolve(root, "." + pathname.replace(/\/$/, "/index.html"));
   if (!path.startsWith(root + sep)) {
     res.writeHead(403).end();
     return;
   }
   try {
-    res.setHeader("Content-Type", types[extname(path)] || "text/plain");
+    res.setHeader("Content-Type", mime[extname(path)] || "text/plain");
     res.end(await readFile(path));
   } catch {
     res.writeHead(404).end();
   }
 });
-await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+await new Promise((r) => server.listen(0, "127.0.0.1", r));
 const url = `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({
   headless: true,
@@ -46,254 +44,342 @@ const browser = await chromium.launch({
     : {}),
 });
 const errors = [],
-  results = {};
+  results = { viewports: [], scenes: [], accessibility: [] };
+const ids = [
+  "object",
+  "clarity",
+  "systems",
+  "gan-temp-diagnoser",
+  "aix-dt-assistant",
+  "lt-zone-assistant",
+  "anko-helper",
+  "metria-spc",
+  "evolution",
+  "gene",
+];
+async function at(page, id, progress = 0) {
+  await page.evaluate(
+    ({ id, progress }) => {
+      const e = document.getElementById(id);
+      scrollTo({
+        top: e.offsetTop + Math.max(0, e.offsetHeight - innerHeight) * progress,
+        behavior: "instant",
+      });
+    },
+    { id, progress },
+  );
+  await page.waitForTimeout(90);
+}
+async function audit(page, label) {
+  await page.addScriptTag({ path: require.resolve("axe-core/axe.min.js") });
+  const violations = await page.evaluate(async () =>
+    (
+      await axe.run(document, {
+        runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] },
+      })
+    ).violations.map((v) => ({
+      id: v.id,
+      impact: v.impact,
+      nodes: v.nodes.map((n) => n.target),
+    })),
+  );
+  results.accessibility.push({ label, violations });
+  assert.deepEqual(violations, [], label + " accessibility");
+}
 try {
   const page = await browser.newPage({
     viewport: { width: 1440, height: 900 },
   });
-  page.on("pageerror", (error) => errors.push(error.message));
-  page.on("response", (response) => {
-    if (response.status() >= 400)
-      errors.push(`${response.status()} ${response.url()}`);
+  page.on("pageerror", (e) => errors.push(e.message));
+  page.on("console", (m) => {
+    if (m.type() === "error") errors.push(m.text());
+  });
+  page.on("response", (r) => {
+    if (r.status() >= 400) errors.push(r.status() + " " + r.url());
   });
   await page.addInitScript(() => {
-    window.__qa = { draws: 0, frames: [], tasks: [], cls: 0 };
+    window.__draws = 0;
+    window.__long = [];
+    window.__cls = 0;
     const draw = WebGLRenderingContext.prototype.drawArrays;
     WebGLRenderingContext.prototype.drawArrays = function (...args) {
-      window.__qa.draws++;
+      window.__draws++;
       return draw.apply(this, args);
     };
     new PerformanceObserver((list) => {
-      for (const entry of list.getEntries())
-        window.__qa.tasks.push(entry.duration);
+      for (const e of list.getEntries()) window.__long.push(e.duration);
     }).observe({ type: "longtask", buffered: true });
     new PerformanceObserver((list) => {
-      for (const entry of list.getEntries())
-        if (!entry.hadRecentInput) window.__qa.cls += entry.value;
+      for (const e of list.getEntries())
+        if (!e.hadRecentInput) window.__cls += e.value;
     }).observe({ type: "layout-shift", buffered: true });
   });
-  await page.goto(url, { waitUntil: "networkidle" });
-  await page.waitForFunction(() =>
-    document.querySelector(".hero-visual").classList.contains("is-ready"),
-  );
-  await page.waitForTimeout(1300);
+  await page.goto(url);
+  await page.waitForTimeout(1800);
   assert.equal(
-    await page.locator("#hero-title").getAttribute("aria-label"),
-    "ARTIFACTS.",
+    await page.locator("#wafer-canvas").getAttribute("data-renderer"),
+    "webgl",
   );
-  assert.equal(await page.locator(".title-mask").count(), 10);
   for (const [width, height] of [
+    [2560, 1440],
     [1920, 1080],
     [1440, 900],
     [1366, 768],
-    [834, 1112],
+    [1024, 1366],
     [390, 844],
     [320, 740],
+    [844, 390],
   ]) {
     await page.setViewportSize({ width, height });
-    await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
-    await page.waitForTimeout(250);
-    assert.ok(
-      await page.evaluate(
-        () => document.documentElement.scrollWidth <= innerWidth,
-      ),
-      `No overflow at ${width}`,
+    await at(page, "object");
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - innerWidth,
     );
-    const titleFits = await page.locator("#hero-title").evaluate((el) => {
-      const last = el.lastElementChild.getBoundingClientRect();
-      return last.right <= innerWidth;
+    assert.ok(overflow <= 1, `${width} overflow ${overflow}`);
+    const title = await page.locator("#hero-title").boundingBox();
+    assert.ok(
+      title.x >= 0 && title.x + title.width <= width + 1,
+      `${width} title fits`,
+    );
+    await page.screenshot({
+      path: resolve(output, `hero-${width}x${height}.png`),
     });
-    assert.ok(titleFits, `Title fits ${width}`);
-    await page.screenshot({ path: resolve(output, `hero-${width}.png`) });
+    for (const id of ids) {
+      await at(page, id, 0.35);
+      assert.ok(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth + 1,
+        ),
+        `${width} ${id} overflow`,
+      );
+      if (
+        id === "gan-temp-diagnoser" ||
+        id === "lt-zone-assistant" ||
+        id === "gene"
+      )
+        await page.screenshot({
+          path: resolve(output, `${id}-${width}x${height}.png`),
+        });
+      if (id === "gan-temp-diagnoser") {
+        const box = await page.locator("#" + id + " .instrument").boundingBox();
+        assert.ok(box.width > 100 && box.height > 70, "Visible software");
+        const bounds = await page.locator("#" + id + " .scene").boundingBox();
+        const foot = await page
+          .locator("#" + id + " .scene-foot")
+          .boundingBox();
+        assert.ok(
+          foot.y + foot.height <= bounds.y + bounds.height + 1,
+          "Controls fit their scene",
+        );
+      }
+    }
+    results.viewports.push({ width, height, overflow });
   }
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.locator("#systems").scrollIntoViewIfNeeded();
-  await page.waitForTimeout(900);
-  const stationary = await page.evaluate(() => __qa.draws);
-  await page.waitForTimeout(250);
-  assert.equal(
-    await page.evaluate(() => __qa.draws),
-    stationary,
-    "WebGL stops offscreen",
-  );
-  const original = await page.locator("#diagram-primary").getAttribute("d");
-  await page.locator("#tab-aix").click();
-  await page.waitForTimeout(80);
-  const intermediate = await page.locator("#diagram-primary").getAttribute("d");
-  await page.waitForTimeout(720);
-  const finished = await page.locator("#diagram-primary").getAttribute("d");
-  assert.notEqual(intermediate, original);
-  assert.notEqual(intermediate, finished, "Geometry actually interpolates");
-  for (const key of ["gan", "aix", "lt", "anko"]) {
-    await page.locator(`#tab-${key}`).click();
-    await page.waitForTimeout(720);
+  for (const id of ids.filter(
+    (id) => !["object", "clarity", "systems", "evolution", "gene"].includes(id),
+  )) {
+    await at(page, id, 0);
+    const entry = await page
+      .locator("#" + id + " .instrument-position")
+      .evaluate((e) => e.style.transform);
+    await at(page, id, 0.35);
+    const readable = await page
+      .locator("#" + id + " .instrument-position")
+      .evaluate((e) => e.style.transform);
+    assert.notEqual(entry, readable);
     assert.equal(
-      await page.locator(".system-diagram").getAttribute("data-mode"),
-      key,
+      await page
+        .locator("#" + id + " .instrument img")
+        .evaluate((e) => e.complete && e.naturalWidth > 900),
+      true,
+      "Real image loaded",
     );
+    await page.screenshot({ path: resolve(output, id + "-readable.png") });
+    await at(page, id, 0.86);
+    const macro = await page
+      .locator("#" + id + " .macro-plane")
+      .evaluate((e) => Number(getComputedStyle(e).opacity));
+    assert.ok(macro > 0.95, "Macro reveal complete");
+    await page.screenshot({ path: resolve(output, id + "-detail.png") });
+    await page.locator("#" + id + " .inspect-link").click();
+    await page.waitForSelector("#inspector[open]");
     assert.equal(
-      await page.locator(`#tab-${key}`).getAttribute("aria-selected"),
+      await page
+        .locator("#inspector-image")
+        .evaluate((e) => e.complete && e.naturalWidth === 2048),
+      true,
+      "Full resolution inspection",
+    );
+    await page.locator("#zoom-image").click();
+    assert.equal(
+      await page.locator("#zoom-image").getAttribute("aria-pressed"),
       "true",
     );
-    await page.screenshot({ path: resolve(output, `system-${key}.png`) });
+    await page.keyboard.press("Escape");
+    assert.equal(
+      await page.locator("#inspector").evaluate((e) => e.open),
+      false,
+    );
+    assert.equal(
+      await page
+        .locator("#" + id + " .inspect-link")
+        .evaluate((e) => e === document.activeElement),
+      true,
+      "Focus restored",
+    );
+    results.scenes.push({ id, spatial: true, macro: true, inspector: true });
   }
-  await page.locator("#tab-gan").focus();
-  await page.keyboard.press("End");
-  assert.equal(
-    await page.locator("#tab-anko").getAttribute("aria-selected"),
-    "true",
+  await at(page, "clarity", 0.02);
+  const chaos = await page
+    .locator(".trace-lines path")
+    .first()
+    .getAttribute("d");
+  await at(page, "clarity", 0.95);
+  assert.notEqual(
+    await page.locator(".trace-lines path").first().getAttribute("d"),
+    chaos,
   );
-  await page.keyboard.press("Home");
-  await page.keyboard.press("ArrowDown");
-  assert.equal(
-    await page.locator("#panel-title").textContent(),
-    "AIX ΔT Assistant",
+  await at(page, "gan-temp-diagnoser", 0.35);
+  const tilt = await page
+    .locator(".instrument-tilt")
+    .first()
+    .evaluate((e) => e.style.transform);
+  await page.mouse.move(1330, 600);
+  await page.waitForTimeout(400);
+  assert.notEqual(
+    await page
+      .locator(".instrument-tilt")
+      .first()
+      .evaluate((e) => e.style.transform),
+    tilt,
+    "Inertial pointer orientation",
   );
-  for (const key of ["lt", "gan", "anko", "aix"]) {
-    await page.locator(`#tab-${key}`).click();
-    await page.waitForTimeout(45);
-  }
-  await page.waitForTimeout(800);
-  assert.equal(
-    await page.locator("#panel-title").textContent(),
-    "AIX ΔT Assistant",
-  );
-  await page.locator("#open-project").click();
-  assert.equal(
-    await page.locator("#dialog-title").textContent(),
-    "AIX ΔT Assistant",
-  );
+  await audit(page, "desktop");
+  await page.locator("#gan-temp-diagnoser .inspect-link").click();
+  await audit(page, "inspector");
   await page.keyboard.press("Escape");
+  await at(page, "object");
+  await page.waitForTimeout(300);
+  const performance = await page.evaluate(async () => {
+    window.__long = [];
+    const startDraws = window.__draws;
+    const intervals = [];
+    let last = performance.now(),
+      start = last;
+    await new Promise((resolve) => {
+      function frame(now) {
+        intervals.push(now - last);
+        last = now;
+        if (now - start < 2500) requestAnimationFrame(frame);
+        else resolve();
+      }
+      requestAnimationFrame(frame);
+    });
+    const sorted = intervals.slice(1).sort((a, b) => a - b);
+    return {
+      frames: intervals.length,
+      median: sorted[Math.floor(sorted.length * 0.5)],
+      p95: sorted[Math.floor(sorted.length * 0.95)],
+      draws: window.__draws - startDraws,
+      longTasks: window.__long,
+      cls: window.__cls,
+    };
+  });
+  results.performance = performance;
+  assert.ok(performance.draws > 20, "Wafer animation active");
+  await at(page, "gene");
+  await page.waitForTimeout(150);
+  const offscreen = await page.evaluate(() => window.__draws);
+  await page.waitForTimeout(300);
   assert.equal(
-    await page.evaluate(() => document.activeElement.id),
-    "open-project",
+    await page.evaluate(() => window.__draws),
+    offscreen,
+    "Offscreen GPU sleeps",
   );
-  await page.locator("#approach").scrollIntoViewIfNeeded();
-  await page.waitForTimeout(900);
-  await page.screenshot({ path: resolve(output, "approach.png") });
-  await page.locator("#gene").scrollIntoViewIfNeeded();
-  await page.waitForTimeout(900);
-  await page.screenshot({ path: resolve(output, "gene.png") });
-  await page.locator(".back-top").click();
-  await page.waitForTimeout(1000);
-  assert.ok(
-    await page.evaluate(() => scrollY < 150),
-    "Back to surface navigates",
-  );
+  await at(page, "object");
   await page.locator("#motion-toggle").click();
   await page.waitForTimeout(200);
-  const paused = await page.evaluate(() => __qa.draws);
-  await page.waitForTimeout(250);
-  assert.equal(
-    await page.evaluate(() => __qa.draws),
-    paused,
-    "Pause stops WebGL",
+  assert.ok(
+    await page
+      .locator("html")
+      .evaluate((e) => e.classList.contains("motion-paused")),
   );
-  await page.reload({ waitUntil: "networkidle" });
+  const paused = await page.evaluate(() => window.__draws);
+  await page.waitForTimeout(200);
+  assert.equal(await page.evaluate(() => window.__draws), paused);
+  await page.reload();
   assert.equal(
     await page.locator("#motion-toggle").getAttribute("aria-pressed"),
     "false",
-    "Pause persists across navigation",
+    "Pause session retained",
   );
   await page.locator("#motion-toggle").click();
-  await page.waitForTimeout(200);
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.waitForTimeout(100);
-  const reduced = await page.evaluate(() => __qa.draws);
-  await page.waitForTimeout(250);
-  assert.equal(
-    await page.evaluate(() => __qa.draws),
-    reduced,
-    "Reduced motion stops WebGL",
-  );
+  await page.waitForTimeout(180);
   assert.equal(await page.locator("#motion-toggle").isDisabled(), true);
-  assert.equal(
-    await page.evaluate(
-      () => getComputedStyle(document.documentElement).scrollBehavior,
-    ),
-    "auto",
-  );
-  await page.locator("#tab-lt").click();
+  await at(page, "gan-temp-diagnoser");
   assert.equal(
     await page
-      .locator(".zone-study")
-      .evaluate((el) => getComputedStyle(el).opacity),
-    "1",
-    "Reduced-motion selection is immediate",
+      .locator("#gan-temp-diagnoser .scene")
+      .evaluate((e) => getComputedStyle(e).position),
+    "relative",
   );
-  await page.addScriptTag({ path: require.resolve("axe-core/axe.min.js") });
-  const accessibility = await page.evaluate(() =>
-    axe.run(document, {
-      runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] },
-    }),
+  await page.screenshot({ path: resolve(output, "reduced-motion.png") });
+  await audit(page, "reduced motion");
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.waitForTimeout(150);
+  await at(page, "object");
+  await page.evaluate(
+    () =>
+      (window.__glLoss = document
+        .querySelector("canvas")
+        .getContext("webgl")
+        .getExtension("WEBGL_lose_context")),
   );
-  results.accessibility = accessibility.violations.map((v) => ({
-    id: v.id,
-    nodes: v.nodes.map((n) => ({
-      target: n.target,
-      summary: n.failureSummary,
-    })),
-  }));
-  assert.deepEqual(results.accessibility, []);
-  await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
-  await page.evaluate(() => {
-    window.__qa.contextExtension = document
-      .querySelector("canvas")
-      .getContext("webgl")
-      .getExtension("WEBGL_lose_context");
-    window.__qa.contextExtension.loseContext();
-  });
-  await page.waitForTimeout(1000);
+  await page.evaluate(() => window.__glLoss.loseContext());
+  await page.waitForTimeout(120);
   assert.equal(
-    await page
-      .locator(".wafer-fallback")
-      .evaluate((el) => getComputedStyle(el).opacity),
-    "1",
+    await page.locator("canvas").getAttribute("data-renderer"),
+    "fallback",
   );
-  await page.evaluate(() => window.__qa.contextExtension.restoreContext());
-  await page.waitForFunction(
-    () => document.querySelector("canvas").dataset.renderer === "webgl",
+  await page.evaluate(() => window.__glLoss.restoreContext());
+  await page.waitForTimeout(200);
+  assert.equal(
+    await page.locator("canvas").getAttribute("data-renderer"),
+    "webgl",
   );
-
-  const touch = await browser.newPage({
+  const mobile = await browser.newPage({
     viewport: { width: 390, height: 844 },
     isMobile: true,
     hasTouch: true,
-    deviceScaleFactor: 2,
   });
-  touch.on("pageerror", (error) => errors.push(error.message));
-  await touch.goto(url, { waitUntil: "networkidle" });
-  await touch.locator("#tab-lt").tap();
-  await touch.waitForTimeout(750);
+  await mobile.goto(url);
+  await at(mobile, "anko-helper", 0.35);
+  await mobile.locator("#anko-helper .inspect-link").tap();
   assert.equal(
-    await touch.locator("#panel-title").textContent(),
-    "LT Zone Assistant",
+    await mobile.locator("#inspector").evaluate((e) => e.open),
+    true,
   );
-  await touch.screenshot({ path: resolve(output, "touch-systems.png") });
-  await touch.emulateMedia({ reducedMotion: "reduce" });
-  await touch.addScriptTag({ path: require.resolve("axe-core/axe.min.js") });
-  const mobileAxe = await touch.evaluate(() =>
-    axe.run(document, {
-      runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] },
-    }),
-  );
-  assert.deepEqual(
-    mobileAxe.violations.map((v) => ({
-      id: v.id,
-      nodes: v.nodes.map((n) => n.target),
-    })),
-    [],
-    "Mobile accessibility",
-  );
-  const noJs = await browser.newPage({ javaScriptEnabled: false });
-  await noJs.goto(url);
-  assert.equal(await noJs.locator("#hero-title").isVisible(), true);
-  assert.equal(await noJs.locator(".wafer-fallback").isVisible(), true);
+  await mobile.locator("#zoom-image").tap();
+  await mobile.locator("#close-inspector").tap();
+  await audit(mobile, "mobile");
+  await mobile.close();
+  const nojs = await browser.newPage({
+    javaScriptEnabled: false,
+    viewport: { width: 390, height: 844 },
+  });
+  await nojs.goto(url);
+  assert.equal(await nojs.locator(".software .instrument img").count(), 5);
+  await nojs.locator("#anko-helper").scrollIntoViewIfNeeded();
+  assert.ok(await nojs.locator("#anko-helper .instrument img").isVisible());
+  await nojs.screenshot({ path: resolve(output, "no-js.png") });
+  await nojs.close();
   const fallback = await browser.newPage();
   await fallback.addInitScript(() => {
     const get = HTMLCanvasElement.prototype.getContext;
-    HTMLCanvasElement.prototype.getContext = function (type, ...rest) {
-      return type === "webgl" ? null : get.call(this, type, ...rest);
+    HTMLCanvasElement.prototype.getContext = function (type, ...args) {
+      return type === "webgl" ? null : get.call(this, type, ...args);
     };
   });
   await fallback.goto(url);
@@ -301,58 +387,24 @@ try {
     await fallback.locator("canvas").getAttribute("data-renderer"),
     "fallback",
   );
-  await fallback.locator("#tab-anko").click();
-  assert.equal(
-    await fallback.locator("#panel-title").textContent(),
-    "ANKO Helper",
-  );
-
-  await touch.close();
-  await noJs.close();
   await fallback.close();
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
-  await page.waitForTimeout(600);
-  results.performance = await page.evaluate(async () => {
-    const frames = [];
-    let previous = 0;
-    const taskCount = __qa.tasks.length;
-    const started = performance.now(),
-      before = __qa.draws;
-    await new Promise((resolve) => {
-      function measure(now) {
-        if (previous) frames.push(now - previous);
-        previous = now;
-        if (now - started < 3000) requestAnimationFrame(measure);
-        else resolve();
-      }
-      requestAnimationFrame(measure);
-    });
-    const sorted = frames.sort((a, b) => a - b),
-      gl = document.querySelector("canvas").getContext("webgl"),
-      extension = gl.getExtension("WEBGL_debug_renderer_info");
-    return {
-      rafFrames: frames.length,
-      durationMs: Math.round(performance.now() - started),
-      medianFrameMs: sorted[Math.floor(sorted.length * 0.5)],
-      p95FrameMs: sorted[Math.floor(sorted.length * 0.95)],
-      draws: __qa.draws - before,
-      renderer: extension
-        ? gl.getParameter(extension.UNMASKED_RENDERER_WEBGL)
-        : "unavailable",
-      longTasksDuringSample: __qa.tasks.slice(taskCount),
-      layoutShift: __qa.cls,
-    };
-  });
-  assert.deepEqual(errors, []);
+  await page.goto(url + "/artifacts-by-gene/");
+  await at(page, "metria-spc", 0.35);
+  assert.equal(
+    await page
+      .locator("#metria-spc .instrument img")
+      .evaluate((e) => e.complete && e.naturalWidth > 900),
+    true,
+    "Repository-relative deployment",
+  );
   results.errors = errors;
-  results.status = "passed";
+  assert.deepEqual(errors, []);
+  results.passed = true;
   console.log(JSON.stringify(results, null, 2));
 } finally {
-  results.errors = errors;
   await writeFile(
     resolve(output, "results.json"),
-    JSON.stringify(results, null, 2),
+    JSON.stringify({ ...results, errors }, null, 2),
   );
   await browser.close();
   server.close();

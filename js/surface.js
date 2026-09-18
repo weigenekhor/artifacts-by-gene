@@ -29,8 +29,6 @@ export function initializeSurface() {
     dirty = true;
   let width = 1,
     height = 1,
-    heroTop = 0,
-    heroHeight = 1,
     heroWidth = 1;
   let rotationTime = 0,
     accumulated = 0,
@@ -54,6 +52,7 @@ export function initializeSurface() {
       uniform vec2 lightPosition;
       uniform float time;
       uniform float scroll;
+      uniform float entrance;
       mat2 rotate(float a){return mat2(cos(a),-sin(a),sin(a),cos(a));}
       float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
       void main(){
@@ -61,9 +60,9 @@ export function initializeSurface() {
         screen.x-=.04+pose.x*.018;
         screen.y-=sin(time*.18)*.009+pose.y*.012;
         vec3 eye=vec3(0.,0.,3.8);
-        vec3 ray=normalize(vec3(screen*2.55,-3.8));
-        float tilt=.76+sin(time*.12)*.025+pose.y*.12+scroll*.12;
-        float roll=-.36+sin(time*.09)*.022+pose.x*.10;
+        vec3 ray=normalize(vec3(screen*mix(3.1,2.55,entrance),-3.8));
+        float tilt=mix(1.43,.76,entrance)+sin(time*.12)*.025+pose.y*.12+scroll*.55;
+        float roll=mix(-.58,-.36,entrance)+sin(time*.09)*.022+pose.x*.10-scroll*.24;
         vec3 face=normalize(vec3(sin(roll)*sin(tilt),cos(roll)*sin(tilt),cos(tilt)));
         vec3 tangent=normalize(cross(vec3(0.,1.,0.),face));
         vec3 bitangent=cross(face,tangent);
@@ -150,9 +149,14 @@ export function initializeSurface() {
       gl.enableVertexAttribArray(attribute);
       gl.vertexAttribPointer(attribute, 2, gl.FLOAT, false, 0, 0);
       locations = Object.fromEntries(
-        ["resolution", "pose", "lightPosition", "time", "scroll"].map(
-          (name) => [name, gl.getUniformLocation(program, name)],
-        ),
+        [
+          "resolution",
+          "pose",
+          "lightPosition",
+          "time",
+          "scroll",
+          "entrance",
+        ].map((name) => [name, gl.getUniformLocation(program, name)]),
       );
       canvas.dataset.renderer = "webgl";
       return true;
@@ -167,8 +171,6 @@ export function initializeSurface() {
   function resize() {
     width = visual.clientWidth;
     height = visual.clientHeight;
-    heroTop = hero.offsetTop;
-    heroHeight = hero.offsetHeight;
     heroWidth = hero.clientWidth;
     if (lost || !locations) return;
     const compact = preferences.compact;
@@ -214,6 +216,10 @@ export function initializeSurface() {
       gl.uniform2f(locations.pose, pose.x, pose.y);
       gl.uniform2f(locations.lightPosition, light.x, light.y);
       gl.uniform1f(locations.time, rotationTime);
+      gl.uniform1f(
+        locations.entrance,
+        moving ? 1 - Math.pow(1 - clamp(rotationTime / 1.8), 3) : 1,
+      );
       gl.uniform1f(locations.scroll, moving ? scroll : 0);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
       if (dirty) visual.classList.add("is-ready");
@@ -251,11 +257,7 @@ export function initializeSurface() {
       )
         return;
       pose.tx = clamp((event.clientX / heroWidth) * 2 - 1, -1, 1);
-      pose.ty = clamp(
-        -(((event.clientY + scrollY - heroTop) / heroHeight) * 2 - 1),
-        -1,
-        1,
-      );
+      pose.ty = clamp(-((event.clientY / innerHeight) * 2 - 1), -1, 1);
     },
     { passive: true },
   );

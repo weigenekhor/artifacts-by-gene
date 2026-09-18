@@ -26,7 +26,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="motion.css" />
+
     <link
       rel="preload"
       href="assets/fonts/Geist-Latin.woff2"
@@ -36,456 +36,758 @@
     />
     <script src="script.js" type="module"></script>
     <link rel="modulepreload" href="js/motion.js" />
-    <link rel="modulepreload" href="js/systems.js" />
+    <link rel="modulepreload" href="js/exhibition.js" />
     <link rel="modulepreload" href="js/surface.js" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <a href="#" class="brand" aria-label="Artifacts by Gene, home"
-        ><svg class="brand-symbol" viewBox="0 0 32 32" aria-hidden="true">
-          <path d="M4 26 16 5 28 26M10 17h12M16 5v21" /></svg
-        ><span>ARTIFACTS <span class="brand-by">by Gene</span></span></a
+      <a class="brand" href="#object" aria-label="Artifacts by Gene, home"
+        ><svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="m5 20 11-6 11 6-11 6Zm0-6 11-6 11 6M5 26l11 6 11-6" /></svg
+        ><span>ARTIFACTS <small>by Gene</small></span></a
       >
       <nav aria-label="Main navigation">
-        <a href="#systems">Systems <span>04</span></a
-        ><a href="#approach">Approach</a
-        ><a href="#gene">About Gene <span class="arrow">↗</span></a>
+        <a href="#systems">The systems</a><a href="#evolution">The story</a
+        ><a href="#gene">Gene <span aria-hidden="true">↗</span></a>
       </nav>
-      <span class="header-note"><i></i> An independent body of work</span>
+      <button
+        type="button"
+        id="motion-toggle"
+        aria-label="Enable spatial animation"
+        aria-pressed="true"
+        hidden
+      >
+        <i aria-hidden="true"></i><span>Motion on</span>
+      </button>
     </header>
-
+    <aside class="chapter-rail" aria-label="Exhibition chapters">
+      <a href="#object" aria-label="01 — The object"><span>01</span></a
+      ><a href="#clarity" aria-label="02 — The idea"><span>02</span></a
+      ><a href="#systems" aria-label="03 — The systems"><span>03</span></a
+      ><a href="#evolution" aria-label="04 — The evolution"><span>04</span></a
+      ><a href="#gene" aria-label="05 — Gene"><span>05</span></a>
+      <div class="rail-track"><i></i></div>
+    </aside>
     <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-topline">
-          <span class="eyebrow"
-            ><span class="plus">+</span> ENGINEERING SOFTWARE & SYSTEMS</span
-          ><span class="edition">PERSONAL COLLECTION / VOL. 01</span>
-        </div>
-        <h1 id="hero-title">ARTIFACTS<span class="title-period">.</span></h1>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="wafer-fallback"><div></div></div>
-          <canvas id="wafer-canvas"></canvas>
-          <div class="visual-cross cross-one">+</div>
-          <div class="visual-cross cross-two">+</div>
-          <span class="visual-coordinate">Si / SURFACE STUDY 001</span>
-          <div class="material-label">
-            <span class="tiny-line"></span>PRECISION, IN EVERY LAYER.
-          </div>
-        </div>
-        <div class="hero-copy">
-          <p class="byline">by Gene</p>
-          <h2>Built from curiosity.<br />Engineered for purpose.</h2>
-          <p class="hero-description">
-            A personal ecosystem of tools for engineering,<br
-              class="desktop-break"
-            />
-            automation, and making sense of complexity.
-          </p>
-          <a class="text-link explore-link" href="#systems"
-            ><span>Explore the systems</span
-            ><span class="link-icon">↘</span></a
-          >
-        </div>
-        <div class="hero-foot">
-          <span class="hero-foot-label"
-            >SEMICONDUCTORS <span>/</span> SOFTWARE <span>/</span> SYSTEMS</span
-          ><button
-            type="button"
-            id="motion-toggle"
-            class="motion-toggle"
-            aria-label="Animation enabled"
-            aria-pressed="true"
-            hidden
-          >
-            <i aria-hidden="true"></i><span>MOTION ON</span></button
-          ><a href="#overview" class="scroll-cue"
-            ><span>SCROLL TO DISCOVER</span
-            ><svg viewBox="0 0 16 24" aria-hidden="true">
-              <path d="M8 1v20m-5-5 5 5 5-5" /></svg
-          ></a>
-        </div>
-      </section>
-
       <section
-        class="overview section-pad"
-        id="overview"
-        aria-labelledby="overview-title"
+        class="hero journey"
+        id="object"
+        aria-labelledby="hero-title"
+        data-chapter="object"
       >
-        <div class="section-label">
-          <span class="section-number">01 /</span><span>THE ECOSYSTEM</span>
-        </div>
-        <div class="overview-body">
-          <h2 id="overview-title" class="editorial-heading reveal">
-            Different tools.<br />One way of thinking.
-          </h2>
-          <div class="overview-bottom">
-            <p class="reveal">
-              ARTIFACTS is a collection of software I’ve developed over several
-              years. Tools shaped by engineering problems, connected by a desire
-              to make complex work clearer.
-            </p>
-            <span class="collection-note"
-              >INDEPENDENTLY BUILT.<br />CONTINUOUSLY EVOLVING.</span
+        <div class="scene hero-scene">
+          <div class="hero-topline micro">
+            <span><b>01 /</b> AN INDEPENDENT BODY OF WORK</span
+            ><span>ENGINEERING · SOFTWARE · SYSTEMS</span>
+          </div>
+          <div class="hero-title-space">
+            <h1 id="hero-title">ARTIFACTS<span>.</span></h1>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="wafer-fallback"></div>
+            <canvas id="wafer-canvas"></canvas>
+          </div>
+          <div class="object-annotation micro" aria-hidden="true">
+            <span class="annotation-line"></span>001 — SILICON / LAYER STUDY
+          </div>
+          <div class="hero-copy">
+            <p class="hero-by">by Gene</p>
+            <p>It began with curiosity.<br />Then I started building.</p>
+          </div>
+          <div class="hero-second">
+            <span class="micro">EVERY SYSTEM BEGINS SOMEWHERE.</span>
+            <p>With a question.</p>
+          </div>
+          <div class="scene-foot micro">
+            <span>SEMICONDUCTORS / AUTOMATION / ANALYSIS</span
+            ><a href="#clarity"
+              >ENTER THE COLLECTION <span aria-hidden="true">↓</span></a
             >
           </div>
         </div>
-        <div class="discipline-strip">
-          <span>Semiconductor engineering</span><span>Data & analysis</span
-          ><span>Automation</span><span>Planning & operations</span>
-        </div>
       </section>
-
       <section
-        class="systems section-pad"
-        id="systems"
-        aria-labelledby="systems-title"
+        id="clarity"
+        class="clarity journey"
+        aria-labelledby="clarity-title"
+        data-chapter="clarity"
       >
-        <div class="section-label">
-          <span class="section-number">02 /</span><span>SELECTED SYSTEMS</span>
-        </div>
-        <div class="systems-heading">
-          <h2 id="systems-title" class="editorial-heading reveal">
-            Purpose-built.
-          </h2>
-          <p>
-            A closer look at the ARTIFACTS ecosystem.<br />Select a system to
-            explore.
-          </p>
-        </div>
-        <div class="system-console">
-          <div
-            class="system-selector"
-            role="tablist"
-            aria-label="Engineering systems"
-            aria-orientation="vertical"
-          >
-            <button
-              id="tab-gan"
-              class="system-tab is-active"
-              role="tab"
-              aria-selected="true"
-              aria-controls="system-panel"
-              tabindex="0"
-              data-system="gan"
-            >
-              <span class="system-index">01</span
-              ><span class="system-tab-title"
-                >GaN Temp Diagnoser<small
-                  >SEMICONDUCTOR ENGINEERING</small
-                ></span
-              ><span class="system-tab-arrow">↗</span>
-            </button>
-            <button
-              id="tab-aix"
-              class="system-tab"
-              role="tab"
-              aria-selected="false"
-              aria-controls="system-panel"
-              tabindex="-1"
-              data-system="aix"
-            >
-              <span class="system-index">02</span
-              ><span class="system-tab-title"
-                >AIX ΔT Assistant<small>SEMICONDUCTOR ENGINEERING</small></span
-              ><span class="system-tab-arrow">↗</span>
-            </button>
-            <button
-              id="tab-lt"
-              class="system-tab"
-              role="tab"
-              aria-selected="false"
-              aria-controls="system-panel"
-              tabindex="-1"
-              data-system="lt"
-            >
-              <span class="system-index">03</span
-              ><span class="system-tab-title"
-                >LT Zone Assistant<small>SEMICONDUCTOR ENGINEERING</small></span
-              ><span class="system-tab-arrow">↗</span>
-            </button>
-            <button
-              id="tab-anko"
-              class="system-tab"
-              role="tab"
-              aria-selected="false"
-              aria-controls="system-panel"
-              tabindex="-1"
-              data-system="anko"
-            >
-              <span class="system-index">04</span
-              ><span class="system-tab-title"
-                >ANKO Helper<small>ENGINEERING SOFTWARE</small></span
-              ><span class="system-tab-arrow">↗</span>
-            </button>
-            <div class="selector-foot">
-              <span class="status-dot"></span> FOUR SYSTEMS / ONE ECOSYSTEM
-            </div>
-          </div>
-          <div
-            class="system-panel"
-            id="system-panel"
-            role="tabpanel"
-            aria-labelledby="tab-gan"
-            tabindex="0"
-          >
-            <div class="panel-top">
-              <span id="panel-category">SEMICONDUCTOR ENGINEERING</span
-              ><span id="panel-id">A—01</span>
-            </div>
-            <div class="system-diagram" data-mode="gan" aria-hidden="true">
-              <svg viewBox="0 0 600 320" class="diagram-svg">
-                <defs>
-                  <linearGradient id="plot-fill" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#d78d62" stop-opacity=".16" />
-                    <stop offset="1" stop-color="#d78d62" stop-opacity="0" />
-                  </linearGradient>
-                  <pattern
-                    id="plot-grid"
-                    width="50"
-                    height="40"
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <path
-                      d="M50 0H0V40"
-                      fill="none"
-                      stroke="#ffffff"
-                      stroke-opacity=".055"
-                    />
-                  </pattern>
-                </defs>
-                <rect
-                  x="50"
-                  y="40"
-                  width="500"
-                  height="240"
-                  fill="url(#plot-grid)"
-                />
-                <path class="diagram-axis" d="M50 40V280H550" />
-                <path class="diagram-guide" d="M300 40V280M50 160H550" />
-                <path
-                  id="diagram-area"
-                  d="M50 248C110 250 122 214 175 220S255 132 300 152S380 90 425 99S502 60 550 72V280H50Z"
-                  fill="url(#plot-fill)"
-                />
-                <path
-                  class="diagram-secondary"
-                  id="diagram-secondary"
-                  d="M50 250C110 248 135 232 175 238S260 172 300 185S375 140 425 145S505 117 550 127"
-                />
-                <path
-                  class="diagram-primary"
-                  id="diagram-primary"
-                  d="M50 248C110 250 122 214 175 220S255 132 300 152S380 90 425 99S502 60 550 72"
-                />
-                <circle
-                  class="diagram-point"
-                  id="diagram-point"
-                  cx="300"
-                  cy="152"
-                  r="4"
-                />
-                <path
-                  class="diagram-ticks"
-                  d="M50 280v6m100-6v6m100-6v6m100-6v6m100-6v6m100-6v6"
-                />
-                <text x="50" y="310" id="diagram-left">PROFILE</text>
-                <text x="550" y="310" id="diagram-right" text-anchor="end">
-                  RESPONSE
-                </text>
-                <text x="50" y="25" id="diagram-label">
-                  THERMAL / PROFILE STUDY
-                </text>
-              </svg>
-              <span class="diagram-caption"
-                >CONCEPTUAL VISUALIZATION · NOT LIVE DATA</span
-              >
-            </div>
-            <div class="panel-content">
-              <span class="eyebrow panel-status"
-                >PROJECT PROFILE IN PREPARATION</span
-              >
-              <h3 id="panel-title">GaN Temp Diagnoser</h3>
-              <p id="panel-description">
-                Part of the ARTIFACTS semiconductor engineering collection. A
-                detailed walkthrough, verified capabilities, and selected
-                interface views will be added here.
-              </p>
-              <button type="button" id="open-project" class="text-link">
-                <span>View project notes</span><span class="link-icon">↗</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="ecosystem-tail">
-          <span class="eyebrow">BEYOND THE SELECTED SYSTEMS</span>
-          <p>
-            Data tools <span>/</span> Planning engines <span>/</span> Quotation
-            engines <span>/</span> Automation utilities
-          </p>
-        </div>
-        <noscript
-          ><p class="no-script-note">
-            The collection includes GaN Temp Diagnoser, AIX ΔT Assistant, LT
-            Zone Assistant, and ANKO Helper. Enable JavaScript to switch between
-            project profiles.
-          </p></noscript
-        >
-      </section>
-
-      <section
-        class="approach section-pad"
-        id="approach"
-        aria-labelledby="approach-title"
-      >
-        <div class="section-label">
-          <span class="section-number">03 /</span><span>THE APPROACH</span>
-        </div>
-        <div class="approach-intro">
-          <h2 id="approach-title" class="editorial-heading reveal">
-            Complexity is a given.<br /><span class="muted"
-              >Clarity is engineered.</span
-            >
-          </h2>
-          <p class="reveal">
-            The interface is only the surface.<br />The thinking underneath is
-            what matters.
-          </p>
-        </div>
-        <!-- EDITORIAL PLACEHOLDER: approve these engineering principles in Gene's voice. -->
-        <div class="principles">
-          <article class="principle reveal">
-            <span class="principle-index">I.</span>
-            <h3>Start with the problem.</h3>
-            <p>
-              Understand the process, the constraints, and the person doing the
-              work. Build from there.
-            </p>
-          </article>
-          <article class="principle reveal">
-            <span class="principle-index">II.</span>
-            <h3>Make the system legible.</h3>
-            <p>
-              Give complexity a clear structure. Make relationships visible and
-              decisions easier to follow.
-            </p>
-          </article>
-          <article class="principle reveal">
-            <span class="principle-index">III.</span>
-            <h3>Refine what matters.</h3>
-            <p>
-              Precision in the logic. Restraint in the interface. Care in the
-              details that shape everyday use.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="evolution section-pad" aria-labelledby="evolution-title">
-        <div class="section-label">
-          <span class="section-number">04 /</span
-          ><span>AN EVOLVING COLLECTION</span>
-        </div>
-        <!-- CONTENT PLACEHOLDER: add verified milestones when the project history is available. -->
-        <div class="evolution-content">
-          <h2 id="evolution-title" class="editorial-heading reveal">
-            A body of work.<br />Still in motion.
-          </h2>
-          <p>
-            Individual tools. Shared ideas. An ecosystem built over years, with
-            room for what comes next.
-          </p>
-          <div
-            class="evolution-line"
-            aria-label="An ongoing progression from individual tools to a connected ecosystem"
-          >
-            <span>Individual tools</span><i></i><span>Connected systems</span
-            ><i></i
-            ><span class="evolution-next">What comes next <b>↗</b></span>
-          </div>
-        </div>
-      </section>
-
-      <section class="about section-pad" id="gene" aria-labelledby="gene-title">
-        <div class="section-label">
-          <span class="section-number">05 /</span
-          ><span>THE PERSON BEHIND THE SYSTEMS</span>
-        </div>
-        <div class="about-grid">
-          <div>
-            <span class="eyebrow about-pretitle"
-              >ENGINEER / BUILDER / SYSTEMS THINKER</span
-            >
-            <h2 id="gene-title" class="gene-title reveal">
-              Gene<span class="name-period">.</span>
+        <div class="scene clarity-scene">
+          <div class="scene-label micro"><b>02 /</b> THE IDEA</div>
+          <div class="clarity-copy">
+            <p class="quiet">Repeated problems. Tangled workflows.</p>
+            <h2 id="clarity-title">
+              Complexity is a given.<br /><span>Clarity is engineered.</span>
             </h2>
           </div>
-          <!-- CONTENT PLACEHOLDER: replace or approve this introduction; add verified biography, CV, and contact information later. -->
-          <div class="about-copy">
-            <h3>
-              I enjoy building things.<br />ARTIFACTS is where they come
-              together.
-            </h3>
-            <p>
-              Engineering, software, and the space between them. This is a place
-              for the tools I’ve built, the problems that interest me, and the
-              work still taking shape.
-            </p>
-            <div class="about-fields">
-              <span>Semiconductor engineering</span
-              ><span>Software & automation</span
-              ><span>Technical problem solving</span
-              ><span>Systems development</span>
-            </div>
-            <div class="future-note">
-              <span class="plus">+</span>
-              <div>
-                <strong>More of the story, in time.</strong>
-                <p>
-                  Engineering experience, selected technical work, and a CV will
-                  find a home here.
-                </p>
-              </div>
+          <svg
+            class="trace-field"
+            viewBox="0 0 1200 500"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <g class="trace-lines"></g>
+            <path class="trace-spine" d="M0 250H1200" />
+          </svg>
+          <div class="clarity-bottom">
+            <p>Software became a way<br />to make the work clearer.</p>
+            <div class="structure-label micro">
+              <span>COMPLEXITY</span><i></i><span>STRUCTURE</span>
             </div>
           </div>
         </div>
       </section>
-    </main>
-    <footer class="site-footer">
-      <div class="footer-top">
-        <a href="#" class="footer-wordmark">ARTIFACTS<span>by Gene</span></a
-        ><a href="#main" class="back-top">Back to the surface <span>↑</span></a>
-      </div>
-      <div class="footer-bottom">
-        <span>© <span id="year">2026</span> Artifacts by Gene</span
-        ><span>A PERSONAL COLLECTION. AN ONGOING PRACTICE.</span
-        ><span>artifactsbygene.com</span>
-      </div>
-    </footer>
-
-    <dialog id="project-dialog" aria-labelledby="dialog-title">
-      <div class="dialog-header">
-        <span class="eyebrow">ARTIFACTS / PROJECT NOTES</span
-        ><button
-          type="button"
-          class="dialog-close"
-          aria-label="Close project notes"
-        >
-          ×
-        </button>
-      </div>
-      <span class="dialog-project-id" id="dialog-id">A—01</span>
-      <h2 id="dialog-title">GaN Temp Diagnoser</h2>
-      <p id="dialog-description"></p>
-      <div class="dialog-notes">
-        <h3>Documentation is taking shape.</h3>
-        <p>
-          This system is part of Gene’s existing ARTIFACTS collection. A project
-          walkthrough, interface views, and verified technical details are
-          planned for this space.
+      <section
+        id="systems"
+        class="ecosystem"
+        aria-labelledby="systems-title"
+        data-chapter="systems"
+      >
+        <div class="scene-label micro"><b>03 /</b> THE SYSTEMS</div>
+        <div class="ecosystem-heading">
+          <h2 id="systems-title">Small tools.<br />Connected thinking.</h2>
+          <p>
+            Each one began with a problem.<br />Together, they became ARTIFACTS.
+          </p>
+        </div>
+        <div class="system-fan" aria-hidden="true">
+          <div class="fan-plane" style="--i: 0">
+            <img
+              class=""
+              src="assets/software/gan-temp-diagnoser/interface.webp"
+              srcset="
+                assets/software/gan-temp-diagnoser/preview.webp    960w,
+                assets/software/gan-temp-diagnoser/interface.webp 2048w
+              "
+              sizes="(max-width: 700px) 96vw, 78vw"
+              width="2048"
+              height="1104"
+              alt="GaN Temp Diagnoser — actual application interface"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="fan-plane" style="--i: 1">
+            <img
+              class=""
+              src="assets/software/aix-dt-assistant/interface.webp"
+              srcset="
+                assets/software/aix-dt-assistant/preview.webp    960w,
+                assets/software/aix-dt-assistant/interface.webp 2048w
+              "
+              sizes="(max-width: 700px) 96vw, 78vw"
+              width="2048"
+              height="1104"
+              alt="AIX ΔT Assistant — actual application interface"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="fan-plane" style="--i: 2">
+            <img
+              class=""
+              src="assets/software/lt-zone-assistant/interface.webp"
+              srcset="
+                assets/software/lt-zone-assistant/preview.webp    960w,
+                assets/software/lt-zone-assistant/interface.webp 2048w
+              "
+              sizes="(max-width: 700px) 96vw, 78vw"
+              width="2048"
+              height="1104"
+              alt="LT Zone Assistant — actual application interface"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="fan-plane" style="--i: 3">
+            <img
+              class=""
+              src="assets/software/anko-helper/interface.webp"
+              srcset="
+                assets/software/anko-helper/preview.webp    960w,
+                assets/software/anko-helper/interface.webp 2048w
+              "
+              sizes="(max-width: 700px) 96vw, 78vw"
+              width="2048"
+              height="1104"
+              alt="ANKO Helper — actual application interface"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="fan-plane" style="--i: 4">
+            <img
+              class=""
+              src="assets/software/metria-spc/interface.webp"
+              srcset="
+                assets/software/metria-spc/preview.webp    960w,
+                assets/software/metria-spc/interface.webp 2048w
+              "
+              sizes="(max-width: 700px) 96vw, 78vw"
+              width="2048"
+              height="1104"
+              alt="Metria SPC — actual application interface"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+        <nav class="system-index" aria-label="Jump to an application">
+          <a href="#gan-temp-diagnoser"
+            ><span class="micro">01</span><span>GaN</span
+            ><span aria-hidden="true">↘</span></a
+          ><a href="#aix-dt-assistant"
+            ><span class="micro">02</span><span>AIX ΔT</span
+            ><span aria-hidden="true">↘</span></a
+          ><a href="#lt-zone-assistant"
+            ><span class="micro">03</span><span>LT Zone</span
+            ><span aria-hidden="true">↘</span></a
+          ><a href="#anko-helper"
+            ><span class="micro">04</span><span>ANKO</span
+            ><span aria-hidden="true">↘</span></a
+          ><a href="#metria-spc"
+            ><span class="micro">05</span><span>Metria</span
+            ><span aria-hidden="true">↘</span></a
+          >
+        </nav>
+        <p class="capture-note micro">
+          ACTUAL APPLICATION CAPTURES / EXPLORE IN SCROLL ORDER OR CHOOSE A
+          SYSTEM
         </p>
+      </section>
+      <section
+        id="gan-temp-diagnoser"
+        class="software journey"
+        aria-labelledby="title-gan-temp-diagnoser"
+        data-chapter="systems"
+        data-side="-1"
+        data-detail="Diagnostic summary"
+        style="--crop: 100% 8%; --zoom: 2.05"
+      >
+        <div class="scene software-scene">
+          <div class="software-heading">
+            <div>
+              <p class="micro"><b>01 / 05</b> TEMPERATURE DIAGNOSTICS</p>
+              <h2 id="title-gan-temp-diagnoser">GaN Temp Diagnoser</h2>
+            </div>
+            <p class="software-description">
+              Process observations, a diagnostic explanation, and the reactor
+              view. Engineering judgment, given a visible structure.
+            </p>
+          </div>
+          <div class="instrument-space">
+            <div class="instrument-position">
+              <div class="instrument-tilt">
+                <a
+                  class="instrument"
+                  href="assets/software/gan-temp-diagnoser/interface.webp"
+                  data-inspect
+                  aria-label="Inspect GaN Temp Diagnoser interface"
+                  ><img
+                    class=""
+                    src="assets/software/gan-temp-diagnoser/interface.webp"
+                    srcset="
+                      assets/software/gan-temp-diagnoser/preview.webp    960w,
+                      assets/software/gan-temp-diagnoser/interface.webp 2048w
+                    "
+                    sizes="(max-width: 700px) 96vw, 78vw"
+                    width="2048"
+                    height="1104"
+                    alt="GaN Temp Diagnoser — actual application interface"
+                    loading="lazy"
+                    decoding="async" /><span
+                    class="surface-light"
+                    aria-hidden="true"
+                  ></span
+                  ><span class="instrument-edge" aria-hidden="true"></span
+                ></a>
+              </div>
+            </div>
+            <div class="macro-plane" aria-hidden="true">
+              <div class="macro-window">
+                <img
+                  class=""
+                  src="assets/software/gan-temp-diagnoser/interface.webp"
+                  srcset="
+                    assets/software/gan-temp-diagnoser/preview.webp    960w,
+                    assets/software/gan-temp-diagnoser/interface.webp 2048w
+                  "
+                  sizes="(max-width: 700px) 96vw, 78vw"
+                  width="2048"
+                  height="1104"
+                  alt="GaN Temp Diagnoser — actual application interface"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <span class="micro">Diagnostic summary</span>
+            </div>
+            <span class="object-tick tick-a" aria-hidden="true">+</span
+            ><span class="object-tick tick-b" aria-hidden="true">+</span>
+          </div>
+          <div class="software-thought" aria-hidden="true">
+            Observe.<br />Understand.
+          </div>
+          <div class="scene-foot">
+            <p class="micro">Observation → diagnostic reasoning</p>
+            <div class="scene-actions">
+              <a
+                class="inspect-link"
+                data-inspect
+                href="assets/software/gan-temp-diagnoser/interface.webp"
+                >Inspect interface <span aria-hidden="true">↗</span></a
+              ><a
+                class="next-link micro"
+                href="#aix-dt-assistant"
+                aria-label="Continue to AIX ΔT Assistant"
+                >NEXT <span aria-hidden="true">↓</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="aix-dt-assistant"
+        class="software journey"
+        aria-labelledby="title-aix-dt-assistant"
+        data-chapter="systems"
+        data-side="1"
+        data-detail="Weight-based initial assignment"
+        style="--crop: 97% 40%; --zoom: 1.6"
+      >
+        <div class="scene software-scene">
+          <div class="software-heading">
+            <div>
+              <p class="micro"><b>02 / 05</b> MAPPING & ASSIGNMENT</p>
+              <h2 id="title-aix-dt-assistant">AIX ΔT Assistant</h2>
+            </div>
+            <p class="software-description">
+              Weight and temperature mapping, brought into the same view. A
+              physical arrangement made easier to examine.
+            </p>
+          </div>
+          <div class="instrument-space">
+            <div class="instrument-position">
+              <div class="instrument-tilt">
+                <a
+                  class="instrument"
+                  href="assets/software/aix-dt-assistant/interface.webp"
+                  data-inspect
+                  aria-label="Inspect AIX ΔT Assistant interface"
+                  ><img
+                    class=""
+                    src="assets/software/aix-dt-assistant/interface.webp"
+                    srcset="
+                      assets/software/aix-dt-assistant/preview.webp    960w,
+                      assets/software/aix-dt-assistant/interface.webp 2048w
+                    "
+                    sizes="(max-width: 700px) 96vw, 78vw"
+                    width="2048"
+                    height="1104"
+                    alt="AIX ΔT Assistant — actual application interface"
+                    loading="lazy"
+                    decoding="async" /><span
+                    class="surface-light"
+                    aria-hidden="true"
+                  ></span
+                  ><span class="instrument-edge" aria-hidden="true"></span
+                ></a>
+              </div>
+            </div>
+            <div class="macro-plane" aria-hidden="true">
+              <div class="macro-window">
+                <img
+                  class=""
+                  src="assets/software/aix-dt-assistant/interface.webp"
+                  srcset="
+                    assets/software/aix-dt-assistant/preview.webp    960w,
+                    assets/software/aix-dt-assistant/interface.webp 2048w
+                  "
+                  sizes="(max-width: 700px) 96vw, 78vw"
+                  width="2048"
+                  height="1104"
+                  alt="AIX ΔT Assistant — actual application interface"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <span class="micro">Weight-based initial assignment</span>
+            </div>
+            <span class="object-tick tick-a" aria-hidden="true">+</span
+            ><span class="object-tick tick-b" aria-hidden="true">+</span>
+          </div>
+          <div class="software-thought" aria-hidden="true">
+            A different<br />arrangement.
+          </div>
+          <div class="scene-foot">
+            <p class="micro">Mapping → physical assignment</p>
+            <div class="scene-actions">
+              <a
+                class="inspect-link"
+                data-inspect
+                href="assets/software/aix-dt-assistant/interface.webp"
+                >Inspect interface <span aria-hidden="true">↗</span></a
+              ><a
+                class="next-link micro"
+                href="#lt-zone-assistant"
+                aria-label="Continue to LT Zone Assistant"
+                >NEXT <span aria-hidden="true">↓</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="lt-zone-assistant"
+        class="software journey"
+        aria-labelledby="title-lt-zone-assistant"
+        data-chapter="systems"
+        data-side="-1"
+        data-detail="Inner and outer zone geometry"
+        style="--crop: 88% 46%; --zoom: 1.55"
+      >
+        <div class="scene software-scene">
+          <div class="software-heading">
+            <div>
+              <p class="micro"><b>03 / 05</b> SPATIAL REASONING</p>
+              <h2 id="title-lt-zone-assistant">LT Zone Assistant</h2>
+            </div>
+            <p class="software-description">
+              Inner and outer regions. Anchors and angles. A geometric view of
+              the relationships between zones.
+            </p>
+          </div>
+          <div class="instrument-space">
+            <div class="instrument-position">
+              <div class="instrument-tilt">
+                <a
+                  class="instrument"
+                  href="assets/software/lt-zone-assistant/interface.webp"
+                  data-inspect
+                  aria-label="Inspect LT Zone Assistant interface"
+                  ><img
+                    class=""
+                    src="assets/software/lt-zone-assistant/interface.webp"
+                    srcset="
+                      assets/software/lt-zone-assistant/preview.webp    960w,
+                      assets/software/lt-zone-assistant/interface.webp 2048w
+                    "
+                    sizes="(max-width: 700px) 96vw, 78vw"
+                    width="2048"
+                    height="1104"
+                    alt="LT Zone Assistant — actual application interface"
+                    loading="lazy"
+                    decoding="async" /><span
+                    class="surface-light"
+                    aria-hidden="true"
+                  ></span
+                  ><span class="instrument-edge" aria-hidden="true"></span
+                ></a>
+              </div>
+            </div>
+            <div class="macro-plane" aria-hidden="true">
+              <div class="macro-window">
+                <img
+                  class=""
+                  src="assets/software/lt-zone-assistant/interface.webp"
+                  srcset="
+                    assets/software/lt-zone-assistant/preview.webp    960w,
+                    assets/software/lt-zone-assistant/interface.webp 2048w
+                  "
+                  sizes="(max-width: 700px) 96vw, 78vw"
+                  width="2048"
+                  height="1104"
+                  alt="LT Zone Assistant — actual application interface"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <span class="micro">Inner and outer zone geometry</span>
+            </div>
+            <span class="object-tick tick-a" aria-hidden="true">+</span
+            ><span class="object-tick tick-b" aria-hidden="true">+</span>
+          </div>
+          <div class="software-thought" aria-hidden="true">
+            Make the<br />geometry clear.
+          </div>
+          <div class="scene-foot">
+            <p class="micro">Regions → relationships</p>
+            <div class="scene-actions">
+              <a
+                class="inspect-link"
+                data-inspect
+                href="assets/software/lt-zone-assistant/interface.webp"
+                >Inspect interface <span aria-hidden="true">↗</span></a
+              ><a
+                class="next-link micro"
+                href="#anko-helper"
+                aria-label="Continue to ANKO Helper"
+                >NEXT <span aria-hidden="true">↓</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="anko-helper"
+        class="software journey"
+        aria-labelledby="title-anko-helper"
+        data-chapter="systems"
+        data-side="1"
+        data-detail="Report and schedule detail · demo data"
+        style="--crop: 95% 40%; --zoom: 1.9"
+      >
+        <div class="scene software-scene">
+          <div class="software-heading">
+            <div>
+              <p class="micro"><b>04 / 05</b> REPORTING & PLANNING</p>
+              <h2 id="title-anko-helper">ANKO Helper</h2>
+            </div>
+            <p class="software-description">
+              An SPC summary and projected ANKO schedule, organised into a
+              report. A closer view of what comes next.
+            </p>
+          </div>
+          <div class="instrument-space">
+            <div class="instrument-position">
+              <div class="instrument-tilt">
+                <a
+                  class="instrument"
+                  href="assets/software/anko-helper/interface.webp"
+                  data-inspect
+                  aria-label="Inspect ANKO Helper interface"
+                  ><img
+                    class=""
+                    src="assets/software/anko-helper/interface.webp"
+                    srcset="
+                      assets/software/anko-helper/preview.webp    960w,
+                      assets/software/anko-helper/interface.webp 2048w
+                    "
+                    sizes="(max-width: 700px) 96vw, 78vw"
+                    width="2048"
+                    height="1104"
+                    alt="ANKO Helper — actual application interface"
+                    loading="lazy"
+                    decoding="async" /><span
+                    class="surface-light"
+                    aria-hidden="true"
+                  ></span
+                  ><span class="instrument-edge" aria-hidden="true"></span
+                ></a>
+              </div>
+            </div>
+            <div class="macro-plane" aria-hidden="true">
+              <div class="macro-window">
+                <img
+                  class=""
+                  src="assets/software/anko-helper/interface.webp"
+                  srcset="
+                    assets/software/anko-helper/preview.webp    960w,
+                    assets/software/anko-helper/interface.webp 2048w
+                  "
+                  sizes="(max-width: 700px) 96vw, 78vw"
+                  width="2048"
+                  height="1104"
+                  alt="ANKO Helper — actual application interface"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <span class="micro">Report and schedule detail · demo data</span>
+            </div>
+            <span class="object-tick tick-a" aria-hidden="true">+</span
+            ><span class="object-tick tick-b" aria-hidden="true">+</span>
+          </div>
+          <div class="software-thought" aria-hidden="true">
+            From status<br />to next steps.
+          </div>
+          <div class="scene-foot">
+            <p class="micro">Status → projected schedule · demo data</p>
+            <div class="scene-actions">
+              <a
+                class="inspect-link"
+                data-inspect
+                href="assets/software/anko-helper/interface.webp"
+                >Inspect interface <span aria-hidden="true">↗</span></a
+              ><a
+                class="next-link micro"
+                href="#metria-spc"
+                aria-label="Continue to Metria SPC"
+                >NEXT <span aria-hidden="true">↓</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="metria-spc"
+        class="software journey"
+        aria-labelledby="title-metria-spc"
+        data-chapter="systems"
+        data-side="-1"
+        data-detail="Control chart detail · sample data"
+        style="--crop: 60% 36%; --zoom: 1.8"
+      >
+        <div class="scene software-scene">
+          <div class="software-heading">
+            <div>
+              <p class="micro"><b>05 / 05</b> PROCESS ANALYSIS</p>
+              <h2 id="title-metria-spc">Metria SPC</h2>
+            </div>
+            <p class="software-description">
+              Process traces, control limits, and comparison tools. Patterns
+              become something you can inspect.
+            </p>
+          </div>
+          <div class="instrument-space">
+            <div class="instrument-position">
+              <div class="instrument-tilt">
+                <a
+                  class="instrument"
+                  href="assets/software/metria-spc/interface.webp"
+                  data-inspect
+                  aria-label="Inspect Metria SPC interface"
+                  ><img
+                    class=""
+                    src="assets/software/metria-spc/interface.webp"
+                    srcset="
+                      assets/software/metria-spc/preview.webp    960w,
+                      assets/software/metria-spc/interface.webp 2048w
+                    "
+                    sizes="(max-width: 700px) 96vw, 78vw"
+                    width="2048"
+                    height="1104"
+                    alt="Metria SPC — actual application interface"
+                    loading="lazy"
+                    decoding="async" /><span
+                    class="surface-light"
+                    aria-hidden="true"
+                  ></span
+                  ><span class="instrument-edge" aria-hidden="true"></span
+                ></a>
+              </div>
+            </div>
+            <div class="macro-plane" aria-hidden="true">
+              <div class="macro-window">
+                <img
+                  class=""
+                  src="assets/software/metria-spc/interface.webp"
+                  srcset="
+                    assets/software/metria-spc/preview.webp    960w,
+                    assets/software/metria-spc/interface.webp 2048w
+                  "
+                  sizes="(max-width: 700px) 96vw, 78vw"
+                  width="2048"
+                  height="1104"
+                  alt="Metria SPC — actual application interface"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <span class="micro">Control chart detail · sample data</span>
+            </div>
+            <span class="object-tick tick-a" aria-hidden="true">+</span
+            ><span class="object-tick tick-b" aria-hidden="true">+</span>
+          </div>
+          <div class="software-thought" aria-hidden="true">
+            Find the signal.<br />Keep the context.
+          </div>
+          <div class="scene-foot">
+            <p class="micro">Process traces → analysis · sample data</p>
+            <div class="scene-actions">
+              <a
+                class="inspect-link"
+                data-inspect
+                href="assets/software/metria-spc/interface.webp"
+                >Inspect interface <span aria-hidden="true">↗</span></a
+              ><a
+                class="next-link micro"
+                href="#evolution"
+                aria-label="Continue to The evolution"
+                >NEXT <span aria-hidden="true">↓</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="evolution"
+        class="evolution"
+        aria-labelledby="evolution-title"
+        data-chapter="evolution"
+      >
+        <div class="scene-label micro"><b>04 /</b> STILL EVOLVING</div>
+        <p class="evolution-intro">
+          A question became a tool.<br />A tool became a system.
+        </p>
+        <div class="layer-word" aria-hidden="true">
+          <span>ARTIFACTS</span><span>ARTIFACTS</span>
+        </div>
+        <h2 id="evolution-title">A place for it<br />all to come together.</h2>
+        <div class="evolution-bottom">
+          <span class="micro">CURIOSITY → TOOLS → SYSTEMS → ARTIFACTS</span>
+          <p>Built over years.<br />Still being built.</p>
+        </div>
+      </section>
+      <section
+        id="gene"
+        class="gene"
+        aria-labelledby="gene-title"
+        data-chapter="gene"
+      >
+        <div class="scene-label micro"><b>05 /</b> THE PERSON BEHIND IT</div>
+        <p class="gene-intro">Behind the systems,<br />the same curiosity.</p>
+        <h2 id="gene-title">Gene<span>.</span></h2>
+        <div class="gene-bottom">
+          <span class="micro">ENGINEER / BUILDER</span>
+          <div>
+            <p>
+              I enjoy building things.<br />ARTIFACTS is where they come
+              together.
+            </p>
+            <p class="gene-disciplines">
+              Semiconductor engineering. Software. Automation.<br />Making
+              complex work clearer.
+            </p>
+          </div>
+        </div>
+        <!-- CONTENT: Add verified experience, CV and contact information here when ready. -->
+      </section>
+    </main>
+    <footer>
+      <a class="brand" href="#object">ARTIFACTS <small>by Gene</small></a
+      ><span class="micro"
+        >A PERSONAL BODY OF WORK · <span id="year">2026</span></span
+      ><a href="#object"
+        >Back to the surface <span aria-hidden="true">↑</span></a
+      >
+    </footer>
+    <dialog id="inspector" aria-labelledby="inspector-title">
+      <div class="inspector-bar">
+        <div>
+          <p class="micro">ACTUAL APPLICATION CAPTURE</p>
+          <h2 id="inspector-title"></h2>
+        </div>
+        <div class="inspector-controls">
+          <button type="button" id="zoom-image" aria-pressed="false">
+            Zoom in</button
+          ><button type="button" id="close-inspector" autofocus>
+            Close <span aria-hidden="true">×</span>
+          </button>
+        </div>
       </div>
-      <span class="eyebrow dialog-foot">ENGINEERING SOFTWARE BY GENE</span>
+      <div
+        class="inspector-viewport"
+        tabindex="0"
+        aria-label="Application image. Use the zoom button to inspect at full size."
+      >
+        <img id="inspector-image" alt="" />
+      </div>
+      <p class="inspector-note">
+        An interface capture, not a running application.
+        <span id="inspector-caption"></span>
+      </p>
     </dialog>
   </body>
 </html>
