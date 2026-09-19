@@ -2,19 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Artifacts by Gene — An engineering software ecosystem</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ARTIFACTS — Engineering in motion</title>
     <meta
       name="description"
-      content="Sixteen engineering applications. One independent body of work. Explore the ARTIFACTS software ecosystem, built by Gene."
+      content="Engineering is complex. Execution shouldn't be. Explore sixteen specialised tools becoming one engineering software ecosystem."
     />
-    <meta name="theme-color" content="#0b0c0d" />
+    <meta name="theme-color" content="#070809" />
     <link rel="canonical" href="https://artifactsbygene.com/" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Artifacts by Gene" />
+    <meta property="og:title" content="ARTIFACTS" />
     <meta
       property="og:description"
-      content="Sixteen engineering applications. One body of work."
+      content="Many problems. Specialised tools. One engineering environment."
     />
     <meta property="og:url" content="https://artifactsbygene.com/" />
     <meta
@@ -34,23 +34,23 @@
     <script type="module" src="script.js"></script>
   </head>
   <body>
-    <a class="skip-link" href="#systems">Skip to the applications</a>
+    <a class="skip-link" href="#universe">Skip to the ecosystem</a>
     <header class="site-header">
-      <a class="brand" href="#object" aria-label="ARTIFACTS by Gene, home"
+      <a class="brand" href="#entry" aria-label="ARTIFACTS, beginning"
         ><img
           src="assets/brand/artifacts-symbol.svg"
-          alt=""
           width="80"
           height="80"
-        /><span>ARTIFACTS <small>by Gene</small></span></a
+          alt=""
+        /><span>ARTIFACTS</span></a
       >
-      <nav aria-label="Main navigation">
-        <a href="#systems">Explore the 16</a
-        ><a href="#collection">The collection</a><a href="#about">About</a>
+      <nav aria-label="Main">
+        <a href="#friction">The story</a
+        ><a href="#universe">The ecosystem <span class="app-total">16</span></a
+        ><a href="#about">About</a>
       </nav>
       <button
         id="motion-toggle"
-        type="button"
         aria-label="Enable spatial animation"
         aria-pressed="true"
         hidden
@@ -58,218 +58,344 @@
         <i></i><span>Motion on</span>
       </button>
     </header>
+    <div class="world" aria-hidden="true">
+      <canvas id="world-canvas"></canvas
+      ><img class="world-fallback" src="assets/concepts/material.svg" alt="" />
+      <div class="world-shade"></div>
+      <div class="world-vignette"></div>
+    </div>
+    <nav class="story-progress" aria-label="Story chapters">
+      <!-- PROGRESS -->
+    </nav>
     <main>
-      <section id="object" class="hero staged" aria-labelledby="hero-title">
-        <div class="scene hero-scene">
-          <div class="hero-register eyebrow">
+      <section
+        id="entry"
+        class="story-scene entry"
+        aria-labelledby="entry-title"
+      >
+        <div class="scene-frame">
+          <div class="registration">
             <span>INDEPENDENT ENGINEERING SOFTWARE</span
-            ><span>16 APPLICATIONS / ONE ECOSYSTEM</span>
+            ><span>AN ENVIRONMENT IN THE MAKING</span>
           </div>
-          <div class="hero-logo">
-            <!-- REAL_LOGO --><span class="eyebrow"
-              >ARTIFACTS<br /><small>by Gene</small></span
+          <div class="entry-mark">
+            <!-- REAL_LOGO --><span
+              >TOOLS, BUILT FROM<br />THE WORK ITSELF.</span
             >
           </div>
-          <div class="hero-title-space">
-            <h1 id="hero-title">ARTIFACTS<span>.</span></h1>
+          <div class="entry-title-space">
+            <h1 id="entry-title">ARTIFACTS<span>.</span></h1>
           </div>
-          <div class="hero-visual" aria-hidden="true">
-            <div class="wafer-fallback"></div>
-            <canvas id="wafer-canvas"></canvas>
-          </div>
-          <div class="distant-systems" aria-hidden="true">
-            <img
-              src="assets/artifacts/apps/metria-spc/thumbnail.webp"
-              alt=""
-              width="3840"
-              height="2160"
-            /><img
-              src="assets/artifacts/apps/lt-zone-assistant/thumbnail.webp"
-              alt=""
-              width="2048"
-              height="1104"
-            /><img
-              src="assets/artifacts/apps/topotracer/thumbnail.webp"
-              alt=""
-              width="2048"
-              height="1104"
-            />
-          </div>
-          <div class="hero-copy">
-            <p>Curiosity, made tangible.</p>
-            <span>Tools became systems.<br />Systems became ARTIFACTS.</span>
-          </div>
-          <div class="hero-question">
-            <p>What if the work<br />could be clearer?</p>
-          </div>
-          <div class="scene-footer">
-            <a href="#idea">ENTER ARTIFACTS <span aria-hidden="true">↓</span></a
-            ><button id="skip-opening" hidden>Skip opening ↗</button
-            ><span class="eyebrow">ENGINEERING / AUTOMATION / ANALYSIS</span>
-          </div>
-        </div>
-      </section>
-      <section id="idea" class="idea staged" aria-labelledby="idea-title">
-        <div class="scene idea-scene">
-          <div class="scene-label eyebrow">01 / FROM COMPLEXITY</div>
-          <div class="idea-material" aria-hidden="true">
-            <img
-              src="assets/artifacts/apps/metria-spc/detail-01.webp"
-              width="3226"
-              height="756"
-              alt=""
-              loading="lazy"
-            /><img
-              src="assets/artifacts/apps/lt-zone-assistant/detail-01.webp"
-              width="1044"
-              height="828"
-              alt=""
-              loading="lazy"
-            /><img
-              src="assets/artifacts/apps/altus-lotviewer/detail-01.webp"
-              width="1475"
-              height="442"
-              alt=""
-              loading="lazy"
-            />
-          </div>
-          <div class="idea-copy">
-            <p class="eyebrow">TRACES. DECISIONS. RELATIONSHIPS.</p>
-            <h2 id="idea-title">
-              Complexity is a given.<br /><span>Clarity is engineered.</span>
-            </h2>
-            <p>Software gives the work a structure.</p>
-          </div>
-          <span class="material-note eyebrow"
-            >DETAILS FROM THE ACTUAL APPLICATIONS</span
-          >
+          <p class="entry-description">Engineering, set in motion.</p>
+          <a class="scroll-prompt" href="#friction"
+            ><span>FOLLOW THE PROCESS</span><i aria-hidden="true"></i
+            ><b aria-hidden="true">↓</b></a
+          ><button id="skip-opening" hidden>Skip opening ↗</button>
+          <div class="continuation-line" aria-hidden="true"></div>
+          <img
+            class="static-concept"
+            loading="lazy"
+            src="assets/concepts/material.svg"
+            alt="Layered engineered surfaces, beginning to separate."
+          />
         </div>
       </section>
       <section
-        id="collection"
-        class="collection staged"
-        aria-labelledby="collection-title"
+        id="friction"
+        class="story-scene friction"
+        aria-labelledby="friction-title"
       >
-        <div class="scene collection-scene">
-          <div class="scene-label eyebrow">02 / THE WHOLE ECOSYSTEM</div>
-          <div class="collection-copy">
-            <h2 id="collection-title">
-              Sixteen instruments.<br />Connected thinking.
+        <div class="scene-frame">
+          <div class="scene-copy">
+            <p class="eyebrow">01 / THE WORK BETWEEN THE WORK</p>
+            <h2 id="friction-title">
+              One task.<br /><span>Too many steps.</span>
             </h2>
-            <p>
-              From Altus to Planetfall.<br />The original ARTIFACTS Expeditions.
+            <p class="scene-description">
+              Logs to read. Values to compare.<br />The same checks, again.
             </p>
           </div>
-          <div class="constellation"><!-- CONSTELLATION --></div>
-          <nav
-            class="expedition-links"
-            aria-label="Explore the original Expeditions"
-          >
-            <!-- EXPEDITION_LINKS -->
-          </nav>
-          <div class="scene-footer">
-            <a href="#systems"
-              >EXPLORE EVERY APPLICATION <span aria-hidden="true">↘</span></a
-            ><span class="eyebrow"
-              >16 APPLICATIONS / 4 ORIGINAL EXPEDITIONS</span
-            >
+          <div class="friction-words" aria-hidden="true">
+            <span>MANUAL</span><span>REPEATED</span><span>FRAGMENTED</span>
           </div>
-        </div>
-      </section>
-      <section id="systems" class="atlas" aria-labelledby="atlas-title">
-        <div class="atlas-stage">
-          <div class="atlas-top">
-            <h2 id="atlas-title">The instruments</h2>
-            <span class="eyebrow"><b id="app-counter">01</b> / 16</span
-            ><button
-              id="index-toggle"
-              aria-expanded="false"
-              aria-controls="app-index"
-              hidden
-            >
-              All applications <span aria-hidden="true">＋</span>
-            </button>
-          </div>
-          <nav
-            id="app-index"
-            class="app-index"
-            aria-label="All sixteen ARTIFACTS applications"
-          >
-            <!-- APP_INDEX -->
-          </nav>
-          <div class="atlas-world"><!-- APP_SCENES --></div>
-          <div class="atlas-navigation">
-            <button id="previous-app" aria-label="Previous application" hidden>
-              ← <span>Previous</span>
-            </button>
-            <div class="app-ruler" aria-hidden="true"></div>
-            <button id="next-app" aria-label="Next application" hidden>
-              <span>Next</span> →
-            </button>
-          </div>
-          <p id="app-announcement" class="sr-only" aria-live="polite"></p>
-        </div>
-      </section>
-      <section id="closing" class="closing" aria-labelledby="closing-title">
-        <div class="closing-mark">
           <img
-            src="assets/brand/artifacts-symbol-metal.svg"
-            alt=""
-            width="80"
-            height="80"
+            class="static-concept"
+            loading="lazy"
+            src="assets/concepts/friction.svg"
+            alt="Process tracks break into repeated, disconnected paths."
+          />
+          <div class="scene-bottom">
+            <span>REPETITION ADDS FRICTION.</span
+            ><span>SCROLL TO RESOLVE ↓</span>
+          </div>
+        </div>
+      </section>
+      <section
+        id="execution"
+        class="story-scene execution"
+        aria-labelledby="execution-title"
+      >
+        <div class="scene-frame">
+          <div class="execution-copy">
+            <p class="eyebrow">THE WORK CAN CHANGE.</p>
+            <h2 id="execution-title">
+              <span class="complex-line">Engineering is complex.</span
+              ><span class="execution-line">Execution shouldn't be.</span>
+            </h2>
+          </div>
+          <p class="execution-note">
+            Keep the engineering.<br />Remove the unnecessary steps.
+          </p>
+          <img
+            class="static-concept"
+            loading="lazy"
+            src="assets/concepts/aligned.svg"
+            alt="Fragmented paths align into two controlled bands."
           />
         </div>
-        <p class="eyebrow">SIXTEEN APPLICATIONS. STILL EVOLVING.</p>
-        <h2 id="closing-title">ARTIFACTS<span>.</span></h2>
-        <p>A place for it all<br />to come together.</p>
-        <a href="#systems"
-          >Return to the instruments <span aria-hidden="true">↗</span></a
-        >
       </section>
-      <section id="about" class="about" aria-labelledby="about-title">
-        <h2 id="about-title">Built by Gene.</h2>
+      <section
+        id="origin"
+        class="story-scene origin"
+        aria-labelledby="origin-title"
+      >
+        <div class="scene-frame">
+          <div class="scene-copy">
+            <p class="eyebrow">02 / BUILT ONE PROBLEM AT A TIME</p>
+            <h2 id="origin-title">
+              One problem.<br />One tool.<br /><span>Then another.</span>
+            </h2>
+            <p class="scene-description">
+              A recurring task becomes software.<br />The tools begin to belong
+              together.
+            </p>
+          </div>
+          <img
+            class="static-concept"
+            loading="lazy"
+            src="assets/concepts/tools.svg"
+            alt="Individual engineering forms gather into a connected collection."
+          />
+          <div class="scene-bottom">
+            <span>SMALL TOOLS. A GROWING SYSTEM.</span
+            ><span>ENTER THE WORKFLOWS ↓</span>
+          </div>
+        </div>
+      </section>
+      <section
+        id="observe"
+        class="story-scene chapter"
+        data-workflow="observe"
+        aria-labelledby="observe-title"
+      >
+        <div class="scene-frame">
+          <div class="scene-copy">
+            <p class="eyebrow">03 / OBSERVE</p>
+            <h2 id="observe-title">
+              A surface<br /><span>tells a story.</span>
+            </h2>
+            <p class="scene-description">
+              Measurements find their place.<br />Variation becomes visible.
+            </p>
+          </div>
+          <!-- OBSERVE --><img
+            class="static-concept"
+            loading="lazy"
+            src="assets/concepts/topology.svg"
+            alt="A synthetic measurement field rises into a wafer-scale topographic surface."
+          />
+        </div>
+      </section>
+      <section
+        id="compare"
+        class="story-scene chapter"
+        data-workflow="compare"
+        aria-labelledby="compare-title"
+      >
+        <div class="scene-frame">
+          <div class="scene-copy">
+            <p class="eyebrow">04 / COMPARE</p>
+            <h2 id="compare-title">
+              Different order.<br /><span>Same meaning?</span>
+            </h2>
+            <p class="scene-description">
+              Align what belongs together.<br />Let the differences stand apart.
+            </p>
+          </div>
+          <!-- COMPARE --><img
+            class="static-concept"
+            loading="lazy"
+            src="assets/concepts/comparison.svg"
+            alt="Two process structures align while changed branches remain separated."
+          />
+        </div>
+      </section>
+      <section
+        id="diagnose"
+        class="story-scene chapter"
+        data-workflow="diagnose"
+        aria-labelledby="diagnose-title"
+      >
+        <div class="scene-frame">
+          <div class="scene-copy">
+            <p class="eyebrow">05 / DIAGNOSE</p>
+            <h2 id="diagnose-title">
+              A behaviour.<br /><span>A direction.</span>
+            </h2>
+            <p class="scene-description">
+              Temperature observations<br />narrow the possibilities.
+            </p>
+          </div>
+          <!-- DIAGNOSE --><img
+            class="static-concept"
+            loading="lazy"
+            src="assets/concepts/diagnosis.svg"
+            alt="Thermal observations form branches that converge into fewer paths."
+          />
+        </div>
+      </section>
+      <section
+        id="coordinate"
+        class="story-scene chapter"
+        data-workflow="coordinate"
+        aria-labelledby="coordinate-title"
+      >
+        <div class="scene-frame">
+          <div class="scene-copy">
+            <p class="eyebrow">06 / COORDINATE</p>
+            <h2 id="coordinate-title">
+              Separate signals.<br /><span>A shared view.</span>
+            </h2>
+            <p class="scene-description">
+              Charts, schedules and outputs.<br />The work comes together.
+            </p>
+          </div>
+          <!-- COORDINATE --><img
+            class="static-concept"
+            loading="lazy"
+            src="assets/concepts/signals.svg"
+            alt="Synthetic parameter traces assemble into a common monitoring field."
+          />
+        </div>
+      </section>
+      <section
+        id="universe"
+        class="story-scene universe"
+        aria-labelledby="universe-title"
+      >
+        <div class="scene-frame">
+          <div class="universe-overview">
+            <p class="eyebrow">07 / THE ARTIFACTS ECOSYSTEM</p>
+            <h2 id="universe-title">
+              Specialised tools.<br /><span>Connected thinking.</span>
+            </h2>
+            <p>
+              <span class="app-total">16</span> applications. Four original
+              Expeditions.
+            </p>
+          </div>
+          <div class="system-nodes" aria-label="Explore each application">
+            <!-- NODES -->
+          </div>
+          <div class="universe-focus" hidden>
+            <button id="return-universe">
+              ↖ All <span class="app-total">16</span> applications
+            </button>
+            <p id="focus-category" class="eyebrow"></p>
+            <h3 id="focus-title"></h3>
+            <p id="focus-purpose"></p>
+            <div class="focus-relationships">
+              <span>IN THIS WORKFLOW</span>
+              <div id="related-apps"></div>
+            </div>
+          </div>
+          <div class="universe-controls">
+            <div>
+              <span class="eyebrow" id="node-group"
+                >EXPLORE THE CONNECTIONS</span
+              >
+              <p id="node-name">Choose an instrument.</p>
+            </div>
+            <button
+              id="open-directory"
+              aria-controls="directory"
+              aria-expanded="false"
+            >
+              All applications <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+          <div class="focus-controls" hidden>
+            <button id="previous-app" aria-label="Previous application">
+              ←</button
+            ><span id="app-position"></span
+            ><label
+              >Explore the form<input
+                id="focus-amount"
+                type="range"
+                min="0"
+                max="100"
+                value="80" /></label
+            ><button id="next-app" aria-label="Next application">→</button>
+          </div>
+          <img
+            class="static-concept"
+            loading="lazy"
+            src="assets/concepts/universe.svg"
+            alt="Sixteen distinct procedural instruments arranged in one spatial system."
+          />
+        </div>
+      </section>
+      <section id="end" class="story-scene ending" aria-labelledby="end-title">
+        <div class="scene-frame">
+          <p class="eyebrow">MANY PROBLEMS. SPECIALISED TOOLS.</p>
+          <h2 id="end-title">One environment.</h2>
+          <p class="ending-wordmark">ARTIFACTS<span>.</span></p>
+          <a href="#universe"
+            >Explore the ecosystem again <span aria-hidden="true">↗</span></a
+          ><img
+            class="static-concept"
+            loading="lazy"
+            src="assets/concepts/material.svg"
+            alt="The individual layers settle into one coherent structure."
+          />
+        </div>
+      </section>
+      <section id="about" class="about">
+        <h2>Built from the work.</h2>
         <div>
           <p>
-            I enjoy building things.<br />ARTIFACTS is where they come together.
+            Years of engineering problems.<br />A growing collection of
+            software.
           </p>
           <span>Semiconductor engineering / software / automation</span>
         </div>
-        <!-- CONTENT: Add verified CV, experience and contact details here when ready. -->
       </section>
     </main>
+    <section id="directory" class="directory" aria-labelledby="directory-title">
+      <div class="directory-heading">
+        <div>
+          <p class="eyebrow">THE COMPLETE ECOSYSTEM</p>
+          <h2 id="directory-title">The instruments.</h2>
+        </div>
+        <button id="close-directory" hidden>Close ×</button>
+      </div>
+      <div class="directory-groups"><!-- DIRECTORY --></div>
+    </section>
     <footer>
-      <a class="brand" href="#object"
+      <a class="brand" href="#entry"
         ><img
           src="assets/brand/artifacts-symbol.svg"
           width="80"
           height="80"
           alt=""
-        /><span>ARTIFACTS <small>by Gene</small></span></a
-      ><span class="eyebrow"
-        >AN INDEPENDENT BODY OF WORK / <span id="year">2026</span></span
-      ><a href="#object">Back to the surface ↑</a>
+        /><span>ARTIFACTS</span></a
+      ><span class="attribution">by Gene</span
+      ><a href="#entry">Return to the beginning ↑</a>
     </footer>
-    <dialog id="inspector" aria-labelledby="inspector-title">
-      <div class="inspector-header">
-        <div>
-          <p class="eyebrow">ORIGINAL APPLICATION CAPTURE</p>
-          <h2 id="inspector-title"></h2>
-        </div>
-        <button id="close-inspector" autofocus>Close ×</button>
-      </div>
-      <div class="inspector-toolbar">
-        <div id="capture-options"></div>
-        <button id="native-size" aria-pressed="false">Native pixels</button
-        ><span id="image-dimensions"></span>
-      </div>
-      <div
-        class="inspector-viewport"
-        tabindex="0"
-        aria-label="Application image. Native pixels displays the source without enlargement."
-      >
-        <img id="inspector-image" alt="" />
-      </div>
-      <p id="capture-caption"></p>
-    </dialog>
+    <div class="visual-caption">
+      <span class="caption-line"></span>CONCEPTUAL VISUALIZATIONS / SYNTHETIC
+      DATA
+    </div>
+    <p class="sr-only" id="announcement" aria-live="polite"></p>
   </body>
 </html>

@@ -1,18 +1,16 @@
+import { DESIGN } from "./tokens.js";
 // Shared timing and a single frame clock. Spatial motion is critically damped:
 // it carries weight, reaches its target, and never overshoots.
-export const MOTION = Object.freeze({
-  ease: "cubic-bezier(.22,.72,.12,1)",
-  settle: "cubic-bezier(.16,1,.3,1)",
-  state: 420,
-  entrance: 1250,
-  stagger: 42,
-  pointerFrequency: 6.5,
+const MOTION = Object.freeze({
+  ease: DESIGN.ease,
+  state: DESIGN.precision,
+  pointerFrequency: DESIGN.pointerDamping,
 });
 
 const mediaQueries = {
   reduced: matchMedia("(prefers-reduced-motion: reduce)"),
-  compact: matchMedia("(max-width: 700px), (max-height: 650px)"),
-  short: matchMedia("(max-height: 650px)"),
+  compact: matchMedia("(max-width: 700px), (max-height: 700px)"),
+  short: matchMedia("(max-height: 700px)"),
   pointer: matchMedia("(hover: hover) and (pointer: fine)"),
 };
 // Cache query state from change events. Reading MediaQueryList.matches during

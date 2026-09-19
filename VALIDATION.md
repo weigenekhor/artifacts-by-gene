@@ -1,46 +1,39 @@
-# Exhibition validation
+# Engineering narrative — validation
 
-Verified 18 September 2026 in Microsoft Edge / Chromium on Windows, using hardware graphics on an NVIDIA GeForce RTX 4060 Laptop GPU. These are local browser measurements, not a guarantee for every device or network. Safari, Firefox and physical mobile hardware have not been tested.
+Verified 19 September 2026 in headless Microsoft Edge / Chromium on this Windows machine. Browser emulation is not physical mobile testing. Safari, Firefox and physical touch/trackpad hardware have not been tested. Frame intervals below measure this local run, not universal device performance or GPU utilisation.
 
-## Catalogue and source fidelity
+## Functional and visual checks
 
-- All **16** names, desktop source keys and four original Expedition groups match the real application catalogue.
-- Real ARTIFACTS vectors appear in navigation, opening and closing/footer; the favicon retains the original symbol paths.
-- Seven native 3840 × 2160 primaries; nine 2048 × 1104 JPEG-derived archive primaries remain explicitly flagged for native recapture.
-- Every full WebP was compared against its decoded original source: pixel-identical. Each detail is an exact crop. Encoded and decoded SHA-256 hashes are checked by `pnpm test:assets`.
-- All full-resolution primary images total **4.59 MiB**. The opening requests **zero** large hero captures. Only the active screen and neighbours load as needed.
-- The display and inspector respect source dimensions and device pixel ratio. No fake HD upscales or CSS magnification of low-resolution details.
+- All ten narrative scenes inspected; all 16 apps select the expected identity, purpose and distinct geometry.
+- Real ARTIFACTS vectors retained in navigation, opening, footer and favicon. Visible personal attribution occurs once. Superseded philosophy text removed.
+- Full index, focus trap, Escape return, ecosystem arrow navigation, chapter switching, range inputs, motion toggle and touch selection passed.
+- Motion toggle preserves the current chapter. Paused and final scenes stop drawing after settling.
+- Reduced motion preserves content and app selection; no-WebGL uses matching diagrams; no-JavaScript exposes all 16 directory entries.
+- Zero page/console errors and zero failed resource requests in the browser suite. Root and repository-subpath URLs tested. No software screenshot requests in the new experience.
+- Automated axe WCAG A/AA checks: zero violations for opening, ecosystem, focused app, directory, mobile and reduced-motion views. This is not a full manual accessibility certification.
 
-## Viewports and visual refinement
+## Viewports
 
-Passed 2560 × 1440, 1920 × 1080, 1440 × 900, 1366 × 768, 1024 × 1366, 3840 × 2160, 1440 × 900 at DPR 2, 390 × 844 at DPR 3, and 844 × 390 at DPR 2.
+All ten scenes checked for document overflow at 3840 × 2160, 1440 × 900 (DPR 2), 2560 × 1440, 1920 × 1080, 1440 × 900, 1366 × 768, 1024 × 1366, 430 × 932 (DPR 2), 390 × 844 (DPR 3), 320 × 740 (DPR 2), and 844 × 390 (DPR 2). All 16 ecosystem nodes remain horizontally reachable. Screenshots inspected at desktop, portrait tablet, mobile portrait and landscape.
 
-No horizontal document overflow. Screen planes retain clearance above captions/navigation at every tested size. All sixteen app selections were checked at desktop; representative archive, native-entry and native-chart screens were checked at every size. All sixteen are also traversed with reduced motion enabled.
+Refinements after inspection: portrait camera scale, mobile orbit spacing, compact controls, restrained surface lighting, continuous morph boundaries, chapter position after motion preference changes, separate monitoring geometries, and extension reinitialisation after WebGL context restoration.
 
-Visual review covered the opening, complexity composition, ecosystem assembly, approach/split transitions, frontal inspection, extracted details, mobile and landscape. Refinements included native-pixel sizing, image/control clearance, camera settling interrupted by scroll, transition separation, Expedition navigation, and reducing the creator treatment to 22px desktop / 20px mobile.
+## Performance and recovery
 
-## Interaction and accessibility
+- Hero: 180 animation-frame samples, median **16.7 ms**, p95 **16.9 ms**.
+- Continuous native scrolling: 240 samples at 1920 × 1080, median **16.7 ms**, p95 **16.8 ms**, no observed long tasks in that interval.
+- Desktop drawing buffer: 1633 × 919 for that sample, respecting the 1.5-million-pixel budget.
+- Forced WebGL context loss enters SVG fallback; explicit context restoration returns to WebGL.
+- These measurements support smooth rendering here. They do not claim every mobile GPU sustains 60 fps; mobile idle acquisition deliberately runs at up to 24 fps.
 
-- Sixteen-item index, counter, active marker, previous/next, direct hashes, Home/End and arrow-key navigation.
-- Mobile drawer open/close, Escape and horizontal touch swipe; vertical scrolling remains native.
-- Inspector full interface, exact detail and archive alternative; fit/native pixels; Escape and focus restoration.
-- Zero axe-core WCAG 2 A/AA / WCAG 2.1 AA violations in hero, atlas, inspector, mobile and reduced-motion scans.
-- Reduced motion uses an unpinned static viewer with all sixteen choices. Short landscape retains accessible controls without a sticky trap.
-- JavaScript disabled: all sixteen semantic articles, lazy images and original links are present in normal flow.
-- Forced WebGL unavailability retains the CSS wafer and working catalogue.
-- GitHub Pages subpath `/artifacts-by-gene/` loads correctly; relative images, font and modules resolve.
-- Zero browser exceptions, console errors or HTTP failures during the suite.
+## Geometry and source integrity
 
-## Measured rendering
+`pnpm test:geometry` validates finite positions/metadata and index bounds for 21 concepts, desktop/mobile topology and three control values. All 16 app concepts have distinct geometry. Relationships resolve to real apps in their stated editorial workflow; every concept has a generated static fallback.
 
-A warm 1440 × 900 hero sample of 180 intervals measured **16.7ms median / 16.8ms p95**, approximately **60fps**.
+`pnpm test:assets` still verifies all archived screenshot hashes, original decoded pixels, exact native crops, derivative dimensions and logo paths. No archive source is upscaled or used as fabricated HD imagery.
 
-A 1920 × 1080 continuous atlas scroll sample of 240 intervals measured **16.7ms median / 16.8ms p95**, with **zero long tasks** during that sample. Instrumented WebGL draw calls stayed at **zero while the hero was offscreen**. The shader's existing pixel caps, hidden-page pause and adaptive resolution remain in place.
+`pnpm build` generates 16 apps, four workflow lenses and 21 fallback diagrams. The site ships as static files with the existing custom-domain CNAME. The reference deck, internal values, local QA files and development dependencies are not required by the public runtime.
 
-The complete functional/accessibility run includes a few long tasks from initial loading and test instrumentation; the warm samples above are not an end-to-end loading benchmark. No claim is made about measured power consumption or physical mobile GPU performance.
+## Review boundaries
 
-## Reproduction
-
-`pnpm install --frozen-lockfile`, `pnpm build`, `pnpm test:assets`, then `pnpm test`. Install Playwright Chromium once, or on Windows run `$env:BROWSER_CHANNEL='msedge'; node tests/browser.mjs`.
-
-The browser suite starts its own local server and writes screenshots/results to ignored `.qa/`. Asset tests validate committed pixels without needing the private desktop source tree. [The capture checklist](assets/artifacts/README.md) documents the remaining source-image work.
+Production `main` is unchanged. This is a new design direction for review on `experience/engineering-in-motion`; the earlier screenshot-based PR remains separate. A human visual review in the intended target browsers is still useful before merging. No screenshot recapture or additional content is needed to review this version.

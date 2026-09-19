@@ -5,7 +5,8 @@
   "scripts": {
     "test": "node tests/browser.mjs",
     "build": "node scripts/build.mjs",
-    "test:assets": "node tests/assets.mjs"
+    "test:assets": "node tests/assets.mjs",
+    "test:geometry": "node tests/geometry.mjs"
   },
   "devDependencies": {
     "axe-core": "4.10.3",

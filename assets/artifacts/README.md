@@ -1,3 +1,5 @@
+> **Archive:** This audit describes the preserved screenshot assets from the earlier exhibition. The current engineering narrative uses labelled procedural concepts and does not load these captures. Recapture is optional for future screenshot-based features.
+
 # ARTIFACTS capture audit and replacement checklist
 
 ## What is real
