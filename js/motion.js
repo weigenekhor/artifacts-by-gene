@@ -11,8 +11,8 @@ export const MOTION = Object.freeze({
 
 const mediaQueries = {
   reduced: matchMedia("(prefers-reduced-motion: reduce)"),
-  compact: matchMedia("(max-width: 700px), (max-height: 600px)"),
-  short: matchMedia("(max-height: 600px)"),
+  compact: matchMedia("(max-width: 700px), (max-height: 650px)"),
+  short: matchMedia("(max-height: 650px)"),
   pointer: matchMedia("(hover: hover) and (pointer: fine)"),
 };
 // Cache query state from change events. Reading MediaQueryList.matches during

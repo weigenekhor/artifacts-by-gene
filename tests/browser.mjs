@@ -4,10 +4,13 @@ import { createServer } from "node:http";
 import { readFile, mkdir, writeFile } from "node:fs/promises";
 import { resolve, extname, sep } from "node:path";
 import assert from "node:assert/strict";
-const require = createRequire(import.meta.url);
-const root = resolve(import.meta.dirname, ".."),
+const require = createRequire(import.meta.url),
+  root = resolve(import.meta.dirname, ".."),
   output = resolve(root, ".qa");
 await mkdir(output, { recursive: true });
+const { apps } = JSON.parse(
+  await readFile(resolve(root, "content/apps.json"), "utf8"),
+);
 const mime = {
   ".html": "text/html",
   ".css": "text/css",
@@ -17,20 +20,19 @@ const mime = {
   ".png": "image/png",
   ".woff2": "font/woff2",
 };
-// Also test the exact site under a repository prefix, as on GitHub Pages.
 const server = createServer(async (req, res) => {
   const pathname = new URL(req.url, "http://localhost").pathname.replace(
     /^\/artifacts-by-gene\//,
     "/",
   );
-  const path = resolve(root, "." + pathname.replace(/\/$/, "/index.html"));
-  if (!path.startsWith(root + sep)) {
+  const file = resolve(root, "." + pathname.replace(/\/$/, "/index.html"));
+  if (!file.startsWith(root + sep)) {
     res.writeHead(403).end();
     return;
   }
   try {
-    res.setHeader("Content-Type", mime[extname(path)] || "text/plain");
-    res.end(await readFile(path));
+    res.setHeader("Content-Type", mime[extname(file)] || "text/plain");
+    res.end(await readFile(file));
   } catch {
     res.writeHead(404).end();
   }
@@ -44,31 +46,47 @@ const browser = await chromium.launch({
     : {}),
 });
 const errors = [],
-  results = { viewports: [], scenes: [], accessibility: [] };
-const ids = [
-  "object",
-  "clarity",
-  "systems",
-  "gan-temp-diagnoser",
-  "aix-dt-assistant",
-  "lt-zone-assistant",
-  "anko-helper",
-  "metria-spc",
-  "evolution",
-  "gene",
-];
-async function at(page, id, progress = 0) {
+  results = {
+    viewports: [],
+    accessibility: [],
+    catalogue: [],
+    performance: {},
+  };
+const watch = (page) => {
+  page.on("pageerror", (e) => errors.push(e.message));
+  page.on("console", (m) => {
+    if (m.type() === "error") errors.push(m.text());
+  });
+  page.on("response", (r) => {
+    if (r.status() >= 400) errors.push(r.status() + " " + r.url());
+  });
+};
+async function jump(page, i) {
   await page.evaluate(
-    ({ id, progress }) => {
+    (i) => document.querySelector(`#app-index [data-app="${i}"]`).click(),
+    i,
+  );
+  await page.waitForTimeout(700);
+  await page
+    .locator(".artifact.is-current .screen-image")
+    .evaluate((image) => image.decode());
+  assert.equal(
+    await page.locator(".artifact.is-current").getAttribute("id"),
+    "app-" + apps[i].id,
+  );
+}
+async function scene(page, id, p = 0) {
+  await page.evaluate(
+    ({ id, p }) => {
       const e = document.getElementById(id);
       scrollTo({
-        top: e.offsetTop + Math.max(0, e.offsetHeight - innerHeight) * progress,
+        top: e.offsetTop + Math.max(0, e.offsetHeight - innerHeight) * p,
         behavior: "instant",
       });
     },
-    { id, progress },
+    { id, p },
   );
-  await page.waitForTimeout(90);
+  await page.waitForTimeout(200);
 }
 async function audit(page, label) {
   await page.addScriptTag({ path: require.resolve("axe-core/axe.min.js") });
@@ -86,324 +104,319 @@ async function audit(page, label) {
   results.accessibility.push({ label, violations });
   assert.deepEqual(violations, [], label + " accessibility");
 }
+async function composition(page, label) {
+  const data = await page.evaluate(() => {
+    const a = document.querySelector(".artifact.is-current"),
+      image = a.querySelector(".screen-object").getBoundingClientRect(),
+      caption = a.querySelector(".artifact-caption").getBoundingClientRect(),
+      pose = a.querySelector(".artifact-pose"),
+      stage = document.querySelector(".atlas-stage").getBoundingClientRect();
+    return {
+      overflow: document.documentElement.scrollWidth - innerWidth,
+      imageBottom: image.bottom,
+      captionTop: caption.top,
+      imageTop: image.top,
+      stageTop: stage.top,
+      poseWidth: parseFloat(pose.style.width),
+      dpr: devicePixelRatio,
+      current: a.id,
+    };
+  });
+  assert.ok(data.overflow <= 1, label + " horizontal overflow");
+  assert.ok(
+    data.imageBottom + 10 < data.captionTop,
+    label + " image collides with caption " + JSON.stringify(data),
+  );
+  const app = apps.find((a) => "app-" + a.id === data.current);
+  assert.ok(
+    data.poseWidth * data.dpr <= app.width + 1,
+    label + " exceeds native pixels",
+  );
+  return data;
+}
 try {
   const page = await browser.newPage({
     viewport: { width: 1440, height: 900 },
   });
-  page.on("pageerror", (e) => errors.push(e.message));
-  page.on("console", (m) => {
-    if (m.type() === "error") errors.push(m.text());
-  });
-  page.on("response", (r) => {
-    if (r.status() >= 400) errors.push(r.status() + " " + r.url());
-  });
+  watch(page);
   await page.addInitScript(() => {
-    window.__draws = 0;
-    window.__long = [];
-    window.__cls = 0;
-    const draw = WebGLRenderingContext.prototype.drawArrays;
-    WebGLRenderingContext.prototype.drawArrays = function (...args) {
-      window.__draws++;
-      return draw.apply(this, args);
-    };
+    window.longTasks = [];
     new PerformanceObserver((list) => {
-      for (const e of list.getEntries()) window.__long.push(e.duration);
+      window.longTasks.push(...list.getEntries().map((e) => e.duration));
     }).observe({ type: "longtask", buffered: true });
-    new PerformanceObserver((list) => {
-      for (const e of list.getEntries())
-        if (!e.hadRecentInput) window.__cls += e.value;
-    }).observe({ type: "layout-shift", buffered: true });
   });
   await page.goto(url);
-  await page.waitForTimeout(1800);
+  await page.waitForTimeout(5700);
+  assert.equal(await page.locator(".artifact").count(), 16);
+  assert.equal(await page.locator(".index-group").count(), 4);
+  const initialHeroes = await page.evaluate(
+    () =>
+      performance
+        .getEntriesByType("resource")
+        .filter((r) => /\/hero(?:-1280)?\.webp/.test(r.name)).length,
+  );
   assert.equal(
-    await page.locator("#wafer-canvas").getAttribute("data-renderer"),
-    "webgl",
+    initialHeroes,
+    0,
+    "initial page eagerly loads large application screens",
   );
-  for (const [width, height] of [
-    [2560, 1440],
-    [1920, 1080],
-    [1440, 900],
-    [1366, 768],
-    [1024, 1366],
-    [390, 844],
-    [320, 740],
-    [844, 390],
-  ]) {
-    await page.setViewportSize({ width, height });
-    await at(page, "object");
-    const overflow = await page.evaluate(
-      () => document.documentElement.scrollWidth - innerWidth,
+  results.initialHeroRequests = initialHeroes;
+  await page.screenshot({ path: resolve(output, "hero-desktop.png") });
+  await audit(page, "hero");
+  for (let i = 0; i < 16; i++) {
+    await jump(page, i);
+    const layout = await composition(page, apps[i].id);
+    assert.equal(
+      await page.locator("#app-counter").textContent(),
+      String(i + 1).padStart(2, "0"),
     );
-    assert.ok(overflow <= 1, `${width} overflow ${overflow}`);
-    const title = await page.locator("#hero-title").boundingBox();
-    assert.ok(
-      title.x >= 0 && title.x + title.width <= width + 1,
-      `${width} title fits`,
-    );
-    await page.screenshot({
-      path: resolve(output, `hero-${width}x${height}.png`),
-    });
-    for (const id of ids) {
-      await at(page, id, 0.35);
-      assert.ok(
-        await page.evaluate(
-          () => document.documentElement.scrollWidth <= innerWidth + 1,
-        ),
-        `${width} ${id} overflow`,
-      );
-      if (
-        id === "gan-temp-diagnoser" ||
-        id === "lt-zone-assistant" ||
-        id === "gene"
-      )
-        await page.screenshot({
-          path: resolve(output, `${id}-${width}x${height}.png`),
-        });
-      if (id === "gan-temp-diagnoser") {
-        const box = await page.locator("#" + id + " .instrument").boundingBox();
-        assert.ok(box.width > 100 && box.height > 70, "Visible software");
-        const bounds = await page.locator("#" + id + " .scene").boundingBox();
-        const foot = await page
-          .locator("#" + id + " .scene-foot")
-          .boundingBox();
-        assert.ok(
-          foot.y + foot.height <= bounds.y + bounds.height + 1,
-          "Controls fit their scene",
-        );
-      }
-    }
-    results.viewports.push({ width, height, overflow });
+    assert.equal(await page.locator("#app-index [aria-current]").count(), 1);
+    assert.equal(await page.locator(".artifact:not([inert])").count(), 1);
+    results.catalogue.push({ name: apps[i].name, ...layout });
   }
-  await page.setViewportSize({ width: 1440, height: 900 });
-  for (const id of ids.filter(
-    (id) => !["object", "clarity", "systems", "evolution", "gene"].includes(id),
-  )) {
-    await at(page, id, 0);
-    const entry = await page
-      .locator("#" + id + " .instrument-position")
-      .evaluate((e) => e.style.transform);
-    await at(page, id, 0.35);
-    const readable = await page
-      .locator("#" + id + " .instrument-position")
-      .evaluate((e) => e.style.transform);
-    assert.notEqual(entry, readable);
-    assert.equal(
-      await page
-        .locator("#" + id + " .instrument img")
-        .evaluate((e) => e.complete && e.naturalWidth > 900),
-      true,
-      "Real image loaded",
-    );
-    await page.screenshot({ path: resolve(output, id + "-readable.png") });
-    await at(page, id, 0.86);
-    const macro = await page
-      .locator("#" + id + " .macro-plane")
-      .evaluate((e) => Number(getComputedStyle(e).opacity));
-    assert.ok(macro > 0.95, "Macro reveal complete");
-    await page.screenshot({ path: resolve(output, id + "-detail.png") });
-    await page.locator("#" + id + " .inspect-link").click();
-    await page.waitForSelector("#inspector[open]");
-    assert.equal(
-      await page
-        .locator("#inspector-image")
-        .evaluate((e) => e.complete && e.naturalWidth === 2048),
-      true,
-      "Full resolution inspection",
-    );
-    await page.locator("#zoom-image").click();
-    assert.equal(
-      await page.locator("#zoom-image").getAttribute("aria-pressed"),
-      "true",
-    );
-    await page.keyboard.press("Escape");
-    assert.equal(
-      await page.locator("#inspector").evaluate((e) => e.open),
-      false,
-    );
-    assert.equal(
-      await page
-        .locator("#" + id + " .inspect-link")
-        .evaluate((e) => e === document.activeElement),
-      true,
-      "Focus restored",
-    );
-    results.scenes.push({ id, spatial: true, macro: true, inspector: true });
-  }
-  await at(page, "clarity", 0.02);
-  const chaos = await page
-    .locator(".trace-lines path")
-    .first()
-    .getAttribute("d");
-  await at(page, "clarity", 0.95);
-  assert.notEqual(
-    await page.locator(".trace-lines path").first().getAttribute("d"),
-    chaos,
-  );
-  await at(page, "gan-temp-diagnoser", 0.35);
-  const tilt = await page
-    .locator(".instrument-tilt")
-    .first()
-    .evaluate((e) => e.style.transform);
-  await page.mouse.move(1330, 600);
-  await page.waitForTimeout(400);
-  assert.notEqual(
-    await page
-      .locator(".instrument-tilt")
-      .first()
-      .evaluate((e) => e.style.transform),
-    tilt,
-    "Inertial pointer orientation",
-  );
-  await audit(page, "desktop");
-  await page.locator("#gan-temp-diagnoser .inspect-link").click();
+  await audit(page, "atlas");
+  await page
+    .locator(".artifact.is-current .artifact-caption [data-inspect]")
+    .click();
+  await page.locator("#inspector-image").evaluate((i) => i.decode());
+  assert.ok(await page.locator("#inspector").evaluate((d) => d.open));
   await audit(page, "inspector");
-  await page.keyboard.press("Escape");
-  await at(page, "object");
-  await page.waitForTimeout(300);
-  const performance = await page.evaluate(async () => {
-    window.__long = [];
-    const startDraws = window.__draws;
-    const intervals = [];
-    let last = performance.now(),
-      start = last;
-    await new Promise((resolve) => {
-      function frame(now) {
-        intervals.push(now - last);
-        last = now;
-        if (now - start < 2500) requestAnimationFrame(frame);
-        else resolve();
-      }
-      requestAnimationFrame(frame);
-    });
-    const sorted = intervals.slice(1).sort((a, b) => a - b);
-    return {
-      frames: intervals.length,
-      median: sorted[Math.floor(sorted.length * 0.5)],
-      p95: sorted[Math.floor(sorted.length * 0.95)],
-      draws: window.__draws - startDraws,
-      longTasks: window.__long,
-      cls: window.__cls,
-    };
-  });
-  results.performance = performance;
-  assert.ok(performance.draws > 20, "Wafer animation active");
-  await at(page, "gene");
-  await page.waitForTimeout(150);
-  const offscreen = await page.evaluate(() => window.__draws);
-  await page.waitForTimeout(300);
+  await page.locator("#native-size").click();
   assert.equal(
-    await page.evaluate(() => window.__draws),
-    offscreen,
-    "Offscreen GPU sleeps",
+    await page.locator("#native-size").getAttribute("aria-pressed"),
+    "true",
   );
-  await at(page, "object");
-  await page.locator("#motion-toggle").click();
-  await page.waitForTimeout(200);
+  await page.getByRole("button", { name: "Detail", exact: true }).click();
+  await page.locator("#inspector-image").evaluate((i) => i.decode());
+  await page.keyboard.press("Escape");
+  assert.equal(await page.locator("#inspector").evaluate((d) => d.open), false);
   assert.ok(
     await page
+      .locator(".artifact.is-current .artifact-caption [data-inspect]")
+      .evaluate((e) => e === document.activeElement),
+  );
+  await jump(page, 7);
+  await page
+    .locator(".artifact.is-current .artifact-caption [data-inspect]")
+    .click();
+  await page.getByRole("button", { name: "Archive example" }).click();
+  await page.locator("#inspector-image").evaluate((i) => i.decode());
+  assert.match(
+    await page.locator("#capture-caption").textContent(),
+    /Source compression/,
+  );
+  await page.keyboard.press("Escape");
+  await page.locator("#next-app").click();
+  await page.waitForTimeout(750);
+  assert.equal(
+    await page.locator(".artifact.is-current").getAttribute("id"),
+    "app-" + apps[8].id,
+  );
+  await page.locator("#app-index [aria-current]").focus();
+  await page.keyboard.press("End");
+  await page.waitForTimeout(750);
+  assert.equal(
+    await page.locator("#app-index [aria-current]").getAttribute("data-app"),
+    "15",
+  );
+  await page.keyboard.press("Home");
+  await page.waitForTimeout(750);
+  assert.equal(
+    await page.locator("#app-index [aria-current]").getAttribute("data-app"),
+    "0",
+  );
+  // Observe the real transition, not just its endpoints.
+  const start7 = apps.slice(0, 7).reduce((sum, a) => sum + a.pace, 0);
+  await page.evaluate(
+    ({ start, pace }) =>
+      scrollTo({
+        top:
+          document.querySelector("#systems").offsetTop +
+          (start + pace * 0.83) * innerHeight,
+        behavior: "instant",
+      }),
+    { start: start7, pace: apps[7].pace },
+  );
+  await page.waitForTimeout(500);
+  assert.ok(
+    ["07", "08", "09"].includes(
+      await page.locator("#app-counter").textContent(),
+    ),
+  );
+  assert.ok(
+    await page
+      .locator(".screen-shard")
+      .evaluateAll((es) => es.some((e) => Number(e.style.opacity) > 0)),
+  );
+  await page.screenshot({ path: resolve(output, "atlas-transition.png") });
+  await page.evaluate(
+    ({ start, pace }) =>
+      scrollTo({
+        top:
+          document.querySelector("#systems").offsetTop +
+          (start + pace * 0.55) * innerHeight,
+        behavior: "instant",
+      }),
+    { start: start7, pace: apps[7].pace },
+  );
+  await page.waitForTimeout(400);
+  assert.equal(await page.locator("#app-counter").textContent(), "08");
+  assert.ok(
+    await page
+      .locator("#app-gan-temp-diagnoser .extracted-detail")
+      .evaluate((e) => Number(e.style.opacity) > 0.9),
+  );
+  await page.screenshot({ path: resolve(output, "atlas-detail.png") });
+  for (const [width, height, dpr] of [
+    [2560, 1440, 1],
+    [1920, 1080, 1],
+    [1440, 900, 1],
+    [1366, 768, 1],
+    [1024, 1366, 1],
+    [390, 844, 3],
+    [844, 390, 2],
+    [3840, 2160, 1],
+    [1440, 900, 2],
+  ]) {
+    const p = await browser.newPage({
+      viewport: { width, height },
+      deviceScaleFactor: dpr,
+      hasTouch: width < 1100,
+      isMobile: width < 700,
+    });
+    watch(p);
+    await p.goto(url + "/artifacts-by-gene/");
+    await p.waitForTimeout(150);
+    for (const i of [0, 7, 15]) {
+      await jump(p, i);
+      await composition(p, `${width}x${height}@${dpr} app${i}`);
+    }
+    await p.screenshot({
+      path: resolve(output, `atlas-${width}x${height}-${dpr}.png`),
+    });
+    if (width === 390) {
+      await p.locator("#index-toggle").click();
+      assert.equal(
+        await p.locator("#index-toggle").getAttribute("aria-expanded"),
+        "true",
+      );
+      await p.keyboard.press("Escape");
+      assert.equal(
+        await p.locator("#index-toggle").getAttribute("aria-expanded"),
+        "false",
+      );
+      await audit(p, "mobile");
+      await jump(p, 8);
+      await p
+        .locator(".artifact.is-current .camera-world")
+        .dispatchEvent("pointerdown", {
+          pointerType: "touch",
+          clientX: 320,
+          clientY: 440,
+        });
+      await p
+        .locator(".artifact.is-current .camera-world")
+        .dispatchEvent("pointerup", {
+          pointerType: "touch",
+          clientX: 80,
+          clientY: 445,
+        });
+      await p.waitForTimeout(750);
+      assert.equal(
+        await p.locator(".artifact.is-current").getAttribute("data-index"),
+        "9",
+      );
+    }
+    results.viewports.push({
+      width,
+      height,
+      dpr,
+      overflow: await p.evaluate(
+        () => document.documentElement.scrollWidth - innerWidth,
+      ),
+    });
+    await p.close();
+  }
+  const reduced = await browser.newPage({
+    viewport: { width: 1440, height: 900 },
+    reducedMotion: "reduce",
+  });
+  watch(reduced);
+  await reduced.goto(url);
+  await reduced.waitForTimeout(200);
+  assert.ok(
+    await reduced
       .locator("html")
       .evaluate((e) => e.classList.contains("motion-paused")),
   );
-  const paused = await page.evaluate(() => window.__draws);
-  await page.waitForTimeout(200);
-  assert.equal(await page.evaluate(() => window.__draws), paused);
-  await page.reload();
-  assert.equal(
-    await page.locator("#motion-toggle").getAttribute("aria-pressed"),
-    "false",
-    "Pause session retained",
+  for (let i = 0; i < 16; i++) await jump(reduced, i);
+  assert.ok(
+    await reduced
+      .locator("#systems")
+      .evaluate((e) => e.offsetHeight <= innerHeight + 1),
   );
-  await page.locator("#motion-toggle").click();
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.waitForTimeout(180);
-  assert.equal(await page.locator("#motion-toggle").isDisabled(), true);
-  await at(page, "gan-temp-diagnoser");
-  assert.equal(
-    await page
-      .locator("#gan-temp-diagnoser .scene")
-      .evaluate((e) => getComputedStyle(e).position),
-    "relative",
-  );
-  await page.screenshot({ path: resolve(output, "reduced-motion.png") });
-  await audit(page, "reduced motion");
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.waitForTimeout(150);
-  await at(page, "object");
-  await page.evaluate(
-    () =>
-      (window.__glLoss = document
-        .querySelector("canvas")
-        .getContext("webgl")
-        .getExtension("WEBGL_lose_context")),
-  );
-  await page.evaluate(() => window.__glLoss.loseContext());
-  await page.waitForTimeout(120);
-  assert.equal(
-    await page.locator("canvas").getAttribute("data-renderer"),
-    "fallback",
-  );
-  await page.evaluate(() => window.__glLoss.restoreContext());
-  await page.waitForTimeout(200);
-  assert.equal(
-    await page.locator("canvas").getAttribute("data-renderer"),
-    "webgl",
-  );
-  const mobile = await browser.newPage({
-    viewport: { width: 390, height: 844 },
-    isMobile: true,
-    hasTouch: true,
-  });
-  await mobile.goto(url);
-  await at(mobile, "anko-helper", 0.35);
-  await mobile.locator("#anko-helper .inspect-link").tap();
-  assert.equal(
-    await mobile.locator("#inspector").evaluate((e) => e.open),
-    true,
-  );
-  await mobile.locator("#zoom-image").tap();
-  await mobile.locator("#close-inspector").tap();
-  await audit(mobile, "mobile");
-  await mobile.close();
-  const nojs = await browser.newPage({
+  await audit(reduced, "reduced motion");
+  await reduced.close();
+  const plain = await browser.newPage({
     javaScriptEnabled: false,
     viewport: { width: 390, height: 844 },
   });
-  await nojs.goto(url);
-  assert.equal(await nojs.locator(".software .instrument img").count(), 5);
-  await nojs.locator("#anko-helper").scrollIntoViewIfNeeded();
-  assert.ok(await nojs.locator("#anko-helper .instrument img").isVisible());
-  await nojs.screenshot({ path: resolve(output, "no-js.png") });
-  await nojs.close();
+  watch(plain);
+  await plain.goto(url);
+  assert.equal(await plain.locator(".artifact").count(), 16);
+  assert.equal(await plain.locator(".artifact noscript img").count(), 16);
+  assert.equal(
+    await plain.evaluate(
+      () => document.documentElement.scrollWidth - innerWidth,
+    ),
+    0,
+  );
+  await plain.close();
   const fallback = await browser.newPage();
+  watch(fallback);
   await fallback.addInitScript(() => {
-    const get = HTMLCanvasElement.prototype.getContext;
+    const original = HTMLCanvasElement.prototype.getContext;
     HTMLCanvasElement.prototype.getContext = function (type, ...args) {
-      return type === "webgl" ? null : get.call(this, type, ...args);
+      return /webgl/.test(type) ? null : original.call(this, type, ...args);
     };
   });
   await fallback.goto(url);
-  assert.equal(
-    await fallback.locator("canvas").getAttribute("data-renderer"),
-    "fallback",
-  );
+  await fallback.waitForTimeout(500);
+  assert.ok(await fallback.locator(".wafer-fallback").isVisible());
+  await jump(fallback, 15);
   await fallback.close();
-  await page.goto(url + "/artifacts-by-gene/");
-  await at(page, "metria-spc", 0.35);
-  assert.equal(
-    await page
-      .locator("#metria-spc .instrument img")
-      .evaluate((e) => e.complete && e.naturalWidth > 900),
-    true,
-    "Repository-relative deployment",
+  await scene(page, "object");
+  await page.waitForTimeout(600);
+  const frames = await page.evaluate(
+    () =>
+      new Promise((resolve) => {
+        const values = [];
+        let previous;
+        function frame(t) {
+          if (previous) values.push(t - previous);
+          previous = t;
+          if (values.length < 180) requestAnimationFrame(frame);
+          else resolve(values.sort((a, b) => a - b));
+        }
+        requestAnimationFrame(frame);
+      }),
   );
+  results.performance.hero = {
+    median: frames[90],
+    p95: frames[171],
+    approximateFPS: 1000 / frames[90],
+  };
+  await jump(page, 0);
+  results.performance.longTasks = await page.evaluate(() => ({
+    count: longTasks.length,
+    max: Math.max(0, ...longTasks),
+  }));
   results.errors = errors;
-  assert.deepEqual(errors, []);
-  results.passed = true;
+  assert.deepEqual(errors, [], "browser/HTTP errors");
   console.log(JSON.stringify(results, null, 2));
 } finally {
   await writeFile(
-    resolve(output, "results.json"),
+    resolve(output, "validation-v3.json"),
     JSON.stringify({ ...results, errors }, null, 2),
   );
   await browser.close();

@@ -3,10 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node tests/browser.mjs"
+    "test": "node tests/browser.mjs",
+    "build": "node scripts/build.mjs",
+    "test:assets": "node tests/assets.mjs"
   },
   "devDependencies": {
     "axe-core": "4.10.3",
-    "playwright": "1.62.1"
+    "playwright": "1.62.1",
+    "sharp": "0.34.5"
   }
 }

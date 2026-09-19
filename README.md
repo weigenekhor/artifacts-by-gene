@@ -1,53 +1,81 @@
 # Artifacts by Gene
 
-A personal exhibition of engineering software at **https://artifactsbygene.com**.
+An interactive exhibition of all **16 ARTIFACTS applications** at https://artifactsbygene.com. ARTIFACTS is the main identity; Gene appears as a quiet attribution.
 
-Static HTML, CSS and ES modules. No build step, runtime packages, CDN, analytics, autoplay audio or scroll interception. Geist is self-hosted; its OFL license is included.
+Static HTML, CSS and JavaScript modules. No runtime dependencies, CDN, tracking, audio or scroll interception. The real ARTIFACTS symbol and self-hosted Geist font are included.
 
-## Preview and deployment
+## Preview and GitHub Pages
 
-Run `python -m http.server 8000` from the repository root. Open `http://localhost:8000`.
+Run `python -m http.server 8000` from this directory, then open `http://localhost:8000`.
 
-GitHub Pages uses **main / root**. Merge the review branch to publish through the existing Pages configuration. `CNAME` remains `artifactsbygene.com`; no DNS changes are required. All asset and module URLs are relative, including the original-image inspection links, so the site also works under `/artifacts-by-gene/`.
+Generated HTML is checked in. GitHub Pages can serve **main / root** directly, with no Actions build or package installation. The existing `CNAME` remains `artifactsbygene.com`. All local assets and modules use relative URLs; deployment under `/artifacts-by-gene/` is also tested. Merge the review branch only after review.
 
-## The exhibition
+## The experience
 
-1. **The object:** a masked, spatially assembled ARTIFACTS title and a silicon surface turning from edge to face. Scrolling moves past the object toward the question behind it.
-2. **The idea:** disordered mathematical traces converge into a structured set of paths. “Complexity is a given. Clarity is engineered.” These traces are abstract, not presented as application measurements.
-3. **The ecosystem:** real application planes separate into a connected collection; direct links let visitors choose a system.
-4. **The software:** GaN Temp Diagnoser, AIX ΔT Assistant, LT Zone Assistant, ANKO Helper and Metria SPC. Each screen approaches, settles into a readable view, then yields to a magnified region of the same capture. Alternating compositions and damped pointer orientation give the surfaces depth. Inspect opens the original capture with fit/zoom, keyboard scrolling, Escape and focus restoration.
-5. **The evolution and Gene:** layers resolve into ARTIFACTS, then the environment quiets for the person behind it.
+- A skippable opening assembles the actual three-layer symbol and spatial title, lights the silicon surface, and reveals distant real application screens.
+- Real UI regions organise behind “Complexity is a given. Clarity is engineered.”
+- Sixteen screen planes assemble into a collection, with direct access to the four original Expeditions.
+- A continuous camera stage presents every application. Screens approach from depth, settle frontally, expose an actual native-pixel detail, then separate into strips or columns as the next interface arrives. Each app has an individual pose and pacing in the catalogue.
+- The full index, previous/next controls, sixteen-position rail, direct hashes and touch swipes let visitors bypass the scroll sequence.
+- The inspector removes perspective and provides full interface, exact detail crop, available archive example, and native-pixel inspection.
+- ARTIFACTS closes the story. “Built by Gene” is deliberately restrained.
 
-The images are actual existing exports from Gene’s desktop application. No interface imagery was generated or recreated. ANKO shows existing demo data; Metria shows existing sample data. See [asset provenance and replacement instructions](assets/software/README.md).
+The categories and names come from the desktop application's `LEGACY_HOME_GROUPS`, `TITLES` and `CARD_DESCRIPTIONS`. Monolith is an overlapping current collection, not a fifth exclusive category. No app names, capabilities or measurements were invented.
 
-## File ownership
+## Source files
 
-- `index.html`: semantic, fully readable content and real image links even without JavaScript. Section IDs also power navigation. Application descriptions refer only to visible features in the captures.
-- `styles.css`: typography, physical screen layers, responsive composition, static and reduced-motion layouts.
-- `js/motion.js`: shared frame scheduler, exact critically damped spring, motion preferences and entrance timings.
-- `js/exhibition.js`: cached section geometry, native-scroll camera choreography, trace organisation, scene focus and image inspection.
-- `js/surface.js`: a single-draw WebGL wafer with reflected strip lighting, rim thickness, die pattern and a controlled entrance. CSS provides the fallback.
-- `assets/software/<application>/`: `interface.webp` (2048px export) and `preview.webp` (960px). Full-resolution images total approximately 615 KiB.
-- `tests/browser.mjs`: Playwright and axe checks. `.qa/` holds ignored screenshots and results.
+| File                              | Responsibility                                                                                 |
+| --------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `content/apps.json`               | Canonical sixteen-app content, capture provenance, dimensions, crop regions, poses and pacing. |
+| `content/page.html`               | Semantic page template and restrained personal copy.                                           |
+| `scripts/build.mjs`               | Generates `index.html` and `js/apps.js` from the same catalogue.                               |
+| `styles.css`                      | Layout, typography, material treatment, mobile and static compositions.                        |
+| `js/exhibition.js`                | Cached scene geometry, camera choreography, index, opening and inspector.                      |
+| `js/motion.js`                    | Single sleeping frame scheduler, critically damped motion and preferences.                     |
+| `js/surface.js`                   | Single-draw WebGL wafer and CSS fallback.                                                      |
+| `assets/brand/`                   | Original ARTIFACTS vector symbols, preserved verbatim.                                         |
+| `assets/artifacts/apps/<app-id>/` | Full-resolution capture, responsive derivative, thumbnail and exact crop.                      |
 
-## Motion and performance
+Edit the source catalogue/template, then run `node scripts/build.mjs`. Do not edit generated files directly. New CV or contact material belongs at the marked comment in the template.
 
-Scroll stays native. Sticky staging adds 75–80% of a viewport per desktop scene, with shorter mobile sequences. The full-screen view occupies the middle of each software scene; the magnified detail follows it. Direct links bypass the narrative sequence.
+## Image quality and updates
 
-The shared clock sleeps when DOM motion settles, pauses when the document is hidden and stops WebGL when the wafer is offscreen. Desktop shader rendering is capped at 1.1 million pixels, with a maximum pixel ratio of 1.5. Compact screens use at most 420,000 pixels at 24 Hz. Sustained slow frames lower the rendering resolution. There are no screen textures uploaded to WebGL: software is crisp DOM imagery with CSS perspective.
+Seven primary captures are native **3840 × 2160**. Nine are **2048 × 1104 archives originally captured as JPEG**, subsequently exported as PNG. Lossless WebP prevents further loss but cannot recover those originals. They are explicitly flagged in the model and inspector.
 
-**Motion off** persists for the session. OS reduced motion takes precedence. Both produce a complete static layout, removing sticky distances and macro overlays while retaining full-screen captures and inspection. Short landscape viewports use ordinary document flow so controls cannot become trapped below a pinned scene.
+Every full capture and detail crop is pixel-identical to its source. Full captures total **4.59 MiB**, loaded only around the active application. The 480px thumbnails are used only for distant overview planes. Screen width is capped against source resolution and device pixel ratio. The inspector never enlarges beyond source pixels.
 
-## Content maintenance
+See the complete [capture audit and exact recapture checklist](assets/artifacts/README.md).
 
-To replace a capture, keep the two filenames in its application folder. If the aspect ratio changes, update image width/height attributes in `index.html` and the plane width calculation in CSS. The `--crop` and `--zoom` properties on each software section choose its magnified detail; the original image stays intact. `data-side` sets its approach direction.
+To install a new native PNG capture (at least 2560px wide, preferably 3840px):
 
-New CV, experience or contact material belongs at the marked comment after the Gene section. No personal history, dates, qualifications, contact details or project performance claims have been invented.
+```sh
+pnpm install --frozen-lockfile
+node scripts/prepare-capture.mjs gan-temp-diagnoser /path/to/native-capture.png
+# Review captureNote and the detail region in content/apps.json.
+pnpm build
+pnpm test:assets
+```
+
+The script writes lossless full-size and 1280px WebPs, an overview thumbnail, a native crop, dimensions and provenance hashes. It does not upscale. Capture at the intended display resolution; do not resize an old export to pass the size check.
+
+## Motion, mobile and accessibility
+
+Scroll is native. The atlas adds approximately 0.5–0.7 viewport per application, with immediate index navigation. The camera settles after a direct jump and yields immediately to further scrolling. Desktop pointer input is damped; touch users can swipe horizontally on the screen plane while retaining vertical scroll.
+
+Mobile uses reduced perspective, a touch-sized index drawer and shorter compositions. Short landscape screens use an unpinned stage. OS reduced motion and the session motion toggle produce a deliberate, static single-app viewer with all sixteen entries accessible through the same index. Without JavaScript, all sixteen articles and original image links remain in normal document flow.
+
+The scheduler sleeps after settling and when hidden. The wafer pauses offscreen; its canvas is capped at 1.1 million pixels on desktop and 420,000 on compact displays, with adaptive resolution and a compact 24Hz cap. Application images are DOM content, not WebGL textures.
 
 ## Validation
 
-Install development dependencies with `pnpm install --frozen-lockfile`. Run `pnpm exec playwright install chromium` once, then `pnpm test`.
+```sh
+pnpm install --frozen-lockfile
+pnpm exec playwright install chromium
+pnpm build
+pnpm test:assets
+pnpm test
+```
 
-On Windows with Edge installed: `$env:BROWSER_CHANNEL='msedge'; node tests/browser.mjs`.
+Windows Edge: `$env:BROWSER_CHANNEL='msedge'; node tests/browser.mjs`.
 
-See [VALIDATION.md](VALIDATION.md) for measured results and the limits of browser/device coverage.
+See [VALIDATION.md](VALIDATION.md) for coverage, measured frame timing and limitations. `sharp`, Playwright and axe are development tools only.

@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Artifacts by Gene — An engineering software ecosystem</title>
+    <meta
+      name="description"
+      content="Sixteen engineering applications. One independent body of work. Explore the ARTIFACTS software ecosystem, built by Gene."
+    />
+    <meta name="theme-color" content="#0b0c0d" />
+    <link rel="canonical" href="https://artifactsbygene.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Artifacts by Gene" />
+    <meta
+      property="og:description"
+      content="Sixteen engineering applications. One body of work."
+    />
+    <meta property="og:url" content="https://artifactsbygene.com/" />
+    <meta
+      property="og:image"
+      content="https://artifactsbygene.com/assets/social-preview.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="assets/fonts/Geist-Latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#systems">Skip to the applications</a>
+    <header class="site-header">
+      <a class="brand" href="#object" aria-label="ARTIFACTS by Gene, home"
+        ><img
+          src="assets/brand/artifacts-symbol.svg"
+          alt=""
+          width="80"
+          height="80"
+        /><span>ARTIFACTS <small>by Gene</small></span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#systems">Explore the 16</a
+        ><a href="#collection">The collection</a><a href="#about">About</a>
+      </nav>
+      <button
+        id="motion-toggle"
+        type="button"
+        aria-label="Enable spatial animation"
+        aria-pressed="true"
+        hidden
+      >
+        <i></i><span>Motion on</span>
+      </button>
+    </header>
+    <main>
+      <section id="object" class="hero staged" aria-labelledby="hero-title">
+        <div class="scene hero-scene">
+          <div class="hero-register eyebrow">
+            <span>INDEPENDENT ENGINEERING SOFTWARE</span
+            ><span>16 APPLICATIONS / ONE ECOSYSTEM</span>
+          </div>
+          <div class="hero-logo">
+            <!-- REAL_LOGO --><span class="eyebrow"
+              >ARTIFACTS<br /><small>by Gene</small></span
+            >
+          </div>
+          <div class="hero-title-space">
+            <h1 id="hero-title">ARTIFACTS<span>.</span></h1>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="wafer-fallback"></div>
+            <canvas id="wafer-canvas"></canvas>
+          </div>
+          <div class="distant-systems" aria-hidden="true">
+            <img
+              src="assets/artifacts/apps/metria-spc/thumbnail.webp"
+              alt=""
+              width="3840"
+              height="2160"
+            /><img
+              src="assets/artifacts/apps/lt-zone-assistant/thumbnail.webp"
+              alt=""
+              width="2048"
+              height="1104"
+            /><img
+              src="assets/artifacts/apps/topotracer/thumbnail.webp"
+              alt=""
+              width="2048"
+              height="1104"
+            />
+          </div>
+          <div class="hero-copy">
+            <p>Curiosity, made tangible.</p>
+            <span>Tools became systems.<br />Systems became ARTIFACTS.</span>
+          </div>
+          <div class="hero-question">
+            <p>What if the work<br />could be clearer?</p>
+          </div>
+          <div class="scene-footer">
+            <a href="#idea">ENTER ARTIFACTS <span aria-hidden="true">↓</span></a
+            ><button id="skip-opening" hidden>Skip opening ↗</button
+            ><span class="eyebrow">ENGINEERING / AUTOMATION / ANALYSIS</span>
+          </div>
+        </div>
+      </section>
+      <section id="idea" class="idea staged" aria-labelledby="idea-title">
+        <div class="scene idea-scene">
+          <div class="scene-label eyebrow">01 / FROM COMPLEXITY</div>
+          <div class="idea-material" aria-hidden="true">
+            <img
+              src="assets/artifacts/apps/metria-spc/detail-01.webp"
+              width="3226"
+              height="756"
+              alt=""
+              loading="lazy"
+            /><img
+              src="assets/artifacts/apps/lt-zone-assistant/detail-01.webp"
+              width="1044"
+              height="828"
+              alt=""
+              loading="lazy"
+            /><img
+              src="assets/artifacts/apps/altus-lotviewer/detail-01.webp"
+              width="1475"
+              height="442"
+              alt=""
+              loading="lazy"
+            />
+          </div>
+          <div class="idea-copy">
+            <p class="eyebrow">TRACES. DECISIONS. RELATIONSHIPS.</p>
+            <h2 id="idea-title">
+              Complexity is a given.<br /><span>Clarity is engineered.</span>
+            </h2>
+            <p>Software gives the work a structure.</p>
+          </div>
+          <span class="material-note eyebrow"
+            >DETAILS FROM THE ACTUAL APPLICATIONS</span
+          >
+        </div>
+      </section>
+      <section
+        id="collection"
+        class="collection staged"
+        aria-labelledby="collection-title"
+      >
+        <div class="scene collection-scene">
+          <div class="scene-label eyebrow">02 / THE WHOLE ECOSYSTEM</div>
+          <div class="collection-copy">
+            <h2 id="collection-title">
+              Sixteen instruments.<br />Connected thinking.
+            </h2>
+            <p>
+              From Altus to Planetfall.<br />The original ARTIFACTS Expeditions.
+            </p>
+          </div>
+          <div class="constellation"><!-- CONSTELLATION --></div>
+          <nav
+            class="expedition-links"
+            aria-label="Explore the original Expeditions"
+          >
+            <!-- EXPEDITION_LINKS -->
+          </nav>
+          <div class="scene-footer">
+            <a href="#systems"
+              >EXPLORE EVERY APPLICATION <span aria-hidden="true">↘</span></a
+            ><span class="eyebrow"
+              >16 APPLICATIONS / 4 ORIGINAL EXPEDITIONS</span
+            >
+          </div>
+        </div>
+      </section>
+      <section id="systems" class="atlas" aria-labelledby="atlas-title">
+        <div class="atlas-stage">
+          <div class="atlas-top">
+            <h2 id="atlas-title">The instruments</h2>
+            <span class="eyebrow"><b id="app-counter">01</b> / 16</span
+            ><button
+              id="index-toggle"
+              aria-expanded="false"
+              aria-controls="app-index"
+              hidden
+            >
+              All applications <span aria-hidden="true">＋</span>
+            </button>
+          </div>
+          <nav
+            id="app-index"
+            class="app-index"
+            aria-label="All sixteen ARTIFACTS applications"
+          >
+            <!-- APP_INDEX -->
+          </nav>
+          <div class="atlas-world"><!-- APP_SCENES --></div>
+          <div class="atlas-navigation">
+            <button id="previous-app" aria-label="Previous application" hidden>
+              ← <span>Previous</span>
+            </button>
+            <div class="app-ruler" aria-hidden="true"></div>
+            <button id="next-app" aria-label="Next application" hidden>
+              <span>Next</span> →
+            </button>
+          </div>
+          <p id="app-announcement" class="sr-only" aria-live="polite"></p>
+        </div>
+      </section>
+      <section id="closing" class="closing" aria-labelledby="closing-title">
+        <div class="closing-mark">
+          <img
+            src="assets/brand/artifacts-symbol-metal.svg"
+            alt=""
+            width="80"
+            height="80"
+          />
+        </div>
+        <p class="eyebrow">SIXTEEN APPLICATIONS. STILL EVOLVING.</p>
+        <h2 id="closing-title">ARTIFACTS<span>.</span></h2>
+        <p>A place for it all<br />to come together.</p>
+        <a href="#systems"
+          >Return to the instruments <span aria-hidden="true">↗</span></a
+        >
+      </section>
+      <section id="about" class="about" aria-labelledby="about-title">
+        <h2 id="about-title">Built by Gene.</h2>
+        <div>
+          <p>
+            I enjoy building things.<br />ARTIFACTS is where they come together.
+          </p>
+          <span>Semiconductor engineering / software / automation</span>
+        </div>
+        <!-- CONTENT: Add verified CV, experience and contact details here when ready. -->
+      </section>
+    </main>
+    <footer>
+      <a class="brand" href="#object"
+        ><img
+          src="assets/brand/artifacts-symbol.svg"
+          width="80"
+          height="80"
+          alt=""
+        /><span>ARTIFACTS <small>by Gene</small></span></a
+      ><span class="eyebrow"
+        >AN INDEPENDENT BODY OF WORK / <span id="year">2026</span></span
+      ><a href="#object">Back to the surface ↑</a>
+    </footer>
+    <dialog id="inspector" aria-labelledby="inspector-title">
+      <div class="inspector-header">
+        <div>
+          <p class="eyebrow">ORIGINAL APPLICATION CAPTURE</p>
+          <h2 id="inspector-title"></h2>
+        </div>
+        <button id="close-inspector" autofocus>Close ×</button>
+      </div>
+      <div class="inspector-toolbar">
+        <div id="capture-options"></div>
+        <button id="native-size" aria-pressed="false">Native pixels</button
+        ><span id="image-dimensions"></span>
+      </div>
+      <div
+        class="inspector-viewport"
+        tabindex="0"
+        aria-label="Application image. Native pixels displays the source without enlargement."
+      >
+        <img id="inspector-image" alt="" />
+      </div>
+      <p id="capture-caption"></p>
+    </dialog>
+  </body>
+</html>

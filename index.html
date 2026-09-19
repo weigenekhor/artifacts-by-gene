@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Artifacts by Gene — Engineering software & systems</title>
+    <title>Artifacts by Gene — An engineering software ecosystem</title>
     <meta
       name="description"
-      content="ARTIFACTS by Gene. A personal collection of software and systems for semiconductor engineering, automation, analysis, and planning."
+      content="Sixteen engineering applications. One independent body of work. Explore the ARTIFACTS software ecosystem, built by Gene."
     />
     <meta name="theme-color" content="#0b0c0d" />
     <link rel="canonical" href="https://artifactsbygene.com/" />
@@ -14,19 +14,15 @@
     <meta property="og:title" content="Artifacts by Gene" />
     <meta
       property="og:description"
-      content="Built from curiosity. Engineered for purpose. A personal ecosystem of engineering software and systems."
+      content="Sixteen engineering applications. One body of work."
     />
     <meta property="og:url" content="https://artifactsbygene.com/" />
     <meta
       property="og:image"
       content="https://artifactsbygene.com/assets/social-preview.png"
     />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-    <link rel="stylesheet" href="styles.css" />
-
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link
       rel="preload"
       href="assets/fonts/Geist-Latin.woff2"
@@ -34,52 +30,54 @@
       type="font/woff2"
       crossorigin
     />
-    <script src="script.js" type="module"></script>
-    <link rel="modulepreload" href="js/motion.js" />
-    <link rel="modulepreload" href="js/exhibition.js" />
-    <link rel="modulepreload" href="js/surface.js" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#systems">Skip to the applications</a>
     <header class="site-header">
-      <a class="brand" href="#object" aria-label="Artifacts by Gene, home"
-        ><svg viewBox="0 0 32 32" aria-hidden="true">
-          <path d="m5 20 11-6 11 6-11 6Zm0-6 11-6 11 6M5 26l11 6 11-6" /></svg
-        ><span>ARTIFACTS <small>by Gene</small></span></a
+      <a class="brand" href="#object" aria-label="ARTIFACTS by Gene, home"
+        ><img
+          src="assets/brand/artifacts-symbol.svg"
+          alt=""
+          width="80"
+          height="80"
+        /><span>ARTIFACTS <small>by Gene</small></span></a
       >
       <nav aria-label="Main navigation">
-        <a href="#systems">The systems</a><a href="#evolution">The story</a
-        ><a href="#gene">Gene <span aria-hidden="true">↗</span></a>
+        <a href="#systems">Explore the 16</a
+        ><a href="#collection">The collection</a><a href="#about">About</a>
       </nav>
       <button
-        type="button"
         id="motion-toggle"
+        type="button"
         aria-label="Enable spatial animation"
         aria-pressed="true"
         hidden
       >
-        <i aria-hidden="true"></i><span>Motion on</span>
+        <i></i><span>Motion on</span>
       </button>
     </header>
-    <aside class="chapter-rail" aria-label="Exhibition chapters">
-      <a href="#object" aria-label="01 — The object"><span>01</span></a
-      ><a href="#clarity" aria-label="02 — The idea"><span>02</span></a
-      ><a href="#systems" aria-label="03 — The systems"><span>03</span></a
-      ><a href="#evolution" aria-label="04 — The evolution"><span>04</span></a
-      ><a href="#gene" aria-label="05 — Gene"><span>05</span></a>
-      <div class="rail-track"><i></i></div>
-    </aside>
-    <main id="main">
-      <section
-        class="hero journey"
-        id="object"
-        aria-labelledby="hero-title"
-        data-chapter="object"
-      >
+    <main>
+      <section id="object" class="hero staged" aria-labelledby="hero-title">
         <div class="scene hero-scene">
-          <div class="hero-topline micro">
-            <span><b>01 /</b> AN INDEPENDENT BODY OF WORK</span
-            ><span>ENGINEERING · SOFTWARE · SYSTEMS</span>
+          <div class="hero-register eyebrow">
+            <span>INDEPENDENT ENGINEERING SOFTWARE</span
+            ><span>16 APPLICATIONS / ONE ECOSYSTEM</span>
+          </div>
+          <div class="hero-logo">
+            <svg class="hero-mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <title>Artifacts</title>
+  <desc>Three rising sheets with a shared sweep and curved leading edges.</desc>
+  <g fill="#e9edf0">
+    <path d="M8 28.5L41 8.5Q43.5 7 46.5 8.5L62.5 17.5L33.5 34.5Q25 39.5 18 35Z"/>
+    <path d="M8 45L20 38.5Q27.5 44 35.5 39.5L55.5 28Q57.5 27 59.5 28L70.5 34L40.5 51.5Q31.5 57 24 53Z"/>
+    <path d="M18 62L30 55Q38 60 46 55.5L63 46Q64.5 45 66 46L74 51L47 67Q39 72 32 68Z"/>
+  </g>
+</svg>
+<span class="eyebrow"
+              >ARTIFACTS<br /><small>by Gene</small></span
+            >
           </div>
           <div class="hero-title-space">
             <h1 id="hero-title">ARTIFACTS<span>.</span></h1>
@@ -88,706 +86,294 @@
             <div class="wafer-fallback"></div>
             <canvas id="wafer-canvas"></canvas>
           </div>
-          <div class="object-annotation micro" aria-hidden="true">
-            <span class="annotation-line"></span>001 — SILICON / LAYER STUDY
+          <div class="distant-systems" aria-hidden="true">
+            <img
+              src="assets/artifacts/apps/metria-spc/thumbnail.webp"
+              alt=""
+              width="3840"
+              height="2160"
+            /><img
+              src="assets/artifacts/apps/lt-zone-assistant/thumbnail.webp"
+              alt=""
+              width="2048"
+              height="1104"
+            /><img
+              src="assets/artifacts/apps/topotracer/thumbnail.webp"
+              alt=""
+              width="2048"
+              height="1104"
+            />
           </div>
           <div class="hero-copy">
-            <p class="hero-by">by Gene</p>
-            <p>It began with curiosity.<br />Then I started building.</p>
+            <p>Curiosity, made tangible.</p>
+            <span>Tools became systems.<br />Systems became ARTIFACTS.</span>
           </div>
-          <div class="hero-second">
-            <span class="micro">EVERY SYSTEM BEGINS SOMEWHERE.</span>
-            <p>With a question.</p>
+          <div class="hero-question">
+            <p>What if the work<br />could be clearer?</p>
           </div>
-          <div class="scene-foot micro">
-            <span>SEMICONDUCTORS / AUTOMATION / ANALYSIS</span
-            ><a href="#clarity"
-              >ENTER THE COLLECTION <span aria-hidden="true">↓</span></a
+          <div class="scene-footer">
+            <a href="#idea">ENTER ARTIFACTS <span aria-hidden="true">↓</span></a
+            ><button id="skip-opening" hidden>Skip opening ↗</button
+            ><span class="eyebrow">ENGINEERING / AUTOMATION / ANALYSIS</span>
+          </div>
+        </div>
+      </section>
+      <section id="idea" class="idea staged" aria-labelledby="idea-title">
+        <div class="scene idea-scene">
+          <div class="scene-label eyebrow">01 / FROM COMPLEXITY</div>
+          <div class="idea-material" aria-hidden="true">
+            <img
+              src="assets/artifacts/apps/metria-spc/detail-01.webp"
+              width="3226"
+              height="756"
+              alt=""
+              loading="lazy"
+            /><img
+              src="assets/artifacts/apps/lt-zone-assistant/detail-01.webp"
+              width="1044"
+              height="828"
+              alt=""
+              loading="lazy"
+            /><img
+              src="assets/artifacts/apps/altus-lotviewer/detail-01.webp"
+              width="1475"
+              height="442"
+              alt=""
+              loading="lazy"
+            />
+          </div>
+          <div class="idea-copy">
+            <p class="eyebrow">TRACES. DECISIONS. RELATIONSHIPS.</p>
+            <h2 id="idea-title">
+              Complexity is a given.<br /><span>Clarity is engineered.</span>
+            </h2>
+            <p>Software gives the work a structure.</p>
+          </div>
+          <span class="material-note eyebrow"
+            >DETAILS FROM THE ACTUAL APPLICATIONS</span
+          >
+        </div>
+      </section>
+      <section
+        id="collection"
+        class="collection staged"
+        aria-labelledby="collection-title"
+      >
+        <div class="scene collection-scene">
+          <div class="scene-label eyebrow">02 / THE WHOLE ECOSYSTEM</div>
+          <div class="collection-copy">
+            <h2 id="collection-title">
+              Sixteen instruments.<br />Connected thinking.
+            </h2>
+            <p>
+              From Altus to Planetfall.<br />The original ARTIFACTS Expeditions.
+            </p>
+          </div>
+          <div class="constellation"><a href="#app-altus-lotviewer" data-app="0" class="constellation-plane" style="--n:0"><img src="assets/artifacts/apps/altus-lotviewer/thumbnail.webp" width="2048" height="1104" alt="Altus LotViewer" loading="lazy" decoding="async"><span>01 / Altus LotViewer</span></a><a href="#app-altus-anko-viewer" data-app="1" class="constellation-plane" style="--n:1"><img src="assets/artifacts/apps/altus-anko-viewer/thumbnail.webp" width="2048" height="1104" alt="Altus ANKO Viewer" loading="lazy" decoding="async"><span>02 / Altus ANKO Viewer</span></a><a href="#app-altus-wafercount" data-app="2" class="constellation-plane" style="--n:2"><img src="assets/artifacts/apps/altus-wafercount/thumbnail.webp" width="2048" height="1104" alt="Altus WaferCount" loading="lazy" decoding="async"><span>03 / Altus WaferCount</span></a><a href="#app-topotracer" data-app="3" class="constellation-plane" style="--n:3"><img src="assets/artifacts/apps/topotracer/thumbnail.webp" width="2048" height="1104" alt="TopoTracer" loading="lazy" decoding="async"><span>04 / TopoTracer</span></a><a href="#app-papyrus-reader" data-app="4" class="constellation-plane" style="--n:4"><img src="assets/artifacts/apps/papyrus-reader/thumbnail.webp" width="3840" height="2160" alt="Papyrus Reader" loading="lazy" decoding="async"><span>05 / Papyrus Reader</span></a><a href="#app-spc-pathfinder" data-app="5" class="constellation-plane" style="--n:5"><img src="assets/artifacts/apps/spc-pathfinder/thumbnail.webp" width="2048" height="1104" alt="SPC Pathfinder" loading="lazy" decoding="async"><span>06 / SPC Pathfinder</span></a><a href="#app-gan-met-compiler" data-app="6" class="constellation-plane" style="--n:6"><img src="assets/artifacts/apps/gan-met-compiler/thumbnail.webp" width="2048" height="1104" alt="GaN Met Compiler" loading="lazy" decoding="async"><span>07 / GaN Met Compiler</span></a><a href="#app-gan-temp-diagnoser" data-app="7" class="constellation-plane" style="--n:7"><img src="assets/artifacts/apps/gan-temp-diagnoser/thumbnail.webp" width="3840" height="2160" alt="GaN Temp Diagnoser" loading="lazy" decoding="async"><span>08 / GaN Temp Diagnoser</span></a><a href="#app-aix-dt-assistant" data-app="8" class="constellation-plane" style="--n:8"><img src="assets/artifacts/apps/aix-dt-assistant/thumbnail.webp" width="3840" height="2160" alt="AIX ΔT Assistant" loading="lazy" decoding="async"><span>09 / AIX ΔT Assistant</span></a><a href="#app-lt-zone-assistant" data-app="9" class="constellation-plane" style="--n:9"><img src="assets/artifacts/apps/lt-zone-assistant/thumbnail.webp" width="2048" height="1104" alt="LT Zone Assistant" loading="lazy" decoding="async"><span>10 / LT Zone Assistant</span></a><a href="#app-gan-xml-assistant" data-app="10" class="constellation-plane" style="--n:10"><img src="assets/artifacts/apps/gan-xml-assistant/thumbnail.webp" width="3840" height="2160" alt="GaN XML Assistant" loading="lazy" decoding="async"><span>11 / GaN XML Assistant</span></a><a href="#app-magus-spc-gan" data-app="11" class="constellation-plane" style="--n:11"><img src="assets/artifacts/apps/magus-spc-gan/thumbnail.webp" width="3840" height="2160" alt="Magus SPC (GaN)" loading="lazy" decoding="async"><span>12 / Magus SPC (GaN)</span></a><a href="#app-magus-spc-legacy" data-app="12" class="constellation-plane" style="--n:12"><img src="assets/artifacts/apps/magus-spc-legacy/thumbnail.webp" width="3840" height="2160" alt="Magus SPC (Legacy)" loading="lazy" decoding="async"><span>13 / Magus SPC (Legacy)</span></a><a href="#app-anko-helper" data-app="13" class="constellation-plane" style="--n:13"><img src="assets/artifacts/apps/anko-helper/thumbnail.webp" width="2048" height="1104" alt="ANKO Helper" loading="lazy" decoding="async"><span>14 / ANKO Helper</span></a><a href="#app-lt-report-compiler" data-app="14" class="constellation-plane" style="--n:14"><img src="assets/artifacts/apps/lt-report-compiler/thumbnail.webp" width="2048" height="1104" alt="LT Report Compiler" loading="lazy" decoding="async"><span>15 / LT Report Compiler</span></a><a href="#app-metria-spc" data-app="15" class="constellation-plane" style="--n:15"><img src="assets/artifacts/apps/metria-spc/thumbnail.webp" width="3840" height="2160" alt="Metria SPC" loading="lazy" decoding="async"><span>16 / Metria SPC</span></a></div>
+          <nav
+            class="expedition-links"
+            aria-label="Explore the original Expeditions"
+          >
+            <a href="#app-altus-lotviewer" data-app="0"><span>01 / 3 APPLICATIONS</span>Altus<i aria-hidden="true">↗</i></a><a href="#app-topotracer" data-app="3"><span>02 / 3 APPLICATIONS</span>Interstice<i aria-hidden="true">↗</i></a><a href="#app-gan-met-compiler" data-app="6"><span>03 / 5 APPLICATIONS</span>GaN EPI<i aria-hidden="true">↗</i></a><a href="#app-magus-spc-gan" data-app="11"><span>04 / 5 APPLICATIONS</span>Planetfall<i aria-hidden="true">↗</i></a>
+          </nav>
+          <div class="scene-footer">
+            <a href="#systems"
+              >EXPLORE EVERY APPLICATION <span aria-hidden="true">↘</span></a
+            ><span class="eyebrow"
+              >16 APPLICATIONS / 4 ORIGINAL EXPEDITIONS</span
             >
           </div>
         </div>
       </section>
-      <section
-        id="clarity"
-        class="clarity journey"
-        aria-labelledby="clarity-title"
-        data-chapter="clarity"
-      >
-        <div class="scene clarity-scene">
-          <div class="scene-label micro"><b>02 /</b> THE IDEA</div>
-          <div class="clarity-copy">
-            <p class="quiet">Repeated problems. Tangled workflows.</p>
-            <h2 id="clarity-title">
-              Complexity is a given.<br /><span>Clarity is engineered.</span>
-            </h2>
+      <section id="systems" class="atlas" aria-labelledby="atlas-title">
+        <div class="atlas-stage">
+          <div class="atlas-top">
+            <h2 id="atlas-title">The instruments</h2>
+            <span class="eyebrow"><b id="app-counter">01</b> / 16</span
+            ><button
+              id="index-toggle"
+              aria-expanded="false"
+              aria-controls="app-index"
+              hidden
+            >
+              All applications <span aria-hidden="true">＋</span>
+            </button>
           </div>
-          <svg
-            class="trace-field"
-            viewBox="0 0 1200 500"
-            preserveAspectRatio="none"
-            aria-hidden="true"
+          <nav
+            id="app-index"
+            class="app-index"
+            aria-label="All sixteen ARTIFACTS applications"
           >
-            <g class="trace-lines"></g>
-            <path class="trace-spine" d="M0 250H1200" />
-          </svg>
-          <div class="clarity-bottom">
-            <p>Software became a way<br />to make the work clearer.</p>
-            <div class="structure-label micro">
-              <span>COMPLEXITY</span><i></i><span>STRUCTURE</span>
-            </div>
+            <div class="index-group"><span class="group-label">Expedition I / Altus</span><a href="#app-altus-lotviewer" data-app="0"><span>01</span>Altus LotViewer<i aria-hidden="true"></i></a><a href="#app-altus-anko-viewer" data-app="1"><span>02</span>Altus ANKO Viewer<i aria-hidden="true"></i></a><a href="#app-altus-wafercount" data-app="2"><span>03</span>Altus WaferCount<i aria-hidden="true"></i></a></div><div class="index-group"><span class="group-label">Expedition II / Interstice</span><a href="#app-topotracer" data-app="3"><span>04</span>TopoTracer<i aria-hidden="true"></i></a><a href="#app-papyrus-reader" data-app="4"><span>05</span>Papyrus Reader<i aria-hidden="true"></i></a><a href="#app-spc-pathfinder" data-app="5"><span>06</span>SPC Pathfinder<i aria-hidden="true"></i></a></div><div class="index-group"><span class="group-label">Expedition III / GaN EPI</span><a href="#app-gan-met-compiler" data-app="6"><span>07</span>GaN Met Compiler<i aria-hidden="true"></i></a><a href="#app-gan-temp-diagnoser" data-app="7"><span>08</span>GaN Temp Diagnoser<i aria-hidden="true"></i></a><a href="#app-aix-dt-assistant" data-app="8"><span>09</span>AIX ΔT Assistant<i aria-hidden="true"></i></a><a href="#app-lt-zone-assistant" data-app="9"><span>10</span>LT Zone Assistant<i aria-hidden="true"></i></a><a href="#app-gan-xml-assistant" data-app="10"><span>11</span>GaN XML Assistant<i aria-hidden="true"></i></a></div><div class="index-group"><span class="group-label">Expedition IV / Planetfall</span><a href="#app-magus-spc-gan" data-app="11"><span>12</span>Magus SPC (GaN)<i aria-hidden="true"></i></a><a href="#app-magus-spc-legacy" data-app="12"><span>13</span>Magus SPC (Legacy)<i aria-hidden="true"></i></a><a href="#app-anko-helper" data-app="13"><span>14</span>ANKO Helper<i aria-hidden="true"></i></a><a href="#app-lt-report-compiler" data-app="14"><span>15</span>LT Report Compiler<i aria-hidden="true"></i></a><a href="#app-metria-spc" data-app="15"><span>16</span>Metria SPC<i aria-hidden="true"></i></a></div>
+          </nav>
+          <div class="atlas-world"><article class="artifact" id="app-altus-lotviewer" data-index="0" data-visual="lot_trace" aria-labelledby="name-altus-lotviewer">
+ <div class="artifact-copy"><p class="eyebrow">Expedition I / Altus</p><h3 id="name-altus-lotviewer">Altus LotViewer</h3><p class="app-description">Lot history analysis.</p></div>
+ <div class="camera-world"><div class="artifact-pose"><a class="screen-object" data-inspect="0" href="assets/artifacts/apps/altus-lotviewer/hero.webp" aria-label="Inspect Altus LotViewer"><img class="screen-image" data-src="assets/artifacts/apps/altus-lotviewer/hero.webp" data-srcset="assets/artifacts/apps/altus-lotviewer/hero-1280.webp 1280w, assets/artifacts/apps/altus-lotviewer/hero.webp 2048w" width="2048" height="1104" alt="Altus LotViewer — demo lot history" decoding="async"><noscript><img src="assets/artifacts/apps/altus-lotviewer/hero.webp" width="2048" height="1104" alt="Altus LotViewer interface" loading="lazy"></noscript><span class="screen-reflection" aria-hidden="true"></span></a><div class="screen-shards" aria-hidden="true"><div class="screen-shard" style="--slice:0"><img class="" data-src="assets/artifacts/apps/altus-lotviewer/hero.webp" data-srcset="assets/artifacts/apps/altus-lotviewer/hero-1280.webp 1280w, assets/artifacts/apps/altus-lotviewer/hero.webp 2048w" width="2048" height="1104" alt="Altus LotViewer — demo lot history" decoding="async"></div><div class="screen-shard" style="--slice:1"><img class="" data-src="assets/artifacts/apps/altus-lotviewer/hero.webp" data-srcset="assets/artifacts/apps/altus-lotviewer/hero-1280.webp 1280w, assets/artifacts/apps/altus-lotviewer/hero.webp 2048w" width="2048" height="1104" alt="Altus LotViewer — demo lot history" decoding="async"></div><div class="screen-shard" style="--slice:2"><img class="" data-src="assets/artifacts/apps/altus-lotviewer/hero.webp" data-srcset="assets/artifacts/apps/altus-lotviewer/hero-1280.webp 1280w, assets/artifacts/apps/altus-lotviewer/hero.webp 2048w" width="2048" height="1104" alt="Altus LotViewer — demo lot history" decoding="async"></div></div></div>
+ <div class="extracted-detail" aria-hidden="true"><img data-src="assets/artifacts/apps/altus-lotviewer/detail-01.webp" width="1475" height="442" alt="" decoding="async"><span>Lot history rows</span></div></div>
+ <div class="artifact-caption"><span>Demo lot history</span><a href="assets/artifacts/apps/altus-lotviewer/hero.webp" data-inspect="0">Inspect interface <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="artifact" id="app-altus-anko-viewer" data-index="1" data-visual="anko_schedule" aria-labelledby="name-altus-anko-viewer">
+ <div class="artifact-copy"><p class="eyebrow">Expedition I / Altus</p><h3 id="name-altus-anko-viewer">Altus ANKO Viewer</h3><p class="app-description">ANKO schedule retrieval.</p></div>
+ <div class="camera-world"><div class="artifact-pose"><a class="screen-object" data-inspect="1" href="assets/artifacts/apps/altus-anko-viewer/hero.webp" aria-label="Inspect Altus ANKO Viewer"><img class="screen-image" data-src="assets/artifacts/apps/altus-anko-viewer/hero.webp" data-srcset="assets/artifacts/apps/altus-anko-viewer/hero-1280.webp 1280w, assets/artifacts/apps/altus-anko-viewer/hero.webp 2048w" width="2048" height="1104" alt="Altus ANKO Viewer — demo schedule" decoding="async"><noscript><img src="assets/artifacts/apps/altus-anko-viewer/hero.webp" width="2048" height="1104" alt="Altus ANKO Viewer interface" loading="lazy"></noscript><span class="screen-reflection" aria-hidden="true"></span></a><div class="screen-shards" aria-hidden="true"><div class="screen-shard" style="--slice:0"><img class="" data-src="assets/artifacts/apps/altus-anko-viewer/hero.webp" data-srcset="assets/artifacts/apps/altus-anko-viewer/hero-1280.webp 1280w, assets/artifacts/apps/altus-anko-viewer/hero.webp 2048w" width="2048" height="1104" alt="Altus ANKO Viewer — demo schedule" decoding="async"></div><div class="screen-shard" style="--slice:1"><img class="" data-src="assets/artifacts/apps/altus-anko-viewer/hero.webp" data-srcset="assets/artifacts/apps/altus-anko-viewer/hero-1280.webp 1280w, assets/artifacts/apps/altus-anko-viewer/hero.webp 2048w" width="2048" height="1104" alt="Altus ANKO Viewer — demo schedule" decoding="async"></div><div class="screen-shard" style="--slice:2"><img class="" data-src="assets/artifacts/apps/altus-anko-viewer/hero.webp" data-srcset="assets/artifacts/apps/altus-anko-viewer/hero-1280.webp 1280w, assets/artifacts/apps/altus-anko-viewer/hero.webp 2048w" width="2048" height="1104" alt="Altus ANKO Viewer — demo schedule" decoding="async"></div></div></div>
+ <div class="extracted-detail" aria-hidden="true"><img data-src="assets/artifacts/apps/altus-anko-viewer/detail-01.webp" width="1720" height="397" alt="" decoding="async"><span>Reactor schedule</span></div></div>
+ <div class="artifact-caption"><span>Demo schedule</span><a href="assets/artifacts/apps/altus-anko-viewer/hero.webp" data-inspect="1">Inspect interface <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="artifact" id="app-altus-wafercount" data-index="2" data-visual="wafer_grid" aria-labelledby="name-altus-wafercount">
+ <div class="artifact-copy"><p class="eyebrow">Expedition I / Altus</p><h3 id="name-altus-wafercount">Altus WaferCount</h3><p class="app-description">Wafer loading planner.</p></div>
+ <div class="camera-world"><div class="artifact-pose"><a class="screen-object" data-inspect="2" href="assets/artifacts/apps/altus-wafercount/hero.webp" aria-label="Inspect Altus WaferCount"><img class="screen-image" data-src="assets/artifacts/apps/altus-wafercount/hero.webp" data-srcset="assets/artifacts/apps/altus-wafercount/hero-1280.webp 1280w, assets/artifacts/apps/altus-wafercount/hero.webp 2048w" width="2048" height="1104" alt="Altus WaferCount — demo loading values" decoding="async"><noscript><img src="assets/artifacts/apps/altus-wafercount/hero.webp" width="2048" height="1104" alt="Altus WaferCount interface" loading="lazy"></noscript><span class="screen-reflection" aria-hidden="true"></span></a><div class="screen-shards" aria-hidden="true"><div class="screen-shard" style="--slice:0"><img class="" data-src="assets/artifacts/apps/altus-wafercount/hero.webp" data-srcset="assets/artifacts/apps/altus-wafercount/hero-1280.webp 1280w, assets/artifacts/apps/altus-wafercount/hero.webp 2048w" width="2048" height="1104" alt="Altus WaferCount — demo loading values" decoding="async"></div><div class="screen-shard" style="--slice:1"><img class="" data-src="assets/artifacts/apps/altus-wafercount/hero.webp" data-srcset="assets/artifacts/apps/altus-wafercount/hero-1280.webp 1280w, assets/artifacts/apps/altus-wafercount/hero.webp 2048w" width="2048" height="1104" alt="Altus WaferCount — demo loading values" decoding="async"></div><div class="screen-shard" style="--slice:2"><img class="" data-src="assets/artifacts/apps/altus-wafercount/hero.webp" data-srcset="assets/artifacts/apps/altus-wafercount/hero-1280.webp 1280w, assets/artifacts/apps/altus-wafercount/hero.webp 2048w" width="2048" height="1104" alt="Altus WaferCount — demo loading values" decoding="async"></div></div></div>
+ <div class="extracted-detail" aria-hidden="true"><img data-src="assets/artifacts/apps/altus-wafercount/detail-01.webp" width="1126" height="442" alt="" decoding="async"><span>Loading overview</span></div></div>
+ <div class="artifact-caption"><span>Demo loading values</span><a href="assets/artifacts/apps/altus-wafercount/hero.webp" data-inspect="2">Inspect interface <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="artifact" id="app-topotracer" data-index="3" data-visual="topography" aria-labelledby="name-topotracer">
+ <div class="artifact-copy"><p class="eyebrow">Expedition II / Interstice</p><h3 id="name-topotracer">TopoTracer</h3><p class="app-description">Contour and topography plots.</p></div>
+ <div class="camera-world"><div class="artifact-pose"><a class="screen-object" data-inspect="3" href="assets/artifacts/apps/topotracer/hero.webp" aria-label="Inspect TopoTracer"><img class="screen-image" data-src="assets/artifacts/apps/topotracer/hero.webp" data-srcset="assets/artifacts/apps/topotracer/hero-1280.webp 1280w, assets/artifacts/apps/topotracer/hero.webp 2048w" width="2048" height="1104" alt="TopoTracer — demo contour plot" decoding="async"><noscript><img src="assets/artifacts/apps/topotracer/hero.webp" width="2048" height="1104" alt="TopoTracer interface" loading="lazy"></noscript><span class="screen-reflection" aria-hidden="true"></span></a><div class="screen-shards" aria-hidden="true"><div class="screen-shard" style="--slice:0"><img class="" data-src="assets/artifacts/apps/topotracer/hero.webp" data-srcset="assets/artifacts/apps/topotracer/hero-1280.webp 1280w, assets/artifacts/apps/topotracer/hero.webp 2048w" width="2048" height="1104" alt="TopoTracer — demo contour plot" decoding="async"></div><div class="screen-shard" style="--slice:1"><img class="" data-src="assets/artifacts/apps/topotracer/hero.webp" data-srcset="assets/artifacts/apps/topotracer/hero-1280.webp 1280w, assets/artifacts/apps/topotracer/hero.webp 2048w" width="2048" height="1104" alt="TopoTracer — demo contour plot" decoding="async"></div><div class="screen-shard" style="--slice:2"><img class="" data-src="assets/artifacts/apps/topotracer/hero.webp" data-srcset="assets/artifacts/apps/topotracer/hero-1280.webp 1280w, assets/artifacts/apps/topotracer/hero.webp 2048w" width="2048" height="1104" alt="TopoTracer — demo contour plot" decoding="async"></div></div></div>
+ <div class="extracted-detail" aria-hidden="true"><img data-src="assets/artifacts/apps/topotracer/detail-01.webp" width="819" height="662" alt="" decoding="async"><span>Topography and contours</span></div></div>
+ <div class="artifact-caption"><span>Demo contour plot</span><a href="assets/artifacts/apps/topotracer/hero.webp" data-inspect="3">Inspect interface <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="artifact" id="app-papyrus-reader" data-index="4" data-visual="document" aria-labelledby="name-papyrus-reader">
+ <div class="artifact-copy"><p class="eyebrow">Expedition II / Interstice</p><h3 id="name-papyrus-reader">Papyrus Reader</h3><p class="app-description">XML, EPI, and text reader.</p></div>
+ <div class="camera-world"><div class="artifact-pose"><a class="screen-object" data-inspect="4" href="assets/artifacts/apps/papyrus-reader/hero.webp" aria-label="Inspect Papyrus Reader"><img class="screen-image" data-src="assets/artifacts/apps/papyrus-reader/hero.webp" data-srcset="assets/artifacts/apps/papyrus-reader/hero-1280.webp 1280w, assets/artifacts/apps/papyrus-reader/hero.webp 3840w" width="3840" height="2160" alt="Papyrus Reader — entry workspace" decoding="async"><noscript><img src="assets/artifacts/apps/papyrus-reader/hero.webp" width="3840" height="2160" alt="Papyrus Reader interface" loading="lazy"></noscript><span class="screen-reflection" aria-hidden="true"></span></a><div class="screen-shards" aria-hidden="true"><div class="screen-shard" style="--slice:0"><img class="" data-src="assets/artifacts/apps/papyrus-reader/hero.webp" data-srcset="assets/artifacts/apps/papyrus-reader/hero-1280.webp 1280w, assets/artifacts/apps/papyrus-reader/hero.webp 3840w" width="3840" height="2160" alt="Papyrus Reader — entry workspace" decoding="async"></div><div class="screen-shard" style="--slice:1"><img class="" data-src="assets/artifacts/apps/papyrus-reader/hero.webp" data-srcset="assets/artifacts/apps/papyrus-reader/hero-1280.webp 1280w, assets/artifacts/apps/papyrus-reader/hero.webp 3840w" width="3840" height="2160" alt="Papyrus Reader — entry workspace" decoding="async"></div><div class="screen-shard" style="--slice:2"><img class="" data-src="assets/artifacts/apps/papyrus-reader/hero.webp" data-srcset="assets/artifacts/apps/papyrus-reader/hero-1280.webp 1280w, assets/artifacts/apps/papyrus-reader/hero.webp 3840w" width="3840" height="2160" alt="Papyrus Reader — entry workspace" decoding="async"></div></div></div>
+ <div class="extracted-detail" aria-hidden="true"><img data-src="assets/artifacts/apps/papyrus-reader/detail-01.webp" width="3149" height="238" alt="" decoding="async"><span>Document comparison controls</span></div></div>
+ <div class="artifact-caption"><span>Entry workspace</span><a href="assets/artifacts/apps/papyrus-reader/hero.webp" data-inspect="4">Inspect interface <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="artifact" id="app-spc-pathfinder" data-index="5" data-visual="pathfinder" aria-labelledby="name-spc-pathfinder">
+ <div class="artifact-copy"><p class="eyebrow">Expedition II / Interstice</p><h3 id="name-spc-pathfinder">SPC Pathfinder</h3><p class="app-description">SPC chart finder.</p></div>
+ <div class="camera-world"><div class="artifact-pose"><a class="screen-object" data-inspect="5" href="assets/artifacts/apps/spc-pathfinder/hero.webp" aria-label="Inspect SPC Pathfinder"><img class="screen-image" data-src="assets/artifacts/apps/spc-pathfinder/hero.webp" data-srcset="assets/artifacts/apps/spc-pathfinder/hero-1280.webp 1280w, assets/artifacts/apps/spc-pathfinder/hero.webp 2048w" width="2048" height="1104" alt="SPC Pathfinder — example chart index" decoding="async"><noscript><img src="assets/artifacts/apps/spc-pathfinder/hero.webp" width="2048" height="1104" alt="SPC Pathfinder interface" loading="lazy"></noscript><span class="screen-reflection" aria-hidden="true"></span></a><div class="screen-shards" aria-hidden="true"><div class="screen-shard" style="--slice:0"><img class="" data-src="assets/artifacts/apps/spc-pathfinder/hero.webp" data-srcset="assets/artifacts/apps/spc-pathfinder/hero-1280.webp 1280w, assets/artifacts/apps/spc-pathfinder/hero.webp 2048w" width="2048" height="1104" alt="SPC Pathfinder — example chart index" decoding="async"></div><div class="screen-shard" style="--slice:1"><img class="" data-src="assets/artifacts/apps/spc-pathfinder/hero.webp" data-srcset="assets/artifacts/apps/spc-pathfinder/hero-1280.webp 1280w, assets/artifacts/apps/spc-pathfinder/hero.webp 2048w" width="2048" height="1104" alt="SPC Pathfinder — example chart index" decoding="async"></div><div class="screen-shard" style="--slice:2"><img class="" data-src="assets/artifacts/apps/spc-pathfinder/hero.webp" data-srcset="assets/artifacts/apps/spc-pathfinder/hero-1280.webp 1280w, assets/artifacts/apps/spc-pathfinder/hero.webp 2048w" width="2048" height="1104" alt="SPC Pathfinder — example chart index" decoding="async"></div></div></div>
+ <div class="extracted-detail" aria-hidden="true"><img data-src="assets/artifacts/apps/spc-pathfinder/detail-01.webp" width="860" height="607" alt="" decoding="async"><span>Chart index</span></div></div>
+ <div class="artifact-caption"><span>Example chart index</span><a href="assets/artifacts/apps/spc-pathfinder/hero.webp" data-inspect="5">Inspect interface <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="artifact" id="app-gan-met-compiler" data-index="6" data-visual="metrology" aria-labelledby="name-gan-met-compiler">
+ <div class="artifact-copy"><p class="eyebrow">Expedition III / GaN EPI</p><h3 id="name-gan-met-compiler">GaN Met Compiler</h3><p class="app-description">Metrology report compiler.</p></div>
+ <div class="camera-world"><div class="artifact-pose"><a class="screen-object" data-inspect="6" href="assets/artifacts/apps/gan-met-compiler/hero.webp" aria-label="Inspect GaN Met Compiler"><img class="screen-image" data-src="assets/artifacts/apps/gan-met-compiler/hero.webp" data-srcset="assets/artifacts/apps/gan-met-compiler/hero-1280.webp 1280w, assets/artifacts/apps/gan-met-compiler/hero.webp 2048w" width="2048" height="1104" alt="GaN Met Compiler — entry workspace" decoding="async"><noscript><img src="assets/artifacts/apps/gan-met-compiler/hero.webp" width="2048" height="1104" alt="GaN Met Compiler interface" loading="lazy"></noscript><span class="screen-reflection" aria-hidden="true"></span></a><div class="screen-shards" aria-hidden="true"><div class="screen-shard" style="--slice:0"><img class="" data-src="assets/artifacts/apps/gan-met-compiler/hero.webp" data-srcset="assets/artifacts/apps/gan-met-compiler/hero-1280.webp 1280w, assets/artifacts/apps/gan-met-compiler/hero.webp 2048w" width="2048" height="1104" alt="GaN Met Compiler — entry workspace" decoding="async"></div><div class="screen-shard" style="--slice:1"><img class="" data-src="assets/artifacts/apps/gan-met-compiler/hero.webp" data-srcset="assets/artifacts/apps/gan-met-compiler/hero-1280.webp 1280w, assets/artifacts/apps/gan-met-compiler/hero.webp 2048w" width="2048" height="1104" alt="GaN Met Compiler — entry workspace" decoding="async"></div><div class="screen-shard" style="--slice:2"><img class="" data-src="assets/artifacts/apps/gan-met-compiler/hero.webp" data-srcset="assets/artifacts/apps/gan-met-compiler/hero-1280.webp 1280w, assets/artifacts/apps/gan-met-compiler/hero.webp 2048w" width="2048" height="1104" alt="GaN Met Compiler — entry workspace" decoding="async"></div></div></div>
+ <div class="extracted-detail" aria-hidden="true"><img data-src="assets/artifacts/apps/gan-met-compiler/detail-01.webp" width="1720" height="287" alt="" decoding="async"><span>Compilation workflow</span></div></div>
+ <div class="artifact-caption"><span>Entry workspace</span><a href="assets/artifacts/apps/gan-met-compiler/hero.webp" data-inspect="6">Inspect interface <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="artifact" id="app-gan-temp-diagnoser" data-index="7" data-visual="thermal" aria-labelledby="name-gan-temp-diagnoser">
+ <div class="artifact-copy"><p class="eyebrow">Expedition III / GaN EPI</p><h3 id="name-gan-temp-diagnoser">GaN Temp Diagnoser</h3><p class="app-description">Temperature drift diagnosis.</p></div>
+ <div class="camera-world"><div class="artifact-pose"><a class="screen-object" data-inspect="7" href="assets/artifacts/apps/gan-temp-diagnoser/hero.webp" aria-label="Inspect GaN Temp Diagnoser"><img class="screen-image" data-src="assets/artifacts/apps/gan-temp-diagnoser/hero.webp" data-srcset="assets/artifacts/apps/gan-temp-diagnoser/hero-1280.webp 1280w, assets/artifacts/apps/gan-temp-diagnoser/hero.webp 3840w" width="3840" height="2160" alt="GaN Temp Diagnoser — entry workspace" decoding="async"><noscript><img src="assets/artifacts/apps/gan-temp-diagnoser/hero.webp" width="3840" height="2160" alt="GaN Temp Diagnoser interface" loading="lazy"></noscript><span class="screen-reflection" aria-hidden="true"></span></a><div class="screen-shards" aria-hidden="true"><div class="screen-shard" style="--slice:0"><img class="" data-src="assets/artifacts/apps/gan-temp-diagnoser/hero.webp" data-srcset="assets/artifacts/apps/gan-temp-diagnoser/hero-1280.webp 1280w, assets/artifacts/apps/gan-temp-diagnoser/hero.webp 3840w" width="3840" height="2160" alt="GaN Temp Diagnoser — entry workspace" decoding="async"></div><div class="screen-shard" style="--slice:1"><img class="" data-src="assets/artifacts/apps/gan-temp-diagnoser/hero.webp" data-srcset="assets/artifacts/apps/gan-temp-diagnoser/hero-1280.webp 1280w, assets/artifacts/apps/gan-temp-diagnoser/hero.webp 3840w" width="3840" height="2160" alt="GaN Temp Diagnoser — entry workspace" decoding="async"></div><div class="screen-shard" style="--slice:2"><img class="" data-src="assets/artifacts/apps/gan-temp-diagnoser/hero.webp" data-srcset="assets/artifacts/apps/gan-temp-diagnoser/hero-1280.webp 1280w, assets/artifacts/apps/gan-temp-diagnoser/hero.webp 3840w" width="3840" height="2160" alt="GaN Temp Diagnoser — entry workspace" decoding="async"></div></div></div>
+ <div class="extracted-detail" aria-hidden="true"><img data-src="assets/artifacts/apps/gan-temp-diagnoser/detail-01.webp" width="1536" height="1145" alt="" decoding="async"><span>Observation controls</span></div></div>
+ <div class="artifact-caption"><span>Entry workspace</span><a href="assets/artifacts/apps/gan-temp-diagnoser/hero.webp" data-inspect="7">Inspect interface <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="artifact" id="app-aix-dt-assistant" data-index="8" data-visual="delta" aria-labelledby="name-aix-dt-assistant">
+ <div class="artifact-copy"><p class="eyebrow">Expedition III / GaN EPI</p><h3 id="name-aix-dt-assistant">AIX ΔT Assistant</h3><p class="app-description">Wafer-to-wafer dT checks.</p></div>
+ <div class="camera-world"><div class="artifact-pose"><a class="screen-object" data-inspect="8" href="assets/artifacts/apps/aix-dt-assistant/hero.webp" aria-label="Inspect AIX ΔT Assistant"><img class="screen-image" data-src="assets/artifacts/apps/aix-dt-assistant/hero.webp" data-srcset="assets/artifacts/apps/aix-dt-assistant/hero-1280.webp 1280w, assets/artifacts/apps/aix-dt-assistant/hero.webp 3840w" width="3840" height="2160" alt="AIX ΔT Assistant — entry workspace" decoding="async"><noscript><img src="assets/artifacts/apps/aix-dt-assistant/hero.webp" width="3840" height="2160" alt="AIX ΔT Assistant interface" loading="lazy"></noscript><span class="screen-reflection" aria-hidden="true"></span></a><div class="screen-shards" aria-hidden="true"><div class="screen-shard" style="--slice:0"><img class="" data-src="assets/artifacts/apps/aix-dt-assistant/hero.webp" data-srcset="assets/artifacts/apps/aix-dt-assistant/hero-1280.webp 1280w, assets/artifacts/apps/aix-dt-assistant/hero.webp 3840w" width="3840" height="2160" alt="AIX ΔT Assistant — entry workspace" decoding="async"></div><div class="screen-shard" style="--slice:1"><img class="" data-src="assets/artifacts/apps/aix-dt-assistant/hero.webp" data-srcset="assets/artifacts/apps/aix-dt-assistant/hero-1280.webp 1280w, assets/artifacts/apps/aix-dt-assistant/hero.webp 3840w" width="3840" height="2160" alt="AIX ΔT Assistant — entry workspace" decoding="async"></div><div class="screen-shard" style="--slice:2"><img class="" data-src="assets/artifacts/apps/aix-dt-assistant/hero.webp" data-srcset="assets/artifacts/apps/aix-dt-assistant/hero-1280.webp 1280w, assets/artifacts/apps/aix-dt-assistant/hero.webp 3840w" width="3840" height="2160" alt="AIX ΔT Assistant — entry workspace" decoding="async"></div></div></div>
+ <div class="extracted-detail" aria-hidden="true"><img data-src="assets/artifacts/apps/aix-dt-assistant/detail-01.webp" width="2074" height="1534" alt="" decoding="async"><span>Mapping geometry</span></div></div>
+ <div class="artifact-caption"><span>Entry workspace</span><a href="assets/artifacts/apps/aix-dt-assistant/hero.webp" data-inspect="8">Inspect interface <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="artifact" id="app-lt-zone-assistant" data-index="9" data-visual="zone_map" aria-labelledby="name-lt-zone-assistant">
+ <div class="artifact-copy"><p class="eyebrow">Expedition III / GaN EPI</p><h3 id="name-lt-zone-assistant">LT Zone Assistant</h3><p class="app-description">LayTec zone mapping.</p></div>
+ <div class="camera-world"><div class="artifact-pose"><a class="screen-object" data-inspect="9" href="assets/artifacts/apps/lt-zone-assistant/hero.webp" aria-label="Inspect LT Zone Assistant"><img class="screen-image" data-src="assets/artifacts/apps/lt-zone-assistant/hero.webp" data-srcset="assets/artifacts/apps/lt-zone-assistant/hero-1280.webp 1280w, assets/artifacts/apps/lt-zone-assistant/hero.webp 2048w" width="2048" height="1104" alt="LT Zone Assistant — zone geometry" decoding="async"><noscript><img src="assets/artifacts/apps/lt-zone-assistant/hero.webp" width="2048" height="1104" alt="LT Zone Assistant interface" loading="lazy"></noscript><span class="screen-reflection" aria-hidden="true"></span></a><div class="screen-shards" aria-hidden="true"><div class="screen-shard" style="--slice:0"><img class="" data-src="assets/artifacts/apps/lt-zone-assistant/hero.webp" data-srcset="assets/artifacts/apps/lt-zone-assistant/hero-1280.webp 1280w, assets/artifacts/apps/lt-zone-assistant/hero.webp 2048w" width="2048" height="1104" alt="LT Zone Assistant — zone geometry" decoding="async"></div><div class="screen-shard" style="--slice:1"><img class="" data-src="assets/artifacts/apps/lt-zone-assistant/hero.webp" data-srcset="assets/artifacts/apps/lt-zone-assistant/hero-1280.webp 1280w, assets/artifacts/apps/lt-zone-assistant/hero.webp 2048w" width="2048" height="1104" alt="LT Zone Assistant — zone geometry" decoding="async"></div><div class="screen-shard" style="--slice:2"><img class="" data-src="assets/artifacts/apps/lt-zone-assistant/hero.webp" data-srcset="assets/artifacts/apps/lt-zone-assistant/hero-1280.webp 1280w, assets/artifacts/apps/lt-zone-assistant/hero.webp 2048w" width="2048" height="1104" alt="LT Zone Assistant — zone geometry" decoding="async"></div></div></div>
+ <div class="extracted-detail" aria-hidden="true"><img data-src="assets/artifacts/apps/lt-zone-assistant/detail-01.webp" width="1044" height="828" alt="" decoding="async"><span>Inner and outer zones</span></div></div>
+ <div class="artifact-caption"><span>Zone geometry</span><a href="assets/artifacts/apps/lt-zone-assistant/hero.webp" data-inspect="9">Inspect interface <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="artifact" id="app-gan-xml-assistant" data-index="10" data-visual="xml_compare" aria-labelledby="name-gan-xml-assistant">
+ <div class="artifact-copy"><p class="eyebrow">Expedition III / GaN EPI</p><h3 id="name-gan-xml-assistant">GaN XML Assistant</h3><p class="app-description">Devices.XML comparison.</p></div>
+ <div class="camera-world"><div class="artifact-pose"><a class="screen-object" data-inspect="10" href="assets/artifacts/apps/gan-xml-assistant/hero.webp" aria-label="Inspect GaN XML Assistant"><img class="screen-image" data-src="assets/artifacts/apps/gan-xml-assistant/hero.webp" data-srcset="assets/artifacts/apps/gan-xml-assistant/hero-1280.webp 1280w, assets/artifacts/apps/gan-xml-assistant/hero.webp 3840w" width="3840" height="2160" alt="GaN XML Assistant — entry workspace" decoding="async"><noscript><img src="assets/artifacts/apps/gan-xml-assistant/hero.webp" width="3840" height="2160" alt="GaN XML Assistant interface" loading="lazy"></noscript><span class="screen-reflection" aria-hidden="true"></span></a><div class="screen-shards" aria-hidden="true"><div class="screen-shard" style="--slice:0"><img class="" data-src="assets/artifacts/apps/gan-xml-assistant/hero.webp" data-srcset="assets/artifacts/apps/gan-xml-assistant/hero-1280.webp 1280w, assets/artifacts/apps/gan-xml-assistant/hero.webp 3840w" width="3840" height="2160" alt="GaN XML Assistant — entry workspace" decoding="async"></div><div class="screen-shard" style="--slice:1"><img class="" data-src="assets/artifacts/apps/gan-xml-assistant/hero.webp" data-srcset="assets/artifacts/apps/gan-xml-assistant/hero-1280.webp 1280w, assets/artifacts/apps/gan-xml-assistant/hero.webp 3840w" width="3840" height="2160" alt="GaN XML Assistant — entry workspace" decoding="async"></div><div class="screen-shard" style="--slice:2"><img class="" data-src="assets/artifacts/apps/gan-xml-assistant/hero.webp" data-srcset="assets/artifacts/apps/gan-xml-assistant/hero-1280.webp 1280w, assets/artifacts/apps/gan-xml-assistant/hero.webp 3840w" width="3840" height="2160" alt="GaN XML Assistant — entry workspace" decoding="async"></div></div></div>
+ <div class="extracted-detail" aria-hidden="true"><img data-src="assets/artifacts/apps/gan-xml-assistant/detail-01.webp" width="3149" height="151" alt="" decoding="async"><span>XML comparison controls</span></div></div>
+ <div class="artifact-caption"><span>Entry workspace</span><a href="assets/artifacts/apps/gan-xml-assistant/hero.webp" data-inspect="10">Inspect interface <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="artifact" id="app-magus-spc-gan" data-index="11" data-visual="spc_gan" aria-labelledby="name-magus-spc-gan">
+ <div class="artifact-copy"><p class="eyebrow">Expedition IV / Planetfall</p><h3 id="name-magus-spc-gan">Magus SPC (GaN)</h3><p class="app-description">GaN SPC release review.</p></div>
+ <div class="camera-world"><div class="artifact-pose"><a class="screen-object" data-inspect="11" href="assets/artifacts/apps/magus-spc-gan/hero.webp" aria-label="Inspect Magus SPC (GaN)"><img class="screen-image" data-src="assets/artifacts/apps/magus-spc-gan/hero.webp" data-srcset="assets/artifacts/apps/magus-spc-gan/hero-1280.webp 1280w, assets/artifacts/apps/magus-spc-gan/hero.webp 3840w" width="3840" height="2160" alt="Magus SPC (GaN) — entry workspace" decoding="async"><noscript><img src="assets/artifacts/apps/magus-spc-gan/hero.webp" width="3840" height="2160" alt="Magus SPC (GaN) interface" loading="lazy"></noscript><span class="screen-reflection" aria-hidden="true"></span></a><div class="screen-shards" aria-hidden="true"><div class="screen-shard" style="--slice:0"><img class="" data-src="assets/artifacts/apps/magus-spc-gan/hero.webp" data-srcset="assets/artifacts/apps/magus-spc-gan/hero-1280.webp 1280w, assets/artifacts/apps/magus-spc-gan/hero.webp 3840w" width="3840" height="2160" alt="Magus SPC (GaN) — entry workspace" decoding="async"></div><div class="screen-shard" style="--slice:1"><img class="" data-src="assets/artifacts/apps/magus-spc-gan/hero.webp" data-srcset="assets/artifacts/apps/magus-spc-gan/hero-1280.webp 1280w, assets/artifacts/apps/magus-spc-gan/hero.webp 3840w" width="3840" height="2160" alt="Magus SPC (GaN) — entry workspace" decoding="async"></div><div class="screen-shard" style="--slice:2"><img class="" data-src="assets/artifacts/apps/magus-spc-gan/hero.webp" data-srcset="assets/artifacts/apps/magus-spc-gan/hero-1280.webp 1280w, assets/artifacts/apps/magus-spc-gan/hero.webp 3840w" width="3840" height="2160" alt="Magus SPC (GaN) — entry workspace" decoding="async"></div></div></div>
+ <div class="extracted-detail" aria-hidden="true"><img data-src="assets/artifacts/apps/magus-spc-gan/detail-01.webp" width="3379" height="259" alt="" decoding="async"><span>SPC review controls</span></div></div>
+ <div class="artifact-caption"><span>Entry workspace</span><a href="assets/artifacts/apps/magus-spc-gan/hero.webp" data-inspect="11">Inspect interface <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="artifact" id="app-magus-spc-legacy" data-index="12" data-visual="spc_legacy" aria-labelledby="name-magus-spc-legacy">
+ <div class="artifact-copy"><p class="eyebrow">Expedition IV / Planetfall</p><h3 id="name-magus-spc-legacy">Magus SPC (Legacy)</h3><p class="app-description">Legacy SPC release review.</p></div>
+ <div class="camera-world"><div class="artifact-pose"><a class="screen-object" data-inspect="12" href="assets/artifacts/apps/magus-spc-legacy/hero.webp" aria-label="Inspect Magus SPC (Legacy)"><img class="screen-image" data-src="assets/artifacts/apps/magus-spc-legacy/hero.webp" data-srcset="assets/artifacts/apps/magus-spc-legacy/hero-1280.webp 1280w, assets/artifacts/apps/magus-spc-legacy/hero.webp 3840w" width="3840" height="2160" alt="Magus SPC (Legacy) — entry workspace" decoding="async"><noscript><img src="assets/artifacts/apps/magus-spc-legacy/hero.webp" width="3840" height="2160" alt="Magus SPC (Legacy) interface" loading="lazy"></noscript><span class="screen-reflection" aria-hidden="true"></span></a><div class="screen-shards" aria-hidden="true"><div class="screen-shard" style="--slice:0"><img class="" data-src="assets/artifacts/apps/magus-spc-legacy/hero.webp" data-srcset="assets/artifacts/apps/magus-spc-legacy/hero-1280.webp 1280w, assets/artifacts/apps/magus-spc-legacy/hero.webp 3840w" width="3840" height="2160" alt="Magus SPC (Legacy) — entry workspace" decoding="async"></div><div class="screen-shard" style="--slice:1"><img class="" data-src="assets/artifacts/apps/magus-spc-legacy/hero.webp" data-srcset="assets/artifacts/apps/magus-spc-legacy/hero-1280.webp 1280w, assets/artifacts/apps/magus-spc-legacy/hero.webp 3840w" width="3840" height="2160" alt="Magus SPC (Legacy) — entry workspace" decoding="async"></div><div class="screen-shard" style="--slice:2"><img class="" data-src="assets/artifacts/apps/magus-spc-legacy/hero.webp" data-srcset="assets/artifacts/apps/magus-spc-legacy/hero-1280.webp 1280w, assets/artifacts/apps/magus-spc-legacy/hero.webp 3840w" width="3840" height="2160" alt="Magus SPC (Legacy) — entry workspace" decoding="async"></div></div></div>
+ <div class="extracted-detail" aria-hidden="true"><img data-src="assets/artifacts/apps/magus-spc-legacy/detail-01.webp" width="3379" height="259" alt="" decoding="async"><span>Legacy review controls</span></div></div>
+ <div class="artifact-caption"><span>Entry workspace</span><a href="assets/artifacts/apps/magus-spc-legacy/hero.webp" data-inspect="12">Inspect interface <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="artifact" id="app-anko-helper" data-index="13" data-visual="anko_cycle" aria-labelledby="name-anko-helper">
+ <div class="artifact-copy"><p class="eyebrow">Expedition IV / Planetfall</p><h3 id="name-anko-helper">ANKO Helper</h3><p class="app-description">ANKO status and due dates.</p></div>
+ <div class="camera-world"><div class="artifact-pose"><a class="screen-object" data-inspect="13" href="assets/artifacts/apps/anko-helper/hero.webp" aria-label="Inspect ANKO Helper"><img class="screen-image" data-src="assets/artifacts/apps/anko-helper/hero.webp" data-srcset="assets/artifacts/apps/anko-helper/hero-1280.webp 1280w, assets/artifacts/apps/anko-helper/hero.webp 2048w" width="2048" height="1104" alt="ANKO Helper — demo report" decoding="async"><noscript><img src="assets/artifacts/apps/anko-helper/hero.webp" width="2048" height="1104" alt="ANKO Helper interface" loading="lazy"></noscript><span class="screen-reflection" aria-hidden="true"></span></a><div class="screen-shards" aria-hidden="true"><div class="screen-shard" style="--slice:0"><img class="" data-src="assets/artifacts/apps/anko-helper/hero.webp" data-srcset="assets/artifacts/apps/anko-helper/hero-1280.webp 1280w, assets/artifacts/apps/anko-helper/hero.webp 2048w" width="2048" height="1104" alt="ANKO Helper — demo report" decoding="async"></div><div class="screen-shard" style="--slice:1"><img class="" data-src="assets/artifacts/apps/anko-helper/hero.webp" data-srcset="assets/artifacts/apps/anko-helper/hero-1280.webp 1280w, assets/artifacts/apps/anko-helper/hero.webp 2048w" width="2048" height="1104" alt="ANKO Helper — demo report" decoding="async"></div><div class="screen-shard" style="--slice:2"><img class="" data-src="assets/artifacts/apps/anko-helper/hero.webp" data-srcset="assets/artifacts/apps/anko-helper/hero-1280.webp 1280w, assets/artifacts/apps/anko-helper/hero.webp 2048w" width="2048" height="1104" alt="ANKO Helper — demo report" decoding="async"></div></div></div>
+ <div class="extracted-detail" aria-hidden="true"><img data-src="assets/artifacts/apps/anko-helper/detail-01.webp" width="963" height="397" alt="" decoding="async"><span>Schedule report</span></div></div>
+ <div class="artifact-caption"><span>Demo report</span><a href="assets/artifacts/apps/anko-helper/hero.webp" data-inspect="13">Inspect interface <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="artifact" id="app-lt-report-compiler" data-index="14" data-visual="laytec_report" aria-labelledby="name-lt-report-compiler">
+ <div class="artifact-copy"><p class="eyebrow">Expedition IV / Planetfall</p><h3 id="name-lt-report-compiler">LT Report Compiler</h3><p class="app-description">LayTec report compilation.</p></div>
+ <div class="camera-world"><div class="artifact-pose"><a class="screen-object" data-inspect="14" href="assets/artifacts/apps/lt-report-compiler/hero.webp" aria-label="Inspect LT Report Compiler"><img class="screen-image" data-src="assets/artifacts/apps/lt-report-compiler/hero.webp" data-srcset="assets/artifacts/apps/lt-report-compiler/hero-1280.webp 1280w, assets/artifacts/apps/lt-report-compiler/hero.webp 2048w" width="2048" height="1104" alt="LT Report Compiler — entry workspace" decoding="async"><noscript><img src="assets/artifacts/apps/lt-report-compiler/hero.webp" width="2048" height="1104" alt="LT Report Compiler interface" loading="lazy"></noscript><span class="screen-reflection" aria-hidden="true"></span></a><div class="screen-shards" aria-hidden="true"><div class="screen-shard" style="--slice:0"><img class="" data-src="assets/artifacts/apps/lt-report-compiler/hero.webp" data-srcset="assets/artifacts/apps/lt-report-compiler/hero-1280.webp 1280w, assets/artifacts/apps/lt-report-compiler/hero.webp 2048w" width="2048" height="1104" alt="LT Report Compiler — entry workspace" decoding="async"></div><div class="screen-shard" style="--slice:1"><img class="" data-src="assets/artifacts/apps/lt-report-compiler/hero.webp" data-srcset="assets/artifacts/apps/lt-report-compiler/hero-1280.webp 1280w, assets/artifacts/apps/lt-report-compiler/hero.webp 2048w" width="2048" height="1104" alt="LT Report Compiler — entry workspace" decoding="async"></div><div class="screen-shard" style="--slice:2"><img class="" data-src="assets/artifacts/apps/lt-report-compiler/hero.webp" data-srcset="assets/artifacts/apps/lt-report-compiler/hero-1280.webp 1280w, assets/artifacts/apps/lt-report-compiler/hero.webp 2048w" width="2048" height="1104" alt="LT Report Compiler — entry workspace" decoding="async"></div></div></div>
+ <div class="extracted-detail" aria-hidden="true"><img data-src="assets/artifacts/apps/lt-report-compiler/detail-01.webp" width="1802" height="243" alt="" decoding="async"><span>Report compilation workflow</span></div></div>
+ <div class="artifact-caption"><span>Entry workspace</span><a href="assets/artifacts/apps/lt-report-compiler/hero.webp" data-inspect="14">Inspect interface <span aria-hidden="true">↗</span></a></div>
+</article>
+<article class="artifact" id="app-metria-spc" data-index="15" data-visual="process_spc" aria-labelledby="name-metria-spc">
+ <div class="artifact-copy"><p class="eyebrow">Expedition IV / Planetfall</p><h3 id="name-metria-spc">Metria SPC</h3><p class="app-description">Interactive multi-parameter equipment SPC.</p></div>
+ <div class="camera-world"><div class="artifact-pose"><a class="screen-object" data-inspect="15" href="assets/artifacts/apps/metria-spc/hero.webp" aria-label="Inspect Metria SPC"><img class="screen-image" data-src="assets/artifacts/apps/metria-spc/hero.webp" data-srcset="assets/artifacts/apps/metria-spc/hero-1280.webp 1280w, assets/artifacts/apps/metria-spc/hero.webp 3840w" width="3840" height="2160" alt="Metria SPC — sample data" decoding="async"><noscript><img src="assets/artifacts/apps/metria-spc/hero.webp" width="3840" height="2160" alt="Metria SPC interface" loading="lazy"></noscript><span class="screen-reflection" aria-hidden="true"></span></a><div class="screen-shards" aria-hidden="true"><div class="screen-shard" style="--slice:0"><img class="" data-src="assets/artifacts/apps/metria-spc/hero.webp" data-srcset="assets/artifacts/apps/metria-spc/hero-1280.webp 1280w, assets/artifacts/apps/metria-spc/hero.webp 3840w" width="3840" height="2160" alt="Metria SPC — sample data" decoding="async"></div><div class="screen-shard" style="--slice:1"><img class="" data-src="assets/artifacts/apps/metria-spc/hero.webp" data-srcset="assets/artifacts/apps/metria-spc/hero-1280.webp 1280w, assets/artifacts/apps/metria-spc/hero.webp 3840w" width="3840" height="2160" alt="Metria SPC — sample data" decoding="async"></div><div class="screen-shard" style="--slice:2"><img class="" data-src="assets/artifacts/apps/metria-spc/hero.webp" data-srcset="assets/artifacts/apps/metria-spc/hero-1280.webp 1280w, assets/artifacts/apps/metria-spc/hero.webp 3840w" width="3840" height="2160" alt="Metria SPC — sample data" decoding="async"></div></div></div>
+ <div class="extracted-detail" aria-hidden="true"><img data-src="assets/artifacts/apps/metria-spc/detail-01.webp" width="3226" height="756" alt="" decoding="async"><span>Aligned control charts</span></div></div>
+ <div class="artifact-caption"><span>Sample data</span><a href="assets/artifacts/apps/metria-spc/hero.webp" data-inspect="15">Inspect interface <span aria-hidden="true">↗</span></a></div>
+</article></div>
+          <div class="atlas-navigation">
+            <button id="previous-app" aria-label="Previous application" hidden>
+              ← <span>Previous</span>
+            </button>
+            <div class="app-ruler" aria-hidden="true"></div>
+            <button id="next-app" aria-label="Next application" hidden>
+              <span>Next</span> →
+            </button>
           </div>
+          <p id="app-announcement" class="sr-only" aria-live="polite"></p>
         </div>
       </section>
-      <section
-        id="systems"
-        class="ecosystem"
-        aria-labelledby="systems-title"
-        data-chapter="systems"
-      >
-        <div class="scene-label micro"><b>03 /</b> THE SYSTEMS</div>
-        <div class="ecosystem-heading">
-          <h2 id="systems-title">Small tools.<br />Connected thinking.</h2>
+      <section id="closing" class="closing" aria-labelledby="closing-title">
+        <div class="closing-mark">
+          <img
+            src="assets/brand/artifacts-symbol-metal.svg"
+            alt=""
+            width="80"
+            height="80"
+          />
+        </div>
+        <p class="eyebrow">SIXTEEN APPLICATIONS. STILL EVOLVING.</p>
+        <h2 id="closing-title">ARTIFACTS<span>.</span></h2>
+        <p>A place for it all<br />to come together.</p>
+        <a href="#systems"
+          >Return to the instruments <span aria-hidden="true">↗</span></a
+        >
+      </section>
+      <section id="about" class="about" aria-labelledby="about-title">
+        <h2 id="about-title">Built by Gene.</h2>
+        <div>
           <p>
-            Each one began with a problem.<br />Together, they became ARTIFACTS.
+            I enjoy building things.<br />ARTIFACTS is where they come together.
           </p>
+          <span>Semiconductor engineering / software / automation</span>
         </div>
-        <div class="system-fan" aria-hidden="true">
-          <div class="fan-plane" style="--i: 0">
-            <img
-              class=""
-              src="assets/software/gan-temp-diagnoser/interface.webp"
-              srcset="
-                assets/software/gan-temp-diagnoser/preview.webp    960w,
-                assets/software/gan-temp-diagnoser/interface.webp 2048w
-              "
-              sizes="(max-width: 700px) 96vw, 78vw"
-              width="2048"
-              height="1104"
-              alt="GaN Temp Diagnoser — actual application interface"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="fan-plane" style="--i: 1">
-            <img
-              class=""
-              src="assets/software/aix-dt-assistant/interface.webp"
-              srcset="
-                assets/software/aix-dt-assistant/preview.webp    960w,
-                assets/software/aix-dt-assistant/interface.webp 2048w
-              "
-              sizes="(max-width: 700px) 96vw, 78vw"
-              width="2048"
-              height="1104"
-              alt="AIX ΔT Assistant — actual application interface"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="fan-plane" style="--i: 2">
-            <img
-              class=""
-              src="assets/software/lt-zone-assistant/interface.webp"
-              srcset="
-                assets/software/lt-zone-assistant/preview.webp    960w,
-                assets/software/lt-zone-assistant/interface.webp 2048w
-              "
-              sizes="(max-width: 700px) 96vw, 78vw"
-              width="2048"
-              height="1104"
-              alt="LT Zone Assistant — actual application interface"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="fan-plane" style="--i: 3">
-            <img
-              class=""
-              src="assets/software/anko-helper/interface.webp"
-              srcset="
-                assets/software/anko-helper/preview.webp    960w,
-                assets/software/anko-helper/interface.webp 2048w
-              "
-              sizes="(max-width: 700px) 96vw, 78vw"
-              width="2048"
-              height="1104"
-              alt="ANKO Helper — actual application interface"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="fan-plane" style="--i: 4">
-            <img
-              class=""
-              src="assets/software/metria-spc/interface.webp"
-              srcset="
-                assets/software/metria-spc/preview.webp    960w,
-                assets/software/metria-spc/interface.webp 2048w
-              "
-              sizes="(max-width: 700px) 96vw, 78vw"
-              width="2048"
-              height="1104"
-              alt="Metria SPC — actual application interface"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </div>
-        <nav class="system-index" aria-label="Jump to an application">
-          <a href="#gan-temp-diagnoser"
-            ><span class="micro">01</span><span>GaN</span
-            ><span aria-hidden="true">↘</span></a
-          ><a href="#aix-dt-assistant"
-            ><span class="micro">02</span><span>AIX ΔT</span
-            ><span aria-hidden="true">↘</span></a
-          ><a href="#lt-zone-assistant"
-            ><span class="micro">03</span><span>LT Zone</span
-            ><span aria-hidden="true">↘</span></a
-          ><a href="#anko-helper"
-            ><span class="micro">04</span><span>ANKO</span
-            ><span aria-hidden="true">↘</span></a
-          ><a href="#metria-spc"
-            ><span class="micro">05</span><span>Metria</span
-            ><span aria-hidden="true">↘</span></a
-          >
-        </nav>
-        <p class="capture-note micro">
-          ACTUAL APPLICATION CAPTURES / EXPLORE IN SCROLL ORDER OR CHOOSE A
-          SYSTEM
-        </p>
-      </section>
-      <section
-        id="gan-temp-diagnoser"
-        class="software journey"
-        aria-labelledby="title-gan-temp-diagnoser"
-        data-chapter="systems"
-        data-side="-1"
-        data-detail="Diagnostic summary"
-        style="--crop: 100% 8%; --zoom: 2.05"
-      >
-        <div class="scene software-scene">
-          <div class="software-heading">
-            <div>
-              <p class="micro"><b>01 / 05</b> TEMPERATURE DIAGNOSTICS</p>
-              <h2 id="title-gan-temp-diagnoser">GaN Temp Diagnoser</h2>
-            </div>
-            <p class="software-description">
-              Process observations, a diagnostic explanation, and the reactor
-              view. Engineering judgment, given a visible structure.
-            </p>
-          </div>
-          <div class="instrument-space">
-            <div class="instrument-position">
-              <div class="instrument-tilt">
-                <a
-                  class="instrument"
-                  href="assets/software/gan-temp-diagnoser/interface.webp"
-                  data-inspect
-                  aria-label="Inspect GaN Temp Diagnoser interface"
-                  ><img
-                    class=""
-                    src="assets/software/gan-temp-diagnoser/interface.webp"
-                    srcset="
-                      assets/software/gan-temp-diagnoser/preview.webp    960w,
-                      assets/software/gan-temp-diagnoser/interface.webp 2048w
-                    "
-                    sizes="(max-width: 700px) 96vw, 78vw"
-                    width="2048"
-                    height="1104"
-                    alt="GaN Temp Diagnoser — actual application interface"
-                    loading="lazy"
-                    decoding="async" /><span
-                    class="surface-light"
-                    aria-hidden="true"
-                  ></span
-                  ><span class="instrument-edge" aria-hidden="true"></span
-                ></a>
-              </div>
-            </div>
-            <div class="macro-plane" aria-hidden="true">
-              <div class="macro-window">
-                <img
-                  class=""
-                  src="assets/software/gan-temp-diagnoser/interface.webp"
-                  srcset="
-                    assets/software/gan-temp-diagnoser/preview.webp    960w,
-                    assets/software/gan-temp-diagnoser/interface.webp 2048w
-                  "
-                  sizes="(max-width: 700px) 96vw, 78vw"
-                  width="2048"
-                  height="1104"
-                  alt="GaN Temp Diagnoser — actual application interface"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <span class="micro">Diagnostic summary</span>
-            </div>
-            <span class="object-tick tick-a" aria-hidden="true">+</span
-            ><span class="object-tick tick-b" aria-hidden="true">+</span>
-          </div>
-          <div class="software-thought" aria-hidden="true">
-            Observe.<br />Understand.
-          </div>
-          <div class="scene-foot">
-            <p class="micro">Observation → diagnostic reasoning</p>
-            <div class="scene-actions">
-              <a
-                class="inspect-link"
-                data-inspect
-                href="assets/software/gan-temp-diagnoser/interface.webp"
-                >Inspect interface <span aria-hidden="true">↗</span></a
-              ><a
-                class="next-link micro"
-                href="#aix-dt-assistant"
-                aria-label="Continue to AIX ΔT Assistant"
-                >NEXT <span aria-hidden="true">↓</span></a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-      <section
-        id="aix-dt-assistant"
-        class="software journey"
-        aria-labelledby="title-aix-dt-assistant"
-        data-chapter="systems"
-        data-side="1"
-        data-detail="Weight-based initial assignment"
-        style="--crop: 97% 40%; --zoom: 1.6"
-      >
-        <div class="scene software-scene">
-          <div class="software-heading">
-            <div>
-              <p class="micro"><b>02 / 05</b> MAPPING & ASSIGNMENT</p>
-              <h2 id="title-aix-dt-assistant">AIX ΔT Assistant</h2>
-            </div>
-            <p class="software-description">
-              Weight and temperature mapping, brought into the same view. A
-              physical arrangement made easier to examine.
-            </p>
-          </div>
-          <div class="instrument-space">
-            <div class="instrument-position">
-              <div class="instrument-tilt">
-                <a
-                  class="instrument"
-                  href="assets/software/aix-dt-assistant/interface.webp"
-                  data-inspect
-                  aria-label="Inspect AIX ΔT Assistant interface"
-                  ><img
-                    class=""
-                    src="assets/software/aix-dt-assistant/interface.webp"
-                    srcset="
-                      assets/software/aix-dt-assistant/preview.webp    960w,
-                      assets/software/aix-dt-assistant/interface.webp 2048w
-                    "
-                    sizes="(max-width: 700px) 96vw, 78vw"
-                    width="2048"
-                    height="1104"
-                    alt="AIX ΔT Assistant — actual application interface"
-                    loading="lazy"
-                    decoding="async" /><span
-                    class="surface-light"
-                    aria-hidden="true"
-                  ></span
-                  ><span class="instrument-edge" aria-hidden="true"></span
-                ></a>
-              </div>
-            </div>
-            <div class="macro-plane" aria-hidden="true">
-              <div class="macro-window">
-                <img
-                  class=""
-                  src="assets/software/aix-dt-assistant/interface.webp"
-                  srcset="
-                    assets/software/aix-dt-assistant/preview.webp    960w,
-                    assets/software/aix-dt-assistant/interface.webp 2048w
-                  "
-                  sizes="(max-width: 700px) 96vw, 78vw"
-                  width="2048"
-                  height="1104"
-                  alt="AIX ΔT Assistant — actual application interface"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <span class="micro">Weight-based initial assignment</span>
-            </div>
-            <span class="object-tick tick-a" aria-hidden="true">+</span
-            ><span class="object-tick tick-b" aria-hidden="true">+</span>
-          </div>
-          <div class="software-thought" aria-hidden="true">
-            A different<br />arrangement.
-          </div>
-          <div class="scene-foot">
-            <p class="micro">Mapping → physical assignment</p>
-            <div class="scene-actions">
-              <a
-                class="inspect-link"
-                data-inspect
-                href="assets/software/aix-dt-assistant/interface.webp"
-                >Inspect interface <span aria-hidden="true">↗</span></a
-              ><a
-                class="next-link micro"
-                href="#lt-zone-assistant"
-                aria-label="Continue to LT Zone Assistant"
-                >NEXT <span aria-hidden="true">↓</span></a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-      <section
-        id="lt-zone-assistant"
-        class="software journey"
-        aria-labelledby="title-lt-zone-assistant"
-        data-chapter="systems"
-        data-side="-1"
-        data-detail="Inner and outer zone geometry"
-        style="--crop: 88% 46%; --zoom: 1.55"
-      >
-        <div class="scene software-scene">
-          <div class="software-heading">
-            <div>
-              <p class="micro"><b>03 / 05</b> SPATIAL REASONING</p>
-              <h2 id="title-lt-zone-assistant">LT Zone Assistant</h2>
-            </div>
-            <p class="software-description">
-              Inner and outer regions. Anchors and angles. A geometric view of
-              the relationships between zones.
-            </p>
-          </div>
-          <div class="instrument-space">
-            <div class="instrument-position">
-              <div class="instrument-tilt">
-                <a
-                  class="instrument"
-                  href="assets/software/lt-zone-assistant/interface.webp"
-                  data-inspect
-                  aria-label="Inspect LT Zone Assistant interface"
-                  ><img
-                    class=""
-                    src="assets/software/lt-zone-assistant/interface.webp"
-                    srcset="
-                      assets/software/lt-zone-assistant/preview.webp    960w,
-                      assets/software/lt-zone-assistant/interface.webp 2048w
-                    "
-                    sizes="(max-width: 700px) 96vw, 78vw"
-                    width="2048"
-                    height="1104"
-                    alt="LT Zone Assistant — actual application interface"
-                    loading="lazy"
-                    decoding="async" /><span
-                    class="surface-light"
-                    aria-hidden="true"
-                  ></span
-                  ><span class="instrument-edge" aria-hidden="true"></span
-                ></a>
-              </div>
-            </div>
-            <div class="macro-plane" aria-hidden="true">
-              <div class="macro-window">
-                <img
-                  class=""
-                  src="assets/software/lt-zone-assistant/interface.webp"
-                  srcset="
-                    assets/software/lt-zone-assistant/preview.webp    960w,
-                    assets/software/lt-zone-assistant/interface.webp 2048w
-                  "
-                  sizes="(max-width: 700px) 96vw, 78vw"
-                  width="2048"
-                  height="1104"
-                  alt="LT Zone Assistant — actual application interface"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <span class="micro">Inner and outer zone geometry</span>
-            </div>
-            <span class="object-tick tick-a" aria-hidden="true">+</span
-            ><span class="object-tick tick-b" aria-hidden="true">+</span>
-          </div>
-          <div class="software-thought" aria-hidden="true">
-            Make the<br />geometry clear.
-          </div>
-          <div class="scene-foot">
-            <p class="micro">Regions → relationships</p>
-            <div class="scene-actions">
-              <a
-                class="inspect-link"
-                data-inspect
-                href="assets/software/lt-zone-assistant/interface.webp"
-                >Inspect interface <span aria-hidden="true">↗</span></a
-              ><a
-                class="next-link micro"
-                href="#anko-helper"
-                aria-label="Continue to ANKO Helper"
-                >NEXT <span aria-hidden="true">↓</span></a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-      <section
-        id="anko-helper"
-        class="software journey"
-        aria-labelledby="title-anko-helper"
-        data-chapter="systems"
-        data-side="1"
-        data-detail="Report and schedule detail · demo data"
-        style="--crop: 95% 40%; --zoom: 1.9"
-      >
-        <div class="scene software-scene">
-          <div class="software-heading">
-            <div>
-              <p class="micro"><b>04 / 05</b> REPORTING & PLANNING</p>
-              <h2 id="title-anko-helper">ANKO Helper</h2>
-            </div>
-            <p class="software-description">
-              An SPC summary and projected ANKO schedule, organised into a
-              report. A closer view of what comes next.
-            </p>
-          </div>
-          <div class="instrument-space">
-            <div class="instrument-position">
-              <div class="instrument-tilt">
-                <a
-                  class="instrument"
-                  href="assets/software/anko-helper/interface.webp"
-                  data-inspect
-                  aria-label="Inspect ANKO Helper interface"
-                  ><img
-                    class=""
-                    src="assets/software/anko-helper/interface.webp"
-                    srcset="
-                      assets/software/anko-helper/preview.webp    960w,
-                      assets/software/anko-helper/interface.webp 2048w
-                    "
-                    sizes="(max-width: 700px) 96vw, 78vw"
-                    width="2048"
-                    height="1104"
-                    alt="ANKO Helper — actual application interface"
-                    loading="lazy"
-                    decoding="async" /><span
-                    class="surface-light"
-                    aria-hidden="true"
-                  ></span
-                  ><span class="instrument-edge" aria-hidden="true"></span
-                ></a>
-              </div>
-            </div>
-            <div class="macro-plane" aria-hidden="true">
-              <div class="macro-window">
-                <img
-                  class=""
-                  src="assets/software/anko-helper/interface.webp"
-                  srcset="
-                    assets/software/anko-helper/preview.webp    960w,
-                    assets/software/anko-helper/interface.webp 2048w
-                  "
-                  sizes="(max-width: 700px) 96vw, 78vw"
-                  width="2048"
-                  height="1104"
-                  alt="ANKO Helper — actual application interface"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <span class="micro">Report and schedule detail · demo data</span>
-            </div>
-            <span class="object-tick tick-a" aria-hidden="true">+</span
-            ><span class="object-tick tick-b" aria-hidden="true">+</span>
-          </div>
-          <div class="software-thought" aria-hidden="true">
-            From status<br />to next steps.
-          </div>
-          <div class="scene-foot">
-            <p class="micro">Status → projected schedule · demo data</p>
-            <div class="scene-actions">
-              <a
-                class="inspect-link"
-                data-inspect
-                href="assets/software/anko-helper/interface.webp"
-                >Inspect interface <span aria-hidden="true">↗</span></a
-              ><a
-                class="next-link micro"
-                href="#metria-spc"
-                aria-label="Continue to Metria SPC"
-                >NEXT <span aria-hidden="true">↓</span></a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-      <section
-        id="metria-spc"
-        class="software journey"
-        aria-labelledby="title-metria-spc"
-        data-chapter="systems"
-        data-side="-1"
-        data-detail="Control chart detail · sample data"
-        style="--crop: 60% 36%; --zoom: 1.8"
-      >
-        <div class="scene software-scene">
-          <div class="software-heading">
-            <div>
-              <p class="micro"><b>05 / 05</b> PROCESS ANALYSIS</p>
-              <h2 id="title-metria-spc">Metria SPC</h2>
-            </div>
-            <p class="software-description">
-              Process traces, control limits, and comparison tools. Patterns
-              become something you can inspect.
-            </p>
-          </div>
-          <div class="instrument-space">
-            <div class="instrument-position">
-              <div class="instrument-tilt">
-                <a
-                  class="instrument"
-                  href="assets/software/metria-spc/interface.webp"
-                  data-inspect
-                  aria-label="Inspect Metria SPC interface"
-                  ><img
-                    class=""
-                    src="assets/software/metria-spc/interface.webp"
-                    srcset="
-                      assets/software/metria-spc/preview.webp    960w,
-                      assets/software/metria-spc/interface.webp 2048w
-                    "
-                    sizes="(max-width: 700px) 96vw, 78vw"
-                    width="2048"
-                    height="1104"
-                    alt="Metria SPC — actual application interface"
-                    loading="lazy"
-                    decoding="async" /><span
-                    class="surface-light"
-                    aria-hidden="true"
-                  ></span
-                  ><span class="instrument-edge" aria-hidden="true"></span
-                ></a>
-              </div>
-            </div>
-            <div class="macro-plane" aria-hidden="true">
-              <div class="macro-window">
-                <img
-                  class=""
-                  src="assets/software/metria-spc/interface.webp"
-                  srcset="
-                    assets/software/metria-spc/preview.webp    960w,
-                    assets/software/metria-spc/interface.webp 2048w
-                  "
-                  sizes="(max-width: 700px) 96vw, 78vw"
-                  width="2048"
-                  height="1104"
-                  alt="Metria SPC — actual application interface"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <span class="micro">Control chart detail · sample data</span>
-            </div>
-            <span class="object-tick tick-a" aria-hidden="true">+</span
-            ><span class="object-tick tick-b" aria-hidden="true">+</span>
-          </div>
-          <div class="software-thought" aria-hidden="true">
-            Find the signal.<br />Keep the context.
-          </div>
-          <div class="scene-foot">
-            <p class="micro">Process traces → analysis · sample data</p>
-            <div class="scene-actions">
-              <a
-                class="inspect-link"
-                data-inspect
-                href="assets/software/metria-spc/interface.webp"
-                >Inspect interface <span aria-hidden="true">↗</span></a
-              ><a
-                class="next-link micro"
-                href="#evolution"
-                aria-label="Continue to The evolution"
-                >NEXT <span aria-hidden="true">↓</span></a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-      <section
-        id="evolution"
-        class="evolution"
-        aria-labelledby="evolution-title"
-        data-chapter="evolution"
-      >
-        <div class="scene-label micro"><b>04 /</b> STILL EVOLVING</div>
-        <p class="evolution-intro">
-          A question became a tool.<br />A tool became a system.
-        </p>
-        <div class="layer-word" aria-hidden="true">
-          <span>ARTIFACTS</span><span>ARTIFACTS</span>
-        </div>
-        <h2 id="evolution-title">A place for it<br />all to come together.</h2>
-        <div class="evolution-bottom">
-          <span class="micro">CURIOSITY → TOOLS → SYSTEMS → ARTIFACTS</span>
-          <p>Built over years.<br />Still being built.</p>
-        </div>
-      </section>
-      <section
-        id="gene"
-        class="gene"
-        aria-labelledby="gene-title"
-        data-chapter="gene"
-      >
-        <div class="scene-label micro"><b>05 /</b> THE PERSON BEHIND IT</div>
-        <p class="gene-intro">Behind the systems,<br />the same curiosity.</p>
-        <h2 id="gene-title">Gene<span>.</span></h2>
-        <div class="gene-bottom">
-          <span class="micro">ENGINEER / BUILDER</span>
-          <div>
-            <p>
-              I enjoy building things.<br />ARTIFACTS is where they come
-              together.
-            </p>
-            <p class="gene-disciplines">
-              Semiconductor engineering. Software. Automation.<br />Making
-              complex work clearer.
-            </p>
-          </div>
-        </div>
-        <!-- CONTENT: Add verified experience, CV and contact information here when ready. -->
+        <!-- CONTENT: Add verified CV, experience and contact details here when ready. -->
       </section>
     </main>
     <footer>
-      <a class="brand" href="#object">ARTIFACTS <small>by Gene</small></a
-      ><span class="micro"
-        >A PERSONAL BODY OF WORK · <span id="year">2026</span></span
-      ><a href="#object"
-        >Back to the surface <span aria-hidden="true">↑</span></a
-      >
+      <a class="brand" href="#object"
+        ><img
+          src="assets/brand/artifacts-symbol.svg"
+          width="80"
+          height="80"
+          alt=""
+        /><span>ARTIFACTS <small>by Gene</small></span></a
+      ><span class="eyebrow"
+        >AN INDEPENDENT BODY OF WORK / <span id="year">2026</span></span
+      ><a href="#object">Back to the surface ↑</a>
     </footer>
     <dialog id="inspector" aria-labelledby="inspector-title">
-      <div class="inspector-bar">
+      <div class="inspector-header">
         <div>
-          <p class="micro">ACTUAL APPLICATION CAPTURE</p>
+          <p class="eyebrow">ORIGINAL APPLICATION CAPTURE</p>
           <h2 id="inspector-title"></h2>
         </div>
-        <div class="inspector-controls">
-          <button type="button" id="zoom-image" aria-pressed="false">
-            Zoom in</button
-          ><button type="button" id="close-inspector" autofocus>
-            Close <span aria-hidden="true">×</span>
-          </button>
-        </div>
+        <button id="close-inspector" autofocus>Close ×</button>
+      </div>
+      <div class="inspector-toolbar">
+        <div id="capture-options"></div>
+        <button id="native-size" aria-pressed="false">Native pixels</button
+        ><span id="image-dimensions"></span>
       </div>
       <div
         class="inspector-viewport"
         tabindex="0"
-        aria-label="Application image. Use the zoom button to inspect at full size."
+        aria-label="Application image. Native pixels displays the source without enlargement."
       >
         <img id="inspector-image" alt="" />
       </div>
-      <p class="inspector-note">
-        An interface capture, not a running application.
-        <span id="inspector-caption"></span>
-      </p>
+      <p id="capture-caption"></p>
     </dialog>
   </body>
 </html>

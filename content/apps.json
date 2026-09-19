@@ -1,0 +1,693 @@
+{
+  "source": "ARTIFACTS desktop widgets/home_widget.py: TITLES, CARD_DESCRIPTIONS, ANIMATION_MODES, LEGACY_HOME_GROUPS. Monolith is an overlapping current view, not a fifth exclusive category.",
+  "apps": [
+    {
+      "id": "altus-lotviewer",
+      "index": 1,
+      "sourceKey": "parser_tab",
+      "name": "Altus LotViewer",
+      "category": "Expedition I - Altus",
+      "description": "Lot history analysis.",
+      "visualType": "lot_trace",
+      "accent": "#d89b75",
+      "pose": [
+        -9,
+        23,
+        -2
+      ],
+      "pace": 0.52,
+      "heroImage": "assets/artifacts/apps/altus-lotviewer/hero.webp",
+      "responsiveImage": "assets/artifacts/apps/altus-lotviewer/hero-1280.webp",
+      "thumbnail": "assets/artifacts/apps/altus-lotviewer/thumbnail.webp",
+      "width": 2048,
+      "height": 1104,
+      "detailImages": [
+        {
+          "src": "assets/artifacts/apps/altus-lotviewer/detail-01.webp",
+          "width": 1475,
+          "height": 442,
+          "label": "Lot history rows",
+          "region": {
+            "left": 348,
+            "top": 243,
+            "width": 1475,
+            "height": 442
+          }
+        }
+      ],
+      "exampleImage": null,
+      "captureNote": "Demo lot history",
+      "sourceQuality": "jpeg-derived-archive",
+      "needsRecapture": true,
+      "sourceFile": "resources/images/altus_lotviewer1.png",
+      "sourceSha256": "914e78815a495a3026d29f1c4fc0058e7c1ac687d45d9eb3d1f615dddfa1b5a5",
+      "heroSha256": "e8f62616408fe87994312103948c24bcadc6de54d930ed198b809ee1beedeab6",
+      "sourcePixelSha256": "3e0cab907abf0e1bc0010889ada70ad561201bb74c88f600fe9075643b11539b"
+    },
+    {
+      "id": "altus-anko-viewer",
+      "index": 2,
+      "sourceKey": "altusanko_tab",
+      "name": "Altus ANKO Viewer",
+      "category": "Expedition I - Altus",
+      "description": "ANKO schedule retrieval.",
+      "visualType": "anko_schedule",
+      "accent": "#d89b75",
+      "pose": [
+        8,
+        -20,
+        2
+      ],
+      "pace": 0.62,
+      "heroImage": "assets/artifacts/apps/altus-anko-viewer/hero.webp",
+      "responsiveImage": "assets/artifacts/apps/altus-anko-viewer/hero-1280.webp",
+      "thumbnail": "assets/artifacts/apps/altus-anko-viewer/thumbnail.webp",
+      "width": 2048,
+      "height": 1104,
+      "detailImages": [
+        {
+          "src": "assets/artifacts/apps/altus-anko-viewer/detail-01.webp",
+          "width": 1720,
+          "height": 397,
+          "label": "Reactor schedule",
+          "region": {
+            "left": 164,
+            "top": 144,
+            "width": 1720,
+            "height": 397
+          }
+        }
+      ],
+      "exampleImage": null,
+      "captureNote": "Demo schedule",
+      "sourceQuality": "jpeg-derived-archive",
+      "needsRecapture": true,
+      "sourceFile": "resources/images/altus_anko_viewer1.png",
+      "sourceSha256": "8907fa6bdbf8fff7be75f4111ba1bca5663e0a40bf5a16596ffc203bc41d3350",
+      "heroSha256": "6e0f9e4f804ea713bf594a4f25ea1713834205f1950abf04f534af1e260f9dd8",
+      "sourcePixelSha256": "781bee52fc0e9a1542b89a277aa292882a57f8e3aeb982fab2a8754e2ace6634"
+    },
+    {
+      "id": "altus-wafercount",
+      "index": 3,
+      "sourceKey": "wafercount_tab",
+      "name": "Altus WaferCount",
+      "category": "Expedition I - Altus",
+      "description": "Wafer loading planner.",
+      "visualType": "wafer_grid",
+      "accent": "#d89b75",
+      "pose": [
+        -12,
+        14,
+        -4
+      ],
+      "pace": 0.58,
+      "heroImage": "assets/artifacts/apps/altus-wafercount/hero.webp",
+      "responsiveImage": "assets/artifacts/apps/altus-wafercount/hero-1280.webp",
+      "thumbnail": "assets/artifacts/apps/altus-wafercount/thumbnail.webp",
+      "width": 2048,
+      "height": 1104,
+      "detailImages": [
+        {
+          "src": "assets/artifacts/apps/altus-wafercount/detail-01.webp",
+          "width": 1126,
+          "height": 442,
+          "label": "Loading overview",
+          "region": {
+            "left": 123,
+            "top": 132,
+            "width": 1126,
+            "height": 442
+          }
+        }
+      ],
+      "exampleImage": null,
+      "captureNote": "Demo loading values",
+      "sourceQuality": "jpeg-derived-archive",
+      "needsRecapture": true,
+      "sourceFile": "resources/images/altus_wafercount1.png",
+      "sourceSha256": "2c71b2a2f87eba26ee7f465cba3b93e40fbb2d1b8af6275228136f28c0aff2e1",
+      "heroSha256": "556b368f328dfed41bf311b8edae27e45afa282853e87821468ac96c331f9bef",
+      "sourcePixelSha256": "ff88e341a7d8bdef2c1ea71193513f07166506edd012dbc9f894888fd39d59da"
+    },
+    {
+      "id": "topotracer",
+      "index": 4,
+      "sourceKey": "topotracer_tab",
+      "name": "TopoTracer",
+      "category": "Expedition II - Interstice",
+      "description": "Contour and topography plots.",
+      "visualType": "topography",
+      "accent": "#d89b75",
+      "pose": [
+        16,
+        -24,
+        3
+      ],
+      "pace": 0.68,
+      "heroImage": "assets/artifacts/apps/topotracer/hero.webp",
+      "responsiveImage": "assets/artifacts/apps/topotracer/hero-1280.webp",
+      "thumbnail": "assets/artifacts/apps/topotracer/thumbnail.webp",
+      "width": 2048,
+      "height": 1104,
+      "detailImages": [
+        {
+          "src": "assets/artifacts/apps/topotracer/detail-01.webp",
+          "width": 819,
+          "height": 662,
+          "label": "Topography and contours",
+          "region": {
+            "left": 164,
+            "top": 309,
+            "width": 819,
+            "height": 662
+          }
+        }
+      ],
+      "exampleImage": null,
+      "captureNote": "Demo contour plot",
+      "sourceQuality": "jpeg-derived-archive",
+      "needsRecapture": true,
+      "sourceFile": "resources/images/topotracer1.png",
+      "sourceSha256": "bb9000a3a8129dc4386337904e1e3a5265d330b3cf489e1c3c8f489f96bfd6de",
+      "heroSha256": "eae0fdcb5c7c61ccca00d06a7b61a19ec26dd5277727a2da16195596327a9c5a",
+      "sourcePixelSha256": "51b6cb19c4d221bb051df8c03e7de96b2d8ae3380f5dd2c42b65e58ccd18e1a2"
+    },
+    {
+      "id": "papyrus-reader",
+      "index": 5,
+      "sourceKey": "xml_tab",
+      "name": "Papyrus Reader",
+      "category": "Expedition II - Interstice",
+      "description": "XML, EPI, and text reader.",
+      "visualType": "document",
+      "accent": "#d89b75",
+      "pose": [
+        -4,
+        28,
+        0
+      ],
+      "pace": 0.52,
+      "heroImage": "assets/artifacts/apps/papyrus-reader/hero.webp",
+      "responsiveImage": "assets/artifacts/apps/papyrus-reader/hero-1280.webp",
+      "thumbnail": "assets/artifacts/apps/papyrus-reader/thumbnail.webp",
+      "width": 3840,
+      "height": 2160,
+      "detailImages": [
+        {
+          "src": "assets/artifacts/apps/papyrus-reader/detail-01.webp",
+          "width": 3149,
+          "height": 238,
+          "label": "Document comparison controls",
+          "region": {
+            "left": 307,
+            "top": 216,
+            "width": 3149,
+            "height": 238
+          }
+        }
+      ],
+      "exampleImage": "assets/artifacts/apps/papyrus-reader/example.webp",
+      "captureNote": "Entry workspace",
+      "sourceQuality": "native-4k",
+      "needsRecapture": false,
+      "sourceFile": "native-qt/scale-2/xml_tab-after.png",
+      "sourceSha256": "0be905e3aa5451e810ef5f41b051814f44570567573c70e63d4627b546b487b5",
+      "heroSha256": "e536b0a68cb096e8533b6de13941943c498488d083b96620525a42d587c60a6f",
+      "sourcePixelSha256": "ca2d3ff3dc52b85599ea52bf0bdc152c72652560512da1f25ad6b15703c95aeb"
+    },
+    {
+      "id": "spc-pathfinder",
+      "index": 6,
+      "sourceKey": "path_tab",
+      "name": "SPC Pathfinder",
+      "category": "Expedition II - Interstice",
+      "description": "SPC chart finder.",
+      "visualType": "pathfinder",
+      "accent": "#d89b75",
+      "pose": [
+        9,
+        -17,
+        -2
+      ],
+      "pace": 0.62,
+      "heroImage": "assets/artifacts/apps/spc-pathfinder/hero.webp",
+      "responsiveImage": "assets/artifacts/apps/spc-pathfinder/hero-1280.webp",
+      "thumbnail": "assets/artifacts/apps/spc-pathfinder/thumbnail.webp",
+      "width": 2048,
+      "height": 1104,
+      "detailImages": [
+        {
+          "src": "assets/artifacts/apps/spc-pathfinder/detail-01.webp",
+          "width": 860,
+          "height": 607,
+          "label": "Chart index",
+          "region": {
+            "left": 1044,
+            "top": 276,
+            "width": 860,
+            "height": 607
+          }
+        }
+      ],
+      "exampleImage": null,
+      "captureNote": "Example chart index",
+      "sourceQuality": "jpeg-derived-archive",
+      "needsRecapture": true,
+      "sourceFile": "resources/images/spc_pathfinder1.png",
+      "sourceSha256": "88fe371b7fa0ae6d0aabf4c0acc7f0010001addd40ef5bab8fe1114844b453eb",
+      "heroSha256": "297343f9787f3733c98fe0212148d30a1c49371fa4274c09eff351dd9c55c026",
+      "sourcePixelSha256": "a26c5d9705af24d60118905add2f5c603b2f928e2bb2d2a1e6d1266ef0f0dc6c"
+    },
+    {
+      "id": "gan-met-compiler",
+      "index": 7,
+      "sourceKey": "metro_tab",
+      "name": "GaN Met Compiler",
+      "category": "Expedition III - GaN EPI",
+      "description": "Metrology report compiler.",
+      "visualType": "metrology",
+      "accent": "#d89b75",
+      "pose": [
+        12,
+        22,
+        2
+      ],
+      "pace": 0.58,
+      "heroImage": "assets/artifacts/apps/gan-met-compiler/hero.webp",
+      "responsiveImage": "assets/artifacts/apps/gan-met-compiler/hero-1280.webp",
+      "thumbnail": "assets/artifacts/apps/gan-met-compiler/thumbnail.webp",
+      "width": 2048,
+      "height": 1104,
+      "detailImages": [
+        {
+          "src": "assets/artifacts/apps/gan-met-compiler/detail-01.webp",
+          "width": 1720,
+          "height": 287,
+          "label": "Compilation workflow",
+          "region": {
+            "left": 164,
+            "top": 773,
+            "width": 1720,
+            "height": 287
+          }
+        }
+      ],
+      "exampleImage": null,
+      "captureNote": "Entry workspace",
+      "sourceQuality": "jpeg-derived-archive",
+      "needsRecapture": true,
+      "sourceFile": "resources/images/gan_met_compiler1.png",
+      "sourceSha256": "dc8e9741fe01553af1c43990ab65ae01cf0fd5cefd1ff5c708a41754a608eb3b",
+      "heroSha256": "3b7d2b553edca9f31e51afacb6400fd433da7c9681003242c70ffbb1957646cb",
+      "sourcePixelSha256": "d89977255cca17cb3a088c6ce8f78161204e6244c4a07ce79dd92aaf03f6fff3"
+    },
+    {
+      "id": "gan-temp-diagnoser",
+      "index": 8,
+      "sourceKey": "pyra_tab",
+      "name": "GaN Temp Diagnoser",
+      "category": "Expedition III - GaN EPI",
+      "description": "Temperature drift diagnosis.",
+      "visualType": "thermal",
+      "accent": "#d89b75",
+      "pose": [
+        -10,
+        -18,
+        -3
+      ],
+      "pace": 0.68,
+      "heroImage": "assets/artifacts/apps/gan-temp-diagnoser/hero.webp",
+      "responsiveImage": "assets/artifacts/apps/gan-temp-diagnoser/hero-1280.webp",
+      "thumbnail": "assets/artifacts/apps/gan-temp-diagnoser/thumbnail.webp",
+      "width": 3840,
+      "height": 2160,
+      "detailImages": [
+        {
+          "src": "assets/artifacts/apps/gan-temp-diagnoser/detail-01.webp",
+          "width": 1536,
+          "height": 1145,
+          "label": "Observation controls",
+          "region": {
+            "left": 269,
+            "top": 432,
+            "width": 1536,
+            "height": 1145
+          }
+        }
+      ],
+      "exampleImage": "assets/artifacts/apps/gan-temp-diagnoser/example.webp",
+      "captureNote": "Entry workspace",
+      "sourceQuality": "native-4k",
+      "needsRecapture": false,
+      "sourceFile": "native-qt/scale-2/pyra_tab-after.png",
+      "sourceSha256": "3b8f4e680fd3d733e17993f26b461985f8b74bd765cd5b523fecbc71c3790dda",
+      "heroSha256": "12c4b16f95e587aecf5c055ec4f2c841133c4032f0cfa9fb32ad597f656a4459",
+      "sourcePixelSha256": "59b9a9a2f63c6f69ffdf6eb1d27f56aeff1cfe9da577abf5aeba2bce24d77dce"
+    },
+    {
+      "id": "aix-dt-assistant",
+      "index": 9,
+      "sourceKey": "dt_tab",
+      "name": "AIX ΔT Assistant",
+      "category": "Expedition III - GaN EPI",
+      "description": "Wafer-to-wafer dT checks.",
+      "visualType": "delta",
+      "accent": "#d89b75",
+      "pose": [
+        14,
+        24,
+        1
+      ],
+      "pace": 0.52,
+      "heroImage": "assets/artifacts/apps/aix-dt-assistant/hero.webp",
+      "responsiveImage": "assets/artifacts/apps/aix-dt-assistant/hero-1280.webp",
+      "thumbnail": "assets/artifacts/apps/aix-dt-assistant/thumbnail.webp",
+      "width": 3840,
+      "height": 2160,
+      "detailImages": [
+        {
+          "src": "assets/artifacts/apps/aix-dt-assistant/detail-01.webp",
+          "width": 2074,
+          "height": 1534,
+          "label": "Mapping geometry",
+          "region": {
+            "left": 1459,
+            "top": 367,
+            "width": 2074,
+            "height": 1534
+          }
+        }
+      ],
+      "exampleImage": "assets/artifacts/apps/aix-dt-assistant/example.webp",
+      "captureNote": "Entry workspace",
+      "sourceQuality": "native-4k",
+      "needsRecapture": false,
+      "sourceFile": "native-qt/scale-2/dt_tab-after.png",
+      "sourceSha256": "489e3b2fc2ddf2d6d3ef9fd208a45442656934f88260ee9ccfa4c2cd8be68cb6",
+      "heroSha256": "0878c757e2f5a5b943d8e1ce7185932d4306fb550d63223e5cbdc24ffc89eba0",
+      "sourcePixelSha256": "d632ba900f21797327188cb7eaa44a1ae09409147c0660e28ca9070a1f44b5f9"
+    },
+    {
+      "id": "lt-zone-assistant",
+      "index": 10,
+      "sourceKey": "laytec_tab",
+      "name": "LT Zone Assistant",
+      "category": "Expedition III - GaN EPI",
+      "description": "LayTec zone mapping.",
+      "visualType": "zone_map",
+      "accent": "#d89b75",
+      "pose": [
+        18,
+        -16,
+        -4
+      ],
+      "pace": 0.62,
+      "heroImage": "assets/artifacts/apps/lt-zone-assistant/hero.webp",
+      "responsiveImage": "assets/artifacts/apps/lt-zone-assistant/hero-1280.webp",
+      "thumbnail": "assets/artifacts/apps/lt-zone-assistant/thumbnail.webp",
+      "width": 2048,
+      "height": 1104,
+      "detailImages": [
+        {
+          "src": "assets/artifacts/apps/lt-zone-assistant/detail-01.webp",
+          "width": 1044,
+          "height": 828,
+          "label": "Inner and outer zones",
+          "region": {
+            "left": 737,
+            "top": 132,
+            "width": 1044,
+            "height": 828
+          }
+        }
+      ],
+      "exampleImage": null,
+      "captureNote": "Zone geometry",
+      "sourceQuality": "jpeg-derived-archive",
+      "needsRecapture": true,
+      "sourceFile": "resources/images/lt_zone_assistant1.png",
+      "sourceSha256": "d4325e009d733936ee12991c90803e04dece8c7dbd688b510f2db070a99afaac",
+      "heroSha256": "8f37ba4fef9863bf158eb0f70309ce35857a1e471add99885085a19a995e2c88",
+      "sourcePixelSha256": "c54267ca7dfb9eb9b0fbbc9858325106c21014083d36eda321c05700ba6a0a34"
+    },
+    {
+      "id": "gan-xml-assistant",
+      "index": 11,
+      "sourceKey": "xmlll_tab",
+      "name": "GaN XML Assistant",
+      "category": "Expedition III - GaN EPI",
+      "description": "Devices.XML comparison.",
+      "visualType": "xml_compare",
+      "accent": "#d89b75",
+      "pose": [
+        -8,
+        26,
+        0
+      ],
+      "pace": 0.58,
+      "heroImage": "assets/artifacts/apps/gan-xml-assistant/hero.webp",
+      "responsiveImage": "assets/artifacts/apps/gan-xml-assistant/hero-1280.webp",
+      "thumbnail": "assets/artifacts/apps/gan-xml-assistant/thumbnail.webp",
+      "width": 3840,
+      "height": 2160,
+      "detailImages": [
+        {
+          "src": "assets/artifacts/apps/gan-xml-assistant/detail-01.webp",
+          "width": 3149,
+          "height": 151,
+          "label": "XML comparison controls",
+          "region": {
+            "left": 346,
+            "top": 227,
+            "width": 3149,
+            "height": 151
+          }
+        }
+      ],
+      "exampleImage": "assets/artifacts/apps/gan-xml-assistant/example.webp",
+      "captureNote": "Entry workspace",
+      "sourceQuality": "native-4k",
+      "needsRecapture": false,
+      "sourceFile": "native-qt/scale-2/xmlll_tab-after.png",
+      "sourceSha256": "d0961faf7b8c8bf9cc67423bef2a737e0fbe920c4ab566f6fbdfe275cf3fac92",
+      "heroSha256": "a661b10590d49055cc3891b6cc208d0131be75591913d1b4f3b067ae0f75084c",
+      "sourcePixelSha256": "90050d8050ccc148b3d5bba6c175fa54b724d70adfcd41375275911fba85839b"
+    },
+    {
+      "id": "magus-spc-gan",
+      "index": 12,
+      "sourceKey": "dnd_tab",
+      "name": "Magus SPC (GaN)",
+      "category": "Expedition IV - Planetfall",
+      "description": "GaN SPC release review.",
+      "visualType": "spc_gan",
+      "accent": "#d89b75",
+      "pose": [
+        6,
+        -22,
+        2
+      ],
+      "pace": 0.68,
+      "heroImage": "assets/artifacts/apps/magus-spc-gan/hero.webp",
+      "responsiveImage": "assets/artifacts/apps/magus-spc-gan/hero-1280.webp",
+      "thumbnail": "assets/artifacts/apps/magus-spc-gan/thumbnail.webp",
+      "width": 3840,
+      "height": 2160,
+      "detailImages": [
+        {
+          "src": "assets/artifacts/apps/magus-spc-gan/detail-01.webp",
+          "width": 3379,
+          "height": 259,
+          "label": "SPC review controls",
+          "region": {
+            "left": 230,
+            "top": 259,
+            "width": 3379,
+            "height": 259
+          }
+        }
+      ],
+      "exampleImage": "assets/artifacts/apps/magus-spc-gan/example.webp",
+      "captureNote": "Entry workspace",
+      "sourceQuality": "native-4k",
+      "needsRecapture": false,
+      "sourceFile": "native-qt/scale-2/dnd_tab-after.png",
+      "sourceSha256": "ca8e3156b7944f82eb74895c3ebe494271efd5378e6cac01727b46822414daf2",
+      "heroSha256": "93f1a094bdf5c73736952f38327c11f7704adbc0b0feadea0568c550ee71edf9",
+      "sourcePixelSha256": "b3d456a1156f26b44f3975084940d122188211ca455818c15fb72a7007836ee6"
+    },
+    {
+      "id": "magus-spc-legacy",
+      "index": 13,
+      "sourceKey": "dnd2_tab",
+      "name": "Magus SPC (Legacy)",
+      "category": "Expedition IV - Planetfall",
+      "description": "Legacy SPC release review.",
+      "visualType": "spc_legacy",
+      "accent": "#d89b75",
+      "pose": [
+        -5,
+        18,
+        -1
+      ],
+      "pace": 0.52,
+      "heroImage": "assets/artifacts/apps/magus-spc-legacy/hero.webp",
+      "responsiveImage": "assets/artifacts/apps/magus-spc-legacy/hero-1280.webp",
+      "thumbnail": "assets/artifacts/apps/magus-spc-legacy/thumbnail.webp",
+      "width": 3840,
+      "height": 2160,
+      "detailImages": [
+        {
+          "src": "assets/artifacts/apps/magus-spc-legacy/detail-01.webp",
+          "width": 3379,
+          "height": 259,
+          "label": "Legacy review controls",
+          "region": {
+            "left": 230,
+            "top": 259,
+            "width": 3379,
+            "height": 259
+          }
+        }
+      ],
+      "exampleImage": "assets/artifacts/apps/magus-spc-legacy/example.webp",
+      "captureNote": "Entry workspace",
+      "sourceQuality": "native-4k",
+      "needsRecapture": false,
+      "sourceFile": "native-qt/scale-2/dnd2_tab-after.png",
+      "sourceSha256": "9f394b38153d6da062c335245d91494d4d969d848cf0f9eae0572cef582ff801",
+      "heroSha256": "a7d727d81d3ddf211019099ba37346848f782e4cb5a51234cc509f99756bfac0",
+      "sourcePixelSha256": "679508b6bb7d6cc2959cee6d9fd6d3f8e49670b2dd3b4e4486362524adcc55d6"
+    },
+    {
+      "id": "anko-helper",
+      "index": 14,
+      "sourceKey": "ankohelper_tab",
+      "name": "ANKO Helper",
+      "category": "Expedition IV - Planetfall",
+      "description": "ANKO status and due dates.",
+      "visualType": "anko_cycle",
+      "accent": "#d89b75",
+      "pose": [
+        10,
+        -24,
+        3
+      ],
+      "pace": 0.62,
+      "heroImage": "assets/artifacts/apps/anko-helper/hero.webp",
+      "responsiveImage": "assets/artifacts/apps/anko-helper/hero-1280.webp",
+      "thumbnail": "assets/artifacts/apps/anko-helper/thumbnail.webp",
+      "width": 2048,
+      "height": 1104,
+      "detailImages": [
+        {
+          "src": "assets/artifacts/apps/anko-helper/detail-01.webp",
+          "width": 963,
+          "height": 397,
+          "label": "Schedule report",
+          "region": {
+            "left": 1024,
+            "top": 431,
+            "width": 963,
+            "height": 397
+          }
+        }
+      ],
+      "exampleImage": null,
+      "captureNote": "Demo report",
+      "sourceQuality": "jpeg-derived-archive",
+      "needsRecapture": true,
+      "sourceFile": "resources/images/anko_helper1.png",
+      "sourceSha256": "402a16ef0e184ab523c1227da93d8fbdd10c29dc4ebfb340d0f38ae2a8f69ff3",
+      "heroSha256": "785e914e5c999b8e0375a3e679d7436bf05139b05fdc057a1eae1d657e61e2bf",
+      "sourcePixelSha256": "135da608db1e5ef64901e374315f536f94e724ba4e4d23eac759ecc6d1f33cf2"
+    },
+    {
+      "id": "lt-report-compiler",
+      "index": 15,
+      "sourceKey": "sap_tab",
+      "name": "LT Report Compiler",
+      "category": "Expedition IV - Planetfall",
+      "description": "LayTec report compilation.",
+      "visualType": "laytec_report",
+      "accent": "#d89b75",
+      "pose": [
+        -12,
+        20,
+        -2
+      ],
+      "pace": 0.58,
+      "heroImage": "assets/artifacts/apps/lt-report-compiler/hero.webp",
+      "responsiveImage": "assets/artifacts/apps/lt-report-compiler/hero-1280.webp",
+      "thumbnail": "assets/artifacts/apps/lt-report-compiler/thumbnail.webp",
+      "width": 2048,
+      "height": 1104,
+      "detailImages": [
+        {
+          "src": "assets/artifacts/apps/lt-report-compiler/detail-01.webp",
+          "width": 1802,
+          "height": 243,
+          "label": "Report compilation workflow",
+          "region": {
+            "left": 123,
+            "top": 795,
+            "width": 1802,
+            "height": 243
+          }
+        }
+      ],
+      "exampleImage": null,
+      "captureNote": "Entry workspace",
+      "sourceQuality": "jpeg-derived-archive",
+      "needsRecapture": true,
+      "sourceFile": "resources/images/lt_report_compiler1.png",
+      "sourceSha256": "7202b35904ae2cde23da82e50c5a37f3b1144cbb410176386725b18e61989c19",
+      "heroSha256": "8a92f6c884e4cfedb75cb803e8ad384de1f12f8024c06a0cf5510e92c464b712",
+      "sourcePixelSha256": "7f947a9e77a738e0293d0ce7686602a2604671cc7598c2ca316afb1c1f64fdb6"
+    },
+    {
+      "id": "metria-spc",
+      "index": 16,
+      "sourceKey": "plessey_spc_tab",
+      "name": "Metria SPC",
+      "category": "Expedition IV - Planetfall",
+      "description": "Interactive multi-parameter equipment SPC.",
+      "visualType": "process_spc",
+      "accent": "#d89b75",
+      "pose": [
+        14,
+        -18,
+        1
+      ],
+      "pace": 0.68,
+      "heroImage": "assets/artifacts/apps/metria-spc/hero.webp",
+      "responsiveImage": "assets/artifacts/apps/metria-spc/hero-1280.webp",
+      "thumbnail": "assets/artifacts/apps/metria-spc/thumbnail.webp",
+      "width": 3840,
+      "height": 2160,
+      "detailImages": [
+        {
+          "src": "assets/artifacts/apps/metria-spc/detail-01.webp",
+          "width": 3226,
+          "height": 756,
+          "label": "Aligned control charts",
+          "region": {
+            "left": 307,
+            "top": 864,
+            "width": 3226,
+            "height": 756
+          }
+        }
+      ],
+      "exampleImage": null,
+      "captureNote": "Sample data",
+      "sourceQuality": "native-4k",
+      "needsRecapture": false,
+      "sourceFile": "native-qt/scale-2/metria-after.png",
+      "sourceSha256": "cf7f7df9e2e3638eb3bfd5254447331ad01656736ee8ca5b34891fd7cdbd4dc0",
+      "heroSha256": "d851b2eb0efafead5561e52bc912090b7c79c0ff91037286beca8b348d008a01",
+      "sourcePixelSha256": "243c08ae37743a39dfdfa2500221563f59d0106823faafdf72ada4c72b54ff62"
+    }
+  ]
+}

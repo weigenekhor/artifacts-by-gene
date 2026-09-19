@@ -1,38 +1,46 @@
 # Exhibition validation
 
-Verified 18 September 2026 in Microsoft Edge / Chromium on Windows. The browser used hardware graphics on an NVIDIA GeForce RTX 4060 Laptop GPU. These are local browser measurements, not a guarantee for every device or production network.
+Verified 18 September 2026 in Microsoft Edge / Chromium on Windows, using hardware graphics on an NVIDIA GeForce RTX 4060 Laptop GPU. These are local browser measurements, not a guarantee for every device or network. Safari, Firefox and physical mobile hardware have not been tested.
 
-Run `pnpm test` (or `$env:BROWSER_CHANNEL='msedge'; node tests/browser.mjs`). The suite starts a static server automatically. Screenshots and machine-readable results are written to ignored `.qa/`.
+## Catalogue and source fidelity
 
-## Viewport and visual review
+- All **16** names, desktop source keys and four original Expedition groups match the real application catalogue.
+- Real ARTIFACTS vectors appear in navigation, opening and closing/footer; the favicon retains the original symbol paths.
+- Seven native 3840 × 2160 primaries; nine 2048 × 1104 JPEG-derived archive primaries remain explicitly flagged for native recapture.
+- Every full WebP was compared against its decoded original source: pixel-identical. Each detail is an exact crop. Encoded and decoded SHA-256 hashes are checked by `pnpm test:assets`.
+- All full-resolution primary images total **4.59 MiB**. The opening requests **zero** large hero captures. Only the active screen and neighbours load as needed.
+- The display and inspector respect source dimensions and device pixel ratio. No fake HD upscales or CSS magnification of low-resolution details.
 
-Passed 2560 × 1440, 1920 × 1080, 1440 × 900, 1366 × 768, 1024 × 1366, 390 × 844, 320 × 740, and 844 × 390. No horizontal document overflow at any chapter. Hero type fits all viewports. Each application has reserved image dimensions and accessible inspection links.
+## Viewports and visual refinement
 
-Reviewed each application at approach, readable and detail states. Refined the screen-to-heading and screen-to-footer clearances, ecosystem fan scale, mobile fan spacing, macro completion timing, alternating compositions, hero title colour, and short-landscape layout after browser renders. Short landscape uses unpinned document flow; portrait retains shortened staging.
+Passed 2560 × 1440, 1920 × 1080, 1440 × 900, 1366 × 768, 1024 × 1366, 3840 × 2160, 1440 × 900 at DPR 2, 390 × 844 at DPR 3, and 844 × 390 at DPR 2.
 
-## Functional and accessibility checks
+No horizontal document overflow. Screen planes retain clearance above captions/navigation at every tested size. All sixteen app selections were checked at desktop; representative archive, native-entry and native-chart screens were checked at every size. All sixteen are also traversed with reduced motion enabled.
 
-- All five original application captures load; each complete → detail transition changes the spatial transform and reveals the correct macro.
-- The inspector displays the 2048px capture, fits/zooms, closes with Escape, and restores the initiating link's focus. Native image links remain available without JavaScript and with modified clicks.
-- Mouse orientation uses a damped response. Mobile tap inspection and zoom work in touch emulation.
-- Complexity traces genuinely interpolate into ordered paths.
-- Chapter links, application links, next links, and back-to-surface are native anchors; no scrolling is intercepted.
-- axe-core 4.10.3: zero WCAG 2 A/AA and WCAG 2.1 AA violations in desktop, image inspector, mobile and reduced-motion scans.
-- Live reduced-motion changes remove staging distances and preserve a complete static composition. Session pause persists across reloads. The motion button respects the OS setting.
-- WebGL context loss produces the CSS fallback; restoration recovers the renderer. Forced WebGL unavailability and JavaScript-disabled content are covered.
-- Relative assets also load when served beneath `/artifacts-by-gene/`.
-- Zero page exceptions, console errors or HTTP asset failures during the main suite.
+Visual review covered the opening, complexity composition, ecosystem assembly, approach/split transitions, frontal inspection, extracted details, mobile and landscape. Refinements included native-pixel sizing, image/control clearance, camera settling interrupted by scroll, transition separation, Expedition navigation, and reducing the creator treatment to 22px desktop / 20px mobile.
 
-## Rendering measurements
+## Interaction and accessibility
 
-At 1440 × 900, a 2.5-second warm hero sample produced **151 frames**, **16.7 ms median**, **16.8 ms p95**, and **zero long tasks**. Instrumented draws stopped when the hero left the viewport and when motion was paused.
+- Sixteen-item index, counter, active marker, previous/next, direct hashes, Home/End and arrow-key navigation.
+- Mobile drawer open/close, Escape and horizontal touch swipe; vertical scrolling remains native.
+- Inspector full interface, exact detail and archive alternative; fit/native pixels; Escape and focus restoration.
+- Zero axe-core WCAG 2 A/AA / WCAG 2.1 AA violations in hero, atlas, inspector, mobile and reduced-motion scans.
+- Reduced motion uses an unpinned static viewer with all sixteen choices. Short landscape retains accessible controls without a sticky trap.
+- JavaScript disabled: all sixteen semantic articles, lazy images and original links are present in normal flow.
+- Forced WebGL unavailability retains the CSS wafer and working catalogue.
+- GitHub Pages subpath `/artifacts-by-gene/` loads correctly; relative images, font and modules resolve.
+- Zero browser exceptions, console errors or HTTP failures during the suite.
 
-A supplementary 1920 × 1080 scroll sample measured **16.7 ms median / 16.8 ms p95** for both the trace-organisation scene and AIX's camera/detail transition, with no long tasks. The suite's accumulated layout-shift score was approximately **0.00000003**.
+## Measured rendering
 
-Shader work is limited to one triangle and one draw, at most 1.1 million desktop pixels or 420,000 compact pixels. Compact rendering targets 24 Hz; software presentation uses CSS perspective. Original interface WebPs total about 615 KiB, with smaller responsive alternatives. No external runtime requests or dependency bundles are required.
+A warm 1440 × 900 hero sample of 180 intervals measured **16.7ms median / 16.8ms p95**, approximately **60fps**.
 
-## Coverage limits
+A 1920 × 1080 continuous atlas scroll sample of 240 intervals measured **16.7ms median / 16.8ms p95**, with **zero long tasks** during that sample. Instrumented WebGL draw calls stayed at **zero while the hero was offscreen**. The shader's existing pixel caps, hidden-page pause and adaptive resolution remain in place.
 
-Mobile and tablet checks use Chromium viewport/touch emulation, not physical iOS/Android devices. Safari/Firefox, screen-reader sessions, constrained mobile hardware and remote-network loading should receive a follow-up check before broader release. Existing exported screenshots retain their original raster text and pointer; the asset README specifies optional higher-resolution replacements.
+The complete functional/accessibility run includes a few long tasks from initial loading and test instrumentation; the warm samples above are not an end-to-end loading benchmark. No claim is made about measured power consumption or physical mobile GPU performance.
 
-Production remains unchanged until the pull request is merged. `CNAME`, `.nojekyll`, canonical URL and the existing branch-based GitHub Pages arrangement are preserved.
+## Reproduction
+
+`pnpm install --frozen-lockfile`, `pnpm build`, `pnpm test:assets`, then `pnpm test`. Install Playwright Chromium once, or on Windows run `$env:BROWSER_CHANNEL='msedge'; node tests/browser.mjs`.
+
+The browser suite starts its own local server and writes screenshots/results to ignored `.qa/`. Asset tests validate committed pixels without needing the private desktop source tree. [The capture checklist](assets/artifacts/README.md) documents the remaining source-image work.
