@@ -1,0 +1,3 @@
+# Sharp uses the platform binaries installed as optional dependencies.
+allowBuilds:
+  sharp: false
