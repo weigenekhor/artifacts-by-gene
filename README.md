@@ -1,33 +1,70 @@
-# Artifacts by Gene
+# ARTIFACTS
 
-A personal engineering software showcase for **https://artifactsbygene.com**.
+An interactive engineering narrative at https://artifactsbygene.com. The real ARTIFACTS identity leads; personal attribution appears once in the footer.
 
-Plain HTML, CSS, and JavaScript. No build step, framework, CDN, analytics, or runtime dependencies. Geist is self-hosted under the SIL Open Font License; the license is included in `assets/fonts/OFL.txt`.
+## Run and deploy
 
-## Local preview
+```sh
+python -m http.server 8001 --bind 127.0.0.1
+```
 
-Run `python -m http.server 8000` from the repository root and open http://localhost:8000. Any static HTTP server works.
+Open http://127.0.0.1:8001 while that server is running. A refused connection means the local server has stopped; GitHub Pages does not depend on it.
 
-## GitHub Pages
+The site is static HTML, CSS and ES modules, with **no runtime dependencies**. Generated files are committed. GitHub Pages can serve `main / root` directly, without a build service. `CNAME` remains `artifactsbygene.com`; asset URLs also work below `/artifacts-by-gene/`. The redesign is isolated on `experience/engineering-in-motion` for review before merging.
 
-This repository is designed for branch-based GitHub Pages publishing. In **Settings → Pages**, choose **Deploy from a branch**, **main**, and **/ (root)**. Merging the website changes into main makes them available to the configured Pages deployment. No build command is needed.
+## The narrative
 
-The existing `CNAME` is preserved and specifies `artifactsbygene.com`. Keep the domain's existing DNS configuration. Enable HTTPS in Pages settings once GitHub has provisioned the certificate. Relative asset paths also work at the repository's default GitHub Pages address.
+One persistent WebGL environment moves through material, friction, execution, tools, four functional lenses, the full ecosystem and a quiet conclusion. Native scroll advances the camera and morphs shared ribbon geometry. The opening is skippable and never blocks navigation.
 
-## Content to finish
+**Engineering is complex. Execution shouldn't be.**
 
-- **Project profiles:** the `systems` object at the top of `script.js` contains clearly marked placeholder descriptions. Replace them with verified descriptions, interface captures, technical notes, and actual project links. Keep the initial GaN profile in `index.html` synchronized for visitors without JavaScript.
-- **Project artwork:** current SVG plots are explicitly labeled conceptual, not live data. Replace them with approved interface captures when available.
-- **About and approach:** editorial draft copy in `index.html` is marked for approval or replacement. No employers, dates, achievements, metrics, or unverified capabilities have been added.
-- **Experience / CV / contact:** add when ready. No fake contact links or unavailable downloads are exposed.
-- **Evolution:** intentionally undated until verified project history is available.
-- **Brand:** the temporary geometric A mark appears in the header and `assets/favicon.svg`.
-- **Social preview:** `assets/social-preview.png` is the 1200 × 630 sharing image referenced by Open Graph metadata.
+The 16 actual app names and purposes come from the existing catalogue, cross-checked against the reference presentation. Observe, Compare, Diagnose and Coordinate are editorial workflow lenses. The four original Expeditions remain the catalogue categories and define the connections in the ecosystem.
 
-## Interaction and performance
+Each application has a distinct procedural interpretation of its function: histories, topography, comparisons, diagnostic paths, zones, schedules, compilation or monitoring. **These are labelled synthetic conceptual illustrations, not process simulations, application outputs or production measurements.** The form controls change the illustration only. No internal reference-slide values or paths are published.
 
-The hero uses a custom WebGL shader with one triangle, an analytic surface, a procedural die grid, a measured edge, controlled specular lighting, and slow rotation. It has no downloaded textures or 3D libraries. Rendering pauses offscreen and in hidden tabs; pixel density is capped. Desktop pointer movement subtly shifts lighting and orientation. Mobile renders a still surface. A CSS surface remains visible when WebGL cannot initialize or the context is lost.
+Select an instrument in the ecosystem, use the complete text index, or jump directly with `#app-<id>`. Keyboard users can move between nodes with arrow keys, use native controls and close the index with Escape. The index traps focus and returns it to its opener.
 
-Reduced-motion mode disables continuous motion, pointer response, reveal animation, and smooth scrolling. Projects use accessible tabs with arrow keys, Home, and End. Notes use a native modal dialog with Escape dismissal and focus restoration. Navigation uses normal anchors; JavaScript failure leaves the main editorial content readable.
+## Source structure
 
-See `VALIDATION.md` for checks and their limitations.
+| Source              | Responsibility                                                                                                                 |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `content/apps.json` | All 16 apps, verified purposes, original categories, workflow lenses, concepts, relationships and archived capture provenance. |
+| `content/page.html` | Semantic narrative and metadata template.                                                                                      |
+| `scripts/build.mjs` | Generates `index.html`, public `js/apps.js` and 21 static SVG fallback diagrams.                                               |
+| `js/geometry.js`    | Pure synthetic geometry functions; shared topology permits continuous morphing.                                                |
+| `js/world.js`       | One WebGL draw call, material shader, camera, pointer inertia, projection, context recovery and render budgets.                |
+| `js/exhibition.js`  | Scene choreography, app selection, direct links and accessible directory.                                                      |
+| `js/motion.js`      | Sleeping frame scheduler and motion preferences.                                                                               |
+| `js/tokens.js`      | Art direction, camera poses, render limits and timing.                                                                         |
+| `styles.css`        | Desktop, portrait, short-screen, reduced-motion and static layouts.                                                            |
+| `assets/brand/`     | Original ARTIFACTS vectors.                                                                                                    |
+| `CODEX_HANDOFF.md`  | Current implementation status and continuation notes.                                                                          |
+
+Edit the sources, then run `node scripts/build.mjs`. Generated output must stay committed. The reference presentation and local QA images remain outside the published source.
+
+## Motion and resilience
+
+- Pixel ratio capped at 1.5; drawing-buffer budgets of 1.5 million desktop / 520,000 mobile pixels, with adaptive downscaling under sustained slow frames.
+- 20,640 desktop / 10,368 mobile vertices and one indexed draw per rendered frame. Mobile acquisition sweep capped at 24 fps; interaction remains responsive to the shared clock.
+- Camera and pointer settle with damping. Static views stop rendering; hidden pages pause the scheduler and the final scene sleeps.
+- Short screens use a flowing composition instead of staged sticky scenes.
+- OS reduced motion and the session motion toggle retain readable compositions and every app interaction.
+- Missing WebGL, missing derivative support or context loss exposes generated SVG diagrams. Restoring the context rebuilds buffers and shaders.
+- With JavaScript disabled, semantic content, diagrams and the complete 16-app directory remain available.
+
+## Validate
+
+```sh
+pnpm install --frozen-lockfile
+pnpm build
+pnpm test:geometry
+pnpm test:assets
+pnpm exec playwright install chromium
+pnpm test
+```
+
+On Windows with Edge already installed, set `$env:BROWSER_CHANNEL='msedge'` before `pnpm test` instead of installing Chromium. The browser suite starts its own temporary HTTP server and saves ignored evidence to `.qa/`. See [VALIDATION.md](VALIDATION.md) for results and limitations.
+
+## Preserved software captures
+
+Original screenshots and their lossless derivatives remain in `assets/artifacts/apps/` as an archive; the new narrative does not request them. Seven are native 3840 × 2160; nine are 2048 × 1104 JPEG-derived sources. They have not been falsely upscaled. Their provenance and optional recapture instructions remain in [the capture audit](assets/artifacts/README.md). Replacing those archived images is not required to use the current procedural experience.
