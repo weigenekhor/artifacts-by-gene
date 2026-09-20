@@ -17,7 +17,7 @@
     />
     <meta
       property="og:description"
-      content="Sixteen applications. Built from the work. Explore ARTIFACTS."
+      content="Sixteen applications. The person behind the tools. Explore ARTIFACTS."
     />
     <meta property="og:url" content="https://artifactsbygene.com/" />
     <meta
@@ -48,8 +48,7 @@
         /><span>ARTIFACTS</span></a
       >
       <nav aria-label="Main navigation">
-        <a href="#ecosystem"
-          >Explore the ecosystem <span aria-hidden="true">↗</span></a
+        <a href="#ecosystem">Applications <span aria-hidden="true">↗</span></a
         ><button
           id="motion"
           hidden
@@ -68,51 +67,35 @@
           ><span id="ecosystem"></span>
         </div>
         <div class="stage">
-          <div class="world" id="world" aria-hidden="true">
-            <img
-              class="world-fallback"
-              src="assets/brand/artifacts-symbol-metal.svg"
-              alt=""
-            />
-          </div>
+          <div class="world" id="world" aria-hidden="true"></div>
           <div class="opening-rule" aria-hidden="true"></div>
           <div class="chapters">
             <article class="chapter current" data-chapter="0">
-              <p class="eyebrow">A body of engineering work</p>
+              <p class="eyebrow">Engineering. With room to think.</p>
               <h1>ARTIFACTS</h1>
-              <p class="intro">
-                Individual tools.<br />
-                A shared way forward.
-              </p>
+              <p class="intro">Less repetition.<br />More room for judgment.</p>
               <a class="journey-link" href="#friction"
-                ><span class="arrow-down" aria-hidden="true">↓</span> Enter the
-                environment</a
+                ><span class="arrow-down" aria-hidden="true">↓</span> Follow the
+                work</a
               >
             </article>
             <article class="chapter" data-chapter="1">
-              <p class="eyebrow">01 / The starting point</p>
-              <h2>
-                The work<br />
-                between<br />
-                <em>the work.</em>
-              </h2>
+              <p class="eyebrow">01 / Before the tools</p>
+              <h2>The same task.<br />Again.<br /><em>And again.</em></h2>
               <p class="intro">
-                Comparing. Repeating. Chasing context.<br />
-                Engineering has enough complexity.
+                A log to reconstruct. A recipe to compare.<br />A report to
+                assemble. Before the engineering can begin.
               </p>
               <div class="scene-key">
                 <i></i><span>Separate inputs / repeated effort</span>
               </div>
             </article>
             <article class="chapter" data-chapter="2">
-              <p class="eyebrow">02 / A problem becomes a tool</p>
-              <h2>
-                Find the<br />
-                <em>meaning.</em>
-              </h2>
+              <p class="eyebrow">02 / A better question</p>
+              <h2>Two recipes.<br /><em>One clear view.</em></h2>
               <p class="intro">
-                Two recipes. Different line orders.<br />
-                Papyrus Reader finds the logical differences.
+                Start with one problem: comparing recipes.<br />Align equivalent
+                steps. Let the differences speak.
               </p>
               <button
                 class="text-button proof-link"
@@ -125,77 +108,65 @@
               </div>
             </article>
             <article class="chapter" data-chapter="3">
-              <p class="eyebrow">03 / The tools belong together</p>
+              <p class="eyebrow">03 / From tools to ARTIFACTS</p>
               <h2>
-                One tool.<br />
-                Then another.<br />
-                <em>A system.</em>
+                One problem solved.<br /><em>A new way<br />to work.</em>
               </h2>
               <p class="intro">
-                Different engineering problems.<br />
-                Sixteen applications. One environment.
+                One tool led to the next. Over time, sixteen applications found
+                a home in ARTIFACTS.
               </p>
               <a class="text-button" href="#ecosystem"
-                >Explore ARTIFACTS <span aria-hidden="true">↗</span></a
+                >Meet the applications <span aria-hidden="true">↗</span></a
               >
             </article>
           </div>
-          <section class="atlas" aria-labelledby="atlas-title">
+          <section
+            class="atlas"
+            aria-labelledby="atlas-title"
+            inert
+            aria-hidden="true"
+          >
             <div class="atlas-copy">
-              <p class="eyebrow" id="app-category">04 / The ecosystem</p>
-              <h2 id="atlas-title">
-                Engineering<br />
-                is complex.<br />
-                <em
-                  >Execution<br />
-                  shouldn’t be.</em
-                >
-              </h2>
-              <p class="intro" id="app-purpose">
-                Sixteen ways to remove friction.<br />
-                Select an application to explore its work.
+              <p class="eyebrow" id="app-category"></p>
+              <p class="app-name" id="app-name"></p>
+              <h2 id="atlas-title"></h2>
+              <p class="intro" id="app-purpose"></p>
+            </div>
+            <div class="software-gallery"><!-- SOFTWARE --></div>
+            <div class="study-panel">
+              <p class="study-caption">
+                <span id="transformation"></span><span>Concept study</span>
               </p>
-              <div class="app-details" hidden>
-                <p class="transformation" id="transformation"></p>
-                <label class="study-control"
-                  ><span id="study-action">Explore the transformation</span
-                  ><input id="study" type="range" min="0" max="100" value="100"
-                /></label>
-                <button class="capture-link" id="capture">
-                  <img
-                    id="capture-thumbnail"
-                    alt=""
-                    width="128"
-                    height="64"
-                  /><span
-                    >From the application<small
-                      >Inspect original capture ↗</small
-                    ></span
-                  >
-                </button>
-                <button class="text-button" id="overview">
-                  ← All sixteen applications
-                </button>
+              <label class="study-control"
+                ><span id="study-action">Explore the transformation</span
+                ><input
+                  id="study"
+                  aria-labelledby="study-action"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="100"
+              /></label>
+            </div>
+            <nav class="app-navigation" aria-label="Application sequence">
+              <div class="sequence-top">
+                <span id="app-position">01 / 16</span
+                ><span id="next-label"></span>
+                <div class="sequence-buttons">
+                  <button id="previous" aria-label="Previous application">
+                    ←</button
+                  ><button id="next" aria-label="Next application">→</button
+                  ><a href="#index">All applications ↗</a>
+                </div>
               </div>
-            </div>
-            <div class="node-map" aria-label="All sixteen applications">
-              <!-- NODES -->
-            </div>
-            <div class="app-navigation" hidden>
-              <button id="previous" aria-label="Previous application">←</button
-              ><span id="app-position">01 / 16</span
-              ><button id="next" aria-label="Next application">→</button
-              ><label class="sr-only" for="app-select"
-                >Choose an application</label
+              <div class="sequence-rail"><!-- RAIL --></div>
+              <label class="sr-only" for="app-select"
+                >Jump to an application</label
               ><select id="app-select">
-                <option value="">All applications</option>
                 <!-- OPTIONS -->
               </select>
-            </div>
-            <p class="study-caption" hidden>
-              <span id="study-label"></span
-              ><span>Workflow interpretation · illustrative geometry</span>
-            </p>
+            </nav>
           </section>
           <footer class="stage-footer">
             <span class="stage-caption"
@@ -220,18 +191,27 @@
           </footer>
         </div>
       </section>
+      <section class="ecosystem-index" id="index" aria-labelledby="index-title">
+        <div class="index-intro">
+          <p class="eyebrow">Sixteen applications. Four Expeditions.</p>
+          <h2 id="index-title">
+            Different disciplines.<br /><em>A shared purpose.</em>
+          </h2>
+          <p>Complexity is a given.<br />Clarity is engineered.</p>
+        </div>
+        <div class="node-map"><!-- NODES --></div>
+      </section>
       <section class="ending" aria-labelledby="ending-title">
         <p class="eyebrow">Built from the work</p>
         <h2 id="ending-title">
-          Curiosity.<br />
-          Made useful.
+          Built from curiosity.<br />Shaped by the work.
         </h2>
         <p>
           I enjoy building things.<br />
           ARTIFACTS is where they come together.
         </p>
         <a href="#ecosystem"
-          >Return to the ecosystem <span aria-hidden="true">↗</span></a
+          >Revisit the applications <span aria-hidden="true">↗</span></a
         >
         <footer>
           <a href="#enter" aria-label="ARTIFACTS, back to the beginning"
@@ -263,15 +243,13 @@
         <button id="close-inspector" aria-label="Close capture">×</button>
       </header>
       <div class="capture-tools">
-        <button id="detail-view" aria-pressed="true">Focused detail</button
-        ><button id="full-view" aria-pressed="false">Full capture</button
-        ><button id="pixel-view" aria-pressed="false">Native pixels</button>
+        <button id="pixel-view" aria-pressed="false">Actual size ↗</button
+        ><a id="capture-download" target="_blank" rel="noopener"
+          >Open image ↗</a
+        >
       </div>
       <div class="capture-viewport"><img id="capture-image" alt="" /></div>
-      <p class="capture-note">
-        Original pixels, lossless capture. Drag the scrollbar to inspect at
-        native resolution.
-      </p>
+      <p class="capture-note">The complete application. Original resolution.</p>
     </dialog>
   </body>
 </html>

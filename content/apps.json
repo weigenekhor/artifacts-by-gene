@@ -37,14 +37,10 @@
       "workflow": "observe",
       "visualConcept": "history",
       "shortNarrative": "Process events become a readable history.",
-      "purpose": "Parse lot histories, align timestamps and review wafer states.",
+      "purpose": "Bring process events into one readable history. Align timestamps. Review wafer states. Follow the lot through the work.",
       "transformation": "Events → history",
       "referenceSlide": 6,
-      "relationships": [
-        "topotracer",
-        "spc-pathfinder",
-        "gan-met-compiler"
-      ],
+      "relationships": ["topotracer", "spc-pathfinder", "gan-met-compiler"],
       "evidence": {
         "src": "assets/evidence/altus-lotviewer/detail.webp",
         "full": "assets/evidence/altus-lotviewer/full.webp",
@@ -54,7 +50,7 @@
         "fullHeight": 950,
         "label": "Lot events, wafer states and durations"
       },
-      "headline": "Events, in order."
+      "headline": "Every event.\nIn context."
     },
     {
       "id": "altus-anko-viewer",
@@ -92,7 +88,7 @@
       "workflow": "coordinate",
       "visualConcept": "schedule",
       "shortNarrative": "Schedules become visible together.",
-      "purpose": "Retrieve ANKO schedules across the Altus workflow.",
+      "purpose": "Bring ANKO schedules into view across the Altus workflow. The next task starts with knowing what is due.",
       "transformation": "Schedules → one view",
       "referenceSlide": 3,
       "relationships": [
@@ -112,7 +108,7 @@
         "fullHeight": 950,
         "label": "Reactor schedules in a common view"
       },
-      "headline": "The next task, visible."
+      "headline": "Know what’s next."
     },
     {
       "id": "altus-wafercount",
@@ -150,7 +146,7 @@
       "workflow": "coordinate",
       "visualConcept": "usage",
       "shortNarrative": "Chamber usage becomes visible together.",
-      "purpose": "Aggregate wafer counts from logs for maintenance planning.",
+      "purpose": "Turn wafer counts from equipment logs into a clearer basis for maintenance planning.",
       "transformation": "Logs → chamber usage",
       "referenceSlide": 7,
       "relationships": [
@@ -170,7 +166,7 @@
         "fullHeight": 950,
         "label": "Chamber usage counters"
       },
-      "headline": "Usage, across chambers."
+      "headline": "Make usage\nvisible."
     },
     {
       "id": "topotracer",
@@ -208,7 +204,7 @@
       "workflow": "observe",
       "visualConcept": "topology",
       "shortNarrative": "Measurements become a surface.",
-      "purpose": "Reveal spatial non-uniformity with wafer-level contour plots.",
+      "purpose": "Turn wafer measurements into contours. Spatial patterns become visible in a way a column of numbers cannot offer.",
       "transformation": "Measurements → contours",
       "referenceSlide": 8,
       "relationships": [
@@ -225,7 +221,7 @@
         "fullHeight": 950,
         "label": "Interpolated wafer surface and scale"
       },
-      "headline": "Give measurements a shape."
+      "headline": "See the shape\nof variation."
     },
     {
       "id": "papyrus-reader",
@@ -263,12 +259,10 @@
       "workflow": "compare",
       "visualConcept": "comparison",
       "shortNarrative": "Order changes. Meaning stays aligned.",
-      "purpose": "Match equivalent recipe steps and reveal parameter differences independently of line order.",
+      "purpose": "Match equivalent recipe steps, even when their order changes. Keep attention on the parameters that differ.",
       "transformation": "Recipes → logical differences",
       "referenceSlide": 9,
-      "relationships": [
-        "gan-xml-assistant"
-      ],
+      "relationships": ["gan-xml-assistant"],
       "evidence": {
         "src": "assets/evidence/papyrus-reader/detail.webp",
         "full": "assets/evidence/papyrus-reader/full.webp",
@@ -278,7 +272,7 @@
         "fullHeight": 950,
         "label": "Actual paired recipe panes with marked changes"
       },
-      "headline": "Compare meaning, not line numbers."
+      "headline": "Compare meaning.\nNot line numbers."
     },
     {
       "id": "spc-pathfinder",
@@ -316,14 +310,10 @@
       "workflow": "observe",
       "visualConcept": "pathfinder",
       "shortNarrative": "The chart is one connection away.",
-      "purpose": "Reach SPC charts directly and open multiple charts without repeated navigation.",
+      "purpose": "Reach the SPC charts you need together, without repeating the same navigation for every parameter.",
       "transformation": "Parameters → charts",
       "referenceSlide": 10,
-      "relationships": [
-        "altus-lotviewer",
-        "topotracer",
-        "gan-met-compiler"
-      ],
+      "relationships": ["altus-lotviewer", "topotracer", "gan-met-compiler"],
       "evidence": {
         "src": "assets/evidence/spc-pathfinder/detail.webp",
         "full": "assets/evidence/spc-pathfinder/full.webp",
@@ -333,7 +323,7 @@
         "fullHeight": 950,
         "label": "Grouped chart selection"
       },
-      "headline": "Find the chart. Keep the context."
+      "headline": "Less searching.\nMore seeing."
     },
     {
       "id": "gan-met-compiler",
@@ -371,14 +361,10 @@
       "workflow": "observe",
       "visualConcept": "compilation",
       "shortNarrative": "Raw measurements become usable information.",
-      "purpose": "Compile metrology data with predefined calculations into consistent reports.",
+      "purpose": "Bring metrology data together. Apply predefined calculations. Produce a consistent report from scattered inputs.",
       "transformation": "Measurements → report",
       "referenceSlide": 11,
-      "relationships": [
-        "altus-lotviewer",
-        "topotracer",
-        "spc-pathfinder"
-      ],
+      "relationships": ["altus-lotviewer", "topotracer", "spc-pathfinder"],
       "evidence": {
         "src": "assets/evidence/gan-met-compiler/detail.webp",
         "full": "assets/evidence/gan-met-compiler/full.webp",
@@ -388,7 +374,7 @@
         "fullHeight": 950,
         "label": "Metrology processing log"
       },
-      "headline": "From source files to reports."
+      "headline": "From measurements\nto a report."
     },
     {
       "id": "gan-temp-diagnoser",
@@ -426,13 +412,10 @@
       "workflow": "diagnose",
       "visualConcept": "diagnosis",
       "shortNarrative": "Behaviour narrows the possibilities.",
-      "purpose": "Use observed temperature behaviour to guide drift diagnosis and recommendations.",
+      "purpose": "Use temperature behavior to guide diagnosis and identify the next checks. Give troubleshooting a starting point.",
       "transformation": "Observations → likely causes",
       "referenceSlide": 14,
-      "relationships": [
-        "aix-dt-assistant",
-        "lt-zone-assistant"
-      ],
+      "relationships": ["aix-dt-assistant", "lt-zone-assistant"],
       "evidence": {
         "src": "assets/evidence/gan-temp-diagnoser/detail.webp",
         "full": "assets/evidence/gan-temp-diagnoser/full.webp",
@@ -442,7 +425,7 @@
         "fullHeight": 950,
         "label": "Diagnostic summary and recommended checks"
       },
-      "headline": "Turn observations into a direction."
+      "headline": "Follow the drift.\nFind a direction."
     },
     {
       "id": "aix-dt-assistant",
@@ -480,13 +463,10 @@
       "workflow": "diagnose",
       "visualConcept": "difference",
       "shortNarrative": "Temperature differences become an arrangement.",
-      "purpose": "Use weight and temperature inputs to guide baseplate arrangements.",
+      "purpose": "Use weight and temperature inputs to guide baseplate arrangements. Put the basis for a decision in view.",
       "transformation": "Offsets → arrangement",
       "referenceSlide": 15,
-      "relationships": [
-        "gan-temp-diagnoser",
-        "lt-zone-assistant"
-      ],
+      "relationships": ["gan-temp-diagnoser", "lt-zone-assistant"],
       "evidence": {
         "src": "assets/evidence/aix-dt-assistant/detail.webp",
         "full": "assets/evidence/aix-dt-assistant/full.webp",
@@ -496,7 +476,7 @@
         "fullHeight": 950,
         "label": "Baseplate assignment visualization"
       },
-      "headline": "Make the arrangement visible."
+      "headline": "An arrangement\nwith reason."
     },
     {
       "id": "lt-zone-assistant",
@@ -534,13 +514,10 @@
       "workflow": "diagnose",
       "visualConcept": "zones",
       "shortNarrative": "See the relationship between zones.",
-      "purpose": "Map LayTec zones in a shared spatial view.",
+      "purpose": "Map LayTec zones in one spatial view. Understand where each region sits in relation to the whole.",
       "transformation": "Zones → spatial context",
       "referenceSlide": null,
-      "relationships": [
-        "gan-temp-diagnoser",
-        "aix-dt-assistant"
-      ],
+      "relationships": ["gan-temp-diagnoser", "aix-dt-assistant"],
       "evidence": {
         "src": "assets/evidence/lt-zone-assistant/detail.webp",
         "full": "assets/evidence/lt-zone-assistant/full.webp",
@@ -550,7 +527,7 @@
         "fullHeight": 950,
         "label": "Inner and outer zone geometry"
       },
-      "headline": "See the zone you are adjusting."
+      "headline": "Every zone.\nA shared view."
     },
     {
       "id": "gan-xml-assistant",
@@ -588,12 +565,10 @@
       "workflow": "compare",
       "visualConcept": "configuration",
       "shortNarrative": "Differences emerge from structure.",
-      "purpose": "Compare configuration files and highlight changes in settings and constants.",
+      "purpose": "Compare configurations, settings and constants. Bring differences forward, without losing their context.",
       "transformation": "Configuration → differences",
       "referenceSlide": 16,
-      "relationships": [
-        "papyrus-reader"
-      ],
+      "relationships": ["papyrus-reader"],
       "evidence": {
         "src": "assets/evidence/gan-xml-assistant/detail.webp",
         "full": "assets/evidence/gan-xml-assistant/full.webp",
@@ -603,7 +578,7 @@
         "fullHeight": 950,
         "label": "Structured configuration differences"
       },
-      "headline": "See what changed."
+      "headline": "Make changes\nunmistakable."
     },
     {
       "id": "magus-spc-gan",
@@ -641,7 +616,7 @@
       "workflow": "coordinate",
       "visualConcept": "observatory",
       "shortNarrative": "Separate charts become a shared view.",
-      "purpose": "Review configured GaN SPC charts and their parameter states together.",
+      "purpose": "Review configured GaN SPC charts and parameter states together. Move from a signal to the context around it.",
       "transformation": "Charts → review",
       "referenceSlide": 18,
       "relationships": [
@@ -661,7 +636,7 @@
         "fullHeight": 950,
         "label": "GaN parameter control charts"
       },
-      "headline": "The process, in view."
+      "headline": "Keep the process\nin perspective."
     },
     {
       "id": "magus-spc-legacy",
@@ -699,7 +674,7 @@
       "workflow": "coordinate",
       "visualConcept": "legacy",
       "shortNarrative": "Legacy monitoring, brought together.",
-      "purpose": "Review legacy SPC charts and parameter states in one workflow.",
+      "purpose": "Bring legacy SPC charts and parameter states into one review environment. Keep established workflows within reach.",
       "transformation": "Legacy charts → review",
       "referenceSlide": 18,
       "relationships": [
@@ -719,7 +694,7 @@
         "fullHeight": 950,
         "label": "Legacy parameter review and statuses"
       },
-      "headline": "Bring the checks together."
+      "headline": "A familiar process.\nA clearer view."
     },
     {
       "id": "anko-helper",
@@ -757,7 +732,7 @@
       "workflow": "coordinate",
       "visualConcept": "maintenance",
       "shortNarrative": "Upcoming work becomes visible.",
-      "purpose": "Bring ANKO status and due dates into one view for planning.",
+      "purpose": "Put ANKO status and due dates together. See what needs attention before planning what comes next.",
       "transformation": "Status → schedule",
       "referenceSlide": 22,
       "relationships": [
@@ -777,7 +752,7 @@
         "fullHeight": 950,
         "label": "Maintenance statuses and due dates"
       },
-      "headline": "Know what needs attention."
+      "headline": "Plan with the\nwhole picture."
     },
     {
       "id": "lt-report-compiler",
@@ -815,7 +790,7 @@
       "workflow": "coordinate",
       "visualConcept": "report",
       "shortNarrative": "Fragments resolve into an output.",
-      "purpose": "Compile LayTec information into engineering reports.",
+      "purpose": "Assemble LayTec information into an engineering report. Give repeated reporting work a consistent structure.",
       "transformation": "Inputs → report",
       "referenceSlide": null,
       "relationships": [
@@ -835,7 +810,7 @@
         "fullHeight": 950,
         "label": "Report compilation activity"
       },
-      "headline": "Bring the report together."
+      "headline": "Bring the report\ntogether."
     },
     {
       "id": "metria-spc",
@@ -873,7 +848,7 @@
       "workflow": "coordinate",
       "visualConcept": "signals",
       "shortNarrative": "Signals become a common field of view.",
-      "purpose": "Explore multiple equipment parameters with interactive SPC analysis.",
+      "purpose": "Explore equipment parameters through interactive SPC analysis. Bring related signals into the same field of view.",
       "transformation": "Parameters → shared visibility",
       "referenceSlide": null,
       "relationships": [
@@ -893,7 +868,7 @@
         "fullHeight": 950,
         "label": "Interactive parameter chart and range overview"
       },
-      "headline": "One parameter. The full context."
+      "headline": "Signals,\nseen together."
     }
   ],
   "workflows": [

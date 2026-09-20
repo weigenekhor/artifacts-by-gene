@@ -57,11 +57,7 @@ async function scene(p, i) {
   await p.evaluate((i) => {
     document.documentElement.style.scrollBehavior = "auto";
     window.scrollTo({
-      top:
-        ((document.querySelector(".journey").offsetHeight -
-          document.querySelector(".stage").offsetHeight) *
-          i) /
-        4,
+      top: window.artifactsExperience.step * i,
       behavior: "instant",
     });
   }, i);
@@ -83,31 +79,51 @@ async function axe(p, label) {
   });
 }
 const shot = async (p, name) =>
-  p.screenshot({ path: resolve(root, ".qa/v6-" + name + ".png") });
+  p.screenshot({ path: resolve(root, ".qa/v7-" + name + ".png") });
 await mkdir(resolve(root, ".qa"), { recursive: true });
 try {
-  const p = await browser.newPage({
-    viewport: { width: 1440, height: 900 },
-    deviceScaleFactor: 1,
-  });
+  const p = await browser.newPage({ viewport: { width: 1440, height: 900 } });
   watch(p);
   await p.goto(url);
   await p.waitForFunction(() => window.artifactsExperience?.world);
   await p.waitForTimeout(2100);
   assert.equal(await p.locator(".app-node").count(), 16);
+  assert.equal(await p.locator(".software-frame").count(), 16);
+  assert.equal(
+    await p.locator("#world img").count(),
+    0,
+    "brand cannot be motion geometry",
+  );
   await axe(p, "opening");
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 4; i++) {
     await scene(p, i);
     assert.equal(await p.evaluate(() => window.artifactsExperience.active), i);
-    await shot(p, "desktop-scene-" + i);
+    await shot(p, "story-" + i);
   }
-  await axe(p, "ecosystem");
-  await p.locator('[data-app="papyrus-reader"]').click();
-  await p.waitForTimeout(1300);
+  // Reach every app using scroll only. No app selector, next button or click.
   for (const a of apps) {
-    await p.selectOption("#app-select", a.id);
-    await p.waitForTimeout(1100);
-    assert.equal(await p.locator("#atlas-title").innerText(), a.name);
+    await scene(p, a.index + 3);
+    assert.equal(
+      await p.evaluate(() => window.artifactsExperience.selected),
+      a.id,
+    );
+    assert.equal(await p.locator("#app-name").innerText(), a.name);
+    const image = p.locator(".software-frame:not([hidden]) img");
+    await image.evaluate((img) => img.decode());
+    const info = await image.evaluate((img) => ({
+      src: img.getAttribute("src"),
+      width: img.naturalWidth,
+      height: img.naturalHeight,
+      ratio: img.clientWidth / img.clientHeight,
+      fit: getComputedStyle(img).objectFit,
+      transform: getComputedStyle(img.closest("figure")).transform,
+    }));
+    assert.equal(info.src, a.evidence.full);
+    assert.equal(info.width, 1425);
+    assert.equal(info.height, 950);
+    assert.ok(Math.abs(info.ratio - 1.5) < 0.01);
+    assert.equal(info.fit, "contain");
+    assert.equal(info.transform, "none");
     const before = createHash("sha256")
       .update(await p.locator("#world").screenshot())
       .digest("hex");
@@ -117,40 +133,69 @@ try {
     const after = createHash("sha256")
       .update(await p.locator("#world").screenshot())
       .digest("hex");
-    assert.notEqual(
-      before,
-      after,
-      a.name + " control must change its visible study",
-    );
+    assert.notEqual(before, after, a.name + " motion study");
     await p.locator("#study").fill("100");
     await p.locator("#study").dispatchEvent("input");
     await p.waitForTimeout(900);
     await shot(p, "app-" + a.id);
-    await p.click("#capture");
-    await p.locator("#capture-image").evaluate((img) => img.decode());
-    assert.ok(
-      await p.locator("#capture-image").evaluate((img) => img.naturalWidth > 0),
-    );
-    await p.click("#full-view");
-    await p.locator("#capture-image").evaluate((img) => img.decode());
-    assert.equal(
-      await p.locator("#capture-image").evaluate((img) => img.naturalWidth),
-      1425,
-    );
-    await p.keyboard.press("Escape");
-    results.apps.push(a.name);
+    results.apps.push({
+      name: a.name,
+      scroll: true,
+      uncropped: true,
+      study: true,
+    });
   }
   await axe(p, "app-study");
-  await p.click("#capture");
-  await axe(p, "capture-dialog");
-  await p.keyboard.press("Escape");
-  await p.click("#next");
-  const previous = await p.evaluate(() => window.artifactsExperience.selected);
-  await p.keyboard.press("ArrowLeft");
-  assert.notEqual(
-    await p.evaluate(() => window.artifactsExperience.selected),
-    previous,
+  await p.locator(".software-frame:not([hidden]) .enlarge").click();
+  await p.locator("#capture-image").evaluate((img) => img.decode());
+  await axe(p, "image-viewer");
+  assert.equal(
+    await p.locator("#capture-image").getAttribute("src"),
+    apps[15].evidence.full,
   );
+  await p.keyboard.press("Escape");
+  assert.equal(
+    await p.evaluate(() => document.activeElement.className),
+    "enlarge",
+  );
+  // Reverse scroll, optional navigation and deep links agree with the scroll clock.
+  await scene(p, 8);
+  await p.click("#next");
+  await p.waitForTimeout(1400);
+  assert.equal(
+    await p.evaluate(() => window.artifactsExperience.selected),
+    "spc-pathfinder",
+  );
+  await p.keyboard.press("ArrowLeft");
+  await p.waitForTimeout(1400);
+  assert.equal(
+    await p.evaluate(() => window.artifactsExperience.selected),
+    "papyrus-reader",
+  );
+  await p.locator(".sequence-buttons a").click();
+  await p.waitForTimeout(1700);
+  await axe(p, "index");
+  await shot(p, "index");
+  await p.locator('[data-app="topotracer"]').click();
+  await p.waitForTimeout(1700);
+  assert.equal(
+    await p.evaluate(() => window.artifactsExperience.selected),
+    "topotracer",
+  );
+  for (const [width, height] of [
+    [390, 844],
+    [844, 390],
+    [1440, 900],
+  ]) {
+    await p.setViewportSize({ width, height });
+    await p.waitForTimeout(1200);
+    assert.equal(
+      await p.evaluate(() => window.artifactsExperience.selected),
+      "topotracer",
+      "rotation preserves the active app",
+    );
+  }
+  await p.close();
   const viewports = [
     [3840, 2160, 1],
     [2560, 1440, 1],
@@ -162,8 +207,8 @@ try {
     [390, 844, 3],
     [320, 740, 2],
     [844, 390, 2],
+    [667, 375, 2],
   ];
-  await p.close();
   for (const [width, height, dpr] of viewports) {
     const page = await browser.newPage({
       viewport: { width, height },
@@ -174,44 +219,91 @@ try {
     watch(page);
     await page.goto(url);
     await page.waitForFunction(() => window.artifactsExperience?.world);
-    await page.waitForTimeout(2100);
-    for (const i of [0, 1, 2, 3, 4]) {
+    await page.waitForTimeout(1900);
+    for (const i of [0, 1, 2, 3, 4, 8, 10, 19]) {
       await scene(page, i);
-      const overflow = await page.evaluate(
-        () => document.documentElement.scrollWidth > innerWidth + 1,
+      const bounds = await page.evaluate(() => {
+        const h = document.querySelector(".header").getBoundingClientRect(),
+          s = document.querySelector(".stage").getBoundingClientRect(),
+          img = document
+            .querySelector(".software-frame:not([hidden]) .software-image")
+            ?.getBoundingClientRect(),
+          copy = document.querySelector(".atlas-copy").getBoundingClientRect();
+        return {
+          overflow: document.documentElement.scrollWidth > innerWidth + 1,
+          header: h.bottom,
+          stage: s.top,
+          img: img
+            ? {
+                top: img.top,
+                bottom: img.bottom,
+                left: img.left,
+                right: img.right,
+              }
+            : null,
+          copy: { bottom: copy.bottom, right: copy.right },
+        };
+      });
+      assert.equal(bounds.overflow, false, width + " overflow " + i);
+      assert.ok(
+        bounds.stage >= bounds.header - 1,
+        width + " header collision " + i,
       );
-      assert.equal(overflow, false, width + " scene " + i + " overflow");
+      if (i >= 4) {
+        assert.ok(
+          bounds.img.top >= bounds.header - 1,
+          width + " image under header",
+        );
+        assert.ok(
+          bounds.img.bottom < height - 50,
+          width + " image clipped by navigation",
+        );
+        if (width < 701)
+          assert.ok(
+            bounds.copy.bottom < bounds.img.top - 3 ||
+              bounds.copy.right < bounds.img.left - 3,
+            width + " text/image overlap " + i,
+          );
+      }
       await shot(page, width + "x" + height + "-scene-" + i);
     }
-    const boxes = await page.locator(".app-node").evaluateAll((nodes) =>
-      nodes.map((n) => {
-        const r = n.getBoundingClientRect();
-        return { y: r.y, bottom: r.bottom, height: r.height, width: r.width };
-      }),
-    );
-    assert.ok(
-      boxes.every(
-        (r) =>
-          r.height >= 44 && r.width >= 40 && r.y >= 0 && r.bottom <= height,
-      ),
-      width + " touch bounds",
-    );
-    await page.locator('[data-app="gan-temp-diagnoser"]').click();
-    await page.waitForTimeout(1250);
-    await shot(page, width + "x" + height + "-study");
-    await page.click("#capture");
+    await page.locator(".software-frame:not([hidden]) .enlarge").click();
     await page.locator("#capture-image").evaluate((img) => img.decode());
     await page.click("#pixel-view");
-    const size = await page
-      .locator("#capture-image")
-      .evaluate((img) => ({
-        width: img.getBoundingClientRect().width,
-        natural: img.naturalWidth,
-        dpr: devicePixelRatio,
-      }));
-    assert.ok(Math.abs(size.width - size.natural / size.dpr) < 1);
+    assert.equal(
+      await page
+        .locator("#capture-image")
+        .evaluate((img) => img.getBoundingClientRect().width),
+      1425,
+    );
     await page.keyboard.press("Escape");
-    if (width === 390) await axe(page, "mobile-study");
+    if (width === 390) {
+      await axe(page, "mobile-study");
+      await page.selectOption("#app-select", "papyrus-reader");
+      await page.waitForTimeout(1700);
+      assert.equal(
+        await page.evaluate(() => window.artifactsExperience.selected),
+        "papyrus-reader",
+      );
+    }
+    // During exit, the header remains opaque and topmost at its logo position.
+    await page.evaluate(() =>
+      scrollTo({
+        top: window.artifactsExperience.step * 19 + innerHeight * 0.8,
+        behavior: "instant",
+      }),
+    );
+    await page.waitForTimeout(500);
+    assert.equal(
+      await page.evaluate(() => {
+        const b = document.querySelector(".brand").getBoundingClientRect();
+        return !!document
+          .elementFromPoint(b.x + b.width / 2, b.y + b.height / 2)
+          ?.closest(".header");
+      }),
+      true,
+    );
+    await shot(page, width + "x" + height + "-exit");
     results.viewports.push({ width, height, dpr });
     await page.close();
   }
@@ -244,14 +336,16 @@ try {
   });
   watch(fallback);
   await fallback.goto(url);
-  await fallback.waitForTimeout(2300);
+  await fallback.waitForTimeout(2200);
   assert.equal(
     await fallback.evaluate(() => window.artifactsExperience.world.webgl),
     false,
   );
-  await scene(fallback, 4);
-  await fallback.locator('[data-app="topotracer"]').click();
-  await fallback.waitForTimeout(1200);
+  await scene(fallback, 7);
+  assert.equal(
+    await fallback.evaluate(() => window.artifactsExperience.selected),
+    "topotracer",
+  );
   await shot(fallback, "no-webgl");
   await fallback.close();
   const nojs = await browser.newPage({
@@ -281,21 +375,22 @@ try {
       longTasks.push(...list.getEntries().map((e) => e.duration)),
     );
     obs.observe({ type: "longtask" });
-    const max = document.querySelector(".journey").offsetHeight - innerHeight;
     let last = performance.now();
-    document.documentElement.style.scrollBehavior = "auto";
-    for (let i = 0; i < 240; i++)
+    for (let i = 0; i < 360; i++)
       await new Promise((resolve) =>
         requestAnimationFrame((t) => {
           samples.push(t - last);
           last = t;
-          scrollTo(0, (max * i) / 239);
+          scrollTo({
+            top: (window.artifactsExperience.step * 19 * i) / 359,
+            behavior: "instant",
+          });
           resolve();
         }),
       );
-    await new Promise((r) => setTimeout(r, 1400));
+    await new Promise((r) => setTimeout(r, 1600));
     const before = window.artifactsExperience.world.frames;
-    await new Promise((r) => setTimeout(r, 300));
+    await new Promise((r) => setTimeout(r, 400));
     const idleFrames = window.artifactsExperience.world.frames - before;
     obs.disconnect();
     samples.sort((a, b) => a - b);
@@ -308,11 +403,7 @@ try {
     };
   });
   await perf.close();
-  assert.equal(
-    results.performance.idleFrames,
-    0,
-    "renderer must sleep at rest",
-  );
+  assert.equal(results.performance.idleFrames, 0, "renderer sleeps at rest");
   assert.deepEqual(errors, []);
   assert.ok(
     results.accessibility.every((a) => !a.violations.length),
@@ -320,7 +411,7 @@ try {
   );
 } finally {
   await writeFile(
-    resolve(root, ".qa/validation-v6.json"),
+    resolve(root, ".qa/validation-v7.json"),
     JSON.stringify(results, null, 2),
   );
   console.log(JSON.stringify(results, null, 2));

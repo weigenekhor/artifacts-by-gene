@@ -14,34 +14,17 @@ import {
   PMREMGenerator,
   Vector3,
   ACESFilmicToneMapping,
-  InstancedMesh,
-  SphereGeometry,
-  Matrix4,
   LineSegments,
   LineBasicMaterial,
-  ExtrudeGeometry,
 } from "three";
-import { SVGLoader } from "three/addons/loaders/SVGLoader.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
-import {
-  STRIPS,
-  SEGMENTS,
-  makeForm,
-  logoSampler,
-  mix,
-  ease,
-  clamp,
-} from "./forms.js";
+import { STRIPS, SEGMENTS, makeForm, mix, ease, clamp } from "./forms.js";
 
 export async function createWorld(host) {
-  const source = await fetch("assets/brand/artifacts-symbol.svg").then((r) => {
-    if (!r.ok) throw Error("Brand asset unavailable");
-    return r.text();
-  });
-  const paths = new SVGLoader().parse(source).paths;
-  const logo = logoSampler(paths.map((p) => p.subPaths[0].getPoints(60)));
-  const forms = ["logo", "friction", "comparison", "system"].map((k) =>
-    makeForm(k, logo),
+  // One measured surface opens into separate inputs, then aligned tools.
+  // The brand symbol stays in the navigation; it is never motion geometry.
+  const forms = ["surface", "friction", "comparison", "system"].map((k) =>
+    makeForm(k),
   );
   const count = STRIPS * (SEGMENTS + 1) * 2,
     positions = new Float32Array(count * 3),
@@ -95,50 +78,7 @@ export async function createWorld(host) {
   const mesh = new Mesh(geo, material);
   mesh.frustumCulled = false;
   rig.add(mesh);
-  // The opening uses the actual SVG outlines, including their curves and bevels.
-  // The matching strip surface takes over as these same sheets unfold.
-  const heroMaterial = new MeshStandardMaterial({
-    color: 0x586b76,
-    metalness: 0.94,
-    roughness: 0.24,
-    envMapIntensity: 1.7,
-    transparent: true,
-  });
-  // A shallow, continuous surface-normal variation gives the broad metal faces
-  // a controlled light falloff without bending or triangulating the brand outline.
-  heroMaterial.onBeforeCompile = (shader) => {
-    shader.fragmentShader = shader.fragmentShader.replace(
-      "#include <normal_fragment_begin>",
-      "#include <normal_fragment_begin>\nnormal = normalize(normal + vec3(0.1 * sin(vViewPosition.x * 0.7), 0.07 * cos(vViewPosition.y * 0.8), 0.0));",
-    );
-  };
-  const heroMeshes = paths.map((path, i) => {
-    const geometry = new ExtrudeGeometry(SVGLoader.createShapes(path), {
-      depth: 1.15,
-      bevelEnabled: true,
-      bevelThickness: 0.55,
-      bevelSize: 0.55,
-      bevelSegments: 4,
-      curveSegments: 36,
-      steps: 1,
-    });
-    geometry.scale(0.105, -0.105, 0.105);
-    geometry.translate(-41 * 0.105, 40 * 0.105, (1 - i) * 0.24);
-    const object = new Mesh(geometry, heroMaterial);
-    rig.add(object);
-    return object;
-  });
-  const nodeGeo = new SphereGeometry(0.043, 12, 8),
-    nodeMat = new MeshStandardMaterial({
-      color: 0x9aa9aa,
-      metalness: 0.6,
-      roughness: 0.32,
-    });
-  const nodes = new InstancedMesh(nodeGeo, nodeMat, 16);
-  nodes.frustumCulled = false;
-  rig.add(nodes);
-  const nodeMatrix = new Matrix4(),
-    projection = new Vector3();
+  const projection = new Vector3();
   const connectorPoints = new Float32Array(8 * 6),
     connectorGeo = new BufferGeometry();
   connectorGeo.setAttribute(
@@ -208,7 +148,6 @@ export async function createWorld(host) {
       svgPaths.push(p);
     }
     host.append(svg);
-    host.querySelector(".world-fallback").hidden = true;
   }
   const pale = new Color("#7f9197"),
     accent = new Color("#b88255"),
@@ -268,30 +207,11 @@ export async function createWorld(host) {
       renderer.setPixelRatio(Math.max(0.75, dpr));
       renderer.setSize(rect.width, rect.height, false);
     }
-    const h = 2 * Math.tan((camera.fov * Math.PI) / 360) * camera.position.z,
-      w = h * camera.aspect;
-    const nodes = [...document.querySelectorAll(".node-dot")];
-    atlasForm = new Float32Array(positions.length);
-    let offset = 0;
-    nodes.forEach((node, i) => {
-      const r = node.getBoundingClientRect(),
-        ex = ((r.left + r.width / 2 - rect.left) / rect.width - 0.5) * w,
-        ey = (0.5 - (r.top + r.height / 2 - rect.top) / rect.height) * h;
-      for (let j = 0; j <= SEGMENTS; j++)
-        for (const side of [-1, 1]) {
-          const u = j / SEGMENTS,
-            t = ease(u);
-          atlasForm[offset++] = mix(-w * 0.43, ex, t);
-          atlasForm[offset++] =
-            ey + Math.sin(u * Math.PI) * 0.08 + side * 0.009;
-          atlasForm[offset++] = Math.sin(u * Math.PI) * 0.2;
-        }
-    });
+    atlasForm = forms[3];
   }
   resize();
   if (renderer) {
-    // Prepare both sides of the sheet handoff before the first scroll, including
-    // the node and connector programs used later in the same environment.
+    // Compile the sheet and connector programs before the first scroll.
     geo.computeVertexNormals();
     material.transparent = true;
     await renderer.compileAsync(scene, camera);
@@ -316,18 +236,11 @@ export async function createWorld(host) {
     const p = clamp(progress, 0, 4),
       a = Math.min(3, Math.floor(p)),
       t = ease((p - a - 0.12) / 0.76);
-    const opening = ease((p - 0.06) / 0.18);
-    heroMeshes.forEach((object) => (object.visible = opening < 1));
-    heroMaterial.opacity = 1 - opening;
-    heroMaterial.depthWrite = opening === 0;
-    material.transparent = opening < 1;
-    material.opacity = opening;
-    mesh.visible = opening > 0;
     if (selected && p > 3.5) {
       const key = selected.id + ":" + study.toFixed(3);
       if (key !== selectedKey) {
         selectedKey = key;
-        selectedForm = makeForm(selected.visualConcept, logo, study);
+        selectedForm = makeForm(selected.visualConcept, study);
       }
       target = selectedForm;
     } else {
@@ -377,7 +290,7 @@ export async function createWorld(host) {
       );
     });
     camera.position.z =
-      baseZ -
+      (selected ? baseZ * 0.8 : baseZ) -
       (reduced || selected
         ? 0
         : Math.sin((p - Math.floor(p)) * Math.PI) * 0.65);
@@ -402,22 +315,6 @@ export async function createWorld(host) {
     recolor(p, selected);
     geo.attributes.position.needsUpdate = true;
     geo.computeVertexNormals();
-    const showNodes = !selected && p > 2.6;
-    nodes.visible = showNodes;
-    if (showNodes) {
-      const scale = ease((p - 2.6) / 0.3);
-      for (let i = 0; i < 16; i++) {
-        const o = (i * (SEGMENTS + 1) * 2 + SEGMENTS * 2) * 3;
-        nodeMatrix.makeScale(scale, scale, scale);
-        nodeMatrix.setPosition(
-          positions[o],
-          positions[o + 1],
-          positions[o + 2],
-        );
-        nodes.setMatrixAt(i, nodeMatrix);
-      }
-      nodes.instanceMatrix.needsUpdate = true;
-    }
     const comparing = selected
       ? ["comparison", "configuration"].includes(selected.visualConcept)
       : p > 1.8 && p < 2.3;
@@ -441,23 +338,7 @@ export async function createWorld(host) {
         ["Compared", 0.5, 2.2, 0],
         ["Differences retained", 0.5, -2.15, 0],
       ];
-    else if (!selected && p > 2.9 && p < 3.55) {
-      const names = [
-        "Lot history",
-        "Recipe comparison",
-        "Temperature diagnosis",
-        "SPC analysis",
-      ];
-      notes = [0, 4, 7, 15].map((i, k) => {
-        const o = (i * (SEGMENTS + 1) * 2 + SEGMENTS * 2) * 3;
-        return [
-          names[k],
-          positions[o],
-          positions[o + 1] + 0.2,
-          positions[o + 2],
-        ];
-      });
-    } else if (selected) {
+    else if (selected) {
       const terms =
         {
           topology: ["Wafer measurements", "Surface variation"],
@@ -523,10 +404,6 @@ export async function createWorld(host) {
     dispose() {
       geo.dispose();
       material.dispose();
-      heroMeshes.forEach((m) => m.geometry.dispose());
-      heroMaterial.dispose();
-      nodeGeo.dispose();
-      nodeMat.dispose();
       connectorGeo.dispose();
       connectors.material.dispose();
       env?.dispose();

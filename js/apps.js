@@ -5,7 +5,8 @@ export const apps = [
     "index": 1,
     "name": "Altus LotViewer",
     "category": "Expedition I - Altus",
-    "purpose": "Parse lot histories, align timestamps and review wafer states.",
+    "purpose": "Bring process events into one readable history. Align timestamps. Review wafer states. Follow the lot through the work.",
+    "headline": "Every event.\nIn context.",
     "evidence": {
       "src": "assets/evidence/altus-lotviewer/detail.webp",
       "full": "assets/evidence/altus-lotviewer/full.webp",
@@ -24,7 +25,8 @@ export const apps = [
     "index": 2,
     "name": "Altus ANKO Viewer",
     "category": "Expedition I - Altus",
-    "purpose": "Retrieve ANKO schedules across the Altus workflow.",
+    "purpose": "Bring ANKO schedules into view across the Altus workflow. The next task starts with knowing what is due.",
+    "headline": "Know what’s next.",
     "evidence": {
       "src": "assets/evidence/altus-anko-viewer/detail.webp",
       "full": "assets/evidence/altus-anko-viewer/full.webp",
@@ -43,7 +45,8 @@ export const apps = [
     "index": 3,
     "name": "Altus WaferCount",
     "category": "Expedition I - Altus",
-    "purpose": "Aggregate wafer counts from logs for maintenance planning.",
+    "purpose": "Turn wafer counts from equipment logs into a clearer basis for maintenance planning.",
+    "headline": "Make usage\nvisible.",
     "evidence": {
       "src": "assets/evidence/altus-wafercount/detail.webp",
       "full": "assets/evidence/altus-wafercount/full.webp",
@@ -62,7 +65,8 @@ export const apps = [
     "index": 4,
     "name": "TopoTracer",
     "category": "Expedition II - Interstice",
-    "purpose": "Reveal spatial non-uniformity with wafer-level contour plots.",
+    "purpose": "Turn wafer measurements into contours. Spatial patterns become visible in a way a column of numbers cannot offer.",
+    "headline": "See the shape\nof variation.",
     "evidence": {
       "src": "assets/evidence/topotracer/detail.webp",
       "full": "assets/evidence/topotracer/full.webp",
@@ -81,7 +85,8 @@ export const apps = [
     "index": 5,
     "name": "Papyrus Reader",
     "category": "Expedition II - Interstice",
-    "purpose": "Match equivalent recipe steps and reveal parameter differences independently of line order.",
+    "purpose": "Match equivalent recipe steps, even when their order changes. Keep attention on the parameters that differ.",
+    "headline": "Compare meaning.\nNot line numbers.",
     "evidence": {
       "src": "assets/evidence/papyrus-reader/detail.webp",
       "full": "assets/evidence/papyrus-reader/full.webp",
@@ -100,7 +105,8 @@ export const apps = [
     "index": 6,
     "name": "SPC Pathfinder",
     "category": "Expedition II - Interstice",
-    "purpose": "Reach SPC charts directly and open multiple charts without repeated navigation.",
+    "purpose": "Reach the SPC charts you need together, without repeating the same navigation for every parameter.",
+    "headline": "Less searching.\nMore seeing.",
     "evidence": {
       "src": "assets/evidence/spc-pathfinder/detail.webp",
       "full": "assets/evidence/spc-pathfinder/full.webp",
@@ -119,7 +125,8 @@ export const apps = [
     "index": 7,
     "name": "GaN Met Compiler",
     "category": "Expedition III - GaN EPI",
-    "purpose": "Compile metrology data with predefined calculations into consistent reports.",
+    "purpose": "Bring metrology data together. Apply predefined calculations. Produce a consistent report from scattered inputs.",
+    "headline": "From measurements\nto a report.",
     "evidence": {
       "src": "assets/evidence/gan-met-compiler/detail.webp",
       "full": "assets/evidence/gan-met-compiler/full.webp",
@@ -138,7 +145,8 @@ export const apps = [
     "index": 8,
     "name": "GaN Temp Diagnoser",
     "category": "Expedition III - GaN EPI",
-    "purpose": "Use observed temperature behaviour to guide drift diagnosis and recommendations.",
+    "purpose": "Use temperature behavior to guide diagnosis and identify the next checks. Give troubleshooting a starting point.",
+    "headline": "Follow the drift.\nFind a direction.",
     "evidence": {
       "src": "assets/evidence/gan-temp-diagnoser/detail.webp",
       "full": "assets/evidence/gan-temp-diagnoser/full.webp",
@@ -157,7 +165,8 @@ export const apps = [
     "index": 9,
     "name": "AIX ΔT Assistant",
     "category": "Expedition III - GaN EPI",
-    "purpose": "Use weight and temperature inputs to guide baseplate arrangements.",
+    "purpose": "Use weight and temperature inputs to guide baseplate arrangements. Put the basis for a decision in view.",
+    "headline": "An arrangement\nwith reason.",
     "evidence": {
       "src": "assets/evidence/aix-dt-assistant/detail.webp",
       "full": "assets/evidence/aix-dt-assistant/full.webp",
@@ -176,7 +185,8 @@ export const apps = [
     "index": 10,
     "name": "LT Zone Assistant",
     "category": "Expedition III - GaN EPI",
-    "purpose": "Map LayTec zones in a shared spatial view.",
+    "purpose": "Map LayTec zones in one spatial view. Understand where each region sits in relation to the whole.",
+    "headline": "Every zone.\nA shared view.",
     "evidence": {
       "src": "assets/evidence/lt-zone-assistant/detail.webp",
       "full": "assets/evidence/lt-zone-assistant/full.webp",
@@ -195,7 +205,8 @@ export const apps = [
     "index": 11,
     "name": "GaN XML Assistant",
     "category": "Expedition III - GaN EPI",
-    "purpose": "Compare configuration files and highlight changes in settings and constants.",
+    "purpose": "Compare configurations, settings and constants. Bring differences forward, without losing their context.",
+    "headline": "Make changes\nunmistakable.",
     "evidence": {
       "src": "assets/evidence/gan-xml-assistant/detail.webp",
       "full": "assets/evidence/gan-xml-assistant/full.webp",
@@ -214,7 +225,8 @@ export const apps = [
     "index": 12,
     "name": "Magus SPC (GaN)",
     "category": "Expedition IV - Planetfall",
-    "purpose": "Review configured GaN SPC charts and their parameter states together.",
+    "purpose": "Review configured GaN SPC charts and parameter states together. Move from a signal to the context around it.",
+    "headline": "Keep the process\nin perspective.",
     "evidence": {
       "src": "assets/evidence/magus-spc-gan/detail.webp",
       "full": "assets/evidence/magus-spc-gan/full.webp",
@@ -233,7 +245,8 @@ export const apps = [
     "index": 13,
     "name": "Magus SPC (Legacy)",
     "category": "Expedition IV - Planetfall",
-    "purpose": "Review legacy SPC charts and parameter states in one workflow.",
+    "purpose": "Bring legacy SPC charts and parameter states into one review environment. Keep established workflows within reach.",
+    "headline": "A familiar process.\nA clearer view.",
     "evidence": {
       "src": "assets/evidence/magus-spc-legacy/detail.webp",
       "full": "assets/evidence/magus-spc-legacy/full.webp",
@@ -252,7 +265,8 @@ export const apps = [
     "index": 14,
     "name": "ANKO Helper",
     "category": "Expedition IV - Planetfall",
-    "purpose": "Bring ANKO status and due dates into one view for planning.",
+    "purpose": "Put ANKO status and due dates together. See what needs attention before planning what comes next.",
+    "headline": "Plan with the\nwhole picture.",
     "evidence": {
       "src": "assets/evidence/anko-helper/detail.webp",
       "full": "assets/evidence/anko-helper/full.webp",
@@ -271,7 +285,8 @@ export const apps = [
     "index": 15,
     "name": "LT Report Compiler",
     "category": "Expedition IV - Planetfall",
-    "purpose": "Compile LayTec information into engineering reports.",
+    "purpose": "Assemble LayTec information into an engineering report. Give repeated reporting work a consistent structure.",
+    "headline": "Bring the report\ntogether.",
     "evidence": {
       "src": "assets/evidence/lt-report-compiler/detail.webp",
       "full": "assets/evidence/lt-report-compiler/full.webp",
@@ -290,7 +305,8 @@ export const apps = [
     "index": 16,
     "name": "Metria SPC",
     "category": "Expedition IV - Planetfall",
-    "purpose": "Explore multiple equipment parameters with interactive SPC analysis.",
+    "purpose": "Explore equipment parameters through interactive SPC analysis. Bring related signals into the same field of view.",
+    "headline": "Signals,\nseen together.",
     "evidence": {
       "src": "assets/evidence/metria-spc/detail.webp",
       "full": "assets/evidence/metria-spc/full.webp",

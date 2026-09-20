@@ -11,34 +11,6 @@ export const ease = (t) => {
 };
 const wave = (x, i) =>
   Math.sin(x * 3.1 + i * 0.8) * 0.12 + Math.sin(x * 7.2 + i) * 0.06;
-export function logoSampler(polygons) {
-  const stripes = [];
-  polygons.forEach((points, g) => {
-    const ys = points.map((p) => p.y),
-      min = Math.min(...ys),
-      max = Math.max(...ys),
-      count = g === 2 ? 6 : 5;
-    for (let i = 0; i < count; i++)
-      stripes.push({ points, min, max, i, count, g });
-  });
-  return (i, u, side) => {
-    const s = stripes[i],
-      y = mix(s.min + 0.03, s.max - 0.03, (s.i + (side > 0 ? 1 : 0)) / s.count),
-      xs = [];
-    for (let j = 0; j < s.points.length; j++) {
-      const a = s.points[j],
-        b = s.points[(j + 1) % s.points.length];
-      if ((a.y <= y && b.y > y) || (b.y <= y && a.y > y))
-        xs.push(mix(a.x, b.x, (y - a.y) / (b.y - a.y)));
-    }
-    const x = xs.length ? mix(Math.min(...xs), Math.max(...xs), u) : 40;
-    return [
-      (x - 41) * 0.105,
-      (40 - y) * 0.105,
-      (1 - s.g) * 0.24 + Math.sin(((x - 8) / 65) * Math.PI) * 0.12,
-    ];
-  };
-}
 export function point(kind, i, u, side = 0, amount = 1) {
   let x = 0,
     y = 0,
@@ -47,7 +19,17 @@ export function point(kind, i, u, side = 0, amount = 1) {
   const n = i / 15,
     k = i % 8,
     q = Math.floor(i / 8);
-  if (kind === "friction") {
+  if (kind === "surface") {
+    // Parallel scan lines describe a wafer-sized field, not a brand mark.
+    const v = (n - 0.5) * 1.88;
+    const span = Math.sqrt(1 - v * v) * 3.4;
+    x = (u * 2 - 1) * span;
+    y = v * 2.65;
+    z =
+      Math.exp(-((x - 0.5) ** 2 + (y + 0.3) ** 2) * 0.25) * 0.8 +
+      Math.sin(x * 0.6) * 0.12;
+    w = 0.055;
+  } else if (kind === "friction") {
     x = (u - 0.5) * 7.6 + ((i % 3) - 1) * 0.35;
     y = (n - 0.5) * 4 + wave(u * 4, i) * (0.7 + amount);
     z = Math.sin(u * 3 + i) * 0.65;
@@ -67,16 +49,11 @@ export function point(kind, i, u, side = 0, amount = 1) {
     y += side * w;
     return [x, y, z];
   } else if (kind === "system") {
-    const g = i < 3 ? 0 : i < 6 ? 1 : i < 11 ? 2 : 3,
-      start = [0, 3, 6, 11][g],
-      count = [3, 3, 5, 5][g],
-      j = i - start;
-    const endX = -3.3 + (j * 6.6) / (count - 1),
-      endY = 2.2 - g * 1.4;
-    x = mix(-3.8, endX, ease(u));
-    y = mix(0.3, endY, ease(u)) + Math.sin(u * Math.PI) * (0.55 - g * 0.2);
-    z = Math.sin(u * Math.PI) * (g - 1.5) * 0.4;
-    w = 0.013;
+    // A single ordered stack; no loose endpoints or disconnected network.
+    x = (u - 0.5) * 6.4;
+    y = (n - 0.5) * 4.1;
+    z = Math.sin(u * Math.PI) * 0.18;
+    w = 0.065;
   } else if (kind === "topology") {
     const a = u * TAU,
       r =
@@ -165,16 +142,13 @@ export function point(kind, i, u, side = 0, amount = 1) {
   }
   return [x, y + side * w, z];
 }
-export function makeForm(kind, logo, amount = 1) {
+export function makeForm(kind, amount = 1) {
   const a = new Float32Array(STRIPS * (SEGMENTS + 1) * 2 * 3);
   let p = 0;
   for (let i = 0; i < STRIPS; i++)
     for (let j = 0; j <= SEGMENTS; j++)
       for (const side of [-1, 1]) {
-        const xyz =
-          kind === "logo"
-            ? logo(i, j / SEGMENTS, side)
-            : point(kind, i, j / SEGMENTS, side, amount);
+        const xyz = point(kind, i, j / SEGMENTS, side, amount);
         a[p++] = xyz[0];
         a[p++] = xyz[1];
         a[p++] = xyz[2];

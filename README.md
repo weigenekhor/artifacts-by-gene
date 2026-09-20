@@ -15,11 +15,13 @@ GitHub Pages serves the committed HTML, CSS, JavaScript and assets directly. No 
 
 ## The experience
 
-One persistent scene carries the visitor from the original ARTIFACTS symbol through engineering friction, logical comparison, connected tools and the full ecosystem. The original SVG outlines become beveled metal sheets; sixteen continuous strips carry the transitions into traces, recipe steps and application connections. Geometry morphs and damped camera orientation share a single native-scroll timeline. There is no wheel interception or scroll lock.
+A measured surface opens into separate inputs, recipe alignment and an ordered set of tools. The logo remains a brand asset in the navigation and footer. It is not motion geometry.
 
-The ecosystem retains the sixteen real application names and four original Expeditions. A spatial index opens a purpose-specific workflow study for every app: wafer surfaces, recipe/configuration alignment, diagnostic convergence, reactor usage, synchronized schedules, metrology/report compilation and parameter signals. Each study has a working control and a real software detail available to inspect. Previous/next, arrow keys, the application selector and direct links such as `#app/topotracer` are supported.
+Four concise story beats establish why the tools exist. Scrolling then advances through **all sixteen applications in order**, one viewport-sized reading interval per app. Each app pairs its complete, uncropped interface with its existing purpose-specific motion study. The study develops during entry; its optional control remains available. The camera settles and the screenshot returns to an untransformed plane for inspection.
 
-These studies are **illustrative geometry**, not application output, live data, process simulations or claims about measured performance. The supplied software captures are the factual visual evidence.
+A segmented progress rail, previous/next controls, direct links such as `#app/topotracer`, and a mobile jump selector offer shortcuts. None is required to see the next app. A clean index follows, grouped into the four original Expeditions. There are no disconnected network strands.
+
+The studies are **illustrative geometry**, not live data, process simulations or measured app output. Original screenshots are the factual visual evidence. An opaque, reserved header band prevents outgoing content from crossing the brand.
 
 ## Source and build
 
@@ -28,11 +30,11 @@ pnpm install --frozen-lockfile
 pnpm build
 ```
 
-- `content/apps.json`: verified app catalogue, purpose, original group, visual concept and capture provenance.
+- `content/apps.json`: verified app catalogue, editorial headline, purpose, original group, visual concept and capture provenance.
 - `content/page.html`: semantic page template and narrative.
 - `scripts/build.mjs`: generates `index.html`, `js/apps.js` and the bundled `script.js`.
 - `js/forms.js`: common topology and each workflow's geometric transformation.
-- `js/world.js`: Three.js scene, original-logo extrusion, materials, camera and SVG fallback.
+- `js/world.js`: Three.js measured surface, workflow geometry, materials, camera and SVG fallback.
 - `js/experience.js`: native-scroll clock, focus/navigation, motion preference, inspector and lifecycle.
 - `styles.css`: layout, typography, desktop, portrait and short-landscape compositions.
 - `scripts/prepare-evidence.mjs`: deterministic, lossless capture pipeline.
@@ -43,7 +45,9 @@ Three.js 0.180.0 is bundled locally with esbuild. It adds the materials, perspec
 
 All 17 supplied PNGs in `C:/Users/Gene/Desktop/Artifacts Images` were visually inspected: the homepage and sixteen applications. Each source is **1425 × 950**. They are not native 4K captures.
 
-`assets/evidence/<app-id>/detail.webp` and `full.webp` preserve the original pixels losslessly. `assets/evidence/audit.json` records source hashes, decoded-pixel hashes and exact crop rectangles. All focused details together are approximately 492 KiB. A detail is loaded when its app is selected; full captures are requested by the inspector. The inspector offers focused/full views and native physical pixels, respecting the actual display density. It never invents detail by upscaling.
+The experience uses only `assets/evidence/<app-id>/full.webp`: decoded pixels match the supplied PNGs exactly. Full captures load for the active app and its immediate neighbors. They retain their complete 3:2 composition, with intrinsic dimensions, no cropping and no enlargement beyond source width. The larger viewer fits the whole image initially; an optional actual-size view permits scrolling around the original resolution.
+
+Archived crops remain available in the repository but are not used by the current page. `assets/evidence/audit.json` records provenance and decoded-pixel hashes. Screens above the fold do not preload all sixteen images.
 
 To replace images:
 
@@ -62,7 +66,7 @@ Keep the source filenames or update the explicit mapping in the preparation scri
 - Portrait keeps the same narrative with a separate framing and touch controls; landscape moves inspection controls away from the story footer.
 - No WebGL: the workflow geometry renders as SVG. No JavaScript: the story and complete catalogue remain readable and linked to actual captures.
 - One scheduled animation loop sleeps when settled, hidden or offscreen.
-- Geometry is reused. Normal studies need one draw call; connectors/nodes add one. The opening uses three original logo shapes.
+- Geometry is reused. Normal studies need one draw call; recipe/configuration connectors add one. The opening uses the same reusable geometry as the story.
 - Device pixel ratio is capped at 2 on desktop, 1.6 on narrow screens, with a further 3.4-million-pixel drawing-buffer budget.
 - No textures are needed for the workflow studies. Screenshots remain DOM images so they can be inspected without 3D sampling blur.
 
@@ -76,6 +80,6 @@ BROWSER_CHANNEL=msedge pnpm test
 ```
 
 In PowerShell use `$env:BROWSER_CHANNEL='msedge'; pnpm test`.
-The browser suite serves the site locally under a GitHub Pages-style subpath, checks every app/control/capture, captures ten viewport configurations, scans accessibility, exercises reduced motion, no WebGL and no JavaScript, and measures a local scroll sample and idle renderer behavior.
+The browser suite serves the site locally under a GitHub Pages-style subpath, checks forward/reverse scroll, every app/control/full capture, header clearance and image composition, captures eleven viewport configurations, scans accessibility, exercises reduced motion, no WebGL and no JavaScript, and measures a local scroll sample and idle renderer behavior.
 
 See `VALIDATION.md` for actual results and limitations. Generated QA captures, reports and videos live in ignored `.qa/`.

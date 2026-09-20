@@ -1,38 +1,31 @@
-# ARTIFACTS — continuous instruments
+# ARTIFACTS — sequential software exhibition
 
 ## Current direction
 
-The user rejected the screenshot-led v5 and supplied a new brief. This v6 is a full rebuild around a short, continuous spatial journey, with meaningful application geometry leading and original software captures available as secondary evidence. Do not publish or present v5 as the requested result.
+The user approved the foundation, then requested that the logo remain branding rather than opening motion, all sixteen applications advance on scroll, complete uncropped software captures appear alongside existing studies, the disconnected network disappear, copy tell a clearer story, and header overlap be fixed. This v7 implements that request. Do not restore the logo extrusion, click-required app exploration, cropped thumbnails or network map.
 
-## Workspace and branch
+## Repository and review
 
 Repository: https://github.com/weigenekhor/artifacts-by-gene
 Local: C:/Users/Gene/OneDrive/Documents/AppVerse/artifacts-by-gene
 Branch: experience/continuous-instruments
-Remote baseline: 2873e1ecf82457c18950af58808567bda87f2a7c
-Production main: 8882080a37215432cf419026d632fa2e845cdbac
+Review: https://github.com/weigenekhor/artifacts-by-gene/pull/3
+Production main remains 8882080a37215432cf419026d632fa2e845cdbac until an authorized merge.
 
-Implementation, final validation and branch publication are complete. Review PR: https://github.com/weigenekhor/artifacts-by-gene/pull/3 GitHub connector is connected. Shell push has no stored credentials; use the authenticated connector. The earlier aborted v5 upload created some unreferenced blobs, but no branch or PR. PR #2 is the rejected procedural proposal, not this redesign.
+The GitHub connector publishes branch changes; shell git has no saved push credentials. Compare the complete local/remote tree before synchronizing local history. Never overwrite unrelated changes.
 
-## Implemented
+## Implementation
 
-One persistent Three.js environment: the actual SVG symbol is extruded with rounded edges, then unfolds into sixteen continuous strips. Engineering friction becomes recipe alignment, connections and the sixteen-app ecosystem. Each app has its own verified-purpose study, working transformation control and original capture inspector. Native scroll, damped camera/pointer motion, sleeping renderer, capped DPR/pixel budget, SVG fallback, reduced-motion states and no-JS catalogue. All sixteen names and four original Expedition groups preserved.
+Four opening beats: measured surface, repetitive inputs, logical recipe comparison, ordered tools. Native scroll then drives app 1 through 16, with readable hold intervals. Each complete lossless screenshot is paired with its existing controllable geometry. Geometry relocates into the study area using FLIP at the handoff. Screens rest without transforms. A four-Expedition index follows; creator attribution is quiet.
 
-All 17 supplied source PNGs were inspected; sixteen lossless details and full captures retained. Every new source is 1425 x 950. No 4K-source claim. Software screenshots are secondary proof, not the scene backgrounds. Gene appears once quietly in the footer.
+Source files: content/page.html, content/apps.json, js/experience.js, js/forms.js, js/world.js and styles.css. Build with node scripts/build.mjs or pnpm build; index.html, js/apps.js and script.js are generated. The controller has a 0–19 scroll clock and preserves the active app when the viewport changes. Header height is reserved in sticky layout and the header is opaque.
 
-## Iteration and remaining action
+All sixteen current application captures are full.webp under assets/evidence. These are decoded-pixel-identical to the supplied Desktop PNGs, 1425 × 950. No crop or invented image is used. Existing archives remain intact.
 
-Fixed clipped hero type, faceted opening sheets, weak comparison cues, excessive map-line crossings, mobile control/geometry overlap, and landscape controls colliding with the footer. Replaced the legacy animation architecture; removed its dead modules.
+## Validation and preview
 
-All final suites passed: sixteen app/control/capture checks, ten viewport/DPR configurations, six accessibility scans, reduced motion, no WebGL, no JS and zero console/resource errors. Final scroll sample: 16.7 ms median, 16.8 ms p95, zero long tasks and zero idle frames. Shader programs are warmed before first interaction. See VALIDATION.md and .qa/validation-v6.json.
+The current full browser suite passed: sixteen scroll-driven apps and motion controls, eleven viewport/DPR combinations, six accessibility scans, keyboard/deep links, orientation changes, image viewer, header clearance, reduced motion, no WebGL, no JavaScript and zero console/resource errors. Image-fidelity suites and a fresh comparison to Desktop originals passed. See VALIDATION.md for measured performance and limits.
 
-PR #3 is open and mergeable against main. The remote implementation tree matched the tested local tree exactly. The next action is user review; production remains unchanged. Do not merge without a user instruction.
+Preview: http://127.0.0.1:8001/ — verify HTTP 200 before handing over. A hidden Python static server serves the repository. No runtime CDN, API key, framework server or deployment build service is needed.
 
-## Preview
-
-http://127.0.0.1:8001/
-Hidden Python server; verify HTTP 200 before handing over. The process can stop between sessions. Build output is committed so Pages needs no build service.
-
-## Limitations
-
-Physical mobile hardware, Safari and Firefox have not been tested. Headless browser frame timing is a local sample, not a guarantee for every device. Workflow geometry is illustrative; original screenshots are the factual evidence.
+Physical mobile hardware, Safari and Firefox remain untested. Geometric studies are illustrative. Production should remain unchanged until the user instructs a merge.
