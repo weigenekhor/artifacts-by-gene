@@ -79,7 +79,7 @@ async function axe(p, label) {
   });
 }
 const shot = async (p, name) =>
-  p.screenshot({ path: resolve(root, ".qa/v7-" + name + ".png") });
+  p.screenshot({ path: resolve(root, ".qa/v8-" + name + ".png") });
 await mkdir(resolve(root, ".qa"), { recursive: true });
 try {
   const p = await browser.newPage({ viewport: { width: 1440, height: 900 } });
@@ -93,6 +93,15 @@ try {
     await p.locator("#world img").count(),
     0,
     "brand cannot be motion geometry",
+  );
+  assert.equal(
+    await p.locator('.chapter[data-chapter="2"] [data-proof]').count(),
+    0,
+  );
+  assert.ok(
+    !/recipe|Papyrus/i.test(
+      await p.locator('.chapter[data-chapter="2"]').innerText(),
+    ),
   );
   await axe(p, "opening");
   for (let i = 0; i < 4; i++) {
@@ -119,11 +128,22 @@ try {
       transform: getComputedStyle(img.closest("figure")).transform,
     }));
     assert.equal(info.src, a.evidence.full);
-    assert.equal(info.width, 1425);
-    assert.equal(info.height, 950);
-    assert.ok(Math.abs(info.ratio - 1.5) < 0.01);
+    assert.equal(info.width, a.evidence.fullWidth);
+    assert.equal(info.height, a.evidence.fullHeight);
+    assert.ok(
+      Math.abs(info.ratio - a.evidence.fullWidth / a.evidence.fullHeight) <
+        0.02,
+    );
     assert.equal(info.fit, "contain");
     assert.equal(info.transform, "none");
+    const priority = await p.evaluate(() => {
+      const w = document.querySelector("#world").getBoundingClientRect(),
+        i = document
+          .querySelector(".software-frame:not([hidden]) img")
+          .getBoundingClientRect();
+      return (w.width * w.height) / (i.width * i.height);
+    });
+    assert.ok(priority > 2, a.name + " motion must dominate the capture");
     const before = createHash("sha256")
       .update(await p.locator("#world").screenshot())
       .digest("hex");
@@ -145,6 +165,26 @@ try {
       study: true,
     });
   }
+  await p.evaluate(() =>
+    scrollTo({
+      top: window.artifactsExperience.step * 7.8,
+      behavior: "instant",
+    }),
+  );
+  await p.waitForTimeout(900);
+  const startAmount = Number(await p.locator("#study").inputValue());
+  await p.evaluate(() =>
+    scrollTo({
+      top: window.artifactsExperience.step * 8.2,
+      behavior: "instant",
+    }),
+  );
+  await p.waitForTimeout(900);
+  assert.ok(
+    Number(await p.locator("#study").inputValue()) > startAmount + 40,
+    "scroll performs the workflow",
+  );
+  await scene(p, 19);
   await axe(p, "app-study");
   await p.locator(".software-frame:not([hidden]) .enlarge").click();
   await p.locator("#capture-image").evaluate((img) => img.decode());
@@ -258,12 +298,11 @@ try {
           bounds.img.bottom < height - 50,
           width + " image clipped by navigation",
         );
-        if (width < 701)
-          assert.ok(
-            bounds.copy.bottom < bounds.img.top - 3 ||
-              bounds.copy.right < bounds.img.left - 3,
-            width + " text/image overlap " + i,
-          );
+        assert.ok(
+          bounds.copy.bottom < bounds.img.top - 3 ||
+            bounds.copy.right < bounds.img.left - 3,
+          width + " text/image overlap " + i,
+        );
       }
       await shot(page, width + "x" + height + "-scene-" + i);
     }
@@ -411,7 +450,7 @@ try {
   );
 } finally {
   await writeFile(
-    resolve(root, ".qa/validation-v7.json"),
+    resolve(root, ".qa/validation-v8.json"),
     JSON.stringify(results, null, 2),
   );
   console.log(JSON.stringify(results, null, 2));

@@ -30,8 +30,8 @@ for (const a of apps) {
   );
   assert.equal(full.width, e.fullWidth);
   assert.equal(full.height, e.fullHeight);
-  assert.equal(full.width, 1425);
-  assert.equal(full.height, 950);
+  assert.equal(full.width, record.sourceWidth);
+  assert.equal(full.height, record.sourceHeight);
   const m = await sharp(detail).metadata();
   assert.equal(m.width, e.width);
   assert.equal(m.height, e.height);

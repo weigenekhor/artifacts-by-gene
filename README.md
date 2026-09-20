@@ -15,9 +15,9 @@ GitHub Pages serves the committed HTML, CSS, JavaScript and assets directly. No 
 
 ## The experience
 
-A measured surface opens into separate inputs, recipe alignment and an ordered set of tools. The logo remains a brand asset in the navigation and footer. It is not motion geometry.
+A measured surface opens into repeated work. Separate inputs acquire a reusable method, then become an ordered body of tools. No single application stands in for the whole ecosystem. The logo remains a brand asset in the navigation and footer. It is not motion geometry.
 
-Four concise story beats establish why the tools exist. Scrolling then advances through **all sixteen applications in order**, one viewport-sized reading interval per app. Each app pairs its complete, uncropped interface with its existing purpose-specific motion study. The study develops during entry; its optional control remains available. The camera settles and the screenshot returns to an untransformed plane for inspection.
+Four concise story beats establish why the tools exist. Scrolling then advances through **all sixteen applications in order**, one viewport-sized reading interval per app. Large purpose-specific workflow studies lead each composition. Scroll develops the starting inputs into a result; an optional control lets visitors explore the transformation. Complete, uncropped screenshots remain small supporting details, with a larger viewer available on request. The camera settles and screenshots return to an untransformed plane for inspection.
 
 A segmented progress rail, previous/next controls, direct links such as `#app/topotracer`, and a mobile jump selector offer shortcuts. None is required to see the next app. A clean index follows, grouped into the four original Expeditions. There are no disconnected network strands.
 
@@ -43,9 +43,9 @@ Three.js 0.180.0 is bundled locally with esbuild. It adds the materials, perspec
 
 ## Real software images
 
-All 17 supplied PNGs in `C:/Users/Gene/Desktop/Artifacts Images` were visually inspected: the homepage and sixteen applications. Each source is **1425 × 950**. They are not native 4K captures.
+All 17 supplied PNGs in `C:/Users/Gene/Desktop/Artifacts Images` were visually inspected: the homepage and sixteen applications. The updated Papyrus Reader capture is **1531 × 1002**; the other application captures are **1425 × 950**. They are not native 4K captures.
 
-The experience uses only `assets/evidence/<app-id>/full.webp`: decoded pixels match the supplied PNGs exactly. Full captures load for the active app and its immediate neighbors. They retain their complete 3:2 composition, with intrinsic dimensions, no cropping and no enlargement beyond source width. The larger viewer fits the whole image initially; an optional actual-size view permits scrolling around the original resolution.
+The experience uses only `assets/evidence/<app-id>/full.webp`: decoded pixels match the supplied PNGs exactly. Full captures load for the active app and its immediate neighbors. They retain their original aspect ratio, with intrinsic dimensions, no cropping and no enlargement beyond source width. The larger viewer fits the whole image initially; an optional actual-size view permits scrolling around the original resolution.
 
 Archived crops remain available in the repository but are not used by the current page. `assets/evidence/audit.json` records provenance and decoded-pixel hashes. Screens above the fold do not preload all sixteen images.
 
@@ -53,11 +53,13 @@ To replace images:
 
 ```sh
 node scripts/prepare-evidence.mjs /path/to/Artifacts-Images
+# Or replace just one app, preserving the remaining captures:
+node scripts/prepare-evidence.mjs /path/to/Artifacts-Images papyrus-reader
 pnpm build
 pnpm test:evidence
 ```
 
-Keep the source filenames or update the explicit mapping in the preparation script. Review crop rectangles if the source layout or dimensions change. Larger close-ups require larger **native** recaptures. Earlier screenshots remain archived under `assets/artifacts/apps/`; they are not used by this experience.
+Keep the source filenames or update the explicit mapping in the preparation script. Editorial headlines are preserved during image updates. Review archived crop rectangles if the source layout or dimensions change; the website uses full images only. Larger close-ups require larger **native** recaptures. Earlier screenshots remain archived under `assets/artifacts/apps/`; they are not used by this experience.
 
 ## Motion, accessibility and performance
 

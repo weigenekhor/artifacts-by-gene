@@ -27,7 +27,7 @@ html = html
     apps
       .map(
         (a) =>
-          `<figure class="software-frame" data-software="${a.id}" hidden><button class="software-image" data-proof="${a.id}" aria-label="Enlarge ${esc(a.name)} interface"><img data-src="${a.evidence.full}" width="${a.evidence.fullWidth}" height="${a.evidence.fullHeight}" alt="Complete ${esc(a.name)} interface" decoding="async" /></button><figcaption><span>${esc(a.name)} <span class="capture-tag">/ Actual software</span></span><button class="enlarge" data-proof="${a.id}" aria-label="Enlarge ${esc(a.name)}">View larger <span aria-hidden="true">↗</span></button></figcaption></figure>`,
+          `<figure class="software-frame" data-software="${a.id}" hidden><button class="software-image" data-proof="${a.id}" aria-label="Enlarge ${esc(a.name)} interface"><img data-src="${a.evidence.full}" width="${a.evidence.fullWidth}" height="${a.evidence.fullHeight}" alt="Complete ${esc(a.name)} interface" decoding="async" /></button><figcaption><span>${esc(a.name)} <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="${a.id}" aria-label="Enlarge ${esc(a.name)}">View larger <span aria-hidden="true">↗</span></button></figcaption></figure>`,
       )
       .join(""),
   )

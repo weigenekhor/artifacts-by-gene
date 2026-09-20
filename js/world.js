@@ -23,7 +23,7 @@ import { STRIPS, SEGMENTS, makeForm, mix, ease, clamp } from "./forms.js";
 export async function createWorld(host) {
   // One measured surface opens into separate inputs, then aligned tools.
   // The brand symbol stays in the navigation; it is never motion geometry.
-  const forms = ["surface", "friction", "comparison", "system"].map((k) =>
+  const forms = ["surface", "friction", "structure", "system"].map((k) =>
     makeForm(k),
   );
   const count = STRIPS * (SEGMENTS + 1) * 2,
@@ -156,7 +156,7 @@ export async function createWorld(host) {
   let rect,
     atlasForm = forms[3],
     selectedKey = "",
-    selectedForm = forms[2],
+    selectedForm = forms[3],
     target = forms[0],
     lastTime = 0,
     frames = 0,
@@ -165,18 +165,13 @@ export async function createWorld(host) {
   const scratch = new Float32Array(positions.length);
   function recolor(progress, selected) {
     const colorKey =
-      (progress < 0.4
-        ? "brand"
-        : Math.round(progress) === 2
-          ? "compare"
-          : "default") + (selected?.visualConcept || "");
+      (progress < 0.4 ? "opening" : "default") +
+      (selected?.visualConcept || "");
     if (colorKey === lastColorKey) return;
     lastColorKey = colorKey;
     for (let i = 0; i < count * 4; i++) {
       const strip = Math.floor(i / ((SEGMENTS + 1) * 8)),
-        special =
-          selected?.visualConcept === "comparison" ||
-          Math.round(progress) === 2;
+        special = selected?.visualConcept === "comparison";
       const c =
         progress < 0.4
           ? brandColor
@@ -229,6 +224,7 @@ export async function createWorld(host) {
     reduced,
     time,
     intro = 1,
+    scenePhase = 0,
   }) {
     const dt = Math.min(60, time - lastTime || 16);
     lastTime = time;
@@ -276,7 +272,10 @@ export async function createWorld(host) {
     const factor = selected ? 1 : 1 - atlas;
     const rotationTarget = [
       (poses[0] + (reduced ? 0 : py * 0.065)) * factor,
-      (poses[1] + (reduced ? 0 : px * 0.09) - (1 - intro) * 0.22) * factor,
+      (poses[1] +
+        (reduced ? 0 : px * 0.09 + (selected ? scenePhase * 0.12 : 0)) -
+        (1 - intro) * 0.22) *
+        factor,
       (poses[2] + clamp(velocity, -1, 1) * 0.012) * factor,
     ];
     const dampingRotation = reduced ? 1 : 1 - Math.exp(-dt / 170);
@@ -290,7 +289,11 @@ export async function createWorld(host) {
       );
     });
     camera.position.z =
-      (selected ? baseZ * 0.8 : baseZ) -
+      (selected
+        ? baseZ *
+          (0.96 -
+            (reduced ? 0 : Math.sin(clamp(scenePhase + 0.5) * Math.PI) * 0.045))
+        : baseZ) -
       (reduced || selected
         ? 0
         : Math.sin((p - Math.floor(p)) * Math.PI) * 0.65);
@@ -317,7 +320,7 @@ export async function createWorld(host) {
     geo.computeVertexNormals();
     const comparing = selected
       ? ["comparison", "configuration"].includes(selected.visualConcept)
-      : p > 1.8 && p < 2.3;
+      : false;
     connectors.visible = comparing;
     if (comparing)
       for (let i = 0; i < 8; i++) {

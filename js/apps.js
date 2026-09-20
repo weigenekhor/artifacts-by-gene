@@ -92,8 +92,8 @@ export const apps = [
       "full": "assets/evidence/papyrus-reader/full.webp",
       "width": 1280,
       "height": 315,
-      "fullWidth": 1425,
-      "fullHeight": 950,
+      "fullWidth": 1531,
+      "fullHeight": 1002,
       "label": "Actual paired recipe panes with marked changes"
     },
     "transformation": "Recipes → logical differences",

@@ -2,7 +2,7 @@
 
 ## Current direction
 
-The user approved the foundation, then requested that the logo remain branding rather than opening motion, all sixteen applications advance on scroll, complete uncropped software captures appear alongside existing studies, the disconnected network disappear, copy tell a clearer story, and header overlap be fixed. This v7 implements that request. Do not restore the logo extrusion, click-required app exploration, cropped thumbnails or network map.
+The latest correction is implemented in v8: remove the Papyrus-specific opening example, tell the ecosystem's wider story, replace Papyrus with the new Desktop capture, and make workflow motion the primary app visual. Screenshots are small, optional supporting evidence. All sixteen applications still advance on scroll. Do not restore the recipe-comparison introduction, oversized screenshots, logo extrusion, click-required exploration, cropped images or network map.
 
 ## Repository and review
 
@@ -16,11 +16,11 @@ The GitHub connector publishes branch changes; shell git has no saved push crede
 
 ## Implementation
 
-Four opening beats: measured surface, repetitive inputs, logical recipe comparison, ordered tools. Native scroll then drives app 1 through 16, with readable hold intervals. Each complete lossless screenshot is paired with its existing controllable geometry. Geometry relocates into the study area using FLIP at the handoff. Screens rest without transforms. A four-Expedition index follows; creator attribution is quiet.
+Four opening beats: measured surface, repetitive inputs, reusable method, a body of tools. The structure form resolves sixteen streams into four ordered groups, anticipating the original Expeditions. Native scroll then drives app 1 through 16, with readable hold intervals. Large workflow geometry progresses from inputs to results across each app interval; optional controls remain. Small full screenshots sit beneath the copy with a larger viewer available. Geometry relocates into the study area using FLIP at the handoff. Screens rest without transforms. A four-Expedition index follows; creator attribution is quiet.
 
 Source files: content/page.html, content/apps.json, js/experience.js, js/forms.js, js/world.js and styles.css. Build with node scripts/build.mjs or pnpm build; index.html, js/apps.js and script.js are generated. The controller has a 0–19 scroll clock and preserves the active app when the viewport changes. Header height is reserved in sticky layout and the header is opaque.
 
-All sixteen current application captures are full.webp under assets/evidence. These are decoded-pixel-identical to the supplied Desktop PNGs, 1425 × 950. No crop or invented image is used. Existing archives remain intact.
+All sixteen current application captures are full.webp under assets/evidence. These are decoded-pixel-identical to the supplied Desktop PNGs. Updated Papyrus Reader is 1531 × 1002; the other fifteen are 1425 × 950. No crop or invented image is displayed. Existing archives remain intact. The preparation script accepts an optional app ID and preserves editorial content when refreshing images.
 
 ## Validation and preview
 

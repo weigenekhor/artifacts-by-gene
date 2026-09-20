@@ -15,7 +15,7 @@ const LAST = 19,
   captions = [
     "A field of possibilities.",
     "The effort before the insight.",
-    "Equivalent steps align. Differences remain.",
+    "Repeated effort becomes a reusable method.",
     "Built one problem at a time.",
   ];
 const media = matchMedia("(prefers-reduced-motion: reduce)");
@@ -248,6 +248,13 @@ function updateScene(p) {
       : Math.sign(distance) * ease((Math.abs(distance) - HOLD) / (0.5 - HOLD));
   if (isApp) {
     const figure = figures[index - 4];
+    const phase =
+      reduced || study > 0.88
+        ? "The result"
+        : study < 0.12
+          ? "The starting point"
+          : "The work, taking shape";
+    $("#study-phase").textContent = phase;
     // The complete interface rests in the pixel plane. Perspective is only a handoff.
     figure.style.transform =
       Math.abs(travel) < 0.001
@@ -256,7 +263,7 @@ function updateScene(p) {
     figure.style.opacity = String(1 - Math.abs(travel));
     $(".atlas-copy").style.opacity = String(1 - Math.abs(travel));
     if (!manualStudy) {
-      study = reduced ? 1 : ease((distance + 0.5) / 0.45);
+      study = reduced ? 1 : ease((distance + 0.32) / 0.52);
       $("#study").value = String(Math.round(study * 100));
     }
   } else {
@@ -344,6 +351,7 @@ function tick(time) {
     reduced,
     time,
     intro,
+    scenePhase: selected ? progress - Math.round(progress) : 0,
   });
   if (
     intro < 1 ||

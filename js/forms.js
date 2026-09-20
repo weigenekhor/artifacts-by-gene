@@ -48,6 +48,21 @@ export function point(kind, i, u, side = 0, amount = 1) {
     w = 0.095 + (mismatch ? 0.028 : 0);
     y += side * w;
     return [x, y, z];
+  } else if (kind === "structure") {
+    // The same inputs acquire a repeatable method: gather, align, resolve.
+    // Four ordered lanes anticipate the four real Expedition groups.
+    const group = Math.floor(i / 4),
+      lane = i % 4;
+    const resolve = ease((u - 0.16) / 0.62);
+    x = (u - 0.5) * 7;
+    y = mix(
+      (n - 0.5) * 4.4,
+      (group - 1.5) * 1.25 + (lane - 1.5) * 0.12,
+      resolve,
+    );
+    y += Math.sin(u * 14 + i * 0.6) * 0.2 * (1 - resolve);
+    z = Math.sin(u * Math.PI) * (lane - 1.5) * 0.18;
+    w = 0.026;
   } else if (kind === "system") {
     // A single ordered stack; no loose endpoints or disconnected network.
     x = (u - 0.5) * 6.4;
