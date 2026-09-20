@@ -1,39 +1,70 @@
-# Engineering narrative — validation
+# Validation — continuous instruments
 
-Verified 19 September 2026 in headless Microsoft Edge / Chromium on this Windows machine. Browser emulation is not physical mobile testing. Safari, Firefox and physical touch/trackpad hardware have not been tested. Frame intervals below measure this local run, not universal device performance or GPU utilisation.
+Validated on 20 September 2026 with Playwright and installed Microsoft Edge in headless mode. Browser tests serve the committed static site under `/artifacts-by-gene/`, exercising GitHub Pages-style relative paths.
 
-## Functional and visual checks
+## Functional and accessibility results
 
-- All ten narrative scenes inspected; all 16 apps select the expected identity, purpose and distinct geometry.
-- Real ARTIFACTS vectors retained in navigation, opening, footer and favicon. Visible personal attribution occurs once. Superseded philosophy text removed.
-- Full index, focus trap, Escape return, ecosystem arrow navigation, chapter switching, range inputs, motion toggle and touch selection passed.
-- Motion toggle preserves the current chapter. Paused and final scenes stop drawing after settling.
-- Reduced motion preserves content and app selection; no-WebGL uses matching diagrams; no-JavaScript exposes all 16 directory entries.
-- Zero page/console errors and zero failed resource requests in the browser suite. Root and repository-subpath URLs tested. No software screenshot requests in the new experience.
-- Automated axe WCAG A/AA checks: zero violations for opening, ecosystem, focused app, directory, mobile and reduced-motion views. This is not a full manual accessibility certification.
+- All sixteen real catalogue entries, study controls and original full captures passed.
+- Every transformation control was checked for a visible change in its rendered study.
+- Previous/next navigation, keyboard arrows, selection, direct application links, native-pixel inspection and Escape dismissal passed.
+- All five story states were captured at every viewport below; no horizontal page overflow. Every ecosystem target stayed within the viewport and met the suite's 44px minimum height and 40px minimum width.
+- Six axe WCAG A/AA scans had zero violations: opening, ecosystem, application study, capture dialog, mobile study and reduced-motion state.
+- Reduced motion, SVG fallback with WebGL disabled, and the complete no-JavaScript catalogue passed.
+- Zero console warnings/errors, page exceptions or failed asset responses.
 
 ## Viewports
 
-All ten scenes checked for document overflow at 3840 × 2160, 1440 × 900 (DPR 2), 2560 × 1440, 1920 × 1080, 1440 × 900, 1366 × 768, 1024 × 1366, 430 × 932 (DPR 2), 390 × 844 (DPR 3), 320 × 740 (DPR 2), and 844 × 390 (DPR 2). All 16 ecosystem nodes remain horizontally reachable. Screenshots inspected at desktop, portrait tablet, mobile portrait and landscape.
+| Viewport    | Device pixel ratio |
+| ----------- | ------------------ |
+| 3840 × 2160 | 1                  |
+| 2560 × 1440 | 1                  |
+| 1920 × 1080 | 1                  |
+| 1440 × 900  | 2                  |
+| 1366 × 768  | 1                  |
+| 1024 × 1366 | 1                  |
+| 430 × 932   | 2                  |
+| 390 × 844   | 3                  |
+| 320 × 740   | 2                  |
+| 844 × 390   | 2                  |
 
-Refinements after inspection: portrait camera scale, mobile orbit spacing, compact controls, restrained surface lighting, continuous morph boundaries, chapter position after motion preference changes, separate monitoring geometries, and extension reinitialisation after WebGL context restoration.
+Visual review included the opening, friction, alignment, connected tools, ecosystem and all sixteen individual studies. Intermediate transformation frames were also inspected, not only the settled states.
 
-## Performance and recovery
+Refinements after review: original SVG extrusion replaced faceted sheet outlines; clipped hero lettering was repaired; comparison connectors and workflow annotations were added; copy holds longer during transformations; the object moves toward the center between chapters; map connections avoid group labels; portrait controls are separated from the geometry; short-landscape controls are separated from the footer.
 
-- Hero: 180 animation-frame samples, median **16.7 ms**, p95 **16.9 ms**.
-- Continuous native scrolling: 240 samples at 1920 × 1080, median **16.7 ms**, p95 **16.8 ms**, no observed long tasks in that interval.
-- Desktop drawing buffer: 1633 × 919 for that sample, respecting the 1.5-million-pixel budget.
-- Forced WebGL context loss enters SVG fallback; explicit context restoration returns to WebGL.
-- These measurements support smooth rendering here. They do not claim every mobile GPU sustains 60 fps; mobile idle acquisition deliberately runs at up to 24 fps.
+## Performance sample
 
-## Geometry and source integrity
+A 240-frame native-scroll sweep at 1920 × 1080, after initialization:
 
-`pnpm test:geometry` validates finite positions/metadata and index bounds for 21 concepts, desktop/mobile topology and three control values. All 16 app concepts have distinct geometry. Relationships resolve to real apps in their stated editorial workflow; every concept has a generated static fallback.
+- Median frame interval: **16.7 ms**.
+- 95th percentile: **16.8 ms**.
+- Observed long tasks during the sample: **0**.
+- Renderer callbacks during the subsequent idle interval: **0**.
+- Final ecosystem render: **2 draw calls, 23,168 triangles**.
 
-`pnpm test:assets` still verifies all archived screenshot hashes, original decoded pixels, exact native crops, derivative dimensions and logo paths. No archive source is upscaled or used as fabricated HD imagery.
+An earlier run identified a 169 ms shader-startup stall. Both sheet material states, connectors and nodes are now compiled before the first scroll; the final run above recorded no long tasks.
 
-`pnpm build` generates 16 apps, four workflow lenses and 21 fallback diagrams. The site ships as static files with the existing custom-domain CNAME. The reference deck, internal values, local QA files and development dependencies are not required by the public runtime.
+The local JavaScript bundle is approximately 585 kB uncompressed / 156 kB gzip. The drawing buffer has a 3.4-million-pixel budget, capped DPR, and reduced narrow-screen density. Captures are requested on selection/inspection.
 
-## Review boundaries
+## Source fidelity
 
-Production `main` is unchanged. This is a new design direction for review on `experience/engineering-in-motion`; the earlier screenshot-based PR remains separate. A human visual review in the intended target browsers is still useful before merging. No screenshot recapture or additional content is needed to review this version.
+Both `tests/evidence.mjs` and `tests/assets.mjs` passed. Sixteen current full captures and their focused crops are pixel-identical to the lossless source exports. All focused details total approximately 492 KiB. Archived captures and original brand/favicon paths also passed their checks.
+
+Every newly supplied source is **1425 × 950**. Testing the page at 4K does not make these sources native 4K. The inspector preserves native pixel density; larger close-ups require larger original captures.
+
+## Reproduce
+
+```sh
+pnpm install --frozen-lockfile
+pnpm build
+pnpm test:evidence
+pnpm test:assets
+BROWSER_CHANNEL=msedge pnpm test
+```
+
+For PowerShell: `$env:BROWSER_CHANNEL='msedge'; pnpm test`.
+
+The complete browser report is in ignored `.qa/validation-v6.json`; scene and application captures use `.qa/v6-*.png`.
+
+## Limits
+
+This is a local headless-browser timing sample, not a guarantee for every GPU or device. Portrait and landscape coverage uses emulation; physical mobile hardware, Safari and Firefox have not been tested. Workflow geometry illustrates functions and does not represent measured application output.

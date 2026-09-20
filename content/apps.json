@@ -40,7 +40,21 @@
       "purpose": "Parse lot histories, align timestamps and review wafer states.",
       "transformation": "Events → history",
       "referenceSlide": 6,
-      "relationships": ["topotracer", "spc-pathfinder", "gan-met-compiler"]
+      "relationships": [
+        "topotracer",
+        "spc-pathfinder",
+        "gan-met-compiler"
+      ],
+      "evidence": {
+        "src": "assets/evidence/altus-lotviewer/detail.webp",
+        "full": "assets/evidence/altus-lotviewer/full.webp",
+        "width": 1315,
+        "height": 490,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "Lot events, wafer states and durations"
+      },
+      "headline": "Events, in order."
     },
     {
       "id": "altus-anko-viewer",
@@ -88,14 +102,24 @@
         "anko-helper",
         "lt-report-compiler",
         "metria-spc"
-      ]
+      ],
+      "evidence": {
+        "src": "assets/evidence/altus-anko-viewer/detail.webp",
+        "full": "assets/evidence/altus-anko-viewer/full.webp",
+        "width": 1310,
+        "height": 630,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "Reactor schedules in a common view"
+      },
+      "headline": "The next task, visible."
     },
     {
       "id": "altus-wafercount",
       "index": 3,
       "name": "Altus WaferCount",
       "category": "Expedition I - Altus",
-      "description": "Wafer loading planner.",
+      "description": "Chamber usage and wafer counts.",
       "accent": "#d89b75",
       "heroImage": "assets/artifacts/apps/altus-wafercount/hero.webp",
       "responsiveImage": "assets/artifacts/apps/altus-wafercount/hero-1280.webp",
@@ -136,7 +160,17 @@
         "anko-helper",
         "lt-report-compiler",
         "metria-spc"
-      ]
+      ],
+      "evidence": {
+        "src": "assets/evidence/altus-wafercount/detail.webp",
+        "full": "assets/evidence/altus-wafercount/full.webp",
+        "width": 1310,
+        "height": 610,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "Chamber usage counters"
+      },
+      "headline": "Usage, across chambers."
     },
     {
       "id": "topotracer",
@@ -177,14 +211,28 @@
       "purpose": "Reveal spatial non-uniformity with wafer-level contour plots.",
       "transformation": "Measurements → contours",
       "referenceSlide": 8,
-      "relationships": ["altus-lotviewer", "spc-pathfinder", "gan-met-compiler"]
+      "relationships": [
+        "altus-lotviewer",
+        "spc-pathfinder",
+        "gan-met-compiler"
+      ],
+      "evidence": {
+        "src": "assets/evidence/topotracer/detail.webp",
+        "full": "assets/evidence/topotracer/full.webp",
+        "width": 1280,
+        "height": 570,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "Interpolated wafer surface and scale"
+      },
+      "headline": "Give measurements a shape."
     },
     {
       "id": "papyrus-reader",
       "index": 5,
       "name": "Papyrus Reader",
       "category": "Expedition II - Interstice",
-      "description": "XML, EPI, and text reader.",
+      "description": "Logical recipe and text comparison.",
       "accent": "#d89b75",
       "heroImage": "assets/artifacts/apps/papyrus-reader/hero.webp",
       "responsiveImage": "assets/artifacts/apps/papyrus-reader/hero-1280.webp",
@@ -218,7 +266,19 @@
       "purpose": "Match equivalent recipe steps and reveal parameter differences independently of line order.",
       "transformation": "Recipes → logical differences",
       "referenceSlide": 9,
-      "relationships": ["gan-xml-assistant"]
+      "relationships": [
+        "gan-xml-assistant"
+      ],
+      "evidence": {
+        "src": "assets/evidence/papyrus-reader/detail.webp",
+        "full": "assets/evidence/papyrus-reader/full.webp",
+        "width": 1280,
+        "height": 315,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "Actual paired recipe panes with marked changes"
+      },
+      "headline": "Compare meaning, not line numbers."
     },
     {
       "id": "spc-pathfinder",
@@ -259,7 +319,21 @@
       "purpose": "Reach SPC charts directly and open multiple charts without repeated navigation.",
       "transformation": "Parameters → charts",
       "referenceSlide": 10,
-      "relationships": ["altus-lotviewer", "topotracer", "gan-met-compiler"]
+      "relationships": [
+        "altus-lotviewer",
+        "topotracer",
+        "gan-met-compiler"
+      ],
+      "evidence": {
+        "src": "assets/evidence/spc-pathfinder/detail.webp",
+        "full": "assets/evidence/spc-pathfinder/full.webp",
+        "width": 1310,
+        "height": 630,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "Grouped chart selection"
+      },
+      "headline": "Find the chart. Keep the context."
     },
     {
       "id": "gan-met-compiler",
@@ -300,7 +374,21 @@
       "purpose": "Compile metrology data with predefined calculations into consistent reports.",
       "transformation": "Measurements → report",
       "referenceSlide": 11,
-      "relationships": ["altus-lotviewer", "topotracer", "spc-pathfinder"]
+      "relationships": [
+        "altus-lotviewer",
+        "topotracer",
+        "spc-pathfinder"
+      ],
+      "evidence": {
+        "src": "assets/evidence/gan-met-compiler/detail.webp",
+        "full": "assets/evidence/gan-met-compiler/full.webp",
+        "width": 1300,
+        "height": 300,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "Metrology processing log"
+      },
+      "headline": "From source files to reports."
     },
     {
       "id": "gan-temp-diagnoser",
@@ -341,14 +429,27 @@
       "purpose": "Use observed temperature behaviour to guide drift diagnosis and recommendations.",
       "transformation": "Observations → likely causes",
       "referenceSlide": 14,
-      "relationships": ["aix-dt-assistant", "lt-zone-assistant"]
+      "relationships": [
+        "aix-dt-assistant",
+        "lt-zone-assistant"
+      ],
+      "evidence": {
+        "src": "assets/evidence/gan-temp-diagnoser/detail.webp",
+        "full": "assets/evidence/gan-temp-diagnoser/full.webp",
+        "width": 675,
+        "height": 235,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "Diagnostic summary and recommended checks"
+      },
+      "headline": "Turn observations into a direction."
     },
     {
       "id": "aix-dt-assistant",
       "index": 9,
       "name": "AIX ΔT Assistant",
       "category": "Expedition III - GaN EPI",
-      "description": "Wafer-to-wafer dT checks.",
+      "description": "Baseplate arrangement guidance.",
       "accent": "#d89b75",
       "heroImage": "assets/artifacts/apps/aix-dt-assistant/hero.webp",
       "responsiveImage": "assets/artifacts/apps/aix-dt-assistant/hero-1280.webp",
@@ -379,10 +480,23 @@
       "workflow": "diagnose",
       "visualConcept": "difference",
       "shortNarrative": "Temperature differences become an arrangement.",
-      "purpose": "Compare input temperatures and guide baseplate arrangements.",
+      "purpose": "Use weight and temperature inputs to guide baseplate arrangements.",
       "transformation": "Offsets → arrangement",
       "referenceSlide": 15,
-      "relationships": ["gan-temp-diagnoser", "lt-zone-assistant"]
+      "relationships": [
+        "gan-temp-diagnoser",
+        "lt-zone-assistant"
+      ],
+      "evidence": {
+        "src": "assets/evidence/aix-dt-assistant/detail.webp",
+        "full": "assets/evidence/aix-dt-assistant/full.webp",
+        "width": 650,
+        "height": 720,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "Baseplate assignment visualization"
+      },
+      "headline": "Make the arrangement visible."
     },
     {
       "id": "lt-zone-assistant",
@@ -423,7 +537,20 @@
       "purpose": "Map LayTec zones in a shared spatial view.",
       "transformation": "Zones → spatial context",
       "referenceSlide": null,
-      "relationships": ["gan-temp-diagnoser", "aix-dt-assistant"]
+      "relationships": [
+        "gan-temp-diagnoser",
+        "aix-dt-assistant"
+      ],
+      "evidence": {
+        "src": "assets/evidence/lt-zone-assistant/detail.webp",
+        "full": "assets/evidence/lt-zone-assistant/full.webp",
+        "width": 975,
+        "height": 720,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "Inner and outer zone geometry"
+      },
+      "headline": "See the zone you are adjusting."
     },
     {
       "id": "gan-xml-assistant",
@@ -464,7 +591,19 @@
       "purpose": "Compare configuration files and highlight changes in settings and constants.",
       "transformation": "Configuration → differences",
       "referenceSlide": 16,
-      "relationships": ["papyrus-reader"]
+      "relationships": [
+        "papyrus-reader"
+      ],
+      "evidence": {
+        "src": "assets/evidence/gan-xml-assistant/detail.webp",
+        "full": "assets/evidence/gan-xml-assistant/full.webp",
+        "width": 1260,
+        "height": 300,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "Structured configuration differences"
+      },
+      "headline": "See what changed."
     },
     {
       "id": "magus-spc-gan",
@@ -512,7 +651,17 @@
         "anko-helper",
         "lt-report-compiler",
         "metria-spc"
-      ]
+      ],
+      "evidence": {
+        "src": "assets/evidence/magus-spc-gan/detail.webp",
+        "full": "assets/evidence/magus-spc-gan/full.webp",
+        "width": 1260,
+        "height": 540,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "GaN parameter control charts"
+      },
+      "headline": "The process, in view."
     },
     {
       "id": "magus-spc-legacy",
@@ -560,7 +709,17 @@
         "anko-helper",
         "lt-report-compiler",
         "metria-spc"
-      ]
+      ],
+      "evidence": {
+        "src": "assets/evidence/magus-spc-legacy/detail.webp",
+        "full": "assets/evidence/magus-spc-legacy/full.webp",
+        "width": 1300,
+        "height": 465,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "Legacy parameter review and statuses"
+      },
+      "headline": "Bring the checks together."
     },
     {
       "id": "anko-helper",
@@ -608,7 +767,17 @@
         "magus-spc-legacy",
         "lt-report-compiler",
         "metria-spc"
-      ]
+      ],
+      "evidence": {
+        "src": "assets/evidence/anko-helper/detail.webp",
+        "full": "assets/evidence/anko-helper/full.webp",
+        "width": 1280,
+        "height": 430,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "Maintenance statuses and due dates"
+      },
+      "headline": "Know what needs attention."
     },
     {
       "id": "lt-report-compiler",
@@ -656,7 +825,17 @@
         "magus-spc-legacy",
         "anko-helper",
         "metria-spc"
-      ]
+      ],
+      "evidence": {
+        "src": "assets/evidence/lt-report-compiler/detail.webp",
+        "full": "assets/evidence/lt-report-compiler/full.webp",
+        "width": 1310,
+        "height": 205,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "Report compilation activity"
+      },
+      "headline": "Bring the report together."
     },
     {
       "id": "metria-spc",
@@ -704,7 +883,17 @@
         "magus-spc-legacy",
         "anko-helper",
         "lt-report-compiler"
-      ]
+      ],
+      "evidence": {
+        "src": "assets/evidence/metria-spc/detail.webp",
+        "full": "assets/evidence/metria-spc/full.webp",
+        "width": 1260,
+        "height": 440,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "Interactive parameter chart and range overview"
+      },
+      "headline": "One parameter. The full context."
     }
   ],
   "workflows": [

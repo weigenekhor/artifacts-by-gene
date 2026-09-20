@@ -6,11 +6,13 @@
     "test": "node tests/browser.mjs",
     "build": "node scripts/build.mjs",
     "test:assets": "node tests/assets.mjs",
-    "test:geometry": "node tests/geometry.mjs"
+    "test:evidence": "node tests/evidence.mjs"
   },
   "devDependencies": {
     "axe-core": "4.10.3",
+    "esbuild": "0.25.10",
     "playwright": "1.62.1",
-    "sharp": "0.34.5"
+    "sharp": "0.34.5",
+    "three": "0.180.0"
   }
 }

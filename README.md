@@ -1,70 +1,81 @@
 # ARTIFACTS
 
-An interactive engineering narrative at https://artifactsbygene.com. The real ARTIFACTS identity leads; personal attribution appears once in the footer.
+A personal engineering environment at https://artifactsbygene.com.
+The current redesign is on `experience/continuous-instruments`. Production is unchanged until review and merge.
 
-## Run and deploy
+## Run the committed website
 
 ```sh
 python -m http.server 8001 --bind 127.0.0.1
 ```
 
-Open http://127.0.0.1:8001 while that server is running. A refused connection means the local server has stopped; GitHub Pages does not depend on it.
+Open http://127.0.0.1:8001 while the server is running. A refused connection means that local process has stopped; it does not describe the public website.
 
-The site is static HTML, CSS and ES modules, with **no runtime dependencies**. Generated files are committed. GitHub Pages can serve `main / root` directly, without a build service. `CNAME` remains `artifactsbygene.com`; asset URLs also work below `/artifacts-by-gene/`. The redesign is isolated on `experience/engineering-in-motion` for review before merging.
+GitHub Pages serves the committed HTML, CSS, JavaScript and assets directly. No server, API key, runtime CDN or remote font is required. Preserve `CNAME` and configure Pages to deploy `main / root`. All application asset URLs are relative and are tested under the repository subpath.
 
-## The narrative
+## The experience
 
-One persistent WebGL environment moves through material, friction, execution, tools, four functional lenses, the full ecosystem and a quiet conclusion. Native scroll advances the camera and morphs shared ribbon geometry. The opening is skippable and never blocks navigation.
+One persistent scene carries the visitor from the original ARTIFACTS symbol through engineering friction, logical comparison, connected tools and the full ecosystem. The original SVG outlines become beveled metal sheets; sixteen continuous strips carry the transitions into traces, recipe steps and application connections. Geometry morphs and damped camera orientation share a single native-scroll timeline. There is no wheel interception or scroll lock.
 
-**Engineering is complex. Execution shouldn't be.**
+The ecosystem retains the sixteen real application names and four original Expeditions. A spatial index opens a purpose-specific workflow study for every app: wafer surfaces, recipe/configuration alignment, diagnostic convergence, reactor usage, synchronized schedules, metrology/report compilation and parameter signals. Each study has a working control and a real software detail available to inspect. Previous/next, arrow keys, the application selector and direct links such as `#app/topotracer` are supported.
 
-The 16 actual app names and purposes come from the existing catalogue, cross-checked against the reference presentation. Observe, Compare, Diagnose and Coordinate are editorial workflow lenses. The four original Expeditions remain the catalogue categories and define the connections in the ecosystem.
+These studies are **illustrative geometry**, not application output, live data, process simulations or claims about measured performance. The supplied software captures are the factual visual evidence.
 
-Each application has a distinct procedural interpretation of its function: histories, topography, comparisons, diagnostic paths, zones, schedules, compilation or monitoring. **These are labelled synthetic conceptual illustrations, not process simulations, application outputs or production measurements.** The form controls change the illustration only. No internal reference-slide values or paths are published.
-
-Select an instrument in the ecosystem, use the complete text index, or jump directly with `#app-<id>`. Keyboard users can move between nodes with arrow keys, use native controls and close the index with Escape. The index traps focus and returns it to its opener.
-
-## Source structure
-
-| Source              | Responsibility                                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `content/apps.json` | All 16 apps, verified purposes, original categories, workflow lenses, concepts, relationships and archived capture provenance. |
-| `content/page.html` | Semantic narrative and metadata template.                                                                                      |
-| `scripts/build.mjs` | Generates `index.html`, public `js/apps.js` and 21 static SVG fallback diagrams.                                               |
-| `js/geometry.js`    | Pure synthetic geometry functions; shared topology permits continuous morphing.                                                |
-| `js/world.js`       | One WebGL draw call, material shader, camera, pointer inertia, projection, context recovery and render budgets.                |
-| `js/exhibition.js`  | Scene choreography, app selection, direct links and accessible directory.                                                      |
-| `js/motion.js`      | Sleeping frame scheduler and motion preferences.                                                                               |
-| `js/tokens.js`      | Art direction, camera poses, render limits and timing.                                                                         |
-| `styles.css`        | Desktop, portrait, short-screen, reduced-motion and static layouts.                                                            |
-| `assets/brand/`     | Original ARTIFACTS vectors.                                                                                                    |
-| `CODEX_HANDOFF.md`  | Current implementation status and continuation notes.                                                                          |
-
-Edit the sources, then run `node scripts/build.mjs`. Generated output must stay committed. The reference presentation and local QA images remain outside the published source.
-
-## Motion and resilience
-
-- Pixel ratio capped at 1.5; drawing-buffer budgets of 1.5 million desktop / 520,000 mobile pixels, with adaptive downscaling under sustained slow frames.
-- 20,640 desktop / 10,368 mobile vertices and one indexed draw per rendered frame. Mobile acquisition sweep capped at 24 fps; interaction remains responsive to the shared clock.
-- Camera and pointer settle with damping. Static views stop rendering; hidden pages pause the scheduler and the final scene sleeps.
-- Short screens use a flowing composition instead of staged sticky scenes.
-- OS reduced motion and the session motion toggle retain readable compositions and every app interaction.
-- Missing WebGL, missing derivative support or context loss exposes generated SVG diagrams. Restoring the context rebuilds buffers and shaders.
-- With JavaScript disabled, semantic content, diagrams and the complete 16-app directory remain available.
-
-## Validate
+## Source and build
 
 ```sh
 pnpm install --frozen-lockfile
 pnpm build
-pnpm test:geometry
-pnpm test:assets
-pnpm exec playwright install chromium
-pnpm test
 ```
 
-On Windows with Edge already installed, set `$env:BROWSER_CHANNEL='msedge'` before `pnpm test` instead of installing Chromium. The browser suite starts its own temporary HTTP server and saves ignored evidence to `.qa/`. See [VALIDATION.md](VALIDATION.md) for results and limitations.
+- `content/apps.json`: verified app catalogue, purpose, original group, visual concept and capture provenance.
+- `content/page.html`: semantic page template and narrative.
+- `scripts/build.mjs`: generates `index.html`, `js/apps.js` and the bundled `script.js`.
+- `js/forms.js`: common topology and each workflow's geometric transformation.
+- `js/world.js`: Three.js scene, original-logo extrusion, materials, camera and SVG fallback.
+- `js/experience.js`: native-scroll clock, focus/navigation, motion preference, inspector and lifecycle.
+- `styles.css`: layout, typography, desktop, portrait and short-landscape compositions.
+- `scripts/prepare-evidence.mjs`: deterministic, lossless capture pipeline.
 
-## Preserved software captures
+Three.js 0.180.0 is bundled locally with esbuild. It adds the materials, perspective and continuous geometry needed for this direction. GSAP and Lenis are not needed: the browser retains native scrolling. Only build/QA dependencies are installed; the deployed site runs from static files. Third-party licenses are in `assets/licenses/` and the font directory.
 
-Original screenshots and their lossless derivatives remain in `assets/artifacts/apps/` as an archive; the new narrative does not request them. Seven are native 3840 × 2160; nine are 2048 × 1104 JPEG-derived sources. They have not been falsely upscaled. Their provenance and optional recapture instructions remain in [the capture audit](assets/artifacts/README.md). Replacing those archived images is not required to use the current procedural experience.
+## Real software images
+
+All 17 supplied PNGs in `C:/Users/Gene/Desktop/Artifacts Images` were visually inspected: the homepage and sixteen applications. Each source is **1425 × 950**. They are not native 4K captures.
+
+`assets/evidence/<app-id>/detail.webp` and `full.webp` preserve the original pixels losslessly. `assets/evidence/audit.json` records source hashes, decoded-pixel hashes and exact crop rectangles. All focused details together are approximately 492 KiB. A detail is loaded when its app is selected; full captures are requested by the inspector. The inspector offers focused/full views and native physical pixels, respecting the actual display density. It never invents detail by upscaling.
+
+To replace images:
+
+```sh
+node scripts/prepare-evidence.mjs /path/to/Artifacts-Images
+pnpm build
+pnpm test:evidence
+```
+
+Keep the source filenames or update the explicit mapping in the preparation script. Review crop rectangles if the source layout or dimensions change. Larger close-ups require larger **native** recaptures. Earlier screenshots remain archived under `assets/artifacts/apps/`; they are not used by this experience.
+
+## Motion, accessibility and performance
+
+- Native semantic links and controls, visible focus, native modal focus handling and Escape dismissal.
+- OS reduced motion and a persistent session motion control present composed static states without camera travel.
+- Portrait keeps the same narrative with a separate framing and touch controls; landscape moves inspection controls away from the story footer.
+- No WebGL: the workflow geometry renders as SVG. No JavaScript: the story and complete catalogue remain readable and linked to actual captures.
+- One scheduled animation loop sleeps when settled, hidden or offscreen.
+- Geometry is reused. Normal studies need one draw call; connectors/nodes add one. The opening uses three original logo shapes.
+- Device pixel ratio is capped at 2 on desktop, 1.6 on narrow screens, with a further 3.4-million-pixel drawing-buffer budget.
+- No textures are needed for the workflow studies. Screenshots remain DOM images so they can be inspected without 3D sampling blur.
+
+## Validation
+
+```sh
+pnpm test:evidence
+pnpm test:assets
+# Install Playwright Chromium, or select an installed browser:
+BROWSER_CHANNEL=msedge pnpm test
+```
+
+In PowerShell use `$env:BROWSER_CHANNEL='msedge'; pnpm test`.
+The browser suite serves the site locally under a GitHub Pages-style subpath, checks every app/control/capture, captures ten viewport configurations, scans accessibility, exercises reduced motion, no WebGL and no JavaScript, and measures a local scroll sample and idle renderer behavior.
+
+See `VALIDATION.md` for actual results and limitations. Generated QA captures, reports and videos live in ignored `.qa/`.

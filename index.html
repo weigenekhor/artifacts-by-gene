@@ -3,18 +3,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>ARTIFACTS — Engineering in motion</title>
+    <title>Artifacts by Gene — An engineering environment</title>
     <meta
       name="description"
-      content="Engineering is complex. Execution shouldn't be. Explore sixteen specialised tools becoming one engineering software ecosystem."
+      content="Engineering is complex. Execution shouldn’t be. Explore the sixteen engineering applications of ARTIFACTS."
     />
-    <meta name="theme-color" content="#070809" />
     <link rel="canonical" href="https://artifactsbygene.com/" />
+    <meta name="theme-color" content="#090b0c" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="ARTIFACTS" />
+    <meta
+      property="og:title"
+      content="ARTIFACTS — An engineering environment"
+    />
     <meta
       property="og:description"
-      content="Many problems. Specialised tools. One engineering environment."
+      content="Sixteen applications. Built from the work. Explore ARTIFACTS."
     />
     <meta property="og:url" content="https://artifactsbygene.com/" />
     <meta
@@ -34,377 +37,241 @@
     <script type="module" src="script.js"></script>
   </head>
   <body>
-    <a class="skip-link" href="#universe">Skip to the ecosystem</a>
-    <header class="site-header">
-      <a class="brand" href="#entry" aria-label="ARTIFACTS, beginning"
+    <a class="skip-link" href="#ecosystem">Skip to the applications</a>
+    <header class="header">
+      <a class="brand" href="#enter" aria-label="ARTIFACTS, beginning"
         ><img
           src="assets/brand/artifacts-symbol.svg"
-          width="80"
-          height="80"
           alt=""
+          width="36"
+          height="36"
         /><span>ARTIFACTS</span></a
       >
-      <nav aria-label="Main">
-        <a href="#friction">The story</a
-        ><a href="#universe">The ecosystem <span class="app-total">16</span></a
-        ><a href="#about">About</a>
+      <nav aria-label="Main navigation">
+        <a href="#ecosystem"
+          >Explore the ecosystem <span aria-hidden="true">↗</span></a
+        ><button
+          id="motion"
+          hidden
+          aria-pressed="true"
+          aria-label="Turn motion off"
+        >
+          <span class="motion-icon" aria-hidden="true"></span>
+        </button>
       </nav>
-      <button
-        id="motion-toggle"
-        aria-label="Enable spatial animation"
-        aria-pressed="true"
-        hidden
-      >
-        <i></i><span>Motion on</span>
-      </button>
     </header>
-    <div class="world" aria-hidden="true">
-      <canvas id="world-canvas"></canvas
-      ><img class="world-fallback" src="assets/concepts/material.svg" alt="" />
-      <div class="world-shade"></div>
-      <div class="world-vignette"></div>
-    </div>
-    <nav class="story-progress" aria-label="Story chapters">
-      <a href="#entry" aria-label="Enter"><span>00</span><i></i><b>Enter</b></a><a href="#friction" aria-label="Friction"><span>01</span><i></i><b>Friction</b></a><a href="#execution" aria-label="Execution"><span>02</span><i></i><b>Execution</b></a><a href="#origin" aria-label="One tool"><span>03</span><i></i><b>One tool</b></a><a href="#observe" aria-label="Observe"><span>04</span><i></i><b>Observe</b></a><a href="#compare" aria-label="Compare"><span>05</span><i></i><b>Compare</b></a><a href="#diagnose" aria-label="Diagnose"><span>06</span><i></i><b>Diagnose</b></a><a href="#coordinate" aria-label="Coordinate"><span>07</span><i></i><b>Coordinate</b></a><a href="#universe" aria-label="The ecosystem"><span>08</span><i></i><b>The ecosystem</b></a><a href="#end" aria-label="Together"><span>09</span><i></i><b>Together</b></a>
-    </nav>
     <main>
-      <section
-        id="entry"
-        class="story-scene entry"
-        aria-labelledby="entry-title"
-      >
-        <div class="scene-frame">
-          <div class="registration">
-            <span>INDEPENDENT ENGINEERING SOFTWARE</span
-            ><span>AN ENVIRONMENT IN THE MAKING</span>
-          </div>
-          <div class="entry-mark">
-            <svg class="hero-mark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
-  <title>Artifacts</title>
-  <desc>Three rising sheets with a shared sweep and curved leading edges.</desc>
-  <g fill="#e9edf0">
-    <path d="M8 28.5L41 8.5Q43.5 7 46.5 8.5L62.5 17.5L33.5 34.5Q25 39.5 18 35Z"/>
-    <path d="M8 45L20 38.5Q27.5 44 35.5 39.5L55.5 28Q57.5 27 59.5 28L70.5 34L40.5 51.5Q31.5 57 24 53Z"/>
-    <path d="M18 62L30 55Q38 60 46 55.5L63 46Q64.5 45 66 46L74 51L47 67Q39 72 32 68Z"/>
-  </g>
-</svg>
-<span
-              >TOOLS, BUILT FROM<br />THE WORK ITSELF.</span
-            >
-          </div>
-          <div class="entry-title-space">
-            <h1 id="entry-title">ARTIFACTS<span>.</span></h1>
-          </div>
-          <p class="entry-description">Engineering, set in motion.</p>
-          <a class="scroll-prompt" href="#friction"
-            ><span>FOLLOW THE PROCESS</span><i aria-hidden="true"></i
-            ><b aria-hidden="true">↓</b></a
-          ><button id="skip-opening" hidden>Skip opening ↗</button>
-          <div class="continuation-line" aria-hidden="true"></div>
-          <img
-            class="static-concept"
-            loading="lazy"
-            src="assets/concepts/material.svg"
-            alt="Layered engineered surfaces, beginning to separate."
-          />
+      <section class="journey" aria-label="The ARTIFACTS story">
+        <div class="anchors" aria-hidden="true">
+          <span id="enter"></span><span id="friction"></span
+          ><span id="structure"></span><span id="system"></span
+          ><span id="ecosystem"></span>
         </div>
-      </section>
-      <section
-        id="friction"
-        class="story-scene friction"
-        aria-labelledby="friction-title"
-      >
-        <div class="scene-frame">
-          <div class="scene-copy">
-            <p class="eyebrow">01 / THE WORK BETWEEN THE WORK</p>
-            <h2 id="friction-title">
-              One task.<br /><span>Too many steps.</span>
-            </h2>
-            <p class="scene-description">
-              Logs to read. Values to compare.<br />The same checks, again.
-            </p>
+        <div class="stage">
+          <div class="world" id="world" aria-hidden="true">
+            <img
+              class="world-fallback"
+              src="assets/brand/artifacts-symbol-metal.svg"
+              alt=""
+            />
           </div>
-          <div class="friction-words" aria-hidden="true">
-            <span>MANUAL</span><span>REPEATED</span><span>FRAGMENTED</span>
-          </div>
-          <img
-            class="static-concept"
-            loading="lazy"
-            src="assets/concepts/friction.svg"
-            alt="Process tracks break into repeated, disconnected paths."
-          />
-          <div class="scene-bottom">
-            <span>REPETITION ADDS FRICTION.</span
-            ><span>SCROLL TO RESOLVE ↓</span>
-          </div>
-        </div>
-      </section>
-      <section
-        id="execution"
-        class="story-scene execution"
-        aria-labelledby="execution-title"
-      >
-        <div class="scene-frame">
-          <div class="execution-copy">
-            <p class="eyebrow">THE WORK CAN CHANGE.</p>
-            <h2 id="execution-title">
-              <span class="complex-line">Engineering is complex.</span
-              ><span class="execution-line">Execution shouldn't be.</span>
-            </h2>
-          </div>
-          <p class="execution-note">
-            Keep the engineering.<br />Remove the unnecessary steps.
-          </p>
-          <img
-            class="static-concept"
-            loading="lazy"
-            src="assets/concepts/aligned.svg"
-            alt="Fragmented paths align into two controlled bands."
-          />
-        </div>
-      </section>
-      <section
-        id="origin"
-        class="story-scene origin"
-        aria-labelledby="origin-title"
-      >
-        <div class="scene-frame">
-          <div class="scene-copy">
-            <p class="eyebrow">02 / BUILT ONE PROBLEM AT A TIME</p>
-            <h2 id="origin-title">
-              One problem.<br />One tool.<br /><span>Then another.</span>
-            </h2>
-            <p class="scene-description">
-              A recurring task becomes software.<br />The tools begin to belong
-              together.
-            </p>
-          </div>
-          <img
-            class="static-concept"
-            loading="lazy"
-            src="assets/concepts/tools.svg"
-            alt="Individual engineering forms gather into a connected collection."
-          />
-          <div class="scene-bottom">
-            <span>SMALL TOOLS. A GROWING SYSTEM.</span
-            ><span>ENTER THE WORKFLOWS ↓</span>
-          </div>
-        </div>
-      </section>
-      <section
-        id="observe"
-        class="story-scene chapter"
-        data-workflow="observe"
-        aria-labelledby="observe-title"
-      >
-        <div class="scene-frame">
-          <div class="scene-copy">
-            <p class="eyebrow">03 / OBSERVE</p>
-            <h2 id="observe-title">
-              A surface<br /><span>tells a story.</span>
-            </h2>
-            <p class="scene-description">
-              Measurements find their place.<br />Variation becomes visible.
-            </p>
-          </div>
-          <div class="chapter-instrument"><div class="instrument-heading"><span class="eyebrow">THE TOOL BEHIND THE IDEA</span><span class="instrument-count">4 RELATED APPLICATIONS</span></div><div class="instrument-summary"><h3>TopoTracer</h3><p>Reveal spatial non-uniformity with wafer-level contour plots.</p></div><div class="chapter-apps" aria-label="Observe applications"><button data-chapter-app="0" aria-pressed="false">Altus LotViewer</button><button data-chapter-app="3" aria-pressed="true">TopoTracer</button><button data-chapter-app="5" aria-pressed="false">SPC Pathfinder</button><button data-chapter-app="6" aria-pressed="false">GaN Met Compiler</button></div><label class="concept-control"><span>Explore the form</span><input type="range" min="0" max="100" value="80" aria-label="Explore observe visualization"></label><p class="concept-note">Illustration of the workflow. Not a process simulation.</p></div><img
-            class="static-concept"
-            loading="lazy"
-            src="assets/concepts/topology.svg"
-            alt="A synthetic measurement field rises into a wafer-scale topographic surface."
-          />
-        </div>
-      </section>
-      <section
-        id="compare"
-        class="story-scene chapter"
-        data-workflow="compare"
-        aria-labelledby="compare-title"
-      >
-        <div class="scene-frame">
-          <div class="scene-copy">
-            <p class="eyebrow">04 / COMPARE</p>
-            <h2 id="compare-title">
-              Different order.<br /><span>Same meaning?</span>
-            </h2>
-            <p class="scene-description">
-              Align what belongs together.<br />Let the differences stand apart.
-            </p>
-          </div>
-          <div class="chapter-instrument"><div class="instrument-heading"><span class="eyebrow">THE TOOL BEHIND THE IDEA</span><span class="instrument-count">2 RELATED APPLICATIONS</span></div><div class="instrument-summary"><h3>Papyrus Reader</h3><p>Match equivalent recipe steps and reveal parameter differences independently of line order.</p></div><div class="chapter-apps" aria-label="Compare applications"><button data-chapter-app="4" aria-pressed="true">Papyrus Reader</button><button data-chapter-app="10" aria-pressed="false">GaN XML Assistant</button></div><label class="concept-control"><span>Explore the form</span><input type="range" min="0" max="100" value="80" aria-label="Explore compare visualization"></label><p class="concept-note">Illustration of the workflow. Not a process simulation.</p></div><img
-            class="static-concept"
-            loading="lazy"
-            src="assets/concepts/comparison.svg"
-            alt="Two process structures align while changed branches remain separated."
-          />
-        </div>
-      </section>
-      <section
-        id="diagnose"
-        class="story-scene chapter"
-        data-workflow="diagnose"
-        aria-labelledby="diagnose-title"
-      >
-        <div class="scene-frame">
-          <div class="scene-copy">
-            <p class="eyebrow">05 / DIAGNOSE</p>
-            <h2 id="diagnose-title">
-              A behaviour.<br /><span>A direction.</span>
-            </h2>
-            <p class="scene-description">
-              Temperature observations<br />narrow the possibilities.
-            </p>
-          </div>
-          <div class="chapter-instrument"><div class="instrument-heading"><span class="eyebrow">THE TOOL BEHIND THE IDEA</span><span class="instrument-count">3 RELATED APPLICATIONS</span></div><div class="instrument-summary"><h3>GaN Temp Diagnoser</h3><p>Use observed temperature behaviour to guide drift diagnosis and recommendations.</p></div><div class="chapter-apps" aria-label="Diagnose applications"><button data-chapter-app="7" aria-pressed="true">GaN Temp Diagnoser</button><button data-chapter-app="8" aria-pressed="false">AIX ΔT Assistant</button><button data-chapter-app="9" aria-pressed="false">LT Zone Assistant</button></div><label class="concept-control"><span>Explore the form</span><input type="range" min="0" max="100" value="80" aria-label="Explore diagnose visualization"></label><p class="concept-note">Illustration of the workflow. Not a process simulation.</p></div><img
-            class="static-concept"
-            loading="lazy"
-            src="assets/concepts/diagnosis.svg"
-            alt="Thermal observations form branches that converge into fewer paths."
-          />
-        </div>
-      </section>
-      <section
-        id="coordinate"
-        class="story-scene chapter"
-        data-workflow="coordinate"
-        aria-labelledby="coordinate-title"
-      >
-        <div class="scene-frame">
-          <div class="scene-copy">
-            <p class="eyebrow">06 / COORDINATE</p>
-            <h2 id="coordinate-title">
-              Separate signals.<br /><span>A shared view.</span>
-            </h2>
-            <p class="scene-description">
-              Charts, schedules and outputs.<br />The work comes together.
-            </p>
-          </div>
-          <div class="chapter-instrument"><div class="instrument-heading"><span class="eyebrow">THE TOOL BEHIND THE IDEA</span><span class="instrument-count">7 RELATED APPLICATIONS</span></div><div class="instrument-summary"><h3>Metria SPC</h3><p>Explore multiple equipment parameters with interactive SPC analysis.</p></div><div class="chapter-apps" aria-label="Coordinate applications"><button data-chapter-app="1" aria-pressed="false">Altus ANKO Viewer</button><button data-chapter-app="2" aria-pressed="false">Altus WaferCount</button><button data-chapter-app="11" aria-pressed="false">Magus SPC (GaN)</button><button data-chapter-app="12" aria-pressed="false">Magus SPC (Legacy)</button><button data-chapter-app="13" aria-pressed="false">ANKO Helper</button><button data-chapter-app="14" aria-pressed="false">LT Report Compiler</button><button data-chapter-app="15" aria-pressed="true">Metria SPC</button></div><label class="concept-control"><span>Explore the form</span><input type="range" min="0" max="100" value="80" aria-label="Explore coordinate visualization"></label><p class="concept-note">Illustration of the workflow. Not a process simulation.</p></div><img
-            class="static-concept"
-            loading="lazy"
-            src="assets/concepts/signals.svg"
-            alt="Synthetic parameter traces assemble into a common monitoring field."
-          />
-        </div>
-      </section>
-      <section
-        id="universe"
-        class="story-scene universe"
-        aria-labelledby="universe-title"
-      >
-        <div class="scene-frame">
-          <div class="universe-overview">
-            <p class="eyebrow">07 / THE ARTIFACTS ECOSYSTEM</p>
-            <h2 id="universe-title">
-              Specialised tools.<br /><span>Connected thinking.</span>
-            </h2>
-            <p>
-              <span class="app-total">16</span> applications. Four original
-              Expeditions.
-            </p>
-          </div>
-          <div class="system-nodes" aria-label="Explore each application">
-            <button class="system-node" data-app="0" aria-label="Explore Altus LotViewer"><span>01</span><i></i><b>Altus LotViewer</b></button><button class="system-node" data-app="1" aria-label="Explore Altus ANKO Viewer"><span>02</span><i></i><b>Altus ANKO Viewer</b></button><button class="system-node" data-app="2" aria-label="Explore Altus WaferCount"><span>03</span><i></i><b>Altus WaferCount</b></button><button class="system-node" data-app="3" aria-label="Explore TopoTracer"><span>04</span><i></i><b>TopoTracer</b></button><button class="system-node" data-app="4" aria-label="Explore Papyrus Reader"><span>05</span><i></i><b>Papyrus Reader</b></button><button class="system-node" data-app="5" aria-label="Explore SPC Pathfinder"><span>06</span><i></i><b>SPC Pathfinder</b></button><button class="system-node" data-app="6" aria-label="Explore GaN Met Compiler"><span>07</span><i></i><b>GaN Met Compiler</b></button><button class="system-node" data-app="7" aria-label="Explore GaN Temp Diagnoser"><span>08</span><i></i><b>GaN Temp Diagnoser</b></button><button class="system-node" data-app="8" aria-label="Explore AIX ΔT Assistant"><span>09</span><i></i><b>AIX ΔT Assistant</b></button><button class="system-node" data-app="9" aria-label="Explore LT Zone Assistant"><span>10</span><i></i><b>LT Zone Assistant</b></button><button class="system-node" data-app="10" aria-label="Explore GaN XML Assistant"><span>11</span><i></i><b>GaN XML Assistant</b></button><button class="system-node" data-app="11" aria-label="Explore Magus SPC (GaN)"><span>12</span><i></i><b>Magus SPC (GaN)</b></button><button class="system-node" data-app="12" aria-label="Explore Magus SPC (Legacy)"><span>13</span><i></i><b>Magus SPC (Legacy)</b></button><button class="system-node" data-app="13" aria-label="Explore ANKO Helper"><span>14</span><i></i><b>ANKO Helper</b></button><button class="system-node" data-app="14" aria-label="Explore LT Report Compiler"><span>15</span><i></i><b>LT Report Compiler</b></button><button class="system-node" data-app="15" aria-label="Explore Metria SPC"><span>16</span><i></i><b>Metria SPC</b></button>
-          </div>
-          <div class="universe-focus" hidden>
-            <button id="return-universe">
-              ↖ All <span class="app-total">16</span> applications
-            </button>
-            <p id="focus-category" class="eyebrow"></p>
-            <h3 id="focus-title"></h3>
-            <p id="focus-purpose"></p>
-            <div class="focus-relationships">
-              <span>IN THIS WORKFLOW</span>
-              <div id="related-apps"></div>
-            </div>
-          </div>
-          <div class="universe-controls">
-            <div>
-              <span class="eyebrow" id="node-group"
-                >EXPLORE THE CONNECTIONS</span
+          <div class="opening-rule" aria-hidden="true"></div>
+          <div class="chapters">
+            <article class="chapter current" data-chapter="0">
+              <p class="eyebrow">A body of engineering work</p>
+              <h1>ARTIFACTS</h1>
+              <p class="intro">
+                Individual tools.<br />
+                A shared way forward.
+              </p>
+              <a class="journey-link" href="#friction"
+                ><span class="arrow-down" aria-hidden="true">↓</span> Enter the
+                environment</a
               >
-              <p id="node-name">Choose an instrument.</p>
+            </article>
+            <article class="chapter" data-chapter="1">
+              <p class="eyebrow">01 / The starting point</p>
+              <h2>
+                The work<br />
+                between<br />
+                <em>the work.</em>
+              </h2>
+              <p class="intro">
+                Comparing. Repeating. Chasing context.<br />
+                Engineering has enough complexity.
+              </p>
+              <div class="scene-key">
+                <i></i><span>Separate inputs / repeated effort</span>
+              </div>
+            </article>
+            <article class="chapter" data-chapter="2">
+              <p class="eyebrow">02 / A problem becomes a tool</p>
+              <h2>
+                Find the<br />
+                <em>meaning.</em>
+              </h2>
+              <p class="intro">
+                Two recipes. Different line orders.<br />
+                Papyrus Reader finds the logical differences.
+              </p>
+              <button
+                class="text-button proof-link"
+                data-proof="papyrus-reader"
+              >
+                See the actual comparison <span aria-hidden="true">↗</span>
+              </button>
+              <div class="scene-key">
+                <i></i><span>Equivalent steps align. Differences remain.</span>
+              </div>
+            </article>
+            <article class="chapter" data-chapter="3">
+              <p class="eyebrow">03 / The tools belong together</p>
+              <h2>
+                One tool.<br />
+                Then another.<br />
+                <em>A system.</em>
+              </h2>
+              <p class="intro">
+                Different engineering problems.<br />
+                Sixteen applications. One environment.
+              </p>
+              <a class="text-button" href="#ecosystem"
+                >Explore ARTIFACTS <span aria-hidden="true">↗</span></a
+              >
+            </article>
+          </div>
+          <section class="atlas" aria-labelledby="atlas-title">
+            <div class="atlas-copy">
+              <p class="eyebrow" id="app-category">04 / The ecosystem</p>
+              <h2 id="atlas-title">
+                Engineering<br />
+                is complex.<br />
+                <em
+                  >Execution<br />
+                  shouldn’t be.</em
+                >
+              </h2>
+              <p class="intro" id="app-purpose">
+                Sixteen ways to remove friction.<br />
+                Select an application to explore its work.
+              </p>
+              <div class="app-details" hidden>
+                <p class="transformation" id="transformation"></p>
+                <label class="study-control"
+                  ><span id="study-action">Explore the transformation</span
+                  ><input id="study" type="range" min="0" max="100" value="100"
+                /></label>
+                <button class="capture-link" id="capture">
+                  <img
+                    id="capture-thumbnail"
+                    alt=""
+                    width="128"
+                    height="64"
+                  /><span
+                    >From the application<small
+                      >Inspect original capture ↗</small
+                    ></span
+                  >
+                </button>
+                <button class="text-button" id="overview">
+                  ← All sixteen applications
+                </button>
+              </div>
             </div>
-            <button
-              id="open-directory"
-              aria-controls="directory"
-              aria-expanded="false"
+            <div class="node-map" aria-label="All sixteen applications">
+              <div class="expedition" data-group="0"><h3>Expedition I / Altus</h3><div class="expedition-track"><a href="assets/evidence/altus-lotviewer/full.webp" class="app-node" data-app="altus-lotviewer"><span class="node-dot" aria-hidden="true"></span><span class="node-number">01</span><span class="node-name">Altus LotViewer</span></a><a href="assets/evidence/altus-anko-viewer/full.webp" class="app-node" data-app="altus-anko-viewer"><span class="node-dot" aria-hidden="true"></span><span class="node-number">02</span><span class="node-name">Altus ANKO Viewer</span></a><a href="assets/evidence/altus-wafercount/full.webp" class="app-node" data-app="altus-wafercount"><span class="node-dot" aria-hidden="true"></span><span class="node-number">03</span><span class="node-name">Altus WaferCount</span></a></div></div><div class="expedition" data-group="1"><h3>Expedition II / Interstice</h3><div class="expedition-track"><a href="assets/evidence/topotracer/full.webp" class="app-node" data-app="topotracer"><span class="node-dot" aria-hidden="true"></span><span class="node-number">04</span><span class="node-name">TopoTracer</span></a><a href="assets/evidence/papyrus-reader/full.webp" class="app-node" data-app="papyrus-reader"><span class="node-dot" aria-hidden="true"></span><span class="node-number">05</span><span class="node-name">Papyrus Reader</span></a><a href="assets/evidence/spc-pathfinder/full.webp" class="app-node" data-app="spc-pathfinder"><span class="node-dot" aria-hidden="true"></span><span class="node-number">06</span><span class="node-name">SPC Pathfinder</span></a></div></div><div class="expedition" data-group="2"><h3>Expedition III / GaN EPI</h3><div class="expedition-track"><a href="assets/evidence/gan-met-compiler/full.webp" class="app-node" data-app="gan-met-compiler"><span class="node-dot" aria-hidden="true"></span><span class="node-number">07</span><span class="node-name">GaN Met Compiler</span></a><a href="assets/evidence/gan-temp-diagnoser/full.webp" class="app-node" data-app="gan-temp-diagnoser"><span class="node-dot" aria-hidden="true"></span><span class="node-number">08</span><span class="node-name">GaN Temp Diagnoser</span></a><a href="assets/evidence/aix-dt-assistant/full.webp" class="app-node" data-app="aix-dt-assistant"><span class="node-dot" aria-hidden="true"></span><span class="node-number">09</span><span class="node-name">AIX ΔT Assistant</span></a><a href="assets/evidence/lt-zone-assistant/full.webp" class="app-node" data-app="lt-zone-assistant"><span class="node-dot" aria-hidden="true"></span><span class="node-number">10</span><span class="node-name">LT Zone Assistant</span></a><a href="assets/evidence/gan-xml-assistant/full.webp" class="app-node" data-app="gan-xml-assistant"><span class="node-dot" aria-hidden="true"></span><span class="node-number">11</span><span class="node-name">GaN XML Assistant</span></a></div></div><div class="expedition" data-group="3"><h3>Expedition IV / Planetfall</h3><div class="expedition-track"><a href="assets/evidence/magus-spc-gan/full.webp" class="app-node" data-app="magus-spc-gan"><span class="node-dot" aria-hidden="true"></span><span class="node-number">12</span><span class="node-name">Magus SPC (GaN)</span></a><a href="assets/evidence/magus-spc-legacy/full.webp" class="app-node" data-app="magus-spc-legacy"><span class="node-dot" aria-hidden="true"></span><span class="node-number">13</span><span class="node-name">Magus SPC (Legacy)</span></a><a href="assets/evidence/anko-helper/full.webp" class="app-node" data-app="anko-helper"><span class="node-dot" aria-hidden="true"></span><span class="node-number">14</span><span class="node-name">ANKO Helper</span></a><a href="assets/evidence/lt-report-compiler/full.webp" class="app-node" data-app="lt-report-compiler"><span class="node-dot" aria-hidden="true"></span><span class="node-number">15</span><span class="node-name">LT Report Compiler</span></a><a href="assets/evidence/metria-spc/full.webp" class="app-node" data-app="metria-spc"><span class="node-dot" aria-hidden="true"></span><span class="node-number">16</span><span class="node-name">Metria SPC</span></a></div></div>
+            </div>
+            <div class="app-navigation" hidden>
+              <button id="previous" aria-label="Previous application">←</button
+              ><span id="app-position">01 / 16</span
+              ><button id="next" aria-label="Next application">→</button
+              ><label class="sr-only" for="app-select"
+                >Choose an application</label
+              ><select id="app-select">
+                <option value="">All applications</option>
+                <option value="altus-lotviewer">01 / Altus LotViewer</option><option value="altus-anko-viewer">02 / Altus ANKO Viewer</option><option value="altus-wafercount">03 / Altus WaferCount</option><option value="topotracer">04 / TopoTracer</option><option value="papyrus-reader">05 / Papyrus Reader</option><option value="spc-pathfinder">06 / SPC Pathfinder</option><option value="gan-met-compiler">07 / GaN Met Compiler</option><option value="gan-temp-diagnoser">08 / GaN Temp Diagnoser</option><option value="aix-dt-assistant">09 / AIX ΔT Assistant</option><option value="lt-zone-assistant">10 / LT Zone Assistant</option><option value="gan-xml-assistant">11 / GaN XML Assistant</option><option value="magus-spc-gan">12 / Magus SPC (GaN)</option><option value="magus-spc-legacy">13 / Magus SPC (Legacy)</option><option value="anko-helper">14 / ANKO Helper</option><option value="lt-report-compiler">15 / LT Report Compiler</option><option value="metria-spc">16 / Metria SPC</option>
+              </select>
+            </div>
+            <p class="study-caption" hidden>
+              <span id="study-label"></span
+              ><span>Workflow interpretation · illustrative geometry</span>
+            </p>
+          </section>
+          <footer class="stage-footer">
+            <span class="stage-caption"
+              >Engineering software, considered as a whole.</span
             >
-              All applications <span aria-hidden="true">↗</span>
-            </button>
-          </div>
-          <div class="focus-controls" hidden>
-            <button id="previous-app" aria-label="Previous application">
-              ←</button
-            ><span id="app-position"></span
-            ><label
-              >Explore the form<input
-                id="focus-amount"
-                type="range"
-                min="0"
-                max="100"
-                value="80" /></label
-            ><button id="next-app" aria-label="Next application">→</button>
-          </div>
-          <img
-            class="static-concept"
-            loading="lazy"
-            src="assets/concepts/universe.svg"
-            alt="Sixteen distinct procedural instruments arranged in one spatial system."
-          />
+            <nav class="chapter-nav" aria-label="Story chapters">
+              <a href="#enter" aria-label="Enter ARTIFACTS" aria-current="step"
+                ><span>00</span></a
+              ><a href="#friction" aria-label="Engineering friction"
+                ><span>01</span></a
+              ><a href="#structure" aria-label="Structure emerges"
+                ><span>02</span></a
+              ><a href="#system" aria-label="Tools become a system"
+                ><span>03</span></a
+              ><a href="#ecosystem" aria-label="Explore the ecosystem"
+                ><span>04</span></a
+              >
+            </nav>
+            <span class="scroll-cue"
+              >Scroll to unfold <span aria-hidden="true">↓</span></span
+            >
+          </footer>
         </div>
       </section>
-      <section id="end" class="story-scene ending" aria-labelledby="end-title">
-        <div class="scene-frame">
-          <p class="eyebrow">MANY PROBLEMS. SPECIALISED TOOLS.</p>
-          <h2 id="end-title">One environment.</h2>
-          <p class="ending-wordmark">ARTIFACTS<span>.</span></p>
-          <a href="#universe"
-            >Explore the ecosystem again <span aria-hidden="true">↗</span></a
-          ><img
-            class="static-concept"
-            loading="lazy"
-            src="assets/concepts/material.svg"
-            alt="The individual layers settle into one coherent structure."
-          />
-        </div>
+      <section class="ending" aria-labelledby="ending-title">
+        <p class="eyebrow">Built from the work</p>
+        <h2 id="ending-title">
+          Curiosity.<br />
+          Made useful.
+        </h2>
+        <p>
+          I enjoy building things.<br />
+          ARTIFACTS is where they come together.
+        </p>
+        <a href="#ecosystem"
+          >Return to the ecosystem <span aria-hidden="true">↗</span></a
+        >
+        <footer>
+          <a href="#enter" aria-label="ARTIFACTS, back to the beginning"
+            ><img
+              src="assets/brand/artifacts-symbol.svg"
+              alt="ARTIFACTS"
+              width="40"
+              height="40" /></a
+          ><span>by Gene</span
+          ><a href="https://github.com/weigenekhor/artifacts-by-gene"
+            >Source ↗</a
+          >
+        </footer>
       </section>
-      <section id="about" class="about">
-        <h2>Built from the work.</h2>
-        <div>
-          <p>
-            Years of engineering problems.<br />A growing collection of
-            software.
-          </p>
-          <span>Semiconductor engineering / software / automation</span>
-        </div>
-      </section>
+      <noscript
+        ><section class="text-catalogue">
+          <h2>Explore all applications</h2>
+          <p>Each link opens a real software capture.</p>
+          <h3>Expedition I - Altus</h3><ul><li><a href="assets/evidence/altus-lotviewer/full.webp">Altus LotViewer</a> — Parse lot histories, align timestamps and review wafer states.</li><li><a href="assets/evidence/altus-anko-viewer/full.webp">Altus ANKO Viewer</a> — Retrieve ANKO schedules across the Altus workflow.</li><li><a href="assets/evidence/altus-wafercount/full.webp">Altus WaferCount</a> — Aggregate wafer counts from logs for maintenance planning.</li></ul><h3>Expedition II - Interstice</h3><ul><li><a href="assets/evidence/topotracer/full.webp">TopoTracer</a> — Reveal spatial non-uniformity with wafer-level contour plots.</li><li><a href="assets/evidence/papyrus-reader/full.webp">Papyrus Reader</a> — Match equivalent recipe steps and reveal parameter differences independently of line order.</li><li><a href="assets/evidence/spc-pathfinder/full.webp">SPC Pathfinder</a> — Reach SPC charts directly and open multiple charts without repeated navigation.</li></ul><h3>Expedition III - GaN EPI</h3><ul><li><a href="assets/evidence/gan-met-compiler/full.webp">GaN Met Compiler</a> — Compile metrology data with predefined calculations into consistent reports.</li><li><a href="assets/evidence/gan-temp-diagnoser/full.webp">GaN Temp Diagnoser</a> — Use observed temperature behaviour to guide drift diagnosis and recommendations.</li><li><a href="assets/evidence/aix-dt-assistant/full.webp">AIX ΔT Assistant</a> — Use weight and temperature inputs to guide baseplate arrangements.</li><li><a href="assets/evidence/lt-zone-assistant/full.webp">LT Zone Assistant</a> — Map LayTec zones in a shared spatial view.</li><li><a href="assets/evidence/gan-xml-assistant/full.webp">GaN XML Assistant</a> — Compare configuration files and highlight changes in settings and constants.</li></ul><h3>Expedition IV - Planetfall</h3><ul><li><a href="assets/evidence/magus-spc-gan/full.webp">Magus SPC (GaN)</a> — Review configured GaN SPC charts and their parameter states together.</li><li><a href="assets/evidence/magus-spc-legacy/full.webp">Magus SPC (Legacy)</a> — Review legacy SPC charts and parameter states in one workflow.</li><li><a href="assets/evidence/anko-helper/full.webp">ANKO Helper</a> — Bring ANKO status and due dates into one view for planning.</li><li><a href="assets/evidence/lt-report-compiler/full.webp">LT Report Compiler</a> — Compile LayTec information into engineering reports.</li><li><a href="assets/evidence/metria-spc/full.webp">Metria SPC</a> — Explore multiple equipment parameters with interactive SPC analysis.</li></ul>
+        </section></noscript
+      >
     </main>
-    <section id="directory" class="directory" aria-labelledby="directory-title">
-      <div class="directory-heading">
+    <dialog id="inspector" aria-labelledby="capture-title">
+      <header>
         <div>
-          <p class="eyebrow">THE COMPLETE ECOSYSTEM</p>
-          <h2 id="directory-title">The instruments.</h2>
+          <p class="eyebrow">Actual ARTIFACTS software</p>
+          <h2 id="capture-title"></h2>
         </div>
-        <button id="close-directory" hidden>Close ×</button>
+        <button id="close-inspector" aria-label="Close capture">×</button>
+      </header>
+      <div class="capture-tools">
+        <button id="detail-view" aria-pressed="true">Focused detail</button
+        ><button id="full-view" aria-pressed="false">Full capture</button
+        ><button id="pixel-view" aria-pressed="false">Native pixels</button>
       </div>
-      <div class="directory-groups"><div class="directory-group"><h3>Expedition I / Altus</h3><article id="app-altus-lotviewer"><a href="#universe" data-directory-app="0"><span>01</span><h4>Altus LotViewer</h4><i aria-hidden="true">↗</i></a><p>Parse lot histories, align timestamps and review wafer states.</p></article><article id="app-altus-anko-viewer"><a href="#universe" data-directory-app="1"><span>02</span><h4>Altus ANKO Viewer</h4><i aria-hidden="true">↗</i></a><p>Retrieve ANKO schedules across the Altus workflow.</p></article><article id="app-altus-wafercount"><a href="#universe" data-directory-app="2"><span>03</span><h4>Altus WaferCount</h4><i aria-hidden="true">↗</i></a><p>Aggregate wafer counts from logs for maintenance planning.</p></article></div><div class="directory-group"><h3>Expedition II / Interstice</h3><article id="app-topotracer"><a href="#universe" data-directory-app="3"><span>04</span><h4>TopoTracer</h4><i aria-hidden="true">↗</i></a><p>Reveal spatial non-uniformity with wafer-level contour plots.</p></article><article id="app-papyrus-reader"><a href="#universe" data-directory-app="4"><span>05</span><h4>Papyrus Reader</h4><i aria-hidden="true">↗</i></a><p>Match equivalent recipe steps and reveal parameter differences independently of line order.</p></article><article id="app-spc-pathfinder"><a href="#universe" data-directory-app="5"><span>06</span><h4>SPC Pathfinder</h4><i aria-hidden="true">↗</i></a><p>Reach SPC charts directly and open multiple charts without repeated navigation.</p></article></div><div class="directory-group"><h3>Expedition III / GaN EPI</h3><article id="app-gan-met-compiler"><a href="#universe" data-directory-app="6"><span>07</span><h4>GaN Met Compiler</h4><i aria-hidden="true">↗</i></a><p>Compile metrology data with predefined calculations into consistent reports.</p></article><article id="app-gan-temp-diagnoser"><a href="#universe" data-directory-app="7"><span>08</span><h4>GaN Temp Diagnoser</h4><i aria-hidden="true">↗</i></a><p>Use observed temperature behaviour to guide drift diagnosis and recommendations.</p></article><article id="app-aix-dt-assistant"><a href="#universe" data-directory-app="8"><span>09</span><h4>AIX ΔT Assistant</h4><i aria-hidden="true">↗</i></a><p>Compare input temperatures and guide baseplate arrangements.</p></article><article id="app-lt-zone-assistant"><a href="#universe" data-directory-app="9"><span>10</span><h4>LT Zone Assistant</h4><i aria-hidden="true">↗</i></a><p>Map LayTec zones in a shared spatial view.</p></article><article id="app-gan-xml-assistant"><a href="#universe" data-directory-app="10"><span>11</span><h4>GaN XML Assistant</h4><i aria-hidden="true">↗</i></a><p>Compare configuration files and highlight changes in settings and constants.</p></article></div><div class="directory-group"><h3>Expedition IV / Planetfall</h3><article id="app-magus-spc-gan"><a href="#universe" data-directory-app="11"><span>12</span><h4>Magus SPC (GaN)</h4><i aria-hidden="true">↗</i></a><p>Review configured GaN SPC charts and their parameter states together.</p></article><article id="app-magus-spc-legacy"><a href="#universe" data-directory-app="12"><span>13</span><h4>Magus SPC (Legacy)</h4><i aria-hidden="true">↗</i></a><p>Review legacy SPC charts and parameter states in one workflow.</p></article><article id="app-anko-helper"><a href="#universe" data-directory-app="13"><span>14</span><h4>ANKO Helper</h4><i aria-hidden="true">↗</i></a><p>Bring ANKO status and due dates into one view for planning.</p></article><article id="app-lt-report-compiler"><a href="#universe" data-directory-app="14"><span>15</span><h4>LT Report Compiler</h4><i aria-hidden="true">↗</i></a><p>Compile LayTec information into engineering reports.</p></article><article id="app-metria-spc"><a href="#universe" data-directory-app="15"><span>16</span><h4>Metria SPC</h4><i aria-hidden="true">↗</i></a><p>Explore multiple equipment parameters with interactive SPC analysis.</p></article></div></div>
-    </section>
-    <footer>
-      <a class="brand" href="#entry"
-        ><img
-          src="assets/brand/artifacts-symbol.svg"
-          width="80"
-          height="80"
-          alt=""
-        /><span>ARTIFACTS</span></a
-      ><span class="attribution">by Gene</span
-      ><a href="#entry">Return to the beginning ↑</a>
-    </footer>
-    <div class="visual-caption">
-      <span class="caption-line"></span>CONCEPTUAL VISUALIZATIONS / SYNTHETIC
-      DATA
-    </div>
-    <p class="sr-only" id="announcement" aria-live="polite"></p>
+      <div class="capture-viewport"><img id="capture-image" alt="" /></div>
+      <p class="capture-note">
+        Original pixels, lossless capture. Drag the scrollbar to inspect at
+        native resolution.
+      </p>
+    </dialog>
   </body>
 </html>

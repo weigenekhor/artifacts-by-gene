@@ -29,7 +29,7 @@ for (const app of apps) {
   assert.equal((await sharp(app.responsiveImage).metadata()).width, 1280);
   assert.equal((await sharp(app.thumbnail).metadata()).width, 480);
   const page = await readFile("index.html", "utf8");
-  assert.ok(page.includes('id="app-' + app.id + '"'));
+  assert.ok(page.includes('data-app="' + app.id + '"'));
 }
 assert.ok(total < 6 * 1024 * 1024, "full capture budget");
 const paths = (s) => [...s.matchAll(/<path d="([^"]+)"/g)].map((m) => m[1]);
