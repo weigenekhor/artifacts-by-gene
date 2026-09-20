@@ -12,7 +12,7 @@ Branch: experience/continuous-instruments
 Remote baseline: 2873e1ecf82457c18950af58808567bda87f2a7c
 Production main: 8882080a37215432cf419026d632fa2e845cdbac
 
-Implementation and final validation are complete; review-branch publication is the remaining delivery step. GitHub connector is connected. Shell push has no stored credentials; use the authenticated connector. The earlier aborted v5 upload created some unreferenced blobs, but no branch or PR. PR #2 is the rejected procedural proposal, not this redesign.
+Implementation, final validation and branch publication are complete. Review PR: https://github.com/weigenekhor/artifacts-by-gene/pull/3 GitHub connector is connected. Shell push has no stored credentials; use the authenticated connector. The earlier aborted v5 upload created some unreferenced blobs, but no branch or PR. PR #2 is the rejected procedural proposal, not this redesign.
 
 ## Implemented
 
@@ -26,7 +26,7 @@ Fixed clipped hero type, faceted opening sheets, weak comparison cues, excessive
 
 All final suites passed: sixteen app/control/capture checks, ten viewport/DPR configurations, six accessibility scans, reduced motion, no WebGL, no JS and zero console/resource errors. Final scroll sample: 16.7 ms median, 16.8 ms p95, zero long tasks and zero idle frames. Shader programs are warmed before first interaction. See VALIDATION.md and .qa/validation-v6.json.
 
-Publish the prepared branch/PR against main, attach it to this task, then record the review URL here and verify identical local/remote trees. Keep production unchanged.
+PR #3 is open and mergeable against main. The remote implementation tree matched the tested local tree exactly. The next action is user review; production remains unchanged. Do not merge without a user instruction.
 
 ## Preview
 

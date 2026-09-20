@@ -1,7 +1,7 @@
 # ARTIFACTS
 
 A personal engineering environment at https://artifactsbygene.com.
-The current redesign is on `experience/continuous-instruments`. Production is unchanged until review and merge.
+The current redesign is on `experience/continuous-instruments`. Production is unchanged until review and merge. [Review PR #3](https://github.com/weigenekhor/artifacts-by-gene/pull/3).
 
 ## Run the committed website
 
