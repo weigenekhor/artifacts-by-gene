@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Artifacts by Gene — An engineering environment</title>
+    <title>Artifacts by Gene — Some problems should only be solved once.</title>
     <meta
       name="description"
-      content="Engineering is complex. Execution shouldn’t be. Explore the sixteen engineering applications of ARTIFACTS."
+      content="Repeated engineering work became tools. Tools became ARTIFACTS. Sixteen applications, one engineering environment."
     />
     <link rel="canonical" href="https://artifactsbygene.com/" />
-    <meta name="theme-color" content="#090b0c" />
+    <meta name="theme-color" content="#080b0d" />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
@@ -17,7 +17,7 @@
     />
     <meta
       property="og:description"
-      content="Sixteen applications. Built from the work. Explore ARTIFACTS."
+      content="Some engineering problems should only be solved once."
     />
     <meta property="og:url" content="https://artifactsbygene.com/" />
     <meta
@@ -37,214 +37,151 @@
     <script type="module" src="script.js"></script>
   </head>
   <body>
-    <a class="skip-link" href="#ecosystem">Skip to the applications</a>
+    <a class="skip-link" href="#environment">Skip to the applications</a>
     <header class="header">
       <a class="brand" href="#enter" aria-label="ARTIFACTS, beginning"
         ><img
           src="assets/brand/artifacts-symbol.svg"
           alt=""
-          width="36"
-          height="36"
+          width="34"
+          height="34"
         /><span>ARTIFACTS</span></a
       >
       <nav aria-label="Main navigation">
-        <a href="#ecosystem">Applications <span aria-hidden="true">↗</span></a
+        <a href="#environment"
+          >The applications <span aria-hidden="true">↗</span></a
+        ><a href="#software">The software</a
         ><button
           id="motion"
           hidden
+          aria-label="Pause motion"
           aria-pressed="true"
-          aria-label="Turn motion off"
         >
-          <span class="motion-icon" aria-hidden="true"></span>
+          <span aria-hidden="true">Ⅱ</span>
         </button>
       </nav>
     </header>
     <main>
-      <section class="journey" aria-label="The ARTIFACTS story">
-        <div class="anchors" aria-hidden="true">
-          <span id="enter"></span><span id="friction"></span
-          ><span id="structure"></span><span id="system"></span
-          ><span id="ecosystem"></span>
-        </div>
+      <div class="journey" id="journey">
         <div class="stage">
-          <div class="world" id="world" aria-hidden="true"></div>
-          <div class="opening-rule" aria-hidden="true"></div>
-          <div class="chapters">
-            <article class="chapter current" data-chapter="0">
-              <p class="eyebrow">Engineering. With room to think.</p>
-              <h1>ARTIFACTS</h1>
-              <p class="intro">Less repetition.<br />More room for judgment.</p>
-              <a class="journey-link" href="#friction"
-                ><span class="arrow-down" aria-hidden="true">↓</span> Follow the
-                work</a
+          <div id="world" aria-hidden="true"></div>
+          <div class="scene-light" aria-hidden="true"></div>
+          <div class="story"><article class="scene scene-opening" data-scene="0" id="enter"><p class="eyebrow">An engineering environment</p><h1><span class="type-line"><span>ARTIFACTS</span></span></h1><p class="scene-text"><span class="type-line"><span>Some engineering problems</span></span><span class="type-line"><span>should only be solved once.</span></span></p></article><article class="scene scene-left" data-scene="1" id="repetition"><p class="eyebrow">Before the tools</p><h2><span class="type-line"><span>Again.</span></span><span class="type-line"><span>And again.</span></span></h2><p class="scene-text"><span class="type-line"><span>A log to read. A recipe to check.</span></span><span class="type-line"><span>Another chart. Another manual step.</span></span></p></article><article class="scene scene-statement" data-scene="2" id="realisation"><p class="eyebrow">The recurring problem</p><h2><span class="type-line"><span>The problem wasn’t</span></span><span class="type-line"><span>the engineering.</span></span></h2><p class="scene-text"><span class="type-line"><span>It was doing the same work again.</span></span></p></article><article class="scene scene-left" data-scene="3" id="one-tool"><p class="eyebrow">A different starting point</p><h2><span class="type-line"><span>One problem.</span></span><span class="type-line"><span>One tool.</span></span></h2><p class="scene-text"><span class="type-line"><span>Keep the method.</span></span><span class="type-line"><span>Let software carry the repetition.</span></span></p></article><article class="scene scene-wide" data-scene="4" id="many"><p class="eyebrow">Then another</p><h2><span class="type-line"><span>One tool became many.</span></span><span class="type-line"><span>Many became a system.</span></span></h2><p class="scene-text"><span class="type-line"><span>ARTIFACTS.</span></span></p></article><article class="scene scene-left" data-scene="5" id="recipes"><p class="eyebrow">Papyrus Reader / comparison</p><h2><span class="type-line"><span>The order changed.</span></span><span class="type-line"><span>Did the meaning?</span></span></h2><p class="scene-text"><span class="type-line"><span>Two recipes. Equivalent steps.</span></span><span class="type-line"><span>Different places to look.</span></span></p></article><article class="scene scene-left" data-scene="6" id="comparison"><p class="eyebrow">Papyrus Reader / alignment</p><h2><span class="type-line"><span>Let the differences</span></span><span class="type-line"><span>speak.</span></span></h2><p class="scene-text"><span class="type-line"><span>Equivalent steps find each other.</span></span><span class="type-line"><span>Changed, added and missing values stay visible.</span></span></p></article><article class="scene scene-left" data-scene="7" id="measurements"><p class="eyebrow">TopoTracer / measurements</p><h2><span class="type-line"><span>A set of points.</span></span><span class="type-line"><span>A larger picture.</span></span></h2><p class="scene-text"><span class="type-line"><span>Every measurement has a place.</span></span><span class="type-line"><span>The pattern lives between them.</span></span></p></article><article class="scene scene-left" data-scene="8" id="surface"><p class="eyebrow">TopoTracer / interpolation</p><h2><span class="type-line"><span>See the shape</span></span><span class="type-line"><span>of variation.</span></span></h2><p class="scene-text"><span class="type-line"><span>Wafer measurements become a contour map.</span></span><span class="type-line"><span>Spatial variation comes into view.</span></span></p></article><article class="scene scene-left" data-scene="9" id="temperature"><p class="eyebrow">GaN Temp Diagnoser / observations</p><h2><span class="type-line"><span>A drift is a signal.</span></span><span class="type-line"><span>Where does it lead?</span></span></h2><p class="scene-text"><span class="type-line"><span>Temperature behavior provides clues.</span></span><span class="type-line"><span>The next step is knowing what to check.</span></span></p></article><article class="scene scene-left" data-scene="10" id="diagnosis"><p class="eyebrow">GaN Temp Diagnoser / direction</p><h2><span class="type-line"><span>Fewer possibilities.</span></span><span class="type-line"><span>A clearer next step.</span></span></h2><p class="scene-text"><span class="type-line"><span>Observations guide likely causes</span></span><span class="type-line"><span>and recommended checks.</span></span></p></article><article class="scene scene-left" data-scene="11" id="context"><p class="eyebrow">Metria SPC / shared context</p><h2><span class="type-line"><span>Bring the signals</span></span><span class="type-line"><span>into the same view.</span></span></h2><p class="scene-text"><span class="type-line"><span>Related parameters. Interactive charts.</span></span><span class="type-line"><span>One place to follow the equipment.</span></span></p></article><article class="scene scene-map" data-scene="12" id="environment"><p class="eyebrow">The whole body of work</p><h2><span class="type-line"><span>16 applications.</span></span><span class="type-line"><span>One engineering environment.</span></span></h2><p class="scene-text"><span class="type-line"><span>Each solves something specific.</span></span><span class="type-line"><span>Together, they are ARTIFACTS.</span></span></p></article><article class="scene scene-reel" data-scene="13" id="software"><p class="eyebrow">Inside ARTIFACTS</p><h2><span class="type-line"><span>Real software.</span></span><span class="type-line"><span>Built for real engineering work.</span></span></h2><p class="scene-text"><span class="type-line"><span>The interfaces behind the ideas.</span></span></p></article></div>
+          <div class="world-annotations" aria-hidden="true"></div>
+          <aside class="proof" hidden aria-label="Actual software detail">
+            <button id="proof-open">
+              <img id="proof-image" alt="" decoding="async" /><span
+                ><span id="proof-name"></span
+                ><span>Inside the software ↗</span></span
               >
-            </article>
-            <article class="chapter" data-chapter="1">
-              <p class="eyebrow">01 / Before the tools</p>
-              <h2>The same task.<br />Again.<br /><em>And again.</em></h2>
-              <p class="intro">
-                A log to reconstruct. A recipe to compare.<br />A report to
-                assemble. Before the engineering can begin.
-              </p>
-              <div class="scene-key">
-                <i></i><span>Separate inputs / repeated effort</span>
-              </div>
-            </article>
-            <article class="chapter" data-chapter="2">
-              <p class="eyebrow">02 / Give the work a method</p>
-              <h2>The work repeats.<br /><em>The effort shouldn’t.</em></h2>
-              <p class="intro">
-                Give recurring tasks a method. Put that method into software.
-                Keep your attention on the decisions that matter.
-              </p>
-              <div class="scene-key">
-                <i></i><span>Repeated effort → reusable tools</span>
-              </div>
-            </article>
-            <article class="chapter" data-chapter="3">
-              <p class="eyebrow">03 / From tools to ARTIFACTS</p>
-              <h2>
-                One useful tool.<br /><em>Then a body<br />of work.</em>
-              </h2>
-              <p class="intro">
-                Each tool begins with a specific need. Together, they become
-                ARTIFACTS: sixteen applications for engineering work.
-              </p>
-              <a class="text-button" href="#ecosystem"
-                >Meet the applications <span aria-hidden="true">↗</span></a
-              >
-            </article>
-          </div>
+            </button>
+          </aside>
           <section
-            class="atlas"
-            aria-labelledby="atlas-title"
-            inert
-            aria-hidden="true"
+            class="environment"
+            aria-label="Sixteen ARTIFACTS applications"
+            hidden
           >
-            <div class="atlas-copy">
-              <p class="eyebrow" id="app-category"></p>
-              <p class="app-name" id="app-name"></p>
-              <h2 id="atlas-title"></h2>
-              <p class="intro" id="app-purpose"></p>
-            </div>
-            <div class="software-gallery"><figure class="software-frame" data-software="altus-lotviewer" hidden><button class="software-image" data-proof="altus-lotviewer" aria-label="Enlarge Altus LotViewer interface"><img data-src="assets/evidence/altus-lotviewer/full.webp" width="1425" height="950" alt="Complete Altus LotViewer interface" decoding="async" /></button><figcaption><span>Altus LotViewer <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="altus-lotviewer" aria-label="Enlarge Altus LotViewer">View larger <span aria-hidden="true">↗</span></button></figcaption></figure><figure class="software-frame" data-software="altus-anko-viewer" hidden><button class="software-image" data-proof="altus-anko-viewer" aria-label="Enlarge Altus ANKO Viewer interface"><img data-src="assets/evidence/altus-anko-viewer/full.webp" width="1425" height="950" alt="Complete Altus ANKO Viewer interface" decoding="async" /></button><figcaption><span>Altus ANKO Viewer <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="altus-anko-viewer" aria-label="Enlarge Altus ANKO Viewer">View larger <span aria-hidden="true">↗</span></button></figcaption></figure><figure class="software-frame" data-software="altus-wafercount" hidden><button class="software-image" data-proof="altus-wafercount" aria-label="Enlarge Altus WaferCount interface"><img data-src="assets/evidence/altus-wafercount/full.webp" width="1425" height="950" alt="Complete Altus WaferCount interface" decoding="async" /></button><figcaption><span>Altus WaferCount <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="altus-wafercount" aria-label="Enlarge Altus WaferCount">View larger <span aria-hidden="true">↗</span></button></figcaption></figure><figure class="software-frame" data-software="topotracer" hidden><button class="software-image" data-proof="topotracer" aria-label="Enlarge TopoTracer interface"><img data-src="assets/evidence/topotracer/full.webp" width="1425" height="950" alt="Complete TopoTracer interface" decoding="async" /></button><figcaption><span>TopoTracer <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="topotracer" aria-label="Enlarge TopoTracer">View larger <span aria-hidden="true">↗</span></button></figcaption></figure><figure class="software-frame" data-software="papyrus-reader" hidden><button class="software-image" data-proof="papyrus-reader" aria-label="Enlarge Papyrus Reader interface"><img data-src="assets/evidence/papyrus-reader/full.webp" width="1531" height="1002" alt="Complete Papyrus Reader interface" decoding="async" /></button><figcaption><span>Papyrus Reader <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="papyrus-reader" aria-label="Enlarge Papyrus Reader">View larger <span aria-hidden="true">↗</span></button></figcaption></figure><figure class="software-frame" data-software="spc-pathfinder" hidden><button class="software-image" data-proof="spc-pathfinder" aria-label="Enlarge SPC Pathfinder interface"><img data-src="assets/evidence/spc-pathfinder/full.webp" width="1425" height="950" alt="Complete SPC Pathfinder interface" decoding="async" /></button><figcaption><span>SPC Pathfinder <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="spc-pathfinder" aria-label="Enlarge SPC Pathfinder">View larger <span aria-hidden="true">↗</span></button></figcaption></figure><figure class="software-frame" data-software="gan-met-compiler" hidden><button class="software-image" data-proof="gan-met-compiler" aria-label="Enlarge GaN Met Compiler interface"><img data-src="assets/evidence/gan-met-compiler/full.webp" width="1425" height="950" alt="Complete GaN Met Compiler interface" decoding="async" /></button><figcaption><span>GaN Met Compiler <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="gan-met-compiler" aria-label="Enlarge GaN Met Compiler">View larger <span aria-hidden="true">↗</span></button></figcaption></figure><figure class="software-frame" data-software="gan-temp-diagnoser" hidden><button class="software-image" data-proof="gan-temp-diagnoser" aria-label="Enlarge GaN Temp Diagnoser interface"><img data-src="assets/evidence/gan-temp-diagnoser/full.webp" width="1425" height="950" alt="Complete GaN Temp Diagnoser interface" decoding="async" /></button><figcaption><span>GaN Temp Diagnoser <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="gan-temp-diagnoser" aria-label="Enlarge GaN Temp Diagnoser">View larger <span aria-hidden="true">↗</span></button></figcaption></figure><figure class="software-frame" data-software="aix-dt-assistant" hidden><button class="software-image" data-proof="aix-dt-assistant" aria-label="Enlarge AIX ΔT Assistant interface"><img data-src="assets/evidence/aix-dt-assistant/full.webp" width="1425" height="950" alt="Complete AIX ΔT Assistant interface" decoding="async" /></button><figcaption><span>AIX ΔT Assistant <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="aix-dt-assistant" aria-label="Enlarge AIX ΔT Assistant">View larger <span aria-hidden="true">↗</span></button></figcaption></figure><figure class="software-frame" data-software="lt-zone-assistant" hidden><button class="software-image" data-proof="lt-zone-assistant" aria-label="Enlarge LT Zone Assistant interface"><img data-src="assets/evidence/lt-zone-assistant/full.webp" width="1425" height="950" alt="Complete LT Zone Assistant interface" decoding="async" /></button><figcaption><span>LT Zone Assistant <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="lt-zone-assistant" aria-label="Enlarge LT Zone Assistant">View larger <span aria-hidden="true">↗</span></button></figcaption></figure><figure class="software-frame" data-software="gan-xml-assistant" hidden><button class="software-image" data-proof="gan-xml-assistant" aria-label="Enlarge GaN XML Assistant interface"><img data-src="assets/evidence/gan-xml-assistant/full.webp" width="1425" height="950" alt="Complete GaN XML Assistant interface" decoding="async" /></button><figcaption><span>GaN XML Assistant <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="gan-xml-assistant" aria-label="Enlarge GaN XML Assistant">View larger <span aria-hidden="true">↗</span></button></figcaption></figure><figure class="software-frame" data-software="magus-spc-gan" hidden><button class="software-image" data-proof="magus-spc-gan" aria-label="Enlarge Magus SPC (GaN) interface"><img data-src="assets/evidence/magus-spc-gan/full.webp" width="1425" height="950" alt="Complete Magus SPC (GaN) interface" decoding="async" /></button><figcaption><span>Magus SPC (GaN) <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="magus-spc-gan" aria-label="Enlarge Magus SPC (GaN)">View larger <span aria-hidden="true">↗</span></button></figcaption></figure><figure class="software-frame" data-software="magus-spc-legacy" hidden><button class="software-image" data-proof="magus-spc-legacy" aria-label="Enlarge Magus SPC (Legacy) interface"><img data-src="assets/evidence/magus-spc-legacy/full.webp" width="1425" height="950" alt="Complete Magus SPC (Legacy) interface" decoding="async" /></button><figcaption><span>Magus SPC (Legacy) <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="magus-spc-legacy" aria-label="Enlarge Magus SPC (Legacy)">View larger <span aria-hidden="true">↗</span></button></figcaption></figure><figure class="software-frame" data-software="anko-helper" hidden><button class="software-image" data-proof="anko-helper" aria-label="Enlarge ANKO Helper interface"><img data-src="assets/evidence/anko-helper/full.webp" width="1425" height="950" alt="Complete ANKO Helper interface" decoding="async" /></button><figcaption><span>ANKO Helper <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="anko-helper" aria-label="Enlarge ANKO Helper">View larger <span aria-hidden="true">↗</span></button></figcaption></figure><figure class="software-frame" data-software="lt-report-compiler" hidden><button class="software-image" data-proof="lt-report-compiler" aria-label="Enlarge LT Report Compiler interface"><img data-src="assets/evidence/lt-report-compiler/full.webp" width="1425" height="950" alt="Complete LT Report Compiler interface" decoding="async" /></button><figcaption><span>LT Report Compiler <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="lt-report-compiler" aria-label="Enlarge LT Report Compiler">View larger <span aria-hidden="true">↗</span></button></figcaption></figure><figure class="software-frame" data-software="metria-spc" hidden><button class="software-image" data-proof="metria-spc" aria-label="Enlarge Metria SPC interface"><img data-src="assets/evidence/metria-spc/full.webp" width="1425" height="950" alt="Complete Metria SPC interface" decoding="async" /></button><figcaption><span>Metria SPC <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="metria-spc" aria-label="Enlarge Metria SPC">View larger <span aria-hidden="true">↗</span></button></figcaption></figure></div>
-            <div class="study-panel">
-              <p class="study-phase" id="study-phase">From inputs to insight</p>
-              <p class="study-caption">
-                <span id="transformation"></span><span>Workflow study</span>
-              </p>
-              <label class="study-control"
-                ><span id="study-action">Explore the transformation</span
-                ><input
-                  id="study"
-                  aria-labelledby="study-action"
-                  type="range"
-                  min="0"
-                  max="100"
-                  value="100"
-              /></label>
-            </div>
-            <nav class="app-navigation" aria-label="Application sequence">
-              <div class="sequence-top">
-                <span id="app-position">01 / 16</span
-                ><span id="next-label"></span>
-                <div class="sequence-buttons">
-                  <button id="previous" aria-label="Previous application">
-                    ←</button
-                  ><button id="next" aria-label="Next application">→</button
-                  ><a href="#index">All applications ↗</a>
-                </div>
-              </div>
-              <div class="sequence-rail"><a href="#app/altus-lotviewer" data-jump="altus-lotviewer" aria-label="Altus LotViewer" title="Altus LotViewer"><span>01</span></a><a href="#app/altus-anko-viewer" data-jump="altus-anko-viewer" aria-label="Altus ANKO Viewer" title="Altus ANKO Viewer"><span>02</span></a><a href="#app/altus-wafercount" data-jump="altus-wafercount" aria-label="Altus WaferCount" title="Altus WaferCount"><span>03</span></a><a href="#app/topotracer" data-jump="topotracer" aria-label="TopoTracer" title="TopoTracer" class="group-start"><span>04</span></a><a href="#app/papyrus-reader" data-jump="papyrus-reader" aria-label="Papyrus Reader" title="Papyrus Reader"><span>05</span></a><a href="#app/spc-pathfinder" data-jump="spc-pathfinder" aria-label="SPC Pathfinder" title="SPC Pathfinder"><span>06</span></a><a href="#app/gan-met-compiler" data-jump="gan-met-compiler" aria-label="GaN Met Compiler" title="GaN Met Compiler" class="group-start"><span>07</span></a><a href="#app/gan-temp-diagnoser" data-jump="gan-temp-diagnoser" aria-label="GaN Temp Diagnoser" title="GaN Temp Diagnoser"><span>08</span></a><a href="#app/aix-dt-assistant" data-jump="aix-dt-assistant" aria-label="AIX ΔT Assistant" title="AIX ΔT Assistant"><span>09</span></a><a href="#app/lt-zone-assistant" data-jump="lt-zone-assistant" aria-label="LT Zone Assistant" title="LT Zone Assistant"><span>10</span></a><a href="#app/gan-xml-assistant" data-jump="gan-xml-assistant" aria-label="GaN XML Assistant" title="GaN XML Assistant"><span>11</span></a><a href="#app/magus-spc-gan" data-jump="magus-spc-gan" aria-label="Magus SPC (GaN)" title="Magus SPC (GaN)" class="group-start"><span>12</span></a><a href="#app/magus-spc-legacy" data-jump="magus-spc-legacy" aria-label="Magus SPC (Legacy)" title="Magus SPC (Legacy)"><span>13</span></a><a href="#app/anko-helper" data-jump="anko-helper" aria-label="ANKO Helper" title="ANKO Helper"><span>14</span></a><a href="#app/lt-report-compiler" data-jump="lt-report-compiler" aria-label="LT Report Compiler" title="LT Report Compiler"><span>15</span></a><a href="#app/metria-spc" data-jump="metria-spc" aria-label="Metria SPC" title="Metria SPC"><span>16</span></a></div>
-              <label class="sr-only" for="app-select"
-                >Jump to an application</label
-              ><select id="app-select">
-                <option value="altus-lotviewer">01 / Altus LotViewer</option><option value="altus-anko-viewer">02 / Altus ANKO Viewer</option><option value="altus-wafercount">03 / Altus WaferCount</option><option value="topotracer">04 / TopoTracer</option><option value="papyrus-reader">05 / Papyrus Reader</option><option value="spc-pathfinder">06 / SPC Pathfinder</option><option value="gan-met-compiler">07 / GaN Met Compiler</option><option value="gan-temp-diagnoser">08 / GaN Temp Diagnoser</option><option value="aix-dt-assistant">09 / AIX ΔT Assistant</option><option value="lt-zone-assistant">10 / LT Zone Assistant</option><option value="gan-xml-assistant">11 / GaN XML Assistant</option><option value="magus-spc-gan">12 / Magus SPC (GaN)</option><option value="magus-spc-legacy">13 / Magus SPC (Legacy)</option><option value="anko-helper">14 / ANKO Helper</option><option value="lt-report-compiler">15 / LT Report Compiler</option><option value="metria-spc">16 / Metria SPC</option>
-              </select>
-            </nav>
-          </section>
-          <footer class="stage-footer">
-            <span class="stage-caption"
-              >Engineering software, considered as a whole.</span
+            <div
+              class="group-switch"
+              role="group"
+              aria-label="Choose an Expedition"
             >
-            <nav class="chapter-nav" aria-label="Story chapters">
-              <a href="#enter" aria-label="Enter ARTIFACTS" aria-current="step"
-                ><span>00</span></a
-              ><a href="#friction" aria-label="Engineering friction"
-                ><span>01</span></a
-              ><a href="#structure" aria-label="Structure emerges"
-                ><span>02</span></a
-              ><a href="#system" aria-label="Tools become a system"
-                ><span>03</span></a
-              ><a href="#ecosystem" aria-label="Explore the ecosystem"
-                ><span>04</span></a
+              <button data-group="0" aria-pressed="true"><span>01</span> Altus</button><button data-group="1" aria-pressed="false"><span>02</span> Interstice</button><button data-group="2" aria-pressed="false"><span>03</span> GaN EPI</button><button data-group="3" aria-pressed="false"><span>04</span> Planetfall</button>
+            </div>
+            <div class="map-nodes"><button class="app-node" data-app="altus-lotviewer" data-group="0" aria-label="Altus LotViewer: Lot history analysis."><span class="node-number">01</span><span class="node-title">Altus LotViewer</span><span class="node-purpose">Lot history analysis.</span></button><button class="app-node" data-app="altus-anko-viewer" data-group="0" aria-label="Altus ANKO Viewer: ANKO schedule retrieval."><span class="node-number">02</span><span class="node-title">Altus ANKO Viewer</span><span class="node-purpose">ANKO schedule retrieval.</span></button><button class="app-node" data-app="altus-wafercount" data-group="0" aria-label="Altus WaferCount: Chamber usage and wafer counts."><span class="node-number">03</span><span class="node-title">Altus WaferCount</span><span class="node-purpose">Chamber usage and wafer counts.</span></button><button class="app-node" data-app="topotracer" data-group="1" aria-label="TopoTracer: Contour and topography plots."><span class="node-number">04</span><span class="node-title">TopoTracer</span><span class="node-purpose">Contour and topography plots.</span></button><button class="app-node" data-app="papyrus-reader" data-group="1" aria-label="Papyrus Reader: Logical recipe and text comparison."><span class="node-number">05</span><span class="node-title">Papyrus Reader</span><span class="node-purpose">Logical recipe and text comparison.</span></button><button class="app-node" data-app="spc-pathfinder" data-group="1" aria-label="SPC Pathfinder: SPC chart finder."><span class="node-number">06</span><span class="node-title">SPC Pathfinder</span><span class="node-purpose">SPC chart finder.</span></button><button class="app-node" data-app="gan-met-compiler" data-group="2" aria-label="GaN Met Compiler: Metrology report compiler."><span class="node-number">07</span><span class="node-title">GaN Met Compiler</span><span class="node-purpose">Metrology report compiler.</span></button><button class="app-node" data-app="gan-temp-diagnoser" data-group="2" aria-label="GaN Temp Diagnoser: Temperature drift diagnosis."><span class="node-number">08</span><span class="node-title">GaN Temp Diagnoser</span><span class="node-purpose">Temperature drift diagnosis.</span></button><button class="app-node" data-app="aix-dt-assistant" data-group="2" aria-label="AIX ΔT Assistant: Baseplate arrangement guidance."><span class="node-number">09</span><span class="node-title">AIX ΔT Assistant</span><span class="node-purpose">Baseplate arrangement guidance.</span></button><button class="app-node" data-app="lt-zone-assistant" data-group="2" aria-label="LT Zone Assistant: LayTec zone mapping."><span class="node-number">10</span><span class="node-title">LT Zone Assistant</span><span class="node-purpose">LayTec zone mapping.</span></button><button class="app-node" data-app="gan-xml-assistant" data-group="2" aria-label="GaN XML Assistant: Devices.XML comparison."><span class="node-number">11</span><span class="node-title">GaN XML Assistant</span><span class="node-purpose">Devices.XML comparison.</span></button><button class="app-node" data-app="magus-spc-gan" data-group="3" aria-label="Magus SPC (GaN): GaN SPC release review."><span class="node-number">12</span><span class="node-title">Magus SPC (GaN)</span><span class="node-purpose">GaN SPC release review.</span></button><button class="app-node" data-app="magus-spc-legacy" data-group="3" aria-label="Magus SPC (Legacy): Legacy SPC release review."><span class="node-number">13</span><span class="node-title">Magus SPC (Legacy)</span><span class="node-purpose">Legacy SPC release review.</span></button><button class="app-node" data-app="anko-helper" data-group="3" aria-label="ANKO Helper: ANKO status and due dates."><span class="node-number">14</span><span class="node-title">ANKO Helper</span><span class="node-purpose">ANKO status and due dates.</span></button><button class="app-node" data-app="lt-report-compiler" data-group="3" aria-label="LT Report Compiler: LayTec report compilation."><span class="node-number">15</span><span class="node-title">LT Report Compiler</span><span class="node-purpose">LayTec report compilation.</span></button><button class="app-node" data-app="metria-spc" data-group="3" aria-label="Metria SPC: Interactive multi-parameter equipment SPC."><span class="node-number">16</span><span class="node-title">Metria SPC</span><span class="node-purpose">Interactive multi-parameter equipment SPC.</span></button></div>
+            <div class="map-summary">
+              <span class="eyebrow" id="selected-category"
+                >Four Expeditions</span
               >
-            </nav>
-            <span class="scroll-cue"
-              >Scroll to unfold <span aria-hidden="true">↓</span></span
-            >
-          </footer>
-        </div>
-      </section>
-      <section class="ecosystem-index" id="index" aria-labelledby="index-title">
-        <div class="index-intro">
-          <p class="eyebrow">Sixteen applications. Four Expeditions.</p>
-          <h2 id="index-title">
-            Different disciplines.<br /><em>A shared purpose.</em>
-          </h2>
-          <p>Complexity is a given.<br />Clarity is engineered.</p>
-        </div>
-        <div class="node-map"><div class="expedition" data-group="0"><h3>Expedition I / Altus</h3><div class="expedition-track"><a href="assets/evidence/altus-lotviewer/full.webp" class="app-node" data-app="altus-lotviewer"><span class="node-number">01</span><span class="node-name">Altus LotViewer</span></a><a href="assets/evidence/altus-anko-viewer/full.webp" class="app-node" data-app="altus-anko-viewer"><span class="node-number">02</span><span class="node-name">Altus ANKO Viewer</span></a><a href="assets/evidence/altus-wafercount/full.webp" class="app-node" data-app="altus-wafercount"><span class="node-number">03</span><span class="node-name">Altus WaferCount</span></a></div></div><div class="expedition" data-group="1"><h3>Expedition II / Interstice</h3><div class="expedition-track"><a href="assets/evidence/topotracer/full.webp" class="app-node" data-app="topotracer"><span class="node-number">04</span><span class="node-name">TopoTracer</span></a><a href="assets/evidence/papyrus-reader/full.webp" class="app-node" data-app="papyrus-reader"><span class="node-number">05</span><span class="node-name">Papyrus Reader</span></a><a href="assets/evidence/spc-pathfinder/full.webp" class="app-node" data-app="spc-pathfinder"><span class="node-number">06</span><span class="node-name">SPC Pathfinder</span></a></div></div><div class="expedition" data-group="2"><h3>Expedition III / GaN EPI</h3><div class="expedition-track"><a href="assets/evidence/gan-met-compiler/full.webp" class="app-node" data-app="gan-met-compiler"><span class="node-number">07</span><span class="node-name">GaN Met Compiler</span></a><a href="assets/evidence/gan-temp-diagnoser/full.webp" class="app-node" data-app="gan-temp-diagnoser"><span class="node-number">08</span><span class="node-name">GaN Temp Diagnoser</span></a><a href="assets/evidence/aix-dt-assistant/full.webp" class="app-node" data-app="aix-dt-assistant"><span class="node-number">09</span><span class="node-name">AIX ΔT Assistant</span></a><a href="assets/evidence/lt-zone-assistant/full.webp" class="app-node" data-app="lt-zone-assistant"><span class="node-number">10</span><span class="node-name">LT Zone Assistant</span></a><a href="assets/evidence/gan-xml-assistant/full.webp" class="app-node" data-app="gan-xml-assistant"><span class="node-number">11</span><span class="node-name">GaN XML Assistant</span></a></div></div><div class="expedition" data-group="3"><h3>Expedition IV / Planetfall</h3><div class="expedition-track"><a href="assets/evidence/magus-spc-gan/full.webp" class="app-node" data-app="magus-spc-gan"><span class="node-number">12</span><span class="node-name">Magus SPC (GaN)</span></a><a href="assets/evidence/magus-spc-legacy/full.webp" class="app-node" data-app="magus-spc-legacy"><span class="node-number">13</span><span class="node-name">Magus SPC (Legacy)</span></a><a href="assets/evidence/anko-helper/full.webp" class="app-node" data-app="anko-helper"><span class="node-number">14</span><span class="node-name">ANKO Helper</span></a><a href="assets/evidence/lt-report-compiler/full.webp" class="app-node" data-app="lt-report-compiler"><span class="node-number">15</span><span class="node-name">LT Report Compiler</span></a><a href="assets/evidence/metria-spc/full.webp" class="app-node" data-app="metria-spc"><span class="node-number">16</span><span class="node-name">Metria SPC</span></a></div></div></div>
-      </section>
-      <section class="ending" aria-labelledby="ending-title">
-        <p class="eyebrow">Built from the work</p>
-        <h2 id="ending-title">
-          Built from curiosity.<br />Shaped by the work.
-        </h2>
-        <p>
-          I enjoy building things.<br />
-          ARTIFACTS is where they come together.
-        </p>
-        <a href="#ecosystem"
-          >Revisit the applications <span aria-hidden="true">↗</span></a
-        >
-        <footer>
-          <a href="#enter" aria-label="ARTIFACTS, back to the beginning"
-            ><img
-              src="assets/brand/artifacts-symbol.svg"
-              alt="ARTIFACTS"
-              width="40"
-              height="40" /></a
-          ><span>by Gene</span
-          ><a href="https://github.com/weigenekhor/artifacts-by-gene"
-            >Source ↗</a
+              <h3 id="selected-name">Every tool has a reason.</h3>
+              <p id="selected-purpose">
+                Select an application to see the work it takes on.
+              </p>
+              <button id="selected-capture" hidden>
+                See the actual interface ↗</button
+              ><span class="relationship-note"
+                >Connections show related workflows.</span
+              >
+            </div>
+          </section>
+          <section
+            class="software"
+            hidden
+            aria-label="Actual ARTIFACTS software"
           >
-        </footer>
+            <div class="reel-controls">
+              <button id="reel-prev" aria-label="Previous software capture">
+                ←
+              </button>
+              <p>
+                <span id="reel-count">01 / 16</span
+                ><strong id="reel-name"></strong>
+              </p>
+              <button id="reel-next" aria-label="Next software capture">
+                →
+              </button>
+            </div>
+            <div class="reel"><figure class="software-frame" data-software="altus-lotviewer"><button data-proof="altus-lotviewer" aria-label="Inspect Altus LotViewer"><img data-src="assets/evidence/altus-lotviewer/detail.webp" width="1315" height="490" alt="Lot events, wafer states and durations in Altus LotViewer" decoding="async"></button><figcaption>Lot events, wafer states and durations <span>View complete interface ↗</span></figcaption></figure><figure class="software-frame" data-software="altus-anko-viewer"><button data-proof="altus-anko-viewer" aria-label="Inspect Altus ANKO Viewer"><img data-src="assets/evidence/altus-anko-viewer/detail.webp" width="1310" height="630" alt="Reactor schedules in a common view in Altus ANKO Viewer" decoding="async"></button><figcaption>Reactor schedules in a common view <span>View complete interface ↗</span></figcaption></figure><figure class="software-frame" data-software="altus-wafercount"><button data-proof="altus-wafercount" aria-label="Inspect Altus WaferCount"><img data-src="assets/evidence/altus-wafercount/detail.webp" width="1310" height="610" alt="Chamber usage counters in Altus WaferCount" decoding="async"></button><figcaption>Chamber usage counters <span>View complete interface ↗</span></figcaption></figure><figure class="software-frame" data-software="topotracer"><button data-proof="topotracer" aria-label="Inspect TopoTracer"><img data-src="assets/evidence/topotracer/detail.webp" width="1280" height="570" alt="Interpolated wafer surface and scale in TopoTracer" decoding="async"></button><figcaption>Interpolated wafer surface and scale <span>View complete interface ↗</span></figcaption></figure><figure class="software-frame" data-software="papyrus-reader"><button data-proof="papyrus-reader" aria-label="Inspect Papyrus Reader"><img data-src="assets/evidence/papyrus-reader/detail.webp" width="1280" height="315" alt="Actual paired recipe panes with marked changes in Papyrus Reader" decoding="async"></button><figcaption>Actual paired recipe panes with marked changes <span>View complete interface ↗</span></figcaption></figure><figure class="software-frame" data-software="spc-pathfinder"><button data-proof="spc-pathfinder" aria-label="Inspect SPC Pathfinder"><img data-src="assets/evidence/spc-pathfinder/detail.webp" width="1310" height="630" alt="Grouped chart selection in SPC Pathfinder" decoding="async"></button><figcaption>Grouped chart selection <span>View complete interface ↗</span></figcaption></figure><figure class="software-frame" data-software="gan-met-compiler"><button data-proof="gan-met-compiler" aria-label="Inspect GaN Met Compiler"><img data-src="assets/evidence/gan-met-compiler/detail.webp" width="1300" height="300" alt="Metrology processing log in GaN Met Compiler" decoding="async"></button><figcaption>Metrology processing log <span>View complete interface ↗</span></figcaption></figure><figure class="software-frame" data-software="gan-temp-diagnoser"><button data-proof="gan-temp-diagnoser" aria-label="Inspect GaN Temp Diagnoser"><img data-src="assets/evidence/gan-temp-diagnoser/detail.webp" width="675" height="235" alt="Diagnostic summary and recommended checks in GaN Temp Diagnoser" decoding="async"></button><figcaption>Diagnostic summary and recommended checks <span>View complete interface ↗</span></figcaption></figure><figure class="software-frame" data-software="aix-dt-assistant"><button data-proof="aix-dt-assistant" aria-label="Inspect AIX ΔT Assistant"><img data-src="assets/evidence/aix-dt-assistant/detail.webp" width="650" height="720" alt="Baseplate assignment visualization in AIX ΔT Assistant" decoding="async"></button><figcaption>Baseplate assignment visualization <span>View complete interface ↗</span></figcaption></figure><figure class="software-frame" data-software="lt-zone-assistant"><button data-proof="lt-zone-assistant" aria-label="Inspect LT Zone Assistant"><img data-src="assets/evidence/lt-zone-assistant/detail.webp" width="975" height="720" alt="Inner and outer zone geometry in LT Zone Assistant" decoding="async"></button><figcaption>Inner and outer zone geometry <span>View complete interface ↗</span></figcaption></figure><figure class="software-frame" data-software="gan-xml-assistant"><button data-proof="gan-xml-assistant" aria-label="Inspect GaN XML Assistant"><img data-src="assets/evidence/gan-xml-assistant/detail.webp" width="1260" height="300" alt="Structured configuration differences in GaN XML Assistant" decoding="async"></button><figcaption>Structured configuration differences <span>View complete interface ↗</span></figcaption></figure><figure class="software-frame" data-software="magus-spc-gan"><button data-proof="magus-spc-gan" aria-label="Inspect Magus SPC (GaN)"><img data-src="assets/evidence/magus-spc-gan/detail.webp" width="1260" height="540" alt="GaN parameter control charts in Magus SPC (GaN)" decoding="async"></button><figcaption>GaN parameter control charts <span>View complete interface ↗</span></figcaption></figure><figure class="software-frame" data-software="magus-spc-legacy"><button data-proof="magus-spc-legacy" aria-label="Inspect Magus SPC (Legacy)"><img data-src="assets/evidence/magus-spc-legacy/detail.webp" width="1300" height="465" alt="Legacy parameter review and statuses in Magus SPC (Legacy)" decoding="async"></button><figcaption>Legacy parameter review and statuses <span>View complete interface ↗</span></figcaption></figure><figure class="software-frame" data-software="anko-helper"><button data-proof="anko-helper" aria-label="Inspect ANKO Helper"><img data-src="assets/evidence/anko-helper/detail.webp" width="1280" height="430" alt="Maintenance statuses and due dates in ANKO Helper" decoding="async"></button><figcaption>Maintenance statuses and due dates <span>View complete interface ↗</span></figcaption></figure><figure class="software-frame" data-software="lt-report-compiler"><button data-proof="lt-report-compiler" aria-label="Inspect LT Report Compiler"><img data-src="assets/evidence/lt-report-compiler/detail.webp" width="1310" height="205" alt="Report compilation activity in LT Report Compiler" decoding="async"></button><figcaption>Report compilation activity <span>View complete interface ↗</span></figcaption></figure><figure class="software-frame" data-software="metria-spc"><button data-proof="metria-spc" aria-label="Inspect Metria SPC"><img data-src="assets/evidence/metria-spc/detail.webp" width="1260" height="440" alt="Interactive parameter chart and range overview in Metria SPC" decoding="async"></button><figcaption>Interactive parameter chart and range overview <span>View complete interface ↗</span></figcaption></figure></div>
+            <label class="reel-jump"
+              >Choose an application<select id="capture-select">
+                <option value="altus-lotviewer">Altus LotViewer</option><option value="altus-anko-viewer">Altus ANKO Viewer</option><option value="altus-wafercount">Altus WaferCount</option><option value="topotracer">TopoTracer</option><option value="papyrus-reader">Papyrus Reader</option><option value="spc-pathfinder">SPC Pathfinder</option><option value="gan-met-compiler">GaN Met Compiler</option><option value="gan-temp-diagnoser">GaN Temp Diagnoser</option><option value="aix-dt-assistant">AIX ΔT Assistant</option><option value="lt-zone-assistant">LT Zone Assistant</option><option value="gan-xml-assistant">GaN XML Assistant</option><option value="magus-spc-gan">Magus SPC (GaN)</option><option value="magus-spc-legacy">Magus SPC (Legacy)</option><option value="anko-helper">ANKO Helper</option><option value="lt-report-compiler">LT Report Compiler</option><option value="metria-spc">Metria SPC</option>
+              </select></label
+            >
+          </section>
+          <div class="journey-footer">
+            <span id="chapter-caption"
+              >From a recurring problem to a body of work.</span
+            >
+            <nav aria-label="Story progression"><a href="#enter" data-chapter="0" aria-label="An engineering environment"><span></span></a><a href="#realisation" data-chapter="2" aria-label="The recurring problem"><span></span></a><a href="#many" data-chapter="4" aria-label="Then another"><span></span></a><a href="#recipes" data-chapter="5" aria-label="Papyrus Reader / comparison"><span></span></a><a href="#measurements" data-chapter="7" aria-label="TopoTracer / measurements"><span></span></a><a href="#temperature" data-chapter="9" aria-label="GaN Temp Diagnoser / observations"><span></span></a><a href="#context" data-chapter="11" aria-label="Metria SPC / shared context"><span></span></a><a href="#environment" data-chapter="12" aria-label="The whole body of work"><span></span></a><a href="#software" data-chapter="13" aria-label="Inside ARTIFACTS"><span></span></a></nav>
+            <span id="chapter-count">01 / 14</span>
+          </div>
+          <span class="study-note"
+            >An interpretation of the work · not live application data</span
+          >
+        </div>
+      </div>
+      <section class="ending" id="about">
+        <div class="ending-rule"></div>
+        <p class="eyebrow">ARTIFACTS</p>
+        <h2>Built from the work.<br />For the work.</h2>
+        <p>
+          I enjoy building things.<br />ARTIFACTS is where they come together.
+        </p>
+        <span class="attribution">by Gene</span
+        ><a href="#enter">Return to the beginning ↗</a>
       </section>
       <noscript
         ><section class="text-catalogue">
-          <h2>Explore all applications</h2>
-          <p>Each link opens a real software capture.</p>
+          <h2>Sixteen applications. One engineering environment.</h2>
           <h3>Expedition I - Altus</h3><ul><li><a href="assets/evidence/altus-lotviewer/full.webp">Altus LotViewer</a> — Bring process events into one readable history. Align timestamps. Review wafer states. Follow the lot through the work.</li><li><a href="assets/evidence/altus-anko-viewer/full.webp">Altus ANKO Viewer</a> — Bring ANKO schedules into view across the Altus workflow. The next task starts with knowing what is due.</li><li><a href="assets/evidence/altus-wafercount/full.webp">Altus WaferCount</a> — Turn wafer counts from equipment logs into a clearer basis for maintenance planning.</li></ul><h3>Expedition II - Interstice</h3><ul><li><a href="assets/evidence/topotracer/full.webp">TopoTracer</a> — Turn wafer measurements into contours. Spatial patterns become visible in a way a column of numbers cannot offer.</li><li><a href="assets/evidence/papyrus-reader/full.webp">Papyrus Reader</a> — Match equivalent recipe steps, even when their order changes. Keep attention on the parameters that differ.</li><li><a href="assets/evidence/spc-pathfinder/full.webp">SPC Pathfinder</a> — Reach the SPC charts you need together, without repeating the same navigation for every parameter.</li></ul><h3>Expedition III - GaN EPI</h3><ul><li><a href="assets/evidence/gan-met-compiler/full.webp">GaN Met Compiler</a> — Bring metrology data together. Apply predefined calculations. Produce a consistent report from scattered inputs.</li><li><a href="assets/evidence/gan-temp-diagnoser/full.webp">GaN Temp Diagnoser</a> — Use temperature behavior to guide diagnosis and identify the next checks. Give troubleshooting a starting point.</li><li><a href="assets/evidence/aix-dt-assistant/full.webp">AIX ΔT Assistant</a> — Use weight and temperature inputs to guide baseplate arrangements. Put the basis for a decision in view.</li><li><a href="assets/evidence/lt-zone-assistant/full.webp">LT Zone Assistant</a> — Map LayTec zones in one spatial view. Understand where each region sits in relation to the whole.</li><li><a href="assets/evidence/gan-xml-assistant/full.webp">GaN XML Assistant</a> — Compare configurations, settings and constants. Bring differences forward, without losing their context.</li></ul><h3>Expedition IV - Planetfall</h3><ul><li><a href="assets/evidence/magus-spc-gan/full.webp">Magus SPC (GaN)</a> — Review configured GaN SPC charts and parameter states together. Move from a signal to the context around it.</li><li><a href="assets/evidence/magus-spc-legacy/full.webp">Magus SPC (Legacy)</a> — Bring legacy SPC charts and parameter states into one review environment. Keep established workflows within reach.</li><li><a href="assets/evidence/anko-helper/full.webp">ANKO Helper</a> — Put ANKO status and due dates together. See what needs attention before planning what comes next.</li><li><a href="assets/evidence/lt-report-compiler/full.webp">LT Report Compiler</a> — Assemble LayTec information into an engineering report. Give repeated reporting work a consistent structure.</li><li><a href="assets/evidence/metria-spc/full.webp">Metria SPC</a> — Explore equipment parameters through interactive SPC analysis. Bring related signals into the same field of view.</li></ul>
         </section></noscript
       >
     </main>
-    <dialog id="inspector" aria-labelledby="capture-title">
-      <header>
+    <footer class="footer">
+      <img
+        src="assets/brand/artifacts-symbol.svg"
+        width="28"
+        height="28"
+        alt="ARTIFACTS symbol"
+      /><span>Engineering, considered through software.</span
+      ><a href="https://github.com/weigenekhor/artifacts-by-gene">Source ↗</a>
+    </footer>
+    <dialog id="capture-dialog" aria-labelledby="capture-title">
+      <div class="capture-toolbar">
         <div>
-          <p class="eyebrow">Actual ARTIFACTS software</p>
+          <p class="eyebrow">Original software capture</p>
           <h2 id="capture-title"></h2>
         </div>
-        <button id="close-inspector" aria-label="Close capture">×</button>
-      </header>
-      <div class="capture-tools">
-        <button id="pixel-view" aria-pressed="false">Actual size ↗</button
-        ><a id="capture-download" target="_blank" rel="noopener"
-          >Open image ↗</a
-        >
+        <button id="close-capture" aria-label="Close software capture">
+          ×
+        </button>
       </div>
       <div class="capture-viewport"><img id="capture-image" alt="" /></div>
-      <p class="capture-note">The complete application. Original resolution.</p>
+      <div class="capture-tools">
+        <button id="pixel-view" aria-pressed="false">Actual size ↗</button
+        ><span id="capture-size"></span
+        ><a id="capture-original">Open original ↗</a>
+      </div>
     </dialog>
   </body>
 </html>

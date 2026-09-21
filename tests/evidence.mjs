@@ -43,10 +43,10 @@ assert.equal((html.match(/class="app-node"/g) || []).length, 16);
 for (const app of apps) {
   assert.ok(html.includes('data-app="' + app.id + '"'));
   assert.ok(html.includes('data-software="' + app.id + '"'));
-  assert.ok(html.includes('data-src="' + app.evidence.full + '"'));
+  assert.ok(html.includes('data-src="' + app.evidence.src + '"'));
   assert.ok(html.includes('href="' + app.evidence.full + '"'));
 }
 assert.ok(!html.includes("®"));
 console.log(
-  `All 16 full captures and archived crops preserve source pixels; the page uses complete captures. Archived detail payload: ${(bytes / 1024).toFixed(0)} KiB.`,
+  `All 16 full captures and focused details preserve source pixels. Detail payload: ${(bytes / 1024).toFixed(0)} KiB.`,
 );

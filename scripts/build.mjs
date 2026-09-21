@@ -1,51 +1,66 @@
 import fs from "node:fs/promises";
 import { build } from "esbuild";
 const { apps } = JSON.parse(await fs.readFile("content/apps.json", "utf8"));
+const story = JSON.parse(await fs.readFile("content/story.json", "utf8"));
 const esc = (s) =>
   String(s)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll('"', "&quot;");
+const lines = (s) =>
+  esc(s)
+    .split("\n")
+    .map((t) => `<span class="type-line"><span>${t}</span></span>`)
+    .join("");
 const groups = [...new Set(apps.map((a) => a.category))];
-const nodes = groups
-  .map(
-    (group, g) =>
-      `<div class="expedition" data-group="${g}"><h3>${esc(group.replace(" - ", " / "))}</h3><div class="expedition-track">${apps
-        .filter((a) => a.category === group)
-        .map(
-          (a) =>
-            `<a href="${a.evidence.full}" class="app-node" data-app="${a.id}"><span class="node-number">${String(a.index).padStart(2, "0")}</span><span class="node-name">${esc(a.name)}</span></a>`,
-        )
-        .join("")}</div></div>`,
-  )
-  .join("");
 let html = await fs.readFile("content/page.html", "utf8");
 html = html
-  .replace("<!-- NODES -->", nodes)
+  .replace(
+    "<!-- SCENES -->",
+    story
+      .map(
+        (s, i) =>
+          `<article class="scene scene-${s.layout}" data-scene="${i}" id="${s.id}"><p class="eyebrow">${esc(s.eyebrow)}</p><${i ? "h2" : "h1"}>${lines(s.title)}</${i ? "h2" : "h1"}><p class="scene-text">${lines(s.text)}</p></article>`,
+      )
+      .join(""),
+  )
+  .replace(
+    "<!-- GROUPS -->",
+    groups
+      .map(
+        (g, i) =>
+          `<button data-group="${i}" aria-pressed="${i === 0}"><span>0${i + 1}</span> ${esc(g.split(" - ")[1])}</button>`,
+      )
+      .join(""),
+  )
+  .replace(
+    "<!-- NODES -->",
+    apps
+      .map(
+        (a) =>
+          `<button class="app-node" data-app="${a.id}" data-group="${groups.indexOf(a.category)}" aria-label="${esc(a.name)}: ${esc(a.description)}"><span class="node-number">${String(a.index).padStart(2, "0")}</span><span class="node-title">${esc(a.name)}</span><span class="node-purpose">${esc(a.description)}</span></button>`,
+      )
+      .join(""),
+  )
   .replace(
     "<!-- SOFTWARE -->",
     apps
       .map(
         (a) =>
-          `<figure class="software-frame" data-software="${a.id}" hidden><button class="software-image" data-proof="${a.id}" aria-label="Enlarge ${esc(a.name)} interface"><img data-src="${a.evidence.full}" width="${a.evidence.fullWidth}" height="${a.evidence.fullHeight}" alt="Complete ${esc(a.name)} interface" decoding="async" /></button><figcaption><span>${esc(a.name)} <span class="capture-tag">Actual software</span></span><button class="enlarge" data-proof="${a.id}" aria-label="Enlarge ${esc(a.name)}">View larger <span aria-hidden="true">↗</span></button></figcaption></figure>`,
-      )
-      .join(""),
-  )
-  .replace(
-    "<!-- RAIL -->",
-    apps
-      .map(
-        (a) =>
-          `<a href="#app/${a.id}" data-jump="${a.id}" aria-label="${esc(a.name)}" title="${esc(a.name)}"${[4, 7, 12].includes(a.index) ? ' class="group-start"' : ""}><span>${String(a.index).padStart(2, "0")}</span></a>`,
+          `<figure class="software-frame" data-software="${a.id}"><button data-proof="${a.id}" aria-label="Inspect ${esc(a.name)}"><img data-src="${a.evidence.src}" width="${a.evidence.width}" height="${a.evidence.height}" alt="${esc(a.evidence.label)} in ${esc(a.name)}" decoding="async"></button><figcaption>${esc(a.evidence.label)} <span>View complete interface ↗</span></figcaption></figure>`,
       )
       .join(""),
   )
   .replace(
     "<!-- OPTIONS -->",
-    apps
+    apps.map((a) => `<option value="${a.id}">${esc(a.name)}</option>`).join(""),
+  )
+  .replace(
+    "<!-- CHAPTERS -->",
+    [0, 2, 4, 5, 7, 9, 11, 12, 13]
       .map(
-        (a) =>
-          `<option value="${a.id}">${String(a.index).padStart(2, "0")} / ${esc(a.name)}</option>`,
+        (i) =>
+          `<a href="#${story[i].id}" data-chapter="${i}" aria-label="${esc(story[i].eyebrow)}"><span></span></a>`,
       )
       .join(""),
   )
@@ -67,35 +82,37 @@ html = html
 await fs.writeFile("index.html", html);
 await fs.writeFile(
   "js/apps.js",
-  `// Generated from content/apps.json. Edit the source catalogue.\nexport const apps = ${JSON.stringify(
+  `// Generated from the verified catalogue.\nexport const apps = ${JSON.stringify(
     apps.map(
       ({
         id,
         index,
         name,
         category,
+        description,
         purpose,
         headline,
         evidence,
         transformation,
         visualConcept,
-        accent,
+        relationships,
       }) => ({
         id,
         index,
         name,
         category,
+        description,
         purpose,
         headline,
         evidence,
         transformation,
         visualConcept,
-        accent,
+        relationships,
       }),
     ),
     null,
     2,
-  )};\n`,
+  )};\nexport const story = ${JSON.stringify(story, null, 2)};\n`,
 );
 await build({
   entryPoints: ["js/experience.js"],
@@ -106,12 +123,8 @@ await build({
   outfile: "script.js",
   legalComments: "eof",
 });
-// Upstream shader templates include trailing line whitespace; remove it from
-// the committed generated module without changing GLSL tokens or line breaks.
 await fs.writeFile(
   "script.js",
   (await fs.readFile("script.js", "utf8")).replace(/[\t ]+$/gm, ""),
 );
-console.log(
-  "Built static HTML and one local ES module. No runtime CDN or server required.",
-);
+console.log("Built the continuous static ARTIFACTS experience.");

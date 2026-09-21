@@ -1,0 +1,125 @@
+[
+  {
+    "id": "enter",
+    "eyebrow": "An engineering environment",
+    "title": "ARTIFACTS",
+    "text": "Some engineering problems\nshould only be solved once.",
+    "caption": "From a recurring problem to a body of work.",
+    "layout": "opening"
+  },
+  {
+    "id": "repetition",
+    "eyebrow": "Before the tools",
+    "title": "Again.\nAnd again.",
+    "text": "A log to read. A recipe to check.\nAnother chart. Another manual step.",
+    "caption": "Logs · recipes · measurements · signals · schedules",
+    "layout": "left"
+  },
+  {
+    "id": "realisation",
+    "eyebrow": "The recurring problem",
+    "title": "The problem wasn’t\nthe engineering.",
+    "text": "It was doing the same work again.",
+    "caption": "Repetition becomes something you can design out.",
+    "layout": "statement"
+  },
+  {
+    "id": "one-tool",
+    "eyebrow": "A different starting point",
+    "title": "One problem.\nOne tool.",
+    "text": "Keep the method.\nLet software carry the repetition.",
+    "caption": "A useful answer, made reusable.",
+    "layout": "left"
+  },
+  {
+    "id": "many",
+    "eyebrow": "Then another",
+    "title": "One tool became many.\nMany became a system.",
+    "text": "ARTIFACTS.",
+    "caption": "Sixteen applications. Four Expeditions.",
+    "layout": "wide"
+  },
+  {
+    "id": "recipes",
+    "eyebrow": "Papyrus Reader / comparison",
+    "title": "The order changed.\nDid the meaning?",
+    "text": "Two recipes. Equivalent steps.\nDifferent places to look.",
+    "caption": "Follow the steps, not their line numbers.",
+    "layout": "left",
+    "app": "papyrus-reader"
+  },
+  {
+    "id": "comparison",
+    "eyebrow": "Papyrus Reader / alignment",
+    "title": "Let the differences\nspeak.",
+    "text": "Equivalent steps find each other.\nChanged, added and missing values stay visible.",
+    "caption": "Logical comparison, independent of line order.",
+    "layout": "left",
+    "app": "papyrus-reader",
+    "proof": true
+  },
+  {
+    "id": "measurements",
+    "eyebrow": "TopoTracer / measurements",
+    "title": "A set of points.\nA larger picture.",
+    "text": "Every measurement has a place.\nThe pattern lives between them.",
+    "caption": "The comparison guide becomes a measurement axis.",
+    "layout": "left",
+    "app": "topotracer"
+  },
+  {
+    "id": "surface",
+    "eyebrow": "TopoTracer / interpolation",
+    "title": "See the shape\nof variation.",
+    "text": "Wafer measurements become a contour map.\nSpatial variation comes into view.",
+    "caption": "Samples → interpolation → wafer-scale context",
+    "layout": "left",
+    "app": "topotracer",
+    "proof": true
+  },
+  {
+    "id": "temperature",
+    "eyebrow": "GaN Temp Diagnoser / observations",
+    "title": "A drift is a signal.\nWhere does it lead?",
+    "text": "Temperature behavior provides clues.\nThe next step is knowing what to check.",
+    "caption": "A spatial field becomes a diagnostic question.",
+    "layout": "left",
+    "app": "gan-temp-diagnoser"
+  },
+  {
+    "id": "diagnosis",
+    "eyebrow": "GaN Temp Diagnoser / direction",
+    "title": "Fewer possibilities.\nA clearer next step.",
+    "text": "Observations guide likely causes\nand recommended checks.",
+    "caption": "Observed behavior → guided diagnosis",
+    "layout": "left",
+    "app": "gan-temp-diagnoser",
+    "proof": true
+  },
+  {
+    "id": "context",
+    "eyebrow": "Metria SPC / shared context",
+    "title": "Bring the signals\ninto the same view.",
+    "text": "Related parameters. Interactive charts.\nOne place to follow the equipment.",
+    "caption": "Individual signals become a shared context.",
+    "layout": "left",
+    "app": "metria-spc",
+    "proof": true
+  },
+  {
+    "id": "environment",
+    "eyebrow": "The whole body of work",
+    "title": "16 applications.\nOne engineering environment.",
+    "text": "Each solves something specific.\nTogether, they are ARTIFACTS.",
+    "caption": "Choose an instrument to see its work and related tools.",
+    "layout": "map"
+  },
+  {
+    "id": "software",
+    "eyebrow": "Inside ARTIFACTS",
+    "title": "Real software.\nBuilt for real engineering work.",
+    "text": "The interfaces behind the ideas.",
+    "caption": "Original software captures. Actual interface detail.",
+    "layout": "reel"
+  }
+]

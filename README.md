@@ -1,87 +1,74 @@
 # ARTIFACTS
 
-A personal engineering environment at https://artifactsbygene.com.
-The current redesign is on `experience/continuous-instruments`. Production is unchanged until review and merge. [Review PR #3](https://github.com/weigenekhor/artifacts-by-gene/pull/3).
+A personal body of engineering software at https://artifactsbygene.com. The redesign is on `experience/continuous-instruments`, reviewed in [PR #3](https://github.com/weigenekhor/artifacts-by-gene/pull/3). Production changes only after merge.
 
-## Run the committed website
+## Run
 
 ```sh
 python -m http.server 8001 --bind 127.0.0.1
 ```
 
-Open http://127.0.0.1:8001 while the server is running. A refused connection means that local process has stopped; it does not describe the public website.
+Open http://127.0.0.1:8001 while that process is running. The deployed website is ordinary static files. GitHub Pages uses `main / root`; preserve `CNAME`. No runtime CDN, API keys or remote fonts are used. Asset URLs are relative and tested under `/artifacts-by-gene/`.
 
-GitHub Pages serves the committed HTML, CSS, JavaScript and assets directly. No server, API key, runtime CDN or remote font is required. Preserve `CNAME` and configure Pages to deploy `main / root`. All application asset URLs are relative and are tested under the repository subpath.
+## The continuous story
 
-## The experience
+Some engineering problems should only be solved once. Repeated work becomes a reusable method; one tool becomes many, then ARTIFACTS. Four applications carry the detailed demonstrations: Papyrus Reader, TopoTracer, GaN Temp Diagnoser and Metria SPC. Each has explanatory motion grounded by a small original software fragment. The final camera withdrawal reveals all sixteen applications in their original four Expeditions. A separate software reel gives access to every capture.
 
-A measured surface opens into repeated work. Separate inputs acquire a reusable method, then become an ordered body of tools. No single application stands in for the whole ecosystem. The logo remains a brand asset in the navigation and footer. It is not motion geometry.
+This is a replacement for the previous sixteen identical scroll intervals. See `content/STORYBOARD.md` for the transition chain, source interpretation and reference review.
 
-Four concise story beats establish why the tools exist. Scrolling then advances through **all sixteen applications in order**, one viewport-sized reading interval per app. Large purpose-specific workflow studies lead each composition. Scroll develops the starting inputs into a result; an optional control lets visitors explore the transformation. Complete, uncropped screenshots remain small supporting details, with a larger viewer available on request. The camera settles and screenshots return to an untransformed plane for inspection.
+One persistent Three.js environment contains reusable instanced instrument geometry, a spatial measurement surface, height-based contours, camera states and relationship paths. Native scroll supplies one clock. Typography, evidence and interaction follow that clock. There is no scroll interception or forced playback. Geometry is illustrative; it is not a simulation, live app output or a measured dataset.
 
-A segmented progress rail, previous/next controls, direct links such as `#app/topotracer`, and a mobile jump selector offer shortcuts. None is required to see the next app. A clean index follows, grouped into the four original Expeditions. There are no disconnected network strands.
-
-The studies are **illustrative geometry**, not live data, process simulations or measured app output. Original screenshots are the factual visual evidence. An opaque, reserved header band prevents outgoing content from crossing the brand.
-
-## Source and build
+## Content and implementation
 
 ```sh
 pnpm install --frozen-lockfile
 pnpm build
 ```
 
-- `content/apps.json`: verified app catalogue, editorial headline, purpose, original group, visual concept and capture provenance.
-- `content/page.html`: semantic page template and narrative.
-- `scripts/build.mjs`: generates `index.html`, `js/apps.js` and the bundled `script.js`.
-- `js/forms.js`: common topology and each workflow's geometric transformation.
-- `js/world.js`: Three.js measured surface, workflow geometry, materials, camera and SVG fallback.
-- `js/experience.js`: native-scroll clock, focus/navigation, motion preference, inspector and lifecycle.
-- `styles.css`: layout, typography, desktop, portrait and short-landscape compositions.
-- `scripts/prepare-evidence.mjs`: deterministic, lossless capture pipeline.
+- `content/story.json`: narrative, four featured demonstrations and their source app IDs.
+- `content/apps.json`: all sixteen verified names, purposes, original Expeditions, related workflows and capture provenance.
+- `content/page.html`: semantic template, navigation and image viewer.
+- `js/motion.js`: timing tokens and shared interpolation.
+- `js/forms.js`: persistent instance roles across the narrative and map.
+- `js/contours.js`: deterministic equal-height contour extraction for the illustrative surface.
+- `js/world.js`: camera choreography, instancing, lighting, material surface, map projection and SVG fallback.
+- `js/experience.js`: native-scroll progression, typography, keyboard/touch navigation, lifecycle, app focus and image reel.
+- `styles.css`: desktop, portrait and short-landscape compositions.
+- `scripts/build.mjs`: generates `index.html`, `js/apps.js` and bundled `script.js`.
 
-Three.js 0.180.0 is bundled locally with esbuild. It adds the materials, perspective and continuous geometry needed for this direction. GSAP and Lenis are not needed: the browser retains native scrolling. Only build/QA dependencies are installed; the deployed site runs from static files. Third-party licenses are in `assets/licenses/` and the font directory.
+Three.js and its used addons are bundled locally with esbuild. All other dependencies are build/QA tools. Third-party licenses are retained in `assets/licenses/` and `assets/fonts/`.
 
-## Real software images
+## Actual software images
 
-All 17 supplied PNGs in `C:/Users/Gene/Desktop/Artifacts Images` were visually inspected: the homepage and sixteen applications. The updated Papyrus Reader capture is **1531 × 1002**; the other application captures are **1425 × 950**. They are not native 4K captures.
+The supplied folder is `C:/Users/Gene/Desktop/Artifacts Images`. Its homepage and sixteen application images were inspected along with the older 23-slide reference material. The slides contain fifteen apps; the current catalogue contains sixteen.
 
-The experience uses only `assets/evidence/<app-id>/full.webp`: decoded pixels match the supplied PNGs exactly. Full captures load for the active app and its immediate neighbors. They retain their original aspect ratio, with intrinsic dimensions, no cropping and no enlargement beyond source width. The larger viewer fits the whole image initially; an optional actual-size view permits scrolling around the original resolution.
+Current lossless files are under `assets/evidence/<app-id>/`. `detail.webp` is a deliberate crop from the source PNG; `full.webp` preserves the entire interface. Papyrus Reader uses the updated **1531 × 1002** capture; the other fifteen application captures are **1425 × 950**. These are native originals, not claimed 4K captures. No AI images or fabricated application screens are used.
 
-Archived crops remain available in the repository but are not used by the current page. `assets/evidence/audit.json` records provenance and decoded-pixel hashes. Screens above the fold do not preload all sixteen images.
-
-To replace images:
+The narrative loads only the active detail. The reel loads its current and neighboring details. The modal loads a full image on request, fits it initially and offers actual-size inspection. The image pipeline records source hashes and crop rectangles in `assets/evidence/audit.json`. Source pixels remain unchanged by lossless encoding. Older assets under `assets/artifacts/apps/` are retained as an independent archive.
 
 ```sh
 node scripts/prepare-evidence.mjs /path/to/Artifacts-Images
-# Or replace just one app, preserving the remaining captures:
+# Replace one app while preserving editorial content and other images:
 node scripts/prepare-evidence.mjs /path/to/Artifacts-Images papyrus-reader
 pnpm build
 pnpm test:evidence
 ```
 
-Keep the source filenames or update the explicit mapping in the preparation script. Editorial headlines are preserved during image updates. Review archived crop rectangles if the source layout or dimensions change; the website uses full images only. Larger close-ups require larger **native** recaptures. Earlier screenshots remain archived under `assets/artifacts/apps/`; they are not used by this experience.
+If a source layout changes, review its crop rectangle in `scripts/prepare-evidence.mjs`. Larger inspection views require a larger native source; no upscaling pipeline manufactures detail.
 
-## Motion, accessibility and performance
+## Access and performance
 
-- Native semantic links and controls, visible focus, native modal focus handling and Escape dismissal.
-- OS reduced motion and a persistent session motion control present composed static states without camera travel.
-- Portrait keeps the same narrative with a separate framing and touch controls; landscape moves inspection controls away from the story footer.
-- No WebGL: the workflow geometry renders as SVG. No JavaScript: the story and complete catalogue remain readable and linked to actual captures.
-- One scheduled animation loop sleeps when settled, hidden or offscreen.
-- Geometry is reused. Normal studies need one draw call; recipe/configuration connectors add one. The opening uses the same reusable geometry as the story.
-- Device pixel ratio is capped at 2 on desktop, 1.6 on narrow screens, with a further 3.4-million-pixel drawing-buffer budget.
-- No textures are needed for the workflow studies. Screenshots remain DOM images so they can be inspected without 3D sampling blur.
+Navigation and app controls are keyboard accessible. The real-software reel supports touch swipes and a native select. Portrait uses one Expedition at a time, with all four directly selectable; desktop shows all sixteen instruments together. Motion can be paused and OS reduced motion uses settled compositions. The header reserves its own opaque band.
 
-## Validation
+The renderer uses one scheduled loop and sleeps when settled, outside the viewport or in a hidden tab. Instances share geometry/materials. DPR is capped at 2 on desktop, 1.5 on portrait, with a further 3.2-million-pixel drawing-buffer budget. No screenshot textures are uploaded to WebGL. The contour graph is computed once; its height follows the surface growth. Context loss switches to the SVG fallback. Without JavaScript the narrative and complete linked catalogue remain available.
+
+## Verify
 
 ```sh
+pnpm build
 pnpm test:evidence
 pnpm test:assets
-# Install Playwright Chromium, or select an installed browser:
-BROWSER_CHANNEL=msedge pnpm test
+pnpm test
 ```
 
-In PowerShell use `$env:BROWSER_CHANNEL='msedge'; pnpm test`.
-The browser suite serves the site locally under a GitHub Pages-style subpath, checks forward/reverse scroll, every app/control/full capture, header clearance and image composition, captures eleven viewport configurations, scans accessibility, exercises reduced motion, no WebGL and no JavaScript, and measures a local scroll sample and idle renderer behavior.
-
-See `VALIDATION.md` for actual results and limitations. Generated QA captures, reports and videos live in ignored `.qa/`.
+The browser suite defaults to installed Microsoft Edge. Set `BROWSER_CHANNEL` to another installed Chromium channel if needed. It checks story progression, all sixteen apps and images, the reel/viewer, keyboard links, responsive layouts, reduced motion, SVG/no-JavaScript fallback, accessibility and local frame timing. QA images and reports are ignored under `.qa/`. See `VALIDATION.md` for actual results and limits.

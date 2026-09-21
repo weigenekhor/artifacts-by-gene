@@ -1,10 +1,11 @@
-// Generated from content/apps.json. Edit the source catalogue.
+// Generated from the verified catalogue.
 export const apps = [
   {
     "id": "altus-lotviewer",
     "index": 1,
     "name": "Altus LotViewer",
     "category": "Expedition I - Altus",
+    "description": "Lot history analysis.",
     "purpose": "Bring process events into one readable history. Align timestamps. Review wafer states. Follow the lot through the work.",
     "headline": "Every event.\nIn context.",
     "evidence": {
@@ -18,13 +19,18 @@ export const apps = [
     },
     "transformation": "Events → history",
     "visualConcept": "history",
-    "accent": "#d89b75"
+    "relationships": [
+      "topotracer",
+      "spc-pathfinder",
+      "gan-met-compiler"
+    ]
   },
   {
     "id": "altus-anko-viewer",
     "index": 2,
     "name": "Altus ANKO Viewer",
     "category": "Expedition I - Altus",
+    "description": "ANKO schedule retrieval.",
     "purpose": "Bring ANKO schedules into view across the Altus workflow. The next task starts with knowing what is due.",
     "headline": "Know what’s next.",
     "evidence": {
@@ -38,13 +44,21 @@ export const apps = [
     },
     "transformation": "Schedules → one view",
     "visualConcept": "schedule",
-    "accent": "#d89b75"
+    "relationships": [
+      "altus-wafercount",
+      "magus-spc-gan",
+      "magus-spc-legacy",
+      "anko-helper",
+      "lt-report-compiler",
+      "metria-spc"
+    ]
   },
   {
     "id": "altus-wafercount",
     "index": 3,
     "name": "Altus WaferCount",
     "category": "Expedition I - Altus",
+    "description": "Chamber usage and wafer counts.",
     "purpose": "Turn wafer counts from equipment logs into a clearer basis for maintenance planning.",
     "headline": "Make usage\nvisible.",
     "evidence": {
@@ -58,13 +72,21 @@ export const apps = [
     },
     "transformation": "Logs → chamber usage",
     "visualConcept": "usage",
-    "accent": "#d89b75"
+    "relationships": [
+      "altus-anko-viewer",
+      "magus-spc-gan",
+      "magus-spc-legacy",
+      "anko-helper",
+      "lt-report-compiler",
+      "metria-spc"
+    ]
   },
   {
     "id": "topotracer",
     "index": 4,
     "name": "TopoTracer",
     "category": "Expedition II - Interstice",
+    "description": "Contour and topography plots.",
     "purpose": "Turn wafer measurements into contours. Spatial patterns become visible in a way a column of numbers cannot offer.",
     "headline": "See the shape\nof variation.",
     "evidence": {
@@ -78,13 +100,18 @@ export const apps = [
     },
     "transformation": "Measurements → contours",
     "visualConcept": "topology",
-    "accent": "#d89b75"
+    "relationships": [
+      "altus-lotviewer",
+      "spc-pathfinder",
+      "gan-met-compiler"
+    ]
   },
   {
     "id": "papyrus-reader",
     "index": 5,
     "name": "Papyrus Reader",
     "category": "Expedition II - Interstice",
+    "description": "Logical recipe and text comparison.",
     "purpose": "Match equivalent recipe steps, even when their order changes. Keep attention on the parameters that differ.",
     "headline": "Compare meaning.\nNot line numbers.",
     "evidence": {
@@ -98,13 +125,16 @@ export const apps = [
     },
     "transformation": "Recipes → logical differences",
     "visualConcept": "comparison",
-    "accent": "#d89b75"
+    "relationships": [
+      "gan-xml-assistant"
+    ]
   },
   {
     "id": "spc-pathfinder",
     "index": 6,
     "name": "SPC Pathfinder",
     "category": "Expedition II - Interstice",
+    "description": "SPC chart finder.",
     "purpose": "Reach the SPC charts you need together, without repeating the same navigation for every parameter.",
     "headline": "Less searching.\nMore seeing.",
     "evidence": {
@@ -118,13 +148,18 @@ export const apps = [
     },
     "transformation": "Parameters → charts",
     "visualConcept": "pathfinder",
-    "accent": "#d89b75"
+    "relationships": [
+      "altus-lotviewer",
+      "topotracer",
+      "gan-met-compiler"
+    ]
   },
   {
     "id": "gan-met-compiler",
     "index": 7,
     "name": "GaN Met Compiler",
     "category": "Expedition III - GaN EPI",
+    "description": "Metrology report compiler.",
     "purpose": "Bring metrology data together. Apply predefined calculations. Produce a consistent report from scattered inputs.",
     "headline": "From measurements\nto a report.",
     "evidence": {
@@ -138,13 +173,18 @@ export const apps = [
     },
     "transformation": "Measurements → report",
     "visualConcept": "compilation",
-    "accent": "#d89b75"
+    "relationships": [
+      "altus-lotviewer",
+      "topotracer",
+      "spc-pathfinder"
+    ]
   },
   {
     "id": "gan-temp-diagnoser",
     "index": 8,
     "name": "GaN Temp Diagnoser",
     "category": "Expedition III - GaN EPI",
+    "description": "Temperature drift diagnosis.",
     "purpose": "Use temperature behavior to guide diagnosis and identify the next checks. Give troubleshooting a starting point.",
     "headline": "Follow the drift.\nFind a direction.",
     "evidence": {
@@ -158,13 +198,17 @@ export const apps = [
     },
     "transformation": "Observations → likely causes",
     "visualConcept": "diagnosis",
-    "accent": "#d89b75"
+    "relationships": [
+      "aix-dt-assistant",
+      "lt-zone-assistant"
+    ]
   },
   {
     "id": "aix-dt-assistant",
     "index": 9,
     "name": "AIX ΔT Assistant",
     "category": "Expedition III - GaN EPI",
+    "description": "Baseplate arrangement guidance.",
     "purpose": "Use weight and temperature inputs to guide baseplate arrangements. Put the basis for a decision in view.",
     "headline": "An arrangement\nwith reason.",
     "evidence": {
@@ -178,13 +222,17 @@ export const apps = [
     },
     "transformation": "Offsets → arrangement",
     "visualConcept": "difference",
-    "accent": "#d89b75"
+    "relationships": [
+      "gan-temp-diagnoser",
+      "lt-zone-assistant"
+    ]
   },
   {
     "id": "lt-zone-assistant",
     "index": 10,
     "name": "LT Zone Assistant",
     "category": "Expedition III - GaN EPI",
+    "description": "LayTec zone mapping.",
     "purpose": "Map LayTec zones in one spatial view. Understand where each region sits in relation to the whole.",
     "headline": "Every zone.\nA shared view.",
     "evidence": {
@@ -198,13 +246,17 @@ export const apps = [
     },
     "transformation": "Zones → spatial context",
     "visualConcept": "zones",
-    "accent": "#d89b75"
+    "relationships": [
+      "gan-temp-diagnoser",
+      "aix-dt-assistant"
+    ]
   },
   {
     "id": "gan-xml-assistant",
     "index": 11,
     "name": "GaN XML Assistant",
     "category": "Expedition III - GaN EPI",
+    "description": "Devices.XML comparison.",
     "purpose": "Compare configurations, settings and constants. Bring differences forward, without losing their context.",
     "headline": "Make changes\nunmistakable.",
     "evidence": {
@@ -218,13 +270,16 @@ export const apps = [
     },
     "transformation": "Configuration → differences",
     "visualConcept": "configuration",
-    "accent": "#d89b75"
+    "relationships": [
+      "papyrus-reader"
+    ]
   },
   {
     "id": "magus-spc-gan",
     "index": 12,
     "name": "Magus SPC (GaN)",
     "category": "Expedition IV - Planetfall",
+    "description": "GaN SPC release review.",
     "purpose": "Review configured GaN SPC charts and parameter states together. Move from a signal to the context around it.",
     "headline": "Keep the process\nin perspective.",
     "evidence": {
@@ -238,13 +293,21 @@ export const apps = [
     },
     "transformation": "Charts → review",
     "visualConcept": "observatory",
-    "accent": "#d89b75"
+    "relationships": [
+      "altus-anko-viewer",
+      "altus-wafercount",
+      "magus-spc-legacy",
+      "anko-helper",
+      "lt-report-compiler",
+      "metria-spc"
+    ]
   },
   {
     "id": "magus-spc-legacy",
     "index": 13,
     "name": "Magus SPC (Legacy)",
     "category": "Expedition IV - Planetfall",
+    "description": "Legacy SPC release review.",
     "purpose": "Bring legacy SPC charts and parameter states into one review environment. Keep established workflows within reach.",
     "headline": "A familiar process.\nA clearer view.",
     "evidence": {
@@ -258,13 +321,21 @@ export const apps = [
     },
     "transformation": "Legacy charts → review",
     "visualConcept": "legacy",
-    "accent": "#d89b75"
+    "relationships": [
+      "altus-anko-viewer",
+      "altus-wafercount",
+      "magus-spc-gan",
+      "anko-helper",
+      "lt-report-compiler",
+      "metria-spc"
+    ]
   },
   {
     "id": "anko-helper",
     "index": 14,
     "name": "ANKO Helper",
     "category": "Expedition IV - Planetfall",
+    "description": "ANKO status and due dates.",
     "purpose": "Put ANKO status and due dates together. See what needs attention before planning what comes next.",
     "headline": "Plan with the\nwhole picture.",
     "evidence": {
@@ -278,13 +349,21 @@ export const apps = [
     },
     "transformation": "Status → schedule",
     "visualConcept": "maintenance",
-    "accent": "#d89b75"
+    "relationships": [
+      "altus-anko-viewer",
+      "altus-wafercount",
+      "magus-spc-gan",
+      "magus-spc-legacy",
+      "lt-report-compiler",
+      "metria-spc"
+    ]
   },
   {
     "id": "lt-report-compiler",
     "index": 15,
     "name": "LT Report Compiler",
     "category": "Expedition IV - Planetfall",
+    "description": "LayTec report compilation.",
     "purpose": "Assemble LayTec information into an engineering report. Give repeated reporting work a consistent structure.",
     "headline": "Bring the report\ntogether.",
     "evidence": {
@@ -298,13 +377,21 @@ export const apps = [
     },
     "transformation": "Inputs → report",
     "visualConcept": "report",
-    "accent": "#d89b75"
+    "relationships": [
+      "altus-anko-viewer",
+      "altus-wafercount",
+      "magus-spc-gan",
+      "magus-spc-legacy",
+      "anko-helper",
+      "metria-spc"
+    ]
   },
   {
     "id": "metria-spc",
     "index": 16,
     "name": "Metria SPC",
     "category": "Expedition IV - Planetfall",
+    "description": "Interactive multi-parameter equipment SPC.",
     "purpose": "Explore equipment parameters through interactive SPC analysis. Bring related signals into the same field of view.",
     "headline": "Signals,\nseen together.",
     "evidence": {
@@ -318,6 +405,138 @@ export const apps = [
     },
     "transformation": "Parameters → shared visibility",
     "visualConcept": "signals",
-    "accent": "#d89b75"
+    "relationships": [
+      "altus-anko-viewer",
+      "altus-wafercount",
+      "magus-spc-gan",
+      "magus-spc-legacy",
+      "anko-helper",
+      "lt-report-compiler"
+    ]
+  }
+];
+export const story = [
+  {
+    "id": "enter",
+    "eyebrow": "An engineering environment",
+    "title": "ARTIFACTS",
+    "text": "Some engineering problems\nshould only be solved once.",
+    "caption": "From a recurring problem to a body of work.",
+    "layout": "opening"
+  },
+  {
+    "id": "repetition",
+    "eyebrow": "Before the tools",
+    "title": "Again.\nAnd again.",
+    "text": "A log to read. A recipe to check.\nAnother chart. Another manual step.",
+    "caption": "Logs · recipes · measurements · signals · schedules",
+    "layout": "left"
+  },
+  {
+    "id": "realisation",
+    "eyebrow": "The recurring problem",
+    "title": "The problem wasn’t\nthe engineering.",
+    "text": "It was doing the same work again.",
+    "caption": "Repetition becomes something you can design out.",
+    "layout": "statement"
+  },
+  {
+    "id": "one-tool",
+    "eyebrow": "A different starting point",
+    "title": "One problem.\nOne tool.",
+    "text": "Keep the method.\nLet software carry the repetition.",
+    "caption": "A useful answer, made reusable.",
+    "layout": "left"
+  },
+  {
+    "id": "many",
+    "eyebrow": "Then another",
+    "title": "One tool became many.\nMany became a system.",
+    "text": "ARTIFACTS.",
+    "caption": "Sixteen applications. Four Expeditions.",
+    "layout": "wide"
+  },
+  {
+    "id": "recipes",
+    "eyebrow": "Papyrus Reader / comparison",
+    "title": "The order changed.\nDid the meaning?",
+    "text": "Two recipes. Equivalent steps.\nDifferent places to look.",
+    "caption": "Follow the steps, not their line numbers.",
+    "layout": "left",
+    "app": "papyrus-reader"
+  },
+  {
+    "id": "comparison",
+    "eyebrow": "Papyrus Reader / alignment",
+    "title": "Let the differences\nspeak.",
+    "text": "Equivalent steps find each other.\nChanged, added and missing values stay visible.",
+    "caption": "Logical comparison, independent of line order.",
+    "layout": "left",
+    "app": "papyrus-reader",
+    "proof": true
+  },
+  {
+    "id": "measurements",
+    "eyebrow": "TopoTracer / measurements",
+    "title": "A set of points.\nA larger picture.",
+    "text": "Every measurement has a place.\nThe pattern lives between them.",
+    "caption": "The comparison guide becomes a measurement axis.",
+    "layout": "left",
+    "app": "topotracer"
+  },
+  {
+    "id": "surface",
+    "eyebrow": "TopoTracer / interpolation",
+    "title": "See the shape\nof variation.",
+    "text": "Wafer measurements become a contour map.\nSpatial variation comes into view.",
+    "caption": "Samples → interpolation → wafer-scale context",
+    "layout": "left",
+    "app": "topotracer",
+    "proof": true
+  },
+  {
+    "id": "temperature",
+    "eyebrow": "GaN Temp Diagnoser / observations",
+    "title": "A drift is a signal.\nWhere does it lead?",
+    "text": "Temperature behavior provides clues.\nThe next step is knowing what to check.",
+    "caption": "A spatial field becomes a diagnostic question.",
+    "layout": "left",
+    "app": "gan-temp-diagnoser"
+  },
+  {
+    "id": "diagnosis",
+    "eyebrow": "GaN Temp Diagnoser / direction",
+    "title": "Fewer possibilities.\nA clearer next step.",
+    "text": "Observations guide likely causes\nand recommended checks.",
+    "caption": "Observed behavior → guided diagnosis",
+    "layout": "left",
+    "app": "gan-temp-diagnoser",
+    "proof": true
+  },
+  {
+    "id": "context",
+    "eyebrow": "Metria SPC / shared context",
+    "title": "Bring the signals\ninto the same view.",
+    "text": "Related parameters. Interactive charts.\nOne place to follow the equipment.",
+    "caption": "Individual signals become a shared context.",
+    "layout": "left",
+    "app": "metria-spc",
+    "proof": true
+  },
+  {
+    "id": "environment",
+    "eyebrow": "The whole body of work",
+    "title": "16 applications.\nOne engineering environment.",
+    "text": "Each solves something specific.\nTogether, they are ARTIFACTS.",
+    "caption": "Choose an instrument to see its work and related tools.",
+    "layout": "map"
+  },
+  {
+    "id": "software",
+    "eyebrow": "Inside ARTIFACTS",
+    "title": "Real software.\nBuilt for real engineering work.",
+    "text": "The interfaces behind the ideas.",
+    "caption": "Original software captures. Actual interface detail.",
+    "layout": "reel"
   }
 ];

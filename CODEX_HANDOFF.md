@@ -1,31 +1,30 @@
-# ARTIFACTS — sequential software exhibition
+# ARTIFACTS — continuous narrative rebuild
 
-## Current direction
+## Latest direction
 
-The latest correction is implemented in v8: remove the Papyrus-specific opening example, tell the ecosystem's wider story, replace Papyrus with the new Desktop capture, and make workflow motion the primary app visual. Screenshots are small, optional supporting evidence. All sixteen applications still advance on scroll. Do not restore the recipe-comparison introduction, oversized screenshots, logo extrusion, click-required exploration, cropped images or network map.
+The new user brief supersedes the sixteen-equal-app-interval design and the earlier no-crop request. It asks for a continuous origin story, approximately three to five major application demonstrations, an explorable sixteen-app environment and a dedicated reel of sharp software fragments. Do not restore the previous page structure. ARTIFACTS remains the main identity; Gene appears quietly at the end.
 
-## Repository and review
+The current sequence is in `content/STORYBOARD.md` and `content/story.json`: repeated work → reusable method → one tool → accumulation → Papyrus comparison → TopoTracer measurements/interpolation → GaN temperature diagnosis → Metria context → all sixteen apps → real software. Every phase shares a persistent Three.js scene and instanced geometry. Real source functions are grounded in `content/apps.json`, Desktop screenshots and the 23-slide reference in ignored `.qa/reference-slides*`. The older slides describe fifteen apps; the current catalogue has sixteen.
 
-Repository: https://github.com/weigenekhor/artifacts-by-gene
-Local: C:/Users/Gene/OneDrive/Documents/AppVerse/artifacts-by-gene
-Branch: experience/continuous-instruments
+## Repository
+
+Local: `C:/Users/Gene/OneDrive/Documents/AppVerse/artifacts-by-gene`
+Remote: https://github.com/weigenekhor/artifacts-by-gene
+Branch: `experience/continuous-instruments`
 Review: https://github.com/weigenekhor/artifacts-by-gene/pull/3
-Production main remains 8882080a37215432cf419026d632fa2e845cdbac until an authorized merge.
 
-The GitHub connector publishes branch changes; shell git has no saved push credentials. Compare the complete local/remote tree before synchronizing local history. Never overwrite unrelated changes.
+Use the authenticated GitHub connector to publish; shell git has no saved push identity. Verify local and remote trees before synchronizing history. Do not merge production without the user's instruction.
 
-## Implementation
+## Editing
 
-Four opening beats: measured surface, repetitive inputs, reusable method, a body of tools. The structure form resolves sixteen streams into four ordered groups, anticipating the original Expeditions. Native scroll then drives app 1 through 16, with readable hold intervals. Large workflow geometry progresses from inputs to results across each app interval; optional controls remain. Small full screenshots sit beneath the copy with a larger viewer available. Geometry relocates into the study area using FLIP at the handoff. Screens rest without transforms. A four-Expedition index follows; creator attribution is quiet.
+`content/page.html`, `content/story.json`, `content/apps.json`, `js/experience.js`, `js/world.js`, `js/forms.js`, `js/contours.js`, `js/motion.js` and `styles.css` are sources. `node scripts/build.mjs` generates the committed static page, data module and script bundle. The controller exposes read-only QA state through `window.artifactsExperience` and supports `#app/<id>` deep links into the system view.
 
-Source files: content/page.html, content/apps.json, js/experience.js, js/forms.js, js/world.js and styles.css. Build with node scripts/build.mjs or pnpm build; index.html, js/apps.js and script.js are generated. The controller has a 0–19 scroll clock and preserves the active app when the viewport changes. Header height is reserved in sticky layout and the header is opaque.
+All sixteen original Desktop images are losslessly encoded under `assets/evidence`. Full captures remain uncropped in the modal; deliberate native crops now appear in the story and reel as requested. Papyrus is 1531 × 1002; the other fifteen are 1425 × 950. Do not substitute archive JPEG-derived previews. Never claim native 4K detail for these sources.
 
-All sixteen current application captures are full.webp under assets/evidence. These are decoded-pixel-identical to the supplied Desktop PNGs. Updated Papyrus Reader is 1531 × 1002; the other fifteen are 1425 × 950. No crop or invented image is displayed. Existing archives remain intact. The preparation script accepts an optional app ID and preserves editorial content when refreshing images.
+Native scroll owns progression. A single renderer owns camera, instanced pieces, surface and map. Motion tokens live in `js/motion.js`. No WebGL screenshot texture sampling. Portrait uses a separate map composition and one Expedition at a time. Reduced motion, SVG context fallback and a no-JavaScript catalogue are required paths.
 
-## Validation and preview
+## Preview and validation
 
-The current full browser suite passed: sixteen scroll-driven apps and motion controls, eleven viewport/DPR combinations, six accessibility scans, keyboard/deep links, orientation changes, image viewer, header clearance, reduced motion, no WebGL, no JavaScript and zero console/resource errors. Image-fidelity suites and a fresh comparison to Desktop originals passed. See VALIDATION.md for measured performance and limits.
+Preview: http://127.0.0.1:8001/ (verify HTTP 200). Use a hidden Python static-server process rooted in this repository. See README and VALIDATION for tests. Reports/screenshots are ignored under `.qa/`.
 
-Preview: http://127.0.0.1:8001/ — verify HTTP 200 before handing over. A hidden Python static server serves the repository. No runtime CDN, API key, framework server or deployment build service is needed.
-
-Physical mobile hardware, Safari and Firefox remain untested. Geometric studies are illustrative. Production should remain unchanged until the user instructs a merge.
+Workflow motion is explanatory, not measured or simulated app output. Related-workflow connections do not assert runtime integrations. Physical mobile hardware, Safari and Firefox remain untested unless a later validation record says otherwise.

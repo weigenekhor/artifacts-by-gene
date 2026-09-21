@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Artifacts by Gene — An engineering environment</title>
+    <title>Artifacts by Gene — Some problems should only be solved once.</title>
     <meta
       name="description"
-      content="Engineering is complex. Execution shouldn’t be. Explore the sixteen engineering applications of ARTIFACTS."
+      content="Repeated engineering work became tools. Tools became ARTIFACTS. Sixteen applications, one engineering environment."
     />
     <link rel="canonical" href="https://artifactsbygene.com/" />
-    <meta name="theme-color" content="#090b0c" />
+    <meta name="theme-color" content="#080b0d" />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
@@ -17,7 +17,7 @@
     />
     <meta
       property="og:description"
-      content="Sixteen applications. Built from the work. Explore ARTIFACTS."
+      content="Some engineering problems should only be solved once."
     />
     <meta property="og:url" content="https://artifactsbygene.com/" />
     <meta
@@ -37,214 +37,151 @@
     <script type="module" src="script.js"></script>
   </head>
   <body>
-    <a class="skip-link" href="#ecosystem">Skip to the applications</a>
+    <a class="skip-link" href="#environment">Skip to the applications</a>
     <header class="header">
       <a class="brand" href="#enter" aria-label="ARTIFACTS, beginning"
         ><img
           src="assets/brand/artifacts-symbol.svg"
           alt=""
-          width="36"
-          height="36"
+          width="34"
+          height="34"
         /><span>ARTIFACTS</span></a
       >
       <nav aria-label="Main navigation">
-        <a href="#ecosystem">Applications <span aria-hidden="true">↗</span></a
+        <a href="#environment"
+          >The applications <span aria-hidden="true">↗</span></a
+        ><a href="#software">The software</a
         ><button
           id="motion"
           hidden
+          aria-label="Pause motion"
           aria-pressed="true"
-          aria-label="Turn motion off"
         >
-          <span class="motion-icon" aria-hidden="true"></span>
+          <span aria-hidden="true">Ⅱ</span>
         </button>
       </nav>
     </header>
     <main>
-      <section class="journey" aria-label="The ARTIFACTS story">
-        <div class="anchors" aria-hidden="true">
-          <span id="enter"></span><span id="friction"></span
-          ><span id="structure"></span><span id="system"></span
-          ><span id="ecosystem"></span>
-        </div>
+      <div class="journey" id="journey">
         <div class="stage">
-          <div class="world" id="world" aria-hidden="true"></div>
-          <div class="opening-rule" aria-hidden="true"></div>
-          <div class="chapters">
-            <article class="chapter current" data-chapter="0">
-              <p class="eyebrow">Engineering. With room to think.</p>
-              <h1>ARTIFACTS</h1>
-              <p class="intro">Less repetition.<br />More room for judgment.</p>
-              <a class="journey-link" href="#friction"
-                ><span class="arrow-down" aria-hidden="true">↓</span> Follow the
-                work</a
+          <div id="world" aria-hidden="true"></div>
+          <div class="scene-light" aria-hidden="true"></div>
+          <div class="story"><!-- SCENES --></div>
+          <div class="world-annotations" aria-hidden="true"></div>
+          <aside class="proof" hidden aria-label="Actual software detail">
+            <button id="proof-open">
+              <img id="proof-image" alt="" decoding="async" /><span
+                ><span id="proof-name"></span
+                ><span>Inside the software ↗</span></span
               >
-            </article>
-            <article class="chapter" data-chapter="1">
-              <p class="eyebrow">01 / Before the tools</p>
-              <h2>The same task.<br />Again.<br /><em>And again.</em></h2>
-              <p class="intro">
-                A log to reconstruct. A recipe to compare.<br />A report to
-                assemble. Before the engineering can begin.
-              </p>
-              <div class="scene-key">
-                <i></i><span>Separate inputs / repeated effort</span>
-              </div>
-            </article>
-            <article class="chapter" data-chapter="2">
-              <p class="eyebrow">02 / Give the work a method</p>
-              <h2>The work repeats.<br /><em>The effort shouldn’t.</em></h2>
-              <p class="intro">
-                Give recurring tasks a method. Put that method into software.
-                Keep your attention on the decisions that matter.
-              </p>
-              <div class="scene-key">
-                <i></i><span>Repeated effort → reusable tools</span>
-              </div>
-            </article>
-            <article class="chapter" data-chapter="3">
-              <p class="eyebrow">03 / From tools to ARTIFACTS</p>
-              <h2>
-                One useful tool.<br /><em>Then a body<br />of work.</em>
-              </h2>
-              <p class="intro">
-                Each tool begins with a specific need. Together, they become
-                ARTIFACTS: sixteen applications for engineering work.
-              </p>
-              <a class="text-button" href="#ecosystem"
-                >Meet the applications <span aria-hidden="true">↗</span></a
-              >
-            </article>
-          </div>
+            </button>
+          </aside>
           <section
-            class="atlas"
-            aria-labelledby="atlas-title"
-            inert
-            aria-hidden="true"
+            class="environment"
+            aria-label="Sixteen ARTIFACTS applications"
+            hidden
           >
-            <div class="atlas-copy">
-              <p class="eyebrow" id="app-category"></p>
-              <p class="app-name" id="app-name"></p>
-              <h2 id="atlas-title"></h2>
-              <p class="intro" id="app-purpose"></p>
-            </div>
-            <div class="software-gallery"><!-- SOFTWARE --></div>
-            <div class="study-panel">
-              <p class="study-phase" id="study-phase">From inputs to insight</p>
-              <p class="study-caption">
-                <span id="transformation"></span><span>Workflow study</span>
-              </p>
-              <label class="study-control"
-                ><span id="study-action">Explore the transformation</span
-                ><input
-                  id="study"
-                  aria-labelledby="study-action"
-                  type="range"
-                  min="0"
-                  max="100"
-                  value="100"
-              /></label>
-            </div>
-            <nav class="app-navigation" aria-label="Application sequence">
-              <div class="sequence-top">
-                <span id="app-position">01 / 16</span
-                ><span id="next-label"></span>
-                <div class="sequence-buttons">
-                  <button id="previous" aria-label="Previous application">
-                    ←</button
-                  ><button id="next" aria-label="Next application">→</button
-                  ><a href="#index">All applications ↗</a>
-                </div>
-              </div>
-              <div class="sequence-rail"><!-- RAIL --></div>
-              <label class="sr-only" for="app-select"
-                >Jump to an application</label
-              ><select id="app-select">
-                <!-- OPTIONS -->
-              </select>
-            </nav>
-          </section>
-          <footer class="stage-footer">
-            <span class="stage-caption"
-              >Engineering software, considered as a whole.</span
+            <div
+              class="group-switch"
+              role="group"
+              aria-label="Choose an Expedition"
             >
-            <nav class="chapter-nav" aria-label="Story chapters">
-              <a href="#enter" aria-label="Enter ARTIFACTS" aria-current="step"
-                ><span>00</span></a
-              ><a href="#friction" aria-label="Engineering friction"
-                ><span>01</span></a
-              ><a href="#structure" aria-label="Structure emerges"
-                ><span>02</span></a
-              ><a href="#system" aria-label="Tools become a system"
-                ><span>03</span></a
-              ><a href="#ecosystem" aria-label="Explore the ecosystem"
-                ><span>04</span></a
+              <!-- GROUPS -->
+            </div>
+            <div class="map-nodes"><!-- NODES --></div>
+            <div class="map-summary">
+              <span class="eyebrow" id="selected-category"
+                >Four Expeditions</span
               >
-            </nav>
-            <span class="scroll-cue"
-              >Scroll to unfold <span aria-hidden="true">↓</span></span
-            >
-          </footer>
-        </div>
-      </section>
-      <section class="ecosystem-index" id="index" aria-labelledby="index-title">
-        <div class="index-intro">
-          <p class="eyebrow">Sixteen applications. Four Expeditions.</p>
-          <h2 id="index-title">
-            Different disciplines.<br /><em>A shared purpose.</em>
-          </h2>
-          <p>Complexity is a given.<br />Clarity is engineered.</p>
-        </div>
-        <div class="node-map"><!-- NODES --></div>
-      </section>
-      <section class="ending" aria-labelledby="ending-title">
-        <p class="eyebrow">Built from the work</p>
-        <h2 id="ending-title">
-          Built from curiosity.<br />Shaped by the work.
-        </h2>
-        <p>
-          I enjoy building things.<br />
-          ARTIFACTS is where they come together.
-        </p>
-        <a href="#ecosystem"
-          >Revisit the applications <span aria-hidden="true">↗</span></a
-        >
-        <footer>
-          <a href="#enter" aria-label="ARTIFACTS, back to the beginning"
-            ><img
-              src="assets/brand/artifacts-symbol.svg"
-              alt="ARTIFACTS"
-              width="40"
-              height="40" /></a
-          ><span>by Gene</span
-          ><a href="https://github.com/weigenekhor/artifacts-by-gene"
-            >Source ↗</a
+              <h3 id="selected-name">Every tool has a reason.</h3>
+              <p id="selected-purpose">
+                Select an application to see the work it takes on.
+              </p>
+              <button id="selected-capture" hidden>
+                See the actual interface ↗</button
+              ><span class="relationship-note"
+                >Connections show related workflows.</span
+              >
+            </div>
+          </section>
+          <section
+            class="software"
+            hidden
+            aria-label="Actual ARTIFACTS software"
           >
-        </footer>
+            <div class="reel-controls">
+              <button id="reel-prev" aria-label="Previous software capture">
+                ←
+              </button>
+              <p>
+                <span id="reel-count">01 / 16</span
+                ><strong id="reel-name"></strong>
+              </p>
+              <button id="reel-next" aria-label="Next software capture">
+                →
+              </button>
+            </div>
+            <div class="reel"><!-- SOFTWARE --></div>
+            <label class="reel-jump"
+              >Choose an application<select id="capture-select">
+                <!-- OPTIONS -->
+              </select></label
+            >
+          </section>
+          <div class="journey-footer">
+            <span id="chapter-caption"
+              >From a recurring problem to a body of work.</span
+            >
+            <nav aria-label="Story progression"><!-- CHAPTERS --></nav>
+            <span id="chapter-count">01 / 14</span>
+          </div>
+          <span class="study-note"
+            >An interpretation of the work · not live application data</span
+          >
+        </div>
+      </div>
+      <section class="ending" id="about">
+        <div class="ending-rule"></div>
+        <p class="eyebrow">ARTIFACTS</p>
+        <h2>Built from the work.<br />For the work.</h2>
+        <p>
+          I enjoy building things.<br />ARTIFACTS is where they come together.
+        </p>
+        <span class="attribution">by Gene</span
+        ><a href="#enter">Return to the beginning ↗</a>
       </section>
       <noscript
         ><section class="text-catalogue">
-          <h2>Explore all applications</h2>
-          <p>Each link opens a real software capture.</p>
+          <h2>Sixteen applications. One engineering environment.</h2>
           <!-- CATALOGUE -->
         </section></noscript
       >
     </main>
-    <dialog id="inspector" aria-labelledby="capture-title">
-      <header>
+    <footer class="footer">
+      <img
+        src="assets/brand/artifacts-symbol.svg"
+        width="28"
+        height="28"
+        alt="ARTIFACTS symbol"
+      /><span>Engineering, considered through software.</span
+      ><a href="https://github.com/weigenekhor/artifacts-by-gene">Source ↗</a>
+    </footer>
+    <dialog id="capture-dialog" aria-labelledby="capture-title">
+      <div class="capture-toolbar">
         <div>
-          <p class="eyebrow">Actual ARTIFACTS software</p>
+          <p class="eyebrow">Original software capture</p>
           <h2 id="capture-title"></h2>
         </div>
-        <button id="close-inspector" aria-label="Close capture">×</button>
-      </header>
-      <div class="capture-tools">
-        <button id="pixel-view" aria-pressed="false">Actual size ↗</button
-        ><a id="capture-download" target="_blank" rel="noopener"
-          >Open image ↗</a
-        >
+        <button id="close-capture" aria-label="Close software capture">
+          ×
+        </button>
       </div>
       <div class="capture-viewport"><img id="capture-image" alt="" /></div>
-      <p class="capture-note">The complete application. Original resolution.</p>
+      <div class="capture-tools">
+        <button id="pixel-view" aria-pressed="false">Actual size ↗</button
+        ><span id="capture-size"></span
+        ><a id="capture-original">Open original ↗</a>
+      </div>
     </dialog>
   </body>
 </html>

@@ -2,107 +2,104 @@ import {
   WebGLRenderer,
   Scene,
   PerspectiveCamera,
+  Group,
+  Mesh,
+  InstancedMesh,
   BufferGeometry,
   BufferAttribute,
-  Mesh,
   MeshStandardMaterial,
-  DoubleSide,
-  Color,
-  Group,
-  DirectionalLight,
-  HemisphereLight,
-  PMREMGenerator,
-  Vector3,
-  ACESFilmicToneMapping,
+  MeshPhysicalMaterial,
+  Line,
   LineSegments,
   LineBasicMaterial,
+  DirectionalLight,
+  HemisphereLight,
+  Color,
+  Object3D,
+  Vector3,
+  PMREMGenerator,
+  ACESFilmicToneMapping,
+  DoubleSide,
 } from "three";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
-import { STRIPS, SEGMENTS, makeForm, mix, ease, clamp } from "./forms.js";
+import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
+import { contourSegments } from "./contours.js";
+import {
+  COUNT,
+  element,
+  field,
+  nodePosition,
+  GROUPS,
+  STARTS,
+  SIZES,
+  stageBlend,
+} from "./forms.js";
+import { clamp, mix, bell, interval, MOTION } from "./motion.js";
+import { apps } from "./apps.js";
 
-export async function createWorld(host) {
-  // One measured surface opens into separate inputs, then aligned tools.
-  // The brand symbol stays in the navigation; it is never motion geometry.
-  const forms = ["surface", "friction", "structure", "system"].map((k) =>
-    makeForm(k),
-  );
-  const count = STRIPS * (SEGMENTS + 1) * 2,
-    positions = new Float32Array(count * 3),
-    colors = new Float32Array(count * 4 * 3);
-  const shell = new Float32Array(count * 4 * 3);
-  const profile = [
-    [-1, -0.6],
-    [-0.94, -1],
-    [0.94, -1],
-    [1, -0.6],
-    [1, 0.6],
-    [0.94, 1],
-    [-0.94, 1],
-    [-1, 0.6],
-  ];
-  positions.set(forms[0]);
-  const indices = [];
-  for (let i = 0; i < STRIPS; i++)
-    for (let j = 0; j < SEGMENTS; j++) {
-      const a = i * (SEGMENTS + 1) * 8 + j * 8;
-      for (let k = 0; k < 8; k++) {
-        const n = (k + 1) % 8;
-        indices.push(a + k, a + 8 + k, a + n, a + n, a + 8 + k, a + 8 + n);
-      }
-    }
+const CAMERAS = [
+  [0, 3.8, 11.8, 0, 0, 0],
+  [-0.6, 1.5, 12.8, 0, 0.5, 0],
+  [0, 0, 14, 0, 0, 0],
+  [1.8, 1.4, 7.8, 0, 0, 0],
+  [0, 3.4, 15.5, 0, 0, 0],
+  [1.3, 1.6, 11.5, 0, 0, 0],
+  [0, 0.3, 10.8, 0, 0, 0],
+  [0.5, 5.2, 10.4, 0, 0, 0],
+  [1.9, 8.2, 10.5, 0, 0, 0.2],
+  [-1.2, 7.2, 10.4, 0, 0, 0.2],
+  [0, 1, 11.8, 0, 0, 0],
+  [0, 0.6, 11.5, 0, 0, 0],
+  [0, 1.1, 17.8, 0, -0.4, 0],
+  [0, 1.8, 19, 0, -0.4, 0],
+];
+export function createWorld(host) {
   const canvas = document.createElement("canvas");
-  const context = canvas.getContext("webgl2", {
-    alpha: true,
-    antialias: true,
-    powerPreference: "low-power",
-  });
-  let renderer,
-    svg,
-    svgPaths = [];
+  let context;
+  try {
+    context = canvas.getContext("webgl2", {
+      alpha: true,
+      antialias: true,
+      powerPreference: "low-power",
+    });
+  } catch {}
   const scene = new Scene(),
-    camera = new PerspectiveCamera(36, 1, 0.1, 100),
+    camera = new PerspectiveCamera(38, 1, 0.1, 100),
     rig = new Group();
   scene.add(rig);
-  camera.position.z = 12.8;
-  const geo = new BufferGeometry();
-  geo.setIndex(indices);
-  geo.setAttribute("position", new BufferAttribute(shell, 3));
-  geo.setAttribute("color", new BufferAttribute(colors, 3));
+  const dummy = new Object3D(),
+    color = new Color(),
+    projector = new Vector3();
   const material = new MeshStandardMaterial({
     color: 0xffffff,
-    metalness: 0.86,
-    roughness: 0.3,
-    side: DoubleSide,
-    vertexColors: true,
+    metalness: 0.72,
+    roughness: 0.29,
   });
-  const mesh = new Mesh(geo, material);
-  mesh.frustumCulled = false;
-  rig.add(mesh);
-  const projection = new Vector3();
-  const connectorPoints = new Float32Array(8 * 6),
-    connectorGeo = new BufferGeometry();
-  connectorGeo.setAttribute(
-    "position",
-    new BufferAttribute(connectorPoints, 3),
-  );
-  const connectors = new LineSegments(
-    connectorGeo,
-    new LineBasicMaterial({
-      color: 0x667575,
-      transparent: true,
-      opacity: 0.55,
-    }),
-  );
-  rig.add(connectors);
-  const labels = document.createElement("div");
-  labels.className = "world-labels";
-  host.append(labels);
-  const labelElements = Array.from({ length: 4 }, () => {
-    const el = document.createElement("span");
-    labels.append(el);
-    return el;
-  });
-  let env, pmrem;
+  const geometry = new RoundedBoxGeometry(1, 1, 1, 2, 0.12);
+  const pieces = new InstancedMesh(geometry, material, COUNT);
+  pieces.frustumCulled = false;
+  rig.add(pieces);
+  const warm = new Color("#d9a77a"),
+    silver = new Color("#8a9da4"),
+    cool = new Color("#638a93");
+  const key = new DirectionalLight(0xffecd7, 2.4);
+  key.position.set(-3, 6, 8);
+  scene.add(key);
+  const rim = new DirectionalLight(0x9bbecb, 2.2);
+  rim.position.set(5, 0, -3);
+  scene.add(rim);
+  scene.add(new HemisphereLight(0xd9e6ec, 0x182125, 1.2));
+  let renderer,
+    env,
+    pmrem,
+    svg,
+    paths = [],
+    lost = false,
+    width = 1,
+    height = 1,
+    mobile = false,
+    last = 0,
+    frames = 0;
   if (context) {
     renderer = new WebGLRenderer({
       canvas,
@@ -110,305 +107,526 @@ export async function createWorld(host) {
       alpha: true,
       antialias: true,
     });
-    renderer.setClearColor(0x090b0c, 0);
+    renderer.setClearColor(0x080b0d, 0);
     renderer.toneMapping = ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.1;
+    renderer.toneMappingExposure = 1.12;
     pmrem = new PMREMGenerator(renderer);
     const room = new RoomEnvironment();
     env = pmrem.fromScene(room, 0.025);
     room.dispose();
     scene.environment = env.texture;
-    const key = new DirectionalLight(0xf3e6d9, 2.6);
-    key.position.set(-3, 5, 7);
-    scene.add(key);
-    const rim = new DirectionalLight(0xb7c9d4, 2);
-    rim.position.set(4, 1, -2);
-    scene.add(rim);
-    scene.add(new HemisphereLight(0xe8e6de, 0x202629, 1.2));
     host.append(canvas);
-    document.documentElement.classList.add("webgl");
     canvas.addEventListener("webglcontextlost", (e) => {
       e.preventDefault();
-      document.documentElement.classList.remove("webgl");
-    });
-    canvas.addEventListener("webglcontextrestored", () => {
-      document.documentElement.classList.add("webgl");
+      lost = true;
+      makeFallback();
       host.dispatchEvent(new Event("worldrestore"));
     });
-  } else {
+    canvas.addEventListener("webglcontextrestored", () => {
+      lost = false;
+      svg?.remove();
+      svg = null;
+      host.dispatchEvent(new Event("worldrestore"));
+    });
+  } else makeFallback();
+  function makeFallback() {
+    if (svg) return;
+    paths = [];
     svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("viewBox", "-4.5 -3.5 9 7");
-    svg.style.cssText = "width:100%;height:100%;overflow:visible";
-    for (let i = 0; i < 16; i++) {
+    svg.setAttribute("viewBox", "-7 -5 14 10");
+    svg.classList.add("fallback-world");
+    for (let i = 0; i < COUNT; i++) {
       const p = document.createElementNS(svg.namespaceURI, "path");
-      p.setAttribute("fill", "none");
-      p.setAttribute("stroke", i === 10 ? "#d69c79" : "#9babab");
-      p.setAttribute("stroke-width", ".025");
+      p.setAttribute("stroke", i % 12 === 0 ? "#d9a77a" : "#9bafb5");
+      p.setAttribute("stroke-width", ".055");
       svg.append(p);
-      svgPaths.push(p);
+      paths.push(p);
     }
     host.append(svg);
   }
-  const pale = new Color("#7f9197"),
-    accent = new Color("#b88255"),
-    dark = new Color("#627c85"),
-    brandColor = new Color("#586973");
-  let rect,
-    atlasForm = forms[3],
-    selectedKey = "",
-    selectedForm = forms[3],
-    target = forms[0],
-    lastTime = 0,
-    frames = 0,
-    lastColorKey = "",
-    baseZ = 12.8;
-  const scratch = new Float32Array(positions.length);
-  function recolor(progress, selected) {
-    const colorKey =
-      (progress < 0.4 ? "opening" : "default") +
-      (selected?.visualConcept || "");
-    if (colorKey === lastColorKey) return;
-    lastColorKey = colorKey;
-    for (let i = 0; i < count * 4; i++) {
-      const strip = Math.floor(i / ((SEGMENTS + 1) * 8)),
-        special = selected?.visualConcept === "comparison";
-      const c =
-        progress < 0.4
-          ? brandColor
-          : (special ? strip === 10 || strip === 13 : strip === 10)
-            ? accent
-            : strip % 3 === 0
-              ? dark
-              : pale;
-      colors[i * 3] = c.r;
-      colors[i * 3 + 1] = c.g;
-      colors[i * 3 + 2] = c.b;
+
+  // A real surface is grown from the same spatial samples. No screenshot texture.
+  const resolution = 64,
+    surfacePositions = [],
+    surfaceIndices = [],
+    surfaceColors = [];
+  for (let r = 0; r <= resolution; r++)
+    for (let a = 0; a <= resolution; a++) {
+      const radius = (r / resolution) * 2.75,
+        angle = (a / resolution) * Math.PI * 2;
+      surfacePositions.push(
+        Math.cos(angle) * radius,
+        Math.sin(angle) * radius,
+        0,
+      );
+      surfaceColors.push(0.3, 0.5, 0.55);
+      if (r < resolution && a < resolution) {
+        const k = r * (resolution + 1) + a;
+        surfaceIndices.push(
+          k,
+          k + 1,
+          k + resolution + 1,
+          k + 1,
+          k + resolution + 2,
+          k + resolution + 1,
+        );
+      }
     }
-    geo.attributes.color.needsUpdate = true;
-  }
+  const surfaceGeo = new BufferGeometry();
+  surfaceGeo.setAttribute(
+    "position",
+    new BufferAttribute(new Float32Array(surfacePositions), 3),
+  );
+  surfaceGeo.setAttribute(
+    "color",
+    new BufferAttribute(new Float32Array(surfaceColors), 3),
+  );
+  surfaceGeo.setIndex(surfaceIndices);
+  const surfaceMat = new MeshPhysicalMaterial({
+    vertexColors: true,
+    metalness: 0.24,
+    roughness: 0.58,
+    envMapIntensity: 0.28,
+    side: DoubleSide,
+    transparent: true,
+    opacity: 0,
+    depthWrite: false,
+    clearcoat: 0.05,
+  });
+  const surface = new Mesh(surfaceGeo, surfaceMat);
+  rig.add(surface);
+  const contourSource = contourSegments(field);
+  const contourPositions = new Float32Array(contourSource.length),
+    contourGeo = new BufferGeometry();
+  contourGeo.setAttribute("position", new BufferAttribute(contourPositions, 3));
+  const contourMat = new LineBasicMaterial({
+    color: 0xbce0df,
+    transparent: true,
+    opacity: 0,
+  });
+  const contours = new LineSegments(contourGeo, contourMat);
+  rig.add(contours);
+  // One continuous guide: comparison links, measurement axes, diagnosis and terraces.
+  const guideGeo = new BufferGeometry(),
+    guidePositions = new Float32Array(720 * 3);
+  guideGeo.setAttribute("position", new BufferAttribute(guidePositions, 3));
+  const guideMat = new LineBasicMaterial({
+    color: 0x93adb5,
+    transparent: true,
+    opacity: 0.32,
+  });
+  const guides = new LineSegments(guideGeo, guideMat);
+  guides.frustumCulled = false;
+  rig.add(guides);
+  const relationGeo = new BufferGeometry();
+  relationGeo.setAttribute(
+    "position",
+    new BufferAttribute(new Float32Array(16 * 6), 3),
+  );
+  const relationMat = new LineBasicMaterial({
+    color: 0xd8a57a,
+    transparent: true,
+    opacity: 0.75,
+  });
+  const relations = new LineSegments(relationGeo, relationMat);
+  rig.add(relations);
+  const carrierGeo = new BufferGeometry();
+  carrierGeo.setAttribute(
+    "position",
+    new BufferAttribute(new Float32Array(101 * 3), 3),
+  );
+  const carrier = new Line(
+    carrierGeo,
+    new LineBasicMaterial({ color: 0xd6a57b, transparent: true, opacity: 0.8 }),
+  );
+  rig.add(carrier);
+  const nodeCoordinates = Array.from({ length: 16 }, () => [0, 0]);
   function resize() {
-    rect = host.getBoundingClientRect();
-    if (!rect.width || !rect.height) return;
-    camera.aspect = rect.width / rect.height;
-    baseZ = Math.max(12.8, 9.4 / camera.aspect);
-    camera.position.z = baseZ;
+    const b = host.getBoundingClientRect();
+    width = b.width;
+    height = b.height;
+    mobile = width < 701 || (height < 440 && width < 1100);
+    camera.aspect = width / Math.max(height, 1);
     camera.updateProjectionMatrix();
     if (renderer) {
-      const dpr = Math.min(
+      const d = Math.min(
         devicePixelRatio,
-        innerWidth < 701 ? 1.6 : 2,
-        Math.sqrt(3400000 / (rect.width * rect.height)),
+        mobile ? 1.5 : 2,
+        Math.sqrt(3200000 / (width * height)),
       );
-      renderer.setPixelRatio(Math.max(0.75, dpr));
-      renderer.setSize(rect.width, rect.height, false);
+      renderer.setPixelRatio(d);
+      renderer.setSize(width, height, false);
     }
-    atlasForm = forms[3];
+  }
+  let cameraReady = false,
+    previousP = -1,
+    previousGroup = -1,
+    previousSelection = "",
+    lastSurface = -1;
+  function render({
+    progress: p,
+    px = 0,
+    py = 0,
+    velocity = 0,
+    time = 0,
+    reduced = false,
+    intro = 1,
+    group = 0,
+    selected = null,
+  }) {
+    frames++;
+    const dt = Math.min(50, time - last || 16);
+    last = time;
+    const [a, b, t] = stageBlend(p),
+      ca = CAMERAS[a],
+      cb = CAMERAS[b];
+    const map = interval(p, 11.25, 12),
+      exit = interval(p, 12.4, 13),
+      opening = 1 - interval(p, 0.25, 1);
+    const cameraTarget = new Vector3(
+      mix(ca[0], cb[0], t) + (reduced ? 0 : px * 0.25),
+      mix(ca[1], cb[1], t) + (reduced ? 0 : py * 0.16),
+      mix(ca[2], cb[2], t),
+    );
+    if (!mobile)
+      cameraTarget.z *= mix(1, Math.max(1, 1.2 / camera.aspect), map);
+    if (mobile) {
+      const portrait = height >= 450;
+      cameraTarget.x = mix(cameraTarget.x, 0, portrait ? 1 : map);
+      cameraTarget.y *= mix(1, 0.45, portrait ? 1 : map);
+      cameraTarget.z = mix(
+        cameraTarget.z * (portrait ? 1.72 : 1),
+        portrait ? 21 : 13,
+        map,
+      );
+    }
+    const look = new Vector3(
+      mix(ca[3], cb[3], t),
+      mix(ca[4], cb[4], t),
+      mix(ca[5], cb[5], t),
+    );
+    if (!cameraReady || reduced) camera.position.copy(cameraTarget);
+    else camera.position.lerp(cameraTarget, 1 - Math.exp(-dt / MOTION.camera));
+    cameraReady = true;
+    camera.lookAt(look);
+    rig.position.set(
+      mobile && height >= 450 ? 0 : mix(2.3, 0, map),
+      mobile
+        ? mix(height >= 450 ? -1.7 : -0.65 - opening * 0.55, -0.2, map)
+        : mix(-0.65 - opening * 0.55, -0.4, map),
+      0,
+    );
+    rig.rotation.set(
+      mobile ? -0.08 : mix(-0.12, 0, map),
+      reduced ? 0 : px * 0.035,
+      opening * -0.24 + (reduced ? 0 : velocity * 0.008),
+    );
+    rig.scale.setScalar(mix(0.8, 1, intro));
+    key.position.x = -3 + px * 2 + (1 - intro) * 9;
+    let moving = camera.position.distanceTo(cameraTarget) > 0.002;
+    const changed =
+      Math.abs(p - previousP) > 0.00004 ||
+      group !== previousGroup ||
+      selected !== previousSelection ||
+      moving ||
+      intro < 1;
+    if (changed) {
+      for (let i = 0; i < COUNT; i++) {
+        const from = element(a, i, mobile, group, height < 450),
+          to = element(b, i, mobile, group, height < 450),
+          v = from.map((n, k) => mix(n, to[k], t));
+        // Tool accumulation has a staggered physical arrival inside its own interval.
+        if (p > 3 && p < 4) {
+          const reveal = interval(
+            p,
+            3.15 + Math.floor(i / 12) * 0.022,
+            3.48 + Math.floor(i / 12) * 0.025,
+          );
+          v[2] += (1 - reveal) * 2;
+        }
+        dummy.position.set(v[0], v[1], v[2]);
+        dummy.scale.set(v[3], v[4], v[5]);
+        dummy.rotation.set(0, 0, v[6]);
+        dummy.updateMatrix();
+        pieces.setMatrixAt(i, dummy.matrix);
+        color.copy(i % 12 === 0 ? warm : silver);
+        if (p < 1) color.multiplyScalar(mix(0.16, 1, interval(p, 0.05, 0.9)));
+        color.multiplyScalar(1 - bell(p, 1.7, 2, 2.25, 2.85) * 0.82);
+        if (mobile && p > 11.5 && GROUPS[Math.floor(i / 12)] !== group)
+          dummy.scale.setScalar(0.0001);
+        if (p > 11.6 && selected === apps[Math.floor(i / 12)].id)
+          dummy.position.z += 0.25;
+        dummy.updateMatrix();
+        pieces.setMatrixAt(i, dummy.matrix);
+        if (p >= 5 && p <= 6.8) {
+          const row = Math.floor((i % 96) / 12);
+          color.copy(row === 2 || row === 5 ? warm : row === 6 ? cool : silver);
+        }
+        if (p >= 9.5 && p < 11) {
+          const row = Math.floor(i / 24);
+          color
+            .copy(row === 3 || row === 4 ? warm : cool)
+            .multiplyScalar(row === 3 || row === 4 ? 1 : 0.4);
+        }
+        if (map > 0.7 && selected) {
+          const app = apps[Math.floor(i / 12)],
+            focus = apps.find((x) => x.id === selected);
+          color
+            .copy(app.id === selected ? warm : silver)
+            .multiplyScalar(
+              app.id === selected || focus?.relationships.includes(app.id)
+                ? 1
+                : 0.28,
+            );
+        }
+        pieces.setColorAt(i, color);
+        if (svg) {
+          const scale = mobile ? 0.85 : 1;
+          paths[i]?.setAttribute(
+            "d",
+            `M ${v[0] * scale - v[3] / 2} ${-v[1] * scale} h ${Math.max(0.035, v[3])}`,
+          );
+        }
+      }
+      pieces.instanceMatrix.needsUpdate = true;
+      pieces.instanceColor.needsUpdate = true;
+      const growth = interval(p, 7.05, 8.05),
+        surfaceVisible = Math.max(
+          1 - interval(p, 0.05, 0.85),
+          bell(p, 7.05, 7.65, 9.15, 10),
+        ),
+        thermal = interval(p, 8.35, 9.1);
+      surface.visible = surfaceVisible > 0.001;
+      contours.visible = surface.visible;
+      surfaceMat.opacity = 0.96 * surfaceVisible;
+      contourMat.opacity = 0.56 * surfaceVisible * growth;
+      if (surface.visible && Math.abs(p - lastSurface) > 0.00004) {
+        const pos = surfaceGeo.attributes.position.array,
+          colors = surfaceGeo.attributes.color.array;
+        for (let j = 0; j < pos.length; j += 3) {
+          const x = pos[j],
+            y = pos[j + 1],
+            h = field(x, y);
+          pos[j + 2] = h * growth * 2.1;
+          color
+            .setRGB(
+              0.016 + 0.04 * growth,
+              0.03 + 0.09 * growth,
+              0.038 + 0.1 * growth,
+            )
+            .lerp(warm, clamp((h + 0.3) * thermal * 0.38));
+          colors[j] = color.r;
+          colors[j + 1] = color.g;
+          colors[j + 2] = color.b;
+        }
+        surfaceGeo.attributes.position.needsUpdate = true;
+        surfaceGeo.attributes.color.needsUpdate = true;
+        surfaceGeo.computeVertexNormals();
+        for (let k = 0; k < contourSource.length; k += 3) {
+          contourPositions[k] = contourSource[k];
+          contourPositions[k + 1] = contourSource[k + 1];
+          contourPositions[k + 2] = contourSource[k + 2] * growth * 2.1 + 0.018;
+        }
+        contourGeo.attributes.position.needsUpdate = true;
+        lastSurface = p;
+      }
+      guidePositions.fill(0);
+      let j = 0;
+      function segment(x1, y1, z1, x2, y2, z2) {
+        if (j + 6 > guidePositions.length) return;
+        guidePositions.set([x1, y1, z1, x2, y2, z2], j);
+        j += 6;
+      }
+      if (p >= 4.5 && p < 7) {
+        const align = interval(p, 5.05, 6);
+        for (let r = 0; r < 8; r++) {
+          const left = element(5, r * 12 + 11),
+            right = element(5, 96 + r * 12);
+          segment(
+            left[0],
+            left[1],
+            mix(0.8, 0, align),
+            right[0],
+            mix(right[1], left[1], align),
+            mix(-1.1, r === 2 || r === 5 ? 0.45 : 0, align),
+          );
+        }
+      }
+      if (p >= 6.5 && p < 9.5) {
+        segment(-3.4, 0, 0, 3.4, 0, 0);
+        segment(0, -3.4, 0, 0, 3.4, 0);
+        for (let k = -6; k <= 6; k++) {
+          segment(k * 0.5, -0.055, 0, k * 0.5, 0.055, 0);
+          segment(-0.055, k * 0.5, 0, 0.055, k * 0.5, 0);
+        }
+      }
+      if (p >= 10.4 && p < 11.65) {
+        for (let r = 0; r < 8; r++)
+          for (let n = 0; n < 47; n++) {
+            const x1 = (n / 47) * 6 - 3,
+              x2 = ((n + 1) / 47) * 6 - 3;
+            const yy = (x) =>
+              (r - 3.5) * 0.46 +
+              Math.sin(((x + 3) / 6) * 18 + r) * 0.12 +
+              Math.sin(((x + 3) / 6) * 43 + r * 2) * 0.04;
+            segment(x1, yy(x1), (r % 2) * 0.15, x2, yy(x2), (r % 2) * 0.15);
+          }
+      }
+      if (p >= 11.5) {
+        for (let g = 0; g < 4; g++) {
+          if (mobile && g !== group) continue;
+          const n = SIZES[g];
+          if (!mobile) {
+            const first = nodePosition(STARTS[g]);
+            segment(-5.65, first[1], -0.12, first[0], first[1], -0.12);
+          }
+          for (let k = 0; k < n - 1; k++) {
+            const aa = nodePosition(STARTS[g] + k, mobile, group, height < 450),
+              bb = nodePosition(STARTS[g] + k + 1, mobile, group, height < 450);
+            for (let s = 0; s < 12; s++) {
+              const u = s / 12,
+                v = (s + 1) / 12;
+              segment(
+                mix(aa[0], bb[0], u),
+                mix(aa[1], bb[1], u) - 0.18 * Math.sin(u * Math.PI),
+                -0.12,
+                mix(aa[0], bb[0], v),
+                mix(aa[1], bb[1], v) - 0.18 * Math.sin(v * Math.PI),
+                -0.12,
+              );
+            }
+          }
+        }
+      }
+      guideGeo.setDrawRange(0, j / 3);
+      guideGeo.attributes.position.needsUpdate = true;
+      const carrierArray = carrierGeo.attributes.position.array;
+      for (let n = 0; n <= 100; n++) {
+        const u = n / 100;
+        const introY = 2 - u * 11;
+        const mapY = 2.3 - u * 5.2;
+        carrierArray[n * 3] = mix(-1.7 + Math.sin(u * 2) * 0.4, -5.65, map);
+        carrierArray[n * 3 + 1] = mix(introY, mapY, map);
+        carrierArray[n * 3 + 2] = -1.1 + Math.sin(u * Math.PI) * 0.3;
+      }
+      carrierGeo.attributes.position.needsUpdate = true;
+      carrier.material.opacity = mix(0.5, 0.18, exit);
+      carrier.visible = !(p > 4.5 && p < 11.5);
+      previousP = p;
+      previousGroup = group;
+      previousSelection = selected;
+    }
+    rig.updateMatrixWorld();
+    camera.updateMatrixWorld();
+    for (let i = 0; i < 16; i++) {
+      const n = nodePosition(i, mobile, group, height < 450);
+      projector
+        .set(...n)
+        .applyMatrix4(rig.matrixWorld)
+        .project(camera);
+      nodeCoordinates[i] = [
+        (projector.x * 0.5 + 0.5) * width,
+        (-projector.y * 0.5 + 0.5) * height,
+      ];
+    }
+    relations.visible = p > 11.5 && !!selected && !mobile;
+    if (relations.visible) {
+      const focus = apps.find((a) => a.id === selected),
+        buf = relationGeo.attributes.position.array;
+      let k = 0;
+      for (const id of focus?.relationships || []) {
+        const to = apps.findIndex((a) => a.id === id);
+        if (to < 0) continue;
+        buf.set([...nodePosition(focus.index - 1), ...nodePosition(to)], k);
+        k += 6;
+      }
+      relationGeo.setDrawRange(0, k / 3);
+      relationGeo.attributes.position.needsUpdate = true;
+    }
+    if (renderer && !lost) renderer.render(scene, camera);
+    const labelPoints =
+      {
+        1: [
+          [-3.5, 3.55, -1.3],
+          [-0.1, 3.5, 0],
+          [3.2, 3.5, 1.3],
+          [-3.6, -2.7, 0],
+          [-0.1, -2.3, 0],
+          [3.4, -2.2, 1],
+        ],
+        5: [
+          [-2.6, 2.2, 0.8],
+          [0.5, 2.2, -1.1],
+          [0, -2.3, 0],
+        ],
+        6: [
+          [-2.6, 2.2, 0],
+          [0.5, 2.2, 0],
+          [-0.3, 0.3, 0],
+          [2.8, 0.7, 0.45],
+          [2.8, -1.9, 0],
+        ],
+        7: [
+          [-2.3, 2.4, 0],
+          [2.3, -2.6, 0],
+        ],
+        8: [
+          [-2.3, 2.5, 0],
+          [2.1, -2.65, 0],
+        ],
+        9: [
+          [-2.1, 2.5, 0],
+          [2, -2.6, 0],
+        ],
+        10: [
+          [-3.2, 0.3, 0],
+          [2.65, 2.2, 0],
+          [2.65, -2.1, 0],
+        ],
+        11: [
+          [-2.7, 2.3, 0],
+          [1.8, -2.3, 0],
+        ],
+      }[Math.round(p)] || [];
+    const labels = labelPoints.map((n) => {
+      projector
+        .set(...n)
+        .applyMatrix4(rig.matrixWorld)
+        .project(camera);
+      return [
+        (projector.x * 0.5 + 0.5) * width,
+        (-projector.y * 0.5 + 0.5) * height,
+      ];
+    });
+    return {
+      moving,
+      nodes: nodeCoordinates,
+      labels,
+      mobile,
+      frames,
+      drawCalls: renderer?.info.render.calls || 0,
+      triangles: renderer?.info.render.triangles || 0,
+      webgl: !!renderer && !lost,
+      pixelRatio: renderer?.getPixelRatio() || 1,
+    };
   }
   resize();
-  if (renderer) {
-    // Compile the sheet and connector programs before the first scroll.
-    geo.computeVertexNormals();
-    material.transparent = true;
-    await renderer.compileAsync(scene, camera);
-    material.transparent = false;
-    material.needsUpdate = true;
-    await renderer.compileAsync(scene, camera);
-  }
-  function render({
-    progress,
-    selected,
-    study,
-    px,
-    py,
-    velocity,
-    reduced,
-    time,
-    intro = 1,
-    scenePhase = 0,
-  }) {
-    const dt = Math.min(60, time - lastTime || 16);
-    lastTime = time;
-    frames++;
-    const p = clamp(progress, 0, 4),
-      a = Math.min(3, Math.floor(p)),
-      t = ease((p - a - 0.12) / 0.76);
-    if (selected && p > 3.5) {
-      const key = selected.id + ":" + study.toFixed(3);
-      if (key !== selectedKey) {
-        selectedKey = key;
-        selectedForm = makeForm(selected.visualConcept, study);
-      }
-      target = selectedForm;
-    } else {
-      const from = forms[a],
-        to = a === 3 ? atlasForm : forms[a + 1];
-      target = scratch;
-      for (let i = 0; i < target.length; i++)
-        target[i] = mix(from[i], to[i], t);
-    }
-    const damping = reduced ? 1 : 1 - Math.exp(-dt / (selected ? 145 : 75));
-    let residual = 0;
-    for (let i = 0; i < positions.length; i++) {
-      const delta = target[i] - positions[i];
-      positions[i] += delta * damping;
-      residual = Math.max(residual, Math.abs(delta));
-    }
-    const atlas = p > 3 ? ease((p - 3 - 0.12) / 0.76) : 0;
-    const poses = selected
-      ? {
-          topology: [-0.5, -0.12, -0.22],
-          usage: [0.16, -0.24, 0.08],
-          zones: [-0.35, 0.1, -0.2],
-          difference: [0.12, -0.25, 0.05],
-          diagnosis: [0.1, -0.25, -0.04],
-          comparison: [0.04, -0.12, 0],
-          configuration: [0.1, 0.17, -0.02],
-        }[selected.visualConcept] || [0.1, -0.17, -0.03]
-      : [
-          mix(0.2, 0.04, clamp(p)),
-          mix(-0.35, -0.12, clamp(p)),
-          mix(-0.12, 0, clamp(p)),
-        ];
-    const factor = selected ? 1 : 1 - atlas;
-    const rotationTarget = [
-      (poses[0] + (reduced ? 0 : py * 0.065)) * factor,
-      (poses[1] +
-        (reduced ? 0 : px * 0.09 + (selected ? scenePhase * 0.12 : 0)) -
-        (1 - intro) * 0.22) *
-        factor,
-      (poses[2] + clamp(velocity, -1, 1) * 0.012) * factor,
-    ];
-    const dampingRotation = reduced ? 1 : 1 - Math.exp(-dt / 170);
-    let poseResidual = 0;
-    ["x", "y", "z"].forEach((key, i) => {
-      poseResidual += Math.abs(rig.rotation[key] - rotationTarget[i]);
-      rig.rotation[key] = mix(
-        rig.rotation[key],
-        rotationTarget[i],
-        dampingRotation,
-      );
-    });
-    camera.position.z =
-      (selected
-        ? baseZ *
-          (0.96 -
-            (reduced ? 0 : Math.sin(clamp(scenePhase + 0.5) * Math.PI) * 0.045))
-        : baseZ) -
-      (reduced || selected
-        ? 0
-        : Math.sin((p - Math.floor(p)) * Math.PI) * 0.65);
-    rig.position.x =
-      reduced || selected
-        ? 0
-        : -2.2 * Math.sin((p - Math.floor(p)) * Math.PI) ** 4;
-    rig.scale.setScalar(0.93 + intro * 0.07);
-    const thickness = p < 0.5 ? 0.035 : 0.018;
-    for (let i = 0; i < count / 2; i++) {
-      const o = i * 6;
-      for (let k = 0; k < 8; k++) {
-        const f = (profile[k][0] + 1) / 2,
-          s = i * 24 + k * 3;
-        shell[s] = mix(positions[o], positions[o + 3], f);
-        shell[s + 1] = mix(positions[o + 1], positions[o + 4], f);
-        shell[s + 2] =
-          mix(positions[o + 2], positions[o + 5], f) +
-          profile[k][1] * thickness;
-      }
-    }
-    recolor(p, selected);
-    geo.attributes.position.needsUpdate = true;
-    geo.computeVertexNormals();
-    const comparing = selected
-      ? ["comparison", "configuration"].includes(selected.visualConcept)
-      : false;
-    connectors.visible = comparing;
-    if (comparing)
-      for (let i = 0; i < 8; i++) {
-        const a = (i * (SEGMENTS + 1) * 2 + SEGMENTS * 2) * 3,
-          b = (i + 8) * (SEGMENTS + 1) * 2 * 3,
-          o = i * 6;
-        for (let k = 0; k < 3; k++) {
-          connectorPoints[o + k] = positions[a + k];
-          connectorPoints[o + 3 + k] = positions[b + k];
-        }
-        connectorGeo.attributes.position.needsUpdate = true;
-      }
-    rig.updateMatrixWorld(true);
-    let notes = [];
-    if (comparing)
-      notes = [
-        ["Reference", -3.2, 2.2, 0],
-        ["Compared", 0.5, 2.2, 0],
-        ["Differences retained", 0.5, -2.15, 0],
-      ];
-    else if (selected) {
-      const terms =
-        {
-          topology: ["Wafer measurements", "Surface variation"],
-          diagnosis: ["Observations", "Recommended checks"],
-          usage: ["Reactor usage", "Maintenance planning"],
-          difference: ["Weight & temperature", "Baseplate arrangement"],
-          zones: ["Inner region", "Outer region"],
-          history: ["Process events", "Lot history"],
-          schedule: ["Reactor schedules", "Shared timeline"],
-          maintenance: ["Due dates & status", "Maintenance schedule"],
-          compilation: ["Metrology inputs", "Calculated reports"],
-          report: ["LayTec inputs", "Engineering report"],
-          pathfinder: ["Parameter selection", "Direct chart access"],
-          signals: ["Parameter signals", "Shared time axis"],
-          observatory: ["GaN parameters", "SPC review"],
-          legacy: ["Legacy parameters", "SPC review"],
-        }[selected.visualConcept] || [];
-      notes = terms.map((s, i) => [s, i ? 1.3 : -3, i ? -2.6 : 2.6, 0]);
-    }
-    labelElements.forEach((el, i) => {
-      el.hidden = !notes[i];
-      if (!notes[i]) return;
-      const [text, x, y, z] = notes[i];
-      el.textContent = text;
-      projection.set(x, y, z).applyMatrix4(rig.matrixWorld).project(camera);
-      el.style.transform =
-        "translate(" +
-        (projection.x * 0.5 + 0.5) * rect.width +
-        "px," +
-        (-0.5 * projection.y + 0.5) * rect.height +
-        "px)";
-    });
-    if (renderer) {
-      renderer.render(scene, camera);
-    } else {
-      for (let i = 0; i < 16; i++) {
-        let d = "";
-        for (let j = 0; j <= SEGMENTS; j++) {
-          const k = (i * (SEGMENTS + 1) * 2 + j * 2) * 3;
-          d +=
-            (j ? "L" : "M") +
-            positions[k].toFixed(3) +
-            "," +
-            (-positions[k + 1]).toFixed(3);
-        }
-        svgPaths[i].setAttribute("d", d);
-      }
-    }
-    return residual > 0.0007 || poseResidual > 0.0005;
-  }
   return {
-    resize,
     render,
-    get stats() {
-      return {
-        frames,
-        drawCalls: renderer?.info.render.calls || 0,
-        triangles: renderer?.info.render.triangles || 0,
-        pixelRatio: renderer?.getPixelRatio() || 0,
-        webgl: !!renderer,
-      };
-    },
+    resize,
     dispose() {
-      geo.dispose();
+      geometry.dispose();
       material.dispose();
-      connectorGeo.dispose();
-      connectors.material.dispose();
+      surfaceGeo.dispose();
+      surfaceMat.dispose();
+      contourGeo.dispose();
+      contourMat.dispose();
+      guideGeo.dispose();
+      guideMat.dispose();
+      relationGeo.dispose();
+      relationMat.dispose();
+      carrierGeo.dispose();
+      carrier.material.dispose();
       env?.dispose();
       pmrem?.dispose();
       renderer?.dispose();
