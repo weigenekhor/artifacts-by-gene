@@ -1,118 +1,96 @@
 import fs from "node:fs/promises";
 import { build } from "esbuild";
-const { apps } = JSON.parse(await fs.readFile("content/apps.json", "utf8"));
-const story = JSON.parse(await fs.readFile("content/story.json", "utf8"));
+import { contourSegments } from "../js/contours.js";
+const read = async (p) =>
+  JSON.parse((await fs.readFile(p, "utf8")).replace(/^\uFEFF/, ""));
+const { apps } = await read("content/apps.json"),
+  features = await read("content/exhibition.json");
 const esc = (s) =>
   String(s)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll('"', "&quot;");
-const lines = (s) =>
-  esc(s)
-    .split("\n")
-    .map((t) => `<span class="type-line"><span>${t}</span></span>`)
-    .join("");
-const groups = [...new Set(apps.map((a) => a.category))];
+const lines = (s) => esc(s).replaceAll("\n", "<br>");
+const number = (n) => String(n).padStart(2, "0");
+const image = (a, full = false) =>
+  `<img src="${full ? a.evidence.full : a.evidence.src}" width="${full ? a.evidence.fullWidth : a.evidence.width}" height="${full ? a.evidence.fullHeight : a.evidence.height}" alt="${esc(a.evidence.label)} in ${esc(a.name)}" loading="lazy" decoding="async">`;
+function visual(f, a) {
+  if (f.kind === "compare")
+    return `<div class="comparison" aria-hidden="true"><div class="compare-labels"><span>Reference recipe</span><span>Compared recipe</span></div><div class="compare-columns">${[0, 1].map((col) => `<div class="recipe-column">${Array.from({ length: 7 }, (_, i) => `<div class="recipe-step ${i === 3 ? "changed" : ""}" style="--row:${i};--shift:${col ? [2, -1, 3, -2, 1, -3, 0][i] : 0}"><span>${number(i + 1)}</span><i style="width:${[64, 43, 70, 52, 38, 58, 46][i]}%"></i><b></b></div>`).join("")}</div>`).join("")}</div><div class="compare-guide"><span>Equivalent steps aligned</span><span class="changed-key">Difference retained</span></div></div>`;
+  if (f.kind === "surface") {
+    const field = (x, y) =>
+      0.72 * Math.exp(-((x - 0.75) ** 2 + (y + 0.2) ** 2) * 0.7) -
+      0.4 * Math.exp(-((x + 1.1) ** 2 + (y - 0.65) ** 2) * 1.3) +
+      0.16 * Math.sin(x * 1.4 + y);
+    const c = contourSegments(field);
+    let path = "";
+    for (let i = 0; i < c.length; i += 6)
+      path += `M${(300 + c[i] * 82).toFixed(2)},${(300 + c[i + 1] * 82).toFixed(2)}L${(300 + c[i + 3] * 82).toFixed(2)},${(300 + c[i + 4] * 82).toFixed(2)}`;
+    return `<div class="surface-object" aria-hidden="true"><div class="surface-shadow"></div><svg class="surface-map" viewBox="0 0 600 600"><defs><radialGradient id="wafer-light" cx="66%" cy="30%"><stop stop-color="#ac794e"/><stop offset=".38" stop-color="#4c3f32"/><stop offset="1" stop-color="#181b19"/></radialGradient></defs><circle class="wafer-base" cx="300" cy="300" r="228" fill="url(#wafer-light)"/><circle cx="300" cy="300" r="230" fill="none" stroke="#b1a48c" stroke-opacity=".35"/><path class="contours" d="${path}" fill="none" stroke="#e5cda6" stroke-width=".8"/>${Array.from(
+      { length: 49 },
+      (_, i) => {
+        const x = ((i % 7) - 3) * 53,
+          y = (Math.floor(i / 7) - 3) * 53;
+        return Math.hypot(x, y) < 217
+          ? `<circle class="sample-dot" cx="${300 + x}" cy="${300 + y}" r="2" fill="#ece4d3"/>`
+          : "";
+      },
+    ).join(
+      "",
+    )}<path d="M65 300H535M300 65V535" stroke="#d3b78d" stroke-opacity=".18" stroke-width=".6"/></svg><span class="surface-label label-a">Discrete measurements</span><span class="surface-label label-b">Continuous understanding</span></div>`;
+  }
+  if (f.kind === "diagnose")
+    return `<div class="diagnosis-object" aria-hidden="true"><svg viewBox="0 0 700 430"><defs><linearGradient id="path-light"><stop stop-color="#e7b17c"/><stop offset="1" stop-color="#8da092"/></linearGradient></defs><g class="diagnosis-paths" fill="none" stroke="#49504a">${[70, 165, 265, 360].map((y, i) => `<path d="M80 215H190C260 215 260 ${y} 325 ${y}H585"/>`).join("")}</g><path class="diagnosis-route" d="M80 215H190C260 215 260 165 325 165H585" fill="none" stroke="url(#path-light)" stroke-width="2" pathLength="1"/><circle cx="80" cy="215" r="8" fill="#d6b086"/>${[70, 165, 265, 360].map((y, i) => `<circle cx="585" cy="${y}" r="5" fill="${i === 1 ? "#d6b086" : "#49504a"}"/>`).join("")}<g fill="#b5bcb3" font-family="Geist,Arial" font-size="12"><text x="65" y="251">Observed drift</text><text x="380" y="53">Temperature behavior</text><text x="380" y="148" fill="#dfbd96">Recommended checks</text><text x="380" y="248">Process observations</text><text x="380" y="343">Other possibilities</text></g></svg></div>`;
+  return `<div class="signal-object" aria-hidden="true">${[0, 1, 2].map((n) => `<div class="signal-plane" style="--plane:${n}"><span>Shared equipment context <i>0${n + 1}</i></span>${image(a)}<div class="signal-crosshair"></div></div>`).join("")}</div>`;
+}
 let html = await fs.readFile("content/page.html", "utf8");
-html = html
-  .replace(
-    "<!-- SCENES -->",
-    story
-      .map(
-        (s, i) =>
-          `<article class="scene scene-${s.layout}" data-scene="${i}" id="${s.id}"><p class="eyebrow">${esc(s.eyebrow)}</p><${i ? "h2" : "h1"}>${lines(s.title)}</${i ? "h2" : "h1"}><p class="scene-text">${lines(s.text)}</p></article>`,
-      )
-      .join(""),
-  )
-  .replace(
-    "<!-- GROUPS -->",
-    groups
-      .map(
-        (g, i) =>
-          `<button data-group="${i}" aria-pressed="${i === 0}"><span>0${i + 1}</span> ${esc(g.split(" - ")[1])}</button>`,
-      )
-      .join(""),
-  )
-  .replace(
-    "<!-- NODES -->",
-    apps
-      .map(
-        (a) =>
-          `<button class="app-node" data-app="${a.id}" data-group="${groups.indexOf(a.category)}" aria-label="${esc(a.name)}: ${esc(a.description)}"><span class="node-number">${String(a.index).padStart(2, "0")}</span><span class="node-title">${esc(a.name)}</span><span class="node-purpose">${esc(a.description)}</span></button>`,
-      )
-      .join(""),
-  )
-  .replace(
-    "<!-- SOFTWARE -->",
-    apps
-      .map(
-        (a) =>
-          `<figure class="software-frame" data-software="${a.id}"><button data-proof="${a.id}" aria-label="Inspect ${esc(a.name)}"><img data-src="${a.evidence.src}" width="${a.evidence.width}" height="${a.evidence.height}" alt="${esc(a.evidence.label)} in ${esc(a.name)}" decoding="async"></button><figcaption>${esc(a.evidence.label)} <span>View complete interface ↗</span></figcaption></figure>`,
-      )
-      .join(""),
-  )
-  .replace(
-    "<!-- OPTIONS -->",
-    apps.map((a) => `<option value="${a.id}">${esc(a.name)}</option>`).join(""),
-  )
-  .replace(
-    "<!-- CHAPTERS -->",
-    [0, 2, 4, 5, 7, 9, 11, 12, 13]
-      .map(
-        (i) =>
-          `<a href="#${story[i].id}" data-chapter="${i}" aria-label="${esc(story[i].eyebrow)}"><span></span></a>`,
-      )
-      .join(""),
-  )
-  .replace(
-    "<!-- CATALOGUE -->",
-    groups
-      .map(
-        (g) =>
-          `<h3>${esc(g)}</h3><ul>${apps
-            .filter((a) => a.category === g)
-            .map(
-              (a) =>
-                `<li><a href="${a.evidence.full}">${esc(a.name)}</a> — ${esc(a.purpose)}</li>`,
-            )
-            .join("")}</ul>`,
-      )
-      .join(""),
-  );
-await fs.writeFile("index.html", html);
+html = html.replace(
+  "<!-- FEATURES -->",
+  features
+    .map((f) => {
+      const a = apps.find((a) => a.id === f.id);
+      return `<section class="feature feature-${f.kind}" id="${f.kind}" data-feature="${f.kind}" aria-labelledby="title-${f.kind}"><div class="feature-stage"><div class="feature-top"><span>${f.number} / 04</span><span>${esc(a.name)}</span><span>${esc(f.kicker)}</span></div><div class="feature-copy"><p class="eyebrow">${esc(a.description)}</p><h2 id="title-${f.kind}">${lines(f.title)}</h2><p>${esc(f.text)}</p><div class="feature-verbs">${f.verbs.map((v, i) => `<span data-phase="${i}">${v}</span>`).join("<i>→</i>")}</div></div><div class="feature-visual">${visual(f, a)}</div><button class="evidence" data-capture="${a.id}" aria-label="See the actual ${esc(a.name)} interface">${image(a)}<span><b>Inside ${esc(a.name)}</b><i>↗</i></span></button><label class="study-control"><span>Explore the motion <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore ${esc(a.name)} concept motion"></label><div class="feature-foot"><span>${esc(f.caption)}</span><span>Concept study · actual interface below ↗</span></div></div></section>`;
+    })
+    .join(""),
+);
+html = html.replace(
+  "<!-- ARCHIVE -->",
+  apps
+    .map(
+      (a, i) =>
+        `<figure data-software="${a.id}" style="--index:${i}"><button data-capture="${a.id}" aria-label="Inspect ${esc(a.name)}">${image(a, true)}</button><figcaption>${esc(a.evidence.label)} <span>Original software capture ↗</span></figcaption></figure>`,
+    )
+    .join(""),
+);
+html = html.replace(
+  "<!-- RAIL -->",
+  apps
+    .map(
+      (a, i) =>
+        `<a href="#app-${a.id}" data-jump="${i}" aria-label="${number(i + 1)} ${esc(a.name)}"><span>${number(i + 1)}</span></a>`,
+    )
+    .join(""),
+);
+const groups = [...new Set(apps.map((a) => a.category))];
+html = html.replace(
+  "<!-- INDEX -->",
+  groups
+    .map(
+      (g, i) =>
+        `<div class="index-group"><h3><span>Expedition ${["I", "II", "III", "IV"][i]}</span>${esc(g.split(" - ")[1])}</h3><div>${apps
+          .filter((a) => a.category === g)
+          .map(
+            (a) =>
+              `<a class="app-node" id="app-${a.id}" data-app="${a.id}" href="${a.evidence.full}"><span>${number(a.index)}</span><h4>${esc(a.name)}</h4><p>${esc(a.description)}</p><b aria-hidden="true">↗</b></a>`,
+          )
+          .join("")}</div></div>`,
+    )
+    .join(""),
+);
+await fs.writeFile("index.html", html.replace(/^\uFEFF/, ""));
 await fs.writeFile(
   "js/apps.js",
-  `// Generated from the verified catalogue.\nexport const apps = ${JSON.stringify(
-    apps.map(
-      ({
-        id,
-        index,
-        name,
-        category,
-        description,
-        purpose,
-        headline,
-        evidence,
-        transformation,
-        visualConcept,
-        relationships,
-      }) => ({
-        id,
-        index,
-        name,
-        category,
-        description,
-        purpose,
-        headline,
-        evidence,
-        transformation,
-        visualConcept,
-        relationships,
-      }),
-    ),
-    null,
-    2,
-  )};\nexport const story = ${JSON.stringify(story, null, 2)};\n`,
+  `// Generated from the verified source catalogue.\nexport const apps=${JSON.stringify(apps.map(({ id, index, name, category, description, purpose, evidence, headline }) => ({ id, index, name, category, description, purpose, evidence, headline })))};`,
 );
 await build({
   entryPoints: ["js/experience.js"],
@@ -123,8 +101,4 @@ await build({
   outfile: "script.js",
   legalComments: "eof",
 });
-await fs.writeFile(
-  "script.js",
-  (await fs.readFile("script.js", "utf8")).replace(/[\t ]+$/gm, ""),
-);
-console.log("Built the continuous static ARTIFACTS experience.");
+console.log("Built ARTIFACTS software exhibition.");

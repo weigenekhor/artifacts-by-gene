@@ -43,7 +43,7 @@ assert.equal((html.match(/class="app-node"/g) || []).length, 16);
 for (const app of apps) {
   assert.ok(html.includes('data-app="' + app.id + '"'));
   assert.ok(html.includes('data-software="' + app.id + '"'));
-  assert.ok(html.includes('data-src="' + app.evidence.src + '"'));
+  assert.ok(html.includes('src="' + app.evidence.full + '"'));
   assert.ok(html.includes('href="' + app.evidence.full + '"'));
 }
 assert.ok(!html.includes("®"));

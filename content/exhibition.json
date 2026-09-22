@@ -1,0 +1,42 @@
+[
+  {
+    "id": "papyrus-reader",
+    "kind": "compare",
+    "kicker": "A different way to compare",
+    "title": "Find the change.\nKeep the meaning.",
+    "text": "When steps move, a line-by-line comparison loses the thread. Papyrus Reader follows equivalent steps and brings the differences forward.",
+    "verbs": ["Read", "Align", "Compare"],
+    "caption": "Recipe comparison, independent of line order.",
+    "number": "01"
+  },
+  {
+    "id": "topotracer",
+    "kind": "surface",
+    "kicker": "A different way to see",
+    "title": "Numbers have\na shape.",
+    "text": "A column of measurements tells part of the story. TopoTracer places them across the wafer, so spatial variation becomes visible.",
+    "verbs": ["Measure", "Interpolate", "Understand"],
+    "caption": "Wafer measurements, seen in context.",
+    "number": "02"
+  },
+  {
+    "id": "gan-temp-diagnoser",
+    "kind": "diagnose",
+    "kicker": "A different way to investigate",
+    "title": "A signal.\nA direction.",
+    "text": "Temperature drift raises questions. GaN Temp Diagnoser connects observed behavior with likely causes and the checks worth making next.",
+    "verbs": ["Observe", "Narrow", "Investigate"],
+    "caption": "A considered starting point for diagnosis.",
+    "number": "03"
+  },
+  {
+    "id": "metria-spc",
+    "kind": "signals",
+    "kicker": "A different way to connect",
+    "title": "The picture\nbetween signals.",
+    "text": "Equipment parameters make more sense together. Metria SPC brings related charts into one view, with interactive analysis to follow the detail.",
+    "verbs": ["Gather", "Relate", "Explore"],
+    "caption": "Equipment analysis with shared context.",
+    "number": "04"
+  }
+]
