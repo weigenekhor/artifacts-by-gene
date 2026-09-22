@@ -14,21 +14,22 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The opening places actual ARTIFACTS interfaces in a layered perspective composition. A short origin passage leads into four purpose-built demonstrations: Papyrus comparison, TopoTracer contours, GaN diagnosis and Metria analysis. Native scroll moves each study forward; a keyboard-accessible range control lets visitors examine the transformation directly.
+The opening places actual ARTIFACTS interfaces in a layered perspective composition. A short origin passage leads into sixteen purpose-built demonstrations in the original application order. Native scroll moves each study forward; a keyboard-accessible range control lets visitors examine the transformation directly.
 
-The complete collection follows. All sixteen applications advance sequentially with scrolling. The rail, arrows, horizontal touch gestures and direct links provide optional shortcuts. The final index preserves the original four Expeditions and opens every real interface. Creator attribution stays quiet.
+The complete collection follows. All sixteen applications advance sequentially with scrolling. The rail, arrows, horizontal touch gestures and direct links provide optional shortcuts. The final index preserves the original four collections and opens every real interface. Creator attribution stays quiet.
 
 See `content/STORYBOARD.md` for the story and factual boundaries. The previous full-page WebGL timeline has been removed. Perspective is handled by CSS; contour geometry is generated at build time. The browser bundle contains only the interaction controller and catalogue.
 
 ## Source files
 
 - `content/page.html`: semantic page template and copy.
-- `content/exhibition.json`: four demonstration narratives and source app IDs.
-- `content/apps.json`: all sixteen verified apps, purposes, original Expedition groups and asset provenance.
+- `content/exhibition.json`: sixteen three-stage demonstration narratives and source app IDs.
+- `content/apps.json`: all sixteen verified apps, purposes, original source groups and asset provenance.
 - `scripts/build.mjs`: static SVG generation, HTML rendering and script bundling.
 - `js/contours.js`: build-time equal-height contour extraction for an illustrative field.
 - `js/experience.js`: scroll progression, damping, direct controls, archive and image viewer.
-- `styles.css`: visual design, responsive composition and reduced motion.
+- `styles.css` and `studies.css`: visual design, extended study pacing, responsive composition and reduced motion.
+- `scripts/study-visuals.mjs` and `js/studies.js`: app-specific diagrams and their shared three-stage choreography.
 
 Generated files: `index.html`, `js/apps.js`, `script.js`. Edit their sources and rebuild.
 
@@ -47,6 +48,8 @@ pnpm test:evidence
 Review the crop rectangle in `scripts/prepare-evidence.mjs` when a source layout changes. `assets/evidence/audit.json` records hashes, source dimensions and crop coordinates.
 
 ## Verification
+
+The latest sixteen-study visual pass has basic build/runtime checks and a focused desktop/mobile visual review only. The existing full suite and v10 results below predate this expansion; full validation is deferred until visual approval.
 
 ```sh
 pnpm test:evidence

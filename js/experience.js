@@ -1,4 +1,5 @@
 import { apps } from "./apps.js";
+import { createStudy } from "./studies.js";
 const $ = (s) => document.querySelector(s),
   $$ = (s) => [...document.querySelectorAll(s)],
   clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v)),
@@ -14,6 +15,7 @@ const root = document.documentElement,
   features = $$(".feature"),
   frames = $$(".archive-images figure"),
   rail = $$(".archive-rail a");
+const studies = features.map(createStudy);
 const preference = matchMedia("(prefers-reduced-motion: reduce)");
 let reduced = preference.matches,
   paused = false,
@@ -82,12 +84,17 @@ function measure() {
   measured = true;
   wake();
 }
+$("#study-select").addEventListener("change", (e) => {
+  const section = document.getElementById(e.target.value);
+  section.scrollIntoView({ behavior: reduced ? "instant" : "smooth" });
+  history.replaceState(null, "", "#" + e.target.value);
+});
 function selectApp(index) {
   index = clamp(index, 0, 15);
   const a = apps[index];
   $("#archive-name").textContent = a.name;
   $("#archive-purpose").textContent = a.purpose;
-  $("#archive-group").textContent = a.category.replace(" - ", " / ");
+  $("#archive-group").textContent = a.category.split(" - ")[1];
   $("#archive-number").textContent = String(index + 1).padStart(2, "0");
   $("#previous-app").disabled = index === 0;
   $("#next-app").disabled = index === 15;
@@ -159,23 +166,21 @@ function tick(time) {
     (y - originBounds.top + innerHeight * 0.4) / (originBounds.height * 0.65),
   );
   origin.style.setProperty("--origin", op);
+  let studyMoving = false;
   features.forEach((el, i) => {
     const b = featureBounds[i];
     if (y + innerHeight < b.top || y > b.top + b.height) return;
-    const p = manualProgress.has(i)
-      ? manualProgress.get(i)
-      : reduced
-        ? 1
-        : ease(
-            (y - b.top + innerHeight * 0.27) /
-              Math.max(innerHeight * 0.65, b.height - b.stage),
-          );
-    if (!manualProgress.has(i))
-      el.querySelector("input[type=range]").value = Math.round(p * 100);
-    el.style.setProperty("--progress", p);
-    el.querySelectorAll("[data-phase]").forEach((v, j) =>
-      v.classList.toggle("active", j === Math.min(2, Math.floor(p * 3))),
-    );
+    const manual = manualProgress.has(i),
+      p = manual
+        ? manualProgress.get(i)
+        : reduced
+          ? 1
+          : clamp(
+              (y - b.top + innerHeight * 0.18) /
+                (Math.max(innerHeight * 0.7, b.height - b.stage) +
+                  innerHeight * 0.18),
+            );
+    studyMoving = studies[i].update(p, dt, reduced, manual) || studyMoving;
   });
   // Leave a readable frontal hold around each app; travel happens between holds.
   const shown = Math.floor(current) + ease(((current % 1) - 0.22) / 0.56),
@@ -193,6 +198,7 @@ function tick(time) {
     }
   });
   if (
+    studyMoving ||
     Math.abs(current - target) > 0.001 ||
     Math.abs(px - tx) + Math.abs(py - ty) > 0.001
   )

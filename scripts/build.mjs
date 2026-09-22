@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import { build } from "esbuild";
 import { contourSegments } from "../js/contours.js";
+import { expandedVisual } from "./study-visuals.mjs";
 const read = async (p) =>
   JSON.parse((await fs.readFile(p, "utf8")).replace(/^\uFEFF/, ""));
 const { apps } = await read("content/apps.json"),
@@ -15,6 +16,8 @@ const number = (n) => String(n).padStart(2, "0");
 const image = (a, full = false) =>
   `<img src="${full ? a.evidence.full : a.evidence.src}" width="${full ? a.evidence.fullWidth : a.evidence.width}" height="${full ? a.evidence.fullHeight : a.evidence.height}" alt="${esc(a.evidence.label)} in ${esc(a.name)}" loading="lazy" decoding="async">`;
 function visual(f, a) {
+  const extended = expandedVisual(f, a);
+  if (extended) return extended;
   if (f.kind === "compare")
     return `<div class="comparison" aria-hidden="true"><div class="compare-labels"><span>Reference recipe</span><span>Compared recipe</span></div><div class="compare-columns">${[0, 1].map((col) => `<div class="recipe-column">${Array.from({ length: 7 }, (_, i) => `<div class="recipe-step ${i === 3 ? "changed" : ""}" style="--row:${i};--shift:${col ? [2, -1, 3, -2, 1, -3, 0][i] : 0}"><span>${number(i + 1)}</span><i style="width:${[64, 43, 70, 52, 38, 58, 46][i]}%"></i><b></b></div>`).join("")}</div>`).join("")}</div><div class="compare-guide"><span>Equivalent steps aligned</span><span class="changed-key">Difference retained</span></div></div>`;
   if (f.kind === "surface") {
@@ -47,10 +50,20 @@ let html = await fs.readFile("content/page.html", "utf8");
 html = html.replace(
   "<!-- FEATURES -->",
   features
-    .map((f) => {
-      const a = apps.find((a) => a.id === f.id);
-      return `<section class="feature feature-${f.kind}" id="${f.kind}" data-feature="${f.kind}" aria-labelledby="title-${f.kind}"><div class="feature-stage"><div class="feature-top"><span>${f.number} / 04</span><span>${esc(a.name)}</span><span>${esc(f.kicker)}</span></div><div class="feature-copy"><p class="eyebrow">${esc(a.description)}</p><h2 id="title-${f.kind}">${lines(f.title)}</h2><p>${esc(f.text)}</p><div class="feature-verbs">${f.verbs.map((v, i) => `<span data-phase="${i}">${v}</span>`).join("<i>→</i>")}</div></div><div class="feature-visual">${visual(f, a)}</div><button class="evidence" data-capture="${a.id}" aria-label="See the actual ${esc(a.name)} interface">${image(a)}<span><b>Inside ${esc(a.name)}</b><i>↗</i></span></button><label class="study-control"><span>Explore the motion <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore ${esc(a.name)} concept motion"></label><div class="feature-foot"><span>${esc(f.caption)}</span><span>Concept study · actual interface below ↗</span></div></div></section>`;
+    .map((f, i) => {
+      const a = apps.find((a) => a.id === f.id),
+        next = features[i + 1];
+      return `<section class="feature feature-${f.kind}${f.paper ? " feature-paper" : ""}" id="${f.kind}" data-feature="${f.kind}" data-study-app="${a.id}" data-beats="${esc(JSON.stringify(f.beats))}" aria-labelledby="title-${f.kind}"><div class="feature-stage"><div class="feature-top"><span>${f.number} / 16</span><span>${esc(a.name)}</span><a href="#study-index">Choose an application ↗</a></div><div class="feature-copy"><p class="eyebrow">${esc(a.description)}</p><h2 id="title-${f.kind}">${lines(f.title)}</h2><p>${esc(f.text)}</p><div class="feature-verbs">${f.verbs.map((v, i) => `<span data-phase="${i}">${v}</span>`).join("<i>→</i>")}</div><p class="study-beat">${esc(f.beats[0])}</p></div><div class="feature-visual">${visual(f, a)}</div><button class="evidence" data-capture="${a.id}" aria-label="See the actual ${esc(a.name)} interface">${image(a)}<span><b>Inside ${esc(a.name)}</b><i>↗</i></span></button><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore ${esc(a.name)} concept motion"></label><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Concept study · actual software ↗</span><a href="#${next ? next.kind : "collection"}">Next / ${esc(f.handoff)} <b>↓</b></a></div></div></section>`;
     })
+    .join(""),
+);
+html = html.replace(
+  "<!-- STUDY OPTIONS -->",
+  features
+    .map(
+      (f) =>
+        `<option value="${f.kind}">${f.number} — ${esc(apps.find((a) => a.id === f.id).name)}</option>`,
+    )
     .join(""),
 );
 html = html.replace(
@@ -77,7 +90,7 @@ html = html.replace(
   groups
     .map(
       (g, i) =>
-        `<div class="index-group"><h3><span>Expedition ${["I", "II", "III", "IV"][i]}</span>${esc(g.split(" - ")[1])}</h3><div>${apps
+        `<div class="index-group"><h3><span>Collection ${number(i + 1)}</span>${esc(g.split(" - ")[1])}</h3><div>${apps
           .filter((a) => a.category === g)
           .map(
             (a) =>

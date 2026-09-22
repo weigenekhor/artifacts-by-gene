@@ -1,42 +1,274 @@
 [
   {
-    "id": "papyrus-reader",
-    "kind": "compare",
-    "kicker": "A different way to compare",
-    "title": "Find the change.\nKeep the meaning.",
-    "text": "When steps move, a line-by-line comparison loses the thread. Papyrus Reader follows equivalent steps and brings the differences forward.",
-    "verbs": ["Read", "Align", "Compare"],
-    "caption": "Recipe comparison, independent of line order.",
-    "number": "01"
+    "id": "altus-lotviewer",
+    "kind": "history",
+    "title": "Every event.\nIn context.",
+    "text": "Events arrive separately. A useful history puts them back in order. Follow the lot through its process events, wafer states and durations.",
+    "kicker": "Lot history analysis.",
+    "verbs": ["Gather", "Order", "Follow"],
+    "beats": [
+      "Separate records enter the view.",
+      "Timestamps bring the sequence together.",
+      "Follow the lot without losing its context."
+    ],
+    "caption": "Lot history analysis.",
+    "number": "01",
+    "paper": false,
+    "handoff": "Altus ANKO Viewer"
+  },
+  {
+    "id": "altus-anko-viewer",
+    "kind": "schedule",
+    "title": "Know what\ncomes next.",
+    "text": "A schedule is useful when you can see the work around it. Bring ANKO dates into view across the Altus equipment.",
+    "kicker": "ANKO schedule retrieval.",
+    "verbs": ["Retrieve", "Align", "Look ahead"],
+    "beats": [
+      "Equipment schedules begin as separate lanes.",
+      "The lanes settle into a shared view.",
+      "Attention moves to the work ahead."
+    ],
+    "caption": "ANKO schedule retrieval.",
+    "number": "02",
+    "paper": false,
+    "handoff": "Altus WaferCount"
+  },
+  {
+    "id": "altus-wafercount",
+    "kind": "usage",
+    "title": "Make usage\nvisible.",
+    "text": "Equipment logs hold a history of use. Bring wafer counts into view as a clearer basis for maintenance planning.",
+    "kicker": "Chamber usage and wafer counts.",
+    "verbs": ["Collect", "Accumulate", "Review"],
+    "beats": [
+      "Wafer activity starts as individual events.",
+      "Activity gathers around each chamber.",
+      "Usage becomes something you can review."
+    ],
+    "caption": "Chamber usage and wafer counts.",
+    "number": "03",
+    "paper": false,
+    "handoff": "TopoTracer"
   },
   {
     "id": "topotracer",
     "kind": "surface",
-    "kicker": "A different way to see",
+    "kicker": "Contour and topography plots.",
     "title": "Numbers have\na shape.",
     "text": "A column of measurements tells part of the story. TopoTracer places them across the wafer, so spatial variation becomes visible.",
     "verbs": ["Measure", "Interpolate", "Understand"],
-    "caption": "Wafer measurements, seen in context.",
-    "number": "02"
+    "caption": "Contour and topography plots.",
+    "number": "04",
+    "beats": [
+      "Discrete points preserve individual measurements.",
+      "Contours reveal the shape between the points.",
+      "The wafer becomes a field you can read."
+    ],
+    "paper": true,
+    "handoff": "Papyrus Reader"
+  },
+  {
+    "id": "papyrus-reader",
+    "kind": "compare",
+    "kicker": "Logical recipe and text comparison.",
+    "title": "Find the change.\nKeep the meaning.",
+    "text": "When steps move, a line-by-line comparison loses the thread. Papyrus Reader follows equivalent steps and brings the differences forward.",
+    "verbs": ["Read", "Align", "Compare"],
+    "caption": "Logical recipe and text comparison.",
+    "number": "05",
+    "beats": [
+      "The same recipe steps occupy different positions.",
+      "Equivalent steps find their counterparts.",
+      "The unchanged settles back. Differences remain."
+    ],
+    "paper": true,
+    "handoff": "SPC Pathfinder"
+  },
+  {
+    "id": "spc-pathfinder",
+    "kind": "pathfinder",
+    "title": "Less searching.\nMore seeing.",
+    "text": "Find the charts you need across workcentres and parameter groups. Keep the path to the right information in view.",
+    "kicker": "SPC chart finder.",
+    "verbs": ["Locate", "Select", "Open"],
+    "beats": [
+      "A workcentre contains many possible paths.",
+      "One parameter group comes into focus.",
+      "The selected path resolves into a chart."
+    ],
+    "caption": "SPC chart finder.",
+    "number": "06",
+    "paper": true,
+    "handoff": "GaN Met Compiler"
+  },
+  {
+    "id": "gan-met-compiler",
+    "kind": "compile",
+    "title": "From data\nto a report.",
+    "text": "Scattered metrology inputs become a consistent report. Gather the files, apply the predefined calculations and follow the result.",
+    "kicker": "Metrology report compiler.",
+    "verbs": ["Gather", "Calculate", "Compile"],
+    "beats": [
+      "Separate measurement inputs enter the workspace.",
+      "A common calculation structure brings them together.",
+      "The inputs resolve into a consistent report."
+    ],
+    "caption": "Metrology report compiler.",
+    "number": "07",
+    "paper": false,
+    "handoff": "GaN Temp Diagnoser"
   },
   {
     "id": "gan-temp-diagnoser",
     "kind": "diagnose",
-    "kicker": "A different way to investigate",
+    "kicker": "Temperature drift diagnosis.",
     "title": "A signal.\nA direction.",
     "text": "Temperature drift raises questions. GaN Temp Diagnoser connects observed behavior with likely causes and the checks worth making next.",
     "verbs": ["Observe", "Narrow", "Investigate"],
-    "caption": "A considered starting point for diagnosis.",
-    "number": "03"
+    "caption": "Temperature drift diagnosis.",
+    "number": "08",
+    "beats": [
+      "Observed temperature behavior opens several questions.",
+      "The observations narrow the possible directions.",
+      "Recommended checks provide a place to start."
+    ],
+    "paper": false,
+    "handoff": "AIX ΔT Assistant"
+  },
+  {
+    "id": "aix-dt-assistant",
+    "kind": "arrange",
+    "title": "An arrangement\nwith reason.",
+    "text": "Weight and temperature inputs guide baseplate arrangement. Put the basis for the decision alongside the spatial result.",
+    "kicker": "Baseplate arrangement guidance.",
+    "verbs": ["Enter", "Evaluate", "Arrange"],
+    "beats": [
+      "Baseplate inputs remain separate from their positions.",
+      "The arrangement takes shape around the process.",
+      "Review the placement and the inputs behind it."
+    ],
+    "caption": "Baseplate arrangement guidance.",
+    "number": "09",
+    "paper": false,
+    "handoff": "LT Zone Assistant"
+  },
+  {
+    "id": "lt-zone-assistant",
+    "kind": "zones",
+    "title": "Every zone.\nA shared view.",
+    "text": "Map LayTec zones against the same geometry. See the inner and outer regions in relation to the whole.",
+    "kicker": "LayTec zone mapping.",
+    "verbs": ["Locate", "Map", "Relate"],
+    "beats": [
+      "Individual regions begin with a common origin.",
+      "Boundaries extend into the measurement geometry.",
+      "Inner and outer zones share one spatial view."
+    ],
+    "caption": "LayTec zone mapping.",
+    "number": "10",
+    "paper": false,
+    "handoff": "GaN XML Assistant"
+  },
+  {
+    "id": "gan-xml-assistant",
+    "kind": "configuration",
+    "title": "Make changes\nunmistakable.",
+    "text": "Compare Devices.XML configurations, settings and constants. Bring differences forward while keeping their context intact.",
+    "kicker": "Devices.XML comparison.",
+    "verbs": ["Load", "Match", "Distinguish"],
+    "beats": [
+      "Reference and target properties enter side by side.",
+      "Matching properties line up for comparison.",
+      "Changed values remain visible in their context."
+    ],
+    "caption": "Devices.XML comparison.",
+    "number": "11",
+    "paper": false,
+    "handoff": "Magus SPC (GaN)"
+  },
+  {
+    "id": "magus-spc-gan",
+    "kind": "spc",
+    "title": "Keep the process\nin perspective.",
+    "text": "Review configured GaN SPC charts and parameter states together. Move from a signal to the surrounding process context.",
+    "kicker": "GaN SPC release review.",
+    "verbs": ["Select", "Review", "Focus"],
+    "beats": [
+      "Equipment and parameter context frame the review.",
+      "The configured charts come into view.",
+      "Follow a signal without losing the broader picture."
+    ],
+    "caption": "GaN SPC release review.",
+    "number": "12",
+    "paper": true,
+    "handoff": "Magus SPC (Legacy)"
+  },
+  {
+    "id": "magus-spc-legacy",
+    "kind": "legacy",
+    "title": "A familiar process.\nA clearer view.",
+    "text": "Keep established SPC workflows within reach. Bring legacy parameter states and charts into one review environment.",
+    "kicker": "Legacy SPC release review.",
+    "verbs": ["Retrieve", "Expand", "Review"],
+    "beats": [
+      "The parameter index provides a familiar entry point.",
+      "One parameter opens into its chart.",
+      "State and chart remain in the same review."
+    ],
+    "caption": "Legacy SPC release review.",
+    "number": "13",
+    "paper": true,
+    "handoff": "ANKO Helper"
+  },
+  {
+    "id": "anko-helper",
+    "kind": "planning",
+    "title": "Plan with the\nwhole picture.",
+    "text": "Bring ANKO status and due dates together. See what needs attention before deciding what comes next.",
+    "kicker": "ANKO status and due dates.",
+    "verbs": ["Gather", "Prioritise", "Plan"],
+    "beats": [
+      "Equipment status and due dates begin apart.",
+      "The two views align around the same equipment.",
+      "Planning starts with the relevant context in view."
+    ],
+    "caption": "ANKO status and due dates.",
+    "number": "14",
+    "paper": true,
+    "handoff": "LT Report Compiler"
+  },
+  {
+    "id": "lt-report-compiler",
+    "kind": "report",
+    "title": "A consistent\nreport.",
+    "text": "Assemble LayTec information into an engineering report. A repeated reporting task becomes a repeatable process.",
+    "kicker": "LayTec report compilation.",
+    "verbs": ["Read", "Assemble", "Report"],
+    "beats": [
+      "LayTec records enter as separate source material.",
+      "Their contents gather into a common structure.",
+      "A report takes the place of repeated assembly."
+    ],
+    "caption": "LayTec report compilation.",
+    "number": "15",
+    "paper": false,
+    "handoff": "Metria SPC"
   },
   {
     "id": "metria-spc",
     "kind": "signals",
-    "kicker": "A different way to connect",
+    "kicker": "Interactive multi-parameter equipment SPC.",
     "title": "The picture\nbetween signals.",
     "text": "Equipment parameters make more sense together. Metria SPC brings related charts into one view, with interactive analysis to follow the detail.",
     "verbs": ["Gather", "Relate", "Explore"],
-    "caption": "Equipment analysis with shared context.",
-    "number": "04"
+    "caption": "Interactive multi-parameter equipment SPC.",
+    "number": "16",
+    "beats": [
+      "Individual parameter traces begin on separate axes.",
+      "A shared time window brings the signals together.",
+      "Move through the same interval across every trace."
+    ],
+    "paper": false,
+    "handoff": "The complete collection"
   }
 ]
