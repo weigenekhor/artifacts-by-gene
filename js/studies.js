@@ -1,3 +1,4 @@
+import { createInspection } from "./inspection.js";
 import { developInstrument } from "./instruments.js";
 import { createAnalysis } from "./analysis.js";
 // Interface, method, inspection and handoff share the page's single clock.
@@ -22,6 +23,7 @@ export function createStudy(el, wake) {
     scans = [...el.querySelectorAll("[data-scan]")],
     cursor = el.querySelector("[data-cursor]");
   const develop = developInstrument(el);
+  const inspectDetail = createInspection(el);
   const analysis = createAnalysis(el),
     timings = el.dataset.timings.split(",").map(Number);
   const stateName = el.querySelector(".state-name"),
@@ -213,6 +215,7 @@ export function createStudy(el, wake) {
         );
       develop(functional, stages);
       analysis(reduced ? 0 : expand, stages.inspect, p);
+      inspectDetail(reduced ? 0.7 : p, stages.inspect);
       return Math.abs(p - wanted) > 0.0005;
     },
   };

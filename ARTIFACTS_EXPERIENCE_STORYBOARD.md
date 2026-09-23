@@ -2,30 +2,31 @@
 
 This storyboard implements Gene's latest brief (23 September 2026). It supersedes the older `content/STORYBOARD.md`. Read with `ARTIFACTS_CREATIVE_DIRECTION.md`; the latest user request takes precedence.
 
-## 00 — The Artifact
+## 00 — The instrument
 
-One faceted, laminated object holds sixteen application surfaces. It is an invented physical expression of the software collection, not a wafer, reactor, computer or chip. Graphite faces, cut edges and recessed surfaces establish mass; actual supplied application captures form its interior.
+An open frame holds sixteen inset application surfaces. Two articulated yokes, chamfered rails and discrete retention ribs expose a cavity around the staggered internal leaves. The object is an invented physical expression of the collection, not a claim about real hardware. No solid shell or arbitrary slots.
 
 Headline: **ARTIFACTS**
 Supporting line: **Sixteen applications. One engineering system.**
-Transition: **Open the structure. Follow the work inside.**
 
-Recessed apertures expose actual interface material inside the closed shell. Pointer-dependent light and depth reveal its construction. The first scroll opens seams before staggered opposing layers separate. The application surfaces emerge from the material. As the gap opens, the camera aligns with the passage and travels through the separated leaves. A light field beyond the object expands into the origin chapter. No fade-to-empty handoff. Pointer/drag and keyboard inspection remain available, with restrained rotation and a direct app entry.
+Pointer light, inertial drag and keyboard inspection reveal the assembly. Scroll separates the frame first, releases the application leaves, then moves the camera into the passage. A light field expands into the next chapter.
 
-## 01 — The evidence
+## 01 — The engineering investigation
 
-Headline: **Recorded separately. Needed together.**
-Resolution: **Stop rebuilding the investigation.**
-Supporting line: **Put the method into software.**
+Headline: **The records exist. The investigation still has to be built.**
+Response: **Write the method once. Use it on the next run.**
 
-The existing light reveal is retained. Twelve finite records arrive in three families: lot events, recipe structure and measurements. Their deliberately misaligned fragments collect into ordered tracks, then collapse into three method stacks: reconstruct, compare and analyse. Captions progress from partial records to repeated investigation to repeatable method. No invented run numbers or measurements.
+Five phases share one continuous composition. Three complete source captures enter with the kinds of records involved: run history, recipe revision and wafer measurements. They settle into aligned tracks. The light environment darkens as the engineering questions become the focal point: what happened in this run, which step changed, and where variation appeared. The tracks then extend into the actual tools: Altus LotViewer, Papyrus Reader and TopoTracer. The environment returns to light as recurring tasks resolve into reusable methods. ARTIFACTS appears above the resolved tracks and leads directly into the complete collection. These are examples of the problem space, not the entire ecosystem or a claim of data exchange.
 
-## 02 — The response
+Copy transitions use separated masks so outgoing and incoming headlines never share the same space. All source captures remain uncropped. Mobile retains the questions and applications in three readable rows. Reduced motion presents the resolved method view.
 
-Headline: **A task. A method. A tool.**
-Supporting copy: **Read the lot history. Compare the recipe. Locate the variation. Compile the report. Each tool addresses a specific piece of the work.**
+## 02 — The applications
 
-Sixteen application sequences follow the verified order in `content/apps.json`. Timing varies by task. Every sequence has seven states: identity, activation, decomposition, analysis, transformation, resolution and closure. The supplied interface separates into three depth planes, the app-specific explanatory geometry develops, and the same complete interface returns to close the scene. Never preview the next application within the current scene. Small original captures remain available throughout, with a larger uncropped interface interval late in each sequence.
+Headline: **Process history. Recipe comparison. And fourteen more.**
+
+All sixteen follow the verified in-application order. Every sequence has seven states: identity, activation, decomposition, analysis, transformation, resolution and closure. The supplied interface separates into depth planes; app-specific explanatory geometry develops; the same complete interface returns to close the scene. Never show the next application's image within the current chapter.
+
+Each analytical interval adds three concise inspection notes. Geometry-based brackets follow the selected event, chamber, chart interval, property, region or report section. Recipe comparison isolates the aligned pair directly. Pointer and keyboard inspection preserve the surrounding context. Replay lasts 34–38.4 seconds; native scrolling and direct chapter selection remain available. The additional interval is for inspecting these relationships, not a decorative loop.
 
 ### Application direction
 
@@ -57,13 +58,11 @@ The original homepage capture opens the collection, followed by all sixteen full
 
 ## 04 — Attribution
 
-Headline: **I needed the tools. So I built them.**
-Supporting copy: **A recipe to compare. A temperature drift to investigate. Another report to compile. I wrote tools for the jobs that kept coming back. The collection grew with the work. ARTIFACTS is where I keep it together.**
-Attribution: **— Gene**
+Headline: **The suite came later.**
 
-A left-aligned personal note sits beside the actual homepage capture. No invented chronology, developer sketches, dates or career claims.
+“I’m Gene. I built these applications while working on semiconductor processes. Each started with a task I needed to get through: compare a recipe, investigate temperature drift, compile a report. I kept the useful tools and built the next one when the work called for it. ARTIFACTS is the result of that process.”
 
-Movement settles; the final light composition reduces density. No résumé climax or invented career details.
+A quiet personal note beside the complete homepage capture. No invented dates, career chronology or founder mythology. Motion settles.
 
 ## Access and performance
 

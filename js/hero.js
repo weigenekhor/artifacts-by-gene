@@ -5,7 +5,7 @@ layout(location=0) in vec3 position;
 layout(location=1) in vec3 normal;
 uniform mat4 projection,view;
 uniform vec2 orbit,pointer;
-uniform float index,opening,passage,selected;
+uniform float index,opening,passage,selected,part;
 out vec3 world,norm,local;
 out vec2 uv;
 mat3 ry(float a){float c=cos(a),s=sin(a);return mat3(c,0,-s,0,1,0,s,0,c);}
@@ -18,9 +18,21 @@ void main(){
  float release=smoothstep(.10+pair*.015,.88,opening);
  mat3 leaf=ry(-side*release*.22)*rz(side*release*(pair-3.5)*.018);
  vec3 p=leaf*position;
+ if(part>.5){
+  float side=index<.5?-1.:1.;
+  p=position; p.x*=side;p.y*=side;
+  p.x+=side*smoothstep(.0,.45,opening)*1.25;
+  p.z-=smoothstep(.3,.8,opening)*1.8;
+  mat3 body=ry((-.25+orbit.x+pointer.x*.025)*(1.-passage))*rx((.12+orbit.y+pointer.y*.018)*(1.-passage));
+  world=body*p;norm=body*vec3(normal.x*side,normal.y*side,normal.z);
+  gl_Position=projection*view*vec4(world,1.);return;
+ }
+ p.xy*=.64+release*.36;
+ p.x+=(pair-3.5)*.075*(1.-release);
+ p.y+=sin(index*.45)*.09*(1.-release);
  p.x+=side*release*(2.22+pair*.13)+side*chosen*release*.22;
  p.y+=(pair-3.5)*opening*.10;
- p.z-=index*(.075+opening*.26);p.z+=chosen*opening*.16;
+ p.z-=index*(.105+opening*.23);p.z+=chosen*opening*.16;
  p.x+=pointer.x*index*.0015*(1.-passage);p.y+=pointer.y*index*.001*(1.-passage);
  mat3 body=ry((-.30+orbit.x+pointer.x*.035)*(1.-passage))*rx((.12+orbit.y+pointer.y*.025)*(1.-passage));
  world=body*p;norm=body*leaf*normal;
@@ -33,7 +45,7 @@ in vec2 uv;
 uniform sampler2D capture;
 uniform vec3 eye;
 uniform vec2 pointer;
-uniform float opening,index,selected,clock,ready;
+uniform float opening,index,selected,clock,ready,part;
 out vec4 color;
 void main(){
  vec3 n=normalize(norm),v=normalize(eye-world),l=normalize(vec3(-3.+pointer.x,4.+pointer.y*.6,5.));
@@ -50,21 +62,11 @@ void main(){
  // Captures are recessed, continuous structural surfaces, revealed from within.
  float inset=step(.033,uv.x)*step(uv.x,.967)*step(.04,uv.y)*step(uv.y,.96);
  float face=step(.028,abs(local.z));
- // Recessed apertures cut through the outer leaves to actual captures inside.
- // Their offsets expose the depth between leaves as the viewpoint moves.
- float slotY=abs(fract((local.y+.68)*2.4+index*.011)-.5);
- float slotWidth=.87+floor((local.y+.68)*2.4)*.12;
- float aperture=step(slotY,.18)*step(abs(local.x+.14),slotWidth)*step(abs(local.y),.73);
- float shell=1.-step(3.5,index);
- if(shell>.5&&face>.5&&aperture>.5&&opening<.34)discard;
- float slotEdge=(1.-smoothstep(.18,.193,slotY))*step(.17,slotY)*step(abs(local.x+.14),slotWidth)*step(abs(local.y),.73);
- metal+=vec3(.29,.37,.36)*slotEdge*shell*(1.-smoothstep(.2,.5,opening));
- float internal=(1.-shell)*.74;
- float reveal=max(internal,smoothstep(.16,.58,opening))*inset*face*ready;
+ float reveal=inset*face*ready*(1.-step(.5,part));
  vec2 imageUV=(uv-vec2(.033,.04))/vec2(.934,.92);
  vec3 software=texture(capture,vec2(imageUV.x,1.-imageUV.y)).rgb;
  float selectedFace=1.-smoothstep(.1,.9,abs(index-selected));
- vec3 material=mix(metal,software*(.72+selectedFace*.28)+metal*.08,reveal);
+ vec3 material=mix(metal,software*(.57+selectedFace*.33+opening*.1)+metal*.04,reveal);
  float seam=step(.982,abs(local.y)/1.1)+step(.985,abs(local.x)/1.65);
  material+=vec3(.55,.41,.25)*seam*(.26+opening*.3);
  color=vec4(material,1.);
@@ -150,6 +152,74 @@ function geometry() {
   }
   return new Float32Array(v);
 }
+
+// Two articulated yokes hold the application leaves; the centre is an open cavity.
+function frameGeometry() {
+  const v = [];
+  function beam(a, b, width, depth) {
+    const dir = norm(b.map((x, i) => x - a[i]));
+    let across = norm(
+      cross(dir, Math.abs(dir[1]) > 0.9 ? [1, 0, 0] : [0, 1, 0]),
+    );
+    const up = cross(dir, across);
+    const pt = (end, u, w) =>
+      end.map(
+        (x, i) => x + (across[i] * u * width) / 2 + (up[i] * w * depth) / 2,
+      );
+    const ring = [
+      [-0.76, -1],
+      [0.76, -1],
+      [1, -0.76],
+      [1, 0.76],
+      [0.76, 1],
+      [-0.76, 1],
+      [-1, 0.76],
+      [-1, -0.76],
+    ];
+    const caps = [a, b].map((end) => ring.map(([u, w]) => pt(end, u, w)));
+    const tri = (a, b, c, n) => v.push(...a, ...n, ...b, ...n, ...c, ...n);
+    for (let j = 0; j < 2; j++)
+      for (let i = 0; i < 8; i++)
+        tri(
+          j ? b : a,
+          caps[j][i],
+          caps[j][(i + 1) % 8],
+          dir.map((x) => x * (j ? 1 : -1)),
+        );
+    for (let i = 0; i < 8; i++) {
+      const j = (i + 1) % 8,
+        A = caps[0][i],
+        B = caps[0][j],
+        C = caps[1][i],
+        D = caps[1][j],
+        n = norm(
+          cross(
+            B.map((x, k) => x - A[k]),
+            dir,
+          ),
+        );
+      tri(A, B, C, n);
+      tri(B, D, C, n);
+    }
+  }
+  // A broken perimeter, two depth rails and discrete retention ribs.
+  beam([1.54, -0.9, 0.35], [1.54, 0.78, 0.35], 0.095, 0.13);
+  beam([1.54, 0.78, 0.35], [1.23, 1.08, 0.35], 0.095, 0.13);
+  beam([1.23, 1.08, 0.35], [-0.48, 1.08, 0.35], 0.095, 0.13);
+  beam([1.54, -0.9, 0.35], [1.29, -1.12, 0.35], 0.095, 0.13);
+  beam([1.29, -1.12, 0.35], [0.88, -1.12, 0.35], 0.095, 0.13);
+  beam([1.54, 0.72, 0.32], [1.54, 0.72, -1.92], 0.09, 0.11);
+  beam([1.3, -1.08, 0.32], [1.3, -1.08, -1.92], 0.09, 0.11);
+  beam([1.54, 0.78, -1.92], [1.22, 1.06, -1.92], 0.1, 0.13);
+  beam([1.22, 1.06, -1.92], [-0.28, 1.06, -1.92], 0.1, 0.13);
+  for (let i = 0; i < 8; i++) {
+    const z = 0.12 - i * 0.245;
+    beam([1.48, 0.72, z], [1.13, 0.72, z], 0.045, 0.07);
+    beam([1.3, -1.04, z], [0.99, -0.8, z], 0.045, 0.07);
+  }
+  return new Float32Array(v);
+}
+
 export function createHero(canvas, apps, wake) {
   const fallback = { render: () => false, resize: () => {} },
     gl = canvas.getContext("webgl2", {
@@ -181,7 +251,9 @@ export function createHero(canvas, apps, wake) {
   }
   const vao = gl.createVertexArray();
   gl.bindVertexArray(vao);
-  const vertices = geometry(),
+  const leafVertices = geometry(),
+    frameVertices = frameGeometry(),
+    vertices = new Float32Array([...leafVertices, ...frameVertices]),
     buffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
   gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
@@ -190,6 +262,7 @@ export function createHero(canvas, apps, wake) {
     gl.vertexAttribPointer(i, 3, gl.FLOAT, false, 24, i * 12);
   }
   const uniforms = [
+      "part",
       "projection",
       "view",
       "orbit",
@@ -299,7 +372,7 @@ export function createHero(canvas, apps, wake) {
         travel = reduced ? 0 : smooth((p - 0.58) / 0.42);
       if (!requested) {
         requested = true;
-        [0, 3, 4, 7].forEach(loadSurface);
+        [0, 1, 3, 4, 7].forEach(loadSurface);
       }
       if (open > 0.025) textures.forEach((_, i) => loadSurface(i));
       if (dt > 35 && !reduced) {
@@ -322,7 +395,7 @@ export function createHero(canvas, apps, wake) {
         f,
         0,
         0,
-        -0.4 * (1 - open) * (1 - pass) * (innerWidth < 700 ? 0 : 1),
+        -0.34 * (1 - open) * (1 - pass) * (innerWidth < 700 ? 0 : 1),
         0,
         (far + near) / (near - far),
         -1,
@@ -334,7 +407,7 @@ export function createHero(canvas, apps, wake) {
       const eye = [
           3.4 * (1 - open * 0.65) * (1 - pass),
           mix(1.65, 0, pass),
-          mix((innerWidth < 700 ? 11 : 8.3) + open * 3.2, -9.5, travel),
+          mix((innerWidth < 700 ? 13.4 : 9.7) + open * 3.2, -9.5, travel),
         ],
         target = [0, 0, mix(-0.4, eye[2] - 7, pass)];
       gl.clearColor(0, 0, 0, 0);
@@ -352,12 +425,23 @@ export function createHero(canvas, apps, wake) {
       gl.uniform1f(u.selected, interaction.selected);
       gl.uniform1f(u.clock, t);
       gl.uniform1i(u.capture, 0);
+      gl.uniform1f(u.part, 0);
       for (let i = 15; i >= 0; i--) {
         gl.uniform1f(u.index, i);
         gl.uniform1f(u.ready, textures[i].ready ? 1 : 0);
         gl.activeTexture(gl.TEXTURE0);
         gl.bindTexture(gl.TEXTURE_2D, textures[i].texture);
-        gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 6);
+        gl.drawArrays(gl.TRIANGLES, 0, leafVertices.length / 6);
+      }
+      gl.uniform1f(u.part, 1);
+      gl.uniform1f(u.ready, 0);
+      for (let i = 0; i < 2; i++) {
+        gl.uniform1f(u.index, i);
+        gl.drawArrays(
+          gl.TRIANGLES,
+          leafVertices.length / 6,
+          frameVertices.length / 6,
+        );
       }
       canvas.dataset.surfaces = String(textures.filter((t) => t.ready).length);
       return !reduced && p < 0.98;

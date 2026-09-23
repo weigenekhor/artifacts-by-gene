@@ -20,7 +20,7 @@
     "paper": false,
     "handoff": "Altus ANKO Viewer",
     "focusLabel": "Event context",
-    "duration": 400,
+    "duration": 430,
     "closure": "The lot history returns with its context intact.",
     "timings": [0.12, 0.23, 0.36, 0.54, 0.73, 0.89]
   },
@@ -45,7 +45,7 @@
     "paper": false,
     "handoff": "Altus WaferCount",
     "focusLabel": "Schedule interval",
-    "duration": 420,
+    "duration": 450,
     "closure": "Dates stay attached to the equipment.",
     "timings": [0.12, 0.23, 0.375, 0.56, 0.73, 0.89]
   },
@@ -70,7 +70,7 @@
     "paper": false,
     "handoff": "TopoTracer",
     "focusLabel": "Chamber activity",
-    "duration": 420,
+    "duration": 450,
     "closure": "Chamber usage returns to the complete view.",
     "timings": [0.12, 0.23, 0.39, 0.54, 0.73, 0.89]
   },
@@ -95,7 +95,7 @@
     "paper": true,
     "handoff": "Papyrus Reader",
     "focusLabel": "Wafer region",
-    "duration": 440,
+    "duration": 470,
     "closure": "The region returns to the whole wafer.",
     "timings": [0.12, 0.23, 0.36, 0.56, 0.73, 0.89]
   },
@@ -120,7 +120,7 @@
     "paper": true,
     "handoff": "SPC Pathfinder",
     "focusLabel": "Recipe step",
-    "duration": 450,
+    "duration": 480,
     "closure": "The comparison returns to the complete recipes.",
     "timings": [0.12, 0.23, 0.375, 0.54, 0.73, 0.89]
   },
@@ -145,7 +145,7 @@
     "paper": true,
     "handoff": "GaN Met Compiler",
     "focusLabel": "Parameter trace",
-    "duration": 420,
+    "duration": 450,
     "closure": "Chart and selection context return together.",
     "timings": [0.12, 0.23, 0.39, 0.56, 0.73, 0.89]
   },
@@ -170,7 +170,7 @@
     "paper": false,
     "handoff": "GaN Temp Diagnoser",
     "focusLabel": "Report section",
-    "duration": 420,
+    "duration": 450,
     "closure": "The compiled report keeps a visible source context.",
     "timings": [0.12, 0.23, 0.36, 0.54, 0.73, 0.89]
   },
@@ -195,7 +195,7 @@
     "paper": false,
     "handoff": "AIX ΔT Assistant",
     "focusLabel": "Diagnostic branch",
-    "duration": 465,
+    "duration": 495,
     "closure": "Return to the observations before drawing a conclusion.",
     "timings": [0.12, 0.23, 0.375, 0.56, 0.73, 0.89]
   },
@@ -220,7 +220,7 @@
     "paper": false,
     "handoff": "LT Zone Assistant",
     "focusLabel": "Baseplate position",
-    "duration": 450,
+    "duration": 480,
     "closure": "The placement returns to the full arrangement.",
     "timings": [0.12, 0.23, 0.39, 0.54, 0.73, 0.89]
   },
@@ -245,7 +245,7 @@
     "paper": false,
     "handoff": "GaN XML Assistant",
     "focusLabel": "Zone boundary",
-    "duration": 430,
+    "duration": 460,
     "closure": "All regions return to one spatial view.",
     "timings": [0.12, 0.23, 0.36, 0.56, 0.73, 0.89]
   },
@@ -270,7 +270,7 @@
     "paper": false,
     "handoff": "Magus SPC (GaN)",
     "focusLabel": "Configuration property",
-    "duration": 430,
+    "duration": 460,
     "closure": "The difference returns to its configuration context.",
     "timings": [0.12, 0.23, 0.375, 0.54, 0.73, 0.89]
   },
@@ -295,7 +295,7 @@
     "paper": true,
     "handoff": "Magus SPC (Legacy)",
     "focusLabel": "Review interval",
-    "duration": 435,
+    "duration": 465,
     "closure": "Charts and state settle back into one review.",
     "timings": [0.12, 0.23, 0.39, 0.56, 0.73, 0.89]
   },
@@ -320,7 +320,7 @@
     "paper": true,
     "handoff": "ANKO Helper",
     "focusLabel": "Selected parameter",
-    "duration": 400,
+    "duration": 430,
     "closure": "Parameter, chart and state return together.",
     "timings": [0.12, 0.23, 0.36, 0.54, 0.73, 0.89]
   },
@@ -345,7 +345,7 @@
     "paper": true,
     "handoff": "LT Report Compiler",
     "focusLabel": "Equipment row",
-    "duration": 425,
+    "duration": 455,
     "closure": "Status and due date remain attached to each item.",
     "timings": [0.12, 0.23, 0.375, 0.56, 0.73, 0.89]
   },
@@ -370,7 +370,7 @@
     "paper": false,
     "handoff": "Metria SPC",
     "focusLabel": "Report assembly",
-    "duration": 440,
+    "duration": 470,
     "closure": "The report settles into a repeatable structure.",
     "timings": [0.12, 0.23, 0.39, 0.54, 0.73, 0.89]
   },
@@ -395,7 +395,7 @@
     "paper": false,
     "handoff": "The complete collection",
     "focusLabel": "Shared time window",
-    "duration": 460,
+    "duration": 490,
     "closure": "Independent signals return to a shared review.",
     "timings": [0.12, 0.23, 0.36, 0.56, 0.73, 0.89]
   }
