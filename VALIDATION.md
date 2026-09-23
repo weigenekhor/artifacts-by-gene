@@ -1,6 +1,6 @@
 # Validation — ARTIFACTS software exhibition
 
-**Latest visual refinement (The Artifact, 23 September):** build passed; focused browser review found no page/console errors. Reviewed closed/open/inside/through hero states, all sixteen desktop study compositions and representative mobile hero, diagnostic, zone and Metria views. All sixteen hero textures loaded. Mobile samples had no horizontal overflow. Existing media files were preserved. Full validation, hardware performance profiling and broad accessibility checks remain deferred until visual approval. Earlier results below are historical, not certification of the current renderer.
+**Latest visual refinement (instrument pass):** build and focused browser checks passed. Exercised seven timeline states for every one of the sixteen apps with no page errors; verified every study image belongs to its own application. Reviewed hero opening stages, fragment escalation/resolution, all sixteen analytical views, full same-app closure, Gene section and representative mobile compositions. The focused mobile run reported no horizontal overflow or console errors. Existing media files are unchanged. Comprehensive accessibility, responsive and hardware performance checks remain deferred.
 
 **Scope:** the results below record v10, before the sixteen-study expansion. The current visual pass has a successful build and basic runtime check across all sixteen studies, with no reported page/resource errors. Full validation of this expansion is deferred until visual approval.
 

@@ -631,3 +631,459 @@ html:not(.enhanced) .feature-visual {
   opacity: 1;
   transform: none;
 }
+
+/* The closed instrument exposes recessed information through its structural shell. */
+.hero {
+  height: 360svh;
+}
+.hero-type h1 {
+  clip-path: none;
+  animation: none;
+}
+.hero-statement {
+  max-width: 400px;
+  font-size: clamp(20px, 1.8vw, 31px);
+}
+.hero-atmosphere {
+  background:
+    radial-gradient(ellipse at 76% 42%, #5570731f, transparent 43%),
+    radial-gradient(ellipse at 67% 78%, #b99b6b0a, transparent 35%);
+}
+
+/* Finite records accumulate, then align into methods. No random field or fake data. */
+.origin {
+  height: 370svh;
+  background: #e0e2d6;
+  --align: 0;
+  --resolve: 0;
+  --accumulate: 0;
+}
+.origin-inner {
+  position: sticky;
+  top: var(--header);
+  height: calc(100svh - var(--header));
+  min-height: 0;
+  padding: 0 var(--gutter);
+  overflow: hidden;
+}
+.origin-inner > .eyebrow {
+  position: absolute;
+  top: 5%;
+  left: var(--gutter);
+  margin: 0;
+}
+.origin .story-headline {
+  position: absolute;
+  left: var(--gutter);
+  top: 15%;
+  margin: 0;
+  font-size: clamp(30px, 4.2vw, 75px);
+  line-height: 1.06;
+  z-index: 2;
+  transform: translateX(calc(var(--resolve) * -25%));
+  clip-path: inset(0 calc(var(--resolve) * 100%) 0 0);
+}
+.story-headline span {
+  display: block;
+}
+.origin .story-headline span:first-child {
+  color: #273020;
+}
+.origin .story-headline span:last-child {
+  color: #77806c;
+}
+.fragment-field {
+  position: absolute;
+  inset: 37% 9% 14%;
+  perspective: 1400px;
+  transform: translateY(calc(var(--resolve) * 90px));
+  opacity: calc(1 - var(--resolve) * 0.25);
+}
+.work-fragment {
+  position: absolute;
+  left: calc(var(--column) * 34%);
+  top: calc(var(--row) * (23% - var(--resolve) * 21%) + var(--resolve) * 21%);
+  width: 29%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 17px;
+  border: 1px solid #7f8a6a50;
+  background: #e9ecdf;
+  color: #323e27;
+  font-size: 12px;
+  transform: translate3d(
+      calc((1 - var(--align)) * var(--drift)),
+      calc((1 - var(--arrive)) * 90px),
+      calc((1 - var(--align)) * -120px)
+    )
+    rotate(calc((1 - var(--align)) * var(--angle)));
+  clip-path: inset(0 calc((1 - var(--arrive)) * 100%) 0 0);
+  box-shadow: 0 calc((1 - var(--align)) * 20px) 35px #26301e0b;
+  z-index: calc(4 - var(--row));
+}
+.fragment-mark {
+  position: relative;
+  width: 30%;
+  height: 30px;
+  overflow: hidden;
+  opacity: 0.45;
+}
+.fragment-mark i {
+  position: absolute;
+  background: #71825d;
+  height: 1px;
+  width: calc(90% - var(--i) * 12%);
+  top: calc(var(--i) * 7px);
+  left: 0;
+}
+.mark-1 i {
+  width: 17%;
+  height: 10px;
+  left: calc(var(--i) * 25%);
+  top: 10px;
+  border: 1px solid #71825d;
+  background: transparent;
+}
+.mark-2 i {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  left: calc(var(--i) * 11%);
+  top: calc(8px + mod(var(--i), 3) * 6px);
+}
+.story-resolution {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  top: 15%;
+  transform: translateY(calc((1 - var(--resolve)) * 60px));
+  clip-path: inset(0 0 calc((1 - var(--resolve)) * 100%) 0);
+  z-index: 3;
+}
+.story-resolution h3 {
+  font-size: clamp(40px, 5.5vw, 90px);
+  font-weight: 450;
+  letter-spacing: -0.05em;
+  line-height: 1.04;
+  margin: 20px 0;
+}
+.story-resolution > p:last-child {
+  font-size: 19px;
+}
+.method-register {
+  position: absolute;
+  left: 9%;
+  right: 9%;
+  bottom: 18%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3%;
+  transform: translateY(calc((1 - var(--resolve)) * 100px));
+  opacity: var(--resolve);
+  font-size: 24px;
+  font-weight: 450;
+}
+.method-register > span {
+  border-top: 1px solid #727d5d;
+  padding-top: 16px;
+}
+.method-register span span {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  margin-top: 12px;
+  color: #657053;
+}
+.story-caption {
+  position: absolute;
+  bottom: 5%;
+  left: var(--gutter);
+  right: var(--gutter);
+  border-top: 1px solid #818c7140;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  gap: 20px;
+}
+.story-current {
+  font-size: 13px;
+  margin: 0;
+}
+.story-count {
+  font-variant-numeric: tabular-nums;
+}
+
+/* An application owns its entire scene, including the settled final interface. */
+.study-source {
+  opacity: calc(1 - var(--entry) * (1 - var(--review)));
+  clip-path: none;
+  transform: perspective(1700px)
+    rotateY(calc(var(--entry) * (1 - var(--review)) * -65deg))
+    scale(calc(1 - var(--entry) * (1 - var(--review)) * 0.4));
+  transform-origin: 50% 50%;
+}
+.source-slice {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(
+    calc(var(--slice) * 33.333%) 0 calc((2 - var(--slice)) * 33.333%) 0
+  );
+  transform: translate3d(
+    calc((var(--slice) - 1) * var(--decompose) * 50px),
+    calc((var(--slice) - 1) * var(--decompose) * 35px),
+    calc(var(--decompose) * (3 - var(--slice)) * 50px)
+  );
+  background: transparent;
+}
+.source-slice img {
+  box-shadow: none;
+}
+.source-activation {
+  position: absolute;
+  left: 9%;
+  right: 5%;
+  top: 22%;
+  bottom: 12%;
+  border: 1px solid #dcbb87;
+  box-shadow: 0 0 0 100px #06100d25;
+  clip-path: inset(0);
+  opacity: var(--activation);
+  transform: scaleX(calc(0.92 + var(--activation) * 0.08));
+  pointer-events: none;
+}
+.study-source > span {
+  font-size: 12px;
+  letter-spacing: 0;
+  transform: translateY(calc(var(--closure) * 8px));
+  color: var(--ink);
+}
+.study-state {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 7.9%;
+  display: flex;
+  gap: 12px;
+  font-size: 10px;
+  color: var(--muted);
+}
+.state-number {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.feature-surface .study-state {
+  left: 61%;
+}
+.study-control {
+  bottom: 12%;
+}
+.study-timeline {
+  transform: scaleX(calc(1 - var(--closure) * 0.04));
+  transform-origin: left;
+}
+.section-profile {
+  pointer-events: none;
+  color: #d6c49c;
+}
+.feature-visual {
+  will-change: transform;
+}
+.feature-copy .study-beat {
+  min-height: 3.2em;
+}
+
+/* A personal note beside the actual home of the work, without a biography climax. */
+.ending {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8%;
+  padding: 120px var(--gutter);
+  align-items: center;
+}
+.ending > .creator-note {
+  display: block;
+}
+.ending .creator-note > .eyebrow {
+  margin: 0 0 30px;
+}
+.ending h2 {
+  font-size: clamp(38px, 4.1vw, 68px);
+  line-height: 1.08;
+  margin: 0 0 32px;
+  max-width: 550px;
+}
+.ending .creator-body {
+  display: block;
+  max-width: 430px;
+}
+.ending .creator-body p {
+  padding-left: 0;
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: none;
+  margin: 0 0 18px;
+}
+.ending .attribution {
+  display: block;
+  font-size: 14px;
+  margin: 28px 0 45px;
+}
+.creator-evidence {
+  margin: 0;
+  transform: rotate(-2deg);
+  padding: 14px 14px 0;
+  border: 1px solid #89907960;
+  background: #ccd0c0;
+  box-shadow: 12px 18px 0 #a4ad9533;
+}
+.creator-evidence img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.creator-evidence figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 10px;
+  padding: 18px 0;
+}
+.creator-evidence figcaption span:last-child {
+  color: #6b745d;
+}
+@media (max-width: 1100px) {
+  .feature-surface .study-state {
+    left: var(--gutter);
+  }
+}
+@media (max-width: 700px) {
+  .hero {
+    height: 310svh;
+  }
+  .hero-statement {
+    font-size: 18px;
+  }
+  .origin {
+    height: 330svh;
+  }
+  .origin .story-headline {
+    top: 14%;
+    font-size: 37px;
+  }
+  .origin-inner > .eyebrow {
+    font-size: 9px;
+    top: 5%;
+  }
+  .fragment-field {
+    inset: 37% 7% 17%;
+  }
+  .work-fragment {
+    font-size: 9px;
+    padding: 8px;
+    width: 31%;
+    height: 19%;
+  }
+  .fragment-mark {
+    display: none;
+  }
+  .story-resolution {
+    top: 15%;
+  }
+  .story-resolution h3 {
+    font-size: 43px;
+  }
+  .story-resolution > p:last-child {
+    font-size: 15px;
+  }
+  .story-resolution > .eyebrow {
+    font-size: 8px;
+  }
+  .method-register {
+    left: 7%;
+    right: 7%;
+    bottom: 20%;
+    font-size: 17px;
+    gap: 3%;
+  }
+  .method-register span span {
+    font-size: 8px;
+    line-height: 1.6;
+  }
+  .story-caption {
+    flex-wrap: wrap;
+    font-size: 8px;
+    gap: 10px;
+  }
+  .story-caption .story-current {
+    order: 3;
+    width: 100%;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .study-state,
+  .feature-surface .study-state {
+    left: var(--gutter);
+    bottom: 5.9%;
+    font-size: 8px;
+    gap: 8px;
+  }
+  .study-control {
+    bottom: 10%;
+  }
+  .study-timeline {
+    bottom: 4.5%;
+  }
+  .study-source > span {
+    display: none;
+  }
+  .source-activation {
+    box-shadow: none;
+  }
+  .ending {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    padding: 75px var(--gutter);
+  }
+  .ending h2 {
+    font-size: 38px;
+  }
+  .ending .creator-body p {
+    font-size: 14px;
+  }
+  .creator-evidence {
+    margin: 0 6px;
+  }
+  .creator-evidence figcaption {
+    font-size: 8px;
+  }
+  .ending > .creator-note {
+    width: 100%;
+  }
+}
+.reduced .origin,
+html:not(.enhanced) .origin {
+  height: auto;
+  min-height: 95svh;
+  --align: 1;
+  --resolve: 1;
+  --accumulate: 1;
+}
+.reduced .origin-inner,
+html:not(.enhanced) .origin-inner {
+  position: relative;
+  min-height: 85svh;
+}
+.reduced .work-fragment,
+html:not(.enhanced) .work-fragment {
+  --arrive: 1;
+}
+.reduced .source-slice {
+  transform: none;
+}
+.reduced .study-state {
+  display: none;
+}

@@ -296,7 +296,7 @@ export function developInstrument(el) {
       ),
       g = node("g", {}, svg),
       markers = paths.map(() =>
-        node("circle", { r: 5, class: "motion-pulse" }, g),
+        node("circle", { r: 5, class: "motion-pulse chart-inspector" }, g),
       ),
       samples = paths.map(sample);
     const x0 = kind === "signals" ? 100 : kind === "spc" ? 90 : 350,

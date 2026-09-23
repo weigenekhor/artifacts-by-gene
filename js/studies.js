@@ -1,4 +1,5 @@
 import { developInstrument } from "./instruments.js";
+import { createAnalysis } from "./analysis.js";
 // Interface, method, inspection and handoff share the page's single clock.
 const clamp = (v) => Math.max(0, Math.min(1, v));
 const smooth = (v) => {
@@ -21,6 +22,10 @@ export function createStudy(el, wake) {
     scans = [...el.querySelectorAll("[data-scan]")],
     cursor = el.querySelector("[data-cursor]");
   const develop = developInstrument(el);
+  const analysis = createAnalysis(el),
+    timings = el.dataset.timings.split(",").map(Number);
+  const stateName = el.querySelector(".state-name"),
+    stateNumber = el.querySelector(".state-number");
   const focus = el.querySelector(".focus-range"),
     visual = el.querySelector(".feature-visual");
   let inspection = null,
@@ -90,7 +95,9 @@ export function createStudy(el, wake) {
         reduced || manual
           ? wanted
           : p + (wanted - p) * (1 - Math.exp(-dt / 105));
-      const functional = clamp((p - 0.14) / 0.6);
+      const functional = clamp((p - 0.27) / 0.53);
+      const expand =
+        smooth((p - 0.51) / 0.14) * (1 - smooth((p - 0.73) / 0.12));
       const stages = {
         gather: smooth(functional / 0.32),
         resolve: smooth((functional - 0.22) / 0.44),
@@ -101,10 +108,19 @@ export function createStudy(el, wake) {
       for (const [key, value] of Object.entries(stages))
         el.style.setProperty("--" + key, value);
       control.value = Math.round(p * 100);
-      el.style.setProperty("--entry", smooth(p / 0.2));
-      el.style.setProperty("--review", smooth((p - 0.72) / 0.12));
-      el.style.setProperty("--handoff", smooth((p - 0.9) / 0.1));
-      el.classList.toggle("source-view", !reduced && (p < 0.22 || p > 0.72));
+      el.style.setProperty("--entry", smooth((p - 0.22) / 0.14));
+      el.style.setProperty("--review", smooth((p - 0.79) / 0.1));
+      el.style.setProperty(
+        "--activation",
+        smooth((p - 0.1) / 0.1) * (1 - smooth((p - 0.23) / 0.08)),
+      );
+      el.style.setProperty(
+        "--decompose",
+        smooth((p - 0.19) / 0.13) * (1 - smooth((p - 0.32) / 0.06)),
+      );
+      el.style.setProperty("--analysis", reduced ? 0 : expand);
+      el.style.setProperty("--closure", smooth((p - 0.88) / 0.08));
+      el.classList.toggle("source-view", !reduced && (p < 0.36 || p > 0.79));
       output.textContent =
         regions[0] +
         " " +
@@ -139,13 +155,23 @@ export function createStudy(el, wake) {
           scale +
           "deg",
       );
-      const next = p < 0.14 ? 0 : p < 0.32 ? 1 : p < 0.6 ? 2 : p < 0.88 ? 3 : 4;
+      const next = timings.filter((t) => p >= t).length;
       if (next !== phase) {
         beat.textContent = beats[next];
+        stateName.textContent = [
+          "Identity",
+          "Activation",
+          "Decomposition",
+          "Analysis",
+          "Transformation",
+          "Resolution",
+          "Closure",
+        ][next];
+        stateNumber.textContent = String(next + 1).padStart(2, "0") + " / 07";
         verbs.forEach((v, i) =>
           v.classList.toggle(
             "active",
-            i === Math.max(0, Math.min(2, next - 1)),
+            i === Math.max(0, Math.min(2, next - 3)),
           ),
         );
         phase = next;
@@ -186,6 +212,7 @@ export function createStudy(el, wake) {
           `translate(${180 + 365 * stages.inspect} 0)`,
         );
       develop(functional, stages);
+      analysis(reduced ? 0 : expand, stages.inspect, p);
       return Math.abs(p - wanted) > 0.0005;
     },
   };

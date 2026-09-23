@@ -2,6 +2,7 @@ import { apps, homepage } from "./apps.js";
 import { createStudy } from "./studies.js";
 import { createHero } from "./hero.js";
 import { createHeroInteraction } from "./hero-interaction.js";
+import { createNarrative } from "./narrative.js";
 const $ = (s) => document.querySelector(s),
   $$ = (s) => [...document.querySelectorAll(s)],
   clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v)),
@@ -21,6 +22,7 @@ const collection = [homepage, ...apps],
   lastCapture = collection.length - 1;
 const studies = features.map((el) => createStudy(el, wake));
 const silicon = createHero($("#silicon"), apps, wake);
+const narrative = createNarrative(origin);
 let heroMoving = false;
 const preference = matchMedia("(prefers-reduced-motion: reduce)");
 let reduced = preference.matches,
@@ -171,7 +173,7 @@ features.forEach((el, index) =>
     playback = {
       index,
       start: performance.now(),
-      duration: 21000 + (index % 3) * 1800,
+      duration: 30000 + (index % 3) * 2200,
     };
     el.querySelector(".study-play").setAttribute("aria-pressed", "true");
     el.querySelector(".study-play").innerHTML =
@@ -219,9 +221,15 @@ function tick(time) {
   }
   if (y >= heroHeight) heroMoving = false;
   const op = clamp(
-    (y - originBounds.top + innerHeight * 0.4) / (originBounds.height * 0.65),
+    (y - originBounds.top + innerHeight * 0.1) /
+      Math.max(1, originBounds.height - innerHeight * 0.85),
   );
   origin.style.setProperty("--origin", op);
+  if (
+    y + innerHeight > originBounds.top &&
+    y < originBounds.top + originBounds.height
+  )
+    narrative(op, reduced);
   if (playback) {
     const p = clamp((time - playback.start) / playback.duration);
     manualProgress.set(playback.index, p);

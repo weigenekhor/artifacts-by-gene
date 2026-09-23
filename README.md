@@ -14,13 +14,13 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The opening is The Artifact: sixteen beveled structural leaves form one graphite object. Real application captures are recessed inside its surfaces. Pointer response, inertial drag, keyboard controls and direct layer selection expose its construction. Scrolling opens a passage and moves the camera through it into the light origin chapter. A CSS composition remains available without WebGL.
+The opening is The Artifact: sixteen beveled structural leaves form one graphite object. Recessed apertures reveal real interface material inside its closed shell. Scroll progressively releases its structural leaves. Pointer response, inertial drag, keyboard controls and direct layer selection expose its construction. Scrolling opens a passage and moves the camera through it into the light origin chapter. A CSS composition remains available without WebGL.
 
 The complete collection follows, beginning with the uncropped ARTIFACTS homepage and then all sixteen applications in order. All seventeen captures fit fully inside their frames as scrolling advances them. The rail, arrows, horizontal touch gestures and direct links provide optional shortcuts. The final index preserves the original four collections and opens every real interface. Creator attribution stays quiet.
 
 Read `ARTIFACTS_CREATIVE_DIRECTION.md` and `ARTIFACTS_EXPERIENCE_STORYBOARD.md` for the governing story and factual boundaries. The hero uses sixteen draws, capped/adaptive canvas resolution, mipmapped captures and offscreen suspension. Full-resolution originals remain in the DOM viewer.
 
-Every app has a source interface, staged functional demonstration, direct inspection, frontal interface interval and incoming application surface. Native scrolling controls the sequences; optional replay runs for 21–24.6 seconds. A second keyboard-accessible range selects a task-specific inspection region. Diagrams illustrate relationships, not measured results or cross-application integration.
+Every app has seven states from its source interface through activation, decomposition, analysis, transformation, resolution and its own closure. Native scrolling controls the sequences; optional replay runs for 30–34.4 seconds. A second keyboard-accessible range selects a task-specific inspection region. Diagrams illustrate relationships, not measured results or cross-application integration.
 
 ## Source files
 
@@ -33,6 +33,8 @@ Every app has a source interface, staged functional demonstration, direct inspec
 - `js/hero.js`: faceted Artifact geometry, capture textures, lighting and camera passage.
 - `js/hero-interaction.js`: drag, keyboard, separation, layer selection and reset controls.
 - `content/homepage.json`: the homepage capture preceding the sixteen apps.
+- `js/narrative.js`: finite record accumulation, alignment and method formation.
+- `js/analysis.js`: application-specific spatial inspection and recomposition.
 - `js/instruments.js`: app-specific route markers, contour layers and inspection choreography.
 - `artifact.css`: current Artifact, interface passage and responsive study composition.
 - `experience.css`: entry composition, study camera, image fitting and picker.
