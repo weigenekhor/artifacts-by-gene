@@ -1,5 +1,6 @@
 import { apps } from "./apps.js";
 import { createStudy } from "./studies.js";
+import { createHero } from "./hero.js";
 const $ = (s) => document.querySelector(s),
   $$ = (s) => [...document.querySelectorAll(s)],
   clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v)),
@@ -16,6 +17,8 @@ const root = document.documentElement,
   frames = $$(".archive-images figure"),
   rail = $$(".archive-rail a");
 const studies = features.map(createStudy);
+const silicon = createHero($("#silicon"));
+let heroMoving = false;
 const preference = matchMedia("(prefers-reduced-motion: reduce)");
 let reduced = preference.matches,
   paused = false,
@@ -40,11 +43,12 @@ const motion = $("#motion");
 motion.hidden = false;
 function syncMotion() {
   reduced = preference.matches || paused;
+  if (reduced) stopPlayback();
   root.classList.toggle("reduced", reduced);
   motion.setAttribute("aria-pressed", String(reduced));
   motion.setAttribute("aria-label", reduced ? "Enable motion" : "Pause motion");
   motion.textContent = reduced ? "▷" : "Ⅱ";
-  wake();
+  measure();
 }
 motion.addEventListener("click", () => {
   paused = !reduced;
@@ -65,6 +69,7 @@ function measure() {
     position = (y - archiveTop) / archiveStep,
     preserve = measured && position >= 0 && position <= 15;
   heroHeight = hero.offsetHeight;
+  silicon.resize();
   originBounds = {
     top: origin.getBoundingClientRect().top + y,
     height: origin.offsetHeight,
@@ -138,8 +143,37 @@ $(".archive-images").addEventListener(
   { passive: true },
 );
 const manualProgress = new Map();
+let playback = null;
+function stopPlayback() {
+  if (!playback) return;
+  const b = features[playback.index].querySelector(".study-play");
+  b.setAttribute("aria-pressed", "false");
+  b.innerHTML = "<span aria-hidden=true>▷</span> Watch sequence";
+  playback = null;
+}
+features.forEach((el, index) =>
+  el.querySelector(".study-play").addEventListener("click", () => {
+    const same = playback?.index === index;
+    stopPlayback();
+    if (same) {
+      wake();
+      return;
+    }
+    playback = {
+      index,
+      start: performance.now(),
+      duration: 14500 + (index % 3) * 1500,
+    };
+    el.querySelector(".study-play").setAttribute("aria-pressed", "true");
+    el.querySelector(".study-play").innerHTML =
+      "<span aria-hidden=true>Ⅱ</span> Pause sequence";
+    manualProgress.set(index, 0);
+    wake();
+  }),
+);
 features.forEach((el, i) =>
   el.querySelector("input[type=range]").addEventListener("input", (e) => {
+    stopPlayback();
     manualProgress.set(i, Number(e.target.value) / 100);
     wake();
   }),
@@ -158,15 +192,23 @@ function tick(time) {
   px += (tx - px) * (1 - Math.exp(-dt / 160));
   py += (ty - py) * (1 - Math.exp(-dt / 160));
   if (y < heroHeight) {
-    hero.style.setProperty("--hero", reduced ? 0 : clamp(y / heroHeight));
+    const hp = clamp(y / Math.max(1, heroHeight - innerHeight));
+    hero.style.setProperty("--hero", reduced ? 0 : hp);
+    heroMoving = silicon.render(time, hp, px, py, reduced, dt);
     hero.style.setProperty("--px", reduced ? 0 : px);
     hero.style.setProperty("--py", reduced ? 0 : py);
   }
+  if (y >= heroHeight) heroMoving = false;
   const op = clamp(
     (y - originBounds.top + innerHeight * 0.4) / (originBounds.height * 0.65),
   );
   origin.style.setProperty("--origin", op);
-  let studyMoving = false;
+  if (playback) {
+    const p = clamp((time - playback.start) / playback.duration);
+    manualProgress.set(playback.index, p);
+    if (p === 1) stopPlayback();
+  }
+  let studyMoving = Boolean(playback);
   features.forEach((el, i) => {
     const b = featureBounds[i];
     if (y + innerHeight < b.top || y > b.top + b.height) return;
@@ -180,7 +222,8 @@ function tick(time) {
                 (Math.max(innerHeight * 0.7, b.height - b.stage) +
                   innerHeight * 0.18),
             );
-    studyMoving = studies[i].update(p, dt, reduced, manual) || studyMoving;
+    studyMoving =
+      studies[i].update(p, dt, reduced, manual, px, py) || studyMoving;
   });
   // Leave a readable frontal hold around each app; travel happens between holds.
   const shown = Math.floor(current) + ease(((current % 1) - 0.22) / 0.56),
@@ -198,6 +241,7 @@ function tick(time) {
     }
   });
   if (
+    heroMoving ||
     studyMoving ||
     Math.abs(current - target) > 0.001 ||
     Math.abs(px - tx) + Math.abs(py - ty) > 0.001
@@ -210,6 +254,7 @@ function wake() {
 addEventListener(
   "scroll",
   () => {
+    stopPlayback();
     manualProgress.clear();
     wake();
   },
@@ -223,7 +268,7 @@ document.addEventListener("visibilitychange", () => {
   } else wake();
 });
 if (matchMedia("(pointer:fine)").matches) {
-  hero.addEventListener(
+  document.addEventListener(
     "pointermove",
     (e) => {
       tx = (e.clientX / innerWidth - 0.5) * 2;
@@ -237,6 +282,36 @@ if (matchMedia("(pointer:fine)").matches) {
     wake();
   });
 }
+const picker = $("#study-picker");
+let pickerFocus = null;
+$$(".study-menu").forEach((b) =>
+  b.addEventListener("click", () => {
+    pickerFocus = b;
+    stopPlayback();
+    picker.showModal();
+    document.body.style.overflow = "hidden";
+  }),
+);
+$("#picker-close").addEventListener("click", () => picker.close());
+picker.addEventListener("close", () => {
+  document.body.style.overflow = "";
+  pickerFocus?.focus({ preventScroll: true });
+});
+$$("[data-study-jump]").forEach((a) =>
+  a.addEventListener("click", () => picker.close()),
+);
+picker.addEventListener("click", (e) => {
+  if (e.target === picker) {
+    const r = picker.getBoundingClientRect();
+    if (
+      e.clientX < r.left ||
+      e.clientX > r.right ||
+      e.clientY < r.top ||
+      e.clientY > r.bottom
+    )
+      picker.close();
+  }
+});
 const dialog = $("#capture"),
   capture = $("#capture-image"),
   viewport = $(".capture-viewport");
@@ -297,7 +372,8 @@ $("#pixel-view").addEventListener("click", () => {
   $("#pixel-view").textContent = native ? "Fit to view" : "View actual size";
 });
 addEventListener("keydown", (e) => {
-  if (dialog.open || e.target.matches("button,input,select")) return;
+  if (dialog.open || picker.open || e.target.matches("button,input,select"))
+    return;
   if (
     scrollY >= archiveTop - 20 &&
     scrollY <= archiveTop + 15 * archiveStep + 20 &&

@@ -1,5 +1,7 @@
 # Validation — ARTIFACTS software exhibition
 
+**Latest visual refinement:** build/runtime checks passed with sixteen studies, successful replay, all sixteen loaded/undistorted image previews, mobile without horizontal overflow, and zero idle frames under reduced motion. Desktop/mobile compositions and the original capture viewer were inspected. This is a focused visual pass, not comprehensive validation.
+
 **Scope:** the results below record v10, before the sixteen-study expansion. The current visual pass has a successful build and basic runtime check across all sixteen studies, with no reported page/resource errors. Full validation of this expansion is deferred until visual approval.
 
 Validated on 22 September 2026 using Playwright and installed Microsoft Edge in headless mode. Tests serve the static files under a GitHub Pages-style `/artifacts-by-gene/` subpath.

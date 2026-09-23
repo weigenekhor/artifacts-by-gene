@@ -53,7 +53,7 @@ html = html.replace(
     .map((f, i) => {
       const a = apps.find((a) => a.id === f.id),
         next = features[i + 1];
-      return `<section class="feature feature-${f.kind}${f.paper ? " feature-paper" : ""}" id="${f.kind}" data-feature="${f.kind}" data-study-app="${a.id}" data-beats="${esc(JSON.stringify(f.beats))}" aria-labelledby="title-${f.kind}"><div class="feature-stage"><div class="feature-top"><span>${f.number} / 16</span><span>${esc(a.name)}</span><a href="#study-index">Choose an application ↗</a></div><div class="feature-copy"><p class="eyebrow">${esc(a.description)}</p><h2 id="title-${f.kind}">${lines(f.title)}</h2><p>${esc(f.text)}</p><div class="feature-verbs">${f.verbs.map((v, i) => `<span data-phase="${i}">${v}</span>`).join("<i>→</i>")}</div><p class="study-beat">${esc(f.beats[0])}</p></div><div class="feature-visual">${visual(f, a)}</div><button class="evidence" data-capture="${a.id}" aria-label="See the actual ${esc(a.name)} interface">${image(a)}<span><b>Inside ${esc(a.name)}</b><i>↗</i></span></button><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore ${esc(a.name)} concept motion"></label><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Concept study · actual software ↗</span><a href="#${next ? next.kind : "collection"}">Next / ${esc(f.handoff)} <b>↓</b></a></div></div></section>`;
+      return `<section class="feature feature-${f.kind}${f.paper ? " feature-paper" : ""}" id="${f.kind}" data-feature="${f.kind}" data-study-app="${a.id}" data-beats="${esc(JSON.stringify(f.beats))}" aria-labelledby="title-${f.kind}"><div class="feature-stage"><div class="feature-top"><span>${f.number} / 16</span><span>${esc(a.name)}</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">${esc(a.description)}</p><h2 id="title-${f.kind}">${lines(f.title)}</h2><p>${esc(f.text)}</p><div class="feature-verbs">${f.verbs.map((v, i) => `<span data-phase="${i}">${v}</span>`).join("<i>→</i>")}</div><p class="study-beat">${esc(f.beats[0])}</p></div><div class="feature-visual"><div class="study-camera">${visual(f, a)}</div></div><button class="evidence" data-capture="${a.id}" aria-label="See the actual ${esc(a.name)} interface">${image(a, true)}<span><b>Inside ${esc(a.name)}</b><i>↗</i></span></button><div class="study-actions"><button class="study-play" aria-label="Play the ${esc(a.name)} sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore ${esc(a.name)} concept motion"></label><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Concept study · actual software ↗</span><a href="#${next ? next.kind : "collection"}">Next / ${esc(f.handoff)} <b>↓</b></a></div></div></section>`;
     })
     .join(""),
 );
@@ -82,6 +82,27 @@ html = html.replace(
       (a, i) =>
         `<a href="#app-${a.id}" data-jump="${i}" aria-label="${number(i + 1)} ${esc(a.name)}"><span>${number(i + 1)}</span></a>`,
     )
+    .join(""),
+);
+html = html.replace(
+  "<!-- PICKER -->",
+  features
+    .map((f, i) => {
+      const a = apps.find((a) => a.id === f.id);
+      return (
+        '<a href="#' +
+        f.kind +
+        '" data-study-jump="' +
+        f.kind +
+        '"><span>' +
+        number(i + 1) +
+        "</span><div><b>" +
+        esc(a.name) +
+        "</b><small>" +
+        esc(a.description) +
+        '</small></div><i aria-hidden="true">↗</i></a>'
+      );
+    })
     .join(""),
 );
 const groups = [...new Set(apps.map((a) => a.category))];

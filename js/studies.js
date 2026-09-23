@@ -1,3 +1,4 @@
+import { developInstrument } from "./instruments.js";
 // Shared three-stage choreography for every application, on the page's single clock.
 const clamp = (v) => Math.max(0, Math.min(1, v));
 const smooth = (v) => {
@@ -19,38 +20,96 @@ export function createStudy(el) {
     rings = [...el.querySelectorAll("[data-ring]")],
     scans = [...el.querySelectorAll("[data-scan]")],
     cursor = el.querySelector("[data-cursor]");
+  const develop = developInstrument(el);
+  const camera = el.querySelector(".study-camera"),
+    kind = el.dataset.feature;
+  const angle = {
+    history: [5, -9],
+    schedule: [12, 5],
+    usage: [19, -11],
+    surface: [-5, 9],
+    compare: [4, -7],
+    pathfinder: [7, 8],
+    compile: [12, -12],
+    diagnose: [5, -8],
+    arrange: [24, -7],
+    zones: [22, 8],
+    configuration: [4, 11],
+    spc: [7, -8],
+    legacy: [4, 9],
+    planning: [12, -8],
+    report: [9, 11],
+    signals: [13, -12],
+  }[kind];
+  const phases = {
+    gather: [0, 0.32],
+    resolve: [0.23, 0.7],
+    inspect: [0.61, 0.96],
+  };
+  const stage = (key, delay = 0) =>
+    smooth(
+      (p - phases[key][0] - delay) / (phases[key][1] - phases[key][0] - delay),
+    );
   let p = 0,
     phase = -1;
   return {
-    update(wanted, dt, reduced, manual) {
+    update(wanted, dt, reduced, manual, px = 0, py = 0) {
       p =
         reduced || manual
           ? wanted
           : p + (wanted - p) * (1 - Math.exp(-dt / 105));
       const stages = {
-        gather: smooth(p / 0.32),
-        resolve: smooth((p - 0.25) / 0.4),
-        inspect: smooth((p - 0.62) / 0.29),
+        gather: stage("gather"),
+        resolve: stage("resolve"),
+        inspect: stage("inspect"),
       };
       el.style.setProperty("--progress", p);
       for (const [key, value] of Object.entries(stages))
         el.style.setProperty("--" + key, value);
-      if (!manual) control.value = Math.round(p * 100);
+      control.value = Math.round(p * 100);
+      const depth = Math.sin(Math.PI * stages.resolve);
+      const mobile = innerWidth < 700,
+        scale = mobile ? 0.22 : 1;
+      camera.style.setProperty(
+        "--camera-x",
+        ((1 - stages.gather) * 18 + px * 3) * scale + "px",
+      );
+      camera.style.setProperty(
+        "--camera-y",
+        (-depth * 13 + py * 2) * scale + "px",
+      );
+      camera.style.setProperty(
+        "--camera-z",
+        (depth * 80 + stages.inspect * 8) * scale + "px",
+      );
+      camera.style.setProperty(
+        "--camera-rx",
+        (angle[0] * (1 - stages.resolve) + py * 1.2 * (1 - stages.inspect)) *
+          scale +
+          "deg",
+      );
+      camera.style.setProperty(
+        "--camera-ry",
+        (angle[1] * (1 - stages.gather) + px * 1.7 * (1 - stages.inspect)) *
+          scale +
+          "deg",
+      );
       const next = p < 0.32 ? 0 : p < 0.67 ? 1 : 2;
       if (next !== phase) {
         beat.textContent = beats[next];
         verbs.forEach((v, i) => v.classList.toggle("active", i === next));
         phase = next;
       }
-      for (const { node, from, on } of movers) {
-        const v = 1 - stages[on];
+      for (const [i, { node, from, on }] of movers.entries()) {
+        const v = 1 - stage(on, (i % 7) * 0.018);
         node.setAttribute(
           "transform",
           `translate(${(from[0] * v).toFixed(2)} ${(from[1] * v).toFixed(2)})`,
         );
       }
-      for (const node of drawers)
-        node.style.strokeDashoffset = 1 - stages[node.dataset.draw];
+      for (const [i, node] of drawers.entries())
+        node.style.strokeDashoffset =
+          1 - stage(node.dataset.draw, (i % 6) * 0.015);
       for (const node of reveals)
         node.style.opacity = stages[node.dataset.reveal];
       for (const node of rings) {
@@ -71,6 +130,7 @@ export function createStudy(el) {
           "transform",
           `translate(${180 + 365 * stages.inspect} 0)`,
         );
+      develop(p, stages);
       return Math.abs(p - wanted) > 0.0005;
     },
   };
