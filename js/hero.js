@@ -5,22 +5,28 @@ layout(location=0) in vec3 position;
 layout(location=1) in vec3 normal;
 uniform mat4 projection, view;
 uniform float opening, progress, clock;
-uniform vec2 pointer;
+uniform vec2 pointer, orbit;
+uniform float separation, selected;
 out vec3 world, norm, local;
 flat out float layer;
+mat3 rx(float a){float c=cos(a),s=sin(a);return mat3(1,0,0,0,c,s,0,-s,c);}
 mat3 ry(float a){float c=cos(a),s=sin(a);return mat3(c,0,-s,0,1,0,s,0,c);}
 mat3 rz(float a){float c=cos(a),s=sin(a);return mat3(c,s,0,-s,c,0,0,0,1);}
 void main(){
  layer=float(gl_InstanceID); local=position;
  float arrival=smoothstep(layer*.022, .64+layer*.022, opening);
- float spread=smoothstep(.05,.8,progress);
+ float spread=max(smoothstep(.05,.8,progress)*.7,separation);
+ float chosen=1.-smoothstep(.1,.8,abs(layer-selected));
  vec3 p=position;
  p.xz*=.97+layer*.002;
- p.y+=(layer-7.5)*(.042+spread*.12);
+ p.y+=(layer-7.5)*(.042+spread*.105);
+ p.x+=chosen*separation*.65;
+ p.z+=chosen*separation*.45;
+ mat3 fan=ry((layer-7.5)*separation*.045);p=fan*p;
  p.x+=(1.-arrival)*(layer-7.5)*.065 + spread*sin(layer*.28)*.16;
  p.z+=(1.-arrival)*.45;
- mat3 rot=rz(-.22+pointer.y*.045)*ry(-.38+pointer.x*.13+sin(clock*.16)*.025);
- world=rot*p; norm=rot*normal;
+ mat3 rot=rz(-.22+pointer.y*.065)*rx(orbit.y)*ry(-.38+orbit.x+pointer.x*.2+sin(clock*.16)*.025);
+ world=rot*p; norm=rot*fan*normal;
  gl_Position=projection*view*vec4(world,1.);
 }`;
 const fragment = `#version 300 es
@@ -28,7 +34,7 @@ precision highp float;
 in vec3 world, norm, local;
 flat in float layer;
 uniform vec3 eye;
-uniform float clock, progress;
+uniform float clock, progress, separation, selected;
 out vec4 color;
 void main(){
  vec3 n=normalize(norm), v=normalize(eye-world);
@@ -60,6 +66,8 @@ void main(){
  // The copper reveal is at the cut edge, not a rainbow surface effect.
  if(abs(local.y)<.006 && abs(norm.y)<.8)light+=vec3(.46,.24,.08)*.14;
  light*=.82+.18*(layer/15.);
+ float chosen=1.-smoothstep(.1,.8,abs(layer-selected));
+ light=light*(1.-.24*separation*(1.-chosen))+vec3(.13,.07,.025)*chosen*separation;
  color=vec4(pow(max(light,vec3(0.)),vec3(.82)),1.);
 }`;
 const normalize = (a) => {
@@ -190,6 +198,9 @@ export function createHero(canvas) {
       "clock",
       "pointer",
       "eye",
+      "orbit",
+      "separation",
+      "selected",
     ].map((n) => [n, gl.getUniformLocation(program, n)]),
   );
   let width = 1,
@@ -213,7 +224,7 @@ export function createHero(canvas) {
   });
   return {
     resize,
-    render(time, p, x, y, reduced, dt) {
+    render(time, p, x, y, reduced, dt, interaction) {
       if (!available) return false;
       if (start === null) start = time;
       if (dt > 35 && !reduced) {
@@ -245,7 +256,8 @@ export function createHero(canvas) {
         (2 * far * near) / (near - far),
         0,
       ]);
-      const distance = innerWidth < 700 ? 1.12 : 1;
+      const distance =
+        (innerWidth < 700 ? 1.22 : 1) * (1 + interaction.spread * 0.12);
       const eye = [
         (3.5 - p * 0.5) * distance,
         (3.4 + p * 1.5) * distance,
@@ -263,6 +275,9 @@ export function createHero(canvas) {
       gl.uniform1f(u.progress, reduced ? 0 : p);
       gl.uniform1f(u.clock, reduced ? 5 : t);
       gl.uniform2f(u.pointer, reduced ? 0 : x, reduced ? 0 : y);
+      gl.uniform2f(u.orbit, interaction.yaw, interaction.pitch);
+      gl.uniform1f(u.separation, interaction.spread);
+      gl.uniform1f(u.selected, interaction.selected);
       gl.drawElementsInstanced(
         gl.TRIANGLES,
         mesh.ix.length,

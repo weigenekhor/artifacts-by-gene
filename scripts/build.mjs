@@ -6,6 +6,8 @@ const read = async (p) =>
   JSON.parse((await fs.readFile(p, "utf8")).replace(/^\uFEFF/, ""));
 const { apps } = await read("content/apps.json"),
   features = await read("content/exhibition.json");
+const homepage = await read("content/homepage.json");
+const collection = [homepage, ...apps];
 const esc = (s) =>
   String(s)
     .replaceAll("&", "&amp;")
@@ -68,7 +70,7 @@ html = html.replace(
 );
 html = html.replace(
   "<!-- ARCHIVE -->",
-  apps
+  collection
     .map(
       (a, i) =>
         `<figure data-software="${a.id}" style="--index:${i}"><button data-capture="${a.id}" aria-label="Inspect ${esc(a.name)}">${image(a, true)}</button><figcaption>${esc(a.evidence.label)} <span>Original software capture ↗</span></figcaption></figure>`,
@@ -77,10 +79,10 @@ html = html.replace(
 );
 html = html.replace(
   "<!-- RAIL -->",
-  apps
+  collection
     .map(
       (a, i) =>
-        `<a href="#app-${a.id}" data-jump="${i}" aria-label="${number(i + 1)} ${esc(a.name)}"><span>${number(i + 1)}</span></a>`,
+        `<a href="#app-${a.id}" data-jump="${i}" aria-label="${i ? number(i) : "Home"} ${esc(a.name)}"><span>${i ? number(i) : "⌂"}</span></a>`,
     )
     .join(""),
 );
@@ -124,7 +126,7 @@ html = html.replace(
 await fs.writeFile("index.html", html.replace(/^\uFEFF/, ""));
 await fs.writeFile(
   "js/apps.js",
-  `// Generated from the verified source catalogue.\nexport const apps=${JSON.stringify(apps.map(({ id, index, name, category, description, purpose, evidence, headline }) => ({ id, index, name, category, description, purpose, evidence, headline })))};`,
+  `// Generated from the verified source catalogue.\nexport const homepage=${JSON.stringify(homepage)};\nexport const apps=${JSON.stringify(apps.map(({ id, index, name, category, description, purpose, evidence, headline }) => ({ id, index, name, category, description, purpose, evidence, headline })))};`,
 );
 await build({
   entryPoints: ["js/experience.js"],

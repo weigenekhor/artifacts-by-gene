@@ -70,8 +70,7 @@
           </div>
           <div
             class="hero-sculpture"
-            role="img"
-            aria-label="Sixteen precision silicon layers assembling into one engineered object"
+            aria-label="Interactive ARTIFACTS structure"
           >
             <div class="silicon-fallback" aria-hidden="true">
               <i style="--layer: 0"></i><i style="--layer: 1"></i
@@ -83,26 +82,56 @@
               ><i style="--layer: 12"></i><i style="--layer: 13"></i
               ><i style="--layer: 14"></i><i style="--layer: 15"></i>
             </div>
-            <canvas id="silicon" aria-hidden="true"></canvas>
+            <canvas
+              id="silicon"
+              tabindex="0"
+              role="img"
+              aria-label="Interactive silicon structure. Drag to rotate. Arrow keys rotate; Enter separates layers; R resets the view."
+            ></canvas>
           </div>
           <div class="hero-type">
             <p class="eyebrow">The work, brought together.</p>
             <h1 id="hero-title">ARTIFACTS</h1>
             <p class="hero-statement">
-              Complexity is a given.<br /><em>Clarity is engineered.</em>
+              See deeper.<br /><em>Decide with precision.</em>
             </p>
           </div>
           <a class="hero-enter" href="#story"
             ><span>Enter the work</span><b aria-hidden="true">↓</b></a
           >
-          <div class="hero-layer-caption" aria-hidden="true">
+          <div class="hero-layer-caption" aria-hidden="true" hidden>
             <span class="layer-register"></span
             ><span>Individual tools.<br />A shared structure.</span>
+          </div>
+          <div class="hero-controls">
+            <div class="hero-control-actions">
+              <button id="hero-expand" aria-pressed="false">
+                Separate the layers <span aria-hidden="true">↗</span></button
+              ><button id="hero-reset" aria-label="Reset the structure">
+                Reset ↺
+              </button>
+            </div>
+            <div class="hero-layer-select" hidden>
+              <label for="hero-layer"
+                ><span>Explore a layer</span
+                ><output id="hero-layer-number">01 / 16</output></label
+              ><input
+                id="hero-layer"
+                type="range"
+                min="0"
+                max="15"
+                value="0"
+                aria-label="Choose an application layer"
+              /><a id="hero-layer-link" href="#history"
+                ><span id="hero-layer-name">Altus LotViewer</span
+                ><b aria-hidden="true">↗</b></a
+              >
+            </div>
           </div>
           <div class="hero-foot">
             <span>Engineering / analysis / automation</span
             ><span class="hero-motion-hint"
-              >Move to examine. Scroll to unfold.</span
+              >Drag to rotate. Separate to explore.</span
             >
           </div>
           <div class="hero-horizon" aria-hidden="true"></div>
@@ -166,17 +195,17 @@
       </section>
       <section
         class="archive"
-        aria-label="Scroll through all sixteen applications"
+        aria-label="Start with the homepage, then scroll through all sixteen applications"
       >
         <div class="archive-stage">
           <div class="archive-meta">
-            <span id="archive-group">Altus</span
-            ><span><b id="archive-number">01</b> / 16</span>
+            <span id="archive-group">The starting point</span
+            ><span><b id="archive-number">Home</b> / 16</span>
           </div>
           <div class="archive-content">
             <div class="archive-copy">
-              <p class="eyebrow">The application</p>
-              <h3 id="archive-name">Altus LotViewer</h3>
+              <p class="eyebrow">Inside ARTIFACTS</p>
+              <h3 id="archive-name">ARTIFACTS</h3>
               <p id="archive-purpose"></p>
               <button class="text-link" id="archive-open">
                 Explore the interface <span aria-hidden="true">↗</span>
@@ -208,7 +237,7 @@
       <section class="ending">
         <p class="eyebrow">Always a work in progress.</p>
         <div>
-          <h2>The work keeps moving.<br />So do the tools.</h2>
+          <h2>Insight is the beginning.<br />What you build is the point.</h2>
           <p>
             I enjoy building things.<br />ARTIFACTS is where they come
             together.<span class="attribution">by Gene</span>

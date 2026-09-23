@@ -1,6 +1,7 @@
-import { apps } from "./apps.js";
+import { apps, homepage } from "./apps.js";
 import { createStudy } from "./studies.js";
 import { createHero } from "./hero.js";
+import { createHeroInteraction } from "./hero-interaction.js";
 const $ = (s) => document.querySelector(s),
   $$ = (s) => [...document.querySelectorAll(s)],
   clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v)),
@@ -16,6 +17,8 @@ const root = document.documentElement,
   features = $$(".feature"),
   frames = $$(".archive-images figure"),
   rail = $$(".archive-rail a");
+const collection = [homepage, ...apps],
+  lastCapture = collection.length - 1;
 const studies = features.map(createStudy);
 const silicon = createHero($("#silicon"));
 let heroMoving = false;
@@ -39,6 +42,7 @@ let reduced = preference.matches,
   renderCount = 0;
 let measured = false;
 root.classList.add("enhanced");
+const heroInteraction = createHeroInteraction(apps, wake);
 const motion = $("#motion");
 motion.hidden = false;
 function syncMotion() {
@@ -67,7 +71,7 @@ function measure() {
   const y = scrollY,
     header = $(".header").offsetHeight,
     position = (y - archiveTop) / archiveStep,
-    preserve = measured && position >= 0 && position <= 15;
+    preserve = measured && position >= 0 && position <= lastCapture;
   heroHeight = hero.offsetHeight;
   silicon.resize();
   originBounds = {
@@ -80,8 +84,11 @@ function measure() {
     stage: el.firstElementChild.offsetHeight,
   }));
   archiveTop = archive.getBoundingClientRect().top + y - header;
-  archiveStep = Math.max(1, (archive.offsetHeight - stage.offsetHeight) / 15);
-  target = clamp((y - archiveTop) / archiveStep, 0, 15);
+  archiveStep = Math.max(
+    1,
+    (archive.offsetHeight - stage.offsetHeight) / lastCapture,
+  );
+  target = clamp((y - archiveTop) / archiveStep, 0, lastCapture);
   if (preserve) {
     scrollTo({ top: archiveTop + position * archiveStep, behavior: "instant" });
     target = position;
@@ -95,24 +102,26 @@ $("#study-select").addEventListener("change", (e) => {
   history.replaceState(null, "", "#" + e.target.value);
 });
 function selectApp(index) {
-  index = clamp(index, 0, 15);
-  const a = apps[index];
+  index = clamp(index, 0, lastCapture);
+  const a = collection[index];
   $("#archive-name").textContent = a.name;
   $("#archive-purpose").textContent = a.purpose;
-  $("#archive-group").textContent = a.category.split(" - ")[1];
-  $("#archive-number").textContent = String(index + 1).padStart(2, "0");
+  $("#archive-group").textContent =
+    index === 0 ? "The starting point" : a.category.split(" - ")[1];
+  $("#archive-number").textContent =
+    index === 0 ? "Home" : String(index).padStart(2, "0");
   $("#previous-app").disabled = index === 0;
-  $("#next-app").disabled = index === 15;
+  $("#next-app").disabled = index === lastCapture;
   rail.forEach((r, i) => r.setAttribute("aria-current", String(i === index)));
   active = index;
 }
 function goApp(i, instant = false) {
-  i = clamp(i, 0, 15);
+  i = clamp(i, 0, lastCapture);
   scrollTo({
     top: archiveTop + i * archiveStep,
     behavior: reduced || instant ? "instant" : "smooth",
   });
-  history.replaceState(null, "", "#app-" + apps[i].id);
+  history.replaceState(null, "", "#app-" + collection[i].id);
 }
 rail.forEach((a, i) =>
   a.addEventListener("click", (e) => {
@@ -185,7 +194,7 @@ function tick(time) {
   last = time;
   renderCount++;
   const y = scrollY;
-  target = clamp((y - archiveTop) / archiveStep, 0, 15);
+  target = clamp((y - archiveTop) / archiveStep, 0, lastCapture);
   current = reduced
     ? target
     : current + (target - current) * (1 - Math.exp(-dt / 85));
@@ -194,7 +203,10 @@ function tick(time) {
   if (y < heroHeight) {
     const hp = clamp(y / Math.max(1, heroHeight - innerHeight));
     hero.style.setProperty("--hero", reduced ? 0 : hp);
-    heroMoving = silicon.render(time, hp, px, py, reduced, dt);
+    const interaction = heroInteraction.update(dt, reduced);
+    heroMoving =
+      silicon.render(time, hp, px, py, reduced, dt, interaction) ||
+      interaction.moving;
     hero.style.setProperty("--px", reduced ? 0 : px);
     hero.style.setProperty("--py", reduced ? 0 : py);
   }
@@ -318,7 +330,7 @@ const dialog = $("#capture"),
 let returnFocus = null,
   native = false;
 function openCapture(id) {
-  const a = apps.find((a) => a.id === id);
+  const a = collection.find((a) => a.id === id);
   if (!a) return;
   returnFocus = document.activeElement;
   native = false;
@@ -346,7 +358,7 @@ $$(".app-node").forEach((a) =>
   }),
 );
 $("#archive-open").addEventListener("click", () =>
-  openCapture(apps[Math.max(0, active)].id),
+  openCapture(collection[Math.max(0, active)].id),
 );
 $("#capture-close").addEventListener("click", () => dialog.close());
 dialog.addEventListener("click", (e) => {
@@ -376,7 +388,7 @@ addEventListener("keydown", (e) => {
     return;
   if (
     scrollY >= archiveTop - 20 &&
-    scrollY <= archiveTop + 15 * archiveStep + 20 &&
+    scrollY <= archiveTop + lastCapture * archiveStep + 20 &&
     ["ArrowLeft", "ArrowRight"].includes(e.key)
   ) {
     e.preventDefault();
@@ -395,7 +407,7 @@ $$('a[href^="#"]:not([data-jump])').forEach((a) =>
 );
 function hashNavigate() {
   if (location.hash.startsWith("#app-")) {
-    const i = apps.findIndex((a) => "#app-" + a.id === location.hash);
+    const i = collection.findIndex((a) => "#app-" + a.id === location.hash);
     if (i >= 0) goApp(i, true);
   }
 }
@@ -419,6 +431,9 @@ addEventListener("pageshow", (event) => {
   if (event.persisted) measure();
 });
 window.artifactsExperience = {
+  get heroState() {
+    return heroInteraction.state;
+  },
   get active() {
     return active;
   },

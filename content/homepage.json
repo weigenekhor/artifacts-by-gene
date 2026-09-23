@@ -1,0 +1,12 @@
+{
+  "id": "homepage",
+  "name": "ARTIFACTS",
+  "category": "The starting point",
+  "purpose": "Sixteen applications. One place to enter the work. Start with the ARTIFACTS homepage, then explore each tool in its original order.",
+  "evidence": {
+    "full": "assets/evidence/homepage/full.webp",
+    "fullWidth": 1425,
+    "fullHeight": 950,
+    "label": "ARTIFACTS homepage — the complete application collection"
+  }
+}

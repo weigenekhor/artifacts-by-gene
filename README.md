@@ -14,9 +14,9 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The opening is an original WebGL2 silicon object: sixteen instanced layers with procedural surface detail, bevel lighting, pointer response and scroll-driven separation. It uses no screenshot textures and has a CSS fallback. A short origin passage leads into sixteen purpose-built demonstrations in the original application order. Native scroll moves each study forward; a keyboard-accessible range control lets visitors examine the transformation directly.
+The opening is an original WebGL2 silicon object: sixteen instanced layers with procedural surface detail, bevel lighting, inertial drag rotation, keyboard controls, selectable application layers and scroll-driven separation. It uses no screenshot textures and has a CSS fallback. A short origin passage leads into sixteen purpose-built demonstrations in the original application order. Native scroll moves each study forward; a keyboard-accessible range control lets visitors examine the transformation directly.
 
-The complete collection follows. All sixteen applications advance sequentially with scrolling. The rail, arrows, horizontal touch gestures and direct links provide optional shortcuts. The final index preserves the original four collections and opens every real interface. Creator attribution stays quiet.
+The complete collection follows, beginning with the uncropped ARTIFACTS homepage and then all sixteen applications in order. All seventeen captures fit fully inside their frames as scrolling advances them. The rail, arrows, horizontal touch gestures and direct links provide optional shortcuts. The final index preserves the original four collections and opens every real interface. Creator attribution stays quiet.
 
 See `content/STORYBOARD.md` for the story and factual boundaries. The previous full-page WebGL timeline remains removed. A single instanced draw call handles the new hero, with capped/adaptive resolution and rendering paused offscreen. Study perspective is handled by CSS; SVG geometry is generated at build time. All sixteen studies have staggered assembly, task-specific inspection details and optional 14.5–17.5 second replay.
 
@@ -29,6 +29,8 @@ See `content/STORYBOARD.md` for the story and factual boundaries. The previous f
 - `js/contours.js`: build-time equal-height contour extraction for an illustrative field.
 - `js/experience.js`: shared clock, scroll progression, replay, app picker, archive and image viewer.
 - `js/hero.js`: procedural silicon geometry and lighting.
+- `js/hero-interaction.js`: drag, keyboard, separation, layer selection and reset controls.
+- `content/homepage.json`: the homepage capture preceding the sixteen apps.
 - `js/instruments.js`: app-specific route markers, contour layers and inspection choreography.
 - `experience.css`: entry composition, study camera, image fitting and picker.
 - `styles.css` and `studies.css`: visual design, extended study pacing, responsive composition and reduced motion.
