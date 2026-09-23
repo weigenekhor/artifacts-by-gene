@@ -2,273 +2,353 @@
   {
     "id": "altus-lotviewer",
     "kind": "history",
-    "title": "Every event.\nIn context.",
-    "text": "Events arrive separately. A useful history puts them back in order. Follow the lot through its process events, wafer states and durations.",
+    "title": "Reconstruct\nthe lot.",
+    "text": "Process events are only useful in sequence. Align timestamps, wafer states and durations around the same lot.",
     "kicker": "Lot history analysis.",
     "verbs": ["Gather", "Order", "Follow"],
     "beats": [
+      "Lot history analysis. The supplied interface is the starting point.",
       "Separate records enter the view.",
       "Timestamps bring the sequence together.",
-      "Follow the lot without losing its context."
+      "Follow the lot without losing its context.",
+      "History establishes the sequence. Scheduling places the next work against it."
     ],
     "caption": "Lot history analysis.",
     "number": "01",
     "paper": false,
-    "handoff": "Altus ANKO Viewer"
+    "handoff": "Altus ANKO Viewer",
+    "focusLabel": "Event context",
+    "bridge": "History establishes the sequence. Scheduling places the next work against it.",
+    "duration": 310
   },
   {
     "id": "altus-anko-viewer",
     "kind": "schedule",
-    "title": "Know what\ncomes next.",
-    "text": "A schedule is useful when you can see the work around it. Bring ANKO dates into view across the Altus equipment.",
+    "title": "Put the schedule\nagainst the equipment.",
+    "text": "Retrieve ANKO schedules across Altus equipment. Read dates in the context of the equipment they belong to.",
     "kicker": "ANKO schedule retrieval.",
     "verbs": ["Retrieve", "Align", "Look ahead"],
     "beats": [
+      "ANKO schedule retrieval. The supplied interface is the starting point.",
       "Equipment schedules begin as separate lanes.",
       "The lanes settle into a shared view.",
-      "Attention moves to the work ahead."
+      "Attention moves to the work ahead.",
+      "A schedule says when. Chamber activity records how much."
     ],
     "caption": "ANKO schedule retrieval.",
     "number": "02",
     "paper": false,
-    "handoff": "Altus WaferCount"
+    "handoff": "Altus WaferCount",
+    "focusLabel": "Schedule interval",
+    "bridge": "A schedule says when. Chamber activity records how much.",
+    "duration": 320
   },
   {
     "id": "altus-wafercount",
     "kind": "usage",
-    "title": "Make usage\nvisible.",
-    "text": "Equipment logs hold a history of use. Bring wafer counts into view as a clearer basis for maintenance planning.",
+    "title": "Count the work\nthrough the chamber.",
+    "text": "Collect wafer counts from equipment logs. Review chamber usage as an input to maintenance planning.",
     "kicker": "Chamber usage and wafer counts.",
     "verbs": ["Collect", "Accumulate", "Review"],
     "beats": [
+      "Chamber usage and wafer counts. The supplied interface is the starting point.",
       "Wafer activity starts as individual events.",
       "Activity gathers around each chamber.",
-      "Usage becomes something you can review."
+      "Usage becomes something you can review.",
+      "Usage accumulates by chamber. Variation appears across a wafer."
     ],
     "caption": "Chamber usage and wafer counts.",
     "number": "03",
     "paper": false,
-    "handoff": "TopoTracer"
+    "handoff": "TopoTracer",
+    "focusLabel": "Chamber activity",
+    "bridge": "Usage accumulates by chamber. Variation appears across a wafer.",
+    "duration": 310
   },
   {
     "id": "topotracer",
     "kind": "surface",
     "kicker": "Contour and topography plots.",
-    "title": "Numbers have\na shape.",
-    "text": "A column of measurements tells part of the story. TopoTracer places them across the wafer, so spatial variation becomes visible.",
+    "title": "Locate\nthe variation.",
+    "text": "Measurements acquire meaning when their positions are retained. Resolve a contour field from the wafer samples.",
     "verbs": ["Measure", "Interpolate", "Understand"],
     "caption": "Contour and topography plots.",
     "number": "04",
     "beats": [
+      "Contour and topography plots. The supplied interface is the starting point.",
       "Discrete points preserve individual measurements.",
       "Contours reveal the shape between the points.",
-      "The wafer becomes a field you can read."
+      "The wafer becomes a field you can read.",
+      "A spatial difference is visible. A recipe difference needs alignment."
     ],
     "paper": true,
-    "handoff": "Papyrus Reader"
+    "handoff": "Papyrus Reader",
+    "focusLabel": "Wafer region",
+    "bridge": "A spatial difference is visible. A recipe difference needs alignment.",
+    "duration": 350
   },
   {
     "id": "papyrus-reader",
     "kind": "compare",
     "kicker": "Logical recipe and text comparison.",
-    "title": "Find the change.\nKeep the meaning.",
-    "text": "When steps move, a line-by-line comparison loses the thread. Papyrus Reader follows equivalent steps and brings the differences forward.",
+    "title": "Compare the steps.\nKeep the sequence.",
+    "text": "Line positions can change without a process change. Align equivalent recipe steps before isolating the differences.",
     "verbs": ["Read", "Align", "Compare"],
     "caption": "Logical recipe and text comparison.",
     "number": "05",
     "beats": [
+      "Logical recipe and text comparison. The supplied interface is the starting point.",
       "The same recipe steps occupy different positions.",
       "Equivalent steps find their counterparts.",
-      "The unchanged settles back. Differences remain."
+      "The unchanged settles back. Differences remain.",
+      "Comparison isolates a change. The next task is finding the right chart."
     ],
     "paper": true,
-    "handoff": "SPC Pathfinder"
+    "handoff": "SPC Pathfinder",
+    "focusLabel": "Recipe step",
+    "bridge": "Comparison isolates a change. The next task is finding the right chart.",
+    "duration": 350
   },
   {
     "id": "spc-pathfinder",
     "kind": "pathfinder",
-    "title": "Less searching.\nMore seeing.",
-    "text": "Find the charts you need across workcentres and parameter groups. Keep the path to the right information in view.",
+    "title": "Get to\nthe parameter.",
+    "text": "Navigate workcentres and parameter groups to locate the required SPC chart.",
     "kicker": "SPC chart finder.",
     "verbs": ["Locate", "Select", "Open"],
     "beats": [
+      "SPC chart finder. The supplied interface is the starting point.",
       "A workcentre contains many possible paths.",
       "One parameter group comes into focus.",
-      "The selected path resolves into a chart."
+      "The selected path resolves into a chart.",
+      "A chart locates the signal. A report carries the measurements forward."
     ],
     "caption": "SPC chart finder.",
     "number": "06",
     "paper": true,
-    "handoff": "GaN Met Compiler"
+    "handoff": "GaN Met Compiler",
+    "focusLabel": "Parameter trace",
+    "bridge": "A chart locates the signal. A report carries the measurements forward.",
+    "duration": 310
   },
   {
     "id": "gan-met-compiler",
     "kind": "compile",
-    "title": "From data\nto a report.",
-    "text": "Scattered metrology inputs become a consistent report. Gather the files, apply the predefined calculations and follow the result.",
+    "title": "From metrology\nto a report.",
+    "text": "Gather measurement files, apply predefined calculations and compile the result into a consistent reporting structure.",
     "kicker": "Metrology report compiler.",
     "verbs": ["Gather", "Calculate", "Compile"],
     "beats": [
+      "Metrology report compiler. The supplied interface is the starting point.",
       "Separate measurement inputs enter the workspace.",
       "A common calculation structure brings them together.",
-      "The inputs resolve into a consistent report."
+      "The inputs resolve into a consistent report.",
+      "Compilation assembles the evidence. Diagnosis asks what to check."
     ],
     "caption": "Metrology report compiler.",
     "number": "07",
     "paper": false,
-    "handoff": "GaN Temp Diagnoser"
+    "handoff": "GaN Temp Diagnoser",
+    "focusLabel": "Report section",
+    "bridge": "Compilation assembles the evidence. Diagnosis asks what to check.",
+    "duration": 330
   },
   {
     "id": "gan-temp-diagnoser",
     "kind": "diagnose",
     "kicker": "Temperature drift diagnosis.",
-    "title": "A signal.\nA direction.",
-    "text": "Temperature drift raises questions. GaN Temp Diagnoser connects observed behavior with likely causes and the checks worth making next.",
+    "title": "Drift is observed.\nThe cause is investigated.",
+    "text": "Relate temperature behavior to possible causes and recommended checks. Keep an observation separate from a conclusion.",
     "verbs": ["Observe", "Narrow", "Investigate"],
     "caption": "Temperature drift diagnosis.",
     "number": "08",
     "beats": [
+      "Temperature drift diagnosis. The supplied interface is the starting point.",
       "Observed temperature behavior opens several questions.",
       "The observations narrow the possible directions.",
-      "Recommended checks provide a place to start."
+      "Recommended checks provide a place to start.",
+      "An investigation narrows the question. Arrangement puts the inputs into position."
     ],
     "paper": false,
-    "handoff": "AIX ΔT Assistant"
+    "handoff": "AIX ΔT Assistant",
+    "focusLabel": "Diagnostic branch",
+    "bridge": "An investigation narrows the question. Arrangement puts the inputs into position.",
+    "duration": 365
   },
   {
     "id": "aix-dt-assistant",
     "kind": "arrange",
-    "title": "An arrangement\nwith reason.",
-    "text": "Weight and temperature inputs guide baseplate arrangement. Put the basis for the decision alongside the spatial result.",
+    "title": "Place the inputs\nin the arrangement.",
+    "text": "Use weight and temperature inputs to guide baseplate placement. Review the arrangement with its basis still in view.",
     "kicker": "Baseplate arrangement guidance.",
     "verbs": ["Enter", "Evaluate", "Arrange"],
     "beats": [
+      "Baseplate arrangement guidance. The supplied interface is the starting point.",
       "Baseplate inputs remain separate from their positions.",
       "The arrangement takes shape around the process.",
-      "Review the placement and the inputs behind it."
+      "Review the placement and the inputs behind it.",
+      "Placement defines positions. Zone mapping defines their regions."
     ],
     "caption": "Baseplate arrangement guidance.",
     "number": "09",
     "paper": false,
-    "handoff": "LT Zone Assistant"
+    "handoff": "LT Zone Assistant",
+    "focusLabel": "Baseplate position",
+    "bridge": "Placement defines positions. Zone mapping defines their regions.",
+    "duration": 340
   },
   {
     "id": "lt-zone-assistant",
     "kind": "zones",
-    "title": "Every zone.\nA shared view.",
-    "text": "Map LayTec zones against the same geometry. See the inner and outer regions in relation to the whole.",
+    "title": "Define the region.\nRetain the geometry.",
+    "text": "Map LayTec inner and outer zones within one coordinate system. Review each boundary in relation to the whole.",
     "kicker": "LayTec zone mapping.",
     "verbs": ["Locate", "Map", "Relate"],
     "beats": [
+      "LayTec zone mapping. The supplied interface is the starting point.",
       "Individual regions begin with a common origin.",
       "Boundaries extend into the measurement geometry.",
-      "Inner and outer zones share one spatial view."
+      "Inner and outer zones share one spatial view.",
+      "A boundary changes the region. A configuration change changes a setting."
     ],
     "caption": "LayTec zone mapping.",
     "number": "10",
     "paper": false,
-    "handoff": "GaN XML Assistant"
+    "handoff": "GaN XML Assistant",
+    "focusLabel": "Zone boundary",
+    "bridge": "A boundary changes the region. A configuration change changes a setting.",
+    "duration": 340
   },
   {
     "id": "gan-xml-assistant",
     "kind": "configuration",
-    "title": "Make changes\nunmistakable.",
-    "text": "Compare Devices.XML configurations, settings and constants. Bring differences forward while keeping their context intact.",
+    "title": "Isolate the change\nin Devices.XML.",
+    "text": "Match properties between reference and target configurations. Read changed settings and constants in context.",
     "kicker": "Devices.XML comparison.",
     "verbs": ["Load", "Match", "Distinguish"],
     "beats": [
+      "Devices.XML comparison. The supplied interface is the starting point.",
       "Reference and target properties enter side by side.",
       "Matching properties line up for comparison.",
-      "Changed values remain visible in their context."
+      "Changed values remain visible in their context.",
+      "A setting is compared. A process state is reviewed."
     ],
     "caption": "Devices.XML comparison.",
     "number": "11",
     "paper": false,
-    "handoff": "Magus SPC (GaN)"
+    "handoff": "Magus SPC (GaN)",
+    "focusLabel": "Configuration property",
+    "bridge": "A setting is compared. A process state is reviewed.",
+    "duration": 330
   },
   {
     "id": "magus-spc-gan",
     "kind": "spc",
-    "title": "Keep the process\nin perspective.",
-    "text": "Review configured GaN SPC charts and parameter states together. Move from a signal to the surrounding process context.",
+    "title": "Review the chart\nwith its state.",
+    "text": "Bring configured GaN SPC charts and parameter states into the same review.",
     "kicker": "GaN SPC release review.",
     "verbs": ["Select", "Review", "Focus"],
     "beats": [
+      "GaN SPC release review. The supplied interface is the starting point.",
       "Equipment and parameter context frame the review.",
       "The configured charts come into view.",
-      "Follow a signal without losing the broader picture."
+      "Follow a signal without losing the broader picture.",
+      "The review continues across established parameter workflows."
     ],
     "caption": "GaN SPC release review.",
     "number": "12",
     "paper": true,
-    "handoff": "Magus SPC (Legacy)"
+    "handoff": "Magus SPC (Legacy)",
+    "focusLabel": "Review interval",
+    "bridge": "The review continues across established parameter workflows.",
+    "duration": 325
   },
   {
     "id": "magus-spc-legacy",
     "kind": "legacy",
-    "title": "A familiar process.\nA clearer view.",
-    "text": "Keep established SPC workflows within reach. Bring legacy parameter states and charts into one review environment.",
+    "title": "Keep the parameter\nbeside its chart.",
+    "text": "Retrieve legacy SPC parameter states and charts within the established review workflow.",
     "kicker": "Legacy SPC release review.",
     "verbs": ["Retrieve", "Expand", "Review"],
     "beats": [
+      "Legacy SPC release review. The supplied interface is the starting point.",
       "The parameter index provides a familiar entry point.",
       "One parameter opens into its chart.",
-      "State and chart remain in the same review."
+      "State and chart remain in the same review.",
+      "A parameter needs review. Equipment status needs a plan."
     ],
     "caption": "Legacy SPC release review.",
     "number": "13",
     "paper": true,
-    "handoff": "ANKO Helper"
+    "handoff": "ANKO Helper",
+    "focusLabel": "Selected parameter",
+    "bridge": "A parameter needs review. Equipment status needs a plan.",
+    "duration": 310
   },
   {
     "id": "anko-helper",
     "kind": "planning",
-    "title": "Plan with the\nwhole picture.",
-    "text": "Bring ANKO status and due dates together. See what needs attention before deciding what comes next.",
+    "title": "Status. Due date.\nNext action.",
+    "text": "Align ANKO status and due dates by equipment before deciding what needs attention.",
     "kicker": "ANKO status and due dates.",
     "verbs": ["Gather", "Prioritise", "Plan"],
     "beats": [
+      "ANKO status and due dates. The supplied interface is the starting point.",
       "Equipment status and due dates begin apart.",
       "The two views align around the same equipment.",
-      "Planning starts with the relevant context in view."
+      "Planning starts with the relevant context in view.",
+      "Planning orders the work. Reporting retains its record."
     ],
     "caption": "ANKO status and due dates.",
     "number": "14",
     "paper": true,
-    "handoff": "LT Report Compiler"
+    "handoff": "LT Report Compiler",
+    "focusLabel": "Equipment row",
+    "bridge": "Planning orders the work. Reporting retains its record.",
+    "duration": 325
   },
   {
     "id": "lt-report-compiler",
     "kind": "report",
-    "title": "A consistent\nreport.",
-    "text": "Assemble LayTec information into an engineering report. A repeated reporting task becomes a repeatable process.",
+    "title": "Compile the record.\nRepeat the method.",
+    "text": "Assemble LayTec source information into an engineering report without rebuilding the reporting structure each time.",
     "kicker": "LayTec report compilation.",
     "verbs": ["Read", "Assemble", "Report"],
     "beats": [
+      "LayTec report compilation. The supplied interface is the starting point.",
       "LayTec records enter as separate source material.",
       "Their contents gather into a common structure.",
-      "A report takes the place of repeated assembly."
+      "A report takes the place of repeated assembly.",
+      "A report collects the record. Related signals need a shared interval."
     ],
     "caption": "LayTec report compilation.",
     "number": "15",
     "paper": false,
-    "handoff": "Metria SPC"
+    "handoff": "Metria SPC",
+    "focusLabel": "Report assembly",
+    "bridge": "A report collects the record. Related signals need a shared interval.",
+    "duration": 330
   },
   {
     "id": "metria-spc",
     "kind": "signals",
     "kicker": "Interactive multi-parameter equipment SPC.",
-    "title": "The picture\nbetween signals.",
-    "text": "Equipment parameters make more sense together. Metria SPC brings related charts into one view, with interactive analysis to follow the detail.",
+    "title": "Different parameters.\nThe same interval.",
+    "text": "Inspect equipment parameter traces together. Follow one time window across the signals while retaining each chart.",
     "verbs": ["Gather", "Relate", "Explore"],
     "caption": "Interactive multi-parameter equipment SPC.",
     "number": "16",
     "beats": [
+      "Interactive multi-parameter equipment SPC. The supplied interface is the starting point.",
       "Individual parameter traces begin on separate axes.",
       "A shared time window brings the signals together.",
-      "Move through the same interval across every trace."
+      "Move through the same interval across every trace.",
+      "Sixteen specific tasks. One accumulated collection."
     ],
     "paper": false,
-    "handoff": "The complete collection"
+    "handoff": "The complete collection",
+    "focusLabel": "Shared time window",
+    "bridge": "Sixteen specific tasks. One accumulated collection.",
+    "duration": 370
   }
 ]

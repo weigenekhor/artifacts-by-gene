@@ -1,76 +1,67 @@
-// One instanced silicon object: sixteen layers, one draw call, no image textures.
+// THE ARTIFACT: faceted software-bearing leaves open into a camera passage.
 const vertex = `#version 300 es
 precision highp float;
 layout(location=0) in vec3 position;
 layout(location=1) in vec3 normal;
-uniform mat4 projection, view;
-uniform float opening, progress, clock;
-uniform vec2 pointer, orbit;
-uniform float separation, selected;
-out vec3 world, norm, local;
-flat out float layer;
-mat3 rx(float a){float c=cos(a),s=sin(a);return mat3(1,0,0,0,c,s,0,-s,c);}
+uniform mat4 projection,view;
+uniform vec2 orbit,pointer;
+uniform float index,opening,passage,selected;
+out vec3 world,norm,local;
+out vec2 uv;
 mat3 ry(float a){float c=cos(a),s=sin(a);return mat3(c,0,-s,0,1,0,s,0,c);}
+mat3 rx(float a){float c=cos(a),s=sin(a);return mat3(1,0,0,0,c,s,0,-s,c);}
 mat3 rz(float a){float c=cos(a),s=sin(a);return mat3(c,s,0,-s,c,0,0,0,1);}
 void main(){
- layer=float(gl_InstanceID); local=position;
- float arrival=smoothstep(layer*.022, .64+layer*.022, opening);
- float spread=max(smoothstep(.05,.8,progress)*.7,separation);
- float chosen=1.-smoothstep(.1,.8,abs(layer-selected));
- vec3 p=position;
- p.xz*=.97+layer*.002;
- p.y+=(layer-7.5)*(.042+spread*.105);
- p.x+=chosen*separation*.65;
- p.z+=chosen*separation*.45;
- mat3 fan=ry((layer-7.5)*separation*.045);p=fan*p;
- p.x+=(1.-arrival)*(layer-7.5)*.065 + spread*sin(layer*.28)*.16;
- p.z+=(1.-arrival)*.45;
- mat3 rot=rz(-.22+pointer.y*.065)*rx(orbit.y)*ry(-.38+orbit.x+pointer.x*.2+sin(clock*.16)*.025);
- world=rot*p; norm=rot*fan*normal;
+ local=position;uv=position.xy/vec2(3.3,2.2)+.5;
+ float side=mod(index,2.)<.5?-1.:1.;float pair=floor(index*.5);
+ float chosen=1.-smoothstep(.1,.9,abs(index-selected));
+ mat3 leaf=ry(-side*opening*.22)*rz(side*opening*(pair-3.5)*.018);
+ vec3 p=leaf*position;
+ p.x+=side*opening*(2.22+pair*.13)+side*chosen*opening*.22;
+ p.y+=(pair-3.5)*opening*.10;
+ p.z-=index*(.064+opening*.27);p.z+=chosen*opening*.16;
+ mat3 body=ry((-.30+orbit.x+pointer.x*.07)*(1.-passage))*rx((.12+orbit.y+pointer.y*.045)*(1.-passage));
+ world=body*p;norm=body*leaf*normal;
  gl_Position=projection*view*vec4(world,1.);
 }`;
 const fragment = `#version 300 es
 precision highp float;
-in vec3 world, norm, local;
-flat in float layer;
+in vec3 world,norm,local;
+in vec2 uv;
+uniform sampler2D capture;
 uniform vec3 eye;
-uniform float clock, progress, separation, selected;
+uniform float opening,index,selected,clock,ready;
 out vec4 color;
 void main(){
- vec3 n=normalize(norm), v=normalize(eye-world);
- vec3 key=normalize(vec3(-2.2,4.5,2.8));
- vec3 fill=normalize(vec3(3.5,.9,-2.));
- float top=smoothstep(.5,.95,abs(norm.y));
- vec2 cell=local.xz*12.;
- vec2 edge=abs(fract(cell-.5)-.5)/max(fwidth(cell),vec2(.005));
- float grid=1.-smoothstep(.45,1.1,min(edge.x,edge.y));
- float micro=sin(local.x*890.)*sin(local.z*970.);
- vec3 base=mix(vec3(.12,.145,.15),vec3(.29,.325,.33),top);
- base*=.88+ .12*sin(layer*.7);
- base=mix(base,vec3(.035,.045,.044),grid*top*.17);
- float lambert=max(dot(n,key),0.);
- float spec=pow(max(dot(n,normalize(key+v)),0.),72.);
- float broad=pow(max(dot(n,normalize(normalize(vec3(-1.,3.,-2.))+v)),0.),12.);
- float rim=pow(1.-max(dot(n,v),0.),4.);
- float brushed=pow(max(dot(reflect(-key,n),v),0.),28.)*(.85+.15*sin(local.z*520.));
- float sweep=exp(-pow((local.x*.72+local.z*.35-sin(clock*.24)*1.45)/.16,2.));
- vec3 light=base*(.21+lambert*.55)+vec3(.78,.84,.87)*spec*.9;
- light+=vec3(.45,.55,.57)*broad*.2+vec3(.78,.55,.31)*rim*.34;
- light+=vec3(.55,.65,.66)*brushed*.22;
- light+=vec3(.36,.44,.45)*sweep*top*.055;
- light+=vec3(.76,.48,.25)*pow(max(dot(n,fill),0.),5.)*.17;
- float studio=exp(-pow((local.x*.65+local.z*.35-.3-sin(clock*.18)*.3)/.48,2.));
- light+=vec3(.28,.35,.36)*studio*top;
- light*=.68+smoothstep(-1.4,1.3,local.x)*.28;
- light+=micro*.002;
- // The copper reveal is at the cut edge, not a rainbow surface effect.
- if(abs(local.y)<.006 && abs(norm.y)<.8)light+=vec3(.46,.24,.08)*.14;
- light*=.82+.18*(layer/15.);
- float chosen=1.-smoothstep(.1,.8,abs(layer-selected));
- light=light*(1.-.24*separation*(1.-chosen))+vec3(.13,.07,.025)*chosen*separation;
- color=vec4(pow(max(light,vec3(0.)),vec3(.82)),1.);
+ vec3 n=normalize(norm),v=normalize(eye-world),l=normalize(vec3(-3.,4.,5.));
+ float rim=pow(1.-abs(dot(n,v)),3.);
+ float broad=pow(max(dot(n,normalize(l+v)),0.),24.);
+ float groove=step(.989,fract((local.x+1.65)*20.));
+ float grain=sin(local.x*1200.)*sin(local.y*1380.)*.002;
+ vec3 metal=vec3(.10,.13,.14)*(.42+.6*abs(dot(n,l)))+vec3(.42,.51,.52)*broad*.55;
+ metal+=vec3(.48,.33,.18)*rim*.30+grain;
+ float stripe=exp(-pow((local.x+local.y*.6-sin(clock*.13)*.4)/.31,2.));
+ metal+=vec3(.12,.17,.18)*stripe;
+ metal*=1.-groove*.15;
+ // Captures are recessed, continuous structural surfaces, revealed from within.
+ float inset=step(.033,uv.x)*step(uv.x,.967)*step(.04,uv.y)*step(uv.y,.96);
+ float face=step(.028,abs(local.z));
+ float reveal=smoothstep(.035,.43,opening)*inset*face*ready;
+ vec2 imageUV=(uv-vec2(.033,.04))/vec2(.934,.92);
+ vec3 software=texture(capture,vec2(imageUV.x,1.-imageUV.y)).rgb;
+ float selectedFace=1.-smoothstep(.1,.9,abs(index-selected));
+ vec3 material=mix(metal,software*(.72+selectedFace*.28)+metal*.08,reveal);
+ float seam=step(.982,abs(local.y)/1.1)+step(.985,abs(local.x)/1.65);
+ material+=vec3(.39,.30,.19)*seam*.16;
+ color=vec4(material,1.);
 }`;
-const normalize = (a) => {
+const clamp = (v) => Math.max(0, Math.min(1, v));
+const smooth = (v) => {
+  v = clamp(v);
+  return v * v * (3 - 2 * v);
+};
+const mix = (a, b, t) => a + (b - a) * t;
+const norm = (a) => {
   const l = Math.hypot(...a);
   return a.map((v) => v / l);
 };
@@ -80,9 +71,9 @@ const cross = (a, b) => [
   a[0] * b[1] - a[1] * b[0],
 ];
 const dot = (a, b) => a.reduce((s, v, i) => s + v * b[i], 0);
-function camera(eye) {
-  const z = normalize(eye),
-    x = normalize(cross([0, 1, 0], z)),
+function lookAt(eye, target) {
+  const z = norm(eye.map((v, i) => v - target[i])),
+    x = norm(cross([0, 1, 0], z)),
     y = cross(z, x);
   return new Float32Array([
     x[0],
@@ -104,115 +95,174 @@ function camera(eye) {
   ]);
 }
 function geometry() {
-  const v = [],
-    ix = [],
-    segments = 160;
-  const point = (a, r, y) => [
-    Math.cos(a) * r,
-    y,
-    Math.min(Math.sin(a) * r, r * 0.97),
-  ];
-  // Bevel rings give the wafer real thickness under grazing light.
-  const rings = [
-    [1.69, -0.015, 0, -1],
-    [1.72, -0.007, 1, -0.4],
-    [1.72, 0.007, 1, 0.4],
-    [1.69, 0.015, 0, 1],
-  ];
-  for (const [r, y, nr, ny] of rings)
-    for (let i = 0; i <= segments; i++) {
-      const a = (i / segments) * Math.PI * 2,
-        p = point(a, r, y),
-        n = normalize([Math.cos(a) * nr, ny, Math.sin(a) * nr]);
-      v.push(...p, ...n);
+  const ring = [
+      [-1.5, -1.1],
+      [1.43, -1.1],
+      [1.65, -0.88],
+      [1.65, 0.82],
+      [1.37, 1.1],
+      [-1.48, 1.1],
+      [-1.65, 0.93],
+      [-1.65, -0.94],
+    ],
+    v = [];
+  const tri = (a, b, c, n) => v.push(...a, ...n, ...b, ...n, ...c, ...n);
+  for (const z of [-0.031, 0.031])
+    for (let i = 0; i < 8; i++) {
+      const a = ring[i],
+        b = ring[(i + 1) % 8];
+      tri(
+        [0, 0, z],
+        [a[0] * 0.986, a[1] * 0.979, z],
+        [b[0] * 0.986, b[1] * 0.979, z],
+        [0, 0, Math.sign(z)],
+      );
     }
-  for (let r = 0; r < 3; r++)
-    for (let i = 0; i < segments; i++) {
-      const a = r * (segments + 1) + i,
-        b = a + segments + 1;
-      ix.push(a, b, a + 1, a + 1, b, b + 1);
+  for (let i = 0; i < 8; i++) {
+    const a = ring[i],
+      b = ring[(i + 1) % 8],
+      n = norm([b[1] - a[1], a[0] - b[0], 0]);
+    for (const sign of [-1, 1]) {
+      const p = [a[0], a[1], sign * 0.018],
+        q = [b[0], b[1], sign * 0.018],
+        r = [a[0] * 0.986, a[1] * 0.979, sign * 0.031],
+        s = [b[0] * 0.986, b[1] * 0.979, sign * 0.031],
+        bevel = norm([n[0], n[1], sign]);
+      tri(p, q, r, bevel);
+      tri(q, s, r, bevel);
     }
-  for (const [ring, ny] of [
-    [0, -1],
-    [3, 1],
-  ]) {
-    const center = v.length / 6;
-    v.push(0, ny * 0.015, 0, 0, ny, 0);
-    for (let i = 0; i < segments; i++)
-      ix.push(center, ring * (segments + 1) + i, ring * (segments + 1) + i + 1);
+    tri([...a, -0.018], [...b, -0.018], [...a, 0.018], n);
+    tri([...b, -0.018], [...b, 0.018], [...a, 0.018], n);
   }
-  return { v: new Float32Array(v), ix: new Uint16Array(ix) };
+  return new Float32Array(v);
 }
-export function createHero(canvas) {
-  const gl = canvas.getContext("webgl2", {
-    alpha: true,
-    antialias: true,
-    powerPreference: "low-power",
-  });
-  if (!gl) return { render: () => false, resize: () => {} };
-  let available = true,
-    quality = 1,
-    slow = 0;
-  const program = gl.createProgram(),
-    resources = [];
-  try {
-    for (const [type, source] of [
-      [gl.VERTEX_SHADER, vertex],
-      [gl.FRAGMENT_SHADER, fragment],
-    ]) {
-      const shader = gl.createShader(type);
-      gl.shaderSource(shader, source);
-      gl.compileShader(shader);
-      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS))
-        throw Error(gl.getShaderInfoLog(shader));
-      gl.attachShader(program, shader);
-      resources.push(shader);
+export function createHero(canvas, apps, wake) {
+  const fallback = { render: () => false, resize: () => {} },
+    gl = canvas.getContext("webgl2", {
+      alpha: true,
+      antialias: true,
+      powerPreference: "low-power",
+    });
+  if (!gl) return fallback;
+  const program = gl.createProgram();
+  for (const [type, source] of [
+    [gl.VERTEX_SHADER, vertex],
+    [gl.FRAGMENT_SHADER, fragment],
+  ]) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, source);
+    gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+      gl.deleteShader(s);
+      gl.deleteProgram(program);
+      return fallback;
     }
-    gl.linkProgram(program);
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS))
-      throw Error(gl.getProgramInfoLog(program));
-  } catch {
-    resources.forEach((s) => gl.deleteShader(s));
-    gl.deleteProgram(program);
-    return { render: () => false, resize: () => {} };
+    gl.attachShader(program, s);
+    gl.deleteShader(s);
   }
-  const mesh = geometry(),
-    vao = gl.createVertexArray();
+  gl.linkProgram(program);
+  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+    gl.deleteProgram(program);
+    return fallback;
+  }
+  const vao = gl.createVertexArray();
   gl.bindVertexArray(vao);
-  const buffer = gl.createBuffer();
+  const vertices = geometry(),
+    buffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-  gl.bufferData(gl.ARRAY_BUFFER, mesh.v, gl.STATIC_DRAW);
+  gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
   for (let i = 0; i < 2; i++) {
     gl.enableVertexAttribArray(i);
     gl.vertexAttribPointer(i, 3, gl.FLOAT, false, 24, i * 12);
   }
-  const indices = gl.createBuffer();
-  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indices);
-  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, mesh.ix, gl.STATIC_DRAW);
-  const u = Object.fromEntries(
-    [
+  const uniforms = [
       "projection",
       "view",
-      "opening",
-      "progress",
-      "clock",
-      "pointer",
-      "eye",
       "orbit",
-      "separation",
+      "pointer",
+      "index",
+      "opening",
+      "passage",
       "selected",
-    ].map((n) => [n, gl.getUniformLocation(program, n)]),
-  );
-  let width = 1,
+      "capture",
+      "eye",
+      "clock",
+      "ready",
+    ],
+    u = Object.fromEntries(
+      uniforms.map((n) => [n, gl.getUniformLocation(program, n)]),
+    );
+  const ext = gl.getExtension("EXT_texture_filter_anisotropic");
+  const textures = apps.map(() => {
+    const t = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, t);
+    gl.texImage2D(
+      gl.TEXTURE_2D,
+      0,
+      gl.RGBA,
+      1,
+      1,
+      0,
+      gl.RGBA,
+      gl.UNSIGNED_BYTE,
+      new Uint8Array([18, 24, 23, 255]),
+    );
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    return { texture: t, ready: false, requested: false };
+  });
+  let available = true,
+    requested = false,
+    width = 1,
     height = 1,
-    start = null;
+    start = null,
+    quality = 1,
+    slow = 0;
+  async function loadSurface(i) {
+    const t = textures[i];
+    if (t.requested) return;
+    t.requested = true;
+    try {
+      const image = new Image();
+      image.src = apps[i].evidence.full;
+      await image.decode();
+      if (!available) return;
+      const c = document.createElement("canvas"),
+        limit = innerWidth < 700 ? 640 : 1024;
+      c.width = Math.min(limit, image.naturalWidth);
+      c.height = Math.round(
+        (c.width * image.naturalHeight) / image.naturalWidth,
+      );
+      c.getContext("2d").drawImage(image, 0, 0, c.width, c.height);
+      gl.bindTexture(gl.TEXTURE_2D, t.texture);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, c);
+      gl.generateMipmap(gl.TEXTURE_2D);
+      gl.texParameteri(
+        gl.TEXTURE_2D,
+        gl.TEXTURE_MIN_FILTER,
+        gl.LINEAR_MIPMAP_LINEAR,
+      );
+      if (ext)
+        gl.texParameterf(
+          gl.TEXTURE_2D,
+          ext.TEXTURE_MAX_ANISOTROPY_EXT,
+          Math.min(8, gl.getParameter(ext.MAX_TEXTURE_MAX_ANISOTROPY_EXT)),
+        );
+      t.ready = true;
+      wake();
+    } catch {
+      t.ready = false;
+    }
+  }
   function resize() {
     width = canvas.clientWidth;
     height = canvas.clientHeight;
-    const dpr =
-      Math.min(devicePixelRatio, innerWidth < 700 ? 1.35 : 1.75) * quality;
-    canvas.width = Math.round(width * dpr);
-    canvas.height = Math.round(height * dpr);
+    const d =
+      Math.min(devicePixelRatio, innerWidth < 700 ? 1.4 : 1.7) * quality;
+    canvas.width = Math.max(1, Math.round(width * d));
+    canvas.height = Math.max(1, Math.round(height * d));
     gl.viewport(0, 0, canvas.width, canvas.height);
   }
   resize();
@@ -224,21 +274,32 @@ export function createHero(canvas) {
   });
   return {
     resize,
-    render(time, p, x, y, reduced, dt, interaction) {
+    render(time, p, px, py, reduced, dt, interaction) {
       if (!available) return false;
       if (start === null) start = time;
+      const open = Math.max(
+          reduced ? 0 : smooth((p - 0.06) / 0.46),
+          interaction.spread,
+        ),
+        pass = reduced ? 0 : smooth((p - 0.48) / 0.35),
+        travel = reduced ? 0 : smooth((p - 0.58) / 0.42);
+      if (!requested) {
+        requested = true;
+        [0, 3, 4, 7].forEach(loadSurface);
+      }
+      if (open > 0.025) textures.forEach((_, i) => loadSurface(i));
       if (dt > 35 && !reduced) {
-        if (++slow > 35 && quality === 1) {
-          quality = 0.78;
+        if (++slow > 40 && quality === 1) {
+          quality = 0.8;
           resize();
         }
       } else slow = Math.max(0, slow - 1);
-      const t = (time - start) / 1000,
+      const t = reduced ? 5 : (time - start) / 1000,
         aspect = width / Math.max(1, height),
-        f = 1 / Math.tan(0.55 / 2),
-        far = 35,
-        near = 0.1;
-      const proj = new Float32Array([
+        f = 1 / Math.tan(0.51 / 2),
+        near = 0.08,
+        far = 50;
+      const projection = new Float32Array([
         f / aspect,
         0,
         0,
@@ -247,7 +308,7 @@ export function createHero(canvas) {
         f,
         0,
         0,
-        0,
+        -0.4 * (1 - open) * (1 - pass) * (innerWidth < 700 ? 0 : 1),
         0,
         (far + near) / (near - far),
         -1,
@@ -256,36 +317,36 @@ export function createHero(canvas) {
         (2 * far * near) / (near - far),
         0,
       ]);
-      const distance =
-        (innerWidth < 700 ? 1.22 : 1) * (1 + interaction.spread * 0.12);
       const eye = [
-        (3.5 - p * 0.5) * distance,
-        (3.4 + p * 1.5) * distance,
-        (6.8 - p * 1.65) * distance,
-      ];
+          3.4 * (1 - open * 0.65) * (1 - pass),
+          mix(1.65, 0, pass),
+          mix((innerWidth < 700 ? 11 : 8.3) + open * 3.2, -9.5, travel),
+        ],
+        target = [0, 0, mix(-0.4, eye[2] - 7, pass)];
       gl.clearColor(0, 0, 0, 0);
       gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
       gl.enable(gl.DEPTH_TEST);
       gl.useProgram(program);
       gl.bindVertexArray(vao);
-      gl.uniformMatrix4fv(u.projection, false, proj);
-      gl.uniformMatrix4fv(u.view, false, camera(eye));
+      gl.uniformMatrix4fv(u.projection, false, projection);
+      gl.uniformMatrix4fv(u.view, false, lookAt(eye, target));
       gl.uniform3fv(u.eye, eye);
-      gl.uniform1f(u.opening, reduced ? 1 : Math.min(1, t / 2.6));
-      gl.uniform1f(u.progress, reduced ? 0 : p);
-      gl.uniform1f(u.clock, reduced ? 5 : t);
-      gl.uniform2f(u.pointer, reduced ? 0 : x, reduced ? 0 : y);
-      gl.uniform2f(u.orbit, interaction.yaw, interaction.pitch);
-      gl.uniform1f(u.separation, interaction.spread);
+      gl.uniform2f(u.orbit, interaction.yaw * 0.38, interaction.pitch * 0.5);
+      gl.uniform2f(u.pointer, reduced ? 0 : px, reduced ? 0 : py);
+      gl.uniform1f(u.opening, open);
+      gl.uniform1f(u.passage, pass);
       gl.uniform1f(u.selected, interaction.selected);
-      gl.drawElementsInstanced(
-        gl.TRIANGLES,
-        mesh.ix.length,
-        gl.UNSIGNED_SHORT,
-        0,
-        16,
-      );
-      return !reduced;
+      gl.uniform1f(u.clock, t);
+      gl.uniform1i(u.capture, 0);
+      for (let i = 15; i >= 0; i--) {
+        gl.uniform1f(u.index, i);
+        gl.uniform1f(u.ready, textures[i].ready ? 1 : 0);
+        gl.activeTexture(gl.TEXTURE0);
+        gl.bindTexture(gl.TEXTURE_2D, textures[i].texture);
+        gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 6);
+      }
+      canvas.dataset.surfaces = String(textures.filter((t) => t.ready).length);
+      return !reduced && p < 0.98;
     },
   };
 }

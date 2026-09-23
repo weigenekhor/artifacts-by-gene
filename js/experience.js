@@ -19,8 +19,8 @@ const root = document.documentElement,
   rail = $$(".archive-rail a");
 const collection = [homepage, ...apps],
   lastCapture = collection.length - 1;
-const studies = features.map(createStudy);
-const silicon = createHero($("#silicon"));
+const studies = features.map((el) => createStudy(el, wake));
+const silicon = createHero($("#silicon"), apps, wake);
 let heroMoving = false;
 const preference = matchMedia("(prefers-reduced-motion: reduce)");
 let reduced = preference.matches,
@@ -171,7 +171,7 @@ features.forEach((el, index) =>
     playback = {
       index,
       start: performance.now(),
-      duration: 14500 + (index % 3) * 1500,
+      duration: 21000 + (index % 3) * 1800,
     };
     el.querySelector(".study-play").setAttribute("aria-pressed", "true");
     el.querySelector(".study-play").innerHTML =
@@ -181,7 +181,7 @@ features.forEach((el, index) =>
   }),
 );
 features.forEach((el, i) =>
-  el.querySelector("input[type=range]").addEventListener("input", (e) => {
+  el.querySelector(".study-control input").addEventListener("input", (e) => {
     stopPlayback();
     manualProgress.set(i, Number(e.target.value) / 100);
     wake();
@@ -203,6 +203,13 @@ function tick(time) {
   if (y < heroHeight) {
     const hp = clamp(y / Math.max(1, heroHeight - innerHeight));
     hero.style.setProperty("--hero", reduced ? 0 : hp);
+    hero.style.setProperty("--passage", reduced ? 0 : ease((hp - 0.55) / 0.4));
+    hero.style.setProperty(
+      "--entry-copy",
+      reduced ? 1 : 1 - ease((hp - 0.08) / 0.25),
+    );
+    hero.classList.toggle("past-entry", !reduced && hp > 0.75);
+    $(".hero-controls").inert = !reduced && hp > 0.75;
     const interaction = heroInteraction.update(dt, reduced);
     heroMoving =
       silicon.render(time, hp, px, py, reduced, dt, interaction) ||

@@ -1,0 +1,633 @@
+/* THE ARTIFACT: one opening, a passage, and sixteen interface-to-method sequences. */
+.hero {
+  height: 320svh;
+  background: #0a0e0f;
+  --entry-copy: 1;
+  --passage: 0;
+}
+.hero-scene {
+  isolation: isolate;
+}
+.hero-sculpture {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  opacity: 1;
+  z-index: 1;
+}
+.hero-sculpture:after {
+  display: none;
+}
+.hero-type {
+  top: 32%;
+  transform: translateX(calc((1 - var(--entry-copy)) * -90px));
+  opacity: var(--entry-copy);
+  clip-path: inset(0 calc((1 - var(--entry-copy)) * 100%) 0 0);
+}
+.hero h1 {
+  font-size: clamp(65px, 8.7vw, 210px);
+}
+.hero-statement {
+  font-size: clamp(20px, 2vw, 36px);
+  max-width: 490px;
+  line-height: 1.32;
+}
+.hero-statement em {
+  display: block;
+  max-width: 420px;
+}
+.hero-controls {
+  background: #0a1011e8;
+  backdrop-filter: none;
+  opacity: calc(1 - var(--passage));
+  visibility: visible;
+}
+.hero:has(.hero-destination[style]) .hero-controls {
+  pointer-events: auto;
+}
+.hero-enter {
+  opacity: var(--entry-copy);
+}
+.hero-foot {
+  color: #92a099;
+}
+.hero-topline {
+  color: #a6b1aa;
+}
+.hero-horizon {
+  display: none;
+}
+.hero-destination {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: #e0e2d6;
+  color: #273020;
+  clip-path: inset(
+    calc((1 - var(--passage)) * 50%) calc((1 - var(--passage)) * 50%)
+  );
+  display: grid;
+  place-items: center;
+}
+.hero-destination > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transform: scale(calc(0.55 + var(--passage) * 0.45));
+  opacity: var(--passage);
+}
+.hero-destination span {
+  font-size: clamp(35px, 6.5vw, 118px);
+  line-height: 1.04;
+  letter-spacing: -0.05em;
+  font-weight: 430;
+}
+.hero-destination small {
+  margin-top: 30px;
+  font-size: 12px;
+  letter-spacing: 0;
+  color: #58604c;
+}
+.silicon-fallback {
+  inset: 30% 15% 25% 50%;
+  transform: perspective(1100px) rotateX(calc(9deg + var(--orbit-pitch, 0rad)))
+    rotateY(calc(-24deg + var(--orbit-yaw, 0rad)));
+}
+.silicon-fallback i {
+  border-radius: 0;
+  clip-path: polygon(
+    7% 0,
+    93% 0,
+    100% 10%,
+    100% 90%,
+    93% 100%,
+    7% 100%,
+    0 90%,
+    0 10%
+  );
+  background: linear-gradient(120deg, #637175, #182324 48%, #374548);
+  border: 1px solid #819190;
+  box-shadow: none;
+  transform: translateZ(
+    calc(var(--layer) * (5px + var(--separation, 0) * 15px))
+  );
+}
+.origin-aside .origin-mark {
+  display: none;
+}
+.origin-aside p {
+  max-width: 330px;
+}
+.origin-steps {
+  position: relative;
+}
+.origin-steps > span {
+  transform: translateX(
+    calc((1 - var(--origin)) * var(--fragment-offset, 0px))
+  );
+  transition: none;
+}
+.origin-steps > span:nth-child(1) {
+  --fragment-offset: -100px;
+}
+.origin-steps > span:nth-child(2) {
+  --fragment-offset: 60px;
+}
+.origin-steps > span:nth-child(3) {
+  --fragment-offset: 140px;
+}
+.work-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: 25px;
+}
+.work-intro .eyebrow {
+  grid-column: 1/-1;
+}
+.work-intro h2 {
+  font-size: clamp(52px, 6.5vw, 120px);
+  line-height: 1.02;
+}
+.work-intro > p:last-of-type {
+  max-width: 320px;
+  padding-bottom: 8px;
+}
+.work-intro .intro-rule {
+  grid-column: 1/-1;
+}
+.collection-intro h2 {
+  font-size: clamp(44px, 5.8vw, 106px);
+  max-width: 1000px;
+}
+.ending h2 {
+  font-size: clamp(38px, 5vw, 82px);
+}
+.feature {
+  height: var(--scene-length, 330svh);
+  --entry: 0;
+  --review: 0;
+  --handoff: 0;
+}
+.feature-copy h2,
+.feature-surface .feature-copy h2 {
+  font-size: clamp(32px, 3.35vw, 66px);
+  line-height: 1.06;
+}
+.feature-copy {
+  top: 16%;
+  width: 34%;
+}
+.feature-copy > p:not(.eyebrow) {
+  max-width: 365px;
+}
+.feature-copy .study-beat {
+  font-size: 11px;
+  line-height: 1.6;
+  max-width: 335px;
+}
+.feature-visual,
+.feature-signals .feature-visual {
+  top: 20%;
+  bottom: 28%;
+  opacity: calc((0.18 + var(--entry) * 0.82) * (1 - var(--review)));
+  transform: perspective(1300px) rotateY(calc((1 - var(--entry)) * -66deg))
+    scale(calc(0.45 + var(--entry) * 0.55));
+  transform-origin: 50% 75%;
+  pointer-events: auto;
+}
+.feature-surface .feature-visual {
+  top: 19%;
+  bottom: 24%;
+}
+.feature-visual:hover {
+  cursor: crosshair;
+}
+.focus-caption {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -12px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  color: var(--muted);
+  opacity: var(--entry);
+}
+.focus-caption output {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.study-source,
+.study-successor {
+  position: absolute;
+  left: 42%;
+  right: var(--gutter);
+  top: 19%;
+  bottom: 24%;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transform-origin: 70% 65%;
+}
+.study-source {
+  transform: perspective(1600px)
+    translate3d(
+      calc(var(--entry) * (1 - var(--review)) * 180px),
+      calc(var(--entry) * (1 - var(--review)) * 120px),
+      calc((1 - var(--entry)) * -70px)
+    )
+    rotateY(calc(var(--entry) * (1 - var(--review)) * 90deg))
+    rotateX(calc((1 - var(--entry)) * 7deg))
+    scale(calc(1 - var(--entry) * (1 - var(--review)) * 0.72));
+  clip-path: inset(0 calc(var(--handoff) * 100%) 0 0);
+  opacity: calc(1 - var(--entry) * (1 - var(--review)));
+}
+.study-source img,
+.study-successor img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+  filter: none;
+  box-shadow: 0 25px 55px #0002;
+  background: transparent;
+  transform: translateZ(2px);
+}
+.study-source > span,
+.study-successor > span {
+  position: absolute;
+  left: 0;
+  bottom: -24px;
+  font-size: 9px;
+  color: var(--muted);
+}
+.source-edge {
+  position: absolute;
+  inset: 0;
+  transform: translateZ(-5px);
+  background: #2a332c;
+  border: 1px solid #9eac8555;
+  clip-path: inset(0);
+  opacity: 0.65;
+}
+.study-successor {
+  transform: perspective(1600px)
+    translate3d(
+      calc((1 - var(--handoff)) * 100%),
+      0,
+      calc((1 - var(--handoff)) * -260px)
+    )
+    rotateY(calc((1 - var(--handoff)) * -35deg));
+  clip-path: inset(0 0 0 calc((1 - var(--handoff)) * 100%));
+  z-index: 3;
+}
+.feature-copy {
+  transform: none;
+  opacity: 1;
+}
+.feature-paper .source-edge {
+  background: #b2baa5;
+}
+.study-actions {
+  bottom: 21%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 200px;
+}
+.study-focus {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  font-size: 9px;
+  color: var(--muted);
+}
+.study-focus input {
+  width: 100%;
+  margin: 0;
+  accent-color: var(--accent);
+  height: 20px;
+  cursor: ew-resize;
+}
+.study-play {
+  align-self: flex-start;
+}
+.study-control {
+  bottom: 11%;
+  width: 200px;
+}
+.feature-surface .study-source,
+.feature-surface .study-successor {
+  left: var(--gutter);
+  right: 42%;
+}
+.feature-surface .study-actions {
+  left: 61%;
+}
+.feature-surface .feature-copy {
+  left: 61%;
+  width: 34%;
+}
+.evidence {
+  width: 16%;
+  max-width: 225px;
+}
+.feature-signals .evidence {
+  width: 16%;
+  max-width: 225px;
+}
+.source-view .evidence img {
+  visibility: hidden;
+}
+.source-view .evidence {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+.source-view .evidence span {
+  background: var(--paper, #171d15);
+}
+.hero.past-entry .hero-controls,
+.hero.past-entry .hero-enter {
+  visibility: hidden;
+}
+.hero.past-entry .hero-topline,
+.hero.past-entry .hero-foot {
+  color: #67715c;
+}
+.feature-foot > span {
+  max-width: 40%;
+}
+.feature-foot > a {
+  max-width: 55%;
+  text-align: right;
+}
+@media (max-width: 1100px) {
+  .feature-copy h2,
+  .feature-surface .feature-copy h2 {
+    font-size: 35px;
+  }
+  .feature-copy > p:not(.eyebrow) {
+    font-size: 11px;
+  }
+  .feature-copy .study-beat {
+    font-size: 10px;
+  }
+  .feature-surface .feature-copy {
+    left: var(--gutter);
+    width: 34%;
+  }
+  .feature-surface .study-actions {
+    left: var(--gutter);
+  }
+  .feature-surface .study-source,
+  .feature-surface .study-successor {
+    left: 42%;
+    right: var(--gutter);
+  }
+}
+@media (max-width: 700px) {
+  .hero {
+    height: 270svh;
+  }
+  .hero-sculpture {
+    inset: 20% 0 6%;
+    height: 74%;
+    width: 100%;
+  }
+  .hero-type {
+    top: 20%;
+    left: var(--gutter);
+  }
+  .hero h1 {
+    font-size: 14vw;
+  }
+  .hero-statement {
+    font-size: 18px;
+    max-width: 310px;
+    margin-top: 22px;
+  }
+  .hero-statement em {
+    max-width: 260px;
+  }
+  .hero-destination span {
+    font-size: 44px;
+  }
+  .hero-destination small {
+    font-size: 10px;
+  }
+  .hero-controls {
+    bottom: 9%;
+    width: 205px;
+  }
+  .hero-enter {
+    bottom: 11%;
+    max-width: 130px;
+    font-size: 9px;
+  }
+  .silicon-fallback {
+    inset: 27% 15%;
+  }
+  .hero-topline span:last-child {
+    display: none;
+  }
+  .work-intro {
+    display: block;
+  }
+  .work-intro > p:last-of-type {
+    margin-top: 35px;
+  }
+  .work-intro h2 {
+    font-size: 57px;
+  }
+  .feature {
+    height: calc(var(--scene-length) * 0.85);
+  }
+  .feature-copy,
+  .feature-surface .feature-copy {
+    top: 10%;
+    left: var(--gutter);
+    width: 88%;
+  }
+  .feature-copy h2,
+  .feature-surface .feature-copy h2 {
+    font-size: clamp(27px, 7.5vw, 34px);
+    margin: 14px 0 18px;
+  }
+  .feature-copy > p:not(.eyebrow) {
+    font-size: 10px;
+    line-height: 1.55;
+  }
+  .feature-verbs {
+    margin-top: 12px;
+    font-size: 8px;
+  }
+  .feature-copy .study-beat {
+    font-size: 9px;
+    margin-top: 12px;
+    max-width: 100%;
+  }
+  .feature-visual,
+  .feature-surface .feature-visual,
+  .feature-signals .feature-visual {
+    top: 45%;
+    bottom: 26%;
+    left: var(--gutter);
+    right: var(--gutter);
+  }
+  .study-source,
+  .study-successor,
+  .feature-surface .study-source,
+  .feature-surface .study-successor {
+    top: 46%;
+    bottom: 25%;
+    left: var(--gutter);
+    right: var(--gutter);
+  }
+  .study-source > span,
+  .study-successor > span {
+    font-size: 7px;
+    bottom: -15px;
+  }
+  .source-edge {
+    display: none;
+  }
+  .focus-caption {
+    display: none;
+  }
+  .study-actions,
+  .feature-surface .study-actions {
+    left: var(--gutter);
+    bottom: 15%;
+    gap: 7px;
+    width: 38%;
+  }
+  .study-focus {
+    font-size: 7px;
+    gap: 3px;
+  }
+  .study-focus input {
+    height: 15px;
+  }
+  .study-play {
+    padding: 5px 9px;
+    font-size: 8px;
+    min-height: 28px;
+  }
+  .study-control {
+    bottom: 9%;
+    font-size: 7px;
+    width: 38%;
+  }
+  .evidence,
+  .feature-signals .evidence {
+    width: 36%;
+    max-width: 160px;
+    bottom: 10%;
+  }
+  .study-timeline {
+    bottom: 55px;
+  }
+  .feature-foot {
+    bottom: 15px;
+  }
+}
+@media (max-height: 600px) and (min-width: 701px) {
+  .feature-copy,
+  .feature-surface .feature-copy {
+    top: 16%;
+    left: var(--gutter);
+    width: 35%;
+  }
+  .feature-copy h2,
+  .feature-surface .feature-copy h2 {
+    font-size: 25px;
+    margin: 10px 0;
+  }
+  .feature-copy .study-beat {
+    font-size: 8px;
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+  .feature-copy > p:not(.eyebrow) {
+    font-size: 9px;
+  }
+  .study-source,
+  .study-successor,
+  .feature-surface .study-source,
+  .feature-surface .study-successor {
+    top: 16%;
+    bottom: 31%;
+    left: 43%;
+    right: var(--gutter);
+  }
+  .study-actions,
+  .feature-surface .study-actions {
+    left: 43%;
+    bottom: 13%;
+    width: 22%;
+    gap: 5px;
+  }
+  .study-focus {
+    display: none;
+  }
+  .study-control {
+    left: var(--gutter);
+    bottom: 12%;
+  }
+  .feature-visual,
+  .feature-surface .feature-visual,
+  .feature-signals .feature-visual {
+    top: 16%;
+    bottom: 31%;
+    left: 43%;
+    right: var(--gutter);
+  }
+}
+.reduced .hero {
+  height: 100svh;
+}
+.reduced .hero-type {
+  transform: none;
+  opacity: 1;
+  clip-path: none;
+}
+.reduced .hero-destination {
+  display: none;
+}
+.reduced .feature {
+  height: 100svh;
+}
+.reduced .study-source,
+.reduced .study-successor {
+  display: none;
+}
+.reduced .feature-visual {
+  opacity: 1;
+  transform: none;
+}
+.reduced .feature-copy {
+  opacity: 1;
+  transform: none;
+}
+.reduced .study-actions {
+  display: flex;
+}
+.reduced .study-play {
+  display: none;
+}
+html:not(.enhanced) .study-source,
+html:not(.enhanced) .study-successor {
+  display: none;
+}
+html:not(.enhanced) .feature-visual {
+  opacity: 1;
+  transform: none;
+}

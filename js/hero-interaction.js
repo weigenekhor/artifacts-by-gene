@@ -4,14 +4,14 @@ export function createHeroInteraction(apps, wake) {
     expand = document.querySelector("#hero-expand"),
     range = document.querySelector("#hero-layer"),
     panel = document.querySelector(".hero-layer-select");
-  const target = { yaw: 0, pitch: 0, spread: 0, selected: 15 },
+  const target = { yaw: 0, pitch: 0, spread: 0, selected: 0 },
     current = { ...target };
   let drag = null,
     velocity = 0;
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   function select(index) {
     const a = apps[index];
-    target.selected = 15 - index;
+    target.selected = index;
     range.value = index;
     range.setAttribute("aria-valuetext", a.name);
     document.querySelector("#hero-layer-number").textContent =
@@ -25,8 +25,8 @@ export function createHeroInteraction(apps, wake) {
     panel.hidden = !target.spread;
     expand.setAttribute("aria-pressed", String(Boolean(target.spread)));
     expand.innerHTML = target.spread
-      ? 'Bring it together <span aria-hidden="true">↙</span>'
-      : 'Separate the layers <span aria-hidden="true">↗</span>';
+      ? 'Close the structure <span aria-hidden="true">↙</span>'
+      : 'Open the structure <span aria-hidden="true">↗</span>';
     wake();
   }
   expand.addEventListener("click", separate);
@@ -52,7 +52,7 @@ export function createHeroInteraction(apps, wake) {
     if (!drag || drag.id !== e.pointerId) return;
     const dx = e.clientX - drag.x,
       dy = e.clientY - drag.y;
-    target.yaw += dx * 0.008;
+    target.yaw = clamp(target.yaw + dx * 0.005, -1.4, 1.4);
     target.pitch = clamp(target.pitch + dy * 0.005, -0.75, 0.6);
     velocity = dx * 0.003;
     drag.moved += Math.abs(dx) + Math.abs(dy);
@@ -108,7 +108,7 @@ export function createHeroInteraction(apps, wake) {
   return {
     update(dt, reduced) {
       if (!drag && !reduced) {
-        target.yaw += velocity * (dt / 16.7);
+        target.yaw = clamp(target.yaw + velocity * (dt / 16.7), -1.4, 1.4);
         velocity *= Math.exp(-dt / 100);
       }
       for (const key of Object.keys(current))

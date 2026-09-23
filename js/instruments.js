@@ -86,11 +86,11 @@ export function developInstrument(el) {
     actions.push((p, s) => {
       const target =
         kind === "legacy"
-          ? 2
+          ? Math.min(4, Math.floor(s.inspect * 5))
           : kind === "configuration"
-            ? 9
+            ? 6 + Math.min(5, Math.floor(s.inspect * 6))
             : kind === "planning"
-              ? 3
+              ? Math.min(4, Math.floor(s.inspect * 5))
               : Math.min(6, Math.floor(s.inspect * 7));
       boxes.forEach((n, i) =>
         n.classList.toggle("focused", p > 0.53 && i === target),
@@ -126,10 +126,20 @@ export function developInstrument(el) {
   }
   if (kind === "usage") {
     const g = node("g", {}, svg),
+      selected = node(
+        "circle",
+        { cx: 150, cy: 230, r: 92, class: "motion-focus" },
+        g,
+      ),
       markers = [0, 1, 2].map((i) =>
         node("circle", { r: 6, class: "motion-pulse" }, g),
       );
-    actions.push((p, s) =>
+    actions.push((p, s) => {
+      selected.setAttribute(
+        "cx",
+        150 + Math.min(2, Math.floor(s.inspect * 3)) * 210,
+      );
+      selected.style.opacity = s.resolve;
       markers.forEach((n, i) => {
         const a =
           -Math.PI / 2 +
@@ -137,8 +147,8 @@ export function developInstrument(el) {
         n.setAttribute("cx", 150 + i * 210 + 79 * Math.cos(a));
         n.setAttribute("cy", 230 + 79 * Math.sin(a));
         n.style.opacity = s.resolve;
-      }),
-    );
+      });
+    });
   }
   if (kind === "surface") {
     const contours = svg.querySelector(".contours"),
@@ -177,8 +187,10 @@ export function developInstrument(el) {
           2 + Math.sin(Math.PI * clamp((p - i * 0.006) / 0.24)) * 2.2,
         );
       });
-      scan.setAttribute("r", 8 + s.inspect * 216);
-      scan.style.opacity = 4 * s.inspect * (1 - s.inspect);
+      scan.setAttribute("r", 35 + Math.sin(s.inspect * Math.PI) * 20);
+      scan.setAttribute("cx", 160 + s.inspect * 280);
+      scan.setAttribute("cy", 300 + Math.sin(s.inspect * Math.PI * 2) * 75);
+      scan.style.opacity = s.resolve * 0.85;
     });
   }
   if (kind === "compare") {
@@ -210,8 +222,8 @@ export function developInstrument(el) {
         r.classList.toggle(
           "is-reading",
           p > 0.28 &&
-            p < 0.72 &&
-            i % 7 === Math.min(6, Math.floor(s.resolve * 7)),
+            i % 7 ===
+              Math.min(6, Math.floor((p > 0.6 ? s.inspect : s.resolve) * 7)),
         ),
       );
       paths.forEach((n, i) => {
@@ -235,7 +247,16 @@ export function developInstrument(el) {
         markers[i].setAttribute("cx", xy[0]);
         markers[i].setAttribute("cy", xy[1]);
         markers[i].style.opacity = (t > 0 && t < 1 ? 1 : 0) * (1 - s.inspect);
-        n.style.stroke = i === 1 ? "#d6af82" : "#59635a";
+        n.style.stroke =
+          i ===
+          Math.min(branches.length - 1, Math.floor(s.inspect * branches.length))
+            ? "#d6af82"
+            : "#59635a";
+        n.style.strokeWidth =
+          i ===
+          Math.min(branches.length - 1, Math.floor(s.inspect * branches.length))
+            ? 2.5
+            : 1;
       });
     });
   }
@@ -258,7 +279,14 @@ export function developInstrument(el) {
       rings.forEach((n, i) => {
         const t = clamp((p - 0.52 - i * 0.045) / 0.24);
         n.setAttribute("r", (kind === "zones" ? 12 : 25) + t * 33);
-        n.style.opacity = Math.sin(t * Math.PI) * 0.85;
+        n.style.opacity = Math.max(
+          Math.sin(t * Math.PI) * 0.65,
+          s.resolve *
+            (i ===
+            Math.min(plates.length - 1, Math.floor(s.inspect * plates.length))
+              ? 0.9
+              : 0),
+        );
       }),
     );
   }
@@ -298,6 +326,25 @@ export function developInstrument(el) {
   if (kind === "compile" || kind === "report") {
     const g = node("g", {}, svg),
       sheets = [];
+    const selected = node(
+      "rect",
+      {
+        x: kind === "compile" ? 501 : 440,
+        y: 110,
+        width: kind === "compile" ? 145 : 200,
+        height: 17,
+        class: "motion-scan",
+      },
+      g,
+    );
+    actions.push((p, s) => {
+      selected.setAttribute(
+        "y",
+        (kind === "compile" ? 105 : 82) +
+          Math.min(5, Math.floor(s.inspect * 6)) * 16,
+      );
+      selected.style.opacity = s.resolve;
+    });
     for (let i = 0; i < 3; i++)
       sheets.push(
         node(
