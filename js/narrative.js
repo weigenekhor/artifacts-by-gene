@@ -1,64 +1,39 @@
-const clamp = (v) => Math.max(0, Math.min(1, v)),
-  ease = (v) => {
-    v = clamp(v);
-    return v * v * (3 - 2 * v);
-  };
+const clamp = (v) => Math.max(0, Math.min(1, v));
+const ease = (v) => {
+  v = clamp(v);
+  return v * v * (3 - 2 * v);
+};
 export function createNarrative(el) {
-  const lanes = [...el.querySelectorAll(".investigation-lane")],
-    caption = el.querySelector(".story-current"),
-    count = el.querySelector(".story-count"),
-    phase = el.querySelector(".story-phase");
-  let previous = -1;
+  const blades = [...el.querySelectorAll(".method-blade")],
+    phase = el.querySelector(".method-phase"),
+    caption = el.querySelector(".method-caption");
+  let last = -1;
   return (p, reduced) => {
-    if (reduced) p = 0.8;
-    const gather = ease((p - 0.09) / 0.22),
-      problem = ease((p - 0.31) / 0.15),
-      response = ease((p - 0.55) / 0.2),
-      finish = ease((p - 0.85) / 0.06),
-      headingOut = ease((p - 0.53) / 0.07),
-      responseIn = ease((p - 0.61) / 0.12),
-      responseOut = ease((p - 0.81) / 0.04);
-    el.style.setProperty("--gather", gather);
-    el.style.setProperty("--problem", problem);
-    el.style.setProperty("--response", response);
-    el.style.setProperty("--finish", finish);
-    el.style.setProperty("--heading-out", headingOut);
-    el.style.setProperty("--response-in", responseIn);
-    el.style.setProperty("--response-out", responseOut);
-    el.querySelectorAll(".investigation-tool").forEach(
-      (a) => (a.inert = response < 0.9),
-    );
-    el.querySelector(".investigation-end").inert = finish < 0.9;
-    const dark = problem * (1 - response);
-    el.style.setProperty(
-      "--chapter-bg",
-      `rgb(${224 - dark * 210} ${226 - dark * 208} ${214 - dark * 199})`,
-    );
-    el.style.setProperty(
-      "--chapter-ink",
-      `rgb(${39 + dark * 193} ${48 + dark * 187} ${32 + dark * 191})`,
-    );
-    lanes.forEach((l, i) =>
-      l.style.setProperty("--lane-in", ease((p - i * 0.052) / 0.16)),
-    );
-    const next = p < 0.17 ? 0 : p < 0.34 ? 1 : p < 0.56 ? 2 : p < 0.83 ? 3 : 4;
-    if (next !== previous) {
+    if (reduced) p = 0.95;
+    const align = ease((p - 0.08) / 0.52),
+      response = ease((p - 0.54) / 0.15),
+      expand = ease((p - 0.68) / 0.25);
+    el.style.setProperty("--method-out", ease((p - 0.42) / 0.08));
+    el.style.setProperty("--method-align", align);
+    el.style.setProperty("--method-response", response);
+    el.style.setProperty("--method-expand", expand);
+    blades.forEach((b, i) => {
+      b.style.setProperty("--blade-arrive", ease((p - i * 0.015) / 0.28));
+      b.inert = !reduced && expand < 0.8;
+    });
+    const next = p < 0.37 ? 0 : p < 0.7 ? 1 : 2;
+    if (last !== next) {
       phase.textContent = [
-        "The records",
-        "The workload",
-        "The repeated investigation",
-        "The method becomes software",
-        "The collection",
+        "01 / The requirement",
+        "02 / The method",
+        "03 / The applications",
       ][next];
       caption.textContent = [
-        "A run leaves more than one kind of record.",
-        "History to reconstruct. Revisions to compare. Variation to locate.",
-        "The data is available. Connecting it is still manual work.",
-        "Recurring requirements became dedicated applications.",
-        "Sixteen tools developed around specific engineering tasks.",
+        "The process produces data. Engineering gives it context.",
+        "Each repeated task becomes a dedicated tool.",
+        "Sixteen applications. Explore each one below.",
       ][next];
-      count.textContent = String(next + 1).padStart(2, "0") + " / 05";
-      previous = next;
+      last = next;
     }
   };
 }

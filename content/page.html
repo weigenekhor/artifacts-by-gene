@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="studies.css" />
     <link rel="stylesheet" href="experience.css" />
     <link rel="stylesheet" href="artifact.css" />
+    <link rel="stylesheet" href="entry.css" />
     <script type="module" src="script.js"></script>
   </head>
   <body>
@@ -62,205 +63,95 @@
       </nav>
     </header>
     <main>
-      <section class="hero" id="top" aria-labelledby="hero-title">
+      <section class="hero section-entry" id="top" aria-labelledby="hero-title">
         <div class="hero-scene">
-          <div class="hero-atmosphere" aria-hidden="true"></div>
-          <div class="hero-destination" aria-hidden="true">
-            <div>
-              <span>Logs.</span><span>Recipes.</span><span>Measurements.</span
-              ><small>The records are separate. The investigation isn’t.</small>
-            </div>
+          <div class="entry-light" aria-hidden="true"></div>
+          <div class="entry-heading">
+            <p class="eyebrow">Semiconductor engineering / Software</p>
+            <h1 id="hero-title">ARTIFACTS</h1>
           </div>
-          <div class="hero-topline">
-            <span>Process / Recipe / Measurement</span
-            ><span>ARTIFACTS — 16 applications</span>
-          </div>
-          <div
-            class="hero-sculpture"
-            aria-label="The Artifact, containing sixteen actual application surfaces"
-          >
-            <div class="silicon-fallback" aria-hidden="true">
-              <i style="--layer: 0"></i><i style="--layer: 1"></i
-              ><i style="--layer: 2"></i><i style="--layer: 3"></i
-              ><i style="--layer: 4"></i><i style="--layer: 5"></i
-              ><i style="--layer: 6"></i><i style="--layer: 7"></i
-              ><i style="--layer: 8"></i><i style="--layer: 9"></i
-              ><i style="--layer: 10"></i><i style="--layer: 11"></i
-              ><i style="--layer: 12"></i><i style="--layer: 13"></i
-              ><i style="--layer: 14"></i><i style="--layer: 15"></i>
-            </div>
+          <div class="section-surface">
             <canvas
               id="silicon"
               tabindex="0"
               role="img"
-              aria-label="The Artifact. Drag to examine. Arrow keys adjust the view; Enter opens the structure; R resets it."
+              aria-label="Interactive sectional surface. Drag to change the viewing angle. Arrow keys adjust the view. Enter separates the sections; R resets."
             ></canvas>
-          </div>
-          <div class="hero-type">
-            <p class="eyebrow">Semiconductor engineering software.</p>
-            <h1 id="hero-title">ARTIFACTS</h1>
-            <p class="hero-statement">
-              Sixteen applications.<br /><em>One engineering system.</em>
-            </p>
-          </div>
-          <a class="hero-enter" href="#story"
-            ><span>Follow the work inside</span><b aria-hidden="true">↓</b></a
-          >
-          <div class="hero-layer-caption" aria-hidden="true" hidden>
-            <span class="layer-register"></span
-            ><span>Individual tools.<br />A shared structure.</span>
-          </div>
-          <div class="hero-controls">
-            <div class="hero-control-actions">
-              <button id="hero-expand" aria-pressed="false">
-                Open the structure <span aria-hidden="true">↗</span></button
-              ><button id="hero-reset" aria-label="Reset the structure">
-                Reset ↺
-              </button>
+            <div class="surface-fallback" aria-hidden="true">
+              <i></i><i></i><i></i>
             </div>
-            <div class="hero-layer-select" hidden>
-              <label for="hero-layer"
-                ><span>Explore a layer</span
-                ><output id="hero-layer-number">01 / 16</output></label
-              ><input
-                id="hero-layer"
-                type="range"
-                min="0"
-                max="15"
-                value="0"
-                aria-label="Choose an application layer"
-              /><a id="hero-layer-link" href="#history"
-                ><span id="hero-layer-name">Altus LotViewer</span
-                ><b aria-hidden="true">↗</b></a
+          </div>
+          <div class="entry-copy">
+            <p>
+              Sixteen applications.<br /><span
+                >Built for semiconductor engineering.</span
               >
-            </div>
-          </div>
-          <div class="hero-foot">
-            <span>Engineering / analysis / automation</span
-            ><span class="hero-motion-hint"
-              >Examine the object. Scroll through its interior.</span
+            </p>
+            <a href="#work"
+              >Enter the collection <b aria-hidden="true">↗</b></a
             >
           </div>
-          <div class="hero-horizon" aria-hidden="true"></div>
+          <div class="entry-control">
+            <button id="hero-expand" aria-pressed="false">
+              Separate the sections <span aria-hidden="true">+</span></button
+            ><button id="hero-reset" aria-label="Reset the surface">↺</button>
+          </div>
+          <div class="entry-register">
+            <span>01—16 / ARTIFACTS</span
+            ><span>Drag to examine · Scroll to enter</span>
+          </div>
+          <div class="entry-transition" aria-hidden="true">
+            <div>
+              <p>Beyond the process</p>
+              <span>The run is finished.<br /><em>The work isn’t.</em></span>
+            </div>
+          </div>
         </div>
       </section>
       <section
-        class="origin investigation"
+        class="origin method-chapter"
         id="story"
         aria-labelledby="origin-title"
       >
-        <div class="origin-inner">
-          <div class="investigation-heading">
-            <p class="eyebrow">01 — Process engineering, before the software</p>
+        <div class="method-stage">
+          <div class="method-heading">
+            <p class="eyebrow">Beyond the process</p>
             <h2 id="origin-title">
-              The records exist.<br /><em
-                >The investigation still has to be built.</em
-              >
+              The run is finished.<br /><em>The work isn’t.</em>
             </h2>
-            <p class="investigation-context">
-              Logs record events. Recipes specify steps. Measurements record the
-              result.<br />The engineering question crosses all three.
+            <p class="method-context">
+              Review the process. Compare revisions.<br />Investigate variation.
+              Prepare the report.
             </p>
           </div>
-          <div class="investigation-lanes">
-            <article class="investigation-lane" style="--lane: 0">
-              <div class="record-surface">
-                <img
-                  src="assets/evidence/altus-lotviewer/full.webp"
-                  width="1425"
-                  height="950"
-                  loading="lazy"
-                  alt="Altus LotViewer: actual software interface"
-                /><span>Run history</span>
-              </div>
-              <div class="investigation-question">
-                <span>01</span>
-                <h3>What happened in this run?</h3>
-                <p>Reconstruct the process sequence.</p>
-              </div>
-              <a class="investigation-tool" href="#history"
-                ><span>Altus LotViewer</span
-                ><b>Explore the application ↗</b></a
-              >
-              <div class="investigation-axis" aria-hidden="true"></div>
-            </article>
-            <article class="investigation-lane" style="--lane: 1">
-              <div class="record-surface">
-                <img
-                  src="assets/evidence/papyrus-reader/full.webp"
-                  width="1425"
-                  height="950"
-                  loading="lazy"
-                  alt="Papyrus Reader: actual software interface"
-                /><span>Recipe revision</span>
-              </div>
-              <div class="investigation-question">
-                <span>02</span>
-                <h3>Which step changed?</h3>
-                <p>Align steps. Isolate the difference.</p>
-              </div>
-              <a class="investigation-tool" href="#compare"
-                ><span>Papyrus Reader</span><b>Explore the application ↗</b></a
-              >
-              <div class="investigation-axis" aria-hidden="true"></div>
-            </article>
-            <article class="investigation-lane" style="--lane: 2">
-              <div class="record-surface">
-                <img
-                  src="assets/evidence/topotracer/full.webp"
-                  width="1425"
-                  height="950"
-                  loading="lazy"
-                  alt="TopoTracer: actual software interface"
-                /><span>Wafer measurements</span>
-              </div>
-              <div class="investigation-question">
-                <span>03</span>
-                <h3>Where did variation appear?</h3>
-                <p>Keep every measurement in position.</p>
-              </div>
-              <a class="investigation-tool" href="#surface"
-                ><span>TopoTracer</span><b>Explore the application ↗</b></a
-              >
-              <div class="investigation-axis" aria-hidden="true"></div>
-            </article>
-          </div>
-          <div class="investigation-response">
-            <p class="eyebrow">From recurring task to application</p>
-            <h3>Write the method once.<br />Use it on the next run.</h3>
+          <div class="method-resolution">
+            <p class="eyebrow">The response / ARTIFACTS</p>
+            <h3>Put the repeated<br />work into software.</h3>
             <p>
-              Lot history. Recipe comparison. Wafer analysis.<br />Specific
-              tools, built around recurring engineering work.
+              Sixteen applications, developed around<br />specific semiconductor
+              engineering tasks.
             </p>
           </div>
-          <div class="investigation-end">
-            <strong>ARTIFACTS</strong
-            ><span>Sixteen applications.<br />Each with a job to do.</span
-            ><a href="#work">Inside the applications ↓</a>
+          <div
+            class="method-object"
+            aria-label="The sixteen ARTIFACTS applications"
+          >
+            <!-- METHOD INDEX -->
           </div>
-          <div class="story-caption">
-            <span class="story-phase">The records</span>
-            <p class="story-current">
-              A run leaves more than one kind of record.
+          <div class="method-foot">
+            <span class="method-phase">01 / The requirement</span>
+            <p class="method-caption">
+              The process produces data. Engineering gives it context.
             </p>
-            <span class="story-count">01 / 05</span>
+            <a href="#work">Explore the applications ↓</a>
           </div>
         </div>
       </section>
-      <section class="work-intro" id="work">
-        <p class="eyebrow">02 — Inside the work</p>
-        <h2>
-          Process history.<br />Recipe comparison.<br /><em
-            >And fourteen more.</em
-          >
-        </h2>
-        <p>
-          Read the lot history. Compare the recipe. Locate the variation.
-          Compile the report.<br /><br />Each application addresses a specific
-          piece of the work.
-        </p>
-        <span class="intro-rule" aria-hidden="true"></span>
-      </section>
+      <div class="collection-entry" id="work">
+        <span>THE APPLICATIONS</span>
+        <p>Explore the method.<br /><em>Then inspect the software.</em></p>
+        <span>01—16 ↓</span>
+      </div>
       <div class="study-index" id="study-index">
         <label for="study-select">Inside the work <span>01—16</span></label
         ><select id="study-select">
@@ -320,40 +211,29 @@
         </div>
         <!-- INDEX -->
       </section>
-      <section class="ending" aria-labelledby="creator-title">
-        <div class="creator-note">
-          <p class="eyebrow">A note from Gene</p>
-          <h2 id="creator-title">The suite came later.</h2>
-          <div class="creator-body">
-            <p>
-              I’m Gene. I built these applications while working on
-              semiconductor processes.
-            </p>
-            <p>
-              Each started with a task I needed to get through: compare a
-              recipe, investigate temperature drift, compile a report. I kept
-              the useful tools and built the next one when the work called for
-              it.
-            </p>
-            <p>ARTIFACTS is the result of that process.</p>
-          </div>
-          <a class="text-link" href="#top"
-            >Back to the beginning <span aria-hidden="true">↑</span></a
-          >
+      <section class="ending creator-credit" aria-labelledby="creator-title">
+        <div class="credit-top">
+          <span>Independent engineering software</span
+          ><span>Design / Development / Engineering</span>
         </div>
-        <figure class="creator-evidence">
-          <img
-            src="assets/evidence/homepage/full.webp"
-            width="1425"
-            height="950"
-            loading="lazy"
-            alt="The actual ARTIFACTS homepage, bringing the applications into one interface"
-          />
-          <figcaption>
-            <span>The ARTIFACTS application index.</span
-            ><span>ARTIFACTS / actual interface</span>
-          </figcaption>
-        </figure>
+        <div class="credit-main">
+          <div class="credit-identity">
+            <p class="eyebrow">The person behind ARTIFACTS</p>
+            <h2 id="creator-title">Gene.</h2>
+            <p>Semiconductor engineer.<br />Software builder.</p>
+          </div>
+          <div class="credit-statement">
+            <p>I work on the process.<br />I build the tools.</p>
+            <span
+              >ARTIFACTS is my own engineering software,<br />developed
+              alongside the work it supports.</span
+            >
+          </div>
+        </div>
+        <div class="credit-bottom">
+          <span>ARTIFACTS / by Gene</span
+          ><a href="#top">Back to the beginning <b aria-hidden="true">↑</b></a>
+        </div>
       </section>
     </main>
     <footer class="footer">

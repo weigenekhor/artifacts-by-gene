@@ -211,7 +211,7 @@ function tick(time) {
       reduced ? 1 : 1 - ease((hp - 0.08) / 0.25),
     );
     hero.classList.toggle("past-entry", !reduced && hp > 0.75);
-    $(".hero-controls").inert = !reduced && hp > 0.75;
+    $(".entry-control").inert = !reduced && hp > 0.75;
     const interaction = heroInteraction.update(dt, reduced);
     heroMoving =
       silicon.render(time, hp, px, py, reduced, dt, interaction) ||

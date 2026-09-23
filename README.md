@@ -14,11 +14,11 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The opening is a precision assembly: two open, articulated frames support sixteen recessed application planes. Chamfered rails, retention ribs and an exposed cavity establish depth without a solid slab. Pointer response, inertial drag, keyboard controls and direct layer selection expose its construction. Scrolling separates the frame, opens the internal leaves and moves through the passage into the engineering investigation. A CSS composition remains available without WebGL.
+The opening is a computed sectional surface. Sixteen thin sections separate under direct manipulation or scroll, then move aside to reveal a light chapter. A compact application register unfolds into the canonical sixteen-tool sequence. The renderer uses precomputed Canvas 2D geometry and stops when input settles; no WebGL context or screenshot textures are initialized. Drag, keyboard and explicit separation controls share the page clock. A CSS composition remains available without JavaScript.
 
 The complete collection follows, beginning with the uncropped ARTIFACTS homepage and then all sixteen applications in order. All seventeen captures fit fully inside their frames as scrolling advances them. The rail, arrows, horizontal touch gestures and direct links provide optional shortcuts. The final index preserves the original four collections and opens every real interface. Creator attribution stays quiet.
 
-Read `ARTIFACTS_CREATIVE_DIRECTION.md` and `ARTIFACTS_EXPERIENCE_STORYBOARD.md` for the governing story and factual boundaries. The hero uses eighteen draws, capped/adaptive canvas resolution, mipmapped captures and offscreen suspension. Full-resolution originals remain in the DOM viewer.
+Read `ARTIFACTS_CREATIVE_DIRECTION.md` and `ARTIFACTS_EXPERIENCE_STORYBOARD.md` for the governing story and factual boundaries. The hero caps canvas resolution and skips identical frames. Full-resolution application captures remain in the DOM viewer.
 
 Every app has seven states from its source interface through activation, decomposition, analysis, transformation, resolution and its own closure. Native scrolling controls the sequences; optional replay runs for 34–38.4 seconds. A second keyboard-accessible range selects a task-specific inspection region. Diagrams illustrate relationships, not measured results or cross-application integration.
 
@@ -30,13 +30,14 @@ Every app has seven states from its source interface through activation, decompo
 - `scripts/build.mjs`: static SVG generation, HTML rendering and script bundling.
 - `js/contours.js`: build-time equal-height contour extraction for an illustrative field.
 - `js/experience.js`: shared clock, scroll progression, replay, app picker, archive and image viewer.
-- `js/hero.js`: faceted Artifact geometry, capture textures, lighting and camera passage.
-- `js/hero-interaction.js`: drag, keyboard, separation, layer selection and reset controls.
+- `js/hero.js`: finite sectional surface rendering and projected geometry.
+- `js/hero-interaction.js`: drag, keyboard, separation and reset controls.
 - `content/homepage.json`: the homepage capture preceding the sixteen apps.
-- `js/narrative.js`: five-stage engineering questions, methods and application reveal.
+- `js/narrative.js`: requirement-to-method composition and sixteen-application register.
 - `js/inspection.js`: contextual inspection notes and geometry tracking for all sixteen studies.
 - `js/analysis.js`: application-specific spatial inspection and recomposition.
 - `js/instruments.js`: app-specific route markers, contour layers and inspection choreography.
+- `entry.css`: sectional entry, shorter method chapter and Gene credit composition.
 - `artifact.css`: current Artifact, interface passage and responsive study composition.
 - `experience.css`: entry composition, study camera, image fitting and picker.
 - `styles.css` and `studies.css`: visual design, extended study pacing, responsive composition and reduced motion.
