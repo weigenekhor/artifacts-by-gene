@@ -2,25 +2,22 @@
 
 This storyboard implements Gene's latest brief (23 September 2026). It supersedes the older `content/STORYBOARD.md`. Read with `ARTIFACTS_CREATIVE_DIRECTION.md`; the latest user request takes precedence.
 
-## 00 — The sectional surface
+## 00 — The sectional surface opens into the applications
 
-This direction supersedes the rejected instrument assembly. The hero contains no mechanical enclosure and no application screenshot. Sixteen thin sections form a continuous computed surface, an abstract expression of the collection's semiconductor engineering context. Restrained metallic shading and attached section contours give it depth. This is a designed object, not measured wafer data or real hardware.
+The latest request restores the full reveal and following section from commit fb3144e, while retaining the current sectional hero. Sixteen thin sections form a continuous computed surface. Drag or use arrow keys to inspect it; the button or Enter opens the surface. Scroll separates it into opposing wings around real application captures, then carries the camera between those surfaces into the expanding light reveal.
 
 Headline: **ARTIFACTS**
 Supporting line: **Sixteen applications. Built for semiconductor engineering.**
 
-Drag or use the arrow keys to inspect its form. A button or Enter separates the sections. Native scrolling separates the same form before moving it laterally out of view. A light field reveals the opening line of the next chapter in the same position, avoiding an unrelated interstitial page.
+The original centered rectangular reveal resolves into **Logs. Recipes. Measurements.** with **The evidence is here.** The sectional object clears the viewport before the light scene fills it. Captures keep their complete aspect ratios and load only when entering the passage. This passage previews the collection; the existing individual app studies remain the place to inspect each tool.
 
-The renderer is Canvas 2D with precomputed geometry, capped device density and a finite input response. It does not render at rest, load image textures or initialize WebGL. The same shared page clock handles interaction and scroll. CSS supplies the no-script fallback.
+Precomputed Canvas 2D geometry and DOM image planes use the same finite page clock. No WebGL, image textures or perpetual idle loop. Reduced motion uses a settled hero and explicit opening controls.
 
-## 01 — From requirement to method
+## 01 — The restored reveal chapter
 
-Headline: **The run is finished. The work isn’t.**
-Response: **Put the repeated work into software.**
+Headline: **The data is there. The answer is not.**
 
-The former logs/recipes/measurements page and the three-question investigation are removed. One shorter light chapter leads into the actual application journey. Sixteen narrow planes develop into a readable application register. The names and purposes come directly from the canonical catalogue. The composition moves from layered partial views to frontal, actionable entries; the text moves from process review requirements to dedicated software. These are editorial relationships, not a claim that the applications exchange data.
-
-The former “and fourteen more” section is removed. A compact threshold invites users to explore each method and then inspect its real software. The existing all-sixteen app sequences immediately follow.
+The full original light chapter returns with its source → method → tool progression, followed by **A task. A method. A tool.** This is an explicit restoration requested by Gene, superseding the later requirement-to-method register. Track motion remains inside the viewport. The chapter leads directly into the existing sixteen application sequences.
 
 ## 02 — The applications
 

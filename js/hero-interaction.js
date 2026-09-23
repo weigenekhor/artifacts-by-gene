@@ -11,8 +11,8 @@ export function createHeroInteraction(apps, wake) {
     target.spread = target.spread ? 0 : 1;
     expand.setAttribute("aria-pressed", String(!!target.spread));
     expand.innerHTML = target.spread
-      ? 'Rejoin the sections <span aria-hidden="true">−</span>'
-      : 'Separate the sections <span aria-hidden="true">+</span>';
+      ? 'Close the applications <span aria-hidden="true">−</span>'
+      : 'Open into the applications <span aria-hidden="true">+</span>';
     wake();
   }
   function restore() {

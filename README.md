@@ -14,7 +14,7 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The opening is a computed sectional surface. Sixteen thin sections separate under direct manipulation or scroll, then move aside to reveal a light chapter. A compact application register unfolds into the canonical sixteen-tool sequence. The renderer uses precomputed Canvas 2D geometry and stops when input settles; no WebGL context or screenshot textures are initialized. Drag, keyboard and explicit separation controls share the page clock. A CSS composition remains available without JavaScript.
+The current sectional surface opens around real application captures. Scrolling moves through these complete interface planes into the restored expanding light reveal and original story chapter. Canvas 2D geometry and DOM image planes share one finite clock and stop when input settles. The passage loads images on entry; there is no WebGL. Drag, keyboard and explicit opening controls remain available. A CSS composition remains available without JavaScript.
 
 The complete collection follows, beginning with the uncropped ARTIFACTS homepage and then all sixteen applications in order. All seventeen captures fit fully inside their frames as scrolling advances them. The rail, arrows, horizontal touch gestures and direct links provide optional shortcuts. The final index preserves the original four collections and opens every real interface. Creator attribution stays quiet.
 
@@ -33,11 +33,11 @@ Every app has seven states from its source interface through activation, decompo
 - `js/hero.js`: finite sectional surface rendering and projected geometry.
 - `js/hero-interaction.js`: drag, keyboard, separation and reset controls.
 - `content/homepage.json`: the homepage capture preceding the sixteen apps.
-- `js/narrative.js`: requirement-to-method composition and sixteen-application register.
+- `js/passage.js`: actual application surfaces within the opening camera passage.
 - `js/inspection.js`: contextual inspection notes and geometry tracking for all sixteen studies.
 - `js/analysis.js`: application-specific spatial inspection and recomposition.
 - `js/instruments.js`: app-specific route markers, contour layers and inspection choreography.
-- `entry.css`: sectional entry, shorter method chapter and Gene credit composition.
+- `entry.css`: sectional entry, restored reveal and Gene credit composition.
 - `artifact.css`: current Artifact, interface passage and responsive study composition.
 - `experience.css`: entry composition, study camera, image fitting and picker.
 - `styles.css` and `studies.css`: visual design, extended study pacing, responsive composition and reduced motion.

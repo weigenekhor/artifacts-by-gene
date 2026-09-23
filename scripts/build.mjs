@@ -68,29 +68,6 @@ function visual(f, a) {
 }
 let html = await fs.readFile("content/page.html", "utf8");
 html = html.replace(
-  "<!-- METHOD INDEX -->",
-  apps
-    .map(
-      (a, i) =>
-        '<a class="method-blade" href="#' +
-        features.find((f) => f.id === a.id).kind +
-        '" style="--i:' +
-        i +
-        ";--row:" +
-        (i % 8) +
-        ";--col:" +
-        Math.floor(i / 8) +
-        '"><span>' +
-        number(i + 1) +
-        "</span><b>" +
-        esc(a.name) +
-        "</b><i>" +
-        esc(a.description.replace(/\.$/, "")) +
-        '</i><em aria-hidden="true">↗</em></a>',
-    )
-    .join(""),
-);
-html = html.replace(
   "<!-- FEATURES -->",
   features
     .map((f, i) => {
