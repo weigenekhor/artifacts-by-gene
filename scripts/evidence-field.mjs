@@ -56,7 +56,7 @@ export function evidenceField() {
   const fragment = (i) =>
     '<text class="ev-title" y="0">' + labels[i] + "</text>" + drawings[i];
   return (
-    '<svg class="evidence-svg" viewBox="0 0 800 680" fill="none" xmlns="http://www.w3.org/2000/svg"><g class="ev-links"><path d="M145 290H745V465H45V640H650" pathLength="1"/><path class="ev-return" d="M650 640H765V105H45V290H145" pathLength="1"/></g>' +
+    '<svg class="evidence-svg" viewBox="0 0 800 680" fill="none" xmlns="http://www.w3.org/2000/svg"><g class="ev-links"><path d="M360 130V625" pathLength="1"/><path class="ev-return" d="M380 625V110H360" pathLength="1"/></g>' +
     labels
       .map(
         (_, i) =>
@@ -67,9 +67,9 @@ export function evidenceField() {
             .map(
               (n) =>
                 '<g transform="translate(' +
-                n * 13 +
+                n * 4 +
                 " " +
-                -n * 18 +
+                -n * 6 +
                 ')">' +
                 drawings[i].replace(/<text[\s\S]*?<\/text>/g, "") +
                 "</g>",
@@ -80,6 +80,6 @@ export function evidenceField() {
           "</g>",
       )
       .join("") +
-    '<g class="ev-method"><text x="60" y="70">RECONSTRUCT</text><text x="320" y="70">COMPARE / CHECK</text><text x="595" y="70">RETAIN</text><path d="M60 90H720"/></g><g class="ev-resolution"><text x="400" y="305" text-anchor="middle">ARTIFACTS</text><text x="400" y="343" text-anchor="middle">Engineering methods. Given working form.</text></g></svg>'
+    '<g class="ev-method"><text x="60" y="70">RECONSTRUCT</text><text x="320" y="70">COMPARE / CHECK</text><text x="595" y="70">RETAIN</text><path d="M60 90H720"/></g><g class="ev-resolution"><text x="400" y="325" text-anchor="middle">ARTIFACTS</text><text x="400" y="370" text-anchor="middle">Engineering methods. Given working form.</text></g></svg>'
   );
 }

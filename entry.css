@@ -17,27 +17,6 @@
   pointer-events: none;
   background: radial-gradient(ellipse at 72% 48%, #52635626, transparent 60%);
 }
-.entry-heading {
-  position: absolute;
-  top: 27%;
-  left: var(--gutter);
-  z-index: 4;
-  pointer-events: none;
-  transform: translateY(calc(var(--hero) * -50px));
-}
-.entry-heading .eyebrow {
-  font-size: 9px;
-  color: #94a598;
-  margin: 0 0 26px;
-  letter-spacing: 0.05em;
-}
-.section-entry h1 {
-  font-size: clamp(65px, 7.6vw, 145px);
-  font-weight: 470;
-  letter-spacing: -0.068em;
-  line-height: 0.9;
-  white-space: nowrap;
-}
 .application-universe {
   position: absolute;
   inset: 0;
@@ -122,37 +101,6 @@
 .ready .universe-fallback {
   display: none;
 }
-.entry-copy {
-  position: absolute;
-  left: var(--gutter);
-  top: 49%;
-  z-index: 4;
-  max-width: 330px;
-}
-.entry-copy p {
-  font-size: clamp(22px, 2vw, 35px);
-  letter-spacing: -0.035em;
-  line-height: 1.32;
-}
-.entry-copy p span {
-  color: #96a292;
-}
-.entry-copy a {
-  display: inline-flex;
-  gap: 40px;
-  margin-top: 30px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid #6f837454;
-  font-size: 12px;
-}
-.entry-copy b {
-  font-weight: 400;
-  color: #d4b18a;
-}
-.entry-heading,
-.entry-copy {
-  opacity: calc(1 - var(--hero));
-}
 .entry-register {
   position: absolute;
   bottom: 4%;
@@ -193,63 +141,6 @@
   line-height: 1.7;
   margin: 18px auto 0;
   max-width: 260px;
-}
-/* An authored note, with a signature instead of a professional title card. */
-.gene-letter {
-  background: #e2e5df;
-  color: #23332a;
-  padding: 75px var(--gutter) 35px;
-}
-.gene-letter > .eyebrow {
-  font-size: 10px;
-  color: #6c7f6d;
-  margin: 0 0 48px;
-}
-.gene-letter-body {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 12%;
-  padding-bottom: 70px;
-}
-.gene-letter h2 {
-  font-size: clamp(36px, 4.1vw, 74px);
-  letter-spacing: -0.045em;
-  line-height: 1.12;
-  font-weight: 450;
-  margin: 0;
-}
-.gene-letter em {
-  font-style: normal;
-  color: #7e8f7e;
-}
-.gene-prose {
-  max-width: 460px;
-}
-.gene-prose p {
-  font-size: 15px;
-  line-height: 1.9;
-  margin: 0 0 22px;
-  color: #566b58;
-}
-.gene-prose p:first-child {
-  font-size: 20px;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  color: #2d4531;
-}
-.gene-prose .gene-signature {
-  font-size: 17px;
-  color: #2b402f;
-  margin: 30px 0 0;
-}
-.gene-end {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: 10px;
-  color: #71816f;
-  padding-top: 25px;
-  border-top: 1px solid #9eae9980;
 }
 /* Existing app films retain their seven states and shorter 17–19 second playback. */
 .study-camera {
@@ -586,15 +477,6 @@
   font-size: 11px;
   max-width: 215px;
 }
-.universe-teaser .universe-plane {
-  width: 310px;
-}
-.universe-teaser .universe-plane img {
-  aspect-ratio: auto;
-}
-.universe-teaser .universe-plane {
-  pointer-events: none;
-}
 @media (min-width: 701px) and (max-height: 800px) {
   .evidence-stage {
     min-height: 560px;
@@ -627,28 +509,6 @@
   .section-entry .hero-scene {
     min-height: 650px;
   }
-  .entry-heading {
-    top: calc(var(--header) + 7%);
-  }
-  .section-entry h1 {
-    font-size: 17vw;
-  }
-  .entry-heading .eyebrow {
-    font-size: 8px;
-    margin-bottom: 20px;
-  }
-  .entry-copy {
-    top: auto;
-    bottom: 13%;
-    max-width: 280px;
-  }
-  .entry-copy p {
-    font-size: 23px;
-  }
-  .entry-copy a {
-    margin-top: 16px;
-    font-size: 11px;
-  }
   .entry-register {
     bottom: 4%;
     font-size: 8px;
@@ -656,9 +516,7 @@
   .entry-register > span:last-child {
     display: none;
   }
-  .universe-teaser .universe-plane {
-    width: 260px;
-  }
+
   .evidence-story {
     height: auto;
   }
@@ -760,23 +618,6 @@
     left: var(--gutter);
     right: auto;
   }
-  .gene-letter {
-    padding: 50px var(--gutter) 30px;
-  }
-  .gene-letter-body {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding-bottom: 40px;
-  }
-  .gene-letter h2 {
-    font-size: 37px;
-  }
-  .gene-prose p {
-    font-size: 14px;
-  }
-  .gene-end {
-    font-size: 9px;
-  }
   .source-slice {
     transform: translate3d(
       calc((var(--slice) - 1) * var(--decompose) * 20px),
@@ -876,5 +717,713 @@ html:not(.enhanced) .evidence-copy > .eyebrow {
   }
   .tools-controls {
     bottom: 70px;
+  }
+}
+/* A material opening, with one typographic scale across the experience. */
+:root {
+  --type-display: clamp(44px, 5.25vw, 92px);
+  --type-chapter: clamp(34px, 3.35vw, 60px);
+  --type-body: clamp(15px, 1.1vw, 18px);
+  --type-small: clamp(11px, 0.8vw, 13px);
+}
+.section-entry {
+  height: 175svh;
+  background: #0a1010;
+}
+.section-entry .hero-scene {
+  background: #0a1010;
+  min-height: 640px;
+  overflow: hidden;
+}
+.entry-light {
+  background: radial-gradient(ellipse at 71% 49%, #4861531a, transparent 58%);
+}
+.entry-heading {
+  position: absolute;
+  top: 29%;
+  left: var(--gutter);
+  z-index: 4;
+  pointer-events: none;
+  width: 54%;
+  transform: translateY(calc(var(--hero) * -28px));
+  opacity: calc(1 - var(--hero) * 0.9);
+}
+.entry-heading .eyebrow {
+  font-size: var(--type-small);
+  color: #a3b0a4;
+  margin-bottom: 30px;
+  letter-spacing: 0.07em;
+}
+.section-entry h1 {
+  font-size: var(--type-display);
+  font-weight: 450;
+  line-height: 1.04;
+  letter-spacing: -0.058em;
+  white-space: normal;
+  margin: 0;
+}
+.section-entry h1 em {
+  font-style: normal;
+  color: #b8c2b1;
+}
+.precision-object#silicon {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 1;
+  cursor: grab;
+  touch-action: pan-y;
+  outline-offset: -10px;
+}
+.precision-object canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.precision-object.dragging {
+  cursor: grabbing;
+}
+.silicon-outline {
+  position: absolute;
+  width: 40vw;
+  aspect-ratio: 1;
+  border: 1px solid #a9b6a257;
+  right: 10%;
+  top: 25%;
+  border-radius: 50%;
+  transform: rotateX(55deg);
+}
+.precision-object.ready .silicon-outline {
+  display: none;
+}
+.entry-copy {
+  position: absolute;
+  left: var(--gutter);
+  top: 58%;
+  z-index: 4;
+  width: 37%;
+  opacity: calc(1 - var(--hero));
+  transform: translateY(calc(var(--hero) * -18px));
+}
+.entry-copy p {
+  font-size: var(--type-body);
+  line-height: 1.7;
+  color: #a5b2a7;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.entry-copy a {
+  display: inline-flex;
+  align-items: center;
+  gap: 34px;
+  margin-top: 30px;
+  padding: 14px 0;
+  border-bottom: 1px solid #718073;
+  font-size: 13px;
+  color: #e7ebe1;
+}
+.entry-copy b {
+  font-weight: 400;
+  color: #d5b18b;
+}
+.layer-control {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 12%;
+  z-index: 4;
+  border: 0;
+  border-bottom: 1px solid #6d7e6c;
+  background: none;
+  font: inherit;
+  font-size: 12px;
+  color: #bec8b6;
+  padding: 14px 0;
+  cursor: pointer;
+  opacity: calc(1 - var(--hero));
+}
+.layer-control span {
+  margin-left: 35px;
+  color: #d4b088;
+  font-size: 18px;
+}
+.entry-register {
+  font-size: var(--type-small);
+  color: #89998b;
+}
+#motion {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #68736080;
+  border-radius: 50%;
+  background: transparent;
+  color: #ccd3c3;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+#motion[hidden] {
+  display: none;
+}
+#motion:hover {
+  background: #263127;
+  border-color: #c1cbb8;
+}
+#motion svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+/* Copy occupies one measured grid cell. No clipped lines or intersecting text masks. */
+.evidence-stage {
+  min-height: 0;
+  grid-template-columns: 1fr 1.08fr;
+  gap: 6%;
+  padding-top: 45px;
+  padding-bottom: 105px;
+}
+.evidence-copy {
+  width: 100%;
+  align-self: center;
+}
+.evidence-copy > .eyebrow {
+  font-size: var(--type-small);
+  margin-bottom: 30px;
+}
+.evidence-pages {
+  display: grid;
+  min-height: 0;
+  align-items: start;
+}
+.origin-page {
+  grid-area: 1/1;
+  position: relative;
+  inset: auto;
+  clip-path: none;
+  transform: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: none;
+}
+.origin-page.current {
+  visibility: visible;
+  opacity: 1;
+  clip-path: none;
+  transform: none;
+  animation: chapter-settle 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes chapter-settle {
+  from {
+    filter: blur(2px);
+    opacity: 0.35;
+    transform: translateX(8px);
+  }
+  to {
+    filter: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+.evidence-story .origin-page h2 {
+  font-size: var(--type-chapter);
+  font-weight: 460;
+  letter-spacing: -0.044em;
+  line-height: 1.15;
+  text-wrap: balance;
+  max-width: 620px;
+  margin: 0 0 25px;
+}
+.origin-label {
+  font-size: var(--type-small);
+  margin-bottom: 22px;
+}
+.origin-page p {
+  font-size: var(--type-body);
+  line-height: 1.75;
+  max-width: 490px;
+  text-wrap: pretty;
+}
+.evidence-svg {
+  overflow: visible;
+}
+.evidence-svg text {
+  font-size: 12px;
+  letter-spacing: 0;
+}
+.evidence-svg .ev-title {
+  font-size: 16px;
+  font-weight: 450;
+}
+.evidence-svg .ev-method text {
+  font-size: 10px;
+  letter-spacing: 0.055em;
+}
+.ev-echo {
+  opacity: calc(var(--recurrence) * 0.2);
+}
+.ev-resolution {
+  opacity: clamp(0, calc((var(--resolution) - 0.5) * 2), 1);
+  transform: none;
+}
+.evidence-svg .ev-resolution text:first-child {
+  font-size: 69px;
+}
+.evidence-svg .ev-resolution text:last-child {
+  font-size: 15px;
+}
+.origin-nav button {
+  font-size: 12px;
+  min-height: 52px;
+  padding: 16px 0;
+}
+.origin-nav button span {
+  font-size: 10px;
+}
+.evidence-note {
+  font-size: 10px;
+  margin-top: 20px;
+}
+/* Collection reads as a staged inspection, with a stable centre and gentle depth. */
+.tools-heading h2 {
+  font-size: var(--type-chapter);
+  line-height: 1.12;
+}
+.tools-heading .eyebrow,
+.tools-heading > p:last-child {
+  font-size: var(--type-small);
+}
+.tools-entry .universe-caption strong {
+  font-size: clamp(25px, 2.1vw, 36px);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.tools-entry .universe-caption p {
+  font-size: 12px;
+  line-height: 1.7;
+}
+.tools-controls button,
+.begin-studies {
+  font-size: 12px;
+}
+.feature-copy h2 {
+  font-size: clamp(32px, 3.4vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+.feature-copy > p:not(.eyebrow):not(.study-beat) {
+  font-size: var(--type-body);
+  line-height: 1.7;
+  max-width: 440px;
+}
+.feature-copy .eyebrow,
+.feature-top,
+.study-actions,
+.study-control,
+.feature-foot {
+  font-size: var(--type-small);
+}
+.feature-copy .study-beat {
+  font-size: clamp(13px, 1vw, 16px);
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+.study-state {
+  font-size: 11px;
+}
+/* An authored closing: ARTIFACTS' three years, a measured name, direct contact. */
+.gene-statement {
+  background: #e7e9e2;
+  color: #24332b;
+  padding: 65px var(--gutter) 40px;
+}
+.gene-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: var(--type-small);
+  color: #617261;
+  border-bottom: 1px solid #a4b09e;
+  padding-bottom: 22px;
+}
+.gene-composition {
+  display: grid;
+  grid-template-columns: 1fr 2.15fr;
+  gap: 7%;
+  padding: 70px 0 65px;
+}
+.gene-author > span {
+  font-size: 12px;
+  color: #677968;
+}
+.gene-author > p {
+  font-size: clamp(24px, 2.2vw, 38px);
+  font-weight: 450;
+  letter-spacing: -0.04em;
+  margin: 16px 0 28px;
+}
+.gene-rule {
+  height: 1px;
+  background: #a1b19b;
+  width: 55px;
+}
+.gene-account h2 {
+  font-size: clamp(40px, 4.4vw, 78px);
+  line-height: 1.09;
+  letter-spacing: -0.048em;
+  font-weight: 440;
+  margin: 0 0 40px;
+}
+.gene-account h2 em {
+  font-style: normal;
+  color: #637560;
+}
+.gene-writing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 35px;
+  max-width: 790px;
+}
+.gene-writing p {
+  font-size: var(--type-body);
+  line-height: 1.85;
+  margin: 0;
+  color: #4e6251;
+  text-wrap: pretty;
+}
+.gene-writing .gene-conviction {
+  grid-column: 1/-1;
+  color: #283f2d;
+  font-size: clamp(19px, 1.7vw, 26px);
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  padding-top: 12px;
+}
+.gene-contact {
+  border-top: 1px solid #a4b09e;
+  display: flex;
+  gap: 35px;
+  align-items: center;
+  padding-top: 24px;
+  font-size: 13px;
+}
+.gene-contact p {
+  color: #647762;
+  margin: 0 auto 0 0;
+}
+.gene-contact a {
+  padding: 12px 0;
+  border-bottom: 1px solid #94a28e;
+  color: #243d2b;
+  text-decoration: none;
+}
+.gene-contact a span {
+  margin-left: 30px;
+  color: #7b7758;
+}
+.gene-contact a:hover {
+  border-color: #243d2b;
+}
+@media (min-width: 701px) and (max-height: 800px) {
+  .evidence-stage {
+    padding-top: 25px;
+    padding-bottom: 80px;
+  }
+  .evidence-story .origin-page h2 {
+    font-size: clamp(31px, 3.1vw, 46px);
+  }
+  .origin-page p {
+    font-size: 14px;
+  }
+  .evidence-copy > .eyebrow {
+    margin-bottom: 23px;
+  }
+  .origin-label {
+    margin-bottom: 16px;
+  }
+  .origin-nav {
+    bottom: 15px;
+  }
+  .evidence-field {
+    max-height: calc(100svh - 190px);
+  }
+  .evidence-svg {
+    max-height: calc(100svh - 210px);
+  }
+  .section-entry h1 {
+    font-size: clamp(45px, 4.6vw, 76px);
+  }
+  .entry-copy {
+    top: 62%;
+  }
+}
+@media (max-width: 1000px) and (min-width: 701px) {
+  .gene-composition {
+    grid-template-columns: 0.7fr 2fr;
+  }
+  .gene-writing {
+    grid-template-columns: 1fr;
+  }
+  .evidence-stage {
+    gap: 4%;
+    grid-template-columns: 1fr 1fr;
+  }
+  .origin-nav button {
+    font-size: 10px;
+  }
+}
+@media (max-width: 700px) {
+  :root {
+    --type-body: 15px;
+    --type-small: 11px;
+    --type-chapter: 32px;
+  }
+  .section-entry {
+    height: 155svh;
+  }
+  .section-entry .hero-scene {
+    min-height: 680px;
+  }
+  .entry-heading {
+    top: calc(var(--header) + 38px);
+    width: 88%;
+  }
+  .entry-heading .eyebrow {
+    font-size: 10px;
+    margin-bottom: 20px;
+  }
+  .section-entry h1 {
+    font-size: clamp(36px, 9.1vw, 60px);
+    line-height: 1.08;
+    letter-spacing: -0.046em;
+  }
+  .entry-copy {
+    top: auto;
+    bottom: 15%;
+    width: 87%;
+  }
+  .entry-copy p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .entry-copy a {
+    font-size: 12px;
+    margin-top: 12px;
+    gap: 24px;
+  }
+  .layer-control {
+    bottom: 7%;
+    left: var(--gutter);
+    right: auto;
+    font-size: 11px;
+    padding: 10px 0;
+  }
+  .entry-register {
+    bottom: 2%;
+    font-size: 9px;
+  }
+  .evidence-stage {
+    display: block;
+    padding: 40px var(--gutter);
+  }
+  .evidence-copy > .eyebrow {
+    margin-bottom: 280px;
+  }
+  .evidence-pages {
+    display: block;
+  }
+  .origin-page {
+    visibility: visible;
+    opacity: 1;
+    padding: 30px 0 35px;
+    margin: 0;
+    animation: none !important;
+  }
+  .evidence-story .origin-page h2 {
+    font-size: 32px;
+    line-height: 1.15;
+  }
+  .origin-page p {
+    font-size: 15px;
+  }
+  .evidence-field {
+    top: 95px;
+    height: 230px;
+  }
+  .evidence-note {
+    font-size: 9px;
+    margin-top: 10px;
+  }
+  .tools-heading h2 {
+    font-size: 30px;
+  }
+  .tools-entry .universe-caption strong {
+    font-size: 22px;
+  }
+  .tools-controls button,
+  .begin-studies {
+    font-size: 11px;
+  }
+  .feature-copy h2 {
+    font-size: 31px;
+    line-height: 1.12;
+  }
+  .feature-copy > p:not(.eyebrow):not(.study-beat) {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .feature-copy .study-beat {
+    font-size: 12px;
+  }
+  .feature-copy .eyebrow,
+  .feature-top,
+  .feature-foot {
+    font-size: 10px;
+  }
+  .gene-statement {
+    padding: 42px var(--gutter) 28px;
+  }
+  .gene-caption {
+    font-size: 10px;
+    display: block;
+  }
+  .gene-caption span {
+    display: block;
+  }
+  .gene-caption span + span {
+    margin-top: 9px;
+  }
+  .gene-composition {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 36px 0 40px;
+  }
+  .gene-author > p {
+    font-size: 25px;
+    margin: 10px 0 0;
+  }
+  .gene-rule {
+    display: none;
+  }
+  .gene-account h2 {
+    font-size: 39px;
+    margin-bottom: 27px;
+  }
+  .gene-writing {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .gene-writing p {
+    font-size: 15px;
+  }
+  .gene-writing .gene-conviction {
+    font-size: 21px;
+  }
+  .gene-contact {
+    flex-wrap: wrap;
+    gap: 16px 30px;
+  }
+  .gene-contact p {
+    width: 100%;
+    font-size: 12px;
+  }
+  .gene-contact a {
+    font-size: 12px;
+  }
+  .gene-contact a span {
+    margin-left: 14px;
+  }
+}
+.reduced .origin-page,
+html:not(.enhanced) .origin-page {
+  opacity: 1;
+  animation: none;
+  grid-area: auto;
+}
+.reduced .evidence-pages,
+html:not(.enhanced) .evidence-pages {
+  display: block;
+}
+.reduced .layer-control {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .origin-page.current {
+    animation: none;
+  }
+}
+.swap-seat {
+  fill: none;
+  stroke: #73867466;
+  stroke-width: 1;
+  stroke-dasharray: 3 5;
+}
+.swap-thickness {
+  fill: #0a1210;
+  stroke: #6c8175;
+  stroke-width: 1.5;
+}
+.swap-etch {
+  fill: none;
+  stroke: #b3c6ac44;
+  stroke-width: 0.7;
+}
+.swap-carrier .plate {
+  fill: #2c4138;
+  stroke: #9da88c;
+  stroke-width: 1.2;
+}
+.swap-carrier[data-plate="0"] .plate,
+.swap-carrier[data-plate="2"] .plate {
+  fill: #554a38;
+  stroke: #c7aa7e;
+}
+.instrument-svg .swap-slot {
+  font-size: 10px;
+  fill: #8d9c8a;
+}
+.instrument-svg .swap-id {
+  font-size: 15px;
+  fill: #ebeee1;
+}
+.instrument-svg .swap-caption {
+  font-size: 12px;
+  fill: #c3cdb9;
+}
+.swap-routes path {
+  fill: none;
+  stroke: #c9ae87;
+  stroke-width: 1;
+  stroke-dasharray: 4 5;
+}
+#motion {
+  width: auto;
+  min-width: 82px;
+  border-radius: 3px;
+  padding: 0 12px;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  justify-content: center;
+}
+#motion span {
+  font-size: 11px;
+  letter-spacing: 0;
+  font-weight: 450;
+}
+@media (max-width: 700px) {
+  #motion {
+    min-width: 68px;
+    gap: 6px;
+    padding: 0 8px;
+  }
+  #motion svg {
+    width: 13px;
+    height: 13px;
+  }
+  #motion span {
+    font-size: 10px;
   }
 }

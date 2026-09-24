@@ -80,7 +80,7 @@ html = html.replace(
         " / " +
         esc(p.label) +
         "</span><h2>" +
-        lines(p.title) +
+        esc(p.title).replaceAll("\n", " ") +
         "</h2><p>" +
         esc(p.text) +
         "</p></article>",

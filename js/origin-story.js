@@ -17,20 +17,20 @@ export function createOriginStory(section, wake) {
     lastY = -1,
     lastDraw = "";
   const scattered = [
-    [90, 125, -8],
-    [445, 82, 5],
-    [300, 285, -5],
-    [80, 440, 7],
-    [505, 390, -6],
-    [360, 530, 4],
+    [65, 140, -3],
+    [455, 120, 3],
+    [90, 330, -2],
+    [475, 345, 2],
+    [65, 525, -2],
+    [455, 535, 2],
   ];
   const ordered = [
-    [85, 155, 0],
-    [480, 155, 0],
-    [85, 330, 0],
-    [480, 330, 0],
-    [85, 505, 0],
-    [480, 505, 0],
+    [80, 140, 0],
+    [470, 140, 0],
+    [80, 330, 0],
+    [470, 330, 0],
+    [80, 520, 0],
+    [470, 520, 0],
   ];
   buttons.forEach((b, i) =>
     b.addEventListener("click", () => {
@@ -77,14 +77,14 @@ export function createOriginStory(section, wake) {
       fragments.forEach((el, i) => {
         const a = scattered[i],
           b = ordered[i];
-        const x = mix(a[0] + Math.sin(i * 2) * pressure * 35, b[0], order);
-        const yy = mix(a[1] + (i % 2 ? 24 : -24) * pressure, b[1], order);
-        const collapse = resolve * 0.48;
+        const x = mix(a[0] + Math.sin(i * 2) * pressure * 8, b[0], order);
+        const yy = mix(a[1] + (i % 2 ? 8 : -8) * pressure, b[1], order);
+        const collapse = resolve * 0.16;
         el.setAttribute(
           "transform",
-          `translate(${mix(x, 400 + (i % 2 ? 175 : -255), collapse)} ${mix(yy, 160 + Math.floor(i / 2) * 190, collapse)}) rotate(${a[2] * (1 - order)}) scale(${1 - resolve * 0.3})`,
+          `translate(${mix(x, 400 + (i % 2 ? 180 : -300), collapse)} ${mix(yy, 130 + Math.floor(i / 2) * 200, collapse)}) rotate(${a[2] * (1 - order)}) scale(${1 - resolve * 0.3})`,
         );
-        el.style.opacity = String(1 - resolve * 0.88);
+        el.style.opacity = String(1 - ease(resolve / 0.7));
       });
       section.dataset.scene = String(index);
       return Math.abs(current - target) > 0.001;

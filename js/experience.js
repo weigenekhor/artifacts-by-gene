@@ -1,6 +1,7 @@
 import { createOriginStory } from "./origin-story.js";
 import { apps, homepage } from "./apps.js";
 import { createStudy } from "./studies.js";
+import { createPrecisionHero } from "./precision-hero.js";
 import { createHero } from "./hero.js";
 import { createHeroInteraction } from "./hero-interaction.js";
 const $ = (s) => document.querySelector(s),
@@ -18,7 +19,7 @@ const root = document.documentElement,
 const collection = [homepage, ...apps];
 const studies = features.map((el) => createStudy(el, wake));
 const originStory = createOriginStory(origin, wake);
-const silicon = createHero($("#silicon"), apps, wake, { teaser: true });
+const silicon = createPrecisionHero($("#silicon"));
 const toolsScene = createHero($("#tools-universe"), apps, wake);
 let heroMoving = false,
   toolsMoving = false,
@@ -42,13 +43,24 @@ const heroInteraction = createHeroInteraction($("#silicon"), wake);
 const toolsInteraction = createHeroInteraction($("#tools-universe"), wake);
 const motion = $("#motion");
 motion.hidden = false;
+function motionIcon(stopped) {
+  return (
+    '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">' +
+    (stopped
+      ? '<path d="M8 5L19 12 8 19Z" fill="currentColor"/>'
+      : '<rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/>') +
+    "</svg><span>" +
+    (stopped ? "Play" : "Pause") +
+    "</span>"
+  );
+}
 function syncMotion() {
   reduced = preference.matches || paused;
   if (reduced) stopPlayback();
   root.classList.toggle("reduced", reduced);
   motion.setAttribute("aria-pressed", String(reduced));
   motion.setAttribute("aria-label", reduced ? "Enable motion" : "Pause motion");
-  motion.textContent = reduced ? "▷" : "Ⅱ";
+  motion.innerHTML = motionIcon(reduced);
   measure();
 }
 motion.addEventListener("click", () => {
@@ -59,7 +71,7 @@ motion.addEventListener("click", () => {
     root.classList.remove("reduced");
     motion.setAttribute("aria-pressed", "false");
     motion.setAttribute("aria-label", "Pause motion");
-    motion.textContent = "Ⅱ";
+    motion.innerHTML = motionIcon(false);
     measure();
   } else syncMotion();
 });

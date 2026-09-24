@@ -166,13 +166,7 @@ export function createAnalysis(el) {
         );
         r.style.fillOpacity = 1 - amount * (chosen ? 0 : 0.45);
       });
-      if (kind === "arrange")
-        rows
-          .slice(2)
-          .forEach((r, i) =>
-            shift(r, amount * (i === select(inspection, 5) ? 23 : 0), 0),
-          );
-      else
+      if (kind === "zones")
         [...svg.querySelectorAll(".zone-ray")].forEach(
           (r, i) =>
             (r.style.opacity =

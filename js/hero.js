@@ -5,11 +5,12 @@ const ease = (v) => {
   return v * v * (3 - 2 * v);
 };
 const mix = (a, b, t) => a + (b - a) * t;
-export function createHero(stage, apps, wake, { teaser = false } = {}) {
+export function createHero(stage, apps, wake) {
   let w = 1,
     h = 1,
     clock = 0,
-    captionIndex = -1;
+    captionIndex = -1,
+    opening = 0;
   const caption = document.createElement("div");
   caption.className = "universe-caption";
   const name = document.createElement("strong"),
@@ -17,20 +18,19 @@ export function createHero(stage, apps, wake, { teaser = false } = {}) {
   name.textContent = "Sixteen working methods.";
   purpose.textContent = "Move through the collection, or enter an application.";
   caption.append(name, purpose);
-  if (!teaser) stage.append(caption);
-  const selected = teaser ? [apps[3], apps[7], apps[15]] : apps;
-  const planes = selected.map((app, i) => {
-    const a = document.createElement(teaser ? "div" : "a"),
+  stage.append(caption);
+  const planes = apps.map((app, i) => {
+    const a = document.createElement("a"),
       image = new Image();
     a.className = "universe-plane";
     image.src = app.evidence.full;
     image.width = app.evidence.fullWidth;
     image.height = app.evidence.fullHeight;
-    image.alt = teaser ? "" : app.name + " interface";
+    image.alt = app.name + " interface";
     image.decoding = "async";
-    if (!teaser) image.loading = "lazy";
+    image.loading = "lazy";
     a.append(image);
-    if (!teaser) {
+    {
       const target = document.querySelector(
         '[data-study-app="' + app.id + '"]',
       );
@@ -74,42 +74,44 @@ export function createHero(stage, apps, wake, { teaser = false } = {}) {
       });
       a.addEventListener("focus", wake);
       a.addEventListener("blur", wake);
-    } else a.setAttribute("aria-hidden", "true");
+    }
     stage.append(a);
     return { a, app, weight: 0 };
   });
   stage.classList.add("ready");
-  stage.classList.toggle("universe-teaser", teaser);
+
   return {
     resize() {
       w = stage.clientWidth;
       h = stage.clientHeight;
     },
     render(time, p, px, py, reduced, dt, state) {
-      const open = teaser
-        ? 0
-        : reduced
-          ? 1
-          : state.manual
-            ? ease(state.spread)
-            : ease(p / 0.58);
-      const depart = teaser && !reduced ? ease(p) : 0;
+      const desiredOpen = reduced
+        ? 1
+        : state.manual
+          ? ease(state.spread)
+          : ease(p / 0.58);
+      opening +=
+        (desiredOpen - opening) * (reduced ? 1 : 1 - Math.exp(-dt / 170));
+      const open = opening;
+
       if (!reduced) clock += Math.min(dt, 40) / 1000;
       const turn = reduced ? 0 : Math.sin(clock * 0.12),
         breath = reduced ? 0 : Math.sin(clock * 0.19);
       const yaw =
-        state.yaw * 0.26 +
-        (reduced ? 0 : px * 0.1) +
-        turn * (teaser ? 0.02 : 0.14 * open);
+        state.yaw * 0.26 + (reduced ? 0 : px * 0.1) + turn * 0.14 * open;
       const pitch =
         state.pitch * 0.18 + (reduced ? 0 : py * 0.035) + breath * 0.025;
       const mobile = w < 700,
         unit = mobile ? 0.46 : Math.min(1.35, w / 1400);
-      const cx = w * (teaser ? (mobile ? 0.52 : 0.69) : 0.5),
-        cy = h * (teaser ? (mobile ? 0.49 : 0.51) : 0.52);
+      const cx = w * 0.5,
+        cy = h * 0.5;
       stage.style.setProperty("--unfold", open);
       const expand = stage.closest("section").querySelector("[data-expand]");
-      if (expand && expand.getAttribute("aria-pressed") !== String(open > 0.5)) {
+      if (
+        expand &&
+        expand.getAttribute("aria-pressed") !== String(open > 0.5)
+      ) {
         expand.setAttribute("aria-pressed", String(open > 0.5));
         expand.innerHTML =
           open > 0.5
@@ -123,12 +125,7 @@ export function createHero(stage, apps, wake, { teaser = false } = {}) {
         const { a } = plane;
         const angle = (i / 16) * Math.PI * 2 - Math.PI / 2 + turn * 0.05 * open;
         let x, y, z, scale;
-        if (teaser) {
-          x = [-95, 115, 20][i] * unit;
-          y = [-95, -5, 145][i] * unit;
-          z = [-100, 80, 0][i];
-          scale = [1.02, 1.22, 0.96][i] * unit;
-        } else {
+        {
           // Three interleaved depth registers open into a continuous ellipse.
           x = mix(
             ((i % 4) - 1.5) * 220 * unit,
@@ -169,17 +166,15 @@ export function createHero(stage, apps, wake, { teaser = false } = {}) {
             Z * Math.cos(pitch) +
             focus * (mobile ? 16 : 65);
         const drift = reduced ? 0 : Math.sin(clock * 0.25 + i * 0.6);
-        a.style.transform = `translate3d(${cx + X * (1 + depart * 0.35)}px,${cy + Y - depart * 110}px,${depth}px) translate(-50%,-50%) rotateX(${(5 + pitch * 35 + drift) * (1 - focus * 0.65)}deg) rotateY(${((teaser ? -16 : -Math.cos(angle) * 11) + yaw * 45 + drift) * (1 - focus * 0.55)}deg) scale(${scale * (1 + focus * 0.09)})`;
-        a.style.opacity = String(
-          (1 - depart * 0.85) * (teaser ? [0.6, 1, 0.77][i] : 1),
-        );
+        a.style.transform = `translate3d(${cx + X}px,${cy + Y}px,${depth}px) translate(-50%,-50%) rotateX(${(5 + pitch * 35 + drift) * (1 - focus * 0.65)}deg) rotateY(${(-Math.cos(angle) * 11 + yaw * 45 + drift) * (1 - focus * 0.55)}deg) scale(${scale * (1 + focus * 0.09)})`;
+        a.style.opacity = "1";
         a.style.zIndex = String(Math.round(depth + 500));
         a.style.setProperty(
           "--plane-light",
           (0.1 + focus * 0.2 + breath * 0.02).toFixed(3),
         );
       });
-      if (!teaser && strongest >= 0 && strongest !== captionIndex) {
+      if (strongest >= 0 && strongest !== captionIndex) {
         name.textContent = planes[strongest].app.name;
         purpose.textContent = planes[strongest].app.description;
         captionIndex = strongest;

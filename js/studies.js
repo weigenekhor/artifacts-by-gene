@@ -1,3 +1,4 @@
+import { createBaseplateExchange } from "./baseplate-exchange.js";
 import { createInspection } from "./inspection.js";
 import { developInstrument } from "./instruments.js";
 import { createAnalysis } from "./analysis.js";
@@ -5,7 +6,7 @@ import { createAnalysis } from "./analysis.js";
 const clamp = (v) => Math.max(0, Math.min(1, v));
 const smooth = (v) => {
   v = clamp(v);
-  return v * v * (3 - 2 * v);
+  return v * v * v * (v * (v * 6 - 15) + 10);
 };
 export function createStudy(el, wake) {
   const beats = JSON.parse(el.dataset.beats),
@@ -23,6 +24,7 @@ export function createStudy(el, wake) {
     scans = [...el.querySelectorAll("[data-scan]")],
     cursor = el.querySelector("[data-cursor]");
   const develop = developInstrument(el);
+  const exchange = createBaseplateExchange(el);
   const inspectDetail = createInspection(el);
   const analysis = createAnalysis(el),
     timings = el.dataset.timings.split(",").map(Number);
@@ -224,6 +226,7 @@ export function createStudy(el, wake) {
       develop(functional, stages);
       analysis(reduced ? 0 : expand, stages.inspect, p);
       inspectDetail(reduced ? 0.7 : p, stages.inspect);
+      exchange(reduced ? 1 : functional);
       return Math.abs(p - wanted) > 0.0005;
     },
   };

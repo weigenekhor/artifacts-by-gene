@@ -202,18 +202,18 @@
   {
     "id": "aix-dt-assistant",
     "kind": "arrange",
-    "title": "Place the inputs\nin the arrangement.",
-    "text": "Use weight and temperature inputs to guide baseplate placement. Review the arrangement with its basis still in view.",
+    "title": "Exchange the plates.\nKeep the context.",
+    "text": "Use weight and temperature inputs to guide baseplate swaps. Follow each plate from its current position to its new seat.",
     "kicker": "Baseplate arrangement guidance.",
-    "verbs": ["Enter", "Evaluate", "Arrange"],
+    "verbs": ["Evaluate", "Exchange", "Review"],
     "beats": [
-      "Baseplate arrangement guidance.",
+      "Baseplate swapping, with its inputs in view.",
       "Locate the weight and temperature inputs.",
-      "Separate input values from baseplate positions.",
-      "The arrangement takes shape around the process.",
-      "Inspect a position and the inputs beside it.",
-      "Review the placement and the inputs behind it.",
-      "The placement returns to the full arrangement."
+      "Separate each plate from its current position.",
+      "Lift the first pair. Exchange their positions.",
+      "A second pair moves while the other plates stay seated.",
+      "Review the revised arrangement against its inputs.",
+      "Return to the interface to review the proposed swaps."
     ],
     "caption": "Baseplate arrangement guidance.",
     "number": "09",

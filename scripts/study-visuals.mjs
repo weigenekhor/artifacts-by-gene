@@ -75,24 +75,72 @@ export function expandedVisual(f, a) {
       `${text(45, 32, "METROLOGY INPUTS")}${text(514, 32, "CONSISTENT OUTPUT")}${[0, 1, 2].map((i) => move(`${paper(55, 65 + i * 105, 115, 78)}${line(`M170 ${101 + i * 105}C240 ${101 + i * 105} 230 225 288 225`, "resolve")}`, -65, (i - 1) * 60)).join("")}${rect(285, 159, 128, 132, "calculation-block")}${text(310, 198, "Predefined")}${text(309, 219, "calculations")}${line("M307 247H390", "resolve", "warm")}${line("M413 225H490", "inspect", "warm")}${reveal(`${paper(490, 93, 170, 265)}${text(517, 390, "Compiled report", "warm")}`)}`,
       k,
     );
-  if (k === "arrange")
+  if (k === "arrange") {
+    const positions = Array.from({ length: 5 }, (_, i) => {
+      const a = (i * Math.PI * 2) / 5 - Math.PI / 2;
+      return [470 + Math.cos(a) * 101, 220 + Math.sin(a) * 101];
+    });
     return svg(
-      `${text(44, 32, "INPUTS")}${text(474, 32, "BASEPLATE ARRANGEMENT")}${[0, 1].map((i) => move(`${rect(30, 100 + i * 75, 143, 47)}${text(47, 128 + i * 75, ["Weight", "Temperature"][i])}`, -70, i * 50)).join("")}${line("M173 125C250 125 250 220 300 220M173 200H300", "resolve")}${line("M173 282H305", "inspect", "axis")}<circle cx="470" cy="220" r="154" class="ring-track"/>${Array.from(
-        { length: 5 },
-        (_, i) => {
-          const angle = (i * Math.PI * 2) / 5 - Math.PI / 2,
-            x = 470 + Math.cos(angle) * 101,
-            y = 220 + Math.sin(angle) * 101;
-          return move(
-            `<circle cx="${x}" cy="${y}" r="42" class="plate"/>${text(x - 8, y + 4, "S" + (i + 1))}${reveal(`<circle cx="${x}" cy="${y}" r="48" class="plate-ring"/>`)}`,
-            -280 + (i % 2) * 60,
-            (i - 2) * 30,
-            "resolve",
-          );
-        },
-      ).join("")}${text(377, 411, "Inputs remain beside the arrangement")}`,
+      text(44, 32, "WEIGHT / TEMPERATURE") +
+        text(474, 32, "BASEPLATE EXCHANGE") +
+        [0, 1]
+          .map((i) =>
+            move(
+              rect(30, 100 + i * 75, 143, 47) +
+                text(47, 128 + i * 75, ["Weight", "Temperature"][i]),
+              -70,
+              i * 50,
+            ),
+          )
+          .join("") +
+        line("M173 125C250 125 250 220 300 220M173 200H300", "resolve") +
+        '<circle cx="470" cy="220" r="154" class="ring-track"/>' +
+        positions
+          .map(
+            ([x, y], i) =>
+              '<circle cx="' +
+              x +
+              '" cy="' +
+              y +
+              '" r="43" class="swap-seat"/>' +
+              text(x - 8, y + 60, "S" + (i + 1), "swap-slot"),
+          )
+          .join("") +
+        '<g class="swap-routes"><path data-swap-route="0"/><path data-swap-route="1"/></g>' +
+        positions
+          .map(([x, y], i) =>
+            move(
+              '<g class="swap-carrier" data-plate="' +
+                i +
+                '" data-x="' +
+                x +
+                '" data-y="' +
+                y +
+                '"><circle cx="' +
+                x +
+                '" cy="' +
+                (y + 3) +
+                '" r="42" class="swap-thickness"/><circle cx="' +
+                x +
+                '" cy="' +
+                y +
+                '" r="42" class="plate"/>' +
+                text(x - 5, y + 4, String.fromCharCode(65 + i), "swap-id") +
+                '<circle cx="' +
+                x +
+                '" cy="' +
+                y +
+                '" r="34" class="swap-etch"/></g>',
+              -280 + (i % 2) * 60,
+              (i - 2) * 30,
+              "gather",
+            ),
+          )
+          .join("") +
+        text(360, 60, "Lift · exchange · seat", "swap-caption"),
       k,
     );
+  }
   if (k === "zones")
     return svg(
       `${text(45, 32, "INNER / OUTER REGIONS")}<g class="zone-orbit"><circle cx="360" cy="220" r="165" class="ring-track"/>${Array.from(

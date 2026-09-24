@@ -2,11 +2,15 @@
 
 This storyboard implements Gene's structural storytelling brief of 24 September 2026. Read with ARTIFACTS_CREATIVE_DIRECTION.md. The current user prompt overrides earlier visual directions.
 
-## 00 — A glimpse of the system
+## 00 — Engineering, made executable
 
-ARTIFACTS remains dominant. Three actual interface surfaces hint at the working software without presenting a catalogue. The opening copy is **Built from work that kept returning.** The primary invitation leads into the origin story.
+The hero is a purpose-built, interactive semiconductor surface, not a stack of screenshots. Pointer motion moves the inspection light and changes the projected viewing angle. Drag and keyboard controls turn the object. A direct control separates its substrate layers. Scroll opens the layers, removes their solid material and takes the dark environment into the light evidence chapter. The wafer is an editorial engineering metaphor, not an image of an ARTIFACTS application.
 
-Pointer proximity continuously changes local depth, orientation and directional light. Drag and keyboard input change the common viewing angle. Focus transfers through damping; no snapping or carousel. Only visible scenes run ambient motion.
+**Engineering, made executable.**
+
+**Three years of turning practical problems into working software.**
+
+Canvas resolution is capped at 2× desktop / 1.5× mobile. The visible scene shares the page clock; offscreen and paused scenes stop. Reduced motion retains a stable composition and a readable entry into the story. Application interfaces first appear in the later collection.
 
 ## 01 — Why ARTIFACTS exists
 
@@ -21,11 +25,11 @@ Six scenes share the same evidence:
 5. **Software gave the method a life beyond the task.** A stable sequence closes into a reusable path. No application UI appears yet.
 6. **The work gave ARTIFACTS its shape.** The evidence recedes around the identity. The system is a consequence of practical work.
 
-Native scroll advances six readable holds across the light chapter. Direct scene buttons offer a shortcut. Small screens and reduced motion retain all six complete passages in document order without scroll pinning. No scroll interception.
+Native scroll advances six readable holds across the light chapter. Headings use balanced wrapping in an intrinsic grid, without clipping masks; inactive passages are hidden immediately so text never overlaps. Evidence stays in separate spatial lanes. Its labels do not repeat into the ghost traces. The final identity appears only after evidence recedes. Direct scene buttons offer a shortcut. Small screens and reduced motion retain all six complete passages in document order without scroll pinning. No scroll interception.
 
 ## 02 — The collection opens
 
-Only after the origin resolves does the complete sixteen-application assembly appear. The dark field, actual surfaces and bounded collective rotation mark the transition from WHY to WHAT. Pointer proximity brings a nearby interface forward. Every plane links into its own study; keyboard access and the application picker provide alternatives. The original homepage is available through an explicit full-capture viewer.
+Only after the origin resolves does the complete sixteen-application assembly appear. The dark field, actual surfaces and bounded collective rotation mark the transition from WHY to WHAT. Pointer proximity brings a nearby interface forward. Collection expansion uses damped interpolation, independent of scroll velocity. Every plane links into its own study; keyboard access and the application picker provide alternatives. The original homepage is available through an explicit full-capture viewer.
 
 There is one complete spatial collection, followed by the sixteen films. There is no repeated archive or catalogue after the films.
 
@@ -45,7 +49,7 @@ Each analytical interval adds three concise inspection notes. Geometry-based bra
 6. SPC Pathfinder: a workcentre/group path narrows to a chart; context remains beside the selected trace.
 7. GaN Met Compiler: source records pass through the calculation structure into a report; source and output remain distinguishable.
 8. GaN Temp Diagnoser: observations open possible directions; checks are isolated for investigation, not presented as confirmed diagnoses.
-9. AIX ΔT Assistant: weight/temperature inputs connect to baseplate positions; selecting a position retains its input context.
+9. AIX ΔT Assistant: weight/temperature inputs remain alongside two paired baseplate swaps. Identified plates lift, exchange positions on curved paths and seat again. Fixed slot labels retain location context. This is an illustrative exchange, not a computed recommendation.
 10. LT Zone Assistant: a shared origin produces region boundaries; inner/outer regions can be inspected in the same coordinate system.
 11. GaN XML Assistant: reference/target properties align; one changed value is isolated without losing its neighboring properties.
 12. Magus SPC (GaN): equipment and parameter context frame charts; selected intervals remain linked across the review.
@@ -56,19 +60,15 @@ Each analytical interval adds three concise inspection notes. Geometry-based bra
 
 The diagram geometry is explanatory. Do not fabricate measured values, software operations or cross-application integrations. Cross-scene continuity is editorial, not a claim that applications exchange data.
 
-## 04 — A note from Gene
+## 04 — Three years, one body of work
 
-**Built in the work. Held to its standard.**
+Gene has confirmed that ARTIFACTS took three years to build. The closing uses that fact, rather than generic creator copy.
 
-“I wanted better tools beside me while doing the work. So I started building them.
+**Three years. Nothing built without a reason.**
 
-A comparison that kept coming back. A report that took too much assembly. A process that needed a clearer view. Each tool started with something practical.
+A restrained Gene attribution sits beside the account of building the tools from practical engineering needs. The final line is **The work is personal. The standard is not.** It closes on the standard of the work, not an oversized name or job title.
 
-There was no suite planned at the beginning. One practical need led to the next. Those responses took shape as ARTIFACTS.
-
-— Gene”
-
-This is a short personal account with a signature, not a creator title card. No job-title label or biographical claims beyond Gene's brief.
+Contact links: https://www.linkedin.com/in/weigenekhor/ and mailto:weigenekhor@gmail.com. These are links only; the site does not send messages or collect form data.
 
 ## Access and performance
 

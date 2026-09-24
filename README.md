@@ -14,9 +14,9 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The opening hints at the software through three actual interfaces. A six-scene, screenshot-free origin chapter follows evidence → recurrence → lost reasoning → method → software → ARTIFACTS. The same schematic evidence evolves throughout; it is not a claim about measured data.
+The opening is an interactive etched silicon surface: pointer lighting, damped orientation and separable process layers, drawn from projected geometry. It dissolves from material into evidence as the background moves from dark to light. A six-scene, screenshot-free origin chapter follows evidence → recurrence → lost reasoning → method → software → ARTIFACTS. The same schematic evidence evolves throughout; it is not a claim about measured data.
 
-The complete sixteen-plane application assembly appears after the story. Bounded rotation and damped pointer proximity change depth, orientation and lighting. From there, the sixteen individual studies unfold in canonical order. The duplicate post-study capture archive and catalogue have been removed. Full captures remain available in each study and through the homepage viewer. Gene closes the experience quietly.
+The complete sixteen-plane application assembly appears after the story. Bounded rotation and damped pointer proximity change depth, orientation and lighting. From there, the sixteen individual studies unfold in canonical order. The duplicate post-study capture archive and catalogue have been removed. Full captures remain available in each study and through the homepage viewer. Gene closes with the three-year development story and direct email/LinkedIn links.
 
 Read `ARTIFACTS_CREATIVE_DIRECTION.md` and `ARTIFACTS_EXPERIENCE_STORYBOARD.md` for governing direction and factual boundaries. One shared clock pauses ambient scenes offscreen. Mobile and reduced motion retain the entire narrative without pinning.
 
@@ -30,7 +30,9 @@ Every app has seven states from its source interface through activation, decompo
 - `scripts/build.mjs`: static SVG generation, HTML rendering and script bundling.
 - `js/contours.js`: build-time equal-height contour extraction for an illustrative field.
 - `js/experience.js`: shared clock, scroll progression, replay, app picker and image viewer.
-- `js/hero.js`: ordered interface assembly, bounded ambient rotation and shared-element navigation.
+- `js/hero.js`: later application assembly, damped expansion, bounded rotation and shared-element navigation.
+- `js/precision-hero.js`: capped-resolution canvas silicon geometry and the material-to-evidence passage.
+- `js/baseplate-exchange.js`: paired AIX baseplate swaps with retained identities and fixed seats.
 - `content/story.json`: six-scene origin narrative, without application examples.
 - `js/origin-story.js`: evidence transformations and direct scene navigation.
 - `scripts/evidence-field.mjs`: code-native schematic evidence, independent of app screenshots.
@@ -51,7 +53,7 @@ Generated files: `index.html`, `js/apps.js`, `script.js`. Edit their sources and
 
 Current lossless assets are under `assets/evidence/<app-id>/`, derived from `C:/Users/Gene/Desktop/Artifacts Images`. `detail.webp` is a deliberate native crop; `full.webp` preserves the entire capture. Papyrus uses the updated **1531 × 1002** source. The other fifteen captures are **1425 × 950**. No upscaling, fabricated screens or generated application imagery is used.
 
-Full captures are displayed in the opening and collection. Small uncropped full captures accompany every conceptual demonstration. Their layout preserves the image aspect ratio and provides an original-size viewer. Every app opens a fitted original with an actual-size option. The original-resolution limit remains: these sources are not native 4K screenshots. The archive assets under `assets/artifacts/apps/` are preserved but not used by the exhibition.
+Full captures are displayed in the later collection. Small uncropped full captures accompany every conceptual demonstration. Their layout preserves the image aspect ratio and provides an original-size viewer. Every app opens a fitted original with an actual-size option. The original-resolution limit remains: these sources are not native 4K screenshots. The archive assets under `assets/artifacts/apps/` are preserved but not used by the exhibition.
 
 ```sh
 node scripts/prepare-evidence.mjs /path/to/Artifacts-Images papyrus-reader
@@ -63,7 +65,7 @@ Review the crop rectangle in `scripts/prepare-evidence.mjs` when a source layout
 
 ## Verification
 
-The story/tools separation pass has build/runtime checks, six-scene desktop review, mobile and reduced-motion review, keyboard app handoff and an offscreen-idle check. The existing full suite and v10 results below predate this expansion; full validation is deferred until visual approval.
+The material hero, typography and baseplate-swap pass has build/runtime checks, six-scene desktop review, mobile and reduced-motion review, keyboard app handoff and an offscreen-idle check. The existing full suite and v10 results below predate this expansion; full validation is deferred until visual approval.
 
 ```sh
 pnpm test:evidence
