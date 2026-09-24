@@ -67,61 +67,107 @@ function visual(f, a) {
   return `<div class="signal-object" aria-hidden="true">${[0, 1, 2].map((n) => `<div class="signal-plane" style="--plane:${n}"><span>Shared equipment context <i>0${n + 1}</i></span>${image(a)}<div class="signal-crosshair"></div></div>`).join("")}</div>`;
 }
 let html = await fs.readFile("content/page.html", "utf8");
-// Editorial lenses use the catalogue's existing workflow metadata.
-const lenses = [
-  ["observe", "Understand", "History, surfaces and process evidence."],
-  ["compare", "Compare", "Recipes and configurations, side by side."],
-  ["diagnose", "Investigate", "Temperature, arrangements and regions."],
-  ["coordinate", "Coordinate", "Equipment, planning, SPC and reporting."],
-];
+const story = await read("content/story.json");
+const appLink = (id) => "#" + features.find((f) => f.id === id).kind;
 html = html.replace(
-  "<!-- WORK ATLAS -->",
-  lenses
+  "<!-- METHOD PHASES -->",
+  story.phases
     .map(
-      ([key, title, caption], i) =>
-        '<div class="atlas-lane"><div class="lane-title"><span>0' +
+      (p, i) =>
+        '<article class="method-page" data-method-phase="' +
+        i +
+        '"><span class="method-phase-label">0' +
         (i + 1) +
+        " / " +
+        esc(p.label) +
         "</span><h3>" +
-        title +
+        lines(p.title) +
         "</h3><p>" +
-        caption +
-        '</p></div><div class="lane-apps">' +
-        apps
-          .filter((a) => a.workflow === key)
-          .map(
-            (a) =>
-              '<a href="#' +
-              features.find((f) => f.id === a.id).kind +
-              '"><span>' +
-              number(a.index) +
-              "</span>" +
-              esc(a.name) +
-              '<b aria-hidden="true">↗</b></a>',
-          )
-          .join("") +
-        "</div></div>",
+        esc(p.text) +
+        "</p></article>",
     )
     .join(""),
 );
 html = html.replace(
-  "<!-- PRACTICE -->",
-  ["papyrus-reader", "gan-temp-diagnoser", "lt-report-compiler"]
-    .map((id, i) => {
-      const a = apps.find((a) => a.id === id);
-      return (
-        '<a class="practice-sheet" style="--sheet:' +
+  "<!-- METHOD CONTROLS -->",
+  story.phases
+    .map(
+      (p, i) =>
+        '<button data-method-step="' +
         i +
-        '" href="#' +
-        features.find((f) => f.id === id).kind +
-        '"><div class="sheet-heading"><span>0' +
+        '"><span>0' +
         (i + 1) +
-        "</span><h3>" +
-        ["Compare a recipe.", "Investigate a drift.", "Assemble a report."][i] +
-        "</h3></div>" +
-        image(a, true) +
-        '<div class="sheet-result"><span>' +
+        "</span>" +
+        esc(p.label) +
+        "</button>",
+    )
+    .join(""),
+);
+html = html.replace(
+  "<!-- METHOD UNITS -->",
+  apps
+    .map(
+      (a, i) =>
+        '<a class="method-unit" href="' +
+        appLink(a.id) +
+        '" style="--unit:' +
+        i +
+        '"><span class="unit-number">' +
+        number(i + 1) +
+        '</span><div class="unit-text"><span class="unit-task">' +
+        esc(story.methods[i][0]) +
+        '</span><span class="unit-method">' +
+        esc(story.methods[i][1]) +
+        '</span><span class="unit-app">' +
         esc(a.name) +
-        '</span><b aria-hidden="true">↗</b></div></a>'
+        '</span></div><img src="' +
+        a.evidence.full +
+        '" width="' +
+        a.evidence.fullWidth +
+        '" height="' +
+        a.evidence.fullHeight +
+        '" alt="" loading="lazy"></a>',
+    )
+    .join(""),
+);
+html = html.replace(
+  "<!-- SITUATIONS -->",
+  story.situations
+    .map((c, i) => {
+      const a = apps.find((a) => a.id === c.image);
+      return (
+        '<article class="situation"><div class="situation-number">' +
+        number(i + 1) +
+        '</div><div class="situation-body"><h3>' +
+        esc(c.title) +
+        "</h3><dl><div><dt>Evidence</dt><dd>" +
+        esc(c.evidence) +
+        "</dd></div><div><dt>Response</dt><dd>" +
+        esc(c.response) +
+        "</dd></div><div><dt>For the engineer</dt><dd>" +
+        esc(c.outcome) +
+        '</dd></div></dl><nav aria-label="Applications for this task">' +
+        c.apps
+          .map((id) => {
+            const app = apps.find((a) => a.id === id);
+            return (
+              '<a href="' +
+              appLink(id) +
+              '">' +
+              esc(app.name) +
+              ' <span aria-hidden="true">↗</span></a>'
+            );
+          })
+          .join("") +
+        '</nav></div><figure class="situation-capture"><button data-capture="' +
+        a.id +
+        '" aria-label="Inspect ' +
+        esc(a.name) +
+        '">' +
+        image(a, true) +
+        "</button><figcaption>" +
+        esc(a.name) +
+        "<span>Actual interface ↗</span></figcaption></figure></article>"
       );
     })
     .join(""),

@@ -1,3 +1,4 @@
+import { createMethodStory } from "./method-story.js";
 import { apps, homepage } from "./apps.js";
 import { createStudy } from "./studies.js";
 import { createHero } from "./hero.js";
@@ -20,6 +21,9 @@ const root = document.documentElement,
 const collection = [homepage, ...apps],
   lastCapture = collection.length - 1;
 const studies = features.map((el) => createStudy(el, wake));
+const methodStory = createMethodStory(origin, wake);
+const situations = [...document.querySelectorAll(".situation")];
+let situationBounds = [];
 const silicon = createHero($("#silicon"), apps, wake);
 let heroMoving = false;
 const preference = matchMedia("(prefers-reduced-motion: reduce)");
@@ -37,7 +41,6 @@ let reduced = preference.matches,
   archiveTop = 0,
   archiveStep = 1,
   featureBounds = [],
-  originBounds = {},
   heroHeight = 1,
   renderCount = 0;
 let measured = false;
@@ -74,10 +77,11 @@ function measure() {
     preserve = measured && position >= 0 && position <= lastCapture;
   heroHeight = hero.offsetHeight;
   silicon.resize();
-  originBounds = {
-    top: origin.getBoundingClientRect().top + y,
-    height: origin.offsetHeight,
-  };
+  methodStory.measure();
+  situationBounds = situations.map((el) => ({
+    top: el.getBoundingClientRect().top + y,
+    height: el.offsetHeight,
+  }));
   featureBounds = features.map((el) => ({
     top: el.getBoundingClientRect().top + y,
     height: el.offsetHeight,
@@ -218,10 +222,17 @@ function tick(time) {
     hero.style.setProperty("--py", reduced ? 0 : py);
   }
   if (y >= heroHeight) heroMoving = false;
-  const op = clamp(
-    (y - originBounds.top + innerHeight * 0.4) / (originBounds.height * 0.65),
-  );
-  origin.style.setProperty("--origin", reduced ? 1 : op);
+  methodStory.update(y, reduced);
+  situations.forEach((el, i) => {
+    const b = situationBounds[i];
+    if (y + innerHeight < b.top || y > b.top + b.height) return;
+    el.style.setProperty(
+      "--situation",
+      reduced
+        ? 1
+        : ease((y + innerHeight * 0.72 - b.top) / (innerHeight * 0.65)),
+    );
+  });
   if (playback) {
     const p = clamp((time - playback.start) / playback.duration);
     manualProgress.set(playback.index, p);

@@ -6,7 +6,9 @@ const ease = (v) => {
   return v * v * v * (v * (v * 6 - 15) + 10);
 };
 const mix = (a, b, t) => a + (b - a) * t;
-export function createHero(stage, apps) {
+export function createHero(stage, apps, wake) {
+  let hover = -1,
+    clock = 0;
   const caption = document.createElement("div");
   caption.className = "universe-caption";
   const name = document.createElement("strong"),
@@ -67,8 +69,20 @@ export function createHero(stage, apps) {
       app.name +
       '<b aria-hidden="true">↗</b>';
     a.append(image, label);
-    a.addEventListener("pointerenter", () => describe(app));
-    a.addEventListener("focus", () => describe(app));
+    a.addEventListener("pointerenter", () => {
+      hover = i;
+      describe(app);
+      wake();
+    });
+    a.addEventListener("pointerleave", () => {
+      hover = -1;
+      wake();
+    });
+    a.addEventListener("focus", () => {
+      describe(app);
+      wake();
+    });
+    a.addEventListener("blur", () => wake());
     stage.append(a);
     return { a, i };
   });
@@ -88,54 +102,94 @@ export function createHero(stage, apps) {
           reduced ? 0 : ease((p - 0.035) / 0.38),
         ),
         departure = reduced ? 0 : ease((p - 0.53) / 0.38);
-      const yaw = state.yaw * 0.38 + (reduced ? 0 : px * 0.035),
-        pitch = state.pitch * 0.32 + (reduced ? 0 : py * 0.025);
-      const key = [expansion, departure, yaw, pitch, w, h]
+      const focused = planes.some(({ a }) => a === document.activeElement);
+      const animate = !reduced && departure < 0.98 && hover < 0 && !focused;
+      if (animate) clock += Math.min(dt, 40) / 1000;
+      const breath = reduced ? 0 : Math.sin(clock * 0.19),
+        turn = reduced ? 0 : Math.sin(clock * 0.115);
+      const yaw =
+        state.yaw * 0.3 +
+        (reduced ? 0 : px * 0.045) +
+        turn * (0.018 + expansion * 0.14);
+      const pitch =
+        state.pitch * 0.2 +
+        (reduced ? 0 : py * 0.028) +
+        breath * (0.012 + expansion * 0.055);
+      const key = [expansion, departure, yaw, pitch, clock, w, h]
         .map((n) => n.toFixed(4))
         .join("|");
-      if (key === last) return false;
+      if (key === last) return animate;
       last = key;
       const mobile = w < 700,
-        unit = mobile ? 0.62 : Math.min(1.2, w / 1440),
-        cx = mix(mobile ? 0.5 : 0.65, 0.5, expansion) * w,
-        cy = h * (mobile ? 0.52 : 0.57);
+        unit = mobile ? 0.43 : Math.min(1.2, w / 1440),
+        cx = mix(mobile ? 0.52 : 0.69, 0.5, expansion) * w,
+        cy = h * mix(mobile ? 0.5 : 0.48, 0.55, expansion);
       stage.style.setProperty("--unfold", expansion);
       stage.parentElement.style.setProperty("--unfold", expansion);
       stage.style.setProperty("--departure", departure);
       stage.classList.toggle("unfolded", expansion > 0.6);
       stage.inert = departure > 0.93;
+      const layout = [
+        [-330, -180, -240, 0.75],
+        [-115, -180, -240, 0.75],
+        [100, -180, -240, 0.75],
+        [205, -10, 90, 1.15],
+        [-95, 100, 160, 1.25],
+        [-330, -55, -160, 0.76],
+        [-115, -55, -160, 0.76],
+        [100, -55, -160, 0.76],
+        [-330, 70, -100, 0.76],
+        [-115, 70, -100, 0.76],
+        [100, 70, -100, 0.76],
+        [-260, 195, -60, 0.75],
+        [-55, 195, -60, 0.75],
+        [150, 195, -60, 0.75],
+        [310, 120, -40, 0.72],
+        [160, 225, 190, 1.05],
+      ];
       for (const { a, i } of planes) {
         const theta = (i / 16) * Math.PI * 2 - Math.PI * 0.5;
-        // A compact helical assembly becomes a radial, legible collection.
-        const rx = mix(142 * unit, w * (mobile ? 0.37 : 0.365), expansion),
-          ry = mix(118 * unit, h * (mobile ? 0.23 : 0.29), expansion);
-        const orbit = theta + yaw * (1 - expansion * 0.55),
-          z = Math.sin(theta * 2 + 0.5) * mix(100, 24, expansion) * unit;
-        let x = Math.cos(orbit) * rx,
-          y = Math.sin(orbit) * ry;
-        const sy = Math.sin(pitch),
-          co = Math.cos(pitch),
-          Y = y * co - z * sy,
-          Z = y * sy + z * co;
-        const travel = 1 + departure * 4.8;
-        const scale =
-          mix(0.83 + (i % 3) * 0.04, mobile ? 0.47 : 0.67, expansion) * unit;
+        const anchor = [3, 4, 15].includes(i),
+          l = layout[i];
+        const orbital = theta + turn * 0.08 * expansion;
+        const x = mix(
+          l[0] * unit,
+          Math.cos(orbital) * w * (mobile ? 0.37 : 0.34),
+          expansion,
+        );
+        const y = mix(
+          l[1] * unit,
+          Math.sin(orbital) * h * (mobile ? 0.22 : 0.27),
+          expansion,
+        );
+        const z = mix(
+          l[2] * unit,
+          Math.sin(theta * 2 + 0.6) * (mobile ? 35 : 120),
+          expansion,
+        );
+        const X = x * Math.cos(yaw) + z * Math.sin(yaw),
+          Z = -x * Math.sin(yaw) + z * Math.cos(yaw);
+        const Y = y * Math.cos(pitch) - Z * Math.sin(pitch),
+          depth = y * Math.sin(pitch) + Z * Math.cos(pitch);
+        const travel = 1 + departure * 4.5;
+        const scale = mix(l[3], mobile ? 0.6 : 0.64, expansion) * unit;
+        const drift = reduced ? 0 : Math.sin(clock * 0.28 + i * 0.55);
         const angleX =
-          mix(18 + Math.cos(theta) * 13, Math.sin(theta) * -5, expansion) +
-          pitch * 24;
+          mix(7, -Math.sin(theta) * 7, expansion) + pitch * 35 + drift * 0.6;
         const angleY =
-          mix(-26 + Math.sin(theta) * 24, Math.cos(theta) * -12, expansion) +
-          yaw * 20;
-        const angleZ = mix(-18 + i * 2.4, Math.cos(theta) * 3, expansion);
+          mix(-17, -Math.cos(theta) * 12, expansion) +
+          yaw * 45 +
+          drift * (anchor ? 1.3 : 0.5);
+        const angleZ = 0;
         a.hidden = departure > 0.998;
         a.tabIndex = departure > 0.8 ? -1 : 0;
         a.style.transform =
           "translate3d(" +
-          (cx + x * travel) +
+          (cx + X * travel) +
           "px," +
           (cy + Y * travel) +
           "px," +
-          Z +
+          depth +
           "px) translate(-50%,-50%) rotateX(" +
           angleX +
           "deg) rotateY(" +
@@ -145,14 +199,16 @@ export function createHero(stage, apps) {
           "deg) scale(" +
           scale * (1 + departure * 0.6) +
           ")";
-        a.style.opacity = 1 - ease((departure - 0.75) / 0.25);
+        a.style.opacity =
+          (1 - ease((departure - 0.75) / 0.25)) *
+          mix(anchor ? 1 : 0.64, 1, expansion);
         a.style.setProperty(
           "--plane-light",
-          (0.18 + (Z + 160) / 640).toFixed(3),
+          (0.12 + (depth + 240) / 1000 + breath * 0.025).toFixed(3),
         );
-        a.style.zIndex = String(Math.round(Z + 300));
+        a.style.zIndex = String(Math.round(depth + 500));
       }
-      return false;
+      return animate;
     },
   };
 }

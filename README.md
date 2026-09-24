@@ -14,7 +14,7 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The opening object consists of all sixteen actual application interfaces. Drag or scroll expands the assembly into a radial collection; every plane links to its own study with a shared-element handoff where supported. A dark-to-light reveal introduces the full scope of the work, followed by a task-to-tool chapter and functional navigation across the collection. One finite clock drives DOM perspective transforms and stops at rest. No Canvas or WebGL is required.
+The opening presents sixteen actual interfaces on aligned depth registers, with three foreground anchors and quieter supporting planes. Direct manipulation or scroll opens the assembly into a slowly rotating spatial collection. Ambient motion runs only while the hero is visible and pauses for hovered/focused interfaces or reduced motion. App links retain the shared-element handoff. A five-stage chapter shows recurring tasks becoming methods, software and an accumulated collection. Six concrete situations then explain the evidence, response and tools involved in real engineering work. A signed personal note closes the exhibition.
 
 The complete collection follows, beginning with the uncropped ARTIFACTS homepage and then all sixteen applications in order. All seventeen captures fit fully inside their frames as scrolling advances them. The rail, arrows, horizontal touch gestures and direct links provide optional shortcuts. The final index preserves the original four collections and opens every real interface. Creator attribution stays quiet.
 
@@ -30,13 +30,15 @@ Every app has seven states from its source interface through activation, decompo
 - `scripts/build.mjs`: static SVG generation, HTML rendering and script bundling.
 - `js/contours.js`: build-time equal-height contour extraction for an illustrative field.
 - `js/experience.js`: shared clock, scroll progression, replay, app picker, archive and image viewer.
-- `js/hero.js`: sixteen-interface assembly, radial expansion and shared-element navigation.
+- `js/hero.js`: ordered interface assembly, bounded ambient rotation and shared-element navigation.
+- `content/story.json`: five-stage narrative, sixteen method mappings and six task contexts.
+- `js/method-story.js`: scroll-driven method chapter and direct stage navigation.
 - `js/hero-interaction.js`: drag, keyboard, separation and reset controls.
 - `content/homepage.json`: the homepage capture preceding the sixteen apps.
 - `js/inspection.js`: contextual inspection notes and geometry tracking for all sixteen studies.
 - `js/analysis.js`: application-specific spatial inspection and recomposition.
 - `js/instruments.js`: app-specific route markers, contour layers and inspection choreography.
-- `entry.css`: application assembly, task-to-tool chapter, functional index and creator colophon.
+- `entry.css`: application assembly, method narrative, task contexts and signed creator note.
 - `artifact.css`: current Artifact, interface passage and responsive study composition.
 - `experience.css`: entry composition, study camera, image fitting and picker.
 - `styles.css` and `studies.css`: visual design, extended study pacing, responsive composition and reduced motion.
