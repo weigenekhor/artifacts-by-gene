@@ -1,3 +1,4 @@
+import { createTopography } from "./topography.js";
 import { createBaseplateExchange } from "./baseplate-exchange.js";
 import { createInspection } from "./inspection.js";
 import { developInstrument } from "./instruments.js";
@@ -25,6 +26,7 @@ export function createStudy(el, wake) {
     cursor = el.querySelector("[data-cursor]");
   const develop = developInstrument(el);
   const exchange = createBaseplateExchange(el);
+  const topography = createTopography(el, wake);
   const inspectDetail = createInspection(el);
   const analysis = createAnalysis(el),
     timings = el.dataset.timings.split(",").map(Number);
@@ -227,6 +229,7 @@ export function createStudy(el, wake) {
       analysis(reduced ? 0 : expand, stages.inspect, p);
       inspectDetail(reduced ? 0.7 : p, stages.inspect);
       exchange(reduced ? 1 : functional);
+      topography(reduced ? 0.8 : functional, stages.inspect, reduced, px, py);
       return Math.abs(p - wanted) > 0.0005;
     },
   };

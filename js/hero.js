@@ -6,6 +6,7 @@ const ease = (v) => {
 };
 const mix = (a, b, t) => a + (b - a) * t;
 export function createHero(stage, apps, wake) {
+  const home = stage.querySelector(".collection-home");
   let w = 1,
     h = 1,
     clock = 0,
@@ -105,7 +106,11 @@ export function createHero(stage, apps, wake) {
       const mobile = w < 700,
         unit = mobile ? 0.46 : Math.min(1.35, w / 1400);
       const cx = w * 0.5,
-        cy = h * 0.5;
+        cy = h * (mobile ? 0.57 : 0.6);
+      if (home) {
+        home.style.transform = `translate(-50%,-50%) perspective(1400px) rotateY(${reduced ? 0 : yaw * 12}deg) rotateX(${reduced ? 0 : pitch * 14}deg) scale(${mix(1, 0.87, open)})`;
+        home.style.setProperty("--home-light", 0.1 + Math.max(0, px) * 0.12);
+      }
       stage.style.setProperty("--unfold", open);
       const expand = stage.closest("section").querySelector("[data-expand]");
       if (
@@ -127,22 +132,20 @@ export function createHero(stage, apps, wake) {
         let x, y, z, scale;
         {
           // Three interleaved depth registers open into a continuous ellipse.
-          x = mix(
-            ((i % 4) - 1.5) * 220 * unit,
-            Math.cos(angle) * w * (mobile ? 0.35 : 0.36),
-            open,
-          );
-          y = mix(
-            (Math.floor(i / 4) - 1.5) * 95 * unit,
-            Math.sin(angle) * h * (mobile ? 0.24 : 0.31),
-            open,
-          );
+          x =
+            Math.cos(angle) *
+            w *
+            mix(mobile ? 0.37 : 0.37, mobile ? 0.4 : 0.4, open);
+          y =
+            Math.sin(angle) *
+            h *
+            mix(mobile ? 0.245 : 0.23, mobile ? 0.28 : 0.25, open);
           z = mix(
             ((i % 3) - 1) * 90,
             Math.sin(angle * 2 + 0.6) * (mobile ? 25 : 105),
             open,
           );
-          scale = mix(0.8, mobile ? 0.62 : 0.67, open) * unit;
+          scale = mix(mobile ? 0.51 : 0.56, mobile ? 0.57 : 0.62, open) * unit;
         }
         const normX = ((cx + x) / w) * 2 - 1,
           normY = ((cy + y) / h) * 2 - 1;

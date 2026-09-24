@@ -14,9 +14,9 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The opening is a spatial field of working routes, with a highlighted route that persists into the origin story. One canvas and camera turn the same geometry from a dimensional system into a rough attempt, construction guides, retained method, revision loops and ordered software structure. Five concise stages replace the previous six-scene explanation. The combined sequence is shorter and contains no app screenshots or repeated identity reveal. The diagrams are illustrative, not measured data.
+The opening is a spatial field of working routes, with moving inspection light, local depth response and restrained camera motion. Its highlighted route lands on the plotted trace in the origin's first evidence record. Run, reference and context align into retained checks, then a reusable sequence that keeps the reasoning with the result. The five-stage story stays light through its conclusion and contains no app screenshots or repeated identity reveal. Mobile uses a dedicated diagram composition. All diagrams are illustrative, not measured data.
 
-The complete sixteen-plane application assembly appears after the story. Bounded rotation and damped pointer proximity change depth, orientation and lighting. From there, the sixteen individual studies unfold in canonical order. The duplicate post-study capture archive and catalogue have been removed. Full captures remain available in each study and through the homepage viewer. Gene closes with his latest approved “Three years. Sixteen applications.” account verbatim and direct email/LinkedIn links. The global pause button is removed; reduced-motion support and per-application replay remain.
+The complete sixteen-plane application assembly appears after the story, centred on the real uncropped ARTIFACTS homepage. Bounded rotation and damped pointer proximity change depth, orientation and lighting. From there, the sixteen individual studies unfold in canonical order. TopoTracer develops a shaded height field, equal-height contours and an interactive section profile from one illustrative function. Full captures remain available in each study and through the central homepage viewer. Gene closes with his latest approved “Three years. Sixteen applications.” account and direct email/LinkedIn links; the extra brand sign-off is removed. The global pause button is removed; reduced-motion support and per-application replay remain.
 
 Read `ARTIFACTS_CREATIVE_DIRECTION.md` and `ARTIFACTS_EXPERIENCE_STORYBOARD.md` for governing direction and factual boundaries. One shared clock pauses ambient scenes offscreen. Mobile and reduced motion retain the entire narrative without pinning.
 
@@ -28,14 +28,16 @@ Every app has seven states from its source interface through activation, decompo
 - `content/exhibition.json`: sixteen multi-phase demonstration narratives and source app IDs.
 - `content/apps.json`: all sixteen verified apps, purposes, original source groups and asset provenance.
 - `scripts/build.mjs`: static SVG generation, HTML rendering and script bundling.
-- `js/contours.js`: build-time equal-height contour extraction for an illustrative field.
+- `js/contours.js`: equal-height contour extraction for an illustrative field.
 - `js/experience.js`: shared clock, scroll progression, replay, app picker and image viewer.
 - `js/hero.js`: later application assembly, damped expansion, bounded rotation and shared-element navigation.
-- `js/genesis.js`: shared camera, projected logic field and five-stage construction choreography.
+- `js/genesis.js`: shared clock, projected logic field and the opening-to-evidence handoff.
+- `js/work-story.js`: evidence records, retained checks, revision and reuse; separate mobile composition.
+- `js/topography.js`: shaded circular height field, contours and matching interactive section profile.
 - `js/baseplate-exchange.js`: paired AIX baseplate swaps with retained identities and fixed seats.
 - `content/story.json`: five-stage construction narrative, without application examples.
 - `js/hero-interaction.js`: drag, keyboard, separation and reset controls.
-- `content/homepage.json`: the optional homepage capture.
+- `content/homepage.json`: the central homepage capture and its full-image viewer.
 - `js/inspection.js`: contextual inspection notes and geometry tracking for all sixteen studies.
 - `js/analysis.js`: application-specific spatial inspection and recomposition.
 - `js/instruments.js`: app-specific route markers, contour layers and inspection choreography.
@@ -64,7 +66,7 @@ Review the crop rectangle in `scripts/prepare-evidence.mjs` when a source layout
 
 ## Verification
 
-The construction pass has build/runtime checks and desktop, mobile portrait/landscape and reduced-motion visual review. Focused checks confirm all sixteen app studies remain, approved Gene copy matches exactly, opening/story imagery is screenshot-free, keyboard camera and story navigation work, and the shared clock becomes idle offscreen. A 90-frame local Edge headless sample at 1440 × 900 reported 16.7 ms median and 16.9 ms p95 frame intervals; this is a local sample, not a cross-device performance guarantee. Full validation remains deferred until visual approval. The existing browser suite and prior VALIDATION.md results predate the new combined opening/origin.
+The current pass has build/runtime checks and focused desktop, mobile portrait and reduced-motion visual review. Checks cover all sixteen studies being retained, the revised copy, the central homepage viewer and TopoTracer's region control. The mobile surface/text overlap found during review was corrected. Full validation and cross-device performance measurement remain deferred until visual approval. The existing browser suite and prior VALIDATION.md results predate this origin and topography redesign.
 
 ```sh
 pnpm test:evidence

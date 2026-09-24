@@ -1,3 +1,4 @@
+import { drawWorkStory, evidenceTrace } from "./work-story.js";
 // One camera and one persistent set of paths, from identity to construction.
 const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
 const mix = (a, b, t) => a + (b - a) * t;
@@ -7,11 +8,11 @@ const ease = (v) => {
 };
 const rgb = (a, b, t) => a.map((v, i) => Math.round(mix(v, b[i], t)));
 const stages = [
-  "An unresolved task",
-  "A route worth testing",
-  "A repeatable sequence",
-  "Revision builds on revision",
-  "Methods in working form",
+  "Recover the context",
+  "Recognise the recurring work",
+  "Retain the useful sequence",
+  "Test it through use",
+  "From method to software",
 ];
 
 export function createGenesis(section, wake) {
@@ -149,11 +150,11 @@ export function createGenesis(section, wake) {
       );
       const p = progress,
         handoff = ease((p - 0.25) / 0.85),
-        light = ease((p - 0.6) / 0.55) * (1 - ease((p - 5.3) / 0.85));
+        light = ease((p - 0.6) / 0.55);
       const phase = clamp(p - 1, 0, 4),
         index = p < 0.95 ? -1 : Math.min(4, Math.floor(p - 1));
       const storyVisible = ease((p - 0.85) / 0.22),
-        departure = ease((p - 5.55) / 0.6);
+        departure = ease((p - 5.85) / 0.35);
       section.style.setProperty("--intro", 1 - ease((p - 0.15) / 0.48));
       section.style.setProperty("--story", storyVisible * (1 - departure));
       section.style.setProperty("--light", light);
@@ -207,6 +208,21 @@ export function createGenesis(section, wake) {
         gold = rgb([220, 173, 112], [156, 102, 49], light);
       ctx.fillStyle = `rgb(${bg})`;
       ctx.fillRect(0, 0, width, height);
+      const arrival = ease((p - 0.9) / 0.45);
+      drawWorkStory(ctx, {
+        width,
+        height,
+        phase,
+        arrival,
+        departure,
+        clock,
+        mobile,
+        reduced,
+      });
+      if (arrival === 1) return !reduced && p < 6.18;
+      const bridge = evidenceTrace({ width, height, phase, mobile });
+      ctx.save();
+      ctx.globalAlpha = 1 - arrival;
       const cx = width * (mobile ? 0.5 : mix(0.67, 0.69, handoff)),
         cy =
           height *
@@ -215,8 +231,12 @@ export function createGenesis(section, wake) {
         width * (mobile ? 0.29 : 0.205),
         height * (mobile ? 0.32 : 0.34),
       );
-      const angle = mix(-0.48, -0.08, handoff) + yaw * (1 - handoff * 0.65),
-        tilt = mix(0.82, 0.18, handoff) + pitch * (1 - handoff * 0.65);
+      const angle =
+          mix(-0.48, -0.08, handoff) +
+          (yaw + Math.sin(clock * 0.19) * 0.035) * (1 - handoff * 0.65),
+        tilt =
+          mix(0.82, 0.18, handoff) +
+          (pitch + Math.sin(clock * 0.27) * 0.025) * (1 - handoff * 0.65);
       const project = ([x, y, z]) => {
         const a = x * Math.cos(angle) + z * Math.sin(angle),
           b = z * Math.cos(angle) - x * Math.sin(angle);
@@ -236,7 +256,7 @@ export function createGenesis(section, wake) {
             ? 1
             : 1 - ease((Math.abs(i - 7.5) - visibleLines * 0.5 + 0.5) * 1.1);
         const alpha =
-          mix(0.52 + Math.sin(i * 0.45) * 0.12, emphasis * 0.72, handoff) *
+          mix(0.72 + Math.sin(i * 0.45) * 0.15, emphasis * 0.72, handoff) *
           (1 - departure * 0.25);
         if (alpha < 0.008) continue;
         const points = [];
@@ -249,9 +269,14 @@ export function createGenesis(section, wake) {
             Math.exp(-((u - (px + 1) / 2) ** 2) * 17) *
             Math.exp(-((i - selected) ** 2) * 0.14);
           v[2] +=
-            vicinity * 0.15 * (1 - handoff) +
+            vicinity * 0.24 * (1 - handoff) +
             Math.sin(clock * 0.22 + i * 0.24) * 0.014 * (1 - handoff);
-          points.push(project(v));
+          const projected = project(v);
+          if (i === 8 && arrival > 0) {
+            projected[0] = mix(projected[0], bridge[j][0], arrival);
+            projected[1] = mix(projected[1], bridge[j][1], arrival);
+          }
+          points.push(projected);
         }
         lines.push({ i, points, alpha, depth: points[50][2] });
       }
@@ -288,6 +313,7 @@ export function createGenesis(section, wake) {
           stroke(pts, dim, crossAlpha, 0.65);
         }
       for (const { i, points, alpha } of lines) {
+        ctx.globalAlpha = i === 8 ? 1 : 1 - arrival;
         // Fine double edges and depth-dependent weight give the field a material presence.
         if (handoff < 0.98) {
           const thickness = 4.5 * (1 - handoff);
@@ -310,6 +336,21 @@ export function createGenesis(section, wake) {
         }
         stroke(points, ink, alpha, i === selected ? 1.65 : 1);
         const main = i === 8;
+        // A paced inspection wave illuminates related routes together.
+        if (handoff < 0.9) {
+          const scan = reduced
+            ? 0.56
+            : (clock * 0.095 - Math.floor(i / 4) * 0.09 + 10) % 1;
+          const head = Math.floor(scan * 90);
+          stroke(
+            points,
+            i === selected ? [243, 201, 137] : [202, 221, 209],
+            alpha * 0.85,
+            2.2,
+            head,
+            Math.min(101, head + 12),
+          );
+        }
         if (main) {
           stroke(
             points,
@@ -353,124 +394,7 @@ export function createGenesis(section, wake) {
           }
         }
       }
-      // The route is surrounded by its construction, then those supports are retained.
-      const scaffold =
-        ease((phase - 0.35) / 0.6) * (1 - ease((phase - 3.2) / 0.8)) * handoff;
-      if (scaffold > 0.01) {
-        const main = lines.find((l) => l.i === 8)?.points;
-        if (main)
-          for (const [n, j] of [18, 37, 62, 83].entries()) {
-            const v = main[j],
-              w = mobile ? 25 : 45,
-              h = mobile ? 30 : 55,
-              form = ease((phase - 0.7 - n * 0.13) / 0.7);
-            ctx.strokeStyle = `rgba(${dim},${scaffold * 0.48})`;
-            ctx.lineWidth = 0.7;
-            ctx.setLineDash([3, 5]);
-            ctx.beginPath();
-            ctx.moveTo(v[0], v[1] - h - 30);
-            ctx.lineTo(v[0], v[1] + h + 20);
-            ctx.moveTo(v[0] - w - 15, v[1] - h);
-            ctx.lineTo(v[0] + w + 15, v[1] - h);
-            ctx.stroke();
-            ctx.setLineDash([]);
-            // The frame draws clockwise; it is a method boundary, not a UI panel.
-            const corners = [
-              [v[0] - w, v[1] - h],
-              [v[0] + w, v[1] - h],
-              [v[0] + w, v[1] + h],
-              [v[0] - w, v[1] + h],
-              [v[0] - w, v[1] - h],
-            ];
-            for (let k = 0; k < 4; k++) {
-              const f = clamp(form * 4 - k);
-              stroke(
-                [
-                  corners[k],
-                  corners[k].map((c, a) => mix(c, corners[k + 1][a], f)),
-                ],
-                ink,
-                scaffold * 0.68,
-                1,
-              );
-            }
-            if (form > 0.8) {
-              ctx.strokeStyle = `rgba(${gold},${scaffold})`;
-              ctx.lineWidth = 1.5;
-              ctx.beginPath();
-              ctx.moveTo(v[0] - 5, v[1] - h - 8);
-              ctx.lineTo(v[0] - 1, v[1] - h - 4);
-              ctx.lineTo(v[0] + 7, v[1] - h - 14);
-              ctx.stroke();
-            }
-          }
-      }
-      const rework =
-        ease((phase - 1.85) / 0.6) * (1 - ease((phase - 3.4) / 0.55));
-      if (rework > 0.01) {
-        for (let row = 0; row < 3; row++) {
-          const u0 = 0.18 + row * 0.22,
-            pts = [];
-          for (let j = 0; j <= 35; j++) {
-            const u = u0 + (j / 35) * 0.19,
-              v = point(u, 8, phase);
-            v[1] -= Math.sin((j / 35) * Math.PI) * (0.25 + row * 0.1) * rework;
-            pts.push(project(v));
-          }
-          stroke(pts, gold, rework * 0.62, 1);
-          const label = pts[16];
-          ctx.font = `${mobile ? 8 : 10}px Geist, Arial`;
-          ctx.fillStyle = `rgba(${ink},${rework * 0.8})`;
-          ctx.fillText(
-            ["test", "revise", "retain"][row],
-            label[0],
-            label[1] - 15,
-          );
-        }
-      }
-      // Earlier attempts remain as registration marks, then resolve into one route.
-      if (handoff > 0.05 && phase < 2.5) {
-        for (let r = 0; r < 3; r++) {
-          const pts = Array.from({ length: 61 }, (_, j) => {
-            const u = j / 60,
-              v = point(u, 8, Math.max(0, phase - 0.65 - r * 0.15));
-            v[1] += (r + 1) * 0.11;
-            return project(v);
-          });
-          ctx.setLineDash([2, 5]);
-          stroke(
-            pts,
-            dim,
-            handoff * 0.35 * (1 - ease((phase - 1.6) / 0.9)),
-            0.8,
-          );
-          ctx.setLineDash([]);
-        }
-      }
-      // The method gains check positions and retained context before it multiplies.
-      const legendAlpha = handoff * (1 - departure);
-      ctx.font = `${mobile ? 9 : 11}px Geist, Arial`;
-      ctx.textAlign = "left";
-      const labels =
-        phase < 0.8
-          ? ["observation", "unresolved", "another attempt"]
-          : phase < 1.8
-            ? ["first route", "check", "revise"]
-            : phase < 2.8
-              ? ["input", "check", "retain"]
-              : ["use", "revision", "reuse"];
-      [0.08, 0.48, 0.87].forEach((u, j) => {
-        const base = point(u, 8, phase);
-        base[1] = Math.max(0.45, base[1] + 0.23) + replicate * 0.35;
-        const pos = project(base);
-        ctx.fillStyle = `rgba(${ink},${legendAlpha * 0.75})`;
-        ctx.fillText(labels[j], pos[0] - 10, pos[1] + (mobile ? 24 : 38));
-        ctx.strokeStyle = `rgba(${dim},${legendAlpha * 0.6})`;
-        ctx.beginPath();
-        ctx.moveTo(pos[0], pos[1]);
-        ctx.lineTo(pos[0], pos[1] + (mobile ? 12 : 22));
-        ctx.stroke();
-      });
+      ctx.restore();
       return !reduced && (p < 6.18 || Math.abs(progress - target) > 0.001);
     },
   };

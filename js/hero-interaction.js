@@ -77,7 +77,7 @@ export function createHeroInteraction(canvas, wake) {
     true,
   );
   canvas.addEventListener("keydown", (e) => {
-    if (e.target.closest("a")) return;
+    if (e.target.closest("a, button")) return;
     if (
       ![
         "ArrowLeft",

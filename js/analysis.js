@@ -9,6 +9,7 @@ export function createAnalysis(el) {
     paths = [...el.querySelectorAll("path[data-draw]")].filter(
       (p) => (p.getAttribute("d") || "").length > 900,
     );
+  if (kind === "surface") return () => {};
   const add = (tag, attributes, parent = svg) => {
     const n = document.createElementNS(ns, tag);
     for (const [k, v] of Object.entries(attributes)) n.setAttribute(k, v);
@@ -19,24 +20,6 @@ export function createAnalysis(el) {
     const prior = n.getAttribute("transform") || "";
     n.setAttribute("transform", prior + ` translate(${x} ${y})`);
   };
-  let profile = null,
-    section = null;
-  if (kind === "surface") {
-    const g = add("g", { class: "section-profile" });
-    profile = g;
-    add("path", { d: "M80 492H520", class: "motion-guide" }, g);
-    const label = add(
-      "text",
-      { x: 80, y: 543, fill: "currentColor", "font-size": 11 },
-      g,
-    );
-    label.textContent = "Section through the illustrative field";
-    section = add(
-      "path",
-      { fill: "none", stroke: "#e3be87", "stroke-width": 2 },
-      g,
-    );
-  }
   const compareRows = [...el.querySelectorAll(".recipe-step")];
   const plates = svg ? [...svg.querySelectorAll("circle.plate")] : [];
   const diagnostic = svg
@@ -73,25 +56,6 @@ export function createAnalysis(el) {
         );
       });
       rows.forEach((r, i) => shift(r, 0, amount * ((i % 6) - 2.5) * 8));
-    }
-    if (kind === "surface") {
-      profile.style.opacity = amount;
-      const y = (inspection - 0.5) * 2.8;
-      let d = "";
-      for (let i = 0; i < 80; i++) {
-        const x = (i / 79 - 0.5) * 4,
-          v =
-            0.72 * Math.exp(-((x - 0.75) ** 2 + (y + 0.2) ** 2) * 0.7) -
-            0.4 * Math.exp(-((x + 1.1) ** 2 + (y - 0.65) ** 2) * 1.3) +
-            0.16 * Math.sin(x * 1.4 + y);
-        d +=
-          (i ? "L" : "M") +
-          (80 + (i / 79) * 440) +
-          "," +
-          (496 - v * 65 * amount);
-      }
-      section.setAttribute("d", d);
-      svg.style.transform = `translateY(${-amount * 12}px) scale(${1 - amount * 0.06})`;
     }
     if (kind === "compare") {
       compareRows.forEach((r, i) => {

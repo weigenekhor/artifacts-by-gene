@@ -1,6 +1,5 @@
 import fs from "node:fs/promises";
 import { build } from "esbuild";
-import { contourSegments } from "../js/contours.js";
 import { expandedVisual } from "./study-visuals.mjs";
 const read = async (p) =>
   JSON.parse((await fs.readFile(p, "utf8")).replace(/^\uFEFF/, ""));
@@ -39,28 +38,8 @@ function visual(f, a) {
   if (extended) return extended;
   if (f.kind === "compare")
     return `<div class="comparison" aria-hidden="true"><div class="compare-labels"><span>Reference recipe</span><span>Compared recipe</span></div><div class="compare-columns">${[0, 1].map((col) => `<div class="recipe-column">${Array.from({ length: 7 }, (_, i) => `<div class="recipe-step ${i === 3 ? "changed" : ""}" style="--row:${i};--shift:${col ? [2, -1, 3, -2, 1, -3, 0][i] : 0}"><span>${number(i + 1)}</span><i style="width:${[64, 43, 70, 52, 38, 58, 46][i]}%"></i><b></b></div>`).join("")}</div>`).join("")}</div><div class="compare-guide"><span>Equivalent steps aligned</span><span class="changed-key">Difference retained</span></div></div>`;
-  if (f.kind === "surface") {
-    const field = (x, y) =>
-      0.72 * Math.exp(-((x - 0.75) ** 2 + (y + 0.2) ** 2) * 0.7) -
-      0.4 * Math.exp(-((x + 1.1) ** 2 + (y - 0.65) ** 2) * 1.3) +
-      0.16 * Math.sin(x * 1.4 + y);
-    const c = contourSegments(field);
-    let path = "";
-    for (let i = 0; i < c.length; i += 6)
-      path += `M${(300 + c[i] * 82).toFixed(2)},${(300 + c[i + 1] * 82).toFixed(2)}L${(300 + c[i + 3] * 82).toFixed(2)},${(300 + c[i + 4] * 82).toFixed(2)}`;
-    return `<div class="surface-object" aria-hidden="true"><div class="surface-shadow"></div><svg class="surface-map" viewBox="0 0 600 600"><defs><radialGradient id="wafer-light" cx="66%" cy="30%"><stop stop-color="#ac794e"/><stop offset=".38" stop-color="#4c3f32"/><stop offset="1" stop-color="#181b19"/></radialGradient></defs><circle class="wafer-base" cx="300" cy="300" r="228" fill="url(#wafer-light)"/><circle cx="300" cy="300" r="230" fill="none" stroke="#b1a48c" stroke-opacity=".35"/><path class="contours" d="${path}" fill="none" stroke="#e5cda6" stroke-width=".8"/>${Array.from(
-      { length: 49 },
-      (_, i) => {
-        const x = ((i % 7) - 3) * 53,
-          y = (Math.floor(i / 7) - 3) * 53;
-        return Math.hypot(x, y) < 217
-          ? `<circle class="sample-dot" cx="${300 + x}" cy="${300 + y}" r="2" fill="#ece4d3"/>`
-          : "";
-      },
-    ).join(
-      "",
-    )}<path d="M65 300H535M300 65V535" stroke="#d3b78d" stroke-opacity=".18" stroke-width=".6"/></svg><span class="surface-label label-a">Discrete measurements</span><span class="surface-label label-b">Continuous understanding</span></div>`;
-  }
+  if (f.kind === "surface")
+    return `<div class="topography" aria-hidden="true"><div class="topography-key"><span>Sample positions → contour field</span><span>Illustrative geometry</span></div><canvas></canvas><div class="topography-scale"><span>Lower</span><i></i><span>Higher</span></div></div>`;
   if (f.kind === "diagnose")
     return `<div class="diagnosis-object" aria-hidden="true"><svg viewBox="0 0 700 430"><defs><linearGradient id="path-light"><stop stop-color="#e7b17c"/><stop offset="1" stop-color="#8da092"/></linearGradient></defs><g class="diagnosis-paths" fill="none" stroke="#49504a">${[70, 165, 265, 360].map((y, i) => `<path d="M80 215H190C260 215 260 ${y} 325 ${y}H585"/>`).join("")}</g><path class="diagnosis-route" d="M80 215H190C260 215 260 165 325 165H585" fill="none" stroke="url(#path-light)" stroke-width="2" pathLength="1"/><circle cx="80" cy="215" r="8" fill="#d6b086"/>${[70, 165, 265, 360].map((y, i) => `<circle cx="585" cy="${y}" r="5" fill="${i === 1 ? "#d6b086" : "#49504a"}"/>`).join("")}<g fill="#b5bcb3" font-family="Geist,Arial" font-size="12"><text x="65" y="251">Observed drift</text><text x="380" y="53">Temperature behavior</text><text x="380" y="148" fill="#dfbd96">Recommended checks</text><text x="380" y="248">Process observations</text><text x="380" y="343">Other possibilities</text></g></svg></div>`;
   return `<div class="signal-object" aria-hidden="true">${[0, 1, 2].map((n) => `<div class="signal-plane" style="--plane:${n}"><span>Shared equipment context <i>0${n + 1}</i></span>${image(a)}<div class="signal-crosshair"></div></div>`).join("")}</div>`;

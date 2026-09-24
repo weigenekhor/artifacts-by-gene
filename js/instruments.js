@@ -28,6 +28,7 @@ export function developInstrument(el) {
   const kind = el.dataset.feature,
     svg = el.querySelector("svg"),
     actions = [];
+  if (kind === "surface") return () => {};
   if (svg) {
     const defs = node("defs", {}, svg),
       gradient = node(
@@ -148,49 +149,6 @@ export function developInstrument(el) {
         n.setAttribute("cy", 230 + 79 * Math.sin(a));
         n.style.opacity = s.resolve;
       });
-    });
-  }
-  if (kind === "surface") {
-    const contours = svg.querySelector(".contours"),
-      echoes = Array.from({ length: 3 }, () => {
-        const c = contours.cloneNode();
-        c.removeAttribute("class");
-        c.setAttribute("class", "contour-echo");
-        svg.insertBefore(c, contours);
-        return c;
-      });
-    const samples = [...svg.querySelectorAll(".sample-dot")];
-    const scan = node(
-      "circle",
-      {
-        cx: 300,
-        cy: 300,
-        r: 10,
-        fill: "none",
-        stroke: "#e4c59b",
-        "stroke-width": 1.1,
-      },
-      svg,
-    );
-    actions.push((p, s) => {
-      const separation = Math.sin(Math.PI * s.resolve) * (1 - s.inspect);
-      echoes.forEach((n, i) => {
-        n.style.opacity = separation * (0.65 - i * 0.13);
-        n.setAttribute(
-          "transform",
-          `translate(0 ${-(i + 1) * 30 * separation})`,
-        );
-      });
-      samples.forEach((n, i) => {
-        n.setAttribute(
-          "r",
-          2 + Math.sin(Math.PI * clamp((p - i * 0.006) / 0.24)) * 2.2,
-        );
-      });
-      scan.setAttribute("r", 35 + Math.sin(s.inspect * Math.PI) * 20);
-      scan.setAttribute("cx", 160 + s.inspect * 280);
-      scan.setAttribute("cy", 300 + Math.sin(s.inspect * Math.PI * 2) * 75);
-      scan.style.opacity = s.resolve * 0.85;
     });
   }
   if (kind === "compare") {

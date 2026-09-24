@@ -2,35 +2,37 @@
 
 This storyboard implements Gene's structural storytelling brief of 24 September 2026. Read with ARTIFACTS_CREATIVE_DIRECTION.md. The current user prompt overrides earlier visual directions.
 
-## 00 — Written for the work itself
+## 00 — Almost right is still wrong
 
 The previous silicon object is retired. The opening is a projected field of sixteen structural routes: event, comparison and return paths with restrained depth, local pointer response and inspection light moving along a selected route. This is schematic engineering logic, not measured data, a product interface or a claim of integration between applications.
 
 **ARTIFACTS**
 
-**Written for the work itself.**
+**Built for engineering where almost right is still wrong.**
 
-No development duration appears in the hero. The real symbol stays in the header. Pointer proximity adjusts local depth; keyboard arrows adjust the view and R resets it. There is no card fan, screenshot assembly, wafer, layer button or global pause control.
+No development duration appears in the hero. The real symbol stays in the header. Pointer proximity adjusts local depth; keyboard arrows adjust the view and R resets it. Paced inspection light travels through related routes, while bounded ambient camera motion and fine double edges give the structure presence at rest. There is no card fan, screenshot assembly, wafer, layer button or global pause control.
 
 ## 01 — Construction, not explanation
 
-Hero and origin share one sticky stage, canvas, camera and persistent geometry. The highlighted route in the opening survives the handoff: surrounding structure withdraws as that route opens into a rough attempt. The environment moves from dark into paper white. The story never resets to another ARTIFACTS title.
+Hero and origin share one sticky stage and canvas. The highlighted route in the opening becomes the plotted trace in the first evidence record. The environment moves from dark into paper white. Run, reference and context remain recognisable as they are brought together, retained and put to use. The story never resets to another ARTIFACTS title.
 
 Five concise stages replace the former six-scene explanation:
 
-1. **Finishing the task wasn’t enough.** A rough route and earlier attempts establish an unresolved way of working.
-2. **First, a way through.** A route is redrawn; construction guides and checks begin to form.
-3. **Make the useful part repeatable.** Boundaries close, check positions stabilize and the useful sequence is retained.
-4. **The next problem started further ahead.** Revision loops feed the retained method; more structured routes develop around it.
-5. **The work came first. The software followed.** The field resolves into sixteen ordered routes, then returns to the dark application environment.
+1. **The task began before the work could.** Three separate sources establish the context that must be reconstructed: the run, its reference, and the questions around it.
+2. **The evidence changed. The same checks returned.** Sources align and feed a recurring sequence: collect, align, compare, record.
+3. **Keep the method, not just the answer.** The checks and context become a retained, inspectable method.
+4. **Use it. Find the friction. Build again.** A revision path returns to the retained method; successive checks receive attention through use.
+5. **A working method deserves a working tool.** Fresh evidence enters the retained checks and leaves as a result with its reasoning attached. The ending stays light and concrete, rather than darkening the original lines.
 
 No app names, screenshots or preview catalogue appear in this chapter. The visual metaphor concerns the construction of methods. It does not claim the applications exchange information. Each stage has concise supporting text and direct navigation. The sequence takes 560 viewport heights including the hero (500 on mobile), substantially shorter than the former separate hero and origin. Native scrolling is not intercepted.
 
-Small screens retain the same persistent geometry with typography below it. Reduced motion uses a stable opening and all five passages in document order. A static SVG structure and complete text remain without JavaScript. Canvas DPR is capped at 2 on desktop and 1.5 on mobile; the page clock stops rendering the scene offscreen.
+Small screens use a dedicated, legible composition: compact evidence records, larger retained checks and a vertical final sequence. Typography stays below the diagram. Reduced motion uses a stable opening and all five passages in document order. A static SVG structure and complete text remain without JavaScript. Canvas DPR is capped at 2 on desktop and 1.5 on mobile; the page clock stops rendering the scene offscreen.
 
 ## 02 — The collection opens
 
-Only after the origin resolves does the complete sixteen-application assembly appear. The dark field, actual surfaces and bounded collective rotation mark the transition from WHY to WHAT. Pointer proximity brings a nearby interface forward. Collection expansion uses damped interpolation, independent of scroll velocity. Every plane links into its own study; keyboard access and the application picker provide alternatives. The original homepage is available through an explicit full-capture viewer.
+**What began as necessity became ARTIFACTS.**
+
+Only after the origin resolves does the complete sixteen-application assembly appear. The real, uncropped ARTIFACTS homepage occupies the centre; sixteen interfaces open around it. The dark field, actual surfaces and bounded collective rotation mark the transition from WHY to WHAT. Pointer proximity brings a nearby interface forward. Collection expansion uses damped interpolation, independent of scroll velocity. Every plane links into its own study; keyboard access and the application picker provide alternatives. Selecting the central homepage opens its full-capture viewer.
 
 There is one complete spatial collection, followed by the sixteen films. There is no repeated archive or catalogue after the films.
 
@@ -45,7 +47,7 @@ Each analytical interval adds three concise inspection notes. Geometry-based bra
 1. Altus LotViewer: event rows detach, timestamps order them, a selected event keeps its adjacent context.
 2. Altus ANKO Viewer: separate equipment schedules align; an interval reads across equipment lanes.
 3. Altus WaferCount: discrete wafer activity accumulates by chamber; select a chamber to inspect its group.
-4. TopoTracer: sample positions become a contour surface; a selected region pulls forward while the rest remains spatially legible.
+4. TopoTracer: sample positions rise into a shaded circular height field with a continuous rim and equal-height contours. The selected A–A′ section travels across the surface; its profile below is derived from the same illustrative field. Pointer or range input selects the region. The real interface remains beside the demonstration. The height scale is relative, with no invented measured values.
 5. Papyrus Reader: equivalent recipe steps align; unchanged rows recede and the difference remains attached to its step.
 6. SPC Pathfinder: a workcentre/group path narrows to a chart; context remains beside the selected trace.
 7. GaN Met Compiler: source records pass through the calculation structure into a report; source and output remain distinguishable.
@@ -71,13 +73,9 @@ ARTIFACTS began with one belief: if the work could be better, it should be.
 
 So I built what I needed, one problem at a time. Some tools stayed small. Others grew far beyond where they began. But every one came from the same place: care for the work, and a refusal to accept friction as inevitable.
 
-Three years on, the name has not changed. Neither has the standard.
+Three years later, I still build every tool as if my own work depends on it. Because it does.
 
-**ARTIFACTS**
-
-**Built to be worthy of the work.**
-
-A quiet “By Gene” attribution precedes the two-column account. The concluding identity and standard share a ruled closing line. No job-title labels or generic creator biography are added.
+A quiet “By Gene” attribution precedes the two-column account. Contact links close the account without a further ARTIFACTS sign-off. No job-title labels or generic creator biography are added.
 
 Contact links: https://www.linkedin.com/in/weigenekhor/ and mailto:weigenekhor@gmail.com. These are links only; the site does not send messages or collect form data.
 
