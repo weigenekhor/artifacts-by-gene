@@ -1,13 +1,13 @@
 import fs from "node:fs/promises";
 import { build } from "esbuild";
 import { contourSegments } from "../js/contours.js";
+import { evidenceField } from "./evidence-field.mjs";
 import { expandedVisual } from "./study-visuals.mjs";
 const read = async (p) =>
   JSON.parse((await fs.readFile(p, "utf8")).replace(/^\uFEFF/, ""));
 const { apps } = await read("content/apps.json"),
   features = await read("content/exhibition.json");
 const homepage = await read("content/homepage.json");
-const collection = [homepage, ...apps];
 const esc = (s) =>
   String(s)
     .replaceAll("&", "&amp;")
@@ -68,32 +68,31 @@ function visual(f, a) {
 }
 let html = await fs.readFile("content/page.html", "utf8");
 const story = await read("content/story.json");
-const appLink = (id) => "#" + features.find((f) => f.id === id).kind;
 html = html.replace(
-  "<!-- METHOD PHASES -->",
+  "<!-- ORIGIN PAGES -->",
   story.phases
     .map(
       (p, i) =>
-        '<article class="method-page" data-method-phase="' +
+        '<article class="origin-page" data-origin-phase="' +
         i +
-        '"><span class="method-phase-label">0' +
+        '"><span class="origin-label">0' +
         (i + 1) +
         " / " +
         esc(p.label) +
-        "</span><h3>" +
+        "</span><h2>" +
         lines(p.title) +
-        "</h3><p>" +
+        "</h2><p>" +
         esc(p.text) +
         "</p></article>",
     )
     .join(""),
 );
 html = html.replace(
-  "<!-- METHOD CONTROLS -->",
+  "<!-- ORIGIN CONTROLS -->",
   story.phases
     .map(
       (p, i) =>
-        '<button data-method-step="' +
+        '<button data-origin-step="' +
         i +
         '"><span>0' +
         (i + 1) +
@@ -103,82 +102,14 @@ html = html.replace(
     )
     .join(""),
 );
-html = html.replace(
-  "<!-- METHOD UNITS -->",
-  apps
-    .map(
-      (a, i) =>
-        '<a class="method-unit" href="' +
-        appLink(a.id) +
-        '" style="--unit:' +
-        i +
-        '"><span class="unit-number">' +
-        number(i + 1) +
-        '</span><div class="unit-text"><span class="unit-task">' +
-        esc(story.methods[i][0]) +
-        '</span><span class="unit-method">' +
-        esc(story.methods[i][1]) +
-        '</span><span class="unit-app">' +
-        esc(a.name) +
-        '</span></div><img src="' +
-        a.evidence.full +
-        '" width="' +
-        a.evidence.fullWidth +
-        '" height="' +
-        a.evidence.fullHeight +
-        '" alt="" loading="lazy"></a>',
-    )
-    .join(""),
-);
-html = html.replace(
-  "<!-- SITUATIONS -->",
-  story.situations
-    .map((c, i) => {
-      const a = apps.find((a) => a.id === c.image);
-      return (
-        '<article class="situation"><div class="situation-number">' +
-        number(i + 1) +
-        '</div><div class="situation-body"><h3>' +
-        esc(c.title) +
-        "</h3><dl><div><dt>Evidence</dt><dd>" +
-        esc(c.evidence) +
-        "</dd></div><div><dt>Response</dt><dd>" +
-        esc(c.response) +
-        "</dd></div><div><dt>For the engineer</dt><dd>" +
-        esc(c.outcome) +
-        '</dd></div></dl><nav aria-label="Applications for this task">' +
-        c.apps
-          .map((id) => {
-            const app = apps.find((a) => a.id === id);
-            return (
-              '<a href="' +
-              appLink(id) +
-              '">' +
-              esc(app.name) +
-              ' <span aria-hidden="true">↗</span></a>'
-            );
-          })
-          .join("") +
-        '</nav></div><figure class="situation-capture"><button data-capture="' +
-        a.id +
-        '" aria-label="Inspect ' +
-        esc(a.name) +
-        '">' +
-        image(a, true) +
-        "</button><figcaption>" +
-        esc(a.name) +
-        "<span>Actual interface ↗</span></figcaption></figure></article>"
-      );
-    })
-    .join(""),
-);
+html = html.replace("<!-- EVIDENCE FIELD -->", evidenceField());
 html = html.replace(
   "<!-- FEATURES -->",
   features
     .map((f, i) => {
       const a = apps.find((a) => a.id === f.id),
         next = features[i + 1];
-      return `<section class="feature feature-${f.kind}${f.paper ? " feature-paper" : ""}" id="${f.kind}" style="--scene-length:${f.duration}svh" data-feature="${f.kind}" data-timings="${f.timings.join(",")}" data-study-app="${a.id}" data-beats="${esc(JSON.stringify(f.beats))}" aria-labelledby="title-${f.kind}"><div class="feature-stage"><div class="feature-top"><span>${f.number} / 16</span><span>${esc(a.name)}</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">${esc(a.description)}</p><h2 id="title-${f.kind}">${lines(f.title)}</h2><p>${esc(f.text)}</p><div class="feature-verbs">${f.verbs.map((v, i) => `<span data-phase="${i}">${v}</span>`).join("<i>→</i>")}</div><p class="study-beat">${esc(f.beats[0])}</p></div><div class="feature-visual"><div class="study-camera">${visual(f, a)}</div><div class="focus-caption"><span>${esc(f.focusLabel)}</span><output class="focus-position">01</output></div></div>${sceneLayers(a)}<button class="evidence" data-capture="${a.id}" aria-label="See the actual ${esc(a.name)} interface">${image(a, true)}<span><b>Inside ${esc(a.name)}</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">${esc(f.focusLabel)}<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect ${esc(f.focusLabel)} in the concept demonstration"></label><button class="study-play" aria-label="Play the ${esc(a.name)} sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore ${esc(a.name)} concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#${next ? next.kind : "collection"}">Next / ${esc(f.handoff)} <b>↓</b></a></div></div></section>`;
+      return `<section class="feature feature-${f.kind}${f.paper ? " feature-paper" : ""}" id="${f.kind}" style="--scene-length:${f.duration}svh" data-feature="${f.kind}" data-timings="${f.timings.join(",")}" data-study-app="${a.id}" data-beats="${esc(JSON.stringify(f.beats))}" aria-labelledby="title-${f.kind}"><div class="feature-stage"><div class="feature-top"><span>${f.number} / 16</span><span>${esc(a.name)}</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">${esc(a.description)}</p><h2 id="title-${f.kind}">${lines(f.title)}</h2><p>${esc(f.text)}</p><div class="feature-verbs">${f.verbs.map((v, i) => `<span data-phase="${i}">${v}</span>`).join("<i>→</i>")}</div><p class="study-beat">${esc(f.beats[0])}</p></div><div class="feature-visual"><div class="study-camera">${visual(f, a)}</div><div class="focus-caption"><span>${esc(f.focusLabel)}</span><output class="focus-position">01</output></div></div>${sceneLayers(a)}<button class="evidence" data-capture="${a.id}" aria-label="See the actual ${esc(a.name)} interface">${image(a, true)}<span><b>Inside ${esc(a.name)}</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">${esc(f.focusLabel)}<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect ${esc(f.focusLabel)} in the concept demonstration"></label><button class="study-play" aria-label="Play the ${esc(a.name)} sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore ${esc(a.name)} concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#${next ? next.kind : "gene"}">Next / ${esc(next ? f.handoff : "A note from Gene")} <b>↓</b></a></div></div></section>`;
     })
     .join(""),
 );
@@ -188,24 +119,6 @@ html = html.replace(
     .map(
       (f) =>
         `<option value="${f.kind}">${f.number} — ${esc(apps.find((a) => a.id === f.id).name)}</option>`,
-    )
-    .join(""),
-);
-html = html.replace(
-  "<!-- ARCHIVE -->",
-  collection
-    .map(
-      (a, i) =>
-        `<figure data-software="${a.id}" style="--index:${i}"><button data-capture="${a.id}" aria-label="Inspect ${esc(a.name)}">${image(a, true)}</button><figcaption>${esc(a.evidence.label)} <span>Original software capture ↗</span></figcaption></figure>`,
-    )
-    .join(""),
-);
-html = html.replace(
-  "<!-- RAIL -->",
-  collection
-    .map(
-      (a, i) =>
-        `<a href="#app-${a.id}" data-jump="${i}" aria-label="${i ? number(i) : "Home"} ${esc(a.name)}"><span>${i ? number(i) : "⌂"}</span></a>`,
     )
     .join(""),
 );
@@ -228,22 +141,6 @@ html = html.replace(
         '</small></div><i aria-hidden="true">↗</i></a>'
       );
     })
-    .join(""),
-);
-const groups = [...new Set(apps.map((a) => a.category))];
-html = html.replace(
-  "<!-- INDEX -->",
-  groups
-    .map(
-      (g, i) =>
-        `<div class="index-group"><h3><span>Collection ${number(i + 1)}</span>${esc(g.split(" - ")[1])}</h3><div>${apps
-          .filter((a) => a.category === g)
-          .map(
-            (a) =>
-              `<a class="app-node" id="app-${a.id}" data-app="${a.id}" href="${a.evidence.full}"><span>${number(a.index)}</span><h4>${esc(a.name)}</h4><p>${esc(a.description)}</p><b aria-hidden="true">↗</b></a>`,
-          )
-          .join("")}</div></div>`,
-    )
     .join(""),
 );
 await fs.writeFile("index.html", html.replace(/^\uFEFF/, ""));

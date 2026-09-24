@@ -1,4 +1,4 @@
-import { createMethodStory } from "./method-story.js";
+import { createOriginStory } from "./origin-story.js";
 import { apps, homepage } from "./apps.js";
 import { createStudy } from "./studies.js";
 import { createHero } from "./hero.js";
@@ -13,19 +13,17 @@ const $ = (s) => document.querySelector(s),
 const root = document.documentElement,
   hero = $(".hero"),
   origin = $(".origin"),
-  archive = $(".archive"),
-  stage = $(".archive-stage"),
-  features = $$(".feature"),
-  frames = $$(".archive-images figure"),
-  rail = $$(".archive-rail a");
-const collection = [homepage, ...apps],
-  lastCapture = collection.length - 1;
+  toolsSection = $(".tools-entry"),
+  features = $$(".feature");
+const collection = [homepage, ...apps];
 const studies = features.map((el) => createStudy(el, wake));
-const methodStory = createMethodStory(origin, wake);
-const situations = [...document.querySelectorAll(".situation")];
-let situationBounds = [];
-const silicon = createHero($("#silicon"), apps, wake);
-let heroMoving = false;
+const originStory = createOriginStory(origin, wake);
+const silicon = createHero($("#silicon"), apps, wake, { teaser: true });
+const toolsScene = createHero($("#tools-universe"), apps, wake);
+let heroMoving = false,
+  toolsMoving = false,
+  toolsTop = 0,
+  toolsHeight = 1;
 const preference = matchMedia("(prefers-reduced-motion: reduce)");
 let reduced = preference.matches,
   paused = false,
@@ -35,17 +33,13 @@ let reduced = preference.matches,
   py = 0,
   tx = 0,
   ty = 0,
-  target = 0,
-  current = 0,
-  active = -1,
-  archiveTop = 0,
-  archiveStep = 1,
   featureBounds = [],
   heroHeight = 1,
   renderCount = 0;
-let measured = false;
+
 root.classList.add("enhanced");
-const heroInteraction = createHeroInteraction(apps, wake);
+const heroInteraction = createHeroInteraction($("#silicon"), wake);
+const toolsInteraction = createHeroInteraction($("#tools-universe"), wake);
 const motion = $("#motion");
 motion.hidden = false;
 function syncMotion() {
@@ -66,38 +60,23 @@ motion.addEventListener("click", () => {
     motion.setAttribute("aria-pressed", "false");
     motion.setAttribute("aria-label", "Pause motion");
     motion.textContent = "Ⅱ";
-    wake();
+    measure();
   } else syncMotion();
 });
 preference.addEventListener("change", syncMotion);
 function measure() {
-  const y = scrollY,
-    header = $(".header").offsetHeight,
-    position = (y - archiveTop) / archiveStep,
-    preserve = measured && position >= 0 && position <= lastCapture;
+  const y = scrollY;
   heroHeight = hero.offsetHeight;
   silicon.resize();
-  methodStory.measure();
-  situationBounds = situations.map((el) => ({
-    top: el.getBoundingClientRect().top + y,
-    height: el.offsetHeight,
-  }));
+  toolsScene.resize();
+  originStory.measure();
+  toolsTop = toolsSection.offsetTop;
+  toolsHeight = toolsSection.offsetHeight;
   featureBounds = features.map((el) => ({
     top: el.getBoundingClientRect().top + y,
     height: el.offsetHeight,
     stage: el.firstElementChild.offsetHeight,
   }));
-  archiveTop = archive.getBoundingClientRect().top + y - header;
-  archiveStep = Math.max(
-    1,
-    (archive.offsetHeight - stage.offsetHeight) / lastCapture,
-  );
-  target = clamp((y - archiveTop) / archiveStep, 0, lastCapture);
-  if (preserve) {
-    scrollTo({ top: archiveTop + position * archiveStep, behavior: "instant" });
-    target = position;
-  }
-  measured = true;
   wake();
 }
 $("#study-select").addEventListener("change", (e) => {
@@ -105,56 +84,6 @@ $("#study-select").addEventListener("change", (e) => {
   section.scrollIntoView({ behavior: reduced ? "instant" : "smooth" });
   history.replaceState(null, "", "#" + e.target.value);
 });
-function selectApp(index) {
-  index = clamp(index, 0, lastCapture);
-  const a = collection[index];
-  $("#archive-name").textContent = a.name;
-  $("#archive-purpose").textContent = a.purpose;
-  $("#archive-group").textContent =
-    index === 0 ? "The starting point" : a.category.split(" - ")[1];
-  $("#archive-number").textContent =
-    index === 0 ? "Home" : String(index).padStart(2, "0");
-  $("#previous-app").disabled = index === 0;
-  $("#next-app").disabled = index === lastCapture;
-  rail.forEach((r, i) => r.setAttribute("aria-current", String(i === index)));
-  active = index;
-}
-function goApp(i, instant = false) {
-  i = clamp(i, 0, lastCapture);
-  scrollTo({
-    top: archiveTop + i * archiveStep,
-    behavior: reduced || instant ? "instant" : "smooth",
-  });
-  history.replaceState(null, "", "#app-" + collection[i].id);
-}
-rail.forEach((a, i) =>
-  a.addEventListener("click", (e) => {
-    e.preventDefault();
-    goApp(i);
-  }),
-);
-$("#previous-app").addEventListener("click", () => goApp(active - 1));
-$("#next-app").addEventListener("click", () => goApp(active + 1));
-let touchStart = null;
-$(".archive-images").addEventListener(
-  "touchstart",
-  (e) => {
-    touchStart = [e.touches[0].clientX, e.touches[0].clientY];
-  },
-  { passive: true },
-);
-$(".archive-images").addEventListener(
-  "touchend",
-  (e) => {
-    if (!touchStart) return;
-    const dx = e.changedTouches[0].clientX - touchStart[0],
-      dy = e.changedTouches[0].clientY - touchStart[1];
-    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5)
-      goApp(active + (dx < 0 ? 1 : -1));
-    touchStart = null;
-  },
-  { passive: true },
-);
 const manualProgress = new Map();
 let playback = null;
 function stopPlayback() {
@@ -198,10 +127,6 @@ function tick(time) {
   last = time;
   renderCount++;
   const y = scrollY;
-  target = clamp((y - archiveTop) / archiveStep, 0, lastCapture);
-  current = reduced
-    ? target
-    : current + (target - current) * (1 - Math.exp(-dt / 85));
   px += (tx - px) * (1 - Math.exp(-dt / 160));
   py += (ty - py) * (1 - Math.exp(-dt / 160));
   if (y < heroHeight) {
@@ -213,7 +138,7 @@ function tick(time) {
       reduced ? 1 : 1 - ease((hp - 0.08) / 0.25),
     );
     hero.classList.toggle("past-entry", !reduced && hp > 0.75);
-    $(".entry-control").inert = !reduced && hp > 0.75;
+
     const interaction = heroInteraction.update(dt, reduced);
     heroMoving =
       silicon.render(time, hp, px, py, reduced, dt, interaction) ||
@@ -222,17 +147,15 @@ function tick(time) {
     hero.style.setProperty("--py", reduced ? 0 : py);
   }
   if (y >= heroHeight) heroMoving = false;
-  methodStory.update(y, reduced);
-  situations.forEach((el, i) => {
-    const b = situationBounds[i];
-    if (y + innerHeight < b.top || y > b.top + b.height) return;
-    el.style.setProperty(
-      "--situation",
-      reduced
-        ? 1
-        : ease((y + innerHeight * 0.72 - b.top) / (innerHeight * 0.65)),
-    );
-  });
+  const originMoving = originStory.update(y, reduced, dt);
+  toolsMoving = false;
+  if (y + innerHeight > toolsTop && y < toolsTop + toolsHeight) {
+    const p = clamp((y - toolsTop) / Math.max(1, toolsHeight - innerHeight));
+    const interaction = toolsInteraction.update(dt, reduced);
+    toolsMoving =
+      toolsScene.render(time, p, px, py, reduced, dt, interaction) ||
+      interaction.moving;
+  }
   if (playback) {
     const p = clamp((time - playback.start) / playback.duration);
     manualProgress.set(playback.index, p);
@@ -255,29 +178,16 @@ function tick(time) {
     studyMoving =
       studies[i].update(p, dt, reduced, manual, px, py) || studyMoving;
   });
-  // Leave a readable frontal hold around each app; travel happens between holds.
-  const shown = Math.floor(current) + ease(((current % 1) - 0.22) / 0.56),
-    idx = Math.round(current);
-  if (active !== idx) selectApp(idx);
-  frames.forEach((f, i) => {
-    const d = i - shown;
-    f.classList.toggle("near", Math.abs(d) < 1.2);
-    f.classList.toggle("active", i === idx);
-    f.inert = i !== idx;
-    f.setAttribute("aria-hidden", String(i !== idx));
-    if (Math.abs(d) < 1.2) {
-      f.style.setProperty("--offset", reduced ? 0 : d);
-      f.style.setProperty("--abs", reduced ? (i === idx ? 0 : 1) : Math.abs(d));
-    }
-  });
   if (
     heroMoving ||
+    toolsMoving ||
+    originMoving ||
     studyMoving ||
-    Math.abs(current - target) > 0.001 ||
     Math.abs(px - tx) + Math.abs(py - ty) > 0.001
   )
     wake();
 }
+
 function wake() {
   if (!raf && !document.hidden) raf = requestAnimationFrame(tick);
 }
@@ -369,15 +279,6 @@ function openCapture(id) {
 $$("[data-capture]").forEach((b) =>
   b.addEventListener("click", () => openCapture(b.dataset.capture)),
 );
-$$(".app-node").forEach((a) =>
-  a.addEventListener("click", (e) => {
-    e.preventDefault();
-    openCapture(a.dataset.app);
-  }),
-);
-$("#archive-open").addEventListener("click", () =>
-  openCapture(collection[Math.max(0, active)].id),
-);
 $("#capture-close").addEventListener("click", () => dialog.close());
 dialog.addEventListener("click", (e) => {
   if (e.target === dialog) {
@@ -401,18 +302,6 @@ $("#pixel-view").addEventListener("click", () => {
   $("#pixel-view").setAttribute("aria-pressed", String(native));
   $("#pixel-view").textContent = native ? "Fit to view" : "View actual size";
 });
-addEventListener("keydown", (e) => {
-  if (dialog.open || picker.open || e.target.matches("button,input,select"))
-    return;
-  if (
-    scrollY >= archiveTop - 20 &&
-    scrollY <= archiveTop + lastCapture * archiveStep + 20 &&
-    ["ArrowLeft", "ArrowRight"].includes(e.key)
-  ) {
-    e.preventDefault();
-    goApp(active + (e.key === "ArrowRight" ? 1 : -1));
-  }
-});
 $$('a[href^="#"]:not([data-jump])').forEach((a) =>
   a.addEventListener("click", (e) => {
     const to = document.getElementById(a.hash.slice(1));
@@ -425,13 +314,15 @@ $$('a[href^="#"]:not([data-jump])').forEach((a) =>
 );
 function hashNavigate() {
   if (location.hash.startsWith("#app-")) {
-    const i = collection.findIndex((a) => "#app-" + a.id === location.hash);
-    if (i >= 0) goApp(i, true);
+    const id = location.hash.slice(5),
+      el = features.find((el) => el.dataset.studyApp === id);
+    if (el) el.scrollIntoView({ behavior: "instant" });
+    else if (id === "homepage")
+      toolsSection.scrollIntoView({ behavior: "instant" });
   }
 }
 measure();
 syncMotion();
-selectApp(0);
 addEventListener(
   "load",
   () => {
@@ -452,8 +343,8 @@ window.artifactsExperience = {
   get heroState() {
     return heroInteraction.state;
   },
-  get active() {
-    return active;
+  get toolsState() {
+    return toolsInteraction.state;
   },
   get reduced() {
     return reduced;
@@ -461,12 +352,5 @@ window.artifactsExperience = {
   get frames() {
     return renderCount;
   },
-  get archiveTop() {
-    return archiveTop;
-  },
-  get archiveStep() {
-    return archiveStep;
-  },
-  goApp,
   openCapture,
 };

@@ -1,28 +1,33 @@
 // Pointer, keyboard and touch input all settle on the shared page clock.
-export function createHeroInteraction(apps, wake) {
-  const canvas = document.querySelector("#silicon"),
-    expand = document.querySelector("#hero-expand"),
-    reset = document.querySelector("#hero-reset");
+export function createHeroInteraction(canvas, wake) {
+  const scope = canvas.closest("section"),
+    expand = scope.querySelector("[data-expand]"),
+    reset = scope.querySelector("[data-reset]");
   const target = { yaw: 0, pitch: 0, spread: 0 },
     current = { ...target };
-  let drag = null,
+  let manual = false,
+    drag = null,
     suppressClick = false;
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   function toggle() {
-    target.spread = target.spread ? 0 : 1;
+    if (!expand) return;
+    manual = true;
+    target.spread =
+      Number(canvas.style.getPropertyValue("--unfold")) > 0.5 ? 0 : 1;
     expand.setAttribute("aria-pressed", String(!!target.spread));
     expand.innerHTML = target.spread
-      ? 'Close the applications <span aria-hidden="true">−</span>'
-      : 'Open into the applications <span aria-hidden="true">+</span>';
+      ? 'Gather the collection <span aria-hidden="true">−</span>'
+      : 'Open the collection <span aria-hidden="true">+</span>';
     wake();
   }
   function restore() {
     target.yaw = target.pitch = 0;
-    if (target.spread) toggle();
+    manual = false;
+    target.spread = 0;
     wake();
   }
-  expand.addEventListener("click", toggle);
-  reset.addEventListener("click", restore);
+  expand?.addEventListener("click", toggle);
+  reset?.addEventListener("click", restore);
   canvas.addEventListener("pointerdown", (e) => {
     if (e.button !== 0) return;
     drag = {
@@ -108,7 +113,7 @@ export function createHeroInteraction(apps, wake) {
         if (Math.abs(current[k] - target[k]) < 0.0005) current[k] = target[k];
         else moving = true;
       }
-      return { ...current, moving };
+      return { ...current, manual, moving };
     },
     get state() {
       return { ...current };

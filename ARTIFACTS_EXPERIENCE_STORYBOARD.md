@@ -1,44 +1,33 @@
-# ARTIFACTS — THE ARTIFACT
+# ARTIFACTS — Story, then tools
 
-This storyboard implements Gene's latest brief (24 September 2026). It supersedes the older `content/STORYBOARD.md`. Read with `ARTIFACTS_CREATIVE_DIRECTION.md`; the latest user request takes precedence.
+This storyboard implements Gene's structural storytelling brief of 24 September 2026. Read with ARTIFACTS_CREATIVE_DIRECTION.md. The current user prompt overrides earlier visual directions.
 
-## 00 — An ordered application assembly
+## 00 — A glimpse of the system
 
-The entry uses all sixteen real interfaces in aligned depth registers. TopoTracer, Papyrus Reader and Metria SPC form larger foreground anchors; supporting tools recede on common axes. The title is reduced so the actual software carries the composition. No detached sculpture or fan of randomly tilted screens.
+ARTIFACTS remains dominant. Three actual interface surfaces hint at the working software without presenting a catalogue. The opening copy is **Built from work that kept returning.** The primary invitation leads into the origin story.
 
-**ARTIFACTS**
-**Engineering software. Built one practical need at a time.**
+Pointer proximity continuously changes local depth, orientation and directional light. Drag and keyboard input change the common viewing angle. Focus transfers through damping; no snapping or carousel. Only visible scenes run ambient motion.
 
-Opening or scrolling expands the registered assembly into a spatial collection. Bounded collective yaw and pitch, differential orientation and restrained light changes give the visible hero ambient life. The arrangement rotates slowly without cycling the app order. Hovering or focusing an app stops the ambient clock for inspection. Pausing motion or requesting reduced motion stops it; rendering stops once the hero passes out of view. Every surface still links directly into its own study, using the existing shared-element handoff where supported.
+## 01 — Why ARTIFACTS exists
 
-The dark-to-light reveal remains: **Understand the process. Organise the work.** It leads into the origin of the methods, rather than three example apps.
+No application screenshots, names, app cards or app examples appear in this chapter. Its material is schematic engineering evidence: a process trace, recipe revision, run context, measurement field, investigation checks and report structure. These are illustrative, not measured data or invented application capabilities.
 
-## 01 — How the tools accumulate
+Six scenes share the same evidence:
 
-A five-stage chapter follows recurring work → repeated response → retained method → software → accumulation. All sixteen applications contribute to its field. Task labels align into method labels; those methods resolve into named tools and actual interface thumbnails. This is an explanation of how the collection developed, not a claim that its applications exchange data.
+1. **The evidence arrives. The context doesn’t.** Independent fragments establish why engineering context must be reconstructed.
+2. **The question changes less than the evidence.** Altered traces and recurring structures reveal the repeated kinds of question.
+3. **The task is closed. The reasoning is still fragile.** Repeated evidence and displaced geometry create pressure: the answer survives, but the method can be lost.
+4. **The method must outlast the investigation.** The same fragments align. Reconstruction, comparison, checking and retention become repeatable.
+5. **Software gave the method a life beyond the task.** A stable sequence closes into a reusable path. No application UI appears yet.
+6. **The work gave ARTIFACTS its shape.** The evidence recedes around the identity. The system is a consequence of practical work.
 
-1. **Another run. Familiar work.** The same kinds of engineering demands return.
-2. **The response shouldn’t start over.** Repeated setup adds work without adding understanding.
-3. **Keep the method. Use it again.** Preserve what to align, check and retain.
-4. **Give the method an interface.** Repeated work gains structure; engineering judgment remains with the user.
-5. **One need at a time. Sixteen tools later.** The collection is the accumulated result.
+Native scroll advances six readable holds across the light chapter. Direct scene buttons offer a shortcut. Small screens and reduced motion retain all six complete passages in document order without scroll pinning. No scroll interception.
 
-Native scroll advances the stages. Five explicit buttons offer direct navigation. Mobile and reduced motion present the complete sequence as readable, unpinned text with the full application register.
+## 02 — The collection opens
 
-## 02 — Where the tools are used
+Only after the origin resolves does the complete sixteen-application assembly appear. The dark field, actual surfaces and bounded collective rotation mark the transition from WHY to WHAT. Pointer proximity brings a nearby interface forward. Every plane links into its own study; keyboard access and the application picker provide alternatives. The original homepage is available through an explicit full-capture viewer.
 
-**Start with the question in front of you.**
-
-Six situations explain evidence → response → engineering outcome, with the actual interface and links to the relevant applications:
-
-- Reconstruct a run: Altus LotViewer and Altus WaferCount.
-- Check revisions: Papyrus Reader and GaN XML Assistant.
-- Locate variation: TopoTracer, SPC Pathfinder and Metria SPC.
-- Investigate temperature drift: GaN Temp Diagnoser, AIX ΔT Assistant and LT Zone Assistant.
-- Review work due on equipment: Altus ANKO Viewer and ANKO Helper.
-- Prepare review evidence: GaN Met Compiler, LT Report Compiler and both Magus SPC variants.
-
-These are concrete task contexts rather than broad abstract categories. Tools in each context remain distinct; no automatic pipeline, measured result or diagnosis is fabricated. The sixteen individual studies that follow retain their canonical order.
+There is one complete spatial collection, followed by the sixteen films. There is no repeated archive or catalogue after the films.
 
 ## 03 — The applications
 
@@ -67,14 +56,7 @@ Each analytical interval adds three concise inspection notes. Geometry-based bra
 
 The diagram geometry is explanatory. Do not fabricate measured values, software operations or cross-application integrations. Cross-scene continuity is editorial, not a claim that applications exchange data.
 
-## 04 — The system
-
-Headline: **Separate tools. A common body of work.**
-Supporting copy: **ARTIFACTS was not specified all at once. It accumulated, one engineering requirement at a time.**
-
-The original homepage capture opens the collection, followed by all sixteen full captures. Every image fits fully inside its frame. The existing archive controls, original-resolution viewer and index remain available.
-
-## 05 — A note from Gene
+## 04 — A note from Gene
 
 **Built in the work. Held to its standard.**
 
@@ -82,7 +64,7 @@ The original homepage capture opens the collection, followed by all sixteen full
 
 A comparison that kept coming back. A report that took too much assembly. A process that needed a clearer view. Each tool started with something practical.
 
-There was no suite planned at the beginning. The tools accumulated, one problem at a time. That became ARTIFACTS.
+There was no suite planned at the beginning. One practical need led to the next. Those responses took shape as ARTIFACTS.
 
 — Gene”
 
@@ -90,4 +72,4 @@ This is a short personal account with a signature, not a creator title card. No 
 
 ## Access and performance
 
-One page clock drives the hero, chapter transitions and application sequences. Native scrolling is never intercepted. Pause offscreen work, cap texture and canvas resolution, and retain full-resolution captures in the DOM viewer. Touch and keyboard controls parallel pointer inspection. Reduced motion presents settled compositions with explicit controls; no-JavaScript content retains the complete collection. Original media files are preserved.
+One requestAnimationFrame clock drives the origin, hero, collection and all studies. Native scrolling is never intercepted. Offscreen ambient work stops. Reduced motion presents stable geometry and all narrative text. No-JavaScript content retains the full story and application study content. Original media, full-resolution viewers, app ordering and keyboard controls remain intact. Cross-scene motion is editorial continuity, not a claim of automated connections between the tools.

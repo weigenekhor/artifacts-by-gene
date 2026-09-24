@@ -1,102 +1,34 @@
 {
   "phases": [
     {
-      "label": "Recurring work",
-      "title": "Another run.\nFamiliar work.",
-      "text": "Check the variation. Compare the revision. Reconstruct the history. Different days bring back the same kinds of engineering work."
+      "label": "Evidence",
+      "title": "The evidence arrives.\nThe context doesn’t.",
+      "text": "A run leaves a trace. A revision changes a step. An investigation begins between files, readings and someone’s notes."
     },
     {
-      "label": "Repeated response",
-      "title": "The response shouldn’t\nstart over.",
-      "text": "Each task needs judgment. Rebuilding the same comparison, calculation or report every time adds work without adding understanding."
+      "label": "Recurrence",
+      "title": "The question changes less\nthan the evidence.",
+      "text": "Another run, another recipe, another unexpected shift. The details move on. The need to compare, reconstruct and explain returns."
     },
     {
-      "label": "Retained method",
-      "title": "Keep the method.\nUse it again.",
-      "text": "The useful part is the method: what to align, what to check, what context to preserve. Make that repeatable."
+      "label": "The cost",
+      "title": "The task is closed.\nThe reasoning is still fragile.",
+      "text": "If the method lives only in yesterday’s investigation, the next one begins by rebuilding it. The answer survives. How it was reached is harder to recover."
+    },
+    {
+      "label": "Method",
+      "title": "The method must outlast\nthe investigation.",
+      "text": "Keep the sequence of checks. Preserve the context. Make the comparison repeatable. A useful response should be available when the question returns."
     },
     {
       "label": "Software",
-      "title": "Give the method\nan interface.",
-      "text": "A dedicated tool puts those steps within reach. The repeated work gains structure; the engineering decision remains yours."
+      "title": "Software gave the method\na life beyond the task.",
+      "text": "The work established what mattered. Software made those steps inspectable and reusable, without asking memory to hold them together."
     },
     {
-      "label": "Accumulation",
-      "title": "One need at a time.\nSixteen tools later.",
-      "text": "History, comparison, diagnosis, planning and reporting. Separate requirements gradually became the collection called ARTIFACTS."
-    }
-  ],
-  "methods": [
-    ["Reconstruct a run", "Order events in context"],
-    ["Check the schedule", "Align equipment schedules"],
-    ["Review chamber use", "Collect wafer counts"],
-    ["Locate surface variation", "Map measurements spatially"],
-    ["Check a recipe revision", "Align equivalent steps"],
-    ["Find the relevant chart", "Keep workcentre context"],
-    ["Build a metrology report", "Organise metrology records"],
-    ["Investigate temperature drift", "Structure the diagnostic checks"],
-    ["Review baseplate positions", "Relate inputs to positions"],
-    ["Check LayTec regions", "Map inner and outer zones"],
-    ["Verify configuration changes", "Compare reference and target"],
-    ["Review GaN SPC release", "Read charts with parameter states"],
-    ["Review legacy SPC release", "Retain the established context"],
-    ["Plan the next ANKO task", "Bring status beside due dates"],
-    ["Assemble a LayTec report", "Give records a report structure"],
-    ["Check related parameters", "Inspect a shared time interval"]
-  ],
-  "situations": [
-    {
-      "title": "What happened during the run?",
-      "evidence": "Process events, wafer states and chamber counts.",
-      "response": "Reconstruct the lot history and review equipment usage.",
-      "outcome": "A traceable sequence, with usage in view.",
-      "apps": ["altus-lotviewer", "altus-wafercount"],
-      "image": "altus-lotviewer"
-    },
-    {
-      "title": "What changed between revisions?",
-      "evidence": "A reference and a revised recipe or Devices.XML file.",
-      "response": "Align corresponding steps or properties. Isolate the differences.",
-      "outcome": "Changes that can be reviewed in context.",
-      "apps": ["papyrus-reader", "gan-xml-assistant"],
-      "image": "papyrus-reader"
-    },
-    {
-      "title": "Where is the variation?",
-      "evidence": "Surface measurements and equipment parameter traces.",
-      "response": "Locate the region, find the chart, or inspect related signals over the same interval.",
-      "outcome": "Spatial and time context for the next investigation.",
-      "apps": ["topotracer", "spc-pathfinder", "metria-spc"],
-      "image": "topotracer"
-    },
-    {
-      "title": "What needs checking when temperature drifts?",
-      "evidence": "Temperature observations, baseplate inputs and zone geometry.",
-      "response": "Work through diagnostic checks and examine the relevant positions and regions.",
-      "outcome": "A structured investigation, with the physical context retained.",
-      "apps": ["gan-temp-diagnoser", "aix-dt-assistant", "lt-zone-assistant"],
-      "image": "gan-temp-diagnoser"
-    },
-    {
-      "title": "What is due on the equipment?",
-      "evidence": "ANKO schedules, equipment status and due dates.",
-      "response": "Review the planned work alongside the current status.",
-      "outcome": "A clearer basis for maintenance planning.",
-      "apps": ["altus-anko-viewer", "anko-helper"],
-      "image": "anko-helper"
-    },
-    {
-      "title": "What evidence is ready for review?",
-      "evidence": "Metrology records, LayTec information and SPC parameter states.",
-      "response": "Compile reports or review the relevant release charts in their own tools.",
-      "outcome": "Structured reports and chart context for engineering review.",
-      "apps": [
-        "gan-met-compiler",
-        "lt-report-compiler",
-        "magus-spc-gan",
-        "magus-spc-legacy"
-      ],
-      "image": "magus-spc-gan"
+      "label": "ARTIFACTS",
+      "title": "The work gave\nARTIFACTS its shape.",
+      "text": "Each practical need extended the system. Sixteen applications now carry those methods into the next run, revision, investigation and review."
     }
   ]
 }
