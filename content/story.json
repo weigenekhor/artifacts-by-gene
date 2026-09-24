@@ -1,34 +1,29 @@
 {
   "phases": [
     {
-      "label": "Evidence",
-      "title": "The evidence arrives.\nThe context doesn’t.",
-      "text": "A run leaves a trace. A revision changes a step. An investigation begins between files, readings and someone’s notes."
+      "label": "Need",
+      "title": "Finishing the task wasn’t enough.",
+      "text": "The answer was there. A better way of reaching it was not."
     },
     {
-      "label": "Recurrence",
-      "title": "The question changes less\nthan the evidence.",
-      "text": "Another run, another recipe, another unexpected shift. The details move on. The need to compare, reconstruct and explain returns."
+      "label": "Attempt",
+      "title": "First, a way through.",
+      "text": "Trace the problem. Try a different route. Test it against the work."
     },
     {
-      "label": "The cost",
-      "title": "The task is closed.\nThe reasoning is still fragile.",
-      "text": "If the method lives only in yesterday’s investigation, the next one begins by rebuilding it. The answer survives. How it was reached is harder to recover."
+      "label": "Build",
+      "title": "Make the useful part repeatable.",
+      "text": "Keep the checks. Keep the context. Give the method a form that lasts."
     },
     {
-      "label": "Method",
-      "title": "The method must outlast\nthe investigation.",
-      "text": "Keep the sequence of checks. Preserve the context. Make the comparison repeatable. A useful response should be available when the question returns."
+      "label": "Refine",
+      "title": "The next problem started further ahead.",
+      "text": "Build. Use. Revise. Each return strengthened what came before."
     },
     {
-      "label": "Software",
-      "title": "Software gave the method\na life beyond the task.",
-      "text": "The work established what mattered. Software made those steps inspectable and reusable, without asking memory to hold them together."
-    },
-    {
-      "label": "ARTIFACTS",
-      "title": "The work gave\nARTIFACTS its shape.",
-      "text": "Each practical need extended the system. Sixteen applications now carry those methods into the next run, revision, investigation and review."
+      "label": "System",
+      "title": "The work came first. The software followed.",
+      "text": "One practical need after another. Sixteen applications, each with a reason to exist."
     }
   ]
 }

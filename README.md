@@ -14,9 +14,9 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The opening pairs an oversized ARTIFACTS wordmark with an interactive etched silicon surface: individually raised dies, pointer lighting, damped orientation and separable process layers, drawn from projected geometry. It dissolves from material into evidence as the background moves from dark to light. A six-scene, screenshot-free origin chapter follows evidence → recurrence → lost reasoning → method → software → ARTIFACTS. The same schematic evidence develops through finite trace, repetition and convergence sequences, then resolves into a dark full-stage ARTIFACTS reveal. It is not a claim about measured data.
+The opening is a spatial field of working routes, with a highlighted route that persists into the origin story. One canvas and camera turn the same geometry from a dimensional system into a rough attempt, construction guides, retained method, revision loops and ordered software structure. Five concise stages replace the previous six-scene explanation. The combined sequence is shorter and contains no app screenshots or repeated identity reveal. The diagrams are illustrative, not measured data.
 
-The complete sixteen-plane application assembly appears after the story. Bounded rotation and damped pointer proximity change depth, orientation and lighting. From there, the sixteen individual studies unfold in canonical order. The duplicate post-study capture archive and catalogue have been removed. Full captures remain available in each study and through the homepage viewer. Gene closes with his supplied three-year development account verbatim and direct email/LinkedIn links. The global pause button is removed; reduced-motion support and per-application replay remain.
+The complete sixteen-plane application assembly appears after the story. Bounded rotation and damped pointer proximity change depth, orientation and lighting. From there, the sixteen individual studies unfold in canonical order. The duplicate post-study capture archive and catalogue have been removed. Full captures remain available in each study and through the homepage viewer. Gene closes with his latest approved “Three years. Sixteen applications.” account verbatim and direct email/LinkedIn links. The global pause button is removed; reduced-motion support and per-application replay remain.
 
 Read `ARTIFACTS_CREATIVE_DIRECTION.md` and `ARTIFACTS_EXPERIENCE_STORYBOARD.md` for governing direction and factual boundaries. One shared clock pauses ambient scenes offscreen. Mobile and reduced motion retain the entire narrative without pinning.
 
@@ -31,17 +31,16 @@ Every app has seven states from its source interface through activation, decompo
 - `js/contours.js`: build-time equal-height contour extraction for an illustrative field.
 - `js/experience.js`: shared clock, scroll progression, replay, app picker and image viewer.
 - `js/hero.js`: later application assembly, damped expansion, bounded rotation and shared-element navigation.
-- `js/precision-hero.js`: capped-resolution canvas silicon geometry and the material-to-evidence passage.
+- `js/genesis.js`: shared camera, projected logic field and five-stage construction choreography.
 - `js/baseplate-exchange.js`: paired AIX baseplate swaps with retained identities and fixed seats.
-- `content/story.json`: six-scene origin narrative, without application examples.
-- `js/origin-story.js`: evidence transformations and direct scene navigation.
-- `scripts/evidence-field.mjs`: code-native schematic evidence, independent of app screenshots.
+- `content/story.json`: five-stage construction narrative, without application examples.
 - `js/hero-interaction.js`: drag, keyboard, separation and reset controls.
 - `content/homepage.json`: the optional homepage capture.
 - `js/inspection.js`: contextual inspection notes and geometry tracking for all sixteen studies.
 - `js/analysis.js`: application-specific spatial inspection and recomposition.
 - `js/instruments.js`: app-specific route markers, contour layers and inspection choreography.
-- `entry.css`: opening, six-scene origin, collection reveal and signed creator note.
+- `entry.css`: application assembly, study typography and baseplate exchange.
+- `genesis.css`: continuous opening/origin, responsive staging and approved creator closing.
 - `artifact.css`: current Artifact, interface passage and responsive study composition.
 - `experience.css`: entry composition, study camera, image fitting and picker.
 - `styles.css` and `studies.css`: visual design, extended study pacing, responsive composition and reduced motion.
@@ -65,7 +64,7 @@ Review the crop rectangle in `scripts/prepare-evidence.mjs` when a source layout
 
 ## Verification
 
-The current pass has build/runtime checks and desktop, mobile and reduced-motion visual review of the new hero, origin reveal and exact Gene copy. The earlier material-hero pass also checked keyboard app handoff and offscreen idle. The existing full suite and v10 results below predate this expansion; full validation is deferred until visual approval.
+The construction pass has build/runtime checks and desktop, mobile portrait/landscape and reduced-motion visual review. Focused checks confirm all sixteen app studies remain, approved Gene copy matches exactly, opening/story imagery is screenshot-free, keyboard camera and story navigation work, and the shared clock becomes idle offscreen. A 90-frame local Edge headless sample at 1440 × 900 reported 16.7 ms median and 16.9 ms p95 frame intervals; this is a local sample, not a cross-device performance guarantee. Full validation remains deferred until visual approval. The existing browser suite and prior VALIDATION.md results predate the new combined opening/origin.
 
 ```sh
 pnpm test:evidence

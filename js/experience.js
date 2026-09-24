@@ -1,7 +1,6 @@
-import { createOriginStory } from "./origin-story.js";
+import { createGenesis } from "./genesis.js";
 import { apps, homepage } from "./apps.js";
 import { createStudy } from "./studies.js";
-import { createPrecisionHero } from "./precision-hero.js";
 import { createHero } from "./hero.js";
 import { createHeroInteraction } from "./hero-interaction.js";
 const $ = (s) => document.querySelector(s),
@@ -12,14 +11,12 @@ const $ = (s) => document.querySelector(s),
     return v * v * (3 - 2 * v);
   };
 const root = document.documentElement,
-  hero = $(".hero"),
-  origin = $(".origin"),
+  hero = $(".genesis"),
   toolsSection = $(".tools-entry"),
   features = $$(".feature");
 const collection = [homepage, ...apps];
 const studies = features.map((el) => createStudy(el, wake));
-const originStory = createOriginStory(origin, wake);
-const silicon = createPrecisionHero($("#silicon"));
+const genesis = createGenesis(hero, wake);
 const toolsScene = createHero($("#tools-universe"), apps, wake);
 let heroMoving = false,
   toolsMoving = false,
@@ -34,11 +31,9 @@ let reduced = preference.matches,
   tx = 0,
   ty = 0,
   featureBounds = [],
-  heroHeight = 1,
   renderCount = 0;
 
 root.classList.add("enhanced");
-const heroInteraction = createHeroInteraction($("#silicon"), wake);
 const toolsInteraction = createHeroInteraction($("#tools-universe"), wake);
 function syncMotion() {
   reduced = preference.matches;
@@ -49,10 +44,8 @@ function syncMotion() {
 preference.addEventListener("change", syncMotion);
 function measure() {
   const y = scrollY;
-  heroHeight = hero.offsetHeight;
-  silicon.resize();
+  genesis.measure();
   toolsScene.resize();
-  originStory.measure();
   toolsTop = toolsSection.offsetTop;
   toolsHeight = toolsSection.offsetHeight;
   featureBounds = features.map((el) => ({
@@ -112,25 +105,7 @@ function tick(time) {
   const y = scrollY;
   px += (tx - px) * (1 - Math.exp(-dt / 160));
   py += (ty - py) * (1 - Math.exp(-dt / 160));
-  if (y < heroHeight) {
-    const hp = clamp(y / Math.max(1, heroHeight - innerHeight));
-    hero.style.setProperty("--hero", reduced ? 0 : hp);
-    hero.style.setProperty("--passage", reduced ? 0 : ease((hp - 0.55) / 0.4));
-    hero.style.setProperty(
-      "--entry-copy",
-      reduced ? 1 : 1 - ease((hp - 0.08) / 0.25),
-    );
-    hero.classList.toggle("past-entry", !reduced && hp > 0.75);
-
-    const interaction = heroInteraction.update(dt, reduced);
-    heroMoving =
-      silicon.render(time, hp, px, py, reduced, dt, interaction) ||
-      interaction.moving;
-    hero.style.setProperty("--px", reduced ? 0 : px);
-    hero.style.setProperty("--py", reduced ? 0 : py);
-  }
-  if (y >= heroHeight) heroMoving = false;
-  const originMoving = originStory.update(y, reduced, dt);
+  heroMoving = genesis.update(y, time, dt, px, py, reduced);
   toolsMoving = false;
   if (y + innerHeight > toolsTop && y < toolsTop + toolsHeight) {
     const p = clamp((y - toolsTop) / Math.max(1, toolsHeight - innerHeight));
@@ -164,7 +139,6 @@ function tick(time) {
   if (
     heroMoving ||
     toolsMoving ||
-    originMoving ||
     studyMoving ||
     Math.abs(px - tx) + Math.abs(py - ty) > 0.001
   )
@@ -324,7 +298,7 @@ addEventListener("pageshow", (event) => {
 });
 window.artifactsExperience = {
   get heroState() {
-    return heroInteraction.state;
+    return genesis.state;
   },
   get toolsState() {
     return toolsInteraction.state;

@@ -1,7 +1,6 @@
 import fs from "node:fs/promises";
 import { build } from "esbuild";
 import { contourSegments } from "../js/contours.js";
-import { evidenceField } from "./evidence-field.mjs";
 import { expandedVisual } from "./study-visuals.mjs";
 const read = async (p) =>
   JSON.parse((await fs.readFile(p, "utf8")).replace(/^\uFEFF/, ""));
@@ -73,9 +72,9 @@ html = html.replace(
   story.phases
     .map(
       (p, i) =>
-        '<article class="origin-page" data-origin-phase="' +
+        '<article class="construction-page" data-origin-phase="' +
         i +
-        '"><span class="origin-label">0' +
+        '"><span class="construction-label">0' +
         (i + 1) +
         " / " +
         esc(p.label) +
@@ -102,7 +101,6 @@ html = html.replace(
     )
     .join(""),
 );
-html = html.replace("<!-- EVIDENCE FIELD -->", evidenceField());
 html = html.replace(
   "<!-- FEATURES -->",
   features

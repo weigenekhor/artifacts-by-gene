@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="experience.css" />
     <link rel="stylesheet" href="artifact.css" />
     <link rel="stylesheet" href="entry.css" />
+    <link rel="stylesheet" href="genesis.css" />
     <script type="module" src="script.js"></script>
   </head>
   <body>
@@ -56,78 +57,63 @@
       </nav>
     </header>
     <main>
-      <section class="hero section-entry" id="top" aria-labelledby="hero-title">
-        <div class="hero-scene">
-          <div class="entry-light" aria-hidden="true"></div>
-          <div class="entry-heading">
-            <p class="eyebrow">
-              Three years of engineering. Written into software.
-            </p>
-            <h1 id="hero-title">ARTIFACTS</h1>
-          </div>
+      <section class="genesis" id="top" aria-labelledby="hero-title">
+        <div id="story" class="story-anchor" aria-hidden="true"></div>
+        <div class="genesis-stage">
           <div
-            class="precision-object"
-            id="silicon"
+            class="logic-field"
             tabindex="0"
             role="group"
-            aria-label="Interactive silicon layers. Move the pointer or drag to inspect. Arrow keys change perspective; Enter separates the layers; R resets."
+            aria-label="Explore the engineering structure. Move the pointer or use arrow keys to change perspective. R resets the view."
           >
-            <canvas aria-hidden="true"></canvas>
-            <div class="silicon-outline" aria-hidden="true"></div>
-          </div>
-          <div class="entry-copy">
-            <p>Engineering,<br />made executable.</p>
-            <a href="#story">Enter the story <b aria-hidden="true">↓</b></a>
-          </div>
-          <button class="layer-control" data-expand aria-pressed="false">
-            Separate the layers <span aria-hidden="true">+</span>
-          </button>
-          <div class="entry-register">
-            <span>16 applications / 3 years in the making</span
-            ><span>Move to inspect · Scroll to enter</span>
-          </div>
-        </div>
-      </section>
-      <section
-        class="origin evidence-story"
-        id="story"
-        aria-labelledby="origin-title"
-      >
-        <div class="evidence-stage">
-          <div class="evidence-copy">
-            <p class="eyebrow" id="origin-title">01 / Why ARTIFACTS exists</p>
-            <div class="evidence-pages"><!-- ORIGIN PAGES --></div>
-          </div>
-          <div class="evidence-field" aria-hidden="true">
-            <!-- EVIDENCE FIELD --><span class="evidence-note"
-              >Illustrative engineering evidence</span
+            <canvas aria-hidden="true"></canvas
+            ><svg
+              class="logic-fallback"
+              viewBox="0 0 700 300"
+              aria-hidden="true"
             >
+              <path d="M0 70H120L160 35H270L310 90H450L495 60H700" />
+              <path d="M0 84H120L160 49H270L310 104H450L495 74H700" />
+              <path d="M0 98H120L160 63H270L310 118H450L495 88H700" />
+              <path d="M0 112H120L160 77H270L310 132H450L495 102H700" />
+              <path d="M0 126H120L160 91H270L310 146H450L495 116H700" />
+              <path d="M0 140H120L160 105H270L310 160H450L495 130H700" />
+              <path d="M0 154H120L160 119H270L310 174H450L495 144H700" />
+              <path d="M0 168H120L160 133H270L310 188H450L495 158H700" />
+              <path d="M0 182H120L160 147H270L310 202H450L495 172H700" />
+              <path d="M0 196H120L160 161H270L310 216H450L495 186H700" />
+              <path d="M0 210H120L160 175H270L310 230H450L495 200H700" />
+              <path d="M0 224H120L160 189H270L310 244H450L495 214H700" />
+            </svg>
           </div>
-          <div class="story-finale" aria-hidden="true">
-            <div class="finale-register">
-              <span>From the work. Into working software.</span
-              ><span>03 years / 16 applications</span>
+          <div class="genesis-intro">
+            <p class="genesis-kicker">Engineering software / ARTIFACTS</p>
+            <h1 id="hero-title">ARTIFACTS</h1>
+            <div class="genesis-opening">
+              <p>Written for <br />the work itself.</p>
+              <a href="#story"
+                >Follow the construction <span aria-hidden="true">↘</span></a
+              >
             </div>
-            <div class="finale-structure" aria-hidden="true">
-              <i style="--rib: 0"></i><i style="--rib: 1"></i
-              ><i style="--rib: 2"></i><i style="--rib: 3"></i
-              ><i style="--rib: 4"></i><i style="--rib: 5"></i
-              ><i style="--rib: 6"></i><i style="--rib: 7"></i
-              ><i style="--rib: 8"></i><i style="--rib: 9"></i
-              ><i style="--rib: 10"></i><i style="--rib: 11"></i
-              ><i style="--rib: 12"></i><i style="--rib: 13"></i
-              ><i style="--rib: 14"></i><i style="--rib: 15"></i>
-            </div>
-            <p class="finale-premise">The work gave it shape.</p>
-            <p class="finale-word">ARTIFACTS</p>
-            <p class="finale-line">
-              Engineering methods.<br />Made executable.
-            </p>
-            <span class="finale-next">Now, enter the applications ↓</span>
           </div>
-          <nav class="origin-nav" aria-label="Origin story scenes">
+          <div class="genesis-register">
+            <span>Move to inspect the structure</span
+            ><span>Scroll to trace its beginnings ↓</span>
+          </div>
+          <div class="construction-copy">
+            <p class="construction-kicker">Why ARTIFACTS exists</p>
+            <div class="construction-pages"><!-- ORIGIN PAGES --></div>
+          </div>
+          <div class="construction-legend" aria-hidden="true">
+            <span class="build-state">An unresolved task</span
+            ><span>Schematic / not application output</span>
+          </div>
+          <nav class="construction-nav" aria-label="Construction story">
             <!-- ORIGIN CONTROLS -->
           </nav>
+          <a class="construction-next" href="#collection"
+            >Enter the applications <span aria-hidden="true">↓</span></a
+          >
         </div>
       </section>
       <section
@@ -141,7 +127,6 @@
             <h2 id="tools-title">
               The methods,<br /><em>in working form.</em>
             </h2>
-            <p>Explore the collection. Then move through each application.</p>
           </div>
           <div
             id="tools-universe"
@@ -171,65 +156,41 @@
         ><a href="#collection">Go to the interfaces ↗</a>
       </div>
       <!-- FEATURES -->
-      <section class="gene-statement" id="gene" aria-labelledby="creator-title">
-        <div class="gene-caption">
-          <span>ARTIFACTS / By Gene</span><span>Built over three years</span>
+      <section class="creator" id="gene" aria-labelledby="creator-title">
+        <div class="creator-top">
+          <span>By Gene</span>
         </div>
-        <div class="gene-composition">
-          <div class="gene-author">
-            <span>Behind the work</span>
-            <p>Gene</p>
-            <div class="gene-rule" aria-hidden="true"></div>
-          </div>
-          <div class="gene-account">
-            <h2 id="creator-title">
-              <strong
-                >Three years. Sixteen applications. None of them started as a
-                product idea.</strong
-              >
-            </h2>
-            <div class="gene-writing">
-              <p>They started with work that should have been better.</p>
-              <p>
-                A comparison that took too long. A diagnosis buried in data. A
-                process that relied too much on memory. A task repeated often
-                enough that doing it manually stopped making sense.
-              </p>
-              <p>
-                I did not accept the workflow simply because it already existed.
-              </p>
-              <p>
-                If I could make it clearer, faster, harder to get wrong, or
-                easier to repeat, I built a better way and put it to work.
-              </p>
-              <p>Then I did it again.</p>
-              <p>
-                Some tools solved one problem and stayed focused. Others grew
-                far beyond the problem that created them. Every one had to earn
-                its place through real use.
-              </p>
-              <p>
-                Three years later, those sixteen applications are
-                <strong>ARTIFACTS</strong>.
-              </p>
-              <p class="gene-conviction">
-                <strong>ARTIFACTS is not a collection of side projects.</strong>
-              </p>
-              <p class="gene-standard">
-                <strong>It is the standard I refuse to work below.</strong>
-              </p>
-            </div>
+        <div class="creator-account">
+          <h2 id="creator-title">Three years.<br />Sixteen applications.</h2>
+          <div class="creator-writing">
+            <p>
+              ARTIFACTS began with one belief: if the work could be better, it
+              should be.
+            </p>
+            <p>
+              So I built what I needed, one problem at a time. Some tools stayed
+              small. Others grew far beyond where they began. But every one came
+              from the same place: care for the work, and a refusal to accept
+              friction as inevitable.
+            </p>
+            <p>
+              Three years on, the name has not changed. Neither has the
+              standard.
+            </p>
           </div>
         </div>
-        <div class="gene-contact">
-          <p>For a conversation about the work.</p>
-          <a href="mailto:weigenekhor@gmail.com"
-            >weigenekhor@gmail.com <span aria-hidden="true">↗</span></a
+        <div class="creator-signoff">
+          <p>ARTIFACTS</p>
+          <p>Built to be worthy of the work.</p>
+        </div>
+        <div class="creator-contact">
+          <span>Gene</span
+          ><a href="mailto:weigenekhor@gmail.com">weigenekhor@gmail.com ↗</a
           ><a
             href="https://www.linkedin.com/in/weigenekhor/"
             target="_blank"
             rel="noopener noreferrer"
-            >LinkedIn <span aria-hidden="true">↗</span></a
+            >LinkedIn ↗</a
           >
         </div>
       </section>
@@ -241,7 +202,7 @@
         width="28"
         height="28"
       /><span>ARTIFACTS</span>
-      <p>Engineering, made executable.</p>
+      <p>Engineering software by Gene.</p>
       <a href="#collection">Explore the collection ↗</a>
     </footer>
     <dialog id="study-picker" aria-labelledby="picker-title">

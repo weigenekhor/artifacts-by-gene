@@ -2,32 +2,31 @@
 
 This storyboard implements Gene's structural storytelling brief of 24 September 2026. Read with ARTIFACTS_CREATIVE_DIRECTION.md. The current user prompt overrides earlier visual directions.
 
-## 00 — Engineering, made executable
+## 00 — Written for the work itself
 
-The hero is a purpose-built, interactive semiconductor surface, not a stack of screenshots. Pointer motion moves the inspection light and changes the projected viewing angle. Drag and keyboard controls turn the object. A direct control separates its substrate layers. Scroll opens the layers, removes their solid material and takes the dark environment into the light evidence chapter. The wafer is an editorial engineering metaphor, not an image of an ARTIFACTS application.
+The previous silicon object is retired. The opening is a projected field of sixteen structural routes: event, comparison and return paths with restrained depth, local pointer response and inspection light moving along a selected route. This is schematic engineering logic, not measured data, a product interface or a claim of integration between applications.
 
-**Engineering, made executable.**
+**ARTIFACTS**
 
-**Three years of engineering. Written into software.**
+**Written for the work itself.**
 
-ARTIFACTS spans the opening above the dimensional die field. Individual etched dies lift toward the inspection light, while a restrained layer control opens the material structure. The title leads the hierarchy without hiding the interactive object.
+No development duration appears in the hero. The real symbol stays in the header. Pointer proximity adjusts local depth; keyboard arrows adjust the view and R resets it. There is no card fan, screenshot assembly, wafer, layer button or global pause control.
 
-Canvas resolution is capped at 2× desktop / 1.5× mobile. The visible scene shares the page clock; offscreen scenes stop. Reduced motion retains a stable composition and a readable entry into the story. Application interfaces first appear in the later collection.
+## 01 — Construction, not explanation
 
-## 01 — Why ARTIFACTS exists
+Hero and origin share one sticky stage, canvas, camera and persistent geometry. The highlighted route in the opening survives the handoff: surrounding structure withdraws as that route opens into a rough attempt. The environment moves from dark into paper white. The story never resets to another ARTIFACTS title.
 
-No application screenshots, names, app cards or app examples appear in this chapter. Its material is schematic engineering evidence: a process trace, recipe revision, run context, measurement field, investigation checks and report structure. These are illustrative, not measured data or invented application capabilities.
+Five concise stages replace the former six-scene explanation:
 
-Six scenes share the same evidence:
+1. **Finishing the task wasn’t enough.** A rough route and earlier attempts establish an unresolved way of working.
+2. **First, a way through.** A route is redrawn; construction guides and checks begin to form.
+3. **Make the useful part repeatable.** Boundaries close, check positions stabilize and the useful sequence is retained.
+4. **The next problem started further ahead.** Revision loops feed the retained method; more structured routes develop around it.
+5. **The work came first. The software followed.** The field resolves into sixteen ordered routes, then returns to the dark application environment.
 
-1. **The evidence arrives. The context doesn’t.** Independent fragments establish why engineering context must be reconstructed.
-2. **The question changes less than the evidence.** Altered traces and recurring structures reveal the repeated kinds of question.
-3. **The task is closed. The reasoning is still fragile.** Repeated evidence and displaced geometry create pressure: the answer survives, but the method can be lost.
-4. **The method must outlast the investigation.** The same fragments align. Reconstruction, comparison, checking and retention become repeatable.
-5. **Software gave the method a life beyond the task.** A stable sequence closes into a reusable path. No application UI appears yet.
-6. **The work gave ARTIFACTS its shape.** The evidence recedes around the identity. The system is a consequence of practical work.
+No app names, screenshots or preview catalogue appear in this chapter. The visual metaphor concerns the construction of methods. It does not claim the applications exchange information. Each stage has concise supporting text and direct navigation. The sequence takes 560 viewport heights including the hero (500 on mobile), substantially shorter than the former separate hero and origin. Native scrolling is not intercepted.
 
-Native scroll advances six readable holds across the light chapter. Headings use balanced wrapping in an intrinsic grid, without clipping masks; inactive passages are hidden immediately so text never overlaps. Evidence stays in separate spatial lanes. Its labels do not repeat into the ghost traces. Each scene has a finite development sequence: trace drawing, recurring echoes, measurement marks and converging paths. The final identity appears only after evidence recedes, opening into a dark full-stage ARTIFACTS reveal with sixteen spatial structural ribs. It hands the environment into the application collection. Direct scene buttons offer a shortcut. Small screens and reduced motion retain all six complete passages in document order without scroll pinning. No scroll interception.
+Small screens retain the same persistent geometry with typography below it. Reduced motion uses a stable opening and all five passages in document order. A static SVG structure and complete text remain without JavaScript. Canvas DPR is capped at 2 on desktop and 1.5 on mobile; the page clock stops rendering the scene offscreen.
 
 ## 02 — The collection opens
 
@@ -62,18 +61,28 @@ Each analytical interval adds three concise inspection notes. Geometry-based bra
 
 The diagram geometry is explanatory. Do not fabricate measured values, software operations or cross-application integrations. Cross-scene continuity is editorial, not a claim that applications exchange data.
 
-## 04 — Three years, one body of work
+## 04 — The approved closing
 
-Gene has confirmed that ARTIFACTS took three years to build. The closing uses that fact, rather than generic creator copy.
+Gene’s approved wording is reproduced exactly:
 
-**Three years. Sixteen applications. None of them started as a product idea.**
+**Three years. Sixteen applications.**
 
-The closing uses Gene's supplied nine paragraphs verbatim, in a generous reading column with a restrained creator attribution. The final statements are **ARTIFACTS is not a collection of side projects.** and **It is the standard I refuse to work below.** Preserve this wording unless Gene changes it.
+ARTIFACTS began with one belief: if the work could be better, it should be.
+
+So I built what I needed, one problem at a time. Some tools stayed small. Others grew far beyond where they began. But every one came from the same place: care for the work, and a refusal to accept friction as inevitable.
+
+Three years on, the name has not changed. Neither has the standard.
+
+**ARTIFACTS**
+
+**Built to be worthy of the work.**
+
+A quiet “By Gene” attribution precedes the two-column account. The concluding identity and standard share a ruled closing line. No job-title labels or generic creator biography are added.
 
 Contact links: https://www.linkedin.com/in/weigenekhor/ and mailto:weigenekhor@gmail.com. These are links only; the site does not send messages or collect form data.
 
 ## Access and performance
 
-One requestAnimationFrame clock drives the origin, hero, collection and all studies. Native scrolling is never intercepted. Offscreen ambient work stops. Reduced motion presents stable geometry and all narrative text. No-JavaScript content retains the full story and application study content. Original media, full-resolution viewers, app ordering and keyboard controls remain intact. Cross-scene motion is editorial continuity, not a claim of automated connections between the tools.
+One requestAnimationFrame clock drives the combined opening/origin, collection and all studies. Native scrolling is never intercepted. Offscreen ambient work stops. Reduced motion presents stable geometry and all narrative text. Original media, full-resolution viewers, app ordering and keyboard controls remain intact. Cross-scene motion is editorial continuity, not a claim of automated connections between the tools.
 
-The global header pause button has been removed at Gene�s request. OS reduced-motion support remains, as do the individual application replay controls. The footer reads **Engineering, made executable.**
+The global header pause button remains removed at Gene’s request. OS reduced-motion support and individual application replay controls remain.
