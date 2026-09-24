@@ -27,7 +27,6 @@ let heroMoving = false,
   toolsHeight = 1;
 const preference = matchMedia("(prefers-reduced-motion: reduce)");
 let reduced = preference.matches,
-  paused = false,
   raf = 0,
   last = 0,
   px = 0,
@@ -41,40 +40,12 @@ let reduced = preference.matches,
 root.classList.add("enhanced");
 const heroInteraction = createHeroInteraction($("#silicon"), wake);
 const toolsInteraction = createHeroInteraction($("#tools-universe"), wake);
-const motion = $("#motion");
-motion.hidden = false;
-function motionIcon(stopped) {
-  return (
-    '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">' +
-    (stopped
-      ? '<path d="M8 5L19 12 8 19Z" fill="currentColor"/>'
-      : '<rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/>') +
-    "</svg><span>" +
-    (stopped ? "Play" : "Pause") +
-    "</span>"
-  );
-}
 function syncMotion() {
-  reduced = preference.matches || paused;
+  reduced = preference.matches;
   if (reduced) stopPlayback();
   root.classList.toggle("reduced", reduced);
-  motion.setAttribute("aria-pressed", String(reduced));
-  motion.setAttribute("aria-label", reduced ? "Enable motion" : "Pause motion");
-  motion.innerHTML = motionIcon(reduced);
   measure();
 }
-motion.addEventListener("click", () => {
-  paused = !reduced;
-  if (preference.matches && !paused) {
-    paused = false;
-    reduced = false;
-    root.classList.remove("reduced");
-    motion.setAttribute("aria-pressed", "false");
-    motion.setAttribute("aria-label", "Pause motion");
-    motion.innerHTML = motionIcon(false);
-    measure();
-  } else syncMotion();
-});
 preference.addEventListener("change", syncMotion);
 function measure() {
   const y = scrollY;

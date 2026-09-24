@@ -54,9 +54,25 @@ export function evidenceField() {
     '<text y="35">finding / supporting evidence</text><path d="M0 50H210M0 73H165M0 86H187M0 109H145M0 122H200"/><text y="148">conclusion / retained context</text>',
   ];
   const fragment = (i) =>
-    '<text class="ev-title" y="0">' + labels[i] + "</text>" + drawings[i];
+    '<text class="ev-title" y="0">' +
+    labels[i] +
+    "</text><g class='ev-art'>" +
+    drawings[i] +
+    "</g>";
   return (
     '<svg class="evidence-svg" viewBox="0 0 800 680" fill="none" xmlns="http://www.w3.org/2000/svg"><g class="ev-links"><path d="M360 130V625" pathLength="1"/><path class="ev-return" d="M380 625V110H360" pathLength="1"/></g>' +
+    '<g class="ev-branches">' +
+    [0, 1, 2, 3, 4, 5]
+      .map(
+        (i) =>
+          '<path d="M' +
+          (i % 2 ? 470 : 290) +
+          " " +
+          (215 + Math.floor(i / 2) * 190) +
+          'H380" pathLength="1"/>',
+      )
+      .join("") +
+    "</g>" +
     labels
       .map(
         (_, i) =>

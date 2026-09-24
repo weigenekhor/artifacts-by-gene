@@ -14,9 +14,9 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The opening is an interactive etched silicon surface: pointer lighting, damped orientation and separable process layers, drawn from projected geometry. It dissolves from material into evidence as the background moves from dark to light. A six-scene, screenshot-free origin chapter follows evidence → recurrence → lost reasoning → method → software → ARTIFACTS. The same schematic evidence evolves throughout; it is not a claim about measured data.
+The opening pairs an oversized ARTIFACTS wordmark with an interactive etched silicon surface: individually raised dies, pointer lighting, damped orientation and separable process layers, drawn from projected geometry. It dissolves from material into evidence as the background moves from dark to light. A six-scene, screenshot-free origin chapter follows evidence → recurrence → lost reasoning → method → software → ARTIFACTS. The same schematic evidence develops through finite trace, repetition and convergence sequences, then resolves into a dark full-stage ARTIFACTS reveal. It is not a claim about measured data.
 
-The complete sixteen-plane application assembly appears after the story. Bounded rotation and damped pointer proximity change depth, orientation and lighting. From there, the sixteen individual studies unfold in canonical order. The duplicate post-study capture archive and catalogue have been removed. Full captures remain available in each study and through the homepage viewer. Gene closes with the three-year development story and direct email/LinkedIn links.
+The complete sixteen-plane application assembly appears after the story. Bounded rotation and damped pointer proximity change depth, orientation and lighting. From there, the sixteen individual studies unfold in canonical order. The duplicate post-study capture archive and catalogue have been removed. Full captures remain available in each study and through the homepage viewer. Gene closes with his supplied three-year development account verbatim and direct email/LinkedIn links. The global pause button is removed; reduced-motion support and per-application replay remain.
 
 Read `ARTIFACTS_CREATIVE_DIRECTION.md` and `ARTIFACTS_EXPERIENCE_STORYBOARD.md` for governing direction and factual boundaries. One shared clock pauses ambient scenes offscreen. Mobile and reduced motion retain the entire narrative without pinning.
 
@@ -65,7 +65,7 @@ Review the crop rectangle in `scripts/prepare-evidence.mjs` when a source layout
 
 ## Verification
 
-The material hero, typography and baseplate-swap pass has build/runtime checks, six-scene desktop review, mobile and reduced-motion review, keyboard app handoff and an offscreen-idle check. The existing full suite and v10 results below predate this expansion; full validation is deferred until visual approval.
+The current pass has build/runtime checks and desktop, mobile and reduced-motion visual review of the new hero, origin reveal and exact Gene copy. The earlier material-hero pass also checked keyboard app handoff and offscreen idle. The existing full suite and v10 results below predate this expansion; full validation is deferred until visual approval.
 
 ```sh
 pnpm test:evidence

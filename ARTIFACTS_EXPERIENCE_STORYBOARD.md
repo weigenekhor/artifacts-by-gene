@@ -8,9 +8,11 @@ The hero is a purpose-built, interactive semiconductor surface, not a stack of s
 
 **Engineering, made executable.**
 
-**Three years of turning practical problems into working software.**
+**Three years of engineering. Written into software.**
 
-Canvas resolution is capped at 2× desktop / 1.5× mobile. The visible scene shares the page clock; offscreen and paused scenes stop. Reduced motion retains a stable composition and a readable entry into the story. Application interfaces first appear in the later collection.
+ARTIFACTS spans the opening above the dimensional die field. Individual etched dies lift toward the inspection light, while a restrained layer control opens the material structure. The title leads the hierarchy without hiding the interactive object.
+
+Canvas resolution is capped at 2× desktop / 1.5× mobile. The visible scene shares the page clock; offscreen scenes stop. Reduced motion retains a stable composition and a readable entry into the story. Application interfaces first appear in the later collection.
 
 ## 01 — Why ARTIFACTS exists
 
@@ -25,7 +27,7 @@ Six scenes share the same evidence:
 5. **Software gave the method a life beyond the task.** A stable sequence closes into a reusable path. No application UI appears yet.
 6. **The work gave ARTIFACTS its shape.** The evidence recedes around the identity. The system is a consequence of practical work.
 
-Native scroll advances six readable holds across the light chapter. Headings use balanced wrapping in an intrinsic grid, without clipping masks; inactive passages are hidden immediately so text never overlaps. Evidence stays in separate spatial lanes. Its labels do not repeat into the ghost traces. The final identity appears only after evidence recedes. Direct scene buttons offer a shortcut. Small screens and reduced motion retain all six complete passages in document order without scroll pinning. No scroll interception.
+Native scroll advances six readable holds across the light chapter. Headings use balanced wrapping in an intrinsic grid, without clipping masks; inactive passages are hidden immediately so text never overlaps. Evidence stays in separate spatial lanes. Its labels do not repeat into the ghost traces. Each scene has a finite development sequence: trace drawing, recurring echoes, measurement marks and converging paths. The final identity appears only after evidence recedes, opening into a dark full-stage ARTIFACTS reveal with sixteen spatial structural ribs. It hands the environment into the application collection. Direct scene buttons offer a shortcut. Small screens and reduced motion retain all six complete passages in document order without scroll pinning. No scroll interception.
 
 ## 02 — The collection opens
 
@@ -64,12 +66,14 @@ The diagram geometry is explanatory. Do not fabricate measured values, software 
 
 Gene has confirmed that ARTIFACTS took three years to build. The closing uses that fact, rather than generic creator copy.
 
-**Three years. Nothing built without a reason.**
+**Three years. Sixteen applications. None of them started as a product idea.**
 
-A restrained Gene attribution sits beside the account of building the tools from practical engineering needs. The final line is **The work is personal. The standard is not.** It closes on the standard of the work, not an oversized name or job title.
+The closing uses Gene's supplied nine paragraphs verbatim, in a generous reading column with a restrained creator attribution. The final statements are **ARTIFACTS is not a collection of side projects.** and **It is the standard I refuse to work below.** Preserve this wording unless Gene changes it.
 
 Contact links: https://www.linkedin.com/in/weigenekhor/ and mailto:weigenekhor@gmail.com. These are links only; the site does not send messages or collect form data.
 
 ## Access and performance
 
 One requestAnimationFrame clock drives the origin, hero, collection and all studies. Native scrolling is never intercepted. Offscreen ambient work stops. Reduced motion presents stable geometry and all narrative text. No-JavaScript content retains the full story and application study content. Original media, full-resolution viewers, app ordering and keyboard controls remain intact. Cross-scene motion is editorial continuity, not a claim of automated connections between the tools.
+
+The global header pause button has been removed at Gene�s request. OS reduced-motion support remains, as do the individual application replay controls. The footer reads **Engineering, made executable.**

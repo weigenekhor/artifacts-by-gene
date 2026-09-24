@@ -33,6 +33,15 @@ export function createPrecisionHero(stage) {
       ],
     );
   }
+  const dies = [];
+  for (let row = -7; row <= 7; row++)
+    for (let col = -7; col <= 7; col++) {
+      const x = col * 0.122,
+        y = row * 0.122,
+        half = 0.054;
+      if (Math.hypot(Math.abs(x) + half, Math.abs(y) + half) < 0.975)
+        dies.push({ x, y, half, row, col });
+    }
   if (ctx) stage.classList.add("ready");
   return {
     resize() {
@@ -53,7 +62,7 @@ export function createPrecisionHero(stage) {
       const passage = reduced ? 0 : smooth((p - 0.48) / 0.5);
       const mobile = width < 700,
         scale =
-          Math.min(width * (mobile ? 0.43 : 0.26), height * 0.46) *
+          Math.min(width * (mobile ? 0.47 : 0.36), height * 0.44) *
           (1 - passage * 0.12);
       const yaw =
         -0.36 +
@@ -61,7 +70,7 @@ export function createPrecisionHero(stage) {
           ? 0
           : px * 0.16 + state.yaw * 0.3 + Math.sin(clock * 0.12) * 0.025);
       const tilt =
-        0.87 + (reduced ? 0 : py * 0.09 + state.pitch * 0.23) + passage * 0.2;
+        0.98 + (reduced ? 0 : py * 0.13 + state.pitch * 0.23) + passage * 0.2;
       const key = [opening, yaw, tilt, p, width, height, clock].join("|");
       if (key === last) return !reduced;
       last = key;
@@ -70,8 +79,8 @@ export function createPrecisionHero(stage) {
       const paper = [233, 233, 225],
         dark = [10, 16, 16];
       stage.parentElement.style.backgroundColor = `rgb(${dark.map((v, i) => Math.round(v + (paper[i] - v) * passage)).join(",")})`;
-      const cx = width * (mobile ? 0.51 : 0.72),
-        cy = height * (mobile ? 0.53 : 0.52);
+      const cx = width * (mobile ? 0.5 : 0.56),
+        cy = height * (mobile ? 0.54 : 0.59);
       const project = (x, y, z = 0) => {
         const X = x * Math.cos(yaw) - y * Math.sin(yaw),
           Y = x * Math.sin(yaw) + y * Math.cos(yaw);
@@ -136,6 +145,90 @@ export function createPrecisionHero(stage) {
             path(line, z + 0.003);
             ctx.stroke();
           }
+          // Individual diced fields have thickness and proximity-driven lift.
+          // Their registration is deterministic: a material system, not particles.
+          const pointer = [((px + 1) * width) / 2, ((py + 1) * height) / 2];
+          const orderedDies = dies
+            .map((d) => ({ ...d, q: project(d.x, d.y, z) }))
+            .sort((a, b) => a.q[1] - b.q[1]);
+          for (const die of orderedDies) {
+            const { x, y, half: r, q } = die;
+            const proximity = reduced
+              ? 0
+              : Math.exp(
+                  -((q[0] - pointer[0]) ** 2 + (q[1] - pointer[1]) ** 2) /
+                    (scale * 0.2) ** 2,
+                );
+            const height =
+              0.008 + proximity * 0.12 + opening * 0.025 * ((die.row + 8) % 4);
+            const top = z + height,
+              shift = opening * 0.025;
+            const X = x * (1 + shift),
+              Y = y * (1 + shift);
+            const corners = [
+              [X - r, Y - r],
+              [X + r, Y - r],
+              [X + r, Y + r],
+              [X - r, Y + r],
+            ];
+            const quad = (vertices) => {
+              ctx.beginPath();
+              vertices.forEach(([x, y, zz], i) => {
+                const a = project(x, y, zz);
+                i ? ctx.lineTo(...a) : ctx.moveTo(...a);
+              });
+              ctx.closePath();
+            };
+            quad([
+              [X - r, Y + r, z],
+              [X + r, Y + r, z],
+              [X + r, Y + r, top],
+              [X - r, Y + r, top],
+            ]);
+            ctx.fillStyle = "#14231e";
+            ctx.globalAlpha = 1 - passage;
+            ctx.fill();
+            quad([
+              [X + r, Y - r, z],
+              [X + r, Y + r, z],
+              [X + r, Y + r, top],
+              [X + r, Y - r, top],
+            ]);
+            ctx.fillStyle = "#3b5044";
+            ctx.fill();
+            path(corners, top, true);
+            const reflection = Math.max(
+              0,
+              1 - Math.abs(x - y * 0.28 - 0.22 - px * 0.12) * 1.05,
+            );
+            const value = Math.round(29 + reflection * 42 + proximity * 28);
+            ctx.fillStyle =
+              "rgb(" + value + "," + (value + 13) + "," + (value + 7) + ")";
+            ctx.fill();
+            ctx.globalAlpha = 1;
+            ctx.strokeStyle =
+              passage > 0.5
+                ? "#59786255"
+                : "rgba(178,195,170," + (0.12 + proximity * 0.42) + ")";
+            ctx.lineWidth = 0.55;
+            ctx.stroke();
+            if (proximity > 0.12 || opening > 0.25) {
+              path(
+                [
+                  [X - r * 0.6, Y - r * 0.6],
+                  [X + r * 0.6, Y - r * 0.6],
+                  [X + r * 0.6, Y + r * 0.6],
+                  [X - r * 0.6, Y + r * 0.6],
+                ],
+                top + 0.002,
+                true,
+              );
+              ctx.strokeStyle =
+                "rgba(215,188,144," + (0.12 + proximity * 0.55) + ")";
+              ctx.lineWidth = 0.65;
+              ctx.stroke();
+            }
+          }
           // Directional inspection band follows the viewer, rather than a random loop.
           const band =
             0.25 + (reduced ? 0 : px * 0.3 + Math.sin(clock * 0.18) * 0.1);
@@ -151,25 +244,6 @@ export function createPrecisionHero(stage) {
             );
             ctx.strokeStyle = `rgba(215,221,191,${0.12 - Math.abs(j) * 0.027})`;
             ctx.lineWidth = scale * 0.018;
-            ctx.stroke();
-          }
-          // Die fields selected by the moving inspection plane; no measured data implied.
-          for (let k = -8; k <= 8; k++) {
-            const x = Math.round(band / 0.075) * 0.075,
-              y = k * 0.075;
-            if (x * x + y * y > 0.83) continue;
-            path(
-              [
-                [x, y],
-                [x + 0.06, y],
-                [x + 0.06, y + 0.06],
-                [x, y + 0.06],
-              ],
-              z + 0.009,
-              true,
-            );
-            ctx.strokeStyle = "#dcc49b66";
-            ctx.lineWidth = 0.75;
             ctx.stroke();
           }
           ctx.restore();
