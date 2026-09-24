@@ -70,6 +70,8 @@ export function createStudy(el, wake) {
     report: [9, 11],
     signals: [13, -12],
   }[kind];
+  el.style.setProperty("--source-rx", angle[0] * 0.55 + "deg");
+  el.style.setProperty("--source-ry", angle[1] + "deg");
   const regions = {
     history: ["Event", 7],
     schedule: ["Interval", 8],
@@ -96,7 +98,7 @@ export function createStudy(el, wake) {
       p =
         reduced || manual
           ? wanted
-          : p + (wanted - p) * (1 - Math.exp(-dt / 105));
+          : p + (wanted - p) * (1 - Math.exp(-dt / 70));
       const functional = clamp((p - 0.27) / 0.53);
       const expand =
         smooth((p - 0.51) / 0.14) * (1 - smooth((p - 0.73) / 0.12));
@@ -131,29 +133,35 @@ export function createStudy(el, wake) {
         ).padStart(2, "0");
       if (inspection === null) focus.value = Math.round(stages.inspect * 100);
       const depth = Math.sin(Math.PI * stages.resolve);
+      const orbit = Math.sin(Math.PI * functional),
+        settle = 1 - smooth((functional - 0.76) / 0.24);
       const mobile = innerWidth < 700,
         scale = mobile ? 0.22 : 1;
       camera.style.setProperty(
         "--camera-x",
-        ((1 - stages.gather) * 18 + px * 3) * scale + "px",
+        ((1 - stages.gather) * 32 + orbit * angle[1] * 1.2 + px * 4 * settle) *
+          scale +
+          "px",
       );
       camera.style.setProperty(
         "--camera-y",
-        (-depth * 13 + py * 2) * scale + "px",
+        (-depth * 22 + py * 3 * settle) * scale + "px",
       );
       camera.style.setProperty(
         "--camera-z",
-        (depth * 80 + stages.inspect * 8) * scale + "px",
+        (depth * 130 + expand * 32) * scale + "px",
       );
       camera.style.setProperty(
         "--camera-rx",
-        (angle[0] * (1 - stages.resolve) + py * 1.2 * (1 - stages.inspect)) *
+        (angle[0] * ((1 - stages.resolve) * 1.25 + orbit * 0.3) +
+          py * 1.5 * settle) *
           scale +
           "deg",
       );
       camera.style.setProperty(
         "--camera-ry",
-        (angle[1] * (1 - stages.gather) + px * 1.7 * (1 - stages.inspect)) *
+        (angle[1] * ((1 - stages.resolve) * 1.5 - orbit * 0.45) +
+          px * 2 * settle) *
           scale +
           "deg",
       );

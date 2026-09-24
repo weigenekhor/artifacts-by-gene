@@ -70,22 +70,20 @@
             <p class="eyebrow">Semiconductor engineering / Software</p>
             <h1 id="hero-title">ARTIFACTS</h1>
           </div>
-          <div class="section-surface">
-            <canvas
-              id="silicon"
-              tabindex="0"
-              role="img"
-              aria-label="Interactive sectional surface. Drag to change the viewing angle. Arrow keys adjust the view. Enter separates the sections; R resets."
-            ></canvas>
-            <div class="surface-fallback" aria-hidden="true">
-              <i></i><i></i><i></i>
+          <div
+            class="application-universe"
+            id="silicon"
+            tabindex="0"
+            role="group"
+            aria-label="Interactive ARTIFACTS collection. Drag or use arrow keys to rotate. Enter opens the collection; R resets."
+          >
+            <div class="universe-fallback">
+              16 applications / One body of work
             </div>
           </div>
           <div class="entry-copy">
             <p>
-              Sixteen applications.<br /><span
-                >Built for semiconductor engineering.</span
-              >
+              Engineering judgment.<br /><span>Given form in software.</span>
             </p>
             <a href="#work"
               >Enter the collection <b aria-hidden="true">↗</b></a
@@ -95,56 +93,70 @@
             <button id="hero-expand" aria-pressed="false">
               Open into the applications
               <span aria-hidden="true">+</span></button
-            ><button id="hero-reset" aria-label="Reset the surface">↺</button>
+            ><button id="hero-reset" aria-label="Reset the collection">
+              ↺
+            </button>
           </div>
           <div class="entry-register">
             <span>01—16 / ARTIFACTS</span
-            ><span>Drag to examine · Scroll to enter</span>
+            ><span>Drag to turn · Scroll to unfold</span>
           </div>
           <div class="hero-destination" aria-hidden="true">
             <div>
-              <span>Logs.</span><span>Recipes.</span><span>Measurements.</span
-              ><small>The evidence is here.</small>
+              <span>Understand the process.</span><span>Organise the work.</span
+              ><small
+                >Analysis. Comparison. Diagnosis. Planning. Reporting.</small
+              >
             </div>
           </div>
         </div>
       </section>
       <section
-        class="origin restored-origin"
+        class="origin practice-chapter"
         id="story"
         aria-labelledby="origin-title"
       >
-        <div class="origin-inner">
-          <p class="eyebrow">01 — Where it begins</p>
-          <div class="origin-body">
-            <h2 id="origin-title">
-              The data is there.<br /><span>The answer is not.</span>
-            </h2>
-            <div class="origin-aside">
-              <p>
-                A run leaves logs, recipes and measurements. An investigation
-                has to reconnect them.
-              </p>
-              <p>The repeated task became the first specification.</p>
-            </div>
+        <div class="practice-stage">
+          <div class="practice-heading">
+            <p class="eyebrow">01 / From the work</p>
+            <h2 id="origin-title">Solve it once.<br /><em>Build on it.</em></h2>
+            <p>
+              A comparison. A diagnosis. A report.<br />When a task returns, the
+              method should already be there.
+            </p>
           </div>
-          <div class="origin-steps" aria-label="From a problem to a collection">
-            <span><i>01</i>Source material</span
-            ><span><i>02</i>A repeatable method</span
-            ><span><i>03</i>An engineering tool</span>
-            <div class="origin-progress" aria-hidden="true"></div>
+          <div
+            class="practice-assembly"
+            aria-label="Three examples of an engineering task becoming a dedicated tool"
+          >
+            <a class="practice-sheet" style="--sheet:0" href="#compare"><div class="sheet-heading"><span>01</span><h3>Compare a recipe.</h3></div><img src="assets/evidence/papyrus-reader/full.webp" width="1531" height="1002" alt="Actual paired recipe panes with marked changes in Papyrus Reader" loading="lazy" decoding="async"><div class="sheet-result"><span>Papyrus Reader</span><b aria-hidden="true">↗</b></div></a><a class="practice-sheet" style="--sheet:1" href="#diagnose"><div class="sheet-heading"><span>02</span><h3>Investigate a drift.</h3></div><img src="assets/evidence/gan-temp-diagnoser/full.webp" width="1425" height="950" alt="Diagnostic summary and recommended checks in GaN Temp Diagnoser" loading="lazy" decoding="async"><div class="sheet-result"><span>GaN Temp Diagnoser</span><b aria-hidden="true">↗</b></div></a><a class="practice-sheet" style="--sheet:2" href="#report"><div class="sheet-heading"><span>03</span><h3>Assemble a report.</h3></div><img src="assets/evidence/lt-report-compiler/full.webp" width="1425" height="950" alt="Report compilation activity in LT Report Compiler" loading="lazy" decoding="async"><div class="sheet-result"><span>LT Report Compiler</span><b aria-hidden="true">↗</b></div></a>
+          </div>
+          <div class="practice-foot">
+            <span>Repeated task</span><i aria-hidden="true"></i
+            ><span>Engineering method</span><i aria-hidden="true"></i
+            ><span>Dedicated software</span>
           </div>
         </div>
       </section>
-      <section class="work-intro" id="work">
-        <p class="eyebrow">02 — Inside the work</p>
-        <h2>A task.<br />A method.<br /><em>A tool.</em></h2>
-        <p>
-          Read the lot history. Compare the recipe. Locate the variation.
-          Compile the report.<br /><br />Each application addresses a specific
-          piece of the work.
-        </p>
-        <span class="intro-rule" aria-hidden="true"></span>
+      <section
+        class="work-intro work-atlas"
+        id="work"
+        aria-labelledby="work-title"
+      >
+        <div class="atlas-heading">
+          <p class="eyebrow">02 / The work, in software</p>
+          <h2 id="work-title">
+            Different problems.<br /><em>One body of work.</em>
+          </h2>
+          <p>
+            From a single process event to a complete engineering report. Each
+            tool takes on a specific part of the job.
+          </p>
+          <a href="#history" class="atlas-enter"
+            >Follow the applications <span aria-hidden="true">↓</span></a
+          >
+        </div>
+        <div class="atlas-lanes"><div class="atlas-lane"><div class="lane-title"><span>01</span><h3>Understand</h3><p>History, surfaces and process evidence.</p></div><div class="lane-apps"><a href="#history"><span>01</span>Altus LotViewer<b aria-hidden="true">↗</b></a><a href="#surface"><span>04</span>TopoTracer<b aria-hidden="true">↗</b></a><a href="#pathfinder"><span>06</span>SPC Pathfinder<b aria-hidden="true">↗</b></a><a href="#compile"><span>07</span>GaN Met Compiler<b aria-hidden="true">↗</b></a></div></div><div class="atlas-lane"><div class="lane-title"><span>02</span><h3>Compare</h3><p>Recipes and configurations, side by side.</p></div><div class="lane-apps"><a href="#compare"><span>05</span>Papyrus Reader<b aria-hidden="true">↗</b></a><a href="#configuration"><span>11</span>GaN XML Assistant<b aria-hidden="true">↗</b></a></div></div><div class="atlas-lane"><div class="lane-title"><span>03</span><h3>Investigate</h3><p>Temperature, arrangements and regions.</p></div><div class="lane-apps"><a href="#diagnose"><span>08</span>GaN Temp Diagnoser<b aria-hidden="true">↗</b></a><a href="#arrange"><span>09</span>AIX ΔT Assistant<b aria-hidden="true">↗</b></a><a href="#zones"><span>10</span>LT Zone Assistant<b aria-hidden="true">↗</b></a></div></div><div class="atlas-lane"><div class="lane-title"><span>04</span><h3>Coordinate</h3><p>Equipment, planning, SPC and reporting.</p></div><div class="lane-apps"><a href="#schedule"><span>02</span>Altus ANKO Viewer<b aria-hidden="true">↗</b></a><a href="#usage"><span>03</span>Altus WaferCount<b aria-hidden="true">↗</b></a><a href="#spc"><span>12</span>Magus SPC (GaN)<b aria-hidden="true">↗</b></a><a href="#legacy"><span>13</span>Magus SPC (Legacy)<b aria-hidden="true">↗</b></a><a href="#planning"><span>14</span>ANKO Helper<b aria-hidden="true">↗</b></a><a href="#report"><span>15</span>LT Report Compiler<b aria-hidden="true">↗</b></a><a href="#signals"><span>16</span>Metria SPC<b aria-hidden="true">↗</b></a></div></div></div>
       </section>
       <div class="study-index" id="study-index">
         <label for="study-select">Inside the work <span>01—16</span></label
@@ -205,28 +217,31 @@
         </div>
         <div class="index-group"><h3><span>Collection 01</span>Altus</h3><div><a class="app-node" id="app-altus-lotviewer" data-app="altus-lotviewer" href="assets/evidence/altus-lotviewer/full.webp"><span>01</span><h4>Altus LotViewer</h4><p>Lot history analysis.</p><b aria-hidden="true">↗</b></a><a class="app-node" id="app-altus-anko-viewer" data-app="altus-anko-viewer" href="assets/evidence/altus-anko-viewer/full.webp"><span>02</span><h4>Altus ANKO Viewer</h4><p>ANKO schedule retrieval.</p><b aria-hidden="true">↗</b></a><a class="app-node" id="app-altus-wafercount" data-app="altus-wafercount" href="assets/evidence/altus-wafercount/full.webp"><span>03</span><h4>Altus WaferCount</h4><p>Chamber usage and wafer counts.</p><b aria-hidden="true">↗</b></a></div></div><div class="index-group"><h3><span>Collection 02</span>Interstice</h3><div><a class="app-node" id="app-topotracer" data-app="topotracer" href="assets/evidence/topotracer/full.webp"><span>04</span><h4>TopoTracer</h4><p>Contour and topography plots.</p><b aria-hidden="true">↗</b></a><a class="app-node" id="app-papyrus-reader" data-app="papyrus-reader" href="assets/evidence/papyrus-reader/full.webp"><span>05</span><h4>Papyrus Reader</h4><p>Logical recipe and text comparison.</p><b aria-hidden="true">↗</b></a><a class="app-node" id="app-spc-pathfinder" data-app="spc-pathfinder" href="assets/evidence/spc-pathfinder/full.webp"><span>06</span><h4>SPC Pathfinder</h4><p>SPC chart finder.</p><b aria-hidden="true">↗</b></a></div></div><div class="index-group"><h3><span>Collection 03</span>GaN EPI</h3><div><a class="app-node" id="app-gan-met-compiler" data-app="gan-met-compiler" href="assets/evidence/gan-met-compiler/full.webp"><span>07</span><h4>GaN Met Compiler</h4><p>Metrology report compiler.</p><b aria-hidden="true">↗</b></a><a class="app-node" id="app-gan-temp-diagnoser" data-app="gan-temp-diagnoser" href="assets/evidence/gan-temp-diagnoser/full.webp"><span>08</span><h4>GaN Temp Diagnoser</h4><p>Temperature drift diagnosis.</p><b aria-hidden="true">↗</b></a><a class="app-node" id="app-aix-dt-assistant" data-app="aix-dt-assistant" href="assets/evidence/aix-dt-assistant/full.webp"><span>09</span><h4>AIX ΔT Assistant</h4><p>Baseplate arrangement guidance.</p><b aria-hidden="true">↗</b></a><a class="app-node" id="app-lt-zone-assistant" data-app="lt-zone-assistant" href="assets/evidence/lt-zone-assistant/full.webp"><span>10</span><h4>LT Zone Assistant</h4><p>LayTec zone mapping.</p><b aria-hidden="true">↗</b></a><a class="app-node" id="app-gan-xml-assistant" data-app="gan-xml-assistant" href="assets/evidence/gan-xml-assistant/full.webp"><span>11</span><h4>GaN XML Assistant</h4><p>Devices.XML comparison.</p><b aria-hidden="true">↗</b></a></div></div><div class="index-group"><h3><span>Collection 04</span>Planetfall</h3><div><a class="app-node" id="app-magus-spc-gan" data-app="magus-spc-gan" href="assets/evidence/magus-spc-gan/full.webp"><span>12</span><h4>Magus SPC (GaN)</h4><p>GaN SPC release review.</p><b aria-hidden="true">↗</b></a><a class="app-node" id="app-magus-spc-legacy" data-app="magus-spc-legacy" href="assets/evidence/magus-spc-legacy/full.webp"><span>13</span><h4>Magus SPC (Legacy)</h4><p>Legacy SPC release review.</p><b aria-hidden="true">↗</b></a><a class="app-node" id="app-anko-helper" data-app="anko-helper" href="assets/evidence/anko-helper/full.webp"><span>14</span><h4>ANKO Helper</h4><p>ANKO status and due dates.</p><b aria-hidden="true">↗</b></a><a class="app-node" id="app-lt-report-compiler" data-app="lt-report-compiler" href="assets/evidence/lt-report-compiler/full.webp"><span>15</span><h4>LT Report Compiler</h4><p>LayTec report compilation.</p><b aria-hidden="true">↗</b></a><a class="app-node" id="app-metria-spc" data-app="metria-spc" href="assets/evidence/metria-spc/full.webp"><span>16</span><h4>Metria SPC</h4><p>Interactive multi-parameter equipment SPC.</p><b aria-hidden="true">↗</b></a></div></div>
       </section>
-      <section class="ending creator-credit" aria-labelledby="creator-title">
-        <div class="credit-top">
-          <span>Independent engineering software</span
-          ><span>Design / Development / Engineering</span>
+      <section class="author-colophon" aria-labelledby="creator-title">
+        <div class="colophon-line">
+          <span>ARTIFACTS / Independent work</span
+          ><span>Engineering → Software</span>
         </div>
-        <div class="credit-main">
-          <div class="credit-identity">
-            <p class="eyebrow">The person behind ARTIFACTS</p>
-            <h2 id="creator-title">Gene.</h2>
+        <div class="colophon-body">
+          <div class="author-id">
+            <p class="eyebrow">Designed &amp; developed by</p>
+            <h2 id="creator-title">Gene<span>.</span></h2>
             <p>Semiconductor engineer.<br />Software builder.</p>
           </div>
-          <div class="credit-statement">
-            <p>I work on the process.<br />I build the tools.</p>
-            <span
-              >ARTIFACTS is my own engineering software,<br />developed
-              alongside the work it supports.</span
+          <div class="author-note">
+            <h3>The work is personal.<br /><em>The standard isn’t.</em></h3>
+            <p>
+              I build the tools I want beside me.<br />ARTIFACTS brings that
+              work together.
+            </p>
+            <a href="#work"
+              >Explore the work <span aria-hidden="true">↗</span></a
             >
           </div>
         </div>
-        <div class="credit-bottom">
-          <span>ARTIFACTS / by Gene</span
-          ><a href="#top">Back to the beginning <b aria-hidden="true">↑</b></a>
+        <div class="colophon-line colophon-end">
+          <span>Process. Judgment. Code.</span
+          ><a href="#top">Back to the beginning ↑</a>
         </div>
       </section>
     </main>

@@ -67,6 +67,65 @@ function visual(f, a) {
   return `<div class="signal-object" aria-hidden="true">${[0, 1, 2].map((n) => `<div class="signal-plane" style="--plane:${n}"><span>Shared equipment context <i>0${n + 1}</i></span>${image(a)}<div class="signal-crosshair"></div></div>`).join("")}</div>`;
 }
 let html = await fs.readFile("content/page.html", "utf8");
+// Editorial lenses use the catalogue's existing workflow metadata.
+const lenses = [
+  ["observe", "Understand", "History, surfaces and process evidence."],
+  ["compare", "Compare", "Recipes and configurations, side by side."],
+  ["diagnose", "Investigate", "Temperature, arrangements and regions."],
+  ["coordinate", "Coordinate", "Equipment, planning, SPC and reporting."],
+];
+html = html.replace(
+  "<!-- WORK ATLAS -->",
+  lenses
+    .map(
+      ([key, title, caption], i) =>
+        '<div class="atlas-lane"><div class="lane-title"><span>0' +
+        (i + 1) +
+        "</span><h3>" +
+        title +
+        "</h3><p>" +
+        caption +
+        '</p></div><div class="lane-apps">' +
+        apps
+          .filter((a) => a.workflow === key)
+          .map(
+            (a) =>
+              '<a href="#' +
+              features.find((f) => f.id === a.id).kind +
+              '"><span>' +
+              number(a.index) +
+              "</span>" +
+              esc(a.name) +
+              '<b aria-hidden="true">↗</b></a>',
+          )
+          .join("") +
+        "</div></div>",
+    )
+    .join(""),
+);
+html = html.replace(
+  "<!-- PRACTICE -->",
+  ["papyrus-reader", "gan-temp-diagnoser", "lt-report-compiler"]
+    .map((id, i) => {
+      const a = apps.find((a) => a.id === id);
+      return (
+        '<a class="practice-sheet" style="--sheet:' +
+        i +
+        '" href="#' +
+        features.find((f) => f.id === id).kind +
+        '"><div class="sheet-heading"><span>0' +
+        (i + 1) +
+        "</span><h3>" +
+        ["Compare a recipe.", "Investigate a drift.", "Assemble a report."][i] +
+        "</h3></div>" +
+        image(a, true) +
+        '<div class="sheet-result"><span>' +
+        esc(a.name) +
+        '</span><b aria-hidden="true">↗</b></div></a>'
+      );
+    })
+    .join(""),
+);
 html = html.replace(
   "<!-- FEATURES -->",
   features

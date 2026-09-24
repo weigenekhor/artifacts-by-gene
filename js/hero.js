@@ -1,176 +1,157 @@
-import { createPassage } from "./passage.js";
-// Sixteen sections of one computed surface. No textures, shaders or idle render loop.
+// The opening object is the collection itself: sixteen real interface planes.
+// Native scrolling, direct manipulation and replay use the same finite page clock.
 const clamp = (v) => Math.max(0, Math.min(1, v));
 const ease = (v) => {
   v = clamp(v);
-  return v * v * (3 - 2 * v);
+  return v * v * v * (v * (v * 6 - 15) + 10);
 };
-const field = (x, y) =>
-  0.13 +
-  0.24 * Math.exp(-((x - 0.25) ** 2 + (y + 0.15) ** 2) * 3) +
-  0.08 * Math.sin(y * 3 + x * 2) * (1 - x * x - y * y);
-export function createHero(canvas, apps) {
-  const passage = createPassage(canvas, apps);
-  const ctx = canvas.getContext("2d", { alpha: true });
-  if (!ctx)
-    return {
-      resize() {},
-      render() {
-        return false;
-      },
-    };
-  let width = 1,
-    height = 1,
-    dpr = 1,
-    lastKey = "";
-  const strips = Array.from({ length: 16 }, (_, i) => {
-    const x = -0.94 + (i * 1.88) / 15,
-      half = 0.049;
-    const edge = (dx, reverse = false) =>
-      Array.from({ length: 37 }, (_, k) => {
-        const end = Math.sqrt(1 - (x + dx) ** 2),
-          y = (-1 + (reverse ? 36 - k : k) / 18) * end;
-        return [x + dx, y, field(x + dx, y)];
+const mix = (a, b, t) => a + (b - a) * t;
+export function createHero(stage, apps) {
+  const caption = document.createElement("div");
+  caption.className = "universe-caption";
+  const name = document.createElement("strong"),
+    purpose = document.createElement("p");
+  name.textContent = "Explore ARTIFACTS.";
+  purpose.textContent = "Choose an interface. Follow its work.";
+  caption.append(name, purpose);
+  stage.append(caption);
+  const describe = (app) => {
+    name.textContent = app.name;
+    purpose.textContent = app.description;
+  };
+  const planes = apps.map((app, i) => {
+    const a = document.createElement("a"),
+      image = new Image(),
+      label = document.createElement("span");
+    a.className = "universe-plane";
+    a.href =
+      "#" + document.querySelector('[data-study-app="' + app.id + '"]').id;
+    a.setAttribute("aria-label", "Explore " + app.name);
+    a.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      const target = document.querySelector(a.hash),
+        source = target.querySelector(".study-source");
+      const reduced = document.documentElement.classList.contains("reduced");
+      const enter = () => {
+        target.scrollIntoView({ behavior: "instant" });
+        history.replaceState(null, "", a.hash);
+      };
+      if (reduced || !document.startViewTransition) {
+        enter();
+        return;
+      }
+      a.style.viewTransitionName = "artifact-app";
+      const transition = document.startViewTransition(() => {
+        a.style.viewTransitionName = "";
+        source.style.viewTransitionName = "artifact-app";
+        enter();
       });
-    const cap = (sign) =>
-      Array.from({ length: 9 }, (_, k) => {
-        const X = x + (sign === 1 ? -half : half) + ((sign * k) / 8) * half * 2,
-          Y = sign * Math.sqrt(1 - X * X);
-        return [X, Y, field(X, Y)];
-      });
-    return {
-      index: i,
-      x,
-      points: [...edge(-half), ...cap(1), ...edge(half, true), ...cap(-1)],
-    };
+      transition.finished
+        .catch(() => {})
+        .finally(() => {
+          a.style.viewTransitionName = "";
+          source.style.viewTransitionName = "";
+        });
+    });
+    image.src = app.evidence.full;
+    image.width = app.evidence.fullWidth;
+    image.height = app.evidence.fullHeight;
+    image.alt = "";
+    image.decoding = "async";
+    if (i > 3) image.loading = "lazy";
+    label.innerHTML =
+      "<i>" +
+      String(i + 1).padStart(2, "0") +
+      "</i>" +
+      app.name +
+      '<b aria-hidden="true">↗</b>';
+    a.append(image, label);
+    a.addEventListener("pointerenter", () => describe(app));
+    a.addEventListener("focus", () => describe(app));
+    stage.append(a);
+    return { a, i };
   });
-  function resize() {
-    width = canvas.clientWidth;
-    height = canvas.clientHeight;
-    dpr = Math.min(devicePixelRatio, innerWidth < 700 ? 1.5 : 1.7);
-    canvas.width = Math.round(width * dpr);
-    canvas.height = Math.round(height * dpr);
-    lastKey = "";
-    passage.resize();
-  }
-  resize();
-  canvas.classList.add("ready");
+  stage.classList.add("ready");
+  let w = innerWidth,
+    h = innerHeight,
+    last = "";
   return {
-    resize,
+    resize() {
+      w = stage.clientWidth;
+      h = stage.clientHeight;
+      last = "";
+    },
     render(time, p, px, py, reduced, dt, state) {
-      const progress = reduced ? 0 : p,
-        opening = Math.max(state.spread, ease((progress - 0.08) / 0.4)),
-        exit = ease((progress - 0.47) / 0.41);
-      canvas.inert = !reduced && progress > 0.72;
-      passage.update(progress, opening, reduced, px, py);
-      const yaw =
-          (-0.55 + state.yaw * 0.35 + (reduced ? 0 : px * 0.07)) *
-          (1 - opening * 0.72),
-        pitch = 0.78 + state.pitch * 0.3 + (reduced ? 0 : py * 0.035);
-      const key = [progress, opening, yaw, pitch, width, height]
+      const expansion = Math.max(
+          state.spread,
+          reduced ? 0 : ease((p - 0.035) / 0.38),
+        ),
+        departure = reduced ? 0 : ease((p - 0.53) / 0.38);
+      const yaw = state.yaw * 0.38 + (reduced ? 0 : px * 0.035),
+        pitch = state.pitch * 0.32 + (reduced ? 0 : py * 0.025);
+      const key = [expansion, departure, yaw, pitch, w, h]
         .map((n) => n.toFixed(4))
         .join("|");
-      if (key === lastKey) return false;
-      lastKey = key;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.clearRect(0, 0, width, height);
-      if (exit >= 0.999) return false;
-      const mobile = width < 650,
-        scale =
-          Math.min(width * (mobile ? 0.32 : 0.39), height * 0.52) *
-          (1 + exit * 1.8),
-        cx = width * (mobile ? 0.5 : 0.65 - opening * 0.15),
-        cy = height * (mobile ? 0.57 : 0.61 - opening * 0.1);
-      const sy = Math.sin(yaw),
-        co = Math.cos(yaw),
-        sp = Math.sin(pitch),
-        cp = Math.cos(pitch);
-      const project = (v, i, down = 0) => {
-        const side = i < 8 ? -1 : 1;
-        const x =
-            v[0] +
-            (i - 7.5) * opening * 0.02 +
-            side * (opening * 0.8 + exit * 1.75),
-          y = v[1],
-          z = v[2] - down + opening * Math.sin((i / 15) * Math.PI) * 0.19;
-        const X = x * co - y * sy,
-          Y = x * sy + y * co,
-          Z = z * cp - Y * sp;
-        return [
-          cx + X * scale,
-          cy + (Y * cp + z * -sp) * scale - exit * height * 0.05,
-          Z,
-        ];
-      };
-      const draw = (points) => {
-        ctx.beginPath();
-        points.forEach((v, i) =>
-          i ? ctx.lineTo(v[0], v[1]) : ctx.moveTo(v[0], v[1]),
+      if (key === last) return false;
+      last = key;
+      const mobile = w < 700,
+        unit = mobile ? 0.62 : Math.min(1.2, w / 1440),
+        cx = mix(mobile ? 0.5 : 0.65, 0.5, expansion) * w,
+        cy = h * (mobile ? 0.52 : 0.57);
+      stage.style.setProperty("--unfold", expansion);
+      stage.parentElement.style.setProperty("--unfold", expansion);
+      stage.style.setProperty("--departure", departure);
+      stage.classList.toggle("unfolded", expansion > 0.6);
+      stage.inert = departure > 0.93;
+      for (const { a, i } of planes) {
+        const theta = (i / 16) * Math.PI * 2 - Math.PI * 0.5;
+        // A compact helical assembly becomes a radial, legible collection.
+        const rx = mix(142 * unit, w * (mobile ? 0.37 : 0.365), expansion),
+          ry = mix(118 * unit, h * (mobile ? 0.23 : 0.29), expansion);
+        const orbit = theta + yaw * (1 - expansion * 0.55),
+          z = Math.sin(theta * 2 + 0.5) * mix(100, 24, expansion) * unit;
+        let x = Math.cos(orbit) * rx,
+          y = Math.sin(orbit) * ry;
+        const sy = Math.sin(pitch),
+          co = Math.cos(pitch),
+          Y = y * co - z * sy,
+          Z = y * sy + z * co;
+        const travel = 1 + departure * 4.8;
+        const scale =
+          mix(0.83 + (i % 3) * 0.04, mobile ? 0.47 : 0.67, expansion) * unit;
+        const angleX =
+          mix(18 + Math.cos(theta) * 13, Math.sin(theta) * -5, expansion) +
+          pitch * 24;
+        const angleY =
+          mix(-26 + Math.sin(theta) * 24, Math.cos(theta) * -12, expansion) +
+          yaw * 20;
+        const angleZ = mix(-18 + i * 2.4, Math.cos(theta) * 3, expansion);
+        a.hidden = departure > 0.998;
+        a.tabIndex = departure > 0.8 ? -1 : 0;
+        a.style.transform =
+          "translate3d(" +
+          (cx + x * travel) +
+          "px," +
+          (cy + Y * travel) +
+          "px," +
+          Z +
+          "px) translate(-50%,-50%) rotateX(" +
+          angleX +
+          "deg) rotateY(" +
+          angleY +
+          "deg) rotateZ(" +
+          angleZ +
+          "deg) scale(" +
+          scale * (1 + departure * 0.6) +
+          ")";
+        a.style.opacity = 1 - ease((departure - 0.75) / 0.25);
+        a.style.setProperty(
+          "--plane-light",
+          (0.18 + (Z + 160) / 640).toFixed(3),
         );
-        ctx.closePath();
-      };
-      ctx.globalAlpha = (1 - exit) ** 2;
-      // Soft ambient contact is a single gradient, not a full-canvas blur pass.
-      const shadow = ctx.createRadialGradient(
-        cx,
-        cy + scale * 0.36,
-        scale * 0.02,
-        cx,
-        cy + scale * 0.36,
-        scale * 0.9,
-      );
-      shadow.addColorStop(0, "#00000080");
-      shadow.addColorStop(1, "#00000000");
-      ctx.fillStyle = shadow;
-      ctx.fillRect(0, 0, width, height);
-      ctx.globalAlpha = 1;
-      const ordered = strips
-        .map((s) => ({ ...s, depth: project([s.x, 0, 0.1], s.index)[2] }))
-        .sort((a, b) => a.depth - b.depth);
-      for (const s of ordered) {
-        const top = s.points.map((v) => project(v, s.index)),
-          bottom = s.points.map((v) => project(v, s.index, 0.036));
-        draw(bottom);
-        ctx.fillStyle = "#080c0c";
-        ctx.fill();
-        ctx.strokeStyle = "#475552";
-        ctx.lineWidth = 0.8;
-        ctx.stroke();
-        const light = ctx.createLinearGradient(
-          cx - scale,
-          cy - scale * 0.3,
-          cx + scale,
-          cy + scale * 0.35,
-        );
-        light.addColorStop(0, "#2a3534");
-        light.addColorStop(0.32, "#8a9690");
-        light.addColorStop(0.49, "#d3d6c4");
-        light.addColorStop(0.58, "#728782");
-        light.addColorStop(0.8, "#243935");
-        light.addColorStop(1, "#0a1615");
-        draw(top);
-        ctx.fillStyle = light;
-        ctx.fill();
-        ctx.strokeStyle = "rgba(200,213,202,.40)";
-        ctx.lineWidth = 0.65;
-        ctx.stroke();
-        // Fine section contours stay attached to their surface as the lamellae separate.
-        for (let j = 1; j < 4; j++) {
-          const x = s.x - 0.05 + j * 0.025,
-            end = Math.sqrt(Math.max(0, 1 - (Math.abs(s.x) + 0.049) ** 2));
-          ctx.beginPath();
-          for (let k = 0; k <= 36; k++) {
-            const y = (-1 + k / 18) * end,
-              q = project([x, y, field(x, y) + 0.001], s.index);
-            k ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1]);
-          }
-          ctx.strokeStyle =
-            j === 2 ? "rgba(235,221,179,.34)" : "rgba(15,36,30,.27)";
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
-        }
+        a.style.zIndex = String(Math.round(Z + 300));
       }
-      ctx.globalAlpha = 1;
       return false;
     },
   };

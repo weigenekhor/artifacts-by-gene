@@ -171,7 +171,7 @@ features.forEach((el, index) =>
     playback = {
       index,
       start: performance.now(),
-      duration: 34000 + (index % 3) * 2200,
+      duration: 17000 + (index % 3) * 900,
     };
     el.querySelector(".study-play").setAttribute("aria-pressed", "true");
     el.querySelector(".study-play").innerHTML =

@@ -14,13 +14,13 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The current sectional surface opens around real application captures. Scrolling moves through these complete interface planes into the restored expanding light reveal and original story chapter. Canvas 2D geometry and DOM image planes share one finite clock and stop when input settles. The passage loads images on entry; there is no WebGL. Drag, keyboard and explicit opening controls remain available. A CSS composition remains available without JavaScript.
+The opening object consists of all sixteen actual application interfaces. Drag or scroll expands the assembly into a radial collection; every plane links to its own study with a shared-element handoff where supported. A dark-to-light reveal introduces the full scope of the work, followed by a task-to-tool chapter and functional navigation across the collection. One finite clock drives DOM perspective transforms and stops at rest. No Canvas or WebGL is required.
 
 The complete collection follows, beginning with the uncropped ARTIFACTS homepage and then all sixteen applications in order. All seventeen captures fit fully inside their frames as scrolling advances them. The rail, arrows, horizontal touch gestures and direct links provide optional shortcuts. The final index preserves the original four collections and opens every real interface. Creator attribution stays quiet.
 
-Read `ARTIFACTS_CREATIVE_DIRECTION.md` and `ARTIFACTS_EXPERIENCE_STORYBOARD.md` for the governing story and factual boundaries. The hero caps canvas resolution and skips identical frames. Full-resolution application captures remain in the DOM viewer.
+Read `ARTIFACTS_CREATIVE_DIRECTION.md` and `ARTIFACTS_EXPERIENCE_STORYBOARD.md` for the governing story and factual boundaries. The hero skips identical frames. Full-resolution application captures remain in the DOM viewer.
 
-Every app has seven states from its source interface through activation, decomposition, analysis, transformation, resolution and its own closure. Native scrolling controls the sequences; optional replay runs for 34–38.4 seconds. A second keyboard-accessible range selects a task-specific inspection region. Diagrams illustrate relationships, not measured results or cross-application integration.
+Every app has seven states from its source interface through activation, decomposition, analysis, transformation, resolution and its own closure. Native scrolling controls the sequences; optional replay runs for 17–18.8 seconds. A second keyboard-accessible range selects a task-specific inspection region. Diagrams illustrate relationships, not measured results or cross-application integration.
 
 ## Source files
 
@@ -30,14 +30,13 @@ Every app has seven states from its source interface through activation, decompo
 - `scripts/build.mjs`: static SVG generation, HTML rendering and script bundling.
 - `js/contours.js`: build-time equal-height contour extraction for an illustrative field.
 - `js/experience.js`: shared clock, scroll progression, replay, app picker, archive and image viewer.
-- `js/hero.js`: finite sectional surface rendering and projected geometry.
+- `js/hero.js`: sixteen-interface assembly, radial expansion and shared-element navigation.
 - `js/hero-interaction.js`: drag, keyboard, separation and reset controls.
 - `content/homepage.json`: the homepage capture preceding the sixteen apps.
-- `js/passage.js`: actual application surfaces within the opening camera passage.
 - `js/inspection.js`: contextual inspection notes and geometry tracking for all sixteen studies.
 - `js/analysis.js`: application-specific spatial inspection and recomposition.
 - `js/instruments.js`: app-specific route markers, contour layers and inspection choreography.
-- `entry.css`: sectional entry, restored reveal and Gene credit composition.
+- `entry.css`: application assembly, task-to-tool chapter, functional index and creator colophon.
 - `artifact.css`: current Artifact, interface passage and responsive study composition.
 - `experience.css`: entry composition, study camera, image fitting and picker.
 - `styles.css` and `studies.css`: visual design, extended study pacing, responsive composition and reduced motion.

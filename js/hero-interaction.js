@@ -5,7 +5,8 @@ export function createHeroInteraction(apps, wake) {
     reset = document.querySelector("#hero-reset");
   const target = { yaw: 0, pitch: 0, spread: 0 },
     current = { ...target };
-  let drag = null;
+  let drag = null,
+    suppressClick = false;
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   function toggle() {
     target.spread = target.spread ? 0 : 1;
@@ -24,12 +25,22 @@ export function createHeroInteraction(apps, wake) {
   reset.addEventListener("click", restore);
   canvas.addEventListener("pointerdown", (e) => {
     if (e.button !== 0) return;
-    drag = { id: e.pointerId, x: e.clientX, y: e.clientY };
-    canvas.setPointerCapture(e.pointerId);
+    drag = {
+      id: e.pointerId,
+      x: e.clientX,
+      y: e.clientY,
+      startX: e.clientX,
+      startY: e.clientY,
+      moved: false,
+    };
     canvas.classList.add("dragging");
   });
   canvas.addEventListener("pointermove", (e) => {
     if (!drag || drag.id !== e.pointerId) return;
+    if (Math.hypot(e.clientX - drag.startX, e.clientY - drag.startY) > 5) {
+      drag.moved = true;
+      canvas.setPointerCapture(e.pointerId);
+    }
     target.yaw = clamp(target.yaw + (e.clientX - drag.x) * 0.009, -1.3, 1.3);
     target.pitch = clamp(
       target.pitch + (e.clientY - drag.y) * 0.006,
@@ -41,6 +52,7 @@ export function createHeroInteraction(apps, wake) {
     wake();
   });
   const release = (e) => {
+    suppressClick = !!drag?.moved;
     drag = null;
     canvas.classList.remove("dragging");
     if (canvas.hasPointerCapture(e.pointerId))
@@ -48,7 +60,19 @@ export function createHeroInteraction(apps, wake) {
   };
   canvas.addEventListener("pointerup", release);
   canvas.addEventListener("pointercancel", release);
+  canvas.addEventListener(
+    "click",
+    (e) => {
+      if (suppressClick) {
+        e.preventDefault();
+        e.stopPropagation();
+        suppressClick = false;
+      }
+    },
+    true,
+  );
   canvas.addEventListener("keydown", (e) => {
+    if (e.target.closest("a")) return;
     if (
       ![
         "ArrowLeft",
