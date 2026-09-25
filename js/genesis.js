@@ -1,4 +1,4 @@
-import { drawOriginField } from "./origin-field.js";
+import { drawIdentityField } from "./identity-field.js";
 // One camera and one persistent set of paths, from identity to construction.
 const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
 const mix = (a, b, t) => a + (b - a) * t;
@@ -15,7 +15,7 @@ const stages = [
 ];
 
 export function createGenesis(section, wake) {
-  const field = section.querySelector(".logic-field"),
+  const field = section.querySelector(".identity-field"),
     canvas = field.querySelector("canvas"),
     ctx = canvas.getContext("2d");
   const pages = [...section.querySelectorAll(".construction-page")],
@@ -39,6 +39,10 @@ export function createGenesis(section, wake) {
     yaw = 0,
     pitch = 0,
     previousReduced = null;
+  document.fonts.ready.then(() => {
+    lastDraw = "";
+    wake();
+  });
   field.addEventListener("keydown", (e) => {
     if (
       !["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "r", "R"].includes(
@@ -99,11 +103,11 @@ export function createGenesis(section, wake) {
         1 - Math.exp(-dt / 170),
       );
       const p = progress,
-        light = ease((p - 0.75) / 0.6) * (1 - ease((p - 4.4) / 0.85));
+        light = ease((p - 0.75) / 0.6) * (1 - ease((p - 4.8) / 0.85));
       const index = p < 0.95 ? -1 : Math.min(4, Math.floor(p - 1));
       const storyVisible = ease((p - 0.85) / 0.22),
-        departure = ease((p - 5.55) / 0.3);
-      section.style.setProperty("--intro", 1 - ease((p - 0.15) / 0.48));
+        departure = ease((p - 5.3) / 0.4);
+      section.style.setProperty("--intro", 1 - ease((p - 0.38) / 0.38));
       section.style.setProperty("--story", storyVisible * (1 - departure));
       section.style.setProperty("--light", light);
       section.style.setProperty("--exit", departure);
@@ -147,7 +151,7 @@ export function createGenesis(section, wake) {
       lastDraw = frame;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, width, height);
-      drawOriginField(ctx, {
+      drawIdentityField(ctx, {
         width,
         height,
         p,

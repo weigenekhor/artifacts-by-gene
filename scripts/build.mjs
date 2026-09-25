@@ -17,17 +17,8 @@ const image = (a, full = false) =>
 function sceneLayers(a) {
   return (
     '<div class="study-source" aria-hidden="true">' +
-    [0, 1, 2]
-      .map(
-        (i) =>
-          '<div class="source-slice" style="--slice:' +
-          i +
-          '">' +
-          image(a, true) +
-          "</div>",
-      )
-      .join("") +
-    '<div class="source-activation"></div><span>' +
+    image(a, true) +
+    "<span>" +
     esc(a.name) +
     "</span></div>"
   );
@@ -35,7 +26,7 @@ function sceneLayers(a) {
 function visual(f) {
   if (f.kind === "surface")
     return `<div class="topography" aria-hidden="true"><div class="topography-key"><span>Sample positions → contour field</span><span>Illustrative geometry</span></div><canvas></canvas><div class="topography-scale"><span>Lower</span><i></i><span>Higher</span></div></div>`;
-  return `<div class="spatial-study" aria-hidden="true"><canvas></canvas></div>`;
+  return `<div class="function-study" aria-hidden="true"><canvas></canvas></div>`;
 }
 
 let html = await fs.readFile("content/page.html", "utf8");
@@ -80,7 +71,7 @@ html = html.replace(
     .map((f, i) => {
       const a = apps.find((a) => a.id === f.id),
         next = features[i + 1];
-      return `<section class="feature feature-${f.kind}${f.paper ? " feature-paper" : ""}" id="${f.kind}" style="--scene-length:${f.duration}svh" data-feature="${f.kind}" data-timings="${f.timings.join(",")}" data-study-app="${a.id}" data-beats="${esc(JSON.stringify(f.beats))}" aria-labelledby="title-${f.kind}"><div class="feature-stage"><div class="feature-top"><span>${f.number} / 16</span><span>${esc(a.name)}</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">${esc(a.description)}</p><h2 id="title-${f.kind}">${lines(f.title)}</h2><p>${esc(f.text)}</p><div class="feature-verbs">${f.verbs.map((v, i) => `<span data-phase="${i}">${v}</span>`).join("<i>→</i>")}</div><p class="study-beat">${esc(f.beats[0])}</p></div><div class="feature-visual"><div class="study-camera">${visual(f, a)}</div><div class="focus-caption"><span>${esc(f.focusLabel)}</span><output class="focus-position">01</output></div></div>${sceneLayers(a)}<button class="evidence" data-capture="${a.id}" aria-label="See the actual ${esc(a.name)} interface">${image(a, true)}<span><b>Inside ${esc(a.name)}</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">${esc(f.focusLabel)}<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect ${esc(f.focusLabel)} in the concept demonstration"></label><button class="study-play" aria-label="Play the ${esc(a.name)} sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore ${esc(a.name)} concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#${next ? next.kind : "gene"}">Next / ${esc(next ? f.handoff : "A note from Gene")} <b>↓</b></a></div></div></section>`;
+      return `<section class="feature feature-${f.kind}${f.paper ? " feature-paper" : ""}" id="${f.kind}" style="--scene-length:${f.duration}svh" data-feature="${f.kind}" data-timings="${f.timings.join(",")}" data-states="${esc(JSON.stringify(f.states))}" data-study-app="${a.id}" data-beats="${esc(JSON.stringify(f.beats))}" aria-labelledby="title-${f.kind}"><div class="feature-stage"><div class="feature-top"><span>${f.number} / 16</span><span>${esc(a.name)}</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">${esc(a.description)}</p><h2 id="title-${f.kind}">${lines(f.title)}</h2><p>${esc(f.text)}</p><div class="feature-verbs">${f.verbs.map((v, i) => `<span data-phase="${i}">${v}</span>`).join("<i>→</i>")}</div><p class="study-beat">${esc(f.beats[0])}</p></div><div class="feature-visual">${visual(f, a)}<div class="focus-caption"><span>${esc(f.focusLabel)}</span><output class="focus-position">01</output></div></div>${sceneLayers(a)}<button class="evidence" data-capture="${a.id}" aria-label="See the actual ${esc(a.name)} interface">${image(a, true)}<span><b>Inside ${esc(a.name)}</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">${esc(f.focusLabel)}<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect ${esc(f.focusLabel)} in the concept demonstration"></label><button class="study-play" aria-label="Play the ${esc(a.name)} sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore ${esc(a.name)} concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#${next ? next.kind : "gene"}">Next / ${esc(next ? f.handoff : "A note from Gene")} <b>↓</b></a></div></div></section>`;
     })
     .join(""),
 );

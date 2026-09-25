@@ -111,16 +111,6 @@
   margin: 18px auto 0;
   max-width: 260px;
 }
-.study-camera {
-  transform: perspective(1300px)
-    translate3d(
-      var(--camera-x, 0px),
-      var(--camera-y, 0px),
-      var(--camera-z, 0px)
-    )
-    rotateX(var(--camera-rx, 0deg)) rotateY(var(--camera-ry, 0deg));
-  transform-style: preserve-3d;
-}
 .study-source {
   transform-style: preserve-3d;
   transform: perspective(1500px) translateZ(calc(var(--decompose) * 80px))
@@ -136,15 +126,6 @@
       )
     )
     scale(calc(1 - var(--entry) * (1 - var(--review)) * 0.27));
-}
-.source-slice {
-  transform: translate3d(
-      calc((var(--slice) - 1) * var(--decompose) * 76px),
-      calc((var(--slice) - 1) * var(--decompose) * 42px),
-      calc(var(--decompose) * (3 - var(--slice)) * 75px)
-    )
-    rotateY(calc((var(--slice) - 1) * var(--decompose) * 6deg));
-  transform-origin: center;
 }
 ::view-transition-group(artifact-app) {
   animation-duration: 650ms;

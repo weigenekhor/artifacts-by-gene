@@ -826,35 +826,6 @@ html:not(.enhanced) .feature-visual {
     scale(calc(1 - var(--entry) * (1 - var(--review)) * 0.4));
   transform-origin: 50% 50%;
 }
-.source-slice {
-  position: absolute;
-  inset: 0;
-  clip-path: inset(
-    calc(var(--slice) * 33.333%) 0 calc((2 - var(--slice)) * 33.333%) 0
-  );
-  transform: translate3d(
-    calc((var(--slice) - 1) * var(--decompose) * 50px),
-    calc((var(--slice) - 1) * var(--decompose) * 35px),
-    calc(var(--decompose) * (3 - var(--slice)) * 50px)
-  );
-  background: transparent;
-}
-.source-slice img {
-  box-shadow: none;
-}
-.source-activation {
-  position: absolute;
-  left: 9%;
-  right: 5%;
-  top: 22%;
-  bottom: 12%;
-  border: 1px solid #dcbb87;
-  box-shadow: 0 0 0 100px #06100d25;
-  clip-path: inset(0);
-  opacity: var(--activation);
-  transform: scaleX(calc(0.92 + var(--activation) * 0.08));
-  pointer-events: none;
-}
 .study-source > span {
   font-size: 12px;
   letter-spacing: 0;

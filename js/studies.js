@@ -1,5 +1,5 @@
 import { createTopography } from "./topography.js";
-import { createSpatialStudy } from "./spatial-studies.js";
+import { createFunctionStudy } from "./function-studies.js";
 // Interface, method, inspection and handoff share the page's single clock.
 const clamp = (v) => Math.max(0, Math.min(1, v));
 const smooth = (v) => {
@@ -11,7 +11,7 @@ export function createStudy(el, wake) {
     beat = el.querySelector(".study-beat"),
     control = el.querySelector(".study-control input"),
     verbs = [...el.querySelectorAll("[data-phase]")];
-  const spatial = createSpatialStudy(el, wake);
+  const spatial = createFunctionStudy(el, wake);
   const topography = createTopography(el, wake);
   const timings = el.dataset.timings.split(",").map(Number);
   const stateName = el.querySelector(".state-name"),
@@ -38,44 +38,24 @@ export function createStudy(el, wake) {
     inspection = null;
     wake();
   });
-  const camera = el.querySelector(".study-camera"),
-    kind = el.dataset.feature;
-  const angle = {
-    history: [5, -9],
-    schedule: [12, 5],
-    usage: [19, -11],
-    surface: [-5, 9],
-    compare: [4, -7],
-    pathfinder: [7, 8],
-    compile: [12, -12],
-    diagnose: [5, -8],
-    arrange: [24, -7],
-    zones: [22, 8],
-    configuration: [4, 11],
-    spc: [7, -8],
-    legacy: [4, 9],
-    planning: [12, -8],
-    report: [9, 11],
-    signals: [13, -12],
-  }[kind];
-  el.style.setProperty("--source-rx", angle[0] * 0.55 + "deg");
-  el.style.setProperty("--source-ry", angle[1] + "deg");
+  const kind = el.dataset.feature,
+    states = JSON.parse(el.dataset.states);
   const regions = {
     history: ["Event", 7],
     schedule: ["Interval", 8],
     usage: ["Chamber", 3],
     surface: ["Region", 5],
     compare: ["Step", 7],
-    pathfinder: ["Chart interval", 8],
-    compile: ["Report section", 6],
+    pathfinder: ["Parameter", 3],
+    compile: ["Report section", 3],
     diagnose: ["Recommended check", 3],
     arrange: ["Position", 5],
     zones: ["Position", 5],
     configuration: ["Property", 6],
-    spc: ["Chart interval", 8],
+    spc: ["Signal", 3],
     legacy: ["Parameter", 5],
     planning: ["Interval", 8],
-    report: ["Report section", 6],
+    report: ["Report section", 3],
     signals: ["Shared interval", 8],
   }[kind];
   const output = el.querySelector(".focus-position");
@@ -87,9 +67,7 @@ export function createStudy(el, wake) {
         reduced || manual
           ? wanted
           : p + (wanted - p) * (1 - Math.exp(-dt / 70));
-      const functional = clamp((p - 0.27) / 0.53);
-      const expand =
-        smooth((p - 0.51) / 0.14) * (1 - smooth((p - 0.73) / 0.12));
+      const functional = clamp((p - 0.15) / 0.72);
       const stages = {
         gather: smooth(functional / 0.32),
         resolve: smooth((functional - 0.22) / 0.44),
@@ -100,19 +78,10 @@ export function createStudy(el, wake) {
       for (const [key, value] of Object.entries(stages))
         el.style.setProperty("--" + key, value);
       control.value = Math.round(p * 100);
-      el.style.setProperty("--entry", smooth((p - 0.22) / 0.14));
-      el.style.setProperty("--review", smooth((p - 0.79) / 0.1));
-      el.style.setProperty(
-        "--activation",
-        smooth((p - 0.1) / 0.1) * (1 - smooth((p - 0.23) / 0.08)),
-      );
-      el.style.setProperty(
-        "--decompose",
-        smooth((p - 0.19) / 0.13) * (1 - smooth((p - 0.32) / 0.06)),
-      );
-      el.style.setProperty("--analysis", reduced ? 0 : expand);
-      el.style.setProperty("--closure", smooth((p - 0.88) / 0.08));
-      el.classList.toggle("source-view", !reduced && (p < 0.36 || p > 0.79));
+      el.style.setProperty("--entry", smooth((p - 0.12) / 0.1));
+      el.style.setProperty("--review", smooth((p - 0.89) / 0.07));
+      el.style.setProperty("--closure", smooth((p - 0.91) / 0.08));
+      el.classList.toggle("source-view", !reduced && (p < 0.19 || p > 0.92));
       output.textContent =
         regions[0] +
         " " +
@@ -120,51 +89,10 @@ export function createStudy(el, wake) {
           Math.min(regions[1] - 1, Math.floor(stages.inspect * regions[1])) + 1,
         ).padStart(2, "0");
       if (inspection === null) focus.value = Math.round(stages.inspect * 100);
-      const depth = Math.sin(Math.PI * stages.resolve);
-      const orbit = Math.sin(Math.PI * functional),
-        settle = 1 - smooth((functional - 0.76) / 0.24);
-      const mobile = innerWidth < 700,
-        scale = mobile ? 0.22 : 1;
-      camera.style.setProperty(
-        "--camera-x",
-        ((1 - stages.gather) * 32 + orbit * angle[1] * 1.2 + px * 4 * settle) *
-          scale +
-          "px",
-      );
-      camera.style.setProperty(
-        "--camera-y",
-        (-depth * 22 + py * 3 * settle) * scale + "px",
-      );
-      camera.style.setProperty(
-        "--camera-z",
-        (depth * 130 + expand * 32) * scale + "px",
-      );
-      camera.style.setProperty(
-        "--camera-rx",
-        (angle[0] * ((1 - stages.resolve) * 1.25 + orbit * 0.3) +
-          py * 1.5 * settle) *
-          scale +
-          "deg",
-      );
-      camera.style.setProperty(
-        "--camera-ry",
-        (angle[1] * ((1 - stages.resolve) * 1.5 - orbit * 0.45) +
-          px * 2 * settle) *
-          scale +
-          "deg",
-      );
       const next = timings.filter((t) => p >= t).length;
       if (next !== phase) {
         beat.textContent = beats[next];
-        stateName.textContent = [
-          "Identity",
-          "Activation",
-          "Decomposition",
-          "Analysis",
-          "Transformation",
-          "Resolution",
-          "Closure",
-        ][next];
+        stateName.textContent = states[next];
         stateNumber.textContent = String(next + 1).padStart(2, "0") + " / 07";
         verbs.forEach((v, i) =>
           v.classList.toggle(

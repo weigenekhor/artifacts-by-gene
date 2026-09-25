@@ -7,22 +7,31 @@
     "kicker": "Lot history analysis.",
     "verbs": ["Gather", "Order", "Follow"],
     "beats": [
-      "Lot history analysis.",
-      "Locate the event records.",
-      "Separate the events from the log.",
-      "Timestamps bring the sequence together.",
-      "Inspect an event without losing the sequence.",
-      "Follow the lot without losing its context.",
-      "The lot history returns with its context intact."
+      "Start with the real lot history interface.",
+      "Events arrive with their own timestamps and states.",
+      "Bring timestamps onto one temporal axis.",
+      "The lot becomes a readable sequence.",
+      "Each event retains its wafer state and duration.",
+      "Inspect one event without losing the surrounding history.",
+      "Read the complete history in the application."
     ],
     "caption": "Lot history analysis.",
     "number": "01",
     "paper": false,
     "handoff": "Altus ANKO Viewer",
     "focusLabel": "Event context",
-    "duration": 430,
+    "duration": 420,
     "closure": "The lot history returns with its context intact.",
-    "timings": [0.12, 0.23, 0.36, 0.54, 0.73, 0.89]
+    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "states": [
+      "Interface",
+      "Process events",
+      "Timestamps",
+      "Chronology",
+      "State + duration",
+      "Inspect an event",
+      "Lot history"
+    ]
   },
   {
     "id": "altus-anko-viewer",
@@ -32,22 +41,31 @@
     "kicker": "ANKO schedule retrieval.",
     "verbs": ["Retrieve", "Align", "Look ahead"],
     "beats": [
-      "ANKO schedule retrieval.",
-      "Locate each equipment schedule.",
-      "Separate the equipment lanes.",
-      "The lanes settle into a shared view.",
-      "Read one interval across the schedule.",
-      "Attention moves to the work ahead.",
-      "Dates stay attached to the equipment."
+      "Start with the retrieved equipment schedules.",
+      "Separate schedules retain their equipment identity.",
+      "Different local date ranges move toward a shared axis.",
+      "Equipment lanes now read against the same dates.",
+      "Future windows become directly comparable.",
+      "Move one interval through the equipment lanes.",
+      "Return to the schedule with its equipment context."
     ],
     "caption": "ANKO schedule retrieval.",
     "number": "02",
     "paper": false,
     "handoff": "Altus WaferCount",
     "focusLabel": "Schedule interval",
-    "duration": 450,
+    "duration": 420,
     "closure": "Dates stay attached to the equipment.",
-    "timings": [0.12, 0.23, 0.375, 0.56, 0.73, 0.89]
+    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "states": [
+      "Interface",
+      "Schedules",
+      "Local dates",
+      "Shared axis",
+      "Future windows",
+      "Inspect an interval",
+      "Equipment context"
+    ]
   },
   {
     "id": "altus-wafercount",
@@ -57,22 +75,31 @@
     "kicker": "Chamber usage and wafer counts.",
     "verbs": ["Collect", "Accumulate", "Review"],
     "beats": [
-      "Chamber usage and wafer counts.",
-      "Locate the chamber records.",
-      "Collect the individual wafer activity.",
-      "Activity gathers around each chamber.",
-      "Inspect one chamber within the accumulated activity.",
-      "Usage becomes something you can review.",
-      "Chamber usage returns to the complete view."
+      "Start with chamber usage in the real interface.",
+      "Individual wafer events enter their chamber lanes.",
+      "Each passage leaves a retained event.",
+      "The retained events build up by chamber.",
+      "Many events resolve into a chamber-level usage signal.",
+      "Inspect one chamber while retaining the others.",
+      "Review chamber usage in its maintenance context."
     ],
     "caption": "Chamber usage and wafer counts.",
     "number": "03",
     "paper": false,
     "handoff": "TopoTracer",
     "focusLabel": "Chamber activity",
-    "duration": 450,
+    "duration": 420,
     "closure": "Chamber usage returns to the complete view.",
-    "timings": [0.12, 0.23, 0.39, 0.54, 0.73, 0.89]
+    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "states": [
+      "Interface",
+      "Wafer activity",
+      "Chamber passage",
+      "Retained events",
+      "Usage summary",
+      "Inspect a chamber",
+      "Maintenance context"
+    ]
   },
   {
     "id": "topotracer",
@@ -95,9 +122,18 @@
     "paper": true,
     "handoff": "Papyrus Reader",
     "focusLabel": "Wafer region",
-    "duration": 470,
+    "duration": 420,
     "closure": "The region returns to the whole wafer.",
-    "timings": [0.12, 0.23, 0.36, 0.56, 0.73, 0.89]
+    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "states": [
+      "Interface",
+      "Sample positions",
+      "Geometry",
+      "Interpolation",
+      "Contour field",
+      "Inspect a section",
+      "Topography"
+    ]
   },
   {
     "id": "papyrus-reader",
@@ -109,20 +145,29 @@
     "caption": "Logical recipe and text comparison.",
     "number": "05",
     "beats": [
-      "Logical recipe and text comparison.",
-      "Locate the two recipe streams.",
-      "Separate the steps without changing their order.",
-      "Equivalent steps find their counterparts.",
-      "Isolate the changed step. Keep its counterpart visible.",
-      "The unchanged settles back. Differences remain.",
-      "The comparison returns to the complete recipes."
+      "Start with the actual recipe comparison.",
+      "The two raw layouts have different spacing.",
+      "Identify the corresponding logical steps.",
+      "Equivalent steps align, despite different line positions.",
+      "Unchanged content quiets; the meaningful difference remains.",
+      "Inspect a changed step beside its counterpart.",
+      "Return to the real comparison with the difference in context."
     ],
     "paper": true,
     "handoff": "SPC Pathfinder",
     "focusLabel": "Recipe step",
-    "duration": 480,
+    "duration": 420,
     "closure": "The comparison returns to the complete recipes.",
-    "timings": [0.12, 0.23, 0.375, 0.54, 0.73, 0.89]
+    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "states": [
+      "Interface",
+      "Two recipes",
+      "Logical steps",
+      "Correspondence",
+      "Differences",
+      "Inspect counterparts",
+      "Comparison"
+    ]
   },
   {
     "id": "spc-pathfinder",
@@ -132,22 +177,31 @@
     "kicker": "SPC chart finder.",
     "verbs": ["Locate", "Select", "Open"],
     "beats": [
-      "SPC chart finder.",
-      "Locate the workcentre and parameter group.",
-      "Separate the selection path from the chart.",
-      "One parameter group comes into focus.",
-      "Follow the selected parameter into its chart.",
-      "The selected path resolves into a chart.",
-      "Chart and selection context return together."
+      "Start with the SPC chart finder.",
+      "Begin inside a workcentre.",
+      "Narrow the parameter family.",
+      "Retain the path to the specific parameter.",
+      "The search resolves to its chart.",
+      "Inspect the chart without losing the selection context.",
+      "Open the chart from its original application."
     ],
     "caption": "SPC chart finder.",
     "number": "06",
     "paper": true,
     "handoff": "GaN Met Compiler",
-    "focusLabel": "Parameter trace",
-    "duration": 450,
+    "focusLabel": "Selected parameter",
+    "duration": 420,
     "closure": "Chart and selection context return together.",
-    "timings": [0.12, 0.23, 0.39, 0.56, 0.73, 0.89]
+    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "states": [
+      "Interface",
+      "Workcentre",
+      "Parameter family",
+      "Parameter",
+      "Target chart",
+      "Inspect the chart",
+      "Chart context"
+    ]
   },
   {
     "id": "gan-met-compiler",
@@ -157,22 +211,31 @@
     "kicker": "Metrology report compiler.",
     "verbs": ["Gather", "Calculate", "Compile"],
     "beats": [
-      "Metrology report compiler.",
-      "Locate the metrology inputs.",
-      "Separate source records, calculation and report.",
-      "A common calculation structure brings them together.",
-      "Follow the inputs into individual report sections.",
-      "The inputs resolve into a consistent report.",
-      "The compiled report keeps a visible source context."
+      "Start with the actual metrology compiler.",
+      "Separate metrology sources remain identifiable.",
+      "Bring source records into the calculation structure.",
+      "Apply the report calculation structure.",
+      "Results occupy their report sections.",
+      "Trace a section back to the source inputs.",
+      "The compiled output retains its source context."
     ],
     "caption": "Metrology report compiler.",
     "number": "07",
     "paper": false,
     "handoff": "GaN Temp Diagnoser",
     "focusLabel": "Report section",
-    "duration": 450,
+    "duration": 420,
     "closure": "The compiled report keeps a visible source context.",
-    "timings": [0.12, 0.23, 0.36, 0.54, 0.73, 0.89]
+    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "states": [
+      "Interface",
+      "Source records",
+      "Calculation inputs",
+      "Calculate",
+      "Assemble report",
+      "Trace a section",
+      "Compiled output"
+    ]
   },
   {
     "id": "gan-temp-diagnoser",
@@ -184,20 +247,29 @@
     "caption": "Temperature drift diagnosis.",
     "number": "08",
     "beats": [
-      "Temperature control logic, in the actual interface.",
-      "Identify the process and clean-recipe observations.",
-      "Separate the two sets before relating them.",
-      "A shared reference reads across both observation sets.",
-      "Open the recommended checks: LayTec, ceiling condition and Optris.",
-      "Inspect a check while keeping the observations in view.",
-      "Return to the real interface to review the diagnostic guidance."
+      "Start with the temperature diagnosis interface.",
+      "Establish the observed drift.",
+      "Keep process and clean-recipe observations distinct.",
+      "Possible explanations form an investigation, not a verdict.",
+      "The observation context guides the recommended checks.",
+      "Inspect a check before concluding a cause.",
+      "Return to the real diagnostic guidance."
     ],
     "paper": false,
     "handoff": "AIX ΔT Assistant",
     "focusLabel": "Recommended check",
-    "duration": 495,
+    "duration": 420,
     "closure": "Return to the observations before drawing a conclusion.",
-    "timings": [0.12, 0.23, 0.375, 0.56, 0.73, 0.89]
+    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "states": [
+      "Interface",
+      "Observed drift",
+      "Process + clean",
+      "Possible explanations",
+      "Evidence + checks",
+      "Inspect a check",
+      "Diagnostic guidance"
+    ]
   },
   {
     "id": "aix-dt-assistant",
@@ -220,9 +292,18 @@
     "paper": false,
     "handoff": "LT Zone Assistant",
     "focusLabel": "Baseplate position",
-    "duration": 480,
+    "duration": 420,
     "closure": "The placement returns to the full arrangement.",
-    "timings": [0.12, 0.23, 0.39, 0.54, 0.73, 0.89]
+    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "states": [
+      "Interface",
+      "Input context",
+      "Current positions",
+      "First exchange",
+      "Second exchange",
+      "Inspect placement",
+      "Revised arrangement"
+    ]
   },
   {
     "id": "lt-zone-assistant",
@@ -232,22 +313,31 @@
     "kicker": "LayTec zone mapping.",
     "verbs": ["Locate", "Map", "Relate"],
     "beats": [
-      "LayTec zone mapping.",
-      "Locate the inner and outer controls.",
-      "Separate the region boundaries from the shared origin.",
-      "Boundaries extend into the measurement geometry.",
-      "Inspect one region against the common geometry.",
-      "Inner and outer zones share one spatial view.",
-      "All regions return to one spatial view."
+      "Start with the LayTec zone interface.",
+      "Each source zone keeps its own reference.",
+      "Establish a common origin.",
+      "Source references map to spatial positions.",
+      "Inner and outer boundaries make correspondence visible.",
+      "Inspect a selected boundary in the whole geometry.",
+      "Return to the complete zone context."
     ],
     "caption": "LayTec zone mapping.",
     "number": "10",
     "paper": false,
     "handoff": "GaN XML Assistant",
     "focusLabel": "Zone boundary",
-    "duration": 460,
+    "duration": 420,
     "closure": "All regions return to one spatial view.",
-    "timings": [0.12, 0.23, 0.36, 0.56, 0.73, 0.89]
+    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "states": [
+      "Interface",
+      "Zone references",
+      "Common origin",
+      "Mapping",
+      "Spatial correspondence",
+      "Inspect a boundary",
+      "Zone context"
+    ]
   },
   {
     "id": "gan-xml-assistant",
@@ -257,22 +347,31 @@
     "kicker": "Devices.XML comparison.",
     "verbs": ["Load", "Match", "Distinguish"],
     "beats": [
-      "Devices.XML comparison.",
-      "Locate the reference and target properties.",
-      "Align corresponding configuration fields.",
-      "Matching properties line up for comparison.",
-      "Isolate the changed value with its adjacent properties.",
-      "Changed values remain visible in their context.",
-      "The difference returns to its configuration context."
+      "Start with the Devices.XML comparison.",
+      "Keep reference and target states separate.",
+      "Establish the device hierarchy.",
+      "Equivalent nodes line up.",
+      "Unchanged branches quiet while changed values remain expanded.",
+      "Inspect the changed branch with its device context.",
+      "Return to the real configuration comparison."
     ],
     "caption": "Devices.XML comparison.",
     "number": "11",
     "paper": false,
     "handoff": "Magus SPC (GaN)",
     "focusLabel": "Configuration property",
-    "duration": 460,
+    "duration": 420,
     "closure": "The difference returns to its configuration context.",
-    "timings": [0.12, 0.23, 0.375, 0.54, 0.73, 0.89]
+    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "states": [
+      "Interface",
+      "Two configurations",
+      "Device hierarchy",
+      "Node correspondence",
+      "Changed values",
+      "Inspect a branch",
+      "Configuration context"
+    ]
   },
   {
     "id": "magus-spc-gan",
@@ -282,22 +381,31 @@
     "kicker": "GaN SPC release review.",
     "verbs": ["Select", "Review", "Focus"],
     "beats": [
-      "GaN SPC release review.",
-      "Locate equipment, parameter and chart state.",
-      "Separate the chart traces while retaining their context.",
-      "The configured charts come into view.",
-      "Read the same interval across the charts.",
-      "Follow a signal without losing the broader picture.",
-      "Charts and state settle back into one review."
+      "Start with the GaN release-review interface.",
+      "Bring the relevant SPC signals into view.",
+      "Retain the review context around each signal.",
+      "An excursion becomes visible against that context.",
+      "Attention moves to the signal requiring review.",
+      "Inspect the exception; a release is not decided by this illustration.",
+      "Return to the real release-review context."
     ],
     "caption": "GaN SPC release review.",
     "number": "12",
     "paper": true,
     "handoff": "Magus SPC (Legacy)",
-    "focusLabel": "Review interval",
-    "duration": 465,
+    "focusLabel": "Signal under review",
+    "duration": 420,
     "closure": "Charts and state settle back into one review.",
-    "timings": [0.12, 0.23, 0.39, 0.56, 0.73, 0.89]
+    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "states": [
+      "Interface",
+      "Relevant signals",
+      "Review context",
+      "Exceptions",
+      "Direct attention",
+      "Review an excursion",
+      "Release context"
+    ]
   },
   {
     "id": "magus-spc-legacy",
@@ -307,22 +415,31 @@
     "kicker": "Legacy SPC release review.",
     "verbs": ["Retrieve", "Expand", "Review"],
     "beats": [
-      "Legacy SPC release review.",
-      "Locate the parameter index.",
-      "Separate parameter selection from its chart.",
-      "One parameter opens into its chart.",
-      "Inspect the chart alongside the selected parameter.",
-      "State and chart remain in the same review.",
-      "Parameter, chart and state return together."
+      "Start with the legacy release-review interface.",
+      "Separate legacy records retain their parameter identity.",
+      "The parameter index comes into order.",
+      "Different records enter a consistent review frame.",
+      "The selected parameter resolves to its own chart.",
+      "Inspect the chart with its parameter context retained.",
+      "Return to the legacy review interface."
     ],
     "caption": "Legacy SPC release review.",
     "number": "13",
     "paper": true,
     "handoff": "ANKO Helper",
     "focusLabel": "Selected parameter",
-    "duration": 430,
+    "duration": 420,
     "closure": "Parameter, chart and state return together.",
-    "timings": [0.12, 0.23, 0.36, 0.54, 0.73, 0.89]
+    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "states": [
+      "Interface",
+      "Legacy records",
+      "Parameter index",
+      "Consistent frame",
+      "Selected chart",
+      "Inspect the parameter",
+      "Review context"
+    ]
   },
   {
     "id": "anko-helper",
@@ -332,22 +449,31 @@
     "kicker": "ANKO status and due dates.",
     "verbs": ["Gather", "Prioritise", "Plan"],
     "beats": [
-      "ANKO status and due dates.",
-      "Locate equipment status and due dates.",
-      "Separate the status records from the planning view.",
-      "The two views align around the same equipment.",
-      "Inspect what needs attention across the equipment.",
-      "Planning starts with the relevant context in view.",
-      "Status and due date remain attached to each item."
+      "Start with equipment status and due dates.",
+      "Separate items keep their equipment identity.",
+      "Read each due date relative to time.",
+      "Dates settle on a shared time axis.",
+      "Due and upcoming work separate around the present.",
+      "Inspect a time window without losing the equipment.",
+      "Return to the planning view."
     ],
     "caption": "ANKO status and due dates.",
     "number": "14",
     "paper": true,
     "handoff": "LT Report Compiler",
     "focusLabel": "Equipment row",
-    "duration": 455,
+    "duration": 420,
     "closure": "Status and due date remain attached to each item.",
-    "timings": [0.12, 0.23, 0.375, 0.56, 0.73, 0.89]
+    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "states": [
+      "Interface",
+      "Equipment status",
+      "Due dates",
+      "Time order",
+      "Due + upcoming",
+      "Inspect a window",
+      "Planning context"
+    ]
   },
   {
     "id": "lt-report-compiler",
@@ -357,22 +483,31 @@
     "kicker": "LayTec report compilation.",
     "verbs": ["Read", "Assemble", "Report"],
     "beats": [
-      "LayTec report compilation.",
-      "Locate the LayTec source records.",
-      "Separate records into the report structure.",
-      "Their contents gather into a common structure.",
-      "Follow the assembly of individual report sections.",
-      "A report takes the place of repeated assembly.",
-      "The report settles into a repeatable structure."
+      "Start with the LayTec report compiler.",
+      "Separate LayTec sources remain visible.",
+      "Identify result traces and run context.",
+      "Extract each result into the reporting structure.",
+      "Context, traces and summary take their report positions.",
+      "Trace a report section back to its LayTec source.",
+      "Return to the completed report in the application."
     ],
     "caption": "LayTec report compilation.",
     "number": "15",
     "paper": false,
     "handoff": "Metria SPC",
     "focusLabel": "Report assembly",
-    "duration": 470,
+    "duration": 420,
     "closure": "The report settles into a repeatable structure.",
-    "timings": [0.12, 0.23, 0.39, 0.54, 0.73, 0.89]
+    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "states": [
+      "Interface",
+      "LayTec sources",
+      "Result fragments",
+      "Extraction",
+      "Ordered sections",
+      "Trace the result",
+      "Finished report"
+    ]
   },
   {
     "id": "metria-spc",
@@ -384,19 +519,28 @@
     "caption": "Interactive multi-parameter equipment SPC.",
     "number": "16",
     "beats": [
-      "Interactive multi-parameter equipment SPC.",
-      "Locate the independent parameter traces.",
-      "Separate the traces without changing their time relationship.",
-      "A shared time window brings the signals together.",
-      "Align the inspection window across every parameter.",
-      "Move through the same interval across every trace.",
-      "Independent signals return to a shared review."
+      "Start with multi-parameter SPC in the real interface.",
+      "Each parameter initially has its own visible time range.",
+      "Bring the time ranges into correspondence.",
+      "All signals lock to the same time basis.",
+      "One interval crosses every parameter.",
+      "Move the shared window to inspect relationships.",
+      "Return to the interface with a comparable view."
     ],
     "paper": false,
     "handoff": "The complete collection",
     "focusLabel": "Shared time window",
-    "duration": 490,
+    "duration": 420,
     "closure": "Independent signals return to a shared review.",
-    "timings": [0.12, 0.23, 0.36, 0.56, 0.73, 0.89]
+    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "states": [
+      "Interface",
+      "Independent signals",
+      "Time ranges",
+      "Synchronisation",
+      "Common interval",
+      "Explore relationships",
+      "Comparable context"
+    ]
   }
 ]

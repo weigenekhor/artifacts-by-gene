@@ -110,7 +110,7 @@ function tick(time) {
   if (y + innerHeight > toolsTop && y < toolsTop + toolsHeight) {
     const arrival = reduced
       ? 1
-      : ease((y - toolsTop + innerHeight * 0.32) / (innerHeight * 0.32));
+      : ease((y - toolsTop + innerHeight * 0.32) / (innerHeight * 0.65));
     const toolsStage = toolsSection.firstElementChild;
     toolsStage.style.setProperty("--collection-arrival", arrival);
     toolsStage.style.setProperty(
@@ -124,7 +124,7 @@ function tick(time) {
     const p = clamp((y - toolsTop) / Math.max(1, toolsHeight - innerHeight));
     const interaction = toolsInteraction.update(dt, reduced);
     toolsMoving =
-      toolsScene.render(time, p, px, py, reduced, dt, interaction) ||
+      toolsScene.render(time, p, px, py, reduced, dt, interaction, arrival) ||
       interaction.moving;
   }
   if (playback) {

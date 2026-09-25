@@ -26,18 +26,18 @@
   height: 1px;
   scroll-margin-top: 0;
 }
-.logic-field {
+.identity-field {
   position: absolute;
   inset: 0;
   touch-action: pan-y;
   outline-offset: -8px;
 }
-.logic-field canvas {
+.identity-field canvas {
   display: block;
   width: 100%;
   height: 100%;
 }
-.logic-field:focus-visible {
+.identity-field:focus-visible {
   outline: 1px solid #c9a479;
 }
 .genesis-intro {
@@ -440,8 +440,8 @@ html:not(.enhanced) .genesis-intro {
   transform: none;
   opacity: 1;
 }
-.reduced .logic-field,
-html:not(.enhanced) .logic-field {
+.reduced .identity-field,
+html:not(.enhanced) .identity-field {
   height: 100svh;
   min-height: 620px;
 }
@@ -497,7 +497,7 @@ html:not(.enhanced) .construction-next {
     scroll-behavior: auto !important;
   }
 }
-.logic-fallback {
+.identity-fallback {
   position: absolute;
   left: 43%;
   top: 32%;
@@ -508,11 +508,11 @@ html:not(.enhanced) .construction-next {
   stroke-width: 1;
   transform: perspective(900px) rotateY(-20deg) rotateX(18deg);
 }
-.logic-field.ready .logic-fallback {
+.identity-field.ready .identity-fallback {
   display: none;
 }
 @media (max-width: 700px) {
-  .logic-fallback {
+  .identity-fallback {
     left: 5%;
     top: 35%;
     width: 90%;
@@ -820,4 +820,89 @@ html:not(.enhanced) .construction-next {
 }
 .enhanced:not(.reduced) .construction-next {
   display: none;
+}
+
+/* Monumental identity is rendered in the same field that enters the story. */
+.genesis:has(.identity-field.ready) h1 {
+  opacity: 0;
+}
+.genesis-kicker {
+  top: calc(var(--header) + 38px);
+  font-size: 11px;
+}
+.genesis-opening {
+  bottom: 15%;
+  max-width: 520px;
+}
+.genesis-opening p {
+  font-size: clamp(26px, 2.65vw, 43px);
+  color: #d1d7ce;
+}
+.genesis-register {
+  color: #a7b0a8;
+}
+.enhanced:not(.reduced) .tools-stage {
+  opacity: 1;
+  background: transparent;
+}
+.collection-scaffold {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.universe-plane {
+  filter: brightness(var(--plane-brightness, 1));
+}
+.universe-plane > span {
+  color: var(--plane-label, #c4cdc1);
+}
+@media (max-width: 700px) {
+  .genesis-opening {
+    max-width: 330px;
+    bottom: 17%;
+  }
+  .genesis-opening p {
+    font-size: 28px;
+  }
+}
+
+/* Input, operation, result: no screenshot slices or generic camera orbit. */
+.function-study,
+.function-study canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.study-source {
+  transform: none;
+  clip-path: none;
+}
+.study-source > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  box-shadow: none;
+}
+.feature:has(.function-study) .feature-visual {
+  top: 19%;
+  bottom: 24%;
+  transform: none;
+}
+.feature:has(.function-study) .focus-caption {
+  display: none;
+}
+@media (max-width: 700px) {
+  .feature:has(.function-study) .feature-visual {
+    top: 44%;
+    bottom: 26%;
+  }
+  .feature:has(.function-study) .study-actions {
+    bottom: 20%;
+    gap: 8px;
+  }
 }
