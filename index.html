@@ -2,466 +2,254 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Artifacts by Gene — Engineering software & systems</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Artifacts by Gene — Tools the work demanded.</title>
     <meta
       name="description"
-      content="ARTIFACTS by Gene. A personal collection of software and systems for semiconductor engineering, automation, analysis, and planning."
+      content="Sixteen engineering applications. Methods shaped by engineering work. Explore ARTIFACTS, a personal collection of engineering software by Gene."
     />
-    <meta name="theme-color" content="#0b0c0d" />
     <link rel="canonical" href="https://artifactsbygene.com/" />
+    <meta name="theme-color" content="#101211" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Artifacts by Gene" />
+    <meta property="og:title" content="ARTIFACTS — Tools the work demanded." />
     <meta
       property="og:description"
-      content="Built from curiosity. Engineered for purpose. A personal ecosystem of engineering software and systems."
+      content="Sixteen engineering applications. Methods shaped by engineering work."
     />
     <meta property="og:url" content="https://artifactsbygene.com/" />
     <meta
       property="og:image"
       content="https://artifactsbygene.com/assets/social-preview.png"
     />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="assets/fonts/Geist-Latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="studies.css" />
+    <link rel="stylesheet" href="experience.css" />
+    <link rel="stylesheet" href="artifact.css" />
+    <link rel="stylesheet" href="entry.css" />
+    <link rel="stylesheet" href="genesis.css" />
+    <script type="module" src="script.js"></script>
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
-      <a href="#" class="brand" aria-label="Artifacts by Gene, home"
-        ><svg class="brand-symbol" viewBox="0 0 32 32" aria-hidden="true">
-          <path d="M4 26 16 5 28 26M10 17h12M16 5v21" /></svg
-        ><span>ARTIFACTS <span class="brand-by">by Gene</span></span></a
+    <a class="skip-link" href="#collection">Skip to the applications</a>
+    <header class="header">
+      <a class="brand" href="#top" aria-label="ARTIFACTS home"
+        ><img
+          src="assets/brand/artifacts-symbol.svg"
+          width="32"
+          height="32"
+          alt=""
+        /><span>ARTIFACTS</span></a
       >
       <nav aria-label="Main navigation">
-        <a href="#systems">Systems <span>04</span></a
-        ><a href="#approach">Approach</a
-        ><a href="#gene">About Gene <span class="arrow">↗</span></a>
-      </nav>
-      <span class="header-note"><i></i> An independent body of work</span>
-    </header>
-
-    <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-topline">
-          <span class="eyebrow"
-            ><span class="plus">+</span> ENGINEERING SOFTWARE & SYSTEMS</span
-          ><span class="edition">PERSONAL COLLECTION / VOL. 01</span>
-        </div>
-        <h1 id="hero-title">ARTIFACTS<span class="title-period">.</span></h1>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="wafer-fallback"><div></div></div>
-          <canvas id="wafer-canvas"></canvas>
-          <div class="visual-cross cross-one">+</div>
-          <div class="visual-cross cross-two">+</div>
-          <span class="visual-coordinate">Si / SURFACE STUDY 001</span>
-          <div class="material-label">
-            <span class="tiny-line"></span>PRECISION, IN EVERY LAYER.
-          </div>
-        </div>
-        <div class="hero-copy">
-          <p class="byline">by Gene</p>
-          <h2>Built from curiosity.<br />Engineered for purpose.</h2>
-          <p class="hero-description">
-            A personal ecosystem of tools for engineering,<br
-              class="desktop-break"
-            />
-            automation, and making sense of complexity.
-          </p>
-          <a class="text-link explore-link" href="#systems"
-            ><span>Explore the systems</span
-            ><span class="link-icon">↘</span></a
-          >
-        </div>
-        <div class="hero-foot">
-          <span class="hero-foot-label"
-            >SEMICONDUCTORS <span>/</span> SOFTWARE <span>/</span> SYSTEMS</span
-          ><a href="#overview" class="scroll-cue"
-            ><span>SCROLL TO DISCOVER</span
-            ><svg viewBox="0 0 16 24" aria-hidden="true">
-              <path d="M8 1v20m-5-5 5 5 5-5" /></svg
-          ></a>
-        </div>
-      </section>
-
-      <section
-        class="overview section-pad"
-        id="overview"
-        aria-labelledby="overview-title"
-      >
-        <div class="section-label">
-          <span class="section-number">01 /</span><span>THE ECOSYSTEM</span>
-        </div>
-        <div class="overview-body">
-          <h2 id="overview-title" class="editorial-heading reveal">
-            Different tools.<br />One way of thinking.
-          </h2>
-          <div class="overview-bottom">
-            <p class="reveal">
-              ARTIFACTS is a collection of software I’ve developed over several
-              years. Tools shaped by engineering problems, connected by a desire
-              to make complex work clearer.
-            </p>
-            <span class="collection-note"
-              >INDEPENDENTLY BUILT.<br />CONTINUOUSLY EVOLVING.</span
-            >
-          </div>
-        </div>
-        <div class="discipline-strip">
-          <span>Semiconductor engineering</span><span>Data & analysis</span
-          ><span>Automation</span><span>Planning & operations</span>
-        </div>
-      </section>
-
-      <section
-        class="systems section-pad"
-        id="systems"
-        aria-labelledby="systems-title"
-      >
-        <div class="section-label">
-          <span class="section-number">02 /</span><span>SELECTED SYSTEMS</span>
-        </div>
-        <div class="systems-heading">
-          <h2 id="systems-title" class="editorial-heading reveal">
-            Purpose-built.
-          </h2>
-          <p>
-            A closer look at the ARTIFACTS ecosystem.<br />Select a system to
-            explore.
-          </p>
-        </div>
-        <div class="system-console">
-          <div
-            class="system-selector"
-            role="tablist"
-            aria-label="Engineering systems"
-            aria-orientation="vertical"
-          >
-            <button
-              id="tab-gan"
-              class="system-tab is-active"
-              role="tab"
-              aria-selected="true"
-              aria-controls="system-panel"
-              tabindex="0"
-              data-system="gan"
-            >
-              <span class="system-index">01</span
-              ><span class="system-tab-title"
-                >GaN Temp Diagnoser<small
-                  >SEMICONDUCTOR ENGINEERING</small
-                ></span
-              ><span class="system-tab-arrow">↗</span>
-            </button>
-            <button
-              id="tab-aix"
-              class="system-tab"
-              role="tab"
-              aria-selected="false"
-              aria-controls="system-panel"
-              tabindex="-1"
-              data-system="aix"
-            >
-              <span class="system-index">02</span
-              ><span class="system-tab-title"
-                >AIX ΔT Assistant<small>SEMICONDUCTOR ENGINEERING</small></span
-              ><span class="system-tab-arrow">↗</span>
-            </button>
-            <button
-              id="tab-lt"
-              class="system-tab"
-              role="tab"
-              aria-selected="false"
-              aria-controls="system-panel"
-              tabindex="-1"
-              data-system="lt"
-            >
-              <span class="system-index">03</span
-              ><span class="system-tab-title"
-                >LT Zone Assistant<small>SEMICONDUCTOR ENGINEERING</small></span
-              ><span class="system-tab-arrow">↗</span>
-            </button>
-            <button
-              id="tab-anko"
-              class="system-tab"
-              role="tab"
-              aria-selected="false"
-              aria-controls="system-panel"
-              tabindex="-1"
-              data-system="anko"
-            >
-              <span class="system-index">04</span
-              ><span class="system-tab-title"
-                >ANKO Helper<small>ENGINEERING SOFTWARE</small></span
-              ><span class="system-tab-arrow">↗</span>
-            </button>
-            <div class="selector-foot">
-              <span class="status-dot"></span> FOUR SYSTEMS / ONE ECOSYSTEM
-            </div>
-          </div>
-          <div
-            class="system-panel"
-            id="system-panel"
-            role="tabpanel"
-            aria-labelledby="tab-gan"
-            tabindex="0"
-          >
-            <div class="panel-top">
-              <span id="panel-category">SEMICONDUCTOR ENGINEERING</span
-              ><span id="panel-id">A—01</span>
-            </div>
-            <div class="system-diagram" data-mode="gan" aria-hidden="true">
-              <svg viewBox="0 0 600 320" class="diagram-svg">
-                <defs>
-                  <linearGradient id="plot-fill" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#d78d62" stop-opacity=".16" />
-                    <stop offset="1" stop-color="#d78d62" stop-opacity="0" />
-                  </linearGradient>
-                  <pattern
-                    id="plot-grid"
-                    width="50"
-                    height="40"
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <path
-                      d="M50 0H0V40"
-                      fill="none"
-                      stroke="#ffffff"
-                      stroke-opacity=".055"
-                    />
-                  </pattern>
-                </defs>
-                <rect
-                  x="50"
-                  y="40"
-                  width="500"
-                  height="240"
-                  fill="url(#plot-grid)"
-                />
-                <path class="diagram-axis" d="M50 40V280H550" />
-                <path class="diagram-guide" d="M300 40V280M50 160H550" />
-                <path
-                  id="diagram-area"
-                  d="M50 248C110 250 122 214 175 220S255 132 300 152S380 90 425 99S502 60 550 72V280H50Z"
-                  fill="url(#plot-fill)"
-                />
-                <path
-                  class="diagram-secondary"
-                  id="diagram-secondary"
-                  d="M50 250C110 248 135 232 175 238S260 172 300 185S375 140 425 145S505 117 550 127"
-                />
-                <path
-                  class="diagram-primary"
-                  id="diagram-primary"
-                  d="M50 248C110 250 122 214 175 220S255 132 300 152S380 90 425 99S502 60 550 72"
-                />
-                <circle
-                  class="diagram-point"
-                  id="diagram-point"
-                  cx="300"
-                  cy="152"
-                  r="4"
-                />
-                <path
-                  class="diagram-ticks"
-                  d="M50 280v6m100-6v6m100-6v6m100-6v6m100-6v6m100-6v6"
-                />
-                <text x="50" y="310">INPUT</text>
-                <text x="507" y="310">RESPONSE</text>
-                <text x="50" y="25" id="diagram-label">THERMAL / STUDY 01</text>
-              </svg>
-              <span class="diagram-caption"
-                >CONCEPTUAL VISUALIZATION · NOT LIVE DATA</span
-              >
-            </div>
-            <div class="panel-content">
-              <span class="eyebrow panel-status"
-                >PROJECT PROFILE IN PREPARATION</span
-              >
-              <h3 id="panel-title">GaN Temp Diagnoser</h3>
-              <p id="panel-description">
-                Part of the ARTIFACTS semiconductor engineering collection. A
-                detailed walkthrough, verified capabilities, and selected
-                interface views will be added here.
-              </p>
-              <button type="button" id="open-project" class="text-link">
-                <span>View project notes</span><span class="link-icon">↗</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="ecosystem-tail">
-          <span class="eyebrow">BEYOND THE SELECTED SYSTEMS</span>
-          <p>
-            Data tools <span>/</span> Planning engines <span>/</span> Quotation
-            engines <span>/</span> Automation utilities
-          </p>
-        </div>
-        <noscript
-          ><p class="no-script-note">
-            The collection includes GaN Temp Diagnoser, AIX ΔT Assistant, LT
-            Zone Assistant, and ANKO Helper. Enable JavaScript to switch between
-            project profiles.
-          </p></noscript
+        <a href="#story">The story</a
+        ><a href="#collection"
+          >All 16 applications <span aria-hidden="true">↗</span></a
         >
-      </section>
-
-      <section
-        class="approach section-pad"
-        id="approach"
-        aria-labelledby="approach-title"
-      >
-        <div class="section-label">
-          <span class="section-number">03 /</span><span>THE APPROACH</span>
-        </div>
-        <div class="approach-intro">
-          <h2 id="approach-title" class="editorial-heading reveal">
-            Complexity is a given.<br /><span class="muted"
-              >Clarity is engineered.</span
-            >
-          </h2>
-          <p class="reveal">
-            The interface is only the surface.<br />The thinking underneath is
-            what matters.
-          </p>
-        </div>
-        <!-- EDITORIAL PLACEHOLDER: approve these engineering principles in Gene's voice. -->
-        <div class="principles">
-          <article class="principle reveal">
-            <span class="principle-index">I.</span>
-            <h3>Start with the problem.</h3>
-            <p>
-              Understand the process, the constraints, and the person doing the
-              work. Build from there.
-            </p>
-          </article>
-          <article class="principle reveal">
-            <span class="principle-index">II.</span>
-            <h3>Make the system legible.</h3>
-            <p>
-              Give complexity a clear structure. Make relationships visible and
-              decisions easier to follow.
-            </p>
-          </article>
-          <article class="principle reveal">
-            <span class="principle-index">III.</span>
-            <h3>Refine what matters.</h3>
-            <p>
-              Precision in the logic. Restraint in the interface. Care in the
-              details that shape everyday use.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="evolution section-pad" aria-labelledby="evolution-title">
-        <div class="section-label">
-          <span class="section-number">04 /</span
-          ><span>AN EVOLVING COLLECTION</span>
-        </div>
-        <!-- CONTENT PLACEHOLDER: add verified milestones when the project history is available. -->
-        <div class="evolution-content">
-          <h2 id="evolution-title" class="editorial-heading reveal">
-            A body of work.<br />Still in motion.
-          </h2>
-          <p>
-            Individual tools. Shared ideas. An ecosystem built over years, with
-            room for what comes next.
-          </p>
+      </nav>
+    </header>
+    <main>
+      <section class="genesis" id="top" aria-labelledby="hero-title">
+        <div id="story" class="story-anchor" aria-hidden="true"></div>
+        <div class="genesis-stage">
           <div
-            class="evolution-line"
-            aria-label="An ongoing progression from individual tools to a connected ecosystem"
+            class="identity-field"
+            tabindex="0"
+            role="group"
+            aria-label="Explore the engineering structure. Move the pointer or use arrow keys to change perspective. R resets the view."
           >
-            <span>Individual tools</span><i></i><span>Connected systems</span
-            ><i></i
-            ><span class="evolution-next">What comes next <b>↗</b></span>
+            <canvas aria-hidden="true"></canvas
+            ><svg
+              class="identity-fallback"
+              viewBox="0 0 700 300"
+              aria-hidden="true"
+            >
+              <path d="M0 70H120L160 35H270L310 90H450L495 60H700" />
+              <path d="M0 84H120L160 49H270L310 104H450L495 74H700" />
+              <path d="M0 98H120L160 63H270L310 118H450L495 88H700" />
+              <path d="M0 112H120L160 77H270L310 132H450L495 102H700" />
+              <path d="M0 126H120L160 91H270L310 146H450L495 116H700" />
+              <path d="M0 140H120L160 105H270L310 160H450L495 130H700" />
+              <path d="M0 154H120L160 119H270L310 174H450L495 144H700" />
+              <path d="M0 168H120L160 133H270L310 188H450L495 158H700" />
+              <path d="M0 182H120L160 147H270L310 202H450L495 172H700" />
+              <path d="M0 196H120L160 161H270L310 216H450L495 186H700" />
+              <path d="M0 210H120L160 175H270L310 230H450L495 200H700" />
+              <path d="M0 224H120L160 189H270L310 244H450L495 214H700" />
+            </svg>
           </div>
+          <div class="genesis-intro">
+            <p class="genesis-kicker">Engineering software / ARTIFACTS</p>
+            <h1 id="hero-title">ARTIFACTS</h1>
+            <div class="genesis-opening">
+              <p>Built for engineering where almost right is still wrong.</p>
+              <a href="#story"
+                >Follow the construction <span aria-hidden="true">↘</span></a
+              >
+            </div>
+          </div>
+          <div class="genesis-register">
+            <span>Move to inspect the structure</span
+            ><span>Scroll to trace its beginnings ↓</span>
+          </div>
+          <div class="construction-copy">
+            <p class="construction-kicker">Why ARTIFACTS exists</p>
+            <div class="construction-pages"><article class="construction-page" data-origin-phase="0"><span class="construction-label">01 / Reconstruct</span><h2>The answer was only part of the work.</h2><p>Behind it: a reference recovered, a comparison made, a check worth keeping.</p></article><article class="construction-page" data-origin-phase="1"><span class="construction-label">02 / Recognise</span><h2>A new run. A familiar question.</h2><p>The evidence changed. The reasoning kept returning.</p></article><article class="construction-page" data-origin-phase="2"><span class="construction-label">03 / Retain</span><h2>Good reasoning should outlive the task.</h2><p>Keep the sequence. Keep the checks. Give the next investigation a better starting point.</p></article><article class="construction-page" data-origin-phase="3"><span class="construction-label">04 / Improve</span><h2>I built a way to keep it working.</h2><p>A method became software. Real use revealed what to build next.</p></article><article class="construction-page" data-origin-phase="4"><span class="construction-label">05 / Build</span><h2>One need at a time. A system took shape.</h2><p>Sixteen distinct applications, each built around work that deserved a better way.</p></article></div>
+          </div>
+          <div class="construction-legend" aria-hidden="true">
+            <span class="build-state">An unresolved task</span
+            ><span>Schematic / not application output</span>
+          </div>
+          <nav class="construction-nav" aria-label="Construction story">
+            <button data-origin-step="0"><span>01</span>Reconstruct</button><button data-origin-step="1"><span>02</span>Recognise</button><button data-origin-step="2"><span>03</span>Retain</button><button data-origin-step="3"><span>04</span>Improve</button><button data-origin-step="4"><span>05</span>Build</button>
+          </nav>
+          <a class="construction-next" href="#collection"
+            >Enter the applications <span aria-hidden="true">↓</span></a
+          >
         </div>
       </section>
-
-      <section class="about section-pad" id="gene" aria-labelledby="gene-title">
-        <div class="section-label">
-          <span class="section-number">05 /</span
-          ><span>THE PERSON BEHIND THE SYSTEMS</span>
-        </div>
-        <div class="about-grid">
-          <div>
-            <span class="eyebrow about-pretitle"
-              >ENGINEER / BUILDER / SYSTEMS THINKER</span
-            >
-            <h2 id="gene-title" class="gene-title reveal">
-              Gene<span>.</span>
+      <section
+        class="tools-entry"
+        id="collection"
+        aria-labelledby="tools-title"
+      >
+        <div class="tools-stage">
+          <div class="tools-heading" id="work">
+            <p class="eyebrow">02 / The applications</p>
+            <h2 id="tools-title">
+              What began as necessity<br /><em>became ARTIFACTS.</em>
             </h2>
           </div>
-          <!-- CONTENT PLACEHOLDER: replace or approve this introduction; add verified biography, CV, and contact information later. -->
-          <div class="about-copy">
-            <h3>
-              I enjoy building things.<br />ARTIFACTS is where they come
-              together.
-            </h3>
-            <p>
-              Engineering, software, and the space between them. This is a place
-              for the tools I’ve built, the problems that interest me, and the
-              work still taking shape.
-            </p>
-            <div class="about-fields">
-              <span>Semiconductor engineering</span
-              ><span>Software & automation</span
-              ><span>Technical problem solving</span
-              ><span>Systems development</span>
-            </div>
-            <div class="future-note">
-              <span class="plus">+</span>
-              <div>
-                <strong>More of the story, in time.</strong>
-                <p>
-                  Engineering experience, selected technical work, and a CV will
-                  find a home here.
-                </p>
-              </div>
-            </div>
+          <div
+            id="tools-universe"
+            class="application-universe"
+            tabindex="0"
+            role="group"
+            aria-label="The complete application collection. Drag or use arrow keys to rotate. Enter opens the assembly."
+          >
+            <button
+              class="collection-home"
+              data-capture="homepage"
+              aria-label="View the complete ARTIFACTS homepage"
+            >
+              <img
+                src="assets/evidence/homepage/full.webp"
+                width="1425"
+                height="950"
+                loading="lazy"
+                decoding="async"
+                alt="ARTIFACTS homepage with the application collection"
+              />
+              <span>ARTIFACTS <i>The complete environment ↗</i></span>
+            </button>
           </div>
+          <div class="tools-controls">
+            <button data-expand aria-pressed="false">
+              Open the collection <span aria-hidden="true">+</span></button
+            ><button data-reset aria-label="Reset collection orientation">
+              ↺</button
+            ><button data-capture="homepage" class="homepage-link">
+              View the ARTIFACTS homepage ↗
+            </button>
+          </div>
+          <a class="begin-studies" href="#history"
+            >Enter the first application <span aria-hidden="true">↓</span></a
+          >
+        </div>
+      </section>
+      <div class="study-index" id="study-index">
+        <label for="study-select">Inside the work <span>01—16</span></label
+        ><select id="study-select">
+          <option value="history">01 — Altus LotViewer</option><option value="schedule">02 — Altus ANKO Viewer</option><option value="usage">03 — Altus WaferCount</option><option value="surface">04 — TopoTracer</option><option value="compare">05 — Papyrus Reader</option><option value="pathfinder">06 — SPC Pathfinder</option><option value="compile">07 — GaN Met Compiler</option><option value="diagnose">08 — GaN Temp Diagnoser</option><option value="arrange">09 — AIX ΔT Assistant</option><option value="zones">10 — LT Zone Assistant</option><option value="configuration">11 — GaN XML Assistant</option><option value="spc">12 — Magus SPC (GaN)</option><option value="legacy">13 — Magus SPC (Legacy)</option><option value="planning">14 — ANKO Helper</option><option value="report">15 — LT Report Compiler</option><option value="signals">16 — Metria SPC</option></select
+        ><a href="#collection">Go to the interfaces ↗</a>
+      </div>
+      <section class="feature feature-history" id="history" style="--scene-length:420svh" data-feature="history" data-timings="0.1,0.22,0.36,0.53,0.72,0.9" data-states="[&quot;Interface&quot;,&quot;Process events&quot;,&quot;Timestamps&quot;,&quot;Chronology&quot;,&quot;State + duration&quot;,&quot;Inspect an event&quot;,&quot;Lot history&quot;]" data-study-app="altus-lotviewer" data-beats="[&quot;Start with the real lot history interface.&quot;,&quot;Events arrive with their own timestamps and states.&quot;,&quot;Bring timestamps onto one temporal axis.&quot;,&quot;The lot becomes a readable sequence.&quot;,&quot;Each event retains its wafer state and duration.&quot;,&quot;Inspect one event without losing the surrounding history.&quot;,&quot;Read the complete history in the application.&quot;]" aria-labelledby="title-history"><div class="feature-stage"><div class="feature-top"><span>01 / 16</span><span>Altus LotViewer</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">Lot history analysis.</p><h2 id="title-history">Reconstruct<br>the lot.</h2><p>Process events are only useful in sequence. Align timestamps, wafer states and durations around the same lot.</p><div class="feature-verbs"><span data-phase="0">Gather</span><i>→</i><span data-phase="1">Order</span><i>→</i><span data-phase="2">Follow</span></div><p class="study-beat">Start with the real lot history interface.</p></div><div class="feature-visual"><div class="function-study" aria-hidden="true"><canvas></canvas></div><div class="focus-caption"><span>Event context</span><output class="focus-position">01</output></div></div><div class="study-source" aria-hidden="true"><img src="assets/evidence/altus-lotviewer/full.webp" width="1425" height="950" alt="Lot events, wafer states and durations in Altus LotViewer" loading="lazy" decoding="async"><span>Altus LotViewer</span></div><button class="evidence" data-capture="altus-lotviewer" aria-label="See the actual Altus LotViewer interface"><img src="assets/evidence/altus-lotviewer/full.webp" width="1425" height="950" alt="Lot events, wafer states and durations in Altus LotViewer" loading="lazy" decoding="async"><span><b>Inside Altus LotViewer</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">Event context<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect Event context in the concept demonstration"></label><button class="study-play" aria-label="Play the Altus LotViewer sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore Altus LotViewer concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#schedule">Next / Altus ANKO Viewer <b>↓</b></a></div></div></section><section class="feature feature-schedule" id="schedule" style="--scene-length:420svh" data-feature="schedule" data-timings="0.1,0.22,0.36,0.53,0.72,0.9" data-states="[&quot;Interface&quot;,&quot;Schedules&quot;,&quot;Local dates&quot;,&quot;Shared axis&quot;,&quot;Future windows&quot;,&quot;Inspect an interval&quot;,&quot;Equipment context&quot;]" data-study-app="altus-anko-viewer" data-beats="[&quot;Start with the retrieved equipment schedules.&quot;,&quot;Separate schedules retain their equipment identity.&quot;,&quot;Different local date ranges move toward a shared axis.&quot;,&quot;Equipment lanes now read against the same dates.&quot;,&quot;Future windows become directly comparable.&quot;,&quot;Move one interval through the equipment lanes.&quot;,&quot;Return to the schedule with its equipment context.&quot;]" aria-labelledby="title-schedule"><div class="feature-stage"><div class="feature-top"><span>02 / 16</span><span>Altus ANKO Viewer</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">ANKO schedule retrieval.</p><h2 id="title-schedule">Put the schedule<br>against the equipment.</h2><p>Retrieve ANKO schedules across Altus equipment. Read dates in the context of the equipment they belong to.</p><div class="feature-verbs"><span data-phase="0">Retrieve</span><i>→</i><span data-phase="1">Align</span><i>→</i><span data-phase="2">Look ahead</span></div><p class="study-beat">Start with the retrieved equipment schedules.</p></div><div class="feature-visual"><div class="function-study" aria-hidden="true"><canvas></canvas></div><div class="focus-caption"><span>Schedule interval</span><output class="focus-position">01</output></div></div><div class="study-source" aria-hidden="true"><img src="assets/evidence/altus-anko-viewer/full.webp" width="1425" height="950" alt="Reactor schedules in a common view in Altus ANKO Viewer" loading="lazy" decoding="async"><span>Altus ANKO Viewer</span></div><button class="evidence" data-capture="altus-anko-viewer" aria-label="See the actual Altus ANKO Viewer interface"><img src="assets/evidence/altus-anko-viewer/full.webp" width="1425" height="950" alt="Reactor schedules in a common view in Altus ANKO Viewer" loading="lazy" decoding="async"><span><b>Inside Altus ANKO Viewer</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">Schedule interval<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect Schedule interval in the concept demonstration"></label><button class="study-play" aria-label="Play the Altus ANKO Viewer sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore Altus ANKO Viewer concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#usage">Next / Altus WaferCount <b>↓</b></a></div></div></section><section class="feature feature-usage" id="usage" style="--scene-length:420svh" data-feature="usage" data-timings="0.1,0.22,0.36,0.53,0.72,0.9" data-states="[&quot;Interface&quot;,&quot;Wafer activity&quot;,&quot;Chamber passage&quot;,&quot;Retained events&quot;,&quot;Usage summary&quot;,&quot;Inspect a chamber&quot;,&quot;Maintenance context&quot;]" data-study-app="altus-wafercount" data-beats="[&quot;Start with chamber usage in the real interface.&quot;,&quot;Individual wafer events enter their chamber lanes.&quot;,&quot;Each passage leaves a retained event.&quot;,&quot;The retained events build up by chamber.&quot;,&quot;Many events resolve into a chamber-level usage signal.&quot;,&quot;Inspect one chamber while retaining the others.&quot;,&quot;Review chamber usage in its maintenance context.&quot;]" aria-labelledby="title-usage"><div class="feature-stage"><div class="feature-top"><span>03 / 16</span><span>Altus WaferCount</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">Chamber usage and wafer counts.</p><h2 id="title-usage">Count the work<br>through the chamber.</h2><p>Collect wafer counts from equipment logs. Review chamber usage as an input to maintenance planning.</p><div class="feature-verbs"><span data-phase="0">Collect</span><i>→</i><span data-phase="1">Accumulate</span><i>→</i><span data-phase="2">Review</span></div><p class="study-beat">Start with chamber usage in the real interface.</p></div><div class="feature-visual"><div class="function-study" aria-hidden="true"><canvas></canvas></div><div class="focus-caption"><span>Chamber activity</span><output class="focus-position">01</output></div></div><div class="study-source" aria-hidden="true"><img src="assets/evidence/altus-wafercount/full.webp" width="1425" height="950" alt="Chamber usage counters in Altus WaferCount" loading="lazy" decoding="async"><span>Altus WaferCount</span></div><button class="evidence" data-capture="altus-wafercount" aria-label="See the actual Altus WaferCount interface"><img src="assets/evidence/altus-wafercount/full.webp" width="1425" height="950" alt="Chamber usage counters in Altus WaferCount" loading="lazy" decoding="async"><span><b>Inside Altus WaferCount</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">Chamber activity<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect Chamber activity in the concept demonstration"></label><button class="study-play" aria-label="Play the Altus WaferCount sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore Altus WaferCount concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#surface">Next / TopoTracer <b>↓</b></a></div></div></section><section class="feature feature-surface feature-paper" id="surface" style="--scene-length:420svh" data-feature="surface" data-timings="0.1,0.22,0.36,0.53,0.72,0.9" data-states="[&quot;Interface&quot;,&quot;Sample positions&quot;,&quot;Geometry&quot;,&quot;Interpolation&quot;,&quot;Contour field&quot;,&quot;Inspect a section&quot;,&quot;Topography&quot;]" data-study-app="topotracer" data-beats="[&quot;Contour and topography plots.&quot;,&quot;Locate the measurement field.&quot;,&quot;Lift the sample positions from the map.&quot;,&quot;Contours reveal the shape between the points.&quot;,&quot;Isolate a region while retaining the surrounding contour.&quot;,&quot;The wafer becomes a field you can read.&quot;,&quot;The region returns to the whole wafer.&quot;]" aria-labelledby="title-surface"><div class="feature-stage"><div class="feature-top"><span>04 / 16</span><span>TopoTracer</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">Contour and topography plots.</p><h2 id="title-surface">Locate<br>the variation.</h2><p>Measurements acquire meaning when their positions are retained. Resolve a contour field from the wafer samples.</p><div class="feature-verbs"><span data-phase="0">Measure</span><i>→</i><span data-phase="1">Interpolate</span><i>→</i><span data-phase="2">Understand</span></div><p class="study-beat">Contour and topography plots.</p></div><div class="feature-visual"><div class="topography" aria-hidden="true"><div class="topography-key"><span>Sample positions → contour field</span><span>Illustrative geometry</span></div><canvas></canvas><div class="topography-scale"><span>Lower</span><i></i><span>Higher</span></div></div><div class="focus-caption"><span>Wafer region</span><output class="focus-position">01</output></div></div><div class="study-source" aria-hidden="true"><img src="assets/evidence/topotracer/full.webp" width="1425" height="950" alt="Interpolated wafer surface and scale in TopoTracer" loading="lazy" decoding="async"><span>TopoTracer</span></div><button class="evidence" data-capture="topotracer" aria-label="See the actual TopoTracer interface"><img src="assets/evidence/topotracer/full.webp" width="1425" height="950" alt="Interpolated wafer surface and scale in TopoTracer" loading="lazy" decoding="async"><span><b>Inside TopoTracer</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">Wafer region<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect Wafer region in the concept demonstration"></label><button class="study-play" aria-label="Play the TopoTracer sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore TopoTracer concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#compare">Next / Papyrus Reader <b>↓</b></a></div></div></section><section class="feature feature-compare feature-paper" id="compare" style="--scene-length:420svh" data-feature="compare" data-timings="0.1,0.22,0.36,0.53,0.72,0.9" data-states="[&quot;Interface&quot;,&quot;Two recipes&quot;,&quot;Logical steps&quot;,&quot;Correspondence&quot;,&quot;Differences&quot;,&quot;Inspect counterparts&quot;,&quot;Comparison&quot;]" data-study-app="papyrus-reader" data-beats="[&quot;Start with the actual recipe comparison.&quot;,&quot;The two raw layouts have different spacing.&quot;,&quot;Identify the corresponding logical steps.&quot;,&quot;Equivalent steps align, despite different line positions.&quot;,&quot;Unchanged content quiets; the meaningful difference remains.&quot;,&quot;Inspect a changed step beside its counterpart.&quot;,&quot;Return to the real comparison with the difference in context.&quot;]" aria-labelledby="title-compare"><div class="feature-stage"><div class="feature-top"><span>05 / 16</span><span>Papyrus Reader</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">Logical recipe and text comparison.</p><h2 id="title-compare">Compare the steps.<br>Keep the sequence.</h2><p>Line positions can change without a process change. Align equivalent recipe steps before isolating the differences.</p><div class="feature-verbs"><span data-phase="0">Read</span><i>→</i><span data-phase="1">Align</span><i>→</i><span data-phase="2">Compare</span></div><p class="study-beat">Start with the actual recipe comparison.</p></div><div class="feature-visual"><div class="function-study" aria-hidden="true"><canvas></canvas></div><div class="focus-caption"><span>Recipe step</span><output class="focus-position">01</output></div></div><div class="study-source" aria-hidden="true"><img src="assets/evidence/papyrus-reader/full.webp" width="1531" height="1002" alt="Actual paired recipe panes with marked changes in Papyrus Reader" loading="lazy" decoding="async"><span>Papyrus Reader</span></div><button class="evidence" data-capture="papyrus-reader" aria-label="See the actual Papyrus Reader interface"><img src="assets/evidence/papyrus-reader/full.webp" width="1531" height="1002" alt="Actual paired recipe panes with marked changes in Papyrus Reader" loading="lazy" decoding="async"><span><b>Inside Papyrus Reader</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">Recipe step<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect Recipe step in the concept demonstration"></label><button class="study-play" aria-label="Play the Papyrus Reader sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore Papyrus Reader concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#pathfinder">Next / SPC Pathfinder <b>↓</b></a></div></div></section><section class="feature feature-pathfinder feature-paper" id="pathfinder" style="--scene-length:420svh" data-feature="pathfinder" data-timings="0.1,0.22,0.36,0.53,0.72,0.9" data-states="[&quot;Interface&quot;,&quot;Workcentre&quot;,&quot;Parameter family&quot;,&quot;Parameter&quot;,&quot;Target chart&quot;,&quot;Inspect the chart&quot;,&quot;Chart context&quot;]" data-study-app="spc-pathfinder" data-beats="[&quot;Start with the SPC chart finder.&quot;,&quot;Begin inside a workcentre.&quot;,&quot;Narrow the parameter family.&quot;,&quot;Retain the path to the specific parameter.&quot;,&quot;The search resolves to its chart.&quot;,&quot;Inspect the chart without losing the selection context.&quot;,&quot;Open the chart from its original application.&quot;]" aria-labelledby="title-pathfinder"><div class="feature-stage"><div class="feature-top"><span>06 / 16</span><span>SPC Pathfinder</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">SPC chart finder.</p><h2 id="title-pathfinder">Get to<br>the parameter.</h2><p>Navigate workcentres and parameter groups to locate the required SPC chart.</p><div class="feature-verbs"><span data-phase="0">Locate</span><i>→</i><span data-phase="1">Select</span><i>→</i><span data-phase="2">Open</span></div><p class="study-beat">Start with the SPC chart finder.</p></div><div class="feature-visual"><div class="function-study" aria-hidden="true"><canvas></canvas></div><div class="focus-caption"><span>Selected parameter</span><output class="focus-position">01</output></div></div><div class="study-source" aria-hidden="true"><img src="assets/evidence/spc-pathfinder/full.webp" width="1425" height="950" alt="Grouped chart selection in SPC Pathfinder" loading="lazy" decoding="async"><span>SPC Pathfinder</span></div><button class="evidence" data-capture="spc-pathfinder" aria-label="See the actual SPC Pathfinder interface"><img src="assets/evidence/spc-pathfinder/full.webp" width="1425" height="950" alt="Grouped chart selection in SPC Pathfinder" loading="lazy" decoding="async"><span><b>Inside SPC Pathfinder</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">Selected parameter<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect Selected parameter in the concept demonstration"></label><button class="study-play" aria-label="Play the SPC Pathfinder sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore SPC Pathfinder concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#compile">Next / GaN Met Compiler <b>↓</b></a></div></div></section><section class="feature feature-compile" id="compile" style="--scene-length:420svh" data-feature="compile" data-timings="0.1,0.22,0.36,0.53,0.72,0.9" data-states="[&quot;Interface&quot;,&quot;Source records&quot;,&quot;Calculation inputs&quot;,&quot;Calculate&quot;,&quot;Assemble report&quot;,&quot;Trace a section&quot;,&quot;Compiled output&quot;]" data-study-app="gan-met-compiler" data-beats="[&quot;Start with the actual metrology compiler.&quot;,&quot;Separate metrology sources remain identifiable.&quot;,&quot;Bring source records into the calculation structure.&quot;,&quot;Apply the report calculation structure.&quot;,&quot;Results occupy their report sections.&quot;,&quot;Trace a section back to the source inputs.&quot;,&quot;The compiled output retains its source context.&quot;]" aria-labelledby="title-compile"><div class="feature-stage"><div class="feature-top"><span>07 / 16</span><span>GaN Met Compiler</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">Metrology report compiler.</p><h2 id="title-compile">From metrology<br>to a report.</h2><p>Gather measurement files, apply predefined calculations and compile the result into a consistent reporting structure.</p><div class="feature-verbs"><span data-phase="0">Gather</span><i>→</i><span data-phase="1">Calculate</span><i>→</i><span data-phase="2">Compile</span></div><p class="study-beat">Start with the actual metrology compiler.</p></div><div class="feature-visual"><div class="function-study" aria-hidden="true"><canvas></canvas></div><div class="focus-caption"><span>Report section</span><output class="focus-position">01</output></div></div><div class="study-source" aria-hidden="true"><img src="assets/evidence/gan-met-compiler/full.webp" width="1425" height="950" alt="Metrology processing log in GaN Met Compiler" loading="lazy" decoding="async"><span>GaN Met Compiler</span></div><button class="evidence" data-capture="gan-met-compiler" aria-label="See the actual GaN Met Compiler interface"><img src="assets/evidence/gan-met-compiler/full.webp" width="1425" height="950" alt="Metrology processing log in GaN Met Compiler" loading="lazy" decoding="async"><span><b>Inside GaN Met Compiler</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">Report section<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect Report section in the concept demonstration"></label><button class="study-play" aria-label="Play the GaN Met Compiler sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore GaN Met Compiler concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#diagnose">Next / GaN Temp Diagnoser <b>↓</b></a></div></div></section><section class="feature feature-diagnose" id="diagnose" style="--scene-length:420svh" data-feature="diagnose" data-timings="0.1,0.22,0.36,0.53,0.72,0.9" data-states="[&quot;Interface&quot;,&quot;Observed drift&quot;,&quot;Process + clean&quot;,&quot;Possible explanations&quot;,&quot;Evidence + checks&quot;,&quot;Inspect a check&quot;,&quot;Diagnostic guidance&quot;]" data-study-app="gan-temp-diagnoser" data-beats="[&quot;Start with the temperature diagnosis interface.&quot;,&quot;Establish the observed drift.&quot;,&quot;Keep process and clean-recipe observations distinct.&quot;,&quot;Possible explanations form an investigation, not a verdict.&quot;,&quot;The observation context guides the recommended checks.&quot;,&quot;Inspect a check before concluding a cause.&quot;,&quot;Return to the real diagnostic guidance.&quot;]" aria-labelledby="title-diagnose"><div class="feature-stage"><div class="feature-top"><span>08 / 16</span><span>GaN Temp Diagnoser</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">Temperature drift diagnosis.</p><h2 id="title-diagnose">Read the symptoms.<br>Test the explanation.</h2><p>Bring process and clean-recipe observations into one diagnostic view. Follow the recommended checks before drawing a conclusion.</p><div class="feature-verbs"><span data-phase="0">Observe</span><i>→</i><span data-phase="1">Relate</span><i>→</i><span data-phase="2">Investigate</span></div><p class="study-beat">Start with the temperature diagnosis interface.</p></div><div class="feature-visual"><div class="function-study" aria-hidden="true"><canvas></canvas></div><div class="focus-caption"><span>Recommended check</span><output class="focus-position">01</output></div></div><div class="study-source" aria-hidden="true"><img src="assets/evidence/gan-temp-diagnoser/full.webp" width="1425" height="950" alt="Diagnostic summary and recommended checks in GaN Temp Diagnoser" loading="lazy" decoding="async"><span>GaN Temp Diagnoser</span></div><button class="evidence" data-capture="gan-temp-diagnoser" aria-label="See the actual GaN Temp Diagnoser interface"><img src="assets/evidence/gan-temp-diagnoser/full.webp" width="1425" height="950" alt="Diagnostic summary and recommended checks in GaN Temp Diagnoser" loading="lazy" decoding="async"><span><b>Inside GaN Temp Diagnoser</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">Recommended check<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect Recommended check in the concept demonstration"></label><button class="study-play" aria-label="Play the GaN Temp Diagnoser sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore GaN Temp Diagnoser concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#arrange">Next / AIX ΔT Assistant <b>↓</b></a></div></div></section><section class="feature feature-arrange" id="arrange" style="--scene-length:420svh" data-feature="arrange" data-timings="0.1,0.22,0.36,0.53,0.72,0.9" data-states="[&quot;Interface&quot;,&quot;Input context&quot;,&quot;Current positions&quot;,&quot;First exchange&quot;,&quot;Second exchange&quot;,&quot;Inspect placement&quot;,&quot;Revised arrangement&quot;]" data-study-app="aix-dt-assistant" data-beats="[&quot;Baseplate swapping, with its inputs in view.&quot;,&quot;Locate the weight and temperature inputs.&quot;,&quot;Separate each plate from its current position.&quot;,&quot;Lift the first pair. Exchange their positions.&quot;,&quot;A second pair moves while the other plates stay seated.&quot;,&quot;Review the revised arrangement against its inputs.&quot;,&quot;Return to the interface to review the proposed swaps.&quot;]" aria-labelledby="title-arrange"><div class="feature-stage"><div class="feature-top"><span>09 / 16</span><span>AIX ΔT Assistant</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">Baseplate arrangement guidance.</p><h2 id="title-arrange">Exchange the plates.<br>Keep the context.</h2><p>Use weight and temperature inputs to guide baseplate swaps. Follow each plate from its current position to its new seat.</p><div class="feature-verbs"><span data-phase="0">Evaluate</span><i>→</i><span data-phase="1">Exchange</span><i>→</i><span data-phase="2">Review</span></div><p class="study-beat">Baseplate swapping, with its inputs in view.</p></div><div class="feature-visual"><div class="function-study" aria-hidden="true"><canvas></canvas></div><div class="focus-caption"><span>Baseplate position</span><output class="focus-position">01</output></div></div><div class="study-source" aria-hidden="true"><img src="assets/evidence/aix-dt-assistant/full.webp" width="1425" height="950" alt="Baseplate assignment visualization in AIX ΔT Assistant" loading="lazy" decoding="async"><span>AIX ΔT Assistant</span></div><button class="evidence" data-capture="aix-dt-assistant" aria-label="See the actual AIX ΔT Assistant interface"><img src="assets/evidence/aix-dt-assistant/full.webp" width="1425" height="950" alt="Baseplate assignment visualization in AIX ΔT Assistant" loading="lazy" decoding="async"><span><b>Inside AIX ΔT Assistant</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">Baseplate position<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect Baseplate position in the concept demonstration"></label><button class="study-play" aria-label="Play the AIX ΔT Assistant sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore AIX ΔT Assistant concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#zones">Next / LT Zone Assistant <b>↓</b></a></div></div></section><section class="feature feature-zones" id="zones" style="--scene-length:420svh" data-feature="zones" data-timings="0.1,0.22,0.36,0.53,0.72,0.9" data-states="[&quot;Interface&quot;,&quot;Zone references&quot;,&quot;Common origin&quot;,&quot;Mapping&quot;,&quot;Spatial correspondence&quot;,&quot;Inspect a boundary&quot;,&quot;Zone context&quot;]" data-study-app="lt-zone-assistant" data-beats="[&quot;Start with the LayTec zone interface.&quot;,&quot;Each source zone keeps its own reference.&quot;,&quot;Establish a common origin.&quot;,&quot;Source references map to spatial positions.&quot;,&quot;Inner and outer boundaries make correspondence visible.&quot;,&quot;Inspect a selected boundary in the whole geometry.&quot;,&quot;Return to the complete zone context.&quot;]" aria-labelledby="title-zones"><div class="feature-stage"><div class="feature-top"><span>10 / 16</span><span>LT Zone Assistant</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">LayTec zone mapping.</p><h2 id="title-zones">Define the region.<br>Retain the geometry.</h2><p>Map LayTec inner and outer zones within one coordinate system. Review each boundary in relation to the whole.</p><div class="feature-verbs"><span data-phase="0">Locate</span><i>→</i><span data-phase="1">Map</span><i>→</i><span data-phase="2">Relate</span></div><p class="study-beat">Start with the LayTec zone interface.</p></div><div class="feature-visual"><div class="function-study" aria-hidden="true"><canvas></canvas></div><div class="focus-caption"><span>Zone boundary</span><output class="focus-position">01</output></div></div><div class="study-source" aria-hidden="true"><img src="assets/evidence/lt-zone-assistant/full.webp" width="1425" height="950" alt="Inner and outer zone geometry in LT Zone Assistant" loading="lazy" decoding="async"><span>LT Zone Assistant</span></div><button class="evidence" data-capture="lt-zone-assistant" aria-label="See the actual LT Zone Assistant interface"><img src="assets/evidence/lt-zone-assistant/full.webp" width="1425" height="950" alt="Inner and outer zone geometry in LT Zone Assistant" loading="lazy" decoding="async"><span><b>Inside LT Zone Assistant</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">Zone boundary<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect Zone boundary in the concept demonstration"></label><button class="study-play" aria-label="Play the LT Zone Assistant sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore LT Zone Assistant concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#configuration">Next / GaN XML Assistant <b>↓</b></a></div></div></section><section class="feature feature-configuration" id="configuration" style="--scene-length:420svh" data-feature="configuration" data-timings="0.1,0.22,0.36,0.53,0.72,0.9" data-states="[&quot;Interface&quot;,&quot;Two configurations&quot;,&quot;Device hierarchy&quot;,&quot;Node correspondence&quot;,&quot;Changed values&quot;,&quot;Inspect a branch&quot;,&quot;Configuration context&quot;]" data-study-app="gan-xml-assistant" data-beats="[&quot;Start with the Devices.XML comparison.&quot;,&quot;Keep reference and target states separate.&quot;,&quot;Establish the device hierarchy.&quot;,&quot;Equivalent nodes line up.&quot;,&quot;Unchanged branches quiet while changed values remain expanded.&quot;,&quot;Inspect the changed branch with its device context.&quot;,&quot;Return to the real configuration comparison.&quot;]" aria-labelledby="title-configuration"><div class="feature-stage"><div class="feature-top"><span>11 / 16</span><span>GaN XML Assistant</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">Devices.XML comparison.</p><h2 id="title-configuration">Isolate the change<br>in Devices.XML.</h2><p>Match properties between reference and target configurations. Read changed settings and constants in context.</p><div class="feature-verbs"><span data-phase="0">Load</span><i>→</i><span data-phase="1">Match</span><i>→</i><span data-phase="2">Distinguish</span></div><p class="study-beat">Start with the Devices.XML comparison.</p></div><div class="feature-visual"><div class="function-study" aria-hidden="true"><canvas></canvas></div><div class="focus-caption"><span>Configuration property</span><output class="focus-position">01</output></div></div><div class="study-source" aria-hidden="true"><img src="assets/evidence/gan-xml-assistant/full.webp" width="1425" height="950" alt="Structured configuration differences in GaN XML Assistant" loading="lazy" decoding="async"><span>GaN XML Assistant</span></div><button class="evidence" data-capture="gan-xml-assistant" aria-label="See the actual GaN XML Assistant interface"><img src="assets/evidence/gan-xml-assistant/full.webp" width="1425" height="950" alt="Structured configuration differences in GaN XML Assistant" loading="lazy" decoding="async"><span><b>Inside GaN XML Assistant</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">Configuration property<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect Configuration property in the concept demonstration"></label><button class="study-play" aria-label="Play the GaN XML Assistant sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore GaN XML Assistant concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#spc">Next / Magus SPC (GaN) <b>↓</b></a></div></div></section><section class="feature feature-spc feature-paper" id="spc" style="--scene-length:420svh" data-feature="spc" data-timings="0.1,0.22,0.36,0.53,0.72,0.9" data-states="[&quot;Interface&quot;,&quot;Relevant signals&quot;,&quot;Review context&quot;,&quot;Exceptions&quot;,&quot;Direct attention&quot;,&quot;Review an excursion&quot;,&quot;Release context&quot;]" data-study-app="magus-spc-gan" data-beats="[&quot;Start with the GaN release-review interface.&quot;,&quot;Bring the relevant SPC signals into view.&quot;,&quot;Retain the review context around each signal.&quot;,&quot;An excursion becomes visible against that context.&quot;,&quot;Attention moves to the signal requiring review.&quot;,&quot;Inspect the exception; a release is not decided by this illustration.&quot;,&quot;Return to the real release-review context.&quot;]" aria-labelledby="title-spc"><div class="feature-stage"><div class="feature-top"><span>12 / 16</span><span>Magus SPC (GaN)</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">GaN SPC release review.</p><h2 id="title-spc">Review the chart<br>with its state.</h2><p>Bring configured GaN SPC charts and parameter states into the same review.</p><div class="feature-verbs"><span data-phase="0">Select</span><i>→</i><span data-phase="1">Review</span><i>→</i><span data-phase="2">Focus</span></div><p class="study-beat">Start with the GaN release-review interface.</p></div><div class="feature-visual"><div class="function-study" aria-hidden="true"><canvas></canvas></div><div class="focus-caption"><span>Signal under review</span><output class="focus-position">01</output></div></div><div class="study-source" aria-hidden="true"><img src="assets/evidence/magus-spc-gan/full.webp" width="1425" height="950" alt="GaN parameter control charts in Magus SPC (GaN)" loading="lazy" decoding="async"><span>Magus SPC (GaN)</span></div><button class="evidence" data-capture="magus-spc-gan" aria-label="See the actual Magus SPC (GaN) interface"><img src="assets/evidence/magus-spc-gan/full.webp" width="1425" height="950" alt="GaN parameter control charts in Magus SPC (GaN)" loading="lazy" decoding="async"><span><b>Inside Magus SPC (GaN)</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">Signal under review<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect Signal under review in the concept demonstration"></label><button class="study-play" aria-label="Play the Magus SPC (GaN) sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore Magus SPC (GaN) concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#legacy">Next / Magus SPC (Legacy) <b>↓</b></a></div></div></section><section class="feature feature-legacy feature-paper" id="legacy" style="--scene-length:420svh" data-feature="legacy" data-timings="0.1,0.22,0.36,0.53,0.72,0.9" data-states="[&quot;Interface&quot;,&quot;Legacy records&quot;,&quot;Parameter index&quot;,&quot;Consistent frame&quot;,&quot;Selected chart&quot;,&quot;Inspect the parameter&quot;,&quot;Review context&quot;]" data-study-app="magus-spc-legacy" data-beats="[&quot;Start with the legacy release-review interface.&quot;,&quot;Separate legacy records retain their parameter identity.&quot;,&quot;The parameter index comes into order.&quot;,&quot;Different records enter a consistent review frame.&quot;,&quot;The selected parameter resolves to its own chart.&quot;,&quot;Inspect the chart with its parameter context retained.&quot;,&quot;Return to the legacy review interface.&quot;]" aria-labelledby="title-legacy"><div class="feature-stage"><div class="feature-top"><span>13 / 16</span><span>Magus SPC (Legacy)</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">Legacy SPC release review.</p><h2 id="title-legacy">Keep the parameter<br>beside its chart.</h2><p>Retrieve legacy SPC parameter states and charts within the established review workflow.</p><div class="feature-verbs"><span data-phase="0">Retrieve</span><i>→</i><span data-phase="1">Expand</span><i>→</i><span data-phase="2">Review</span></div><p class="study-beat">Start with the legacy release-review interface.</p></div><div class="feature-visual"><div class="function-study" aria-hidden="true"><canvas></canvas></div><div class="focus-caption"><span>Selected parameter</span><output class="focus-position">01</output></div></div><div class="study-source" aria-hidden="true"><img src="assets/evidence/magus-spc-legacy/full.webp" width="1425" height="950" alt="Legacy parameter review and statuses in Magus SPC (Legacy)" loading="lazy" decoding="async"><span>Magus SPC (Legacy)</span></div><button class="evidence" data-capture="magus-spc-legacy" aria-label="See the actual Magus SPC (Legacy) interface"><img src="assets/evidence/magus-spc-legacy/full.webp" width="1425" height="950" alt="Legacy parameter review and statuses in Magus SPC (Legacy)" loading="lazy" decoding="async"><span><b>Inside Magus SPC (Legacy)</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">Selected parameter<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect Selected parameter in the concept demonstration"></label><button class="study-play" aria-label="Play the Magus SPC (Legacy) sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore Magus SPC (Legacy) concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#planning">Next / ANKO Helper <b>↓</b></a></div></div></section><section class="feature feature-planning feature-paper" id="planning" style="--scene-length:420svh" data-feature="planning" data-timings="0.1,0.22,0.36,0.53,0.72,0.9" data-states="[&quot;Interface&quot;,&quot;Equipment status&quot;,&quot;Due dates&quot;,&quot;Time order&quot;,&quot;Due + upcoming&quot;,&quot;Inspect a window&quot;,&quot;Planning context&quot;]" data-study-app="anko-helper" data-beats="[&quot;Start with equipment status and due dates.&quot;,&quot;Separate items keep their equipment identity.&quot;,&quot;Read each due date relative to time.&quot;,&quot;Dates settle on a shared time axis.&quot;,&quot;Due and upcoming work separate around the present.&quot;,&quot;Inspect a time window without losing the equipment.&quot;,&quot;Return to the planning view.&quot;]" aria-labelledby="title-planning"><div class="feature-stage"><div class="feature-top"><span>14 / 16</span><span>ANKO Helper</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">ANKO status and due dates.</p><h2 id="title-planning">Status. Due date.<br>Next action.</h2><p>Align ANKO status and due dates by equipment before deciding what needs attention.</p><div class="feature-verbs"><span data-phase="0">Gather</span><i>→</i><span data-phase="1">Prioritise</span><i>→</i><span data-phase="2">Plan</span></div><p class="study-beat">Start with equipment status and due dates.</p></div><div class="feature-visual"><div class="function-study" aria-hidden="true"><canvas></canvas></div><div class="focus-caption"><span>Equipment row</span><output class="focus-position">01</output></div></div><div class="study-source" aria-hidden="true"><img src="assets/evidence/anko-helper/full.webp" width="1425" height="950" alt="Maintenance statuses and due dates in ANKO Helper" loading="lazy" decoding="async"><span>ANKO Helper</span></div><button class="evidence" data-capture="anko-helper" aria-label="See the actual ANKO Helper interface"><img src="assets/evidence/anko-helper/full.webp" width="1425" height="950" alt="Maintenance statuses and due dates in ANKO Helper" loading="lazy" decoding="async"><span><b>Inside ANKO Helper</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">Equipment row<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect Equipment row in the concept demonstration"></label><button class="study-play" aria-label="Play the ANKO Helper sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore ANKO Helper concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#report">Next / LT Report Compiler <b>↓</b></a></div></div></section><section class="feature feature-report" id="report" style="--scene-length:420svh" data-feature="report" data-timings="0.1,0.22,0.36,0.53,0.72,0.9" data-states="[&quot;Interface&quot;,&quot;LayTec sources&quot;,&quot;Result fragments&quot;,&quot;Extraction&quot;,&quot;Ordered sections&quot;,&quot;Trace the result&quot;,&quot;Finished report&quot;]" data-study-app="lt-report-compiler" data-beats="[&quot;Start with the LayTec report compiler.&quot;,&quot;Separate LayTec sources remain visible.&quot;,&quot;Identify result traces and run context.&quot;,&quot;Extract each result into the reporting structure.&quot;,&quot;Context, traces and summary take their report positions.&quot;,&quot;Trace a report section back to its LayTec source.&quot;,&quot;Return to the completed report in the application.&quot;]" aria-labelledby="title-report"><div class="feature-stage"><div class="feature-top"><span>15 / 16</span><span>LT Report Compiler</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">LayTec report compilation.</p><h2 id="title-report">Compile the record.<br>Repeat the method.</h2><p>Assemble LayTec source information into an engineering report without rebuilding the reporting structure each time.</p><div class="feature-verbs"><span data-phase="0">Read</span><i>→</i><span data-phase="1">Assemble</span><i>→</i><span data-phase="2">Report</span></div><p class="study-beat">Start with the LayTec report compiler.</p></div><div class="feature-visual"><div class="function-study" aria-hidden="true"><canvas></canvas></div><div class="focus-caption"><span>Report assembly</span><output class="focus-position">01</output></div></div><div class="study-source" aria-hidden="true"><img src="assets/evidence/lt-report-compiler/full.webp" width="1425" height="950" alt="Report compilation activity in LT Report Compiler" loading="lazy" decoding="async"><span>LT Report Compiler</span></div><button class="evidence" data-capture="lt-report-compiler" aria-label="See the actual LT Report Compiler interface"><img src="assets/evidence/lt-report-compiler/full.webp" width="1425" height="950" alt="Report compilation activity in LT Report Compiler" loading="lazy" decoding="async"><span><b>Inside LT Report Compiler</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">Report assembly<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect Report assembly in the concept demonstration"></label><button class="study-play" aria-label="Play the LT Report Compiler sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore LT Report Compiler concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#signals">Next / Metria SPC <b>↓</b></a></div></div></section><section class="feature feature-signals" id="signals" style="--scene-length:420svh" data-feature="signals" data-timings="0.1,0.22,0.36,0.53,0.72,0.9" data-states="[&quot;Interface&quot;,&quot;Independent signals&quot;,&quot;Time ranges&quot;,&quot;Synchronisation&quot;,&quot;Common interval&quot;,&quot;Explore relationships&quot;,&quot;Comparable context&quot;]" data-study-app="metria-spc" data-beats="[&quot;Start with multi-parameter SPC in the real interface.&quot;,&quot;Each parameter initially has its own visible time range.&quot;,&quot;Bring the time ranges into correspondence.&quot;,&quot;All signals lock to the same time basis.&quot;,&quot;One interval crosses every parameter.&quot;,&quot;Move the shared window to inspect relationships.&quot;,&quot;Return to the interface with a comparable view.&quot;]" aria-labelledby="title-signals"><div class="feature-stage"><div class="feature-top"><span>16 / 16</span><span>Metria SPC</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">Interactive multi-parameter equipment SPC.</p><h2 id="title-signals">Different parameters.<br>The same interval.</h2><p>Inspect equipment parameter traces together. Follow one time window across the signals while retaining each chart.</p><div class="feature-verbs"><span data-phase="0">Gather</span><i>→</i><span data-phase="1">Relate</span><i>→</i><span data-phase="2">Explore</span></div><p class="study-beat">Start with multi-parameter SPC in the real interface.</p></div><div class="feature-visual"><div class="function-study" aria-hidden="true"><canvas></canvas></div><div class="focus-caption"><span>Shared time window</span><output class="focus-position">01</output></div></div><div class="study-source" aria-hidden="true"><img src="assets/evidence/metria-spc/full.webp" width="1425" height="950" alt="Interactive parameter chart and range overview in Metria SPC" loading="lazy" decoding="async"><span>Metria SPC</span></div><button class="evidence" data-capture="metria-spc" aria-label="See the actual Metria SPC interface"><img src="assets/evidence/metria-spc/full.webp" width="1425" height="950" alt="Interactive parameter chart and range overview in Metria SPC" loading="lazy" decoding="async"><span><b>Inside Metria SPC</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">Shared time window<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect Shared time window in the concept demonstration"></label><button class="study-play" aria-label="Play the Metria SPC sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore Metria SPC concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#gene">Next / A note from Gene <b>↓</b></a></div></div></section>
+      <section class="creator" id="gene" aria-labelledby="creator-title">
+        <div class="creator-top">
+          <span>By Gene</span>
+        </div>
+        <div class="creator-account">
+          <h2 id="creator-title">Three years.<br />Sixteen applications.</h2>
+          <div class="creator-writing">
+            <p>
+              ARTIFACTS began with one belief: if the work could be better, it
+              should be.
+            </p>
+            <p>
+              So I built what I needed, one problem at a time. Some tools stayed
+              small. Others grew far beyond where they began. But every one came
+              from the same place: care for the work, and a refusal to accept
+              friction as inevitable.
+            </p>
+            <p>
+              Three years later, I still build every tool as if my own work
+              depends on it. Because it does.
+            </p>
+          </div>
+        </div>
+        <div class="creator-contact">
+          <span>Gene</span
+          ><a href="mailto:weigenekhor@gmail.com">weigenekhor@gmail.com ↗</a
+          ><a
+            href="https://www.linkedin.com/in/weigenekhor/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn ↗</a
+          >
         </div>
       </section>
     </main>
-    <footer class="site-footer">
-      <div class="footer-top">
-        <a href="#" class="footer-wordmark">ARTIFACTS<span>by Gene</span></a
-        ><a href="#main" class="back-top">Back to the surface <span>↑</span></a>
-      </div>
-      <div class="footer-bottom">
-        <span>© <span id="year">2026</span> Artifacts by Gene</span
-        ><span>A PERSONAL COLLECTION. AN ONGOING PRACTICE.</span
-        ><span>artifactsbygene.com</span>
-      </div>
+    <footer class="footer">
+      <img
+        src="assets/brand/artifacts-symbol.svg"
+        alt=""
+        width="28"
+        height="28"
+      /><span>ARTIFACTS</span>
+      <p>Engineering software by Gene.</p>
+      <a href="#collection">Explore the collection ↗</a>
     </footer>
-
-    <dialog id="project-dialog" aria-labelledby="dialog-title">
-      <div class="dialog-header">
-        <span class="eyebrow">ARTIFACTS / PROJECT NOTES</span
-        ><button
-          type="button"
-          class="dialog-close"
-          aria-label="Close project notes"
-        >
+    <dialog id="study-picker" aria-labelledby="picker-title">
+      <div class="picker-heading">
+        <div>
+          <p class="eyebrow">Inside the work</p>
+          <h2 id="picker-title">Choose your starting point.</h2>
+        </div>
+        <button id="picker-close" aria-label="Close application index">
           ×
         </button>
       </div>
-      <span class="dialog-project-id" id="dialog-id">A—01</span>
-      <h2 id="dialog-title">GaN Temp Diagnoser</h2>
-      <p id="dialog-description"></p>
-      <div class="dialog-notes">
-        <h3>Documentation is taking shape.</h3>
-        <p>
-          This system is part of Gene’s existing ARTIFACTS collection. A project
-          walkthrough, interface views, and verified technical details are
-          planned for this space.
-        </p>
+      <nav class="picker-list" aria-label="Application studies">
+        <a href="#history" data-study-jump="history"><span>01</span><div><b>Altus LotViewer</b><small>Lot history analysis.</small></div><i aria-hidden="true">↗</i></a><a href="#schedule" data-study-jump="schedule"><span>02</span><div><b>Altus ANKO Viewer</b><small>ANKO schedule retrieval.</small></div><i aria-hidden="true">↗</i></a><a href="#usage" data-study-jump="usage"><span>03</span><div><b>Altus WaferCount</b><small>Chamber usage and wafer counts.</small></div><i aria-hidden="true">↗</i></a><a href="#surface" data-study-jump="surface"><span>04</span><div><b>TopoTracer</b><small>Contour and topography plots.</small></div><i aria-hidden="true">↗</i></a><a href="#compare" data-study-jump="compare"><span>05</span><div><b>Papyrus Reader</b><small>Logical recipe and text comparison.</small></div><i aria-hidden="true">↗</i></a><a href="#pathfinder" data-study-jump="pathfinder"><span>06</span><div><b>SPC Pathfinder</b><small>SPC chart finder.</small></div><i aria-hidden="true">↗</i></a><a href="#compile" data-study-jump="compile"><span>07</span><div><b>GaN Met Compiler</b><small>Metrology report compiler.</small></div><i aria-hidden="true">↗</i></a><a href="#diagnose" data-study-jump="diagnose"><span>08</span><div><b>GaN Temp Diagnoser</b><small>Temperature drift diagnosis.</small></div><i aria-hidden="true">↗</i></a><a href="#arrange" data-study-jump="arrange"><span>09</span><div><b>AIX ΔT Assistant</b><small>Baseplate arrangement guidance.</small></div><i aria-hidden="true">↗</i></a><a href="#zones" data-study-jump="zones"><span>10</span><div><b>LT Zone Assistant</b><small>LayTec zone mapping.</small></div><i aria-hidden="true">↗</i></a><a href="#configuration" data-study-jump="configuration"><span>11</span><div><b>GaN XML Assistant</b><small>Devices.XML comparison.</small></div><i aria-hidden="true">↗</i></a><a href="#spc" data-study-jump="spc"><span>12</span><div><b>Magus SPC (GaN)</b><small>GaN SPC release review.</small></div><i aria-hidden="true">↗</i></a><a href="#legacy" data-study-jump="legacy"><span>13</span><div><b>Magus SPC (Legacy)</b><small>Legacy SPC release review.</small></div><i aria-hidden="true">↗</i></a><a href="#planning" data-study-jump="planning"><span>14</span><div><b>ANKO Helper</b><small>ANKO status and due dates.</small></div><i aria-hidden="true">↗</i></a><a href="#report" data-study-jump="report"><span>15</span><div><b>LT Report Compiler</b><small>LayTec report compilation.</small></div><i aria-hidden="true">↗</i></a><a href="#signals" data-study-jump="signals"><span>16</span><div><b>Metria SPC</b><small>Interactive multi-parameter equipment SPC.</small></div><i aria-hidden="true">↗</i></a>
+      </nav>
+      <p class="picker-note">
+        Sixteen tools. Follow the sequence, or enter anywhere.
+      </p>
+    </dialog>
+    <dialog id="capture" aria-labelledby="capture-title">
+      <div class="capture-toolbar">
+        <div>
+          <p class="eyebrow">Inside ARTIFACTS</p>
+          <h2 id="capture-title"></h2>
+        </div>
+        <button id="capture-close" aria-label="Close interface">×</button>
       </div>
-      <span class="eyebrow dialog-foot">ENGINEERING SOFTWARE BY GENE</span>
+      <div class="capture-viewport"><img id="capture-image" alt="" /></div>
+      <div class="capture-tools">
+        <button id="pixel-view" aria-pressed="false">View actual size</button
+        ><span id="capture-size"></span
+        ><a id="capture-source" target="_blank" rel="noopener"
+          >Open original ↗</a
+        >
+      </div>
     </dialog>
   </body>
 </html>

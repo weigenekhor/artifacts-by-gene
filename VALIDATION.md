@@ -1,20 +1,59 @@
-# Validation
+# Validation — ARTIFACTS software exhibition
 
-Verified in headless Microsoft Edge on 18 September 2026.
+**Latest targeted redesign (working system):** static build and focused Edge checks passed. Desktop/mobile review covered the ordered hero, expanded assembly, five story stages, engineering situations and creator note. Fixed a legacy CSS collision that hid the method register and reduced fragment overlap. Verified visible rotation, pause on hover/focus, app handoff, all sixteen method entries and task-context coverage, removal of rejected copy, reduced-motion composition, and no page/console errors or horizontal overflow. Ambient motion now intentionally runs while the hero is visible; after leaving and settling, a one-second sample recorded zero callbacks. Broader validation remains deferred.
 
-- WebGL shader compiles and renders the hero surface.
-- All four project selectors update content and selected state correctly.
-- Arrow-key project selection, Home/End handling, and tab focus are implemented.
-- Project notes show the active system. Escape closes the native dialog and restores focus to its trigger.
-- No horizontal document overflow at 320, 375, 390, 768, 1024, 1440, and 1920 pixels.
-- Desktop and mobile hero, system section, full mobile layout, and social preview visually inspected.
-- Reduced-motion mode disables smooth scrolling and animated reveals; the shader renders a still frame.
-- Without JavaScript, the main editorial content and CSS hero surface remain available.
-- Simulated WebGL context loss restores the CSS surface.
-- Instrumented draw calls confirm animation on desktop, zero ongoing draws offscreen, correct resume on return, and zero ongoing draws in reduced-motion and mobile modes.
-- No page exceptions or failed page resources during the interaction checks.
-- axe-core 4.10.3 reported zero WCAG 2 A/AA and WCAG 2.1 A/AA violations with motion disabled for a stable contrast scan. Automated checks do not replace manual assistive-technology testing.
+**Previous visual refinement (application assembly):** build and focused Edge checks passed at 1440 × 900 and 390 × 844 with no page/console errors or horizontal overflow. All sixteen hero images loaded. Opening, direct app handoff, faster replay, reduced-motion navigation and idle behaviour passed; a settled one-second sample recorded zero callbacks. The full media catalogue is unchanged. Visual refinement corrected creator layout inheritance and spacing between task examples. Comprehensive validation remains deferred.
 
-The surface renderer is capped at 60 Hz on desktop, pauses offscreen and in hidden tabs, caps pixel density, and renders a static mobile view. Frame-rate targets have not been benchmarked on physical desktop or mobile devices.
+**Previous visual refinement (merged reveal):** restored the original reveal chapter and connected the current sectional surface to a passage of real application captures. Focused Edge checks at 1440 × 900 and 390 × 844 passed without page/console errors or horizontal overflow; the light-scene shadow and image overlap were corrected after visual review. A 1.5-second settled sample recorded zero animation callbacks. Static build passed. Full validation remains deferred.
 
-The implementation targets `main` in `https://github.com/weigenekhor/artifacts-by-gene`. The repository's original history and `CNAME` are preserved. Repository updates use the authenticated GitHub connection rather than command-line Git credentials. GitHub Pages serves the repository's static files; deployment status is checked separately after the repository update.
+**Previous visual refinement (sectional entry):** static build and focused Edge browser checks passed. Replaced the always-running WebGL hero with a finite Canvas 2D renderer. A local 180-frame pointer sample measured 16.7 ms median / 17.3 ms p95; after settling, no animation callbacks occurred during a one-second idle sample. These are local headless observations, not a hardware-wide performance guarantee. Keyboard separation, sixteen own-app image boundaries, representative desktop/mobile compositions and runtime checks passed with no page or console errors. Original application motion and media are retained. Full browser/device/accessibility validation remains deferred.
+
+**Scope:** the results below record v10, before the sixteen-study expansion. The current visual pass has a successful build and basic runtime check across all sixteen studies, with no reported page/resource errors. Full validation of this expansion is deferred until visual approval.
+
+Validated on 22 September 2026 using Playwright and installed Microsoft Edge in headless mode. Tests serve the static files under a GitHub Pages-style `/artifacts-by-gene/` subpath.
+
+## Functional checks
+
+- All sixteen applications advance through native scrolling and display the correct name, purpose and complete source capture.
+- All sixteen full-image dialogs preserve intrinsic source dimensions; Escape and return focus passed. Papyrus actual-size inspection renders at its native 1531-pixel width.
+- Archive rail, previous/next controls, keyboard arrows and direct app links passed.
+- All four study range controls update their visual progression. Native scrolling resumes progression after manual inspection.
+- Reduced motion retains settled diagrams and the full collection. With JavaScript disabled, all sixteen screenshots and linked index entries remain available.
+- Four full-document axe WCAG A/AA scans passed with **zero violations**: desktop, viewer, mobile and reduced motion.
+- **Zero console warnings/errors, page exceptions or failed resource responses.**
+
+## Screen sizes
+
+| Viewport    | DPR |
+| ----------- | --- |
+| 3840 × 2160 | 1   |
+| 2560 × 1440 | 1   |
+| 1920 × 1080 | 1   |
+| 1440 × 900  | 2   |
+| 1366 × 768  | 1   |
+| 1024 × 1366 | 1   |
+| 430 × 932   | 2   |
+| 390 × 844   | 3   |
+| 320 × 740   | 2   |
+| 844 × 390   | 2   |
+| 667 × 375   | 2   |
+
+Each viewport passed four demonstration compositions and four representative archive states. Checks cover horizontal overflow, copy/visual/control collisions, archive header clearance and screenshot/navigation clearance. Visual review included opening, origin, all four demonstrations, collection and mobile portrait/landscape. Refinement corrected long headline wrapping, small-text contrast, screenshot composition, header transparency and a redundant diagram caption.
+
+A recorded continuous-scroll review is saved under ignored `.qa/film-v10/`. Additional checks confirm that resizing from desktop to portrait preserves the active application, and that the new viewing interval holds the active capture straight-on. The archive transition leaves readable pauses between movements.
+
+## Performance
+
+A local 360-frame scroll sweep at 1920 × 1080 recorded **16.7 ms median**, **16.8 ms p95**, **zero long tasks**, and **zero idle animation callbacks** after settling. This is a local sample, not a device-wide FPS guarantee.
+
+The previous Three.js renderer and dependency were removed. The current browser bundle is approximately **14.5 kB / 4.9 kB gzip**. The contour graphic is generated at build time; CSS provides perspective. Native DOM images preserve the original captures, with lazy loading below the fold. The controller sleeps at rest and while the document is hidden.
+
+## Image fidelity
+
+Both image suites passed. Full lossless WebP images and detail crops preserve source pixels and recorded dimensions. The current Papyrus capture is **1531 × 1002**; the remaining fifteen are **1425 × 950**. Complete originals remain available in the viewer. Crops are deliberate source fragments, and no screenshots are generated, retouched or artificially upscaled. The original ARTIFACTS symbol and matching favicon are retained.
+
+## Reproduce and limits
+
+Run `pnpm build`, `pnpm test:evidence`, `pnpm test:assets` and `pnpm test`. The browser suite defaults to `msedge`; `BROWSER_CHANNEL` can select another installed Chromium channel. Reports and images are in ignored `.qa/validation-v10.json` and `.qa/v10-*.png`.
+
+Mobile checks are emulated; physical devices, Safari and Firefox have not been tested. Automated accessibility checks do not replace assistive-technology review. Concept motion explains an application's purpose; it does not represent measured outputs or a live engineering simulation. Native image resolution limits remain; these captures are not 4K source material.

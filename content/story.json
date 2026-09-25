@@ -1,0 +1,29 @@
+{
+  "phases": [
+    {
+      "label": "Reconstruct",
+      "title": "The answer was only part of the work.",
+      "text": "Behind it: a reference recovered, a comparison made, a check worth keeping."
+    },
+    {
+      "label": "Recognise",
+      "title": "A new run. A familiar question.",
+      "text": "The evidence changed. The reasoning kept returning."
+    },
+    {
+      "label": "Retain",
+      "title": "Good reasoning should outlive the task.",
+      "text": "Keep the sequence. Keep the checks. Give the next investigation a better starting point."
+    },
+    {
+      "label": "Improve",
+      "title": "I built a way to keep it working.",
+      "text": "A method became software. Real use revealed what to build next."
+    },
+    {
+      "label": "Build",
+      "title": "One need at a time. A system took shape.",
+      "text": "Sixteen distinct applications, each built around work that deserved a better way."
+    }
+  ]
+}

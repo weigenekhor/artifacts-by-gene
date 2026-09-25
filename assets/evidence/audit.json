@@ -1,0 +1,258 @@
+[
+  {
+    "id": "altus-lotviewer",
+    "file": "Altus LotViewer.png",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "e5b495d24344034c7c66268eb41e05ea6898f72b36978e69a176688be73badba",
+    "fullPixelSha256": "5a5eff6a95dceb0af981160be483406afb24c55027298ebd7286f37fa14fd26c",
+    "region": {
+      "left": 76,
+      "top": 385,
+      "width": 1315,
+      "height": 490
+    },
+    "detailSha256": "2dc346552b54d56a270596d73755c0edebae947daebbe6f5362cb9de9d909fe2",
+    "pixelSha256": "743cbc43ef7c70b34fa78fa628195e11814df8d36f05c7bcec287475da8abc45"
+  },
+  {
+    "id": "altus-anko-viewer",
+    "file": "Altus Anko Viewer.png",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "d888157c8c55d5b22f5045e02ff41c390550b8bf3d4e4d0e662b50bba5f87e68",
+    "fullPixelSha256": "a7eddbc56790b2bae8e06901a22eeac113124c525131d9b4cb75630e8b199985",
+    "region": {
+      "left": 80,
+      "top": 190,
+      "width": 1310,
+      "height": 630
+    },
+    "detailSha256": "b91abf0c43f8de3f423b234bdfaeab21c1453f1cd44b1b65e739c0fe1b6a710a",
+    "pixelSha256": "d8b1eddf291cb0a9c5df6543a70e66cad4c9aff6e4d900d652605337f0d8643c"
+  },
+  {
+    "id": "altus-wafercount",
+    "file": "Altus WaferCounter.png",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "72d116a7a3697ce34826a8cf92ba65613e8ea1bdfa3b9077679bf19e1581e85d",
+    "fullPixelSha256": "210f1e4327c7439489dd3a231f30a4067f4bf8d27916a109345995aeb9d7ad8e",
+    "region": {
+      "left": 80,
+      "top": 220,
+      "width": 1310,
+      "height": 610
+    },
+    "detailSha256": "2b1ec77a0a0c036ed53aa4691cad5deb8647a13719fe9b2de5a8ccd15856f658",
+    "pixelSha256": "519a7a667bc6452fcfafb7e609c97e987b1399555371a48ca910de86e326eb63"
+  },
+  {
+    "id": "topotracer",
+    "file": "TopoTracer.png",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "05b807b23a33a5774767ccf31a5dff09f85bf78f9358a1ad80afc4c4c15c8091",
+    "fullPixelSha256": "632719f9c6b6f0f82dbc7f7de155e31a3a6188bf8704627d7b1a1df30c783cb1",
+    "region": {
+      "left": 95,
+      "top": 310,
+      "width": 1280,
+      "height": 570
+    },
+    "detailSha256": "c9138669987bcd1ee20f3ad0fb8fbd9cc02b43aab73068e0a8b6ff5653a2fbcd",
+    "pixelSha256": "c72500dd99898d2ce33479b6d3e5003c90133bf5e1d19bfa5919f4fe2206e926"
+  },
+  {
+    "id": "papyrus-reader",
+    "file": "Papyrus Reader.png",
+    "sourceWidth": 1531,
+    "sourceHeight": 1002,
+    "sourceSha256": "30073c1c9a20f984219cd8abd6c292912fc508cfd684a2767b0a584f66c2297d",
+    "fullPixelSha256": "0413c34560ac212ebf49f5d37e0a0d10b15c2663847d6735079528562f4ce1f4",
+    "region": {
+      "left": 95,
+      "top": 385,
+      "width": 1280,
+      "height": 315
+    },
+    "detailSha256": "7b71dd53ba0df00f207850fcd7a0b2d5652739e8838eb6313ee61fd9ca4fe3b8",
+    "pixelSha256": "73e83542b4d99593590553d2b18e32e0a8f9e4e6ad93d3d8079958c9e0d0aeeb"
+  },
+  {
+    "id": "spc-pathfinder",
+    "file": "SPC Pathfinder.png",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "34af170dcbaad6870d81ff0ffee944657eea98b4c09ed8cba98159c369a9a390",
+    "fullPixelSha256": "9ec4d080cd9c6d2388ed8bc655303aee7b872a5e263bcfd80511b3c1a7957a2e",
+    "region": {
+      "left": 80,
+      "top": 195,
+      "width": 1310,
+      "height": 630
+    },
+    "detailSha256": "24274d0e737fd039dbff420595ef4e53a318c6181f62faf9322815d810cc1820",
+    "pixelSha256": "518981417ab81ab4eea6376a7c7f4f2e11e5137f5f94e3a6229963c76780b28f"
+  },
+  {
+    "id": "gan-met-compiler",
+    "file": "GaN Met Compiler.png",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "16de1a9fccc84dd29d5c0c0a55f6b762bc19957d378b1889e621e8c9d1278fe1",
+    "fullPixelSha256": "308fe1b48b5395608e17ac300dc0727e0ad54a14ec594e15cb3790ddc17d0ec1",
+    "region": {
+      "left": 80,
+      "top": 190,
+      "width": 1300,
+      "height": 300
+    },
+    "detailSha256": "a63833ff187e1207279f61d89e8967edf4711336765b5b849f1677f06e501044",
+    "pixelSha256": "801b83f7de837240593847a89435c35bdd88e0661bee311c80b41149a43f1262"
+  },
+  {
+    "id": "gan-temp-diagnoser",
+    "file": "GaN Temp Diagnoser.png",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "3653617d5dd9359a9657d585955fb685407fbfa1f7019e0ce20169ee061d895e",
+    "fullPixelSha256": "1dd9ed061b6a0d11d57648785d88900515c498e2b07521428599612c5e4e77ca",
+    "region": {
+      "left": 705,
+      "top": 190,
+      "width": 675,
+      "height": 235
+    },
+    "detailSha256": "00750be5a2a262a32185c10bc621cb2ec1fefde9f8b933e14d796b19f832ccbf",
+    "pixelSha256": "d7da601cc70526c394c06faac62d3353b9e59c4658d79c7e667fbb5017ed23d2"
+  },
+  {
+    "id": "aix-dt-assistant",
+    "file": "AIX dT Assistant.png",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "1f001fffe65d7ddac4aac900cf5b1b268617796561201ba435409df2f9ca8fe0",
+    "fullPixelSha256": "fdf25b6bfebb0ee9cadb51bcdf58661df1e22245274ba5257ee7ddd11f825a98",
+    "region": {
+      "left": 720,
+      "top": 155,
+      "width": 650,
+      "height": 720
+    },
+    "detailSha256": "15a54711a9055b9e92f8d7007d53c2a84002194a0836a36b9629e9cf9e698a0f",
+    "pixelSha256": "ff5e989785254330467e01892cf0cf834071d1da7159455f01445e1201d3db44"
+  },
+  {
+    "id": "lt-zone-assistant",
+    "file": "LT Zone Assistant.png",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "307a45631ad9995bcc7133f00452a4a5945979e75cf5561dbc34a77cddfb4ebf",
+    "fullPixelSha256": "e8d3302efc797462620d6f676c471295693a692799ffd42a4b26ac0cc85061e0",
+    "region": {
+      "left": 410,
+      "top": 170,
+      "width": 975,
+      "height": 720
+    },
+    "detailSha256": "d70df2b7a82f11cc245e1f37da1b0298041db8a9999d8cce456af3cbb7ee3c79",
+    "pixelSha256": "ab609217e5090c4ef4eb4f4938e28f55579f56ba3a4026c39beba277f8dce439"
+  },
+  {
+    "id": "gan-xml-assistant",
+    "file": "GaN XML Assistant.png",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "bfdd68152fce460c5900148d495e1a35819505f8685c55a84e4873f07d5bd928",
+    "fullPixelSha256": "e23f8c72cd3aae9d501133fdb9e0cf738336f39437c9949e8f3082219408ac5b",
+    "region": {
+      "left": 105,
+      "top": 395,
+      "width": 1260,
+      "height": 300
+    },
+    "detailSha256": "73241082da936c4e2efd26903e63ad9d4d87e434a30478cbed56dc05b28487c3",
+    "pixelSha256": "ec74d94bc6e54ec190184d60112473b752723cb67dc7e7ac9dc0e946d822590b"
+  },
+  {
+    "id": "magus-spc-gan",
+    "file": "Magus SPC - GaN.png",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "ad90125f8e879926d692e524000b9d321e05199101546236f7bf2c6822aa7937",
+    "fullPixelSha256": "8ccd193644e9df0be8c423a65b68ea3df14ff07ac5fe46bb9fdbfd4599c6ffdb",
+    "region": {
+      "left": 110,
+      "top": 290,
+      "width": 1260,
+      "height": 540
+    },
+    "detailSha256": "b9104a8ef9070bf4563b716d34f35e61b96fa62b10c8732d76afd6dbffb486ad",
+    "pixelSha256": "46f92922cbfb04d7dc00fa8e39931dbf8ddfa416e67c31e95b0f54dfc2cab88e"
+  },
+  {
+    "id": "magus-spc-legacy",
+    "file": "Magus SPC - Legacy.png",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "2ba8266f84fbf76ce9199fdfc49752b63f2f046a7cc3e8ece79a062ec696600c",
+    "fullPixelSha256": "77eb40686be3b09e297e5b56244daa965c4b718fd722e1b45e61ba2aed9519b4",
+    "region": {
+      "left": 85,
+      "top": 235,
+      "width": 1300,
+      "height": 465
+    },
+    "detailSha256": "2f8f5c2a7bffc047c6065896f95c994bd7db8bac85fd8c093c6124db35cba9c6",
+    "pixelSha256": "0436d1c75475eeb8a500e1e94f6e9780ce9f45566e28f842d97542470ab4a338"
+  },
+  {
+    "id": "anko-helper",
+    "file": "ANKO Helper.png",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "1ed04816aa1c40edbdafdd91e160ca3281c956558d1af5967a1bfeee59cac438",
+    "fullPixelSha256": "f7fa7ce796cbf6f7742826544a0d3108c0ba7908b33c7c4b274cf9e389ca8746",
+    "region": {
+      "left": 95,
+      "top": 255,
+      "width": 1280,
+      "height": 430
+    },
+    "detailSha256": "ecc1dad55f8b10cd9649adea2e07d3365a259029b274dcdd2b80d22156119f9b",
+    "pixelSha256": "f59bc94aba41f846dec697ce7c0f5edb5271826081bd797795f5862fa6002309"
+  },
+  {
+    "id": "lt-report-compiler",
+    "file": "LT Report Compiler.png",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "6f47550c20cc34da330f9cc4c6a6032bf8e0aba3b808648712f7aab0f373eb0e",
+    "fullPixelSha256": "baca29df56f753fcfcfc8d8f3f3cda7d9635cd81a7afafc5f928208e20261375",
+    "region": {
+      "left": 80,
+      "top": 130,
+      "width": 1310,
+      "height": 205
+    },
+    "detailSha256": "d0ef319876d1a8b3cce5c2b34280dfa9d92a7c6d0fac1a217c99ad31735b0458",
+    "pixelSha256": "04bd3ef6ac7d69177dc9aaac3f138264d91b2bfbe34f7d729cb4247a8d380875"
+  },
+  {
+    "id": "metria-spc",
+    "file": "Metria SPC.png",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "9b061dc27bb8fa7abf7499457082d75f3b11483576dff8407b46c058d5a5672d",
+    "fullPixelSha256": "3b4d4917420304b5c63d9dbfad191a49bca0e2fa7f7eefbaaf59f7eee16e4584",
+    "region": {
+      "left": 100,
+      "top": 410,
+      "width": 1260,
+      "height": 440
+    },
+    "detailSha256": "25dd05e1cb505a143c70be6af1dabfa8644492bd57b1d5ba52372e58bffc96f5",
+    "pixelSha256": "c21c7bdf02d2ab230ebd8826df73df3e142462045879087d2bcd3b22c9860a38"
+  }
+]
