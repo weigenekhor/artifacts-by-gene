@@ -2,7 +2,7 @@
 
 This storyboard implements Gene's identity-and-method brief of 25 September 2026. Read with ARTIFACTS_CREATIVE_DIRECTION.md. The current user prompt overrides earlier visual directions.
 
-The monumental opening is approved. Preserve its composition, copy and interaction. The latest pass changes the origin after the opening, the collection arrival hierarchy and the sixteen functional demonstrations.
+The monumental opening is approved. Preserve its composition, copy and interaction. This pass replaces only the origin after the approved opening and its handoff into the collection. The sixteen application studies are unchanged.
 
 ## 00 — Almost right is still wrong
 
@@ -14,19 +14,21 @@ Monumental ARTIFACTS typography is the spatial surface. A continuous computation
 
 No development duration, creator attribution or application count appears in the hero. The real symbol stays in the header. Inertial pointer response changes the field, letterform shear and inspection light; keyboard arrows adjust the view and R resets it. There is no screenshot assembly, separate sculpture, layer button or global pause control.
 
-## 01 — Keep the reasoning
+## 01 — Starting over
 
-Hero and origin share one sticky stage, coordinate system and clock. Scrolling approaches the identity; its field continues after the letterforms leave view. The origin changes composition through fragment, pattern, memory, method and structure. Its sixteen pieces retain identity across these changes. No application previews appear.
+The origin is a reversible film controlled by native scroll. It is about the cost of reconstructing useful reasoning, not five abstract principles. A single camera stage holds the approved opening, the new evidence sequence and the handoff. No application screenshots, names, icons or previews appear during the origin.
 
-1. **The answer was only part of the work.** Displaced event marks, reference pairs, partial measurements and unresolved check branches extend across the viewport. Gaps and missing context distinguish this raw state from the later method.
-2. **A new run. A familiar question.** Different runs assemble into corresponding columns. Local evidence stays different while the same reference, comparison and check relationships recur.
-3. **Good reasoning should outlive the task.** Temporary evidence recedes into a faint memory. Four retained checkpoints and their connected path survive. The headline moves above the method and gains prominence.
-4. **So I gave it somewhere to stay.** Inspection passes through the retained route. Detours disappear, checkpoints tighten and the method straightens. Supporting copy: “Use it. Test it. Remove what gets in the way.”
-5. **And kept building.** Four operations generate sixteen framed surfaces. A dark material face advances through the light field as those frames gain depth. The resulting architecture opens into the exact positions occupied by the later application collection. No further paragraph is needed.
+1. **The answer was never the whole job.** Unequal source fragments occupy different depths: a run record, process observation, recipe, reference, measurement series, review note and investigation record. Some are near the camera; others are distant or partly outside the view. Supporting copy: “First came the work of finding the context.” All identifiers and values are illustrative, explicitly labeled as such.
+2. **The context had to be built.** The run finds its trace first. Recipe and reference align next. A changed settling step finds its event in the trace; its note and measurement context follow. The source fragments retain their identities as the investigation becomes legible. A fine amber comparison register is established here.
+3. **New work. Same reconstruction.** The completed arrangement withdraws into an archive. It clears completely, leaving a brief empty interval. A second run then enters with a different revision, time and values. It begins the same reconstruction. The repetition is experienced before it is explained.
+4. **Good reasoning should outlive the task.** The second task's papers peel away, but the amber registration and the relationship between corresponding steps remain. The camera approaches what was retained. The statement has a clear, independent reading space.
+5. **So I kept the part worth repeating.** The retained correspondence gains a durable boundary. Source, check and record structures develop around it, then join it. The values were temporary; the relationship can be used again.
+6. **I built the part I wanted to keep.** The same structure accepts the next observation and its reference. Input boundaries, comparison states and a repeatable check become visible. The pale working surface withdraws to reveal depth behind it, while the retained structure remains. This is an illustrative account of software taking form, not a fabricated screenshot or an actual application result.
+7. **Then I put it to work.** The working boundary approaches and passes the camera. Its spaces separate into the exact positions used by the real collection. The origin's final geometry and lighting match the collection; actual UI resolves only in this handoff.
 
-Typography changes hierarchy and position between stages while retaining a clear reading area. It clears before collection text enters. The origin's final positions and the collection share one layout and lighting function: constructed surfaces persist while real interfaces occupy them. The tonal change is caused by surfaces, depth and advancing architecture rather than a grey overlay. This is a schematic account of reusable reasoning, not measured data or a claim that the apps exchange information.
+Composition moves between a dispersed working field, a reconstructed case, near-empty archive, repeated investigation, close inspection of retained reasoning and a durable working surface. Copy never shares the old fixed diagram/headline/navigation layout. One primary statement accompanies each beat; there is no stage-button strip. A quiet link allows visitors to continue directly to the applications.
 
-The combined opening/origin occupies 560svh (500svh on mobile); its last viewport overlaps the collection arrival. Native scrolling stays in control. Mobile reduces the field and removes secondary annotations. Reduced motion presents all five passages in document order with stable geometry. Without JavaScript, text and a static schematic remain available.
+The combined opening/origin occupies 740svh on desktop and 660svh on mobile. Its final viewport overlaps the collection arrival. The approved hero's composition and pointer/keyboard behavior remain; only the transition out of it changes. The film has no autonomous looping animation, and its renderer stops when scroll/pointer motion settles. Mobile reserves the upper field for the evidence and the lower field for copy. Reduced motion presents the entire sequence in document order with stable rendered scenes and explanatory captions. Without JavaScript, all narrative and visual descriptions remain readable.
 
 ## 02 — The collection opens
 

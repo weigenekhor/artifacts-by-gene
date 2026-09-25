@@ -1,29 +1,67 @@
 {
   "phases": [
     {
-      "label": "Reconstruct",
-      "title": "The answer was only part of the work.",
-      "text": "Behind it: a reference recovered, a comparison made, a check worth keeping."
+      "id": "arrival",
+      "title": "The answer was never\nthe whole job.",
+      "text": "First came the work of finding the context.",
+      "start": 1.1,
+      "end": 1.95,
+      "still": 1.52,
+      "description": "A run record, recipe, reference, measurements and review note arrive separately, at different depths."
     },
     {
-      "label": "Recognise",
-      "title": "A new run. A familiar question.",
-      "text": "The evidence changed. The reasoning kept returning."
+      "id": "context",
+      "title": "The context had\nto be built.",
+      "text": "",
+      "start": 2.0,
+      "end": 2.91,
+      "still": 2.68,
+      "description": "The run is matched to its trace. Recipe steps meet their reference. A changed step links to the corresponding observation, and the note joins the event."
     },
     {
-      "label": "Retain",
-      "title": "Good reasoning should outlive the task.",
-      "text": "Keep the sequence. Keep the checks. Give the next investigation a better starting point."
+      "id": "again",
+      "title": "New work.\nSame reconstruction.",
+      "text": "",
+      "start": 3.36,
+      "end": 4.27,
+      "still": 3.97,
+      "description": "The completed first task shrinks into an archive and disappears. A different run arrives, with new values but the same gaps to reconstruct."
     },
     {
-      "label": "Improve",
-      "title": "So I gave it somewhere to stay.",
-      "text": "Use it. Test it. Remove what gets in the way."
+      "id": "retain",
+      "title": "Good reasoning should\noutlive the task.",
+      "text": "",
+      "start": 4.68,
+      "end": 5.45,
+      "still": 4.98,
+      "description": "The evidence changes, but its alignment guide stays. The next comparison settles directly into that retained structure."
     },
     {
-      "label": "Build",
-      "title": "And kept building.",
-      "text": ""
+      "id": "keep",
+      "title": "So I kept the part\nworth repeating.",
+      "text": "",
+      "start": 5.48,
+      "end": 6.32,
+      "still": 5.94,
+      "description": "The comparison guide, event relationship and review check separate from temporary records and become reusable working spaces."
+    },
+    {
+      "id": "software",
+      "title": "I built the part\nI wanted to keep.",
+      "text": "",
+      "start": 6.4,
+      "end": 7.36,
+      "still": 6.96,
+      "description": "The retained structure gains input boundaries, a comparison state and a repeatable check. Reasoning becomes something that can be used again."
+    },
+    {
+      "id": "handoff",
+      "title": "Then I put it to work.",
+      "text": "",
+      "start": 7.73,
+      "end": 8.07,
+      "still": 7.9,
+      "description": "The working spaces open in depth. Those same frames become the positions occupied by the real ARTIFACTS applications."
     }
   ]
 }

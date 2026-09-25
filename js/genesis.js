@@ -1,29 +1,27 @@
 import { drawIdentityField } from "./identity-field.js";
-// One camera and one persistent set of paths, from identity to construction.
+import { drawStartingOver } from "./starting-over.js";
 const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
 const mix = (a, b, t) => a + (b - a) * t;
 const ease = (v) => {
-  v = clamp(v);
-  return v * v * v * (v * (v * 6 - 15) + 10);
+  const x = clamp(v);
+  return x * x * x * (x * (x * 6 - 15) + 10);
 };
-const stages = [
-  "Evidence has a history",
-  "The reasoning returns",
-  "Retain the useful sequence",
-  "Refined through use",
-  "Enter what was built",
-];
-
+const LENGTH = 8.6;
 export function createGenesis(section, wake) {
   const field = section.querySelector(".identity-field"),
     canvas = field.querySelector("canvas"),
     ctx = canvas.getContext("2d");
-  const pages = [...section.querySelectorAll(".construction-page")],
-    controls = [...section.querySelectorAll("[data-origin-step]")];
-  const legend = section.querySelector(".build-state");
   const intro = section.querySelector(".genesis-intro"),
-    nav = section.querySelector(".construction-nav"),
-    next = section.querySelector(".construction-next");
+    film = section.querySelector(".origin-film");
+  const captions = [...section.querySelectorAll(".origin-caption")].map(
+    (el) => ({
+      el,
+      start: +el.dataset.originStart,
+      end: +el.dataset.originEnd,
+      still: +el.dataset.originStill,
+    }),
+  );
+  const record = section.querySelector(".origin-record");
   if (ctx) field.classList.add("ready");
   let width = 1,
     height = 1,
@@ -32,15 +30,15 @@ export function createGenesis(section, wake) {
     dpr = 1,
     progress = 0,
     clock = 0,
-    active = -2,
-    lastDraw = "",
-    keyX = 0,
-    keyY = 0,
     yaw = 0,
     pitch = 0,
-    previousReduced = null;
+    keyX = 0,
+    keyY = 0,
+    lastDraw = "",
+    stillsDirty = true;
   document.fonts.ready.then(() => {
     lastDraw = "";
+    stillsDirty = true;
     wake();
   });
   field.addEventListener("keydown", (e) => {
@@ -58,16 +56,20 @@ export function createGenesis(section, wake) {
     if (e.key.toLowerCase() === "r") keyX = keyY = 0;
     wake();
   });
-  controls.forEach((b, i) =>
-    b.addEventListener("click", () =>
-      scrollTo({
-        top: top + (distance * (1.25 + i)) / 6.2,
-        behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
-          ? "instant"
-          : "smooth",
-      }),
-    ),
-  );
+  function drawStills() {
+    captions.forEach(({ el, still }) => {
+      const surface = el.querySelector("canvas"),
+        context = surface.getContext("2d");
+      if (!context) return;
+      const w = surface.clientWidth || width,
+        h = w * 0.62;
+      surface.width = Math.round(w * dpr);
+      surface.height = Math.round(h * dpr);
+      context.setTransform(dpr, 0, 0, dpr, 0, 0);
+      drawStartingOver(context, { width: w, height: h, p: still });
+    });
+    stillsDirty = false;
+  }
   return {
     measure() {
       width = section.clientWidth;
@@ -80,16 +82,17 @@ export function createGenesis(section, wake) {
       section.querySelector(".story-anchor").style.top =
         (matchMedia("(prefers-reduced-motion: reduce)").matches
           ? height
-          : distance * 0.19) + "px";
+          : (distance * 1.3) / LENGTH) + "px";
       lastDraw = "";
+      stillsDirty = true;
     },
     get state() {
       return { yaw, pitch, progress };
     },
     update(y, time, dt, px, py, reduced) {
+      if (reduced && stillsDirty) drawStills();
       if (y + height < top || y > top + distance + height) return false;
-      const target = clamp((y - top) / distance) * 6.2,
-        mobile = width <= 700;
+      const target = clamp((y - top) / distance) * LENGTH;
       progress = reduced ? 0 : mix(progress, target, 1 - Math.exp(-dt / 95));
       clock += reduced ? 0 : Math.min(dt, 40) / 1000;
       yaw = mix(
@@ -103,65 +106,90 @@ export function createGenesis(section, wake) {
         1 - Math.exp(-dt / 170),
       );
       const p = progress,
-        light = ease((p - 0.75) / 0.6) * (1 - ease((p - 4.8) / 0.85));
-      const index = p < 0.95 ? -1 : Math.min(4, Math.floor(p - 1));
-      const storyVisible = ease((p - 0.85) / 0.22),
-        departure = ease((p - 5.3) / 0.4);
+        light = ease((p - 0.75) / 0.6) * (1 - ease((p - 6.18) / 1.5));
       section.style.setProperty("--intro", 1 - ease((p - 0.38) / 0.38));
-      section.style.setProperty("--story", storyVisible * (1 - departure));
-      section.style.setProperty("--light", light);
-      section.style.setProperty("--exit", departure);
-      section.style.setProperty("--travel", clamp(p / 6.2));
+      section.style.setProperty(
+        "--story",
+        ease((p - 0.97) / 0.18) * (1 - ease((p - 7.92) / 0.2)),
+      );
+      section.style.setProperty("--travel", clamp(p / LENGTH));
       section.style.setProperty(
         "--reading-ink",
-        p > 4.96 ? "#e5e8df" : light > 0.48 ? "#26362f" : "#e5e8df",
+        p > 6.58 ? "#e7e9df" : "#263b34",
       );
       section.style.setProperty(
         "--reading-muted",
-        p > 4.96 ? "#a9b6a5" : light > 0.48 ? "#5e6c60" : "#a9b6a5",
+        p > 6.58 ? "#b4c2b1" : "#69786c",
       );
-      section.dataset.originStage = String(Math.max(0, index));
-      section.classList.toggle("construction-active", index >= 0);
-      section.classList.toggle("construction-ending", p > 5.5);
+      section.style.setProperty("--light", light);
       intro.inert = !reduced && p > 0.65;
-      nav.inert = reduced || index < 0 || p > 5.5;
-      next.inert = reduced || p < 5.8;
-      if (index !== active || reduced !== previousReduced) {
-        previousReduced = reduced;
-        active = index;
-        pages.forEach((page, i) => {
-          const selected = i === index;
-          page.classList.toggle("current", selected);
-          page.inert = !reduced && !selected;
-          page.setAttribute("aria-hidden", String(!reduced && !selected));
-        });
-        controls.forEach((b, i) =>
-          b.setAttribute("aria-current", String(i === index)),
-        );
-        legend.textContent = stages[Math.max(0, index)];
-      }
-      // Canvas reuses topology; only its projection, construction and ink change.
+      film.inert = !reduced && (p < 1 || p > 8.14);
+      let current = -1;
+      captions.forEach(({ el, start, end }, i) => {
+        const opacity =
+          ease((p - start) / 0.16) * (1 - ease((p - end + 0.14) / 0.14));
+        const showing = p >= start && p <= end;
+        if (showing) current = i;
+        el.style.setProperty("--caption", opacity);
+        el.classList.toggle("current", showing);
+        el.inert = !reduced && !showing;
+        el.setAttribute("aria-hidden", String(!reduced && !showing));
+      });
+      section.dataset.originBeat = String(current);
+      record.textContent =
+        p < 2.87
+          ? "R / 026"
+          : p < 3.25
+            ? "Recorded"
+            : p < 4.55
+              ? "R / 027"
+              : p < 6.35
+                ? "Reasoning retained"
+                : "Ready to use again";
+      const moving = Math.abs(progress - target) > 0.0005;
+      // Only the approved identity has ambient motion. The film renders on scroll/pointer input.
+      const ambient = p < 1.1;
       const frame = [
-        p.toFixed(3),
+        p.toFixed(4),
         yaw.toFixed(3),
         pitch.toFixed(3),
         reduced,
-        Math.floor(clock * 30),
+        ambient ? Math.floor(clock * 30) : 0,
       ].join("|");
-      if (!ctx || frame === lastDraw) return false;
+      if (!ctx || frame === lastDraw) return !reduced && (ambient || moving);
       lastDraw = frame;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, width, height);
-      drawIdentityField(ctx, {
-        width,
-        height,
-        p,
-        clock,
-        px: yaw * 6,
-        py: pitch * 10,
-        reduced,
-      });
-      return !reduced && (p < 6.18 || Math.abs(progress - target) > 0.001);
+      if (p < 1.32)
+        drawIdentityField(ctx, {
+          width,
+          height,
+          p,
+          clock,
+          px: yaw * 6,
+          py: pitch * 10,
+          reduced,
+        });
+      if (p > 0.84) {
+        ctx.save();
+        ctx.globalAlpha = ease((p - 0.84) / 0.48);
+        drawStartingOver(ctx, {
+          width,
+          height,
+          p,
+          clock,
+          px: yaw * 6,
+          py: pitch * 10,
+        });
+        ctx.restore();
+      }
+      return (
+        !reduced &&
+        (ambient ||
+          moving ||
+          Math.abs(yaw - clamp(px * 0.16 + keyX * 0.3, -0.4, 0.4)) > 0.001 ||
+          Math.abs(pitch - clamp(py * 0.1 + keyY * 0.2, -0.25, 0.25)) > 0.001)
+      );
     },
   };
 }

@@ -36,33 +36,8 @@ html = html.replace(
   "<!-- ORIGIN PAGES -->",
   story.phases
     .map(
-      (p, i) =>
-        '<article class="construction-page" data-origin-phase="' +
-        i +
-        '"><span class="construction-label">0' +
-        (i + 1) +
-        " / " +
-        esc(p.label) +
-        "</span><h2>" +
-        esc(p.title).replaceAll("\n", " ") +
-        "</h2><p>" +
-        esc(p.text) +
-        "</p></article>",
-    )
-    .join(""),
-);
-html = html.replace(
-  "<!-- ORIGIN CONTROLS -->",
-  story.phases
-    .map(
-      (p, i) =>
-        '<button data-origin-step="' +
-        i +
-        '"><span>0' +
-        (i + 1) +
-        "</span>" +
-        esc(p.label) +
-        "</button>",
+      (p) =>
+        `<article class="origin-caption origin-${p.id}" data-origin-start="${p.start}" data-origin-end="${p.end}" data-origin-still="${p.still}"><div class="origin-words"><h2>${lines(p.title)}</h2>${p.text ? `<p>${esc(p.text)}</p>` : ""}</div><canvas class="origin-still" aria-hidden="true"></canvas><p class="origin-description">${esc(p.description)}</p></article>`,
     )
     .join(""),
 );
