@@ -39,13 +39,14 @@ for (const a of apps) {
 }
 const html = await readFile("index.html", "utf8");
 assert.equal((html.split("<body>")[1].match(/by Gene/g) || []).length, 1);
-assert.equal((html.match(/class="app-node"/g) || []).length, 16);
+assert.equal((html.match(/data-study-app="/g) || []).length, 16);
 for (const app of apps) {
-  assert.ok(html.includes('data-app="' + app.id + '"'));
-  assert.ok(html.includes('data-software="' + app.id + '"'));
+  assert.ok(html.includes('data-study-app="' + app.id + '"'));
+  assert.ok(html.includes('data-capture="' + app.id + '"'));
   assert.ok(html.includes('src="' + app.evidence.full + '"'));
-  assert.ok(html.includes('href="' + app.evidence.full + '"'));
 }
+assert.ok(html.includes('<dialog id="capture"'));
+assert.ok(html.includes('id="capture-source"'));
 assert.ok(!html.includes("®"));
 console.log(
   `All 16 full captures and focused details preserve source pixels. Detail payload: ${(bytes / 1024).toFixed(0)} KiB.`,

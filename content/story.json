@@ -1,29 +1,29 @@
 {
   "phases": [
     {
-      "label": "Reconstruct",
-      "title": "The task began before the work could.",
-      "text": "Find the run. Recover the reference. Rebuild the context. Only then could the investigation begin."
+      "label": "The work",
+      "title": "The answer was only part of the work.",
+      "text": "Behind it: a reference recovered, a comparison made, a check worth keeping."
     },
     {
-      "label": "Recognise",
-      "title": "The evidence changed. The same checks returned.",
-      "text": "Collect, align, compare, record. Too much useful reasoning had to be rebuilt for the next task."
+      "label": "The return",
+      "title": "A new run. A familiar question.",
+      "text": "The evidence changed. The reasoning kept returning."
     },
     {
-      "label": "Retain",
-      "title": "Keep the method, not just the answer.",
-      "text": "Preserve the checks and their context. Make the useful sequence repeatable."
+      "label": "The method",
+      "title": "Good reasoning should outlive the task.",
+      "text": "Keep the sequence. Keep the checks. Give the next investigation a better starting point."
     },
     {
-      "label": "Improve",
-      "title": "Use it. Find the friction. Build again.",
-      "text": "Real work exposed the gaps. Each revision made the next task a better starting point."
+      "label": "The build",
+      "title": "I built a way to keep it working.",
+      "text": "A method became software. Real use revealed what to build next."
     },
     {
-      "label": "Build",
-      "title": "A working method deserves a working tool.",
-      "text": "Software could retain the sequence. One practical need became one application. Then another."
+      "label": "ARTIFACTS",
+      "title": "One need at a time. A system took shape.",
+      "text": "Sixteen distinct applications, each built around work that deserved a better way."
     }
   ]
 }

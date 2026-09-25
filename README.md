@@ -14,11 +14,11 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The opening is a spatial field of working routes, with moving inspection light, local depth response and restrained camera motion. Its highlighted route lands on the plotted trace in the origin's first evidence record. Run, reference and context align into retained checks, then a reusable sequence that keeps the reasoning with the result. The five-stage story stays light through its conclusion and contains no app screenshots or repeated identity reveal. Mobile uses a dedicated diagram composition. All diagrams are illustrative, not measured data.
+The hero's structural routes become recurring observations, align around a reference, acquire retained checks and open a shared frame. The origin contains no application screenshots. Its final frame becomes the real homepage in the later collection, with text clearing before the handoff. Diagrams are illustrative, not measured output.
 
-The complete sixteen-plane application assembly appears after the story, centred on the real uncropped ARTIFACTS homepage. Bounded rotation and damped pointer proximity change depth, orientation and lighting. From there, the sixteen individual studies unfold in canonical order. TopoTracer develops a shaded height field, equal-height contours and an interactive section profile from one illustrative function. Full captures remain available in each study and through the central homepage viewer. Gene closes with his latest approved “Three years. Sixteen applications.” account and direct email/LinkedIn links; the extra brand sign-off is removed. The global pause button is removed; reduced-motion support and per-application replay remain.
+The uncropped homepage begins in front of the sixteen applications. On scroll it recedes as the apps advance, maintaining bounded rotation and pointer response. All sixteen studies now use app-specific projected geometry with depth-tested materials: event sequences, chamber stacks, recipe pairs, report assembly, diagnostics, baseplate exchanges, zone mapping and chart inspection. TopoTracer uses interpolated surface colour and a matching section profile. GaN Temp Diagnoser relates process/clean observations to recommended checks, without fabricating measured values or a confirmed diagnosis. Full captures, app order and Gene's approved closing remain intact.
 
-Read `ARTIFACTS_CREATIVE_DIRECTION.md` and `ARTIFACTS_EXPERIENCE_STORYBOARD.md` for governing direction and factual boundaries. One shared clock pauses ambient scenes offscreen. Mobile and reduced motion retain the entire narrative without pinning.
+Read `ARTIFACTS_CREATIVE_DIRECTION.md` and `ARTIFACTS_EXPERIENCE_STORYBOARD.md` for governing direction and factual boundaries. One shared clock pauses ambient scenes offscreen. Mobile uses reduced spatial depth; reduced motion retains the narrative without pinned sequences.
 
 Every app has seven states from its source interface through activation, decomposition, analysis, transformation, resolution and its own closure. Native scrolling controls the sequences; optional replay runs for 17–18.8 seconds. A second keyboard-accessible range selects a task-specific inspection region. Diagrams illustrate relationships, not measured results or cross-application integration.
 
@@ -32,21 +32,20 @@ Every app has seven states from its source interface through activation, decompo
 - `js/experience.js`: shared clock, scroll progression, replay, app picker and image viewer.
 - `js/hero.js`: later application assembly, damped expansion, bounded rotation and shared-element navigation.
 - `js/genesis.js`: shared clock, projected logic field and the opening-to-evidence handoff.
-- `js/work-story.js`: evidence records, retained checks, revision and reuse; separate mobile composition.
+- `js/origin-field.js`: routes, observations, retained structure and collection aperture.
+- `js/space.js` and `js/material-renderer.js`: shared projection, depth-tested materials and Canvas fallback.
+- `js/spatial-studies.js`: fifteen app-specific spatial studies.
+- `js/diagnostic-study.js`: process/clean observation map and recommended checks.
 - `js/topography.js`: shaded circular height field, contours and matching interactive section profile.
-- `js/baseplate-exchange.js`: paired AIX baseplate swaps with retained identities and fixed seats.
 - `content/story.json`: five-stage construction narrative, without application examples.
 - `js/hero-interaction.js`: drag, keyboard, separation and reset controls.
 - `content/homepage.json`: the central homepage capture and its full-image viewer.
-- `js/inspection.js`: contextual inspection notes and geometry tracking for all sixteen studies.
-- `js/analysis.js`: application-specific spatial inspection and recomposition.
-- `js/instruments.js`: app-specific route markers, contour layers and inspection choreography.
 - `entry.css`: application assembly, study typography and baseplate exchange.
 - `genesis.css`: continuous opening/origin, responsive staging and approved creator closing.
 - `artifact.css`: current Artifact, interface passage and responsive study composition.
 - `experience.css`: entry composition, study camera, image fitting and picker.
 - `styles.css` and `studies.css`: visual design, extended study pacing, responsive composition and reduced motion.
-- `scripts/study-visuals.mjs` and `js/studies.js`: app-specific diagrams and their shared phase choreography.
+- `js/studies.js`: shared phase choreography, inspection and camera state.
 
 Generated files: `index.html`, `js/apps.js`, `script.js`. Edit their sources and rebuild.
 
@@ -66,7 +65,7 @@ Review the crop rectangle in `scripts/prepare-evidence.mjs` when a source layout
 
 ## Verification
 
-The current pass has build/runtime checks and focused desktop, mobile portrait and reduced-motion visual review. Checks cover all sixteen studies being retained, the revised copy, the central homepage viewer and TopoTracer's region control. The mobile surface/text overlap found during review was corrected. Full validation and cross-device performance measurement remain deferred until visual approval. The existing browser suite and prior VALIDATION.md results predate this origin and topography redesign.
+This pass includes a build, focused runtime review of all sixteen desktop studies, the collection depth reversal, story handoff, representative mobile scenes and reduced motion. Those checks reported no console/page errors. A short local headless Edge sample measured approximately 16.7ms median frame intervals in the hero and during TopoTracer replay; this is not cross-device GPU profiling or a performance guarantee. Broad validation remains deferred until visual approval. Existing browser-suite and VALIDATION.md results predate this redesign.
 
 ```sh
 pnpm test:evidence

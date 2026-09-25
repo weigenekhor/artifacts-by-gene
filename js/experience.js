@@ -108,6 +108,19 @@ function tick(time) {
   heroMoving = genesis.update(y, time, dt, px, py, reduced);
   toolsMoving = false;
   if (y + innerHeight > toolsTop && y < toolsTop + toolsHeight) {
+    const arrival = reduced
+      ? 1
+      : ease((y - toolsTop + innerHeight * 0.32) / (innerHeight * 0.32));
+    const toolsStage = toolsSection.firstElementChild;
+    toolsStage.style.setProperty("--collection-arrival", arrival);
+    toolsStage.style.setProperty(
+      "--collection-labels",
+      ease((arrival - 0.65) / 0.35),
+    );
+    toolsStage.style.transform = reduced
+      ? "none"
+      : `translateY(${-Math.max(0, toolsTop - y)}px)`;
+    toolsStage.inert = !reduced && arrival < 0.8;
     const p = clamp((y - toolsTop) / Math.max(1, toolsHeight - innerHeight));
     const interaction = toolsInteraction.update(dt, reduced);
     toolsMoving =

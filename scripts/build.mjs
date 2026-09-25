@@ -1,6 +1,5 @@
 import fs from "node:fs/promises";
 import { build } from "esbuild";
-import { expandedVisual } from "./study-visuals.mjs";
 const read = async (p) =>
   JSON.parse((await fs.readFile(p, "utf8")).replace(/^\uFEFF/, ""));
 const { apps } = await read("content/apps.json"),
@@ -33,17 +32,12 @@ function sceneLayers(a) {
     "</span></div>"
   );
 }
-function visual(f, a) {
-  const extended = expandedVisual(f, a);
-  if (extended) return extended;
-  if (f.kind === "compare")
-    return `<div class="comparison" aria-hidden="true"><div class="compare-labels"><span>Reference recipe</span><span>Compared recipe</span></div><div class="compare-columns">${[0, 1].map((col) => `<div class="recipe-column">${Array.from({ length: 7 }, (_, i) => `<div class="recipe-step ${i === 3 ? "changed" : ""}" style="--row:${i};--shift:${col ? [2, -1, 3, -2, 1, -3, 0][i] : 0}"><span>${number(i + 1)}</span><i style="width:${[64, 43, 70, 52, 38, 58, 46][i]}%"></i><b></b></div>`).join("")}</div>`).join("")}</div><div class="compare-guide"><span>Equivalent steps aligned</span><span class="changed-key">Difference retained</span></div></div>`;
+function visual(f) {
   if (f.kind === "surface")
     return `<div class="topography" aria-hidden="true"><div class="topography-key"><span>Sample positions → contour field</span><span>Illustrative geometry</span></div><canvas></canvas><div class="topography-scale"><span>Lower</span><i></i><span>Higher</span></div></div>`;
-  if (f.kind === "diagnose")
-    return `<div class="diagnosis-object" aria-hidden="true"><svg viewBox="0 0 700 430"><defs><linearGradient id="path-light"><stop stop-color="#e7b17c"/><stop offset="1" stop-color="#8da092"/></linearGradient></defs><g class="diagnosis-paths" fill="none" stroke="#49504a">${[70, 165, 265, 360].map((y, i) => `<path d="M80 215H190C260 215 260 ${y} 325 ${y}H585"/>`).join("")}</g><path class="diagnosis-route" d="M80 215H190C260 215 260 165 325 165H585" fill="none" stroke="url(#path-light)" stroke-width="2" pathLength="1"/><circle cx="80" cy="215" r="8" fill="#d6b086"/>${[70, 165, 265, 360].map((y, i) => `<circle cx="585" cy="${y}" r="5" fill="${i === 1 ? "#d6b086" : "#49504a"}"/>`).join("")}<g fill="#b5bcb3" font-family="Geist,Arial" font-size="12"><text x="65" y="251">Observed drift</text><text x="380" y="53">Temperature behavior</text><text x="380" y="148" fill="#dfbd96">Recommended checks</text><text x="380" y="248">Process observations</text><text x="380" y="343">Other possibilities</text></g></svg></div>`;
-  return `<div class="signal-object" aria-hidden="true">${[0, 1, 2].map((n) => `<div class="signal-plane" style="--plane:${n}"><span>Shared equipment context <i>0${n + 1}</i></span>${image(a)}<div class="signal-crosshair"></div></div>`).join("")}</div>`;
+  return `<div class="spatial-study" aria-hidden="true"><canvas></canvas></div>`;
 }
+
 let html = await fs.readFile("content/page.html", "utf8");
 const story = await read("content/story.json");
 html = html.replace(

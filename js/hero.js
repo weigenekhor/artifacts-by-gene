@@ -10,16 +10,7 @@ export function createHero(stage, apps, wake) {
   let w = 1,
     h = 1,
     clock = 0,
-    captionIndex = -1,
     opening = 0;
-  const caption = document.createElement("div");
-  caption.className = "universe-caption";
-  const name = document.createElement("strong"),
-    purpose = document.createElement("p");
-  name.textContent = "Sixteen working methods.";
-  purpose.textContent = "Move through the collection, or enter an application.";
-  caption.append(name, purpose);
-  stage.append(caption);
   const planes = apps.map((app, i) => {
     const a = document.createElement("a"),
       image = new Image();
@@ -106,9 +97,13 @@ export function createHero(stage, apps, wake) {
       const mobile = w < 700,
         unit = mobile ? 0.46 : Math.min(1.35, w / 1400);
       const cx = w * 0.5,
-        cy = h * (mobile ? 0.57 : 0.6);
+        cy = h * mix(0.48, mobile ? 0.57 : 0.59, open);
       if (home) {
-        home.style.transform = `translate(-50%,-50%) perspective(1400px) rotateY(${reduced ? 0 : yaw * 12}deg) rotateX(${reduced ? 0 : pitch * 14}deg) scale(${mix(1, 0.87, open)})`;
+        const retreat = ease(open);
+        home.style.transform = `translate(-50%,-50%) translateZ(${-retreat * 520}px) rotateY(${reduced ? 0 : yaw * 12}deg) rotateX(${reduced ? 0 : pitch * 14 - retreat * 5}deg) scale(${mix(1, 0.72, retreat)})`;
+        home.style.zIndex = String(Math.round(mix(850, 50, retreat)));
+        home.style.opacity = String(mix(1, 0.48, retreat));
+        home.style.top = (cy / h) * 100 + "%";
         home.style.setProperty("--home-light", 0.1 + Math.max(0, px) * 0.12);
       }
       stage.style.setProperty("--unfold", open);
@@ -124,28 +119,24 @@ export function createHero(stage, apps, wake) {
             : 'Open the collection <span aria-hidden="true">+</span>';
       }
       stage.parentElement.style.setProperty("--unfold", open);
-      let strongest = -1,
-        maxWeight = 0.3;
       planes.forEach((plane, i) => {
         const { a } = plane;
         const angle = (i / 16) * Math.PI * 2 - Math.PI / 2 + turn * 0.05 * open;
         let x, y, z, scale;
         {
           // Three interleaved depth registers open into a continuous ellipse.
-          x =
-            Math.cos(angle) *
-            w *
-            mix(mobile ? 0.37 : 0.37, mobile ? 0.4 : 0.4, open);
+          x = Math.cos(angle) * w * mix(0.37, mobile ? 0.37 : 0.33, open);
           y =
             Math.sin(angle) *
             h *
-            mix(mobile ? 0.245 : 0.23, mobile ? 0.28 : 0.25, open);
+            mix(mobile ? 0.245 : 0.23, mobile ? 0.27 : 0.225, open);
           z = mix(
             ((i % 3) - 1) * 90,
             Math.sin(angle * 2 + 0.6) * (mobile ? 25 : 105),
             open,
           );
-          scale = mix(mobile ? 0.51 : 0.56, mobile ? 0.57 : 0.62, open) * unit;
+          scale = mix(mobile ? 0.51 : 0.56, mobile ? 0.67 : 0.76, open) * unit;
+          z += open * (mobile ? 35 : 90);
         }
         const normX = ((cx + x) / w) * 2 - 1,
           normY = ((cy + y) / h) * 2 - 1;
@@ -157,10 +148,6 @@ export function createHero(stage, apps, wake) {
             : Math.exp(-distance * 9);
         plane.weight = mix(plane.weight, target, 1 - Math.exp(-dt / 230));
         const focus = plane.weight;
-        if (focus > maxWeight) {
-          strongest = i;
-          maxWeight = focus;
-        }
         const X = x * Math.cos(yaw) + z * Math.sin(yaw),
           Z = -x * Math.sin(yaw) + z * Math.cos(yaw);
         const Y = y * Math.cos(pitch) - Z * Math.sin(pitch),
@@ -177,11 +164,6 @@ export function createHero(stage, apps, wake) {
           (0.1 + focus * 0.2 + breath * 0.02).toFixed(3),
         );
       });
-      if (strongest >= 0 && strongest !== captionIndex) {
-        name.textContent = planes[strongest].app.name;
-        purpose.textContent = planes[strongest].app.description;
-        captionIndex = strongest;
-      }
       return !reduced;
     },
   };

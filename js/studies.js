@@ -1,8 +1,5 @@
 import { createTopography } from "./topography.js";
-import { createBaseplateExchange } from "./baseplate-exchange.js";
-import { createInspection } from "./inspection.js";
-import { developInstrument } from "./instruments.js";
-import { createAnalysis } from "./analysis.js";
+import { createSpatialStudy } from "./spatial-studies.js";
 // Interface, method, inspection and handoff share the page's single clock.
 const clamp = (v) => Math.max(0, Math.min(1, v));
 const smooth = (v) => {
@@ -14,22 +11,9 @@ export function createStudy(el, wake) {
     beat = el.querySelector(".study-beat"),
     control = el.querySelector(".study-control input"),
     verbs = [...el.querySelectorAll("[data-phase]")];
-  const movers = [...el.querySelectorAll("[data-move]")].map((node) => ({
-    node,
-    from: node.dataset.move.split(",").map(Number),
-    on: node.dataset.on || "gather",
-  }));
-  const drawers = [...el.querySelectorAll("[data-draw]")],
-    reveals = [...el.querySelectorAll("[data-reveal]")],
-    rings = [...el.querySelectorAll("[data-ring]")],
-    scans = [...el.querySelectorAll("[data-scan]")],
-    cursor = el.querySelector("[data-cursor]");
-  const develop = developInstrument(el);
-  const exchange = createBaseplateExchange(el);
+  const spatial = createSpatialStudy(el, wake);
   const topography = createTopography(el, wake);
-  const inspectDetail = createInspection(el);
-  const analysis = createAnalysis(el),
-    timings = el.dataset.timings.split(",").map(Number);
+  const timings = el.dataset.timings.split(",").map(Number);
   const stateName = el.querySelector(".state-name"),
     stateNumber = el.querySelector(".state-number");
   const focus = el.querySelector(".focus-range"),
@@ -84,7 +68,7 @@ export function createStudy(el, wake) {
     compare: ["Step", 7],
     pathfinder: ["Chart interval", 8],
     compile: ["Report section", 6],
-    diagnose: ["Investigation path", 4],
+    diagnose: ["Recommended check", 3],
     arrange: ["Position", 5],
     zones: ["Position", 5],
     configuration: ["Property", 6],
@@ -190,45 +174,7 @@ export function createStudy(el, wake) {
         );
         phase = next;
       }
-      for (const [i, { node, from, on }] of movers.entries()) {
-        const v =
-          1 - smooth((stages[on] - (i % 7) * 0.06) / (1 - (i % 7) * 0.06));
-        node.setAttribute(
-          "transform",
-          `translate(${(from[0] * v).toFixed(2)} ${(from[1] * v).toFixed(2)})`,
-        );
-      }
-      for (const [i, node] of drawers.entries())
-        node.style.strokeDashoffset =
-          1 -
-          smooth(
-            (stages[node.dataset.draw] - (i % 6) * 0.045) /
-              (1 - (i % 6) * 0.045),
-          );
-      for (const node of reveals)
-        node.style.opacity = stages[node.dataset.reveal];
-      for (const node of rings) {
-        const extent = Number(node.dataset.ring) * stages.resolve;
-        node.style.strokeDasharray = `${extent} ${1 - extent}`;
-        node.style.opacity = 0.3 + 0.7 * stages.inspect;
-      }
-      for (const node of scans) {
-        const a = Number(node.dataset.start),
-          b = Number(node.dataset.end);
-        node.setAttribute(
-          node.dataset.scan,
-          (a + (b - a) * stages.inspect).toFixed(2),
-        );
-      }
-      if (cursor)
-        cursor.setAttribute(
-          "transform",
-          `translate(${180 + 365 * stages.inspect} 0)`,
-        );
-      develop(functional, stages);
-      analysis(reduced ? 0 : expand, stages.inspect, p);
-      inspectDetail(reduced ? 0.7 : p, stages.inspect);
-      exchange(reduced ? 1 : functional);
+      spatial(reduced ? 0.8 : functional, stages.inspect, reduced, px, py);
       topography(reduced ? 0.8 : functional, stages.inspect, reduced, px, py);
       return Math.abs(p - wanted) > 0.0005;
     },

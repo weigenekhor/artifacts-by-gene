@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import assert from "node:assert/strict";
 import sharp from "sharp";
 const { apps } = JSON.parse(await readFile("content/apps.json", "utf8"));
+const page = await readFile("index.html", "utf8");
 const hash = (b) => createHash("sha256").update(b).digest("hex");
 assert.equal(apps.length, 16);
 assert.equal(new Set(apps.map((a) => a.id)).size, 16);
@@ -28,8 +29,7 @@ for (const app of apps) {
   );
   assert.equal((await sharp(app.responsiveImage).metadata()).width, 1280);
   assert.equal((await sharp(app.thumbnail).metadata()).width, 480);
-  const page = await readFile("index.html", "utf8");
-  assert.ok(page.includes('data-app="' + app.id + '"'));
+  assert.ok(page.includes('data-study-app="' + app.id + '"'));
 }
 assert.ok(total < 6 * 1024 * 1024, "full capture budget");
 const paths = (s) => [...s.matchAll(/<path d="([^"]+)"/g)].map((m) => m[1]);

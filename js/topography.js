@@ -1,3 +1,4 @@
+import { renderMaterialField } from "./material-renderer.js";
 import { contourSegments } from "./contours.js";
 const clamp = (v) => Math.max(0, Math.min(1, v)),
   mix = (a, b, t) => a + (b - a) * t;
@@ -18,8 +19,8 @@ export function createTopography(el, wake) {
   const contours = contourSegments(field),
     triangles = [],
     dots = [];
-  const angular = 96,
-    radial = 22;
+  const angular = 112,
+    radial = 30;
   const polar = (r, a) => [r * Math.cos(a), r * Math.sin(a)];
   for (let ring = 0; ring < radial; ring++)
     for (let sector = 0; sector < angular; sector++) {
@@ -45,12 +46,19 @@ export function createTopography(el, wake) {
           v = field(mx, my),
           dx = (field(mx + 0.03, my) - v) / 0.03,
           dy = (field(mx, my + 0.03) - v) / 0.03;
+        const vertexColors = vertices.map(([x, y]) => {
+          const v = field(x, y),
+            dx = (field(x + 0.015, y) - v) / 0.015,
+            dy = (field(x, y + 0.015) - v) / 0.015;
+          return { v, light: clamp(0.72 - dx * 0.27 - dy * 0.2) };
+        });
         triangles.push({
           vertices: vertices.map((v) => [...v, field(...v)]),
           x: mx,
           y: my,
           v,
           shade: clamp(0.68 - dx * 0.32 - dy * 0.24),
+          vertexColors,
         });
       }
     }
@@ -135,7 +143,25 @@ export function createTopography(el, wake) {
         const a = (i / 128) * Math.PI * 2;
         return project([Math.cos(a) * 2.75, Math.sin(a) * 2.75, z]);
       });
-    const lower = ring(-0.48);
+    ctx.save();
+    ctx.translate(cx, cy + scale * 0.55);
+    ctx.scale(1, 0.55);
+    const shadow = ctx.createRadialGradient(
+      0,
+      0,
+      scale * 0.9,
+      0,
+      0,
+      scale * 3.2,
+    );
+    shadow.addColorStop(0, "#263e322e");
+    shadow.addColorStop(1, "#263e3200");
+    ctx.fillStyle = shadow;
+    ctx.beginPath();
+    ctx.arc(0, 0, scale * 3.2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+    const lower = ring(-0.3);
     ctx.beginPath();
     lower.forEach((v, i) =>
       i ? ctx.lineTo(v[0], v[1]) : ctx.moveTo(v[0], v[1]),
@@ -153,15 +179,16 @@ export function createTopography(el, wake) {
       const pts = [
         project([x, y, field(x, y)]),
         project([xx, yy, field(xx, yy)]),
-        project([xx, yy, -0.48]),
-        project([x, y, -0.48]),
+        project([xx, yy, -0.3]),
+        project([x, y, -0.3]),
       ];
       ctx.beginPath();
       pts.forEach((v, j) =>
         j ? ctx.lineTo(v[0], v[1]) : ctx.moveTo(v[0], v[1]),
       );
       ctx.closePath();
-      ctx.fillStyle = "#365b50";
+      const edgeLight = 0.75 + Math.sin(a + 0.6) * 0.22;
+      ctx.fillStyle = `rgb(${[54, 91, 80].map((v) => Math.round(v * edgeLight)).join(",")})`;
       ctx.fill();
     }
     const faces = triangles
@@ -172,18 +199,51 @@ export function createTopography(el, wake) {
       }))
       .sort((a, b) => a.depth - b.depth);
     ctx.globalAlpha = 0.18 + growth * 0.82;
-    for (const t of faces) {
-      ctx.beginPath();
-      t.pts.forEach((v, i) =>
-        i ? ctx.lineTo(v[0], v[1]) : ctx.moveTo(v[0], v[1]),
-      );
-      ctx.closePath();
-      ctx.fillStyle = color(t.v, t.shade);
-      ctx.fill();
-      ctx.strokeStyle = ctx.fillStyle;
-      ctx.lineWidth = 0.4;
-      ctx.stroke();
-    }
+    const mesh = faces.map((t) => ({
+      pts: t.pts.map((q) => [q[0], q[1], q[2] * 80]),
+      depth: t.depth * 80,
+      normal: [0, 0, 1],
+      material: [125, 157, 138],
+      alpha: 1,
+      fill: true,
+      unlit: true,
+      vertexColors: t.vertexColors.map((v) =>
+        color(v.v, v.light).match(/\d+/g).map(Number),
+      ),
+    }));
+    if (!renderMaterialField(ctx, mesh, w, h))
+      for (const t of faces) {
+        ctx.beginPath();
+        t.pts.forEach((v, i) =>
+          i ? ctx.lineTo(v[0], v[1]) : ctx.moveTo(v[0], v[1]),
+        );
+        ctx.closePath();
+        // Interpolate each face across its height range instead of flat triangle ink.
+        const indices = [0, 1, 2].sort(
+            (a, b) => t.vertexColors[a].v - t.vertexColors[b].v,
+          ),
+          a = indices[0],
+          b = indices[2];
+        const gradient = ctx.createLinearGradient(
+          t.pts[a][0],
+          t.pts[a][1],
+          t.pts[b][0],
+          t.pts[b][1],
+        );
+        gradient.addColorStop(
+          0,
+          color(t.vertexColors[a].v, t.vertexColors[a].light),
+        );
+        gradient.addColorStop(
+          1,
+          color(t.vertexColors[b].v, t.vertexColors[b].light),
+        );
+        ctx.fillStyle = gradient;
+        ctx.fill();
+        ctx.strokeStyle = ctx.fillStyle;
+        ctx.lineWidth = 0.6;
+        ctx.stroke();
+      }
     ctx.globalAlpha = growth * 0.65;
     ctx.beginPath();
     for (let i = 0; i < contours.length; i += 6) {
@@ -203,6 +263,14 @@ export function createTopography(el, wake) {
     ctx.strokeStyle = "#e8e8c8";
     ctx.lineWidth = 0.7;
     ctx.stroke();
+    const rim = Array.from({ length: 145 }, (_, i) => {
+      const a = (i / 144) * Math.PI * 2,
+        x = Math.cos(a) * 2.74,
+        y = Math.sin(a) * 2.74;
+      return project([x, y, field(x, y) + 0.008]);
+    });
+    line(rim, "#e3e8c78c", 1.05);
+    line(ring(-0.29), "#3e6153a0", 1.2);
     ctx.globalAlpha = 1;
     for (const [i, d] of dots.entries()) {
       const q = project(d),
