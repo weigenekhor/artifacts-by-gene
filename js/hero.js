@@ -1,4 +1,7 @@
-import { collectionPosition } from "./collection-layout.js";
+import {
+  collectionPosition,
+  paintCollectionField,
+} from "./collection-layout.js";
 // Direct inspection presents one interface without rearranging the collection.
 const clamp = (v) => Math.max(0, Math.min(1, v));
 const ease = (v) => {
@@ -164,7 +167,7 @@ export function createHero(stage, apps, wake) {
         home.style.transform = `translate(-50%,-50%) translateZ(${-retreat * 520}px) rotateY(${reduced ? 0 : yaw * 12}deg) rotateX(${reduced ? 0 : pitch * 14 - retreat * 5}deg) scale(${mix(1, 0.72, retreat)})`;
         home.style.zIndex = String(Math.round(mix(850, 50, retreat)));
         home.style.opacity = String(
-          mix(1, 0.48, retreat) * ease((arrival - 0.25) / 0.75),
+          mix(1, 0.48, retreat) * ease(arrival / 0.4),
         );
         home.style.top = (cy / h) * 100 + "%";
         home.style.setProperty("--home-light", 0.1 + Math.max(0, px) * 0.12);
@@ -193,8 +196,7 @@ export function createHero(stage, apps, wake) {
         );
         context.clearRect(0, 0, w, h);
         if (arrival > 0) {
-          context.fillStyle = "#050708";
-          context.fillRect(0, 0, w, h);
+          paintCollectionField(context, w, h);
         }
       }
       planes.forEach((plane, i) => {
@@ -228,9 +230,13 @@ export function createHero(stage, apps, wake) {
             Z * Math.cos(pitch) +
             focus * (mobile ? 155 : 360);
         const drift = reduced ? 0 : Math.sin(clock * 0.25 + i * 0.6);
-        const reveal = ease((arrival - i * 0.015) / 0.66);
+        const reveal = ease((arrival - 0.2 - i * 0.01) / 0.64);
         a.style.transform = `translate3d(${cx + X * (1 - focus * 0.2)}px,${cy + Y * (1 - focus * 0.08)}px,${depth}px) translate(-50%,-50%) rotateX(${(5 + pitch * 35 + drift) * (1 - focus * 0.95)}deg) rotateY(${(-Math.cos(angle) * 11 + yaw * 45 + drift) * (1 - focus * 0.95)}deg) scale(${scale * (1 + focus * 0.12)})`;
         a.style.opacity = String(reveal * (1 - neighbor * 0.16));
+        a.style.setProperty(
+          "--label-arrival",
+          Math.max(focus, ease((open - 0.12) / 0.4)),
+        );
         a.style.clipPath = `inset(${(1 - reveal) * 100}% 0 0)`;
         a.style.zIndex = String(Math.round(depth + 500 + focus * 1000));
         a.style.setProperty(

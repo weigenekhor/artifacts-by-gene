@@ -10,7 +10,7 @@ const stages = [
   "Evidence has a history",
   "The reasoning returns",
   "Retain the useful sequence",
-  "A method becomes software",
+  "Refined through use",
   "Enter what was built",
 ];
 
@@ -114,12 +114,13 @@ export function createGenesis(section, wake) {
       section.style.setProperty("--travel", clamp(p / 6.2));
       section.style.setProperty(
         "--reading-ink",
-        light > 0.48 ? "#26362f" : "#e5e8df",
+        p > 4.96 ? "#e5e8df" : light > 0.48 ? "#26362f" : "#e5e8df",
       );
       section.style.setProperty(
         "--reading-muted",
-        light > 0.48 ? "#5e6c60" : "#a9b6a5",
+        p > 4.96 ? "#a9b6a5" : light > 0.48 ? "#5e6c60" : "#a9b6a5",
       );
+      section.dataset.originStage = String(Math.max(0, index));
       section.classList.toggle("construction-active", index >= 0);
       section.classList.toggle("construction-ending", p > 5.5);
       intro.inert = !reduced && p > 0.65;

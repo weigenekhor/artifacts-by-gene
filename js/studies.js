@@ -18,6 +18,27 @@ export function createStudy(el, wake) {
     stateNumber = el.querySelector(".state-number");
   const focus = el.querySelector(".focus-range"),
     visual = el.querySelector(".feature-visual");
+  const source = el.querySelector(".study-source"),
+    sourceImage = source.querySelector("img"),
+    region = JSON.parse(el.dataset.sourceRegion);
+  const sourceObserver = new ResizeObserver(() => {
+    const sw = source.clientWidth,
+      sh = source.clientHeight,
+      iw = Number(sourceImage.getAttribute("width")),
+      ih = Number(sourceImage.getAttribute("height")),
+      fit = Math.min(sw / iw, sh / ih);
+    source.style.setProperty(
+      "--region-x",
+      (sw - iw * fit) / 2 + region.left * fit + "px",
+    );
+    source.style.setProperty(
+      "--region-y",
+      (sh - ih * fit) / 2 + region.top * fit + "px",
+    );
+    source.style.setProperty("--region-w", region.width * fit + "px");
+    source.style.setProperty("--region-h", region.height * fit + "px");
+  });
+  sourceObserver.observe(source);
   let inspection = null,
     box = null;
   focus.addEventListener("input", () => {
@@ -67,7 +88,7 @@ export function createStudy(el, wake) {
         reduced || manual
           ? wanted
           : p + (wanted - p) * (1 - Math.exp(-dt / 70));
-      const functional = clamp((p - 0.15) / 0.72);
+      const functional = clamp((p - 0.23) / 0.65);
       const stages = {
         gather: smooth(functional / 0.32),
         resolve: smooth((functional - 0.22) / 0.44),
@@ -78,10 +99,14 @@ export function createStudy(el, wake) {
       for (const [key, value] of Object.entries(stages))
         el.style.setProperty("--" + key, value);
       control.value = Math.round(p * 100);
-      el.style.setProperty("--entry", smooth((p - 0.12) / 0.1));
+      el.style.setProperty("--entry", smooth((p - 0.21) / 0.1));
+      el.style.setProperty(
+        "--activate",
+        smooth((p - 0.08) / 0.08) * (1 - smooth((p - 0.25) / 0.08)),
+      );
       el.style.setProperty("--review", smooth((p - 0.89) / 0.07));
       el.style.setProperty("--closure", smooth((p - 0.91) / 0.08));
-      el.classList.toggle("source-view", !reduced && (p < 0.19 || p > 0.92));
+      el.classList.toggle("source-view", !reduced && (p < 0.26 || p > 0.92));
       output.textContent =
         regions[0] +
         " " +

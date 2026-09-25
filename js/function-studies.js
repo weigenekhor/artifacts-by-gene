@@ -52,10 +52,11 @@ export function createFunctionStudy(el, wake) {
     const gather = ease(p / 0.36),
       resolve = ease((p - 0.3) / 0.4),
       inspect = ease((p - 0.66) / 0.22);
+    const lerp = (a, b, t) => a.map((v, i) => mix(v, b[i], t));
     const selected = (n) => Math.min(n - 1, Math.floor(inspection * n));
     const alpha = (v, fn) => {
       c.save();
-      c.globalAlpha = v;
+      c.globalAlpha *= v;
       fn();
       c.restore();
     };
@@ -159,9 +160,9 @@ export function createFunctionStudy(el, wake) {
       if (b) label(b, 772, 33, 13, muted, "right");
     };
     if (kind === "history") {
-      heading("PROCESS EVENTS", "LOT HISTORY");
-      const duration = [0.11, 0.14, 0.07, 0.2, 0.12, 0.16, 0.08],
-        states = [
+      heading("DISPLACED LOT EVENTS", "A HISTORY WITH CONTEXT");
+      const lengths = [0.11, 0.14, 0.07, 0.2, 0.12, 0.16, 0.08],
+        names = [
           "Load",
           "Process",
           "Hold",
@@ -172,185 +173,247 @@ export function createFunctionStudy(el, wake) {
         ];
       let elapsed = 0;
       for (let i = 0; i < 7; i++) {
-        const t = ease((p - i * 0.012) / 0.43),
-          xx = 80 + elapsed * 670,
-          ww = duration[i] * 660,
-          y = mix(97 + ((i * 3) % 7) * 38, 215, t),
-          x = mix(65 + (i % 3) * 235, xx, t);
-        elapsed += duration[i];
+        const lock = ease((p - 0.07 - i * 0.018) / 0.34),
+          x = mix(52 + (i % 3) * 241, 70 + elapsed * 690, lock),
+          y = mix(95 + ((i * 3) % 7) * 39, 205, lock),
+          ww = mix(182, lengths[i] * 680, lock);
+        elapsed += lengths[i];
         rect(
           x,
           y,
-          mix(180, ww, t),
-          28,
+          ww,
+          31,
           wash,
           i === selected(7) && inspect > 0.1 ? accent : faint,
         );
+        label(names[i], x + 3, y - 15, 12, muted);
+        label(String(i + 1).padStart(2, "0"), x + 7, y + 21, 12);
         line(
           [
-            [x + 3, y + 25],
-            [x + 3 + mix(150, ww - 6, t), y + 25],
+            [x + 3, y + 29],
+            [x + ww - 3, y + 29],
           ],
           i === selected(7) ? accent : teal,
           3,
         );
-        label(states[i], x + 3, y - 12, 12, muted);
-        label(String(i + 1).padStart(2, "0"), x + 5, y + 19, 12, ink);
-        if (t > 0.9)
+        alpha(lock, () => {
           line(
             [
-              [x, y + 30],
-              [x, 310],
+              [x, y + 34],
+              [x, 319],
             ],
             faint,
-            1,
-            resolve,
           );
+        });
+        // A short registration stroke signals exact chronological seating.
+        alpha(Math.sin(lock * Math.PI), () =>
+          line(
+            [
+              [x, y - 5],
+              [x, y + 39],
+            ],
+            accent,
+            2,
+          ),
+        );
       }
-      alpha(gather, () => axis(80, 310, 660, ["Lot begins", "Lot complete"]));
+      alpha(gather, () => axis(70, 319, 682, ["Earlier", "Later"]));
       alpha(inspect, () => {
-        label("State + duration remain attached to the event.", 80, 394, 17);
-        const x = 80 + inspection * 660;
-        line(
-          [
-            [x, 187],
-            [x, 322],
-          ],
-          accent,
-          1.5,
+        let begin = 0;
+        for (let i = 0; i < selected(7); i++) begin += lengths[i];
+        const x = 70 + begin * 690;
+        rect(x, 199, lengths[selected(7)] * 680, 43, "#b2935020", accent);
+        label(
+          names[selected(7)] + " · state and duration in sequence",
+          70,
+          425,
+          17,
         );
       });
     } else if (kind === "schedule") {
-      heading("EQUIPMENT SCHEDULES", "ONE TIME AXIS");
-      const y0 = 100;
+      heading("SEPARATE EQUIPMENT SCHEDULES", "A COMMON TIME REFERENCE");
+      const lock = ease((p - 0.16) / 0.31);
       for (let i = 0; i < 4; i++) {
-        const y = y0 + i * 67,
-          offset = (1 - gather) * (i % 2 ? 95 : -70);
-        label("Equipment " + (i + 1), 30, y + 16, 13, muted);
+        const y = 104 + i * 69,
+          offset = (1 - lock) * (i % 2 ? 83 : -67);
+        label("Equipment " + (i + 1), 25, y + 14, 13, muted);
         line(
           [
-            [173, y + 26],
-            [750, y + 26],
+            [176, y + 30],
+            [751, y + 30],
           ],
           faint,
         );
         for (let j = 0; j < 3; j++) {
-          const x = 190 + j * 165 + (i % 2) * 42 + offset;
-          rect(x, y, 72 + (j % 2) * 38, 25, wash, teal);
+          const x = 187 + j * 163 + (i % 2) * 34 + offset;
+          rect(x, y, 64 + (j % 2) * 34, 23, wash, teal);
+          for (let k = 0; k < 2; k++)
+            line(
+              [
+                [x + k * 24, y + 25],
+                [x + k * 24, y + 35],
+              ],
+              faint,
+            );
         }
-        if (!mobile)
-          label(
-            gather < 0.8 ? "Local dates" : "Shared dates",
-            700,
-            y - 9,
-            11,
-            muted,
-            "right",
-          );
-      }
-      alpha(resolve, () => {
-        const x = 190 + inspection * 480;
-        rect(x, 76, 42, 302, paper ? "#b4c2a433" : "#dcac7220", null);
+        const reference = 355 + offset;
         line(
           [
-            [x, 76],
-            [x, 378],
+            [reference, y - 13],
+            [reference, y + 38],
           ],
           accent,
-          1.5,
+          1.2,
         );
-        label("Future window", x, 400, 13, accent, "center");
-      });
-      axis(190, 375, 555);
-    } else if (kind === "usage") {
-      heading("WAFER ACTIVITY", "CHAMBER USAGE");
-      for (let chamber = 0; chamber < 3; chamber++) {
-        const y = 123 + chamber * 110;
-        label("Chamber " + (chamber + 1), 26, y + 5, 14, muted);
+        alpha(1 - lock, () =>
+          label("Local reference", reference, y - 24, 11, muted, "center"),
+        );
+      }
+      alpha(lock, () => {
         line(
           [
-            [170, y],
-            [660, y],
+            [355, 65],
+            [355, 375],
+          ],
+          accent,
+          1.7,
+        );
+        label("Shared reference", 355, 410, 13, accent, "center");
+      });
+      alpha(inspect, () => {
+        const x = 390 + inspection * 293;
+        rect(x, 84, 48, 286, "#c69c6520", null);
+        line(
+          [
+            [x, 84],
+            [x, 370],
+          ],
+          teal,
+          1.5,
+        );
+        label("Upcoming window", x + 24, 444, 12, teal, "center");
+      });
+    } else if (kind === "usage") {
+      heading("INDIVIDUAL WAFER EVENTS", "RETAINED CHAMBER USAGE");
+      for (let chamber = 0; chamber < 3; chamber++) {
+        const y = 119 + chamber * 112,
+          n = 14 + chamber * 3;
+        label("Chamber " + (chamber + 1), 24, y - 33, 14, muted);
+        line(
+          [
+            [30, y + 28],
+            [751, y + 28],
           ],
           faint,
         );
-        ring(706, y, 31, muted);
-        ring(706, y, 24, faint);
         let count = 0;
-        for (let event = 0; event < 6; event++) {
-          const t = ease((p - event * 0.055 - chamber * 0.018) / 0.27),
-            x = mix(186 + event * 38, 630 - event * 15, t),
-            r = mix(10, 5, resolve);
-          ring(x, y, r, t > 0.95 ? accent : teal, 1.4);
-          if (t > 0.95) count++;
+        for (let event = 0; event < n; event++) {
+          const t = ease((p - 0.015 * event - 0.018 * chamber) / 0.39),
+            ready = t > 0.985;
+          if (ready) count++;
+          const x = mix(40 + (event % 7) * 54, 648, t),
+            yy = mix(y + (Math.floor(event / 7) - 1) * 18, y, t);
+          alpha(1 - ease((t - 0.82) / 0.18), () => {
+            ring(x, yy, 7, teal, 1.2);
+            line(
+              [
+                [x - 2, yy + 6],
+                [x + 2, yy + 6],
+              ],
+              wash,
+              2,
+            );
+          });
+          // One discrete event leaves one permanent increment in the usage state.
+          if (ready) {
+            const theta = -Math.PI / 2 + (event / n) * Math.PI * 1.6;
+            ring(
+              689,
+              y,
+              37,
+              selected(3) === chamber ? accent : teal,
+              4,
+              theta,
+              theta + ((Math.PI * 1.6) / n) * 0.8,
+            );
+          }
         }
-        for (let j = 0; j < count; j++)
-          ring(
-            706,
-            y,
-            36,
-            selected(3) === chamber ? accent : teal,
-            3,
-            -Math.PI / 2 + (j * Math.PI) / 3,
-            -Math.PI / 2 + (j * Math.PI) / 3 + 0.72,
-          );
+        ring(689, y, 46, faint);
+        label(
+          String(count).padStart(2, "0"),
+          689,
+          y + 7,
+          23,
+          selected(3) === chamber ? accent : ink,
+          "center",
+        );
+        label("illustrative events", 689, y + 65, 11, muted, "center");
         alpha(resolve, () => {
-          label("Usage retained", 675, y + 60, 12, muted, "center");
           line(
             [
-              [652, y],
-              [670, y],
+              [30, y],
+              [574, y],
             ],
-            accent,
-            2,
+            faint,
           );
+          label("Events pass. Usage remains.", 32, y + 4, 15, muted);
         });
       }
     } else if (kind === "compare") {
-      heading("REFERENCE RECIPE", "COMPARED RECIPE");
-      const raw = [0, 1.65, 2.15, 3.95, 4.2, 5.55, 6.8],
+      heading("RAW REFERENCE POSITION", "LOGICAL CORRESPONDENCE");
+      const names = [
+          "Load",
+          "Stabilise",
+          "Ramp",
+          "Hold",
+          "Measure",
+          "Purge",
+          "Complete",
+        ],
+        raw = [0, 1.5, 2.25, 3.8, 4.15, 5.8, 6.9],
         active = selected(7);
       for (let i = 0; i < 7; i++) {
-        const y = 89 + i * 43,
-          yy = mix(80 + raw[i] * 46 + (i % 2) * 9, y, gather),
-          changed = i === 3;
-        const opacity = changed || i === active ? 1 : mix(1, 0.38, resolve);
+        const match = ease((p - 0.04 - i * 0.018) / 0.39),
+          y = 91 + i * 44,
+          yy = mix(82 + raw[i] * 43, y, match),
+          changed = i === 3,
+          opacity =
+            changed || active === i ? 1 : mix(1, 0.24, ease((p - 0.49) / 0.18));
         alpha(opacity, () => {
-          label("Step " + (i + 1), 34, y + 5, 13, muted);
+          label(String(i + 1).padStart(2, "0"), 26, y + 5, 11, muted);
+          label(names[i], 66, y + 5, 15, ink);
+          label(names[i], 449, yy + 5, 15, ink);
           line(
             [
-              [116, y],
-              [315, y],
+              [181, y],
+              [326, y],
             ],
-            changed ? accent : ink,
-            changed ? 2 : 1,
+            changed ? accent : teal,
+            changed ? 2.4 : 1.1,
           );
-          label("Step " + (i + 1), 452, yy + 5, 13, muted);
           line(
             [
-              [536, yy],
-              [752 - (changed ? 45 : 0), yy],
+              [565, yy],
+              [750 - (changed ? 39 : 0), yy],
             ],
-            changed ? accent : ink,
-            changed ? 2 : 1,
+            changed ? accent : teal,
+            changed ? 2.4 : 1.1,
           );
-          path(
-            [325, y],
-            [441, yy],
-            changed ? accent : muted,
-            ease((p - 0.15) / 0.35),
-          );
-          if (changed && resolve > 0.1) {
-            rect(555, yy - 13, 90, 26, paper ? "#b7804225" : "#ce9c6228", null);
-            label("changed", 560, yy + 5, 12, accent);
+          path([336, y], [439, yy], changed ? accent : muted, match * 0.8);
+          if (changed) {
+            alpha(resolve, () => {
+              rect(555, yy + 11, 148, 22, wash, accent);
+              label("Parameter changed", 564, yy + 26, 11, accent);
+            });
           }
+          if (match > 0.98 && i === active) dot(391, y, 4, accent);
         });
       }
       alpha(resolve, () =>
         label(
-          "Line position changes. Logical correspondence remains.",
-          34,
-          433,
+          "Equivalent steps stay paired. Differences stay visible.",
+          28,
+          442,
           16,
         ),
       );
@@ -362,9 +425,15 @@ export function createFunctionStudy(el, wake) {
         const choose = ease((p - level * 0.14) / 0.28);
         label(labels[level], xs[level] - 22, 76, 13, muted);
         for (let j = 0; j < 5 - level; j++) {
-          const y = 126 + j * 56,
-            keep = j === (level === 2 ? selected(3) : 1);
-          dot(xs[level], y, keep ? 4 : 2, keep ? accent : muted);
+          const keep = j === (level === 2 ? selected(3) : 1),
+            y = mix(
+              126 + j * 56,
+              126 + (level === 2 ? selected(3) : 1) * 56,
+              keep ? 0 : choose * 0.82,
+            );
+          alpha(keep ? 1 : 1 - choose * 0.95, () =>
+            dot(xs[level], y, keep ? 4 : 2, keep ? accent : muted),
+          );
           if (!keep)
             alpha(1 - choose * 0.8, () =>
               line(
@@ -394,90 +463,141 @@ export function createFunctionStudy(el, wake) {
         label("Selected SPC chart", 570, 339, 15);
       });
     } else if (kind === "compile") {
-      heading("METROLOGY INPUTS", "COMPILED REPORT");
-      const fields = ["Measurements", "Source records", "Calculation inputs"];
-      fields.forEach((name, i) => {
-        label(name, 25, 102 + i * 106, 14, muted);
-        for (let j = 0; j < 3; j++) {
-          const yy = 121 + i * 106 + j * 15;
-          line(
-            [
-              [30, yy],
-              [170 - j * 20, yy],
-            ],
-            j === 1 ? teal : faint,
-            1.5,
-          );
-        }
-        path([185, 132 + i * 106], [340, 228], muted, gather);
-      });
-      rect(305, 180, 106, 96, wash, accent);
-      label("Calculate", 358, 223, 14, ink, "center");
-      label("Assemble", 358, 247, 12, muted, "center");
-      rect(518, 76, 225, 331, paper ? "#eef0e5" : "#16231e");
-      label("REPORT", 538, 104, 13, muted);
+      heading("METROLOGY SOURCE RECORDS", "CALCULATION → REPORT");
+      const names = ["LayTec", "PL", "XRR / XRD"],
+        assemble = ease((p - 0.3) / 0.39),
+        chosen = selected(3);
       for (let i = 0; i < 3; i++) {
-        const t = ease((p - 0.3 - i * 0.09) / 0.32),
-          yy = 130 + i * 82;
-        path([412, 229], [536, yy + 22], i === selected(3) ? accent : faint, t);
-        alpha(t, () => {
-          rect(538, yy, 182, 60, wash, i === selected(3) ? accent : faint);
-          label(fields[i], 550, yy + 23, 12);
+        const y = 105 + i * 105;
+        label(names[i], 25, y - 19, 14, muted);
+        for (let j = 0; j < 4; j++) {
+          const t = ease((p - 0.1 - i * 0.07 - j * 0.035) / 0.48),
+            x = mix(26 + j * 34, 543 + j * 35, t),
+            yy = mix(y + ((j + i) % 2) * 17, 139 + i * 88, t);
           line(
             [
-              [550, yy + 39],
-              [687, yy + 39],
+              [x, yy],
+              [x + 23, yy],
             ],
-            teal,
-            1.5,
+            i === chosen ? accent : teal,
+            2,
+          );
+          dot(x, yy, 2, i === chosen ? accent : teal);
+        }
+        path([172, y + 11], [323, 233], i === chosen ? accent : faint, gather);
+        path(
+          [398, 233],
+          [527, 139 + i * 88],
+          i === chosen ? accent : faint,
+          assemble,
+        );
+        alpha(assemble, () => {
+          label(
+            names[i] + " / source retained",
+            543,
+            123 + i * 88,
+            12,
+            i === chosen ? ink : muted,
+          );
+          line(
+            [
+              [537, 158 + i * 88],
+              [713, 158 + i * 88],
+            ],
+            faint,
           );
         });
       }
+      rect(309, 193, 102, 79, wash, accent);
+      label("Predefined", 360, 223, 12, muted, "center");
+      label("calculations", 360, 246, 14, ink, "center");
+      alpha(assemble, () => {
+        line(
+          [
+            [520, 82],
+            [752, 82],
+            [752, 400],
+            [520, 400],
+            [520, 82],
+          ],
+          muted,
+          1.3,
+        );
+        label("METROLOGY REPORT", 538, 64, 12, muted);
+      });
+      alpha(inspect, () =>
+        label("The report keeps a path back to its inputs.", 25, 442, 16),
+      );
     } else if (kind === "diagnose") {
-      heading("OBSERVED DRIFT", "CHECKS, NOT A VERDICT");
-      label("Process observations", 28, 82, 14, muted);
-      curve(30, 94, 243, 105, 0.2, accent, gather, 0, true);
-      label("Clean-recipe observations", 28, 246, 14, muted);
-      curve(30, 255, 243, 95, 0.2, teal, gather);
-      const causes = [
-        "Ceiling condition",
-        "Optris settings",
-        "LayTec / viewport",
-      ];
-      causes.forEach((name, i) => {
-        const y = 130 + i * 98,
-          t = ease((p - 0.2 - i * 0.045) / 0.34),
-          active = i === selected(3);
-        path([282, 172], [447, y], active ? accent : faint, t);
-        path([282, 302], [447, y], active ? teal : faint, t);
+      heading("OBSERVED BEHAVIOUR", "NEXT CHECKS");
+      label("Process recipe", 24, 88, 14, muted);
+      curve(25, 104, 191, 102, 0.2, accent, gather, 0, true);
+      label("Clean recipe", 24, 286, 14, muted);
+      curve(25, 294, 191, 79, 0.2, teal, gather);
+      const names = [
+          "Ceiling condition",
+          "Optris settings",
+          "LayTec / viewport",
+        ],
+        narrow = ease((p - 0.45) / 0.26);
+      // Both evidence sets initially support several questions; routes narrow to checks, never a verdict.
+      for (let branch = 0; branch < 9; branch++) {
+        const group = Math.floor(branch / 3),
+          chosen = group === selected(3),
+          rootY = branch % 2 ? 331 : 154;
+        const midY = mix(77 + branch * 37, 128 + group * 104, narrow),
+          midX = mix(376, 415, narrow);
+        const opacity =
+          (1 - narrow) * 0.55 + (branch % 3 === 1 ? 0.65 : 0) * narrow;
+        path(
+          [226, rootY],
+          [midX, midY],
+          chosen ? accent : faint,
+          opacity * ease((p - 0.12 - branch * 0.012) / 0.25),
+        );
+        if (branch % 3 !== 1)
+          alpha(1 - narrow, () => {
+            ring(midX, midY, 3, muted);
+            line(
+              [
+                [midX + 10, midY],
+                [midX + 42, midY],
+              ],
+              faint,
+            );
+          });
+      }
+      names.forEach((name, i) => {
+        const y = 128 + i * 104,
+          selectedCheck = i === selected(3),
+          t = ease((p - 0.25 - i * 0.035) / 0.3);
         alpha(t, () => {
-          ring(453, y, 6, active ? accent : muted, 1.3);
-          label(name, 479, y + 5, 15, active ? ink : muted);
-        });
-        alpha(resolve, () => {
+          ring(420, y, 7, selectedCheck ? accent : muted, 1.4);
           line(
             [
-              [674, y],
-              [736, y],
+              [430, y],
+              [473, y],
             ],
-            active ? accent : faint,
-            active ? 2 : 1,
+            selectedCheck ? accent : faint,
+            1.5,
           );
+          label(name, 486, y + 5, 15, selectedCheck ? ink : muted);
+        });
+        alpha(narrow, () => {
           label(
-            active ? "CHECK" : "possible",
-            732,
-            y - 14,
+            selectedCheck ? "INSPECT NEXT" : "CHECK REMAINS",
+            486,
+            y + 29,
             11,
-            active ? accent : muted,
-            "right",
+            selectedCheck ? accent : muted,
           );
         });
       });
       alpha(resolve, () =>
         label(
-          "Evidence narrows an investigation. It does not prove a cause.",
-          30,
-          433,
+          "A narrower investigation. A check still to be made.",
+          24,
+          442,
           16,
         ),
       );
@@ -505,15 +625,16 @@ export function createFunctionStudy(el, wake) {
       seats.forEach(([x, y], i) => {
         const pair =
           i === 0 || i === 2
-            ? [0, 2, 0.2]
+            ? [0, 2, 0.16]
             : i === 1 || i === 4
-              ? [1, 4, 0.56]
+              ? [1, 4, 0.55]
               : null;
         let z = 0;
         if (pair) {
-          const t = ease((p - pair[2]) / 0.32),
+          const motion = clamp((p - pair[2]) / 0.34),
+            t = ease((motion - 0.16) / 0.67),
             to = seats[pair[0] === i ? pair[1] : pair[0]];
-          z = Math.sin(t * Math.PI) * 105;
+          z = (ease(motion / 0.22) - ease((motion - 0.77) / 0.23)) * 94;
           x =
             mix(x, to[0], t) +
             Math.sin(t * Math.PI) * (pair[0] === i ? 32 : -32);
@@ -543,68 +664,95 @@ export function createFunctionStudy(el, wake) {
           2,
         );
       });
-      label("Inputs stay with each plate.", 32, 429, 15, muted);
-    } else if (kind === "zones") {
-      heading("ZONE REFERENCES", "MAPPED POSITION");
-      const cx = 532,
-        cy = 241,
-        R = 155;
-      ring(cx, cy, R, muted);
-      ring(cx, cy, R * 0.66, teal);
-      dot(cx, cy, 4, ink);
-      for (let i = 0; i < 5; i++) {
-        const a = -Math.PI / 2 + (i * Math.PI * 2) / 5,
-          x = cx + Math.cos(a) * 104,
-          y = cy + Math.sin(a) * 104,
-          sy = 106 + i * 66,
-          t = ease((p - i * 0.028) / 0.5),
-          chosen = i === selected(5);
-        label("Zone " + (i + 1), 32, sy + 5, 14, chosen ? accent : muted);
-        line(
-          [
-            [115, sy],
-            [184, sy],
-          ],
-          chosen ? accent : faint,
-          2,
-        );
-        path(
-          [185, sy],
-          [mix(238, x, t), mix(sy, y, t)],
-          chosen ? accent : faint,
-        );
-        ring(
-          x,
-          y,
-          39,
-          chosen ? accent : muted,
-          chosen ? 2 : 1,
-          0,
-          Math.PI * 2 * t,
-        );
-        label("S" + (i + 1), x, y + 5, 13, ink, "center");
-        if (chosen)
-          alpha(resolve, () => {
-            const delta = 0.13;
-            for (const d of [-delta, delta])
-              line(
-                [
-                  [cx, cy],
-                  [cx + Math.cos(a + d) * R, cy + Math.sin(a + d) * R],
-                ],
-                accent,
-                1.4,
-              );
-          });
-      }
       label(
-        "One origin. Inner and outer boundaries.",
-        405,
-        437,
+        p < 0.16
+          ? "Select the exchange."
+          : p < 0.49
+            ? "A ↔ C · surrounding seats remain fixed"
+            : p < 0.55
+              ? "First exchange seated."
+              : p < 0.89
+                ? "B ↔ E · surrounding seats remain fixed"
+                : "Both exchanges seated. Inputs retained.",
+        32,
+        429,
         15,
         muted,
-        "center",
       );
+    } else if (kind === "zones") {
+      heading("INNER / OUTER REFERENCE", "ONE SPATIAL CORRESPONDENCE");
+      const overlay = ease((p - 0.15) / 0.47),
+        cx = mix(259, 445, overlay),
+        cy = 236,
+        radius = mix(104, 145, overlay),
+        turn = (1 - overlay) * 0.32;
+      const secondX = mix(579, 445, overlay),
+        secondR = mix(119, 145, overlay);
+      for (let side = 0; side < 2; side++) {
+        const x = side ? secondX : cx,
+          R = side ? secondR : radius;
+        ring(x, cy, R, side ? teal : muted, 1.1);
+        dot(x, cy, 3, side ? teal : ink);
+        for (let i = 0; i < 5; i++) {
+          const a =
+              -Math.PI / 2 + (i * Math.PI * 2) / 5 + (side ? turn : -turn),
+            xx = x + Math.cos(a) * R * 0.67,
+            yy = cy + Math.sin(a) * R * 0.67,
+            chosen = i === selected(5);
+          ring(
+            xx,
+            yy,
+            R * 0.255,
+            chosen ? accent : side ? teal : faint,
+            chosen ? 1.8 : 1,
+          );
+          if (!side || overlay < 0.85)
+            label(
+              "S" + (i + 1),
+              xx,
+              yy + 4,
+              12,
+              chosen ? accent : muted,
+              "center",
+            );
+          if (chosen) {
+            const end = x + Math.cos(a) * R,
+              ey = cy + Math.sin(a) * R;
+            line(
+              [
+                [x, cy],
+                [end, ey],
+              ],
+              side ? teal : accent,
+              1.7,
+            );
+          }
+        }
+      }
+      alpha(1 - overlay, () => {
+        label("Inner reference", 259, 414, 14, muted, "center");
+        label("Outer reference", 579, 414, 14, teal, "center");
+      });
+      alpha(resolve, () => {
+        const a = -Math.PI / 2 + (selected(5) * Math.PI * 2) / 5;
+        for (const d of [-0.13, 0.13])
+          line(
+            [
+              [445, 236],
+              [445 + Math.cos(a + d) * 173, 236 + Math.sin(a + d) * 173],
+            ],
+            accent,
+            1.5,
+          );
+        label(
+          "Shared origin · selected zone " + (selected(5) + 1),
+          445,
+          429,
+          16,
+          ink,
+          "center",
+        );
+      });
     } else if (kind === "configuration") {
       heading("REFERENCE / Devices.XML", "TARGET / Devices.XML");
       for (let side = 0; side < 2; side++) {
@@ -619,7 +767,10 @@ export function createFunctionStudy(el, wake) {
         );
         for (let branch = 0; branch < 3; branch++) {
           const change = branch === 1,
-            y = 140 + branch * 98;
+            y =
+              140 +
+              branch * 98 +
+              (side ? (1 - gather) * [22, -19, 17][branch] : 0);
           line(
             [
               [x + 7, y],
@@ -637,7 +788,7 @@ export function createFunctionStudy(el, wake) {
           const expanded =
             change || branch === Math.floor(selected(6) / 2)
               ? 1
-              : 1 - resolve * 0.82;
+              : 1 - resolve * 0.97;
           for (let j = 0; j < 2; j++) {
             const yy =
               y + 29 + j * 25 * expanded + (side ? (1 - gather) * 16 : 0);
@@ -679,234 +830,309 @@ export function createFunctionStudy(el, wake) {
         ),
       );
     } else if (kind === "spc") {
-      heading("GaN SPC SIGNALS", "RELEASE REVIEW CONTEXT");
-      for (let i = 0; i < 3; i++) {
-        const y = 91 + i * 95;
-        label("Signal " + (i + 1), 28, y + 12, 13, muted);
-        line(
-          [
-            [149, y + 52],
-            [562, y + 52],
-          ],
-          faint,
-        );
-        line(
-          [
-            [149, y + 12],
-            [562, y + 12],
-          ],
-          faint,
-          1,
-          0.7,
-        );
-        curve(
-          149,
-          y - 12,
-          413,
-          89,
-          i,
-          i === 1 ? accent : teal,
-          gather,
-          0,
-          i === 1,
-        );
-        if (i === 1)
-          alpha(resolve, () =>
-            rect(396, y - 4, 58, 61, paper ? "#b7804220" : "#daa26720", accent),
+      heading("PROCESS SIGNALS ARRIVE TOGETHER", "RELEASE REVIEW");
+      const review = ease((p - 0.36) / 0.3),
+        active = selected(3);
+      for (let i = 0; i < 9; i++) {
+        const group = i % 3,
+          selectedRow = i === 4,
+          normal = !selectedRow,
+          smallX = 30 + (i % 3) * 252,
+          smallY = 89 + Math.floor(i / 3) * 94;
+        const x = mix(smallX, 145, review),
+          y = mix(smallY, 92 + group * 91, review),
+          ww = mix(218, 410, review);
+        const opacity = normal ? 1 - review * (i < 3 ? 0.6 : 0.94) : 1;
+        alpha(opacity, () => {
+          curve(
+            x,
+            y,
+            ww,
+            65,
+            i,
+            selectedRow ? accent : teal,
+            gather,
+            0,
+            selectedRow,
           );
-        if (i === selected(3))
-          alpha(resolve, () => {
+          line(
+            [
+              [x, y + 8],
+              [x + ww, y + 8],
+            ],
+            faint,
+          );
+          line(
+            [
+              [x, y + 57],
+              [x + ww, y + 57],
+            ],
+            faint,
+          );
+        });
+      }
+      alpha(review, () => {
+        for (let i = 0; i < 3; i++) {
+          label("Signal " + (i + 1), 25, 125 + i * 91, 13, muted);
+          if (i === active) {
             line(
               [
-                [143, y - 10],
-                [143, y + 70],
+                [138, 89 + i * 91],
+                [138, 157 + i * 91],
               ],
               accent,
               2,
             );
-            path([567, y + 29], [624, 230], accent);
-          });
-      }
-      alpha(resolve, () => {
-        label("Inspect signal " + (selected(3) + 1), 620, 216, 16, accent);
-        label("Signal + context", 620, 245, 13, muted);
-        label("remain together", 620, 267, 13, muted);
+            path([563, 122 + i * 91], [614, 221], accent);
+          }
+        }
+        rect(394, 176, 57, 63, "#b3914518", accent);
+        label("Needs review", 619, 205, 16, accent);
+        label("Inspect in context", 619, 233, 12, muted);
+        label("Release remains a review.", 25, 429, 16, muted);
       });
-      label(
-        "An exception directs attention. Release remains a review.",
-        28,
-        426,
-        16,
-        muted,
-      );
     } else if (kind === "legacy") {
-      heading("LEGACY PARAMETER RECORDS", "CONSISTENT REVIEW");
-      const chosen = selected(5);
+      heading("FRAGMENTED LEGACY FORMATS", "CONSISTENT REVIEW FRAME");
+      const normalise = ease((p - 0.15) / 0.45),
+        active = selected(5);
       for (let i = 0; i < 5; i++) {
-        const y = mix(98 + ((i * 3) % 5) * 61, 99 + i * 57, gather),
-          x = mix(20 + (i % 2) * 43, 24, gather);
+        const x = mix(28 + (i % 2) * 169, 28, normalise),
+          y = mix(95 + ((i * 3) % 5) * 53, 102 + i * 54, normalise),
+          ww = mix(i % 2 ? 162 : 122, 195, normalise);
+        line(
+          [
+            [x, y],
+            [x + ww, y],
+          ],
+          i === active ? accent : faint,
+          1.2,
+        );
         label(
           "Parameter " + (i + 1),
           x,
-          y + 3,
-          14,
-          i === chosen ? accent : muted,
+          y - 12,
+          13,
+          i === active ? ink : muted,
         );
-        line(
-          [
-            [x, y + 15],
-            [x + 154, y + 15],
-          ],
-          i === chosen ? accent : faint,
-          i === chosen ? 2 : 1,
-        );
+        // The same record begins as a column, row or compact trace, then gains a shared review structure.
+        for (let j = 0; j < 3; j++) {
+          const a = [x + j * 28, y + 12],
+            b = [x + j * 28, y + 27 - ((i + j) % 3) * 6];
+          line(
+            [
+              lerp(a, [x + ww - 44 + j * 14, y - 12], normalise),
+              lerp(b, [x + ww - 44 + j * 14, y - 12], normalise),
+            ],
+            teal,
+            2,
+          );
+        }
       }
-      path([193, 99 + chosen * 57], [321, 227], accent, resolve);
-      rect(323, 88, 437, 292, wash);
-      label("Retained parameter context", 343, 119, 14, muted);
-      curve(343, 145, 394, 172, chosen * 0.43, teal, resolve);
-      axis(343, 337, 394);
-      alpha(resolve, () =>
+      alpha(normalise, () => {
+        rect(327, 85, 435, 299, wash);
         label(
-          "A stable review frame for the selected legacy parameter.",
-          28,
-          433,
-          16,
-        ),
+          "Parameter " + (active + 1) + " / retained context",
+          346,
+          116,
+          14,
+          muted,
+        );
+        curve(347, 151, 390, 146, active * 0.43, teal, ease((p - 0.37) / 0.3));
+        axis(347, 337, 390);
+        path([231, 102 + active * 54], [322, 220], accent);
+      });
+      alpha(resolve, () =>
+        label("Different formats. One readable review structure.", 28, 437, 16),
       );
     } else if (kind === "planning") {
-      heading("STATUS + DUE DATES", "TIME MAKES PRIORITY VISIBLE");
-      const now = 428;
-      axis(195, 365, 553, ["Overdue", "Upcoming"]);
+      heading("STATUS + DUE DATES", "TEMPORAL PRIORITY");
+      const order = ease((p - 0.13) / 0.4),
+        now = 432,
+        due = [0.18, 0.64, 0.4, 0.87, 0.51, 0.74],
+        rank = [0, 3, 1, 5, 2, 4];
+      axis(193, 374, 557, ["Overdue", "Upcoming"]);
+      line(
+        [
+          [now, 68],
+          [now, 383],
+        ],
+        accent,
+        1.5,
+      );
+      label("NOW", now, 411, 13, accent, "center");
       for (let i = 0; i < 6; i++) {
-        const y = 94 + i * 43;
-        label("Equipment " + (i + 1), 25, y + 5, 13, muted);
+        const x = mix(205 + (i % 3) * 180, 193 + due[i] * 557, order),
+          y = mix(102 + ((i * 5) % 7) * 36, 96 + rank[i] * 46, order);
+        label(
+          "Equipment " + (i + 1),
+          mix(x - 16, 25, order),
+          y - 12 * (1 - order) + 5 * order,
+          13,
+          muted,
+        );
         line(
           [
             [183, y],
-            [750, y],
+            [x, y],
           ],
           faint,
+          1,
+          order,
         );
-        const due = [0.19, 0.63, 0.41, 0.88, 0.51, 0.74][i],
-          x = mix(204 + (i % 3) * 185, 195 + due * 553, gather);
-        dot(x, y, 5, x < now ? accent : teal);
+        const col = due[i] < 0.43 ? accent : teal;
+        dot(x, y, 5, col);
         line(
           [
             [x, y - 9],
             [x, y + 9],
           ],
-          x < now ? accent : teal,
-          1.3,
+          col,
+          1.4,
         );
         alpha(resolve, () =>
           label(
-            x < now ? "due" : "scheduled",
+            due[i] < 0.43
+              ? "overdue"
+              : due[i] < 0.58
+                ? "due soon"
+                : "scheduled",
             x + 12,
             y + 5,
             12,
-            x < now ? accent : muted,
+            col,
           ),
         );
       }
-      line(
-        [
-          [now, 65],
-          [now, 373],
-        ],
-        accent,
-        1.5,
-      );
-      label("NOW", now, 407, 13, accent, "center");
       alpha(inspect, () => {
-        const x = 195 + inspection * 553;
-        rect(x - 20, 74, 40, 280, paper ? "#a9bba625" : "#9dbcab18", null);
+        const x = 193 + inspection * 557;
+        rect(x - 17, 79, 34, 278, "#a3b29720", null);
       });
     } else if (kind === "report") {
-      heading("LAYTEC RESULT FRAGMENTS", "ORDERED REPORT SECTIONS");
-      const rows = ["Run context", "Result traces", "Summary"];
+      heading("LAYTEC RUN RESULTS", "SELECTION → REPORT");
+      const choose = ease((p - 0.14) / 0.25),
+        assemble = ease((p - 0.4) / 0.31),
+        chosen = selected(3);
+      const names = ["Run context", "Measurement trace", "Report summary"];
       for (let i = 0; i < 3; i++) {
-        const y = 88 + i * 107;
-        label(rows[i], 28, y, 13, i === selected(3) ? accent : muted);
-        curve(28, y + 9, 222, 71, i, i === selected(3) ? accent : teal, gather);
-        const t = ease((p - 0.2 - i * 0.1) / 0.39),
-          x = mix(267, 483, t),
-          yy = mix(y + 29, 109 + i * 92, t);
-        line(
-          [
-            [267, y + 42],
-            [483, 109 + i * 92],
-          ],
-          i === selected(3) ? accent : faint,
-          i === selected(3) ? 1.6 : 0.8,
-          t,
-        );
-        rect(x, yy - 10, 44, 20, wash, accent);
-      }
-      line(
-        [
-          [475, 64],
-          [755, 64],
-          [755, 403],
-          [475, 403],
-        ],
-        muted,
-      );
-      alpha(resolve, () => {
-        rows.forEach((name, i) => {
-          label(name, 503, 113 + i * 92, 14);
-          if (i === 1) curve(503, 205, 225, 68, 0.9, accent, resolve);
-          else
+        const y = 109 + i * 96,
+          active = i === chosen;
+        label(names[i], 26, y - 19, 13, active ? accent : muted);
+        if (i === 1) curve(27, y, 236, 55, 0.9, teal, gather);
+        else
+          for (let j = 0; j < 3; j++)
+            line(
+              [
+                [28, y + j * 13],
+                [224 - j * 31, y + j * 13],
+              ],
+              faint,
+              1.4,
+            );
+        const t = ease((p - 0.34 - i * 0.08) / 0.36),
+          x = mix(289, 526, t),
+          yy = mix(y + 13, 127 + i * 88, t);
+        alpha(choose, () => {
+          rect(283, y - 9, 17, 17, wash, active ? accent : muted);
+          line(
+            [
+              [286, y - 2],
+              [290, y + 2],
+              [297, y - 5],
+            ],
+            active ? accent : muted,
+            1.2,
+          );
+        });
+        path([304, y + 7], [515, 127 + i * 88], active ? accent : faint, t);
+        if (i === 1) {
+          curve(x, yy - 10, mix(62, 183, t), mix(31, 51, t), 0.9, teal, choose);
+        } else
+          alpha(choose, () => {
             for (let j = 0; j < 3; j++)
               line(
                 [
-                  [503, 129 + i * 92 + j * 12],
-                  [715 - j * 28, 129 + i * 92 + j * 12],
+                  [x, yy + j * 10],
+                  [x + mix(40 - j * 6, 176 - j * 22, t), yy + j * 10],
                 ],
-                faint,
+                active ? accent : muted,
+                1.2,
               );
-        });
-      });
-      label("Extract the result. Keep its run context.", 28, 441, 16, muted);
-    } else if (kind === "signals") {
-      heading("INDEPENDENT PARAMETERS", "COMMON TIME BASIS");
-      for (let i = 0; i < 3; i++) {
-        const y = 92 + i * 103,
-          x = 154 + (1 - gather) * (i - 1) * 48,
-          ww = 580 - (1 - gather) * i * 80;
-        label("Parameter " + (i + 1), 22, y + 36, 13, muted);
-        curve(x, y, ww, 77, i, teal, 1, (1 - gather) * i * 0.2);
+          });
+      }
+      alpha(assemble, () => {
         line(
           [
-            [x, y + 81],
-            [x + ww, y + 81],
+            [503, 69],
+            [757, 69],
+            [757, 410],
+            [503, 410],
+            [503, 69],
+          ],
+          muted,
+          1.2,
+        );
+        names.forEach((name, i) =>
+          label(name, 527, 105 + i * 88, 12, i === chosen ? ink : muted),
+        );
+      });
+      alpha(inspect, () =>
+        label("Selected results, placed with their run context.", 27, 446, 16),
+      );
+    } else if (kind === "signals") {
+      heading("SEPARATE PARAMETER WINDOWS", "INSPECT THE SAME MOMENT");
+      const sync = ease((p - 0.17) / 0.36),
+        inspectX = clamp(inspection, 0.05, 0.95);
+      for (let i = 0; i < 3; i++) {
+        const y = 92 + i * 101,
+          x = 156 + (1 - sync) * (i - 1) * 55,
+          ww = 579 - (1 - sync) * i * 72,
+          local = mix([0.22, 0.75, 0.47][i], inspectX, sync);
+        label("Parameter " + (i + 1), 22, y + 35, 13, muted);
+        curve(x, y, ww, 72, i, teal, 1, (1 - sync) * i * 0.16);
+        line(
+          [
+            [x, y + 78],
+            [x + ww, y + 78],
           ],
           faint,
         );
-        if (!mobile)
-          label(
-            gather < 0.9 ? "Independent range" : "Common range",
-            x + ww,
-            y + 95,
-            11,
+        for (let j = 0; j < 7; j++)
+          line(
+            [
+              [x + (j * ww) / 6, y + 76],
+              [x + (j * ww) / 6, y + 82],
+            ],
             muted,
-            "right",
+            0.7,
           );
-      }
-      alpha(resolve, () => {
-        const x = 154 + inspection * 580;
-        rect(x - 25, 75, 50, 303, paper ? "#a5bca420" : "#d2ae7420", null);
+        const cursor = x + local * ww;
+        rect(cursor - 20, y - 8, 40, 86, "#bd995022", null);
         line(
           [
-            [x, 70],
-            [x, 380],
+            [cursor, y - 8],
+            [cursor, y + 78],
           ],
           accent,
-          1.4,
+          1.3,
         );
-        for (let i = 0; i < 3; i++)
-          dot(x, 92 + i * 103 + 77 * (1 - signal(inspection, i)), 4, accent);
-        label("SHARED INTERVAL", x, 430, 13, accent, "center");
+        dot(
+          cursor,
+          y + 72 * (1 - signal(local + (1 - sync) * i * 0.16, i)),
+          4,
+          accent,
+        );
+      }
+      alpha(sync, () => {
+        const x = 156 + inspectX * 579;
+        line(
+          [
+            [x, 77],
+            [x, 377],
+          ],
+          accent,
+          1.3,
+        );
+        label("ONE SHARED INSPECTION WINDOW", 405, 432, 13, accent, "center");
       });
     }
     // The study's own temporal baseline hands off to the next chapter without its image.

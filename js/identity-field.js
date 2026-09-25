@@ -1,5 +1,6 @@
 import { mix, ease, clamp } from "./space.js";
 import { collectionPosition } from "./collection-layout.js";
+import { drawOriginConstruction } from "./origin-construction.js";
 const layer = document.createElement("canvas"),
   mask = layer.getContext("2d");
 const blend = (a, b, t) =>
@@ -9,6 +10,18 @@ export function drawIdentityField(
   ctx,
   { width: w, height: h, p, clock, px, py, reduced },
 ) {
+  if (p >= 1.3) {
+    drawOriginConstruction(ctx, {
+      width: w,
+      height: h,
+      p,
+      clock,
+      px,
+      py,
+      reduced,
+    });
+    return;
+  }
   const mobile = w < 700,
     enter = ease((p - 0.18) / 0.95),
     align = ease((p - 1.7) / 1.1),
@@ -269,6 +282,20 @@ export function drawIdentityField(
         );
       }
     }
+    ctx.restore();
+  }
+  if (p > 0.95) {
+    ctx.save();
+    ctx.globalAlpha = ease((p - 0.95) / 0.35);
+    drawOriginConstruction(ctx, {
+      width: w,
+      height: h,
+      p,
+      clock,
+      px,
+      py,
+      reduced,
+    });
     ctx.restore();
   }
 }

@@ -100,7 +100,8 @@ export function createTopography(el, wake) {
     );
   };
   return (p, inspection, reduced, px, py) => {
-    const growth = smooth((p - 0.08) / 0.54),
+    const growth = smooth((p - 0.22) / 0.45),
+      interpolate = smooth((p - 0.12) / 0.3),
       top = smooth((p - 0.48) / 0.3),
       key = [
         p.toFixed(3),
@@ -167,6 +168,7 @@ export function createTopography(el, wake) {
       i ? ctx.lineTo(v[0], v[1]) : ctx.moveTo(v[0], v[1]),
     );
     ctx.closePath();
+    ctx.globalAlpha = growth;
     ctx.fillStyle = "#25483e";
     ctx.fill();
     for (let i = 0; i < 128; i++) {
@@ -198,7 +200,7 @@ export function createTopography(el, wake) {
         depth: project([t.x, t.y, t.v])[2],
       }))
       .sort((a, b) => a.depth - b.depth);
-    ctx.globalAlpha = 0.18 + growth * 0.82;
+    ctx.globalAlpha = interpolate;
     const mesh = faces.map((t) => ({
       pts: t.pts.map((q) => [q[0], q[1], q[2] * 80]),
       depth: t.depth * 80,
@@ -244,7 +246,7 @@ export function createTopography(el, wake) {
         ctx.lineWidth = 0.6;
         ctx.stroke();
       }
-    ctx.globalAlpha = growth * 0.65;
+    ctx.globalAlpha = interpolate * 0.65;
     ctx.beginPath();
     for (let i = 0; i < contours.length; i += 6) {
       const a = project([
@@ -271,6 +273,20 @@ export function createTopography(el, wake) {
     });
     line(rim, "#e3e8c78c", 1.05);
     line(ring(-0.29), "#3e6153a0", 1.2);
+    ctx.globalAlpha = 1;
+    // Sample neighbors establish interpolation before the surface acquires height.
+    if (interpolate < 1) {
+      for (let i = 0; i < dots.length; i++) {
+        const a = dots[i];
+        for (let j = i + 1; j < dots.length; j++) {
+          const b = dots[j];
+          if (Math.hypot(a[0] - b[0], a[1] - b[1]) < 0.87) {
+            ctx.globalAlpha = interpolate * (1 - growth) * 0.4;
+            line([project(a), project(b)], "#65816e", 0.7);
+          }
+        }
+      }
+    }
     ctx.globalAlpha = 1;
     for (const [i, d] of dots.entries()) {
       const q = project(d),

@@ -14,7 +14,7 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The opening makes ARTIFACTS typography the spatial surface. Its computational field continues into the origin, becoming recurring observations, retained checks and a visibly refined method. The origin constructs sixteen positions before any application screenshots appear. Those same positions receive the real interfaces in the collection. Diagrams are illustrative, not measured output.
+The approved opening makes ARTIFACTS typography the spatial surface. It is preserved in this pass. Its field continues into five distinct origin compositions: displaced evidence, recurring patterns, retained checkpoints, a tested method and dimensional architecture. Material surfaces advance through the light environment and construct sixteen positions before any application screenshots appear. Those positions receive the real interfaces in the collection. Diagrams are illustrative, not measured output.
 
 The uncropped homepage begins in front of the sixteen applications and recedes as they advance. Hovering or focusing an interface brings that specific app forward, turns it toward the viewer and reduces ambient movement. On touch, one tap presents the app and the next enters it. Leaving restores the arrangement smoothly.
 
@@ -22,7 +22,7 @@ All sixteen studies show input, operation and result through task-specific demon
 
 Read `ARTIFACTS_CREATIVE_DIRECTION.md` and `ARTIFACTS_EXPERIENCE_STORYBOARD.md` for governing direction and factual boundaries. One shared clock pauses ambient scenes offscreen. Mobile uses reduced spatial depth; reduced motion retains the narrative without pinned sequences.
 
-Every app has seven individually named states, beginning and ending with its complete source interface. There is no shared screenshot-slicing routine. Native scrolling controls the sequences; optional replay runs for 17–18.8 seconds. A second keyboard-accessible range changes a task-specific inspection region. Diagrams illustrate relationships, not measured results or cross-application integration.
+Every app has seven individually named states, beginning and ending with its complete source interface. An outline highlights its relevant interface region using coordinates from the evidence audit; captures stay uncropped. Each signature operation is distinct: ordering, synchronization, event counting, interpolation, logical matching, search narrowing, compilation, diagnostic narrowing, physical exchange, spatial mapping, hierarchy collapse, review attention, normalization or temporal priority. Native scrolling controls the sequences; optional replay runs for 17–18.8 seconds. A second keyboard-accessible range changes a task-specific inspection region. Diagrams illustrate relationships, not measured results or cross-application integration.
 
 ## Source files
 
@@ -34,8 +34,9 @@ Every app has seven individually named states, beginning and ending with its com
 - `js/experience.js`: shared clock, scroll progression, replay, app picker and image viewer.
 - `js/hero.js`: later application assembly, direct hover/focus depth inspection, touch presentation and shared-element navigation.
 - `js/genesis.js`: opening/origin timing, pointer inertia and narrative controls.
-- `js/identity-field.js`: monumental typography, continuous evidence field, retained method and constructed collection frames.
-- `js/collection-layout.js`: common spatial positions for the origin handoff and application collection.
+- `js/identity-field.js`: approved monumental typography and opening field; hands off after the opening.
+- `js/origin-construction.js`: fragment, pattern, memory, iteration and dimensional construction choreography.
+- `js/collection-layout.js`: common spatial positions and lighting for the origin handoff and application collection.
 - `js/space.js` and `js/material-renderer.js`: shared projection, depth-tested materials and Canvas fallback.
 - `js/function-studies.js`: fifteen task-specific input/operation/result demonstrations, including the diagnostic map and baseplate exchange.
 - `js/topography.js`: shaded circular height field, contours and matching interactive section profile.
@@ -67,7 +68,7 @@ Review the crop rectangle in `scripts/prepare-evidence.mjs` when a source layout
 
 ## Verification
 
-This pass includes a build, focused runtime review of all sixteen desktop studies, collection hover/focus depth changes, the story handoff, touch entry, representative mobile scenes and reduced motion. These checks reported no page errors; all full captures loaded. Asset and pixel-fidelity checks pass. A short local headless Edge hero sample measured 16.7ms median and 17.4ms p95 frame intervals; this is not cross-device GPU profiling or a performance guarantee. Broad validation remains deferred until visual approval. Existing browser-suite and VALIDATION.md results predate this redesign.
+This pass includes a build, asset/pixel-fidelity checks, two-stage desktop review of all sixteen demonstrations, origin transitions, interface-region activation, collection focus depth, representative mobile scenes and reduced motion. These checks reported no page errors. The approved hero renders identically at four sampled opening positions; the page template and Gene copy are unchanged. A prior short headless Edge hero sample measured 16.7ms median / 17.4ms p95 frame intervals; it is not new cross-device profiling or a performance guarantee. Broad validation remains deferred until visual approval. Existing browser-suite and VALIDATION.md results predate this redesign.
 
 ```sh
 pnpm test:evidence

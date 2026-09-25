@@ -23,3 +23,13 @@ export function collectionPosition(i, w, h, open = 0, turn = 0) {
     angle,
   };
 }
+
+// The constructed environment retains its lighting as real interfaces occupy it.
+export function paintCollectionField(ctx, w, h) {
+  const light = ctx.createLinearGradient(0, 0, w, h);
+  light.addColorStop(0, "#15271d");
+  light.addColorStop(0.5, "#0b1710");
+  light.addColorStop(1, "#050708");
+  ctx.fillStyle = light;
+  ctx.fillRect(0, 0, w, h);
+}
