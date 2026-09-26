@@ -241,18 +241,19 @@
   },
   {
     "id": "metria-spc",
-    "file": "Metria SPC.png",
-    "sourceWidth": 1425,
-    "sourceHeight": 950,
-    "sourceSha256": "9b061dc27bb8fa7abf7499457082d75f3b11483576dff8407b46c058d5a5672d",
-    "fullPixelSha256": "3b4d4917420304b5c63d9dbfad191a49bca0e2fa7f7eefbaaf59f7eee16e4584",
+    "file": "assets/artifacts/apps/metria-spc/hero.webp",
+    "sourceWidth": 3840,
+    "sourceHeight": 2160,
+    "sourceSha256": "d851b2eb0efafead5561e52bc912090b7c79c0ff91037286beca8b348d008a01",
+    "fullPixelSha256": "243c08ae37743a39dfdfa2500221563f59d0106823faafdf72ada4c72b54ff62",
     "region": {
-      "left": 100,
-      "top": 410,
-      "width": 1260,
-      "height": 440
+      "left": 307,
+      "top": 864,
+      "width": 3226,
+      "height": 756
     },
-    "detailSha256": "25dd05e1cb505a143c70be6af1dabfa8644492bd57b1d5ba52372e58bffc96f5",
-    "pixelSha256": "c21c7bdf02d2ab230ebd8826df73df3e142462045879087d2bcd3b22c9860a38"
+    "detailSha256": "2bb728c5135b801386be1d49d7fabde1b5aecd2d37b68fddbf11a56436999c2b",
+    "pixelSha256": "17b7e65ad67fb3837613bcf0b91c45e11562c98122f1d9b097ec92ee2895d5f9",
+    "sourceNote": "Native 4K archive sample; populated. Newer 1425px capture preserved separately."
   }
 ]

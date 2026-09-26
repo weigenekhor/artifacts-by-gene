@@ -107,7 +107,7 @@ export function createHero(stage, apps, wake) {
           enter();
           return;
         }
-        const source = target.querySelector(".study-source");
+        const source = target.querySelector(".film-capture, .papyrus-capture");
         a.style.viewTransitionName = "artifact-app";
         document
           .startViewTransition(() => {
@@ -235,7 +235,7 @@ export function createHero(stage, apps, wake) {
         a.style.opacity = String(reveal * (1 - neighbor * 0.16));
         a.style.setProperty(
           "--label-arrival",
-          Math.max(focus, ease((open - 0.12) / 0.4)),
+          Math.max(focus, ease((open - 0.12) / 0.4) * 0.16),
         );
         a.style.clipPath = `inset(${(1 - reveal) * 100}% 0 0)`;
         a.style.zIndex = String(Math.round(depth + 500 + focus * 1000));

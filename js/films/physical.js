@@ -45,7 +45,7 @@ export function arrange(d, q, f, W, H, m, hit, alternate) {
     const z = swapped ? lift : 0,
       selected = q > 0.72 && i === active;
     if (swapped && q > 0.26) {
-      g.ring(sx, sy, -8, 66, P.warm, 1.2);
+      g.ring(sx, sy, -8, 66, P.sage, 0.6);
       g.line(
         [
           [sx, sy, -8],
@@ -65,7 +65,7 @@ export function arrange(d, q, f, W, H, m, hit, alternate) {
   g.draw();
   const inputX = W * 0.03,
     inputY = m ? H * 0.77 : H * 0.2;
-  alpha(at(q, 0.1, 0.15), () => {
+  alpha(at(q, 0.1, 0.15) * (1 - at(q, 0.35, 0.15) * 0.55), () => {
     text("Source weights", inputX, inputY - 27, 19, muted);
     weights.forEach((weight, i) => {
       const x = m ? inputX + (i % 3) * W * 0.32 : inputX,
@@ -74,23 +74,12 @@ export function arrange(d, q, f, W, H, m, hit, alternate) {
       text(weight, x + (m ? 55 : 63), y, 18, i === active ? accent : muted);
     });
   });
-  alpha(at(q, 0.64, 0.12), () =>
-    text(
-      "BP3 ↔ BP5 · the other seats stay fixed",
-      W * 0.5,
-      H * 0.97,
-      20,
-      muted,
-      "center",
-    ),
-  );
   return (
     "BP" +
     (active + 1) +
     " · " +
     weights[active] +
-    " source weight · " +
-    (initial ? "initial arrangement" : "BP3/BP5 exchange")
+    (initial ? " · initial seat" : "")
   );
 }
 
@@ -98,78 +87,106 @@ export function zones(d, q, f, W, H, m, hit) {
   const { text, line, dot, arc, path, alpha, ink, muted, faint, accent, teal } =
     d;
   const active = Math.min(4, Math.floor(f * 5)),
-    origin = at(q, 0.23, 0.23),
-    registration = at(q, 0.42, 0.23),
-    radius = Math.min(W * 0.28, H * 0.34);
-  const cy = mix(H * 0.35, H * 0.49, origin);
-  const points = [[], []];
+    origin = at(q, 0.22, 0.26),
+    registration = at(q, 0.43, 0.23),
+    radius = Math.min(W * 0.3, H * 0.31);
+  const points = [[], []],
+    cx = W * 0.5,
+    cy = H * 0.49;
   for (let side = 0; side < 2; side++) {
-    const x = mix(W * (side ? 0.74 : 0.26), W * 0.52, origin),
-      r = radius * mix(side ? 0.74 : 0.6, 1, registration),
-      turn = (1 - registration) * (side ? 0.24 : -0.19),
-      color = side ? teal : muted;
-    const yy = m ? mix(H * (side ? 0.65 : 0.25), H * 0.49, origin) : cy;
-    arc(x, yy, r, color, 1.5);
-    dot(x, yy, 4, color);
-    for (let i = 0; i < 5; i++) {
-      const a = -Math.PI / 2 + (i * Math.PI * 2) / 5 + turn,
-        xx = x + Math.cos(a) * r,
-        yyy = yy + Math.sin(a) * r,
-        chosen = i === active;
-      points[side].push([xx, yyy]);
-      arc(xx, yyy, r * 0.31, chosen ? accent : faint, chosen ? 1.8 : 1);
-      line(
-        [
-          [x, yy],
-          [xx, yyy],
-        ],
-        chosen && q > 0.61 ? color : faint,
-        1,
-      );
-      text("S" + (i + 1), xx, yyy + 6, 19, chosen ? ink : muted, "center");
-      hit(
-        (i + 0.5) / 5,
-        xx - r * 0.32,
-        yyy - r * 0.32,
-        r * 0.64,
-        r * 0.64,
-        "S" + (i + 1),
-      );
-    }
-    alpha(1 - registration, () =>
+    const x = m ? cx : mix(W * (side ? 0.75 : 0.25), cx, origin),
+      y = m
+        ? mix(H * (side ? 0.72 : 0.27), cy, origin)
+        : mix(H * (side ? 0.58 : 0.37), cy, origin);
+    const r = radius * mix(0.67, side ? 1 : 0.72, registration),
+      turn = (1 - registration) * (side ? 0.32 : -0.24),
+      color = side ? teal : accent;
+    arc(x, y, r, color, 1.4);
+    line(
+      [
+        [x - 11, y],
+        [x + 11, y],
+      ],
+      color,
+    );
+    line(
+      [
+        [x, y - 11],
+        [x, y + 11],
+      ],
+      color,
+    );
+    alpha(1 - at(q, 0.24, 0.13), () =>
       text(
         side ? "Outer reference" : "Inner reference",
         x,
-        yy + r + H * 0.09,
-        20,
+        y - r - 30,
+        21,
         color,
         "center",
       ),
     );
-  }
-  alpha(at(q, 0.14, 0.18) * (1 - registration), () => {
-    for (let i = 0; i < 5; i++)
-      path(points[0][i], points[1][i], i === active ? accent : faint, 1);
-  });
-  alpha(at(q, 0.6, 0.12), () => {
-    const center = [W * 0.52, H * 0.49],
-      a = -Math.PI / 2 + (active * Math.PI * 2) / 5;
-    for (const offset of [-0.126, 0.126, -0.314, 0.314]) {
-      const end = [
-        center[0] + Math.cos(a + offset) * radius,
-        center[1] + Math.sin(a + offset) * radius,
-      ];
-      line([center, end], Math.abs(offset) < 0.2 ? teal : accent, 1.7);
-      dot(...end, 4, Math.abs(offset) < 0.2 ? teal : accent);
+    for (let i = 0; i < 5; i++) {
+      const a = -Math.PI / 2 + (i * Math.PI * 2) / 5 + turn,
+        xx = x + Math.cos(a) * r,
+        yy = y + Math.sin(a) * r,
+        chosen = i === active;
+      points[side].push([xx, yy]);
+      arc(xx, yy, r * 0.17, chosen ? color : faint, chosen ? 1.8 : 1);
+      if (side)
+        alpha(registration, () =>
+          text(
+            "S" + (i + 1),
+            x + Math.cos(a) * (r + 28),
+            y + Math.sin(a) * (r + 28) + 7,
+            20,
+            chosen ? ink : muted,
+            "center",
+          ),
+        );
+      alpha(at(q, 0.13, 0.12), () =>
+        line(
+          [
+            [x, y],
+            [xx, yy],
+          ],
+          chosen && q > 0.68 ? color : faint,
+        ),
+      );
+      hit((i + 0.5) / 5, xx - 30, yy - 30, 60, 60, "S" + (i + 1));
     }
-    text(
-      "Inner + outer · one registered origin",
-      W * 0.5,
-      H * 0.95,
-      21,
-      ink,
-      "center",
-    );
+  }
+  alpha(at(q, 0.16, 0.2), () => {
+    for (let i = 0; i < 5; i++)
+      path(
+        points[0][i],
+        points[1][i],
+        i === active ? accent : faint,
+        i === active ? 1.5 : 0.8,
+      );
   });
-  return "S" + (active + 1) + " · corresponding inner and outer boundaries";
+  alpha(at(q, 0.65, 0.13), () => {
+    const a = -Math.PI / 2 + (active * Math.PI * 2) / 5;
+    for (let side = 0; side < 2; side++) {
+      const r = radius * (side ? 1 : 0.72),
+        delta = side ? 0.314 : 0.126,
+        color = side ? teal : accent;
+      d.c.save();
+      d.c.globalAlpha *= 0.13;
+      d.c.beginPath();
+      d.c.moveTo(cx, cy);
+      d.c.arc(cx, cy, r, a - delta, a + delta);
+      d.c.closePath();
+      d.c.fillStyle = color;
+      d.c.fill();
+      d.c.restore();
+      arc(cx, cy, r, color, 3, a - delta, a + delta);
+      for (const angle of [a - delta, a + delta]) {
+        const end = [cx + Math.cos(angle) * r, cy + Math.sin(angle) * r];
+        line([[cx, cy], end], color, 1.2);
+        dot(...end, 4, color);
+      }
+    }
+  });
+  return "S" + (active + 1) + " · inner + outer reference";
 }

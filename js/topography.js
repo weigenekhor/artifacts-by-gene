@@ -340,20 +340,5 @@ export function createTopography(el, wake) {
     ctx.font = `${w < 400 ? 9 : 11}px Geist, Arial`;
     ctx.fillText("A — A′ / selected section", w * 0.38, h * 0.96);
     ctx.globalAlpha = 1;
-    ctx.font = `${w < 500 ? 10 : 12}px Geist, Arial`;
-    ctx.fillStyle = "#556d55";
-    ctx.fillText(
-      p < 0.16
-        ? "SAMPLE POSITIONS"
-        : p < 0.3
-          ? "RELATIVE OFFSETS"
-          : p < 0.48
-            ? "INTERPOLATING BETWEEN SAMPLES"
-            : p < 0.65
-              ? "CONTINUOUS SURFACE · EQUAL-HEIGHT CONTOURS"
-              : "SECTION THROUGH THE SAME FIELD",
-      w * 0.07,
-      h * 0.06,
-    );
   };
 }

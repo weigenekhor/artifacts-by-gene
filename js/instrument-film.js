@@ -40,10 +40,7 @@ export function createInstrumentFilm(el, wake) {
     inspection = el.querySelector(".film-inspection"),
     reading = el.querySelector(".film-reading"),
     transport = el.querySelector(".study-control input"),
-    alternateButton = el.querySelector(".film-alternate"),
-    provenance = el.querySelector(".film-provenance"),
-    original = el.querySelector(".film-foot button"),
-    phaseLabel = el.querySelector(".film-phase");
+    alternateButton = el.querySelector(".film-alternate");
   const iw = +image.getAttribute("width"),
     ih = +image.getAttribute("height");
   let w = 1,
@@ -223,30 +220,16 @@ export function createInstrumentFilm(el, wake) {
       outline.style.opacity = reduced
         ? 0
         : at(p, 0.08, 0.05) * (1 - at(p, 0.18, 0.025));
-      // Type steps back during the primary operation; the functional field carries it.
-      heading.style.opacity = reduced
-        ? 1
-        : 1 - at(p, 0.42, 0.06) * (1 - at(p, 0.62, 0.07)) * 0.92;
+      // Statements are occasional; the source and operation hold the stage alone.
       const newBeat = film.beats.findLastIndex((b) => p >= b[0]);
       if (newBeat !== beat) {
         beat = newBeat;
         title.textContent = film.beats[beat][1];
       }
-      const sourceVisible = !reduced && (p < 0.176 || p > 0.977);
-      provenance.textContent = sourceVisible
-        ? "Actual " + film.beats[0][1].replace(/\.$/, "") + " interface"
-        : "Illustrative operation · real source interface";
-      original.style.opacity = sourceVisible || reduced ? 1 : 0.5;
-      phaseLabel.textContent =
-        p < 0.18
-          ? "Interface"
-          : p < 0.42
-            ? "Establish"
-            : p < 0.65
-              ? "Transform"
-              : p < 0.9
-                ? "Inspect"
-                : "Resolve";
+      const start = film.beats[beat][0];
+      heading.style.opacity = reduced
+        ? 0
+        : at(p, start, 0.025) * (1 - at(p, start + 0.13, 0.045));
       const result =
         reduced || visible > 0.002 ? draw(reduced ? 0.83 : q, reduced) : "";
       if (reading.textContent !== result) reading.textContent = result;

@@ -1,7 +1,7 @@
 /* The approved opening and the origin film share one camera stage. */
 .genesis {
   position: relative;
-  height: 740svh;
+  height: 606svh;
   background: #090f0f;
   --intro: 1;
   --story: 0;
@@ -173,7 +173,7 @@
 }
 @media (max-width: 700px) {
   .genesis {
-    height: 660svh;
+    height: 543svh;
   }
   .genesis-stage {
     min-height: 620px;

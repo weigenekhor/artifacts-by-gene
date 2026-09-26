@@ -55,20 +55,35 @@ Do not copy Lusion's branding, assets, layouts, text, individual scenes, proprie
 
 Instead match its level of:
 
-* cinematic storytelling
-* motion sophistication
-* spatial continuity
-* WebGL integration
-* camera choreography
-* transitions
-* visual polish
-* interaction quality
-* art direction
-* technical execution
+- cinematic storytelling
+- motion sophistication
+- spatial continuity
+- WebGL integration
+- camera choreography
+- transitions
+- visual polish
+- interaction quality
+- art direction
+- technical execution
 
 The finished ARTIFACTS website must not feel like a normal landing page with animations attached.
 
 It must feel like one continuous directed digital experience.
+
+## PRODUCTION REVISION — 26 SEPTEMBER 2026
+
+These rules supersede conflicting earlier requests for added richness or repeated application exposure.
+
+- **Clarity before richness.** Richness means meaningful progression, causal transformation, differentiated states, precise interaction, hierarchy and pacing. More labels, objects, lines, text or 3D do not establish quality.
+- **One dominant idea per viewport.** Give the visual roughly 70–80% of perceived attention. Metadata and controls stay subordinate; quiet intervals are part of the film.
+- **No collisions.** Use flowing layout regions. Text, controls and diagrams must not overlap or clip. A film resolves and its controls withdraw before the next section enters, including Gene.
+- **Origin is not an application preview.** Use authored editorial geometry, relationships and changing evidence. No screenshots, screenshot-derived labels, fake notes, application names or interface crops before the collection handoff.
+- **Three statements, one transformation.** “The answer was only part of the work.” → “Again.” → “Good reasoning should outlive the task.” Visual events carry reconstruction, recurrence, retention and executable structure. No further explanatory headline before the collection payoff.
+- **App-specific films.** Share rendering lifecycle and access controls, not choreography. Preserve the distinctive TopoTracer, Papyrus, temperature-diagnosis and baseplate-exchange concepts. Strengthen the other operations through visible causes and consequences.
+- **Real UI is evidence.** Each film opens and closes on the same complete interface. Remove repeated provenance, phase labels and descriptions around it. Inspection controls appear when useful; original capture access stays available.
+- **Source quality is explicit.** Separate older archive warnings from the quality of the capture actually displayed. Preserve meaningful populated captures; never upscale an empty or low-resolution source and call it HD.
+
+The monumental hero remains approved. Its composition, wording and interaction are protected. Gene's current approved copy and contact links remain intact.
 
 ## CORE IDENTITY
 
@@ -76,25 +91,25 @@ ARTIFACTS is an internal semiconductor engineering software ecosystem consisting
 
 The website must communicate:
 
-* precision
-* engineering authority
-* systems thinking
-* semiconductor technology
-* computational engineering
-* interconnected tools
-* purpose-built software
-* technical maturity
+- precision
+- engineering authority
+- systems thinking
+- semiconductor technology
+- computational engineering
+- interconnected tools
+- purpose-built software
+- technical maturity
 
 It must not look like:
 
-* SaaS template
-* AI startup
-* gaming website
-* crypto website
-* cyberpunk UI
-* generic developer portfolio
-* dashboard template
-* agency landing page
+- SaaS template
+- AI startup
+- gaming website
+- crypto website
+- cyberpunk UI
+- generic developer portfolio
+- dashboard template
+- agency landing page
 
 ## CENTRAL VISUAL LANGUAGE
 
@@ -102,29 +117,29 @@ The visual world must come from ARTIFACTS itself.
 
 Use:
 
-* actual application interfaces
-* plots
-* process data
-* engineering diagrams
-* wafers
-* reactor concepts
-* parameter fields
-* coordinate systems
-* grids
-* computational layers
-* semiconductor visual structures
+- actual application interfaces
+- plots
+- process data
+- engineering diagrams
+- wafers
+- reactor concepts
+- parameter fields
+- coordinate systems
+- grids
+- computational layers
+- semiconductor visual structures
 
 Avoid meaningless decorative Three.js objects.
 
 Do not use random:
 
-* spheres
-* cubes
-* toruses
-* particles
-* glowing blobs
-* abstract ribbons
-* star fields
+- spheres
+- cubes
+- toruses
+- particles
+- glowing blobs
+- abstract ribbons
+- star fields
 
 unless they have a clear conceptual role.
 
@@ -142,12 +157,12 @@ They must become major parts of the visual storytelling.
 
 Some interfaces should:
 
-* exist as planes in 3D space
-* move toward the camera
-* become full-screen
-* reveal engineering information
-* break into visual layers
-* transition into other applications or concepts
+- exist as planes in 3D space
+- move toward the camera
+- become full-screen
+- reveal engineering information
+- break into visual layers
+- transition into other applications or concepts
 
 All 16 applications must eventually appear.
 
@@ -196,18 +211,18 @@ Scrolling should drive a master visual timeline.
 
 Use scroll progress to control:
 
-* camera position
-* camera target
-* camera rotation
-* object positions
-* interface depth
-* scene lighting
-* typography
-* clipping
-* masking
-* scaling
-* UI assembly/disassembly
-* transitions
+- camera position
+- camera target
+- camera rotation
+- object positions
+- interface depth
+- scene lighting
+- typography
+- clipping
+- masking
+- scaling
+- UI assembly/disassembly
+- transitions
 
 Avoid isolated reveal animations.
 
@@ -215,22 +230,22 @@ Animations should overlap and transition continuously.
 
 Do not rely mainly on:
 
-* fadeIn
-* slideUp
-* simple parallax
-* basic rotate-on-scroll
-* endless floating
+- fadeIn
+- slideUp
+- simple parallax
+- basic rotate-on-scroll
+- endless floating
 
 ## MOTION
 
 Motion must have:
 
-* weight
-* inertia
-* anticipation
-* settling
-* deliberate easing
-* continuity
+- weight
+- inertia
+- anticipation
+- settling
+- deliberate easing
+- continuity
 
 Some moments should be highly animated.
 
@@ -246,19 +261,19 @@ ARTIFACTS should exist inside a designed spatial environment.
 
 The first interaction should establish:
 
-* depth
-* precision
-* confidence
-* technical sophistication
+- depth
+- precision
+- confidence
+- technical sophistication
 
 The central visual should be meaningful and derived from ARTIFACTS.
 
 Pointer movement may create subtle:
 
-* camera response
-* layer separation
-* perspective changes
-* lighting changes
+- camera response
+- layer separation
+- perspective changes
+- lighting changes
 
 When scrolling begins, the camera should move INTO the visual system.
 
@@ -270,47 +285,47 @@ Typography must be restrained.
 
 Avoid:
 
-* excessive giant text
-* huge paragraphs
-* meaningless marketing copy
-* fake futuristic technical wording
+- excessive giant text
+- huge paragraphs
+- meaningless marketing copy
+- fake futuristic technical wording
 
 Avoid phrases such as:
 
-* Engineering the future
-* Built for tomorrow
-* Unlocking innovation
-* Where technology meets precision
-* Redefining possibilities
+- Engineering the future
+- Built for tomorrow
+- Unlocking innovation
+- Where technology meets precision
+- Redefining possibilities
 
 Copy should be:
 
-* short
-* specific
-* technical
-* intelligent
-* intriguing
+- short
+- specific
+- technical
+- intelligent
+- intriguing
 
 ## VISUAL DESIGN
 
 Use:
 
-* strong composition
-* disciplined spacing
-* controlled negative space
-* excellent alignment
-* few type styles
-* restrained colour palette
-* clear hierarchy
+- strong composition
+- disciplined spacing
+- controlled negative space
+- excellent alignment
+- few type styles
+- restrained colour palette
+- clear hierarchy
 
 Avoid:
 
-* excessive glassmorphism
-* neon borders everywhere
-* gradient abuse
-* repeated rounded cards
-* fake terminals
-* decorative complexity
+- excessive glassmorphism
+- neon borders everywhere
+- gradient abuse
+- repeated rounded cards
+- fake terminals
+- decorative complexity
 
 ## TECHNOLOGY
 
@@ -320,11 +335,11 @@ Use the existing framework where sensible.
 
 Potentially use:
 
-* Three.js
-* React Three Fiber
-* GSAP
-* ScrollTrigger
-* custom shaders
+- Three.js
+- React Three Fiber
+- GSAP
+- ScrollTrigger
+- custom shaders
 
 only when they improve the result.
 
@@ -345,16 +360,16 @@ If WebGL is used, it must have production-level quality.
 
 Focus on:
 
-* strong art direction
-* camera framing
-* controlled lighting
-* materials
-* depth
-* shadows
-* antialiasing
-* subtle post-processing where useful
-* high-quality textures
-* high-resolution assets
+- strong art direction
+- camera framing
+- controlled lighting
+- materials
+- depth
+- shadows
+- antialiasing
+- subtle post-processing where useful
+- high-quality textures
+- high-resolution assets
 
 Three.js tutorial aesthetics are unacceptable.
 
@@ -372,14 +387,14 @@ Respect prefers-reduced-motion.
 
 Use:
 
-* lazy loading
-* optimized textures
-* compressed assets
-* code splitting
-* adaptive DPR
-* efficient render loops
-* sensible geometry complexity
-* instancing where appropriate
+- lazy loading
+- optimized textures
+- compressed assets
+- code splitting
+- adaptive DPR
+- efficient render loops
+- sensible geometry complexity
+- instancing where appropriate
 
 Do not sacrifice usability for visual spectacle.
 

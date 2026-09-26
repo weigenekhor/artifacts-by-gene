@@ -6,7 +6,7 @@ const ease = (v) => {
   const x = clamp(v);
   return x * x * x * (x * (x * 6 - 15) + 10);
 };
-const LENGTH = 8.6;
+const LENGTH = 6.8;
 export function createGenesis(section, wake) {
   const field = section.querySelector(".identity-field"),
     canvas = field.querySelector("canvas"),
@@ -21,7 +21,7 @@ export function createGenesis(section, wake) {
       still: +el.dataset.originStill,
     }),
   );
-  const record = section.querySelector(".origin-record");
+
   if (ctx) field.classList.add("ready");
   let width = 1,
     height = 1,
@@ -106,24 +106,24 @@ export function createGenesis(section, wake) {
         1 - Math.exp(-dt / 170),
       );
       const p = progress,
-        light = ease((p - 0.75) / 0.6) * (1 - ease((p - 6.18) / 1.5));
+        light = ease((p - 0.75) / 0.6) * (1 - ease((p - 5.25) / 0.75));
       section.style.setProperty("--intro", 1 - ease((p - 0.38) / 0.38));
       section.style.setProperty(
         "--story",
-        ease((p - 0.97) / 0.18) * (1 - ease((p - 7.92) / 0.2)),
+        ease((p - 0.97) / 0.18) * (1 - ease((p - 5.38) / 0.22)),
       );
       section.style.setProperty("--travel", clamp(p / LENGTH));
       section.style.setProperty(
         "--reading-ink",
-        p > 6.58 ? "#e7e9df" : "#263b34",
+        p > 5.6 ? "#e7e9df" : "#263b34",
       );
       section.style.setProperty(
         "--reading-muted",
-        p > 6.58 ? "#b4c2b1" : "#69786c",
+        p > 5.6 ? "#b4c2b1" : "#69786c",
       );
       section.style.setProperty("--light", light);
       intro.inert = !reduced && p > 0.65;
-      film.inert = !reduced && (p < 1 || p > 8.14);
+      film.inert = !reduced && (p < 1 || p > 5.6);
       let current = -1;
       captions.forEach(({ el, start, end }, i) => {
         const opacity =
@@ -136,16 +136,6 @@ export function createGenesis(section, wake) {
         el.setAttribute("aria-hidden", String(!reduced && !showing));
       });
       section.dataset.originBeat = String(current);
-      record.textContent =
-        p < 2.87
-          ? "R / 026"
-          : p < 3.25
-            ? "Recorded"
-            : p < 4.55
-              ? "R / 027"
-              : p < 6.35
-                ? "Reasoning retained"
-                : "Ready to use again";
       const moving = Math.abs(progress - target) > 0.0005;
       // Only the approved identity has ambient motion. The film renders on scroll/pointer input.
       const ambient = p < 1.1;

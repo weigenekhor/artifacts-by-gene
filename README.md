@@ -14,7 +14,7 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The approved opening makes ARTIFACTS typography the spatial surface. It is preserved in this pass. Its field continues into the approved Starting Over origin: fragmented evidence, a reconstructed task, an archive, repeated reasoning, retained structure and software. Material surfaces advance through the light environment and construct sixteen positions before any application screenshots appear. Those positions receive the real interfaces in the collection. Diagrams are illustrative, not measured output.
+The approved opening makes ARTIFACTS typography the spatial surface. It is preserved in this pass. Its field continues into the revised three-statement Starting Over origin: fragmented evidence, a reconstructed task, an archive, repeated reasoning, retained structure and software. Material surfaces advance through the light environment and construct sixteen positions before any application screenshots appear. Those positions receive the real interfaces in the collection. Diagrams are illustrative, not measured output.
 
 The uncropped homepage begins in front of the sixteen applications and recedes as they advance. Hovering or focusing an interface brings that specific app forward, turns it toward the viewer and reduces ambient movement. On touch, one tap presents the app and the next enters it. Leaving restores the arrangement smoothly.
 
@@ -35,7 +35,7 @@ Each application has an independently staged film, beginning and ending with its
 - `js/hero.js`: later application assembly, direct hover/focus depth inspection, touch presentation and shared-element navigation.
 - `js/genesis.js`: opening/origin timing, pointer inertia and narrative controls.
 - `js/identity-field.js`: approved monumental typography and opening field; hands off after the opening.
-- `js/origin-construction.js`: fragment, pattern, memory, iteration and dimensional construction choreography.
+- `js/starting-over.js`: editorial evidence, reconstruction, recurrence, retention and collection handoff.
 - `js/collection-layout.js`: common spatial positions and lighting for the origin handoff and application collection.
 - `js/space.js` and `js/material-renderer.js`: shared projection, depth-tested materials and Canvas fallback.
 - `content/films.json`: film pacing, statements and inspection controls.
@@ -58,9 +58,9 @@ Generated files: `index.html`, `js/apps.js`, `script.js`. Edit their sources and
 
 ## Actual software images
 
-Current lossless assets are under `assets/evidence/<app-id>/`, derived from `C:/Users/Gene/Desktop/Artifacts Images`. `detail.webp` is a deliberate native crop; `full.webp` preserves the entire capture. Papyrus uses the updated **1531 × 1002** source. The other fifteen captures are **1425 × 950**. No upscaling, fabricated screens or generated application imagery is used.
+Current lossless assets are under `assets/evidence/<app-id>/`, derived from `C:/Users/Gene/Desktop/Artifacts Images`. `detail.webp` is a deliberate native crop; `full.webp` preserves the entire capture. Papyrus uses the updated **1531 × 1002** source. Fourteen are **1425 × 950**. Metria uses its populated **3840 × 2160** native capture. No upscaling, fabricated screens or generated application imagery is used.
 
-Full captures are displayed in the later collection. Each film opens and closes with its complete source capture. Their layout preserves the image aspect ratio and provides an original-size viewer. Every app opens a fitted original with an actual-size option. The original-resolution limit remains: these sources are not native 4K screenshots. The archive assets under `assets/artifacts/apps/` are preserved but not used by the exhibition.
+Full captures are displayed in the later collection. Each film opens and closes with its complete source capture. Their layout preserves the image aspect ratio and provides an original-size viewer. Every app opens a fitted original with an actual-size option. The fifteen newer populated sources remain below native 4K; their pixels are preserved without upscaling. The seven older native 4K captures were reviewed: six are empty entry states, while Metria contains useful sample charts and is now used. See `assets/evidence/README.md` for the current capture checklist. Top-level catalogue quality flags describe archive files; `evidence.sourceQuality` describes the displayed capture.
 
 ```sh
 node scripts/prepare-evidence.mjs /path/to/Artifacts-Images papyrus-reader
@@ -72,7 +72,7 @@ Review the crop rectangle in `scripts/prepare-evidence.mjs` when a source layout
 
 ## Verification
 
-The current application films receive focused browser checks for canonical order, source-image return, inspection controls, responsive layouts, reduced motion and runtime errors. Comprehensive cross-device validation remains deferred until visual approval. The older browser suite and VALIDATION.md predate this film architecture and must be updated before treating them as release gates.
+`pnpm test:production` runs the focused desktop/mobile geometry, canvas-label collision and section-exit checks, writing contact sheets to `.qa/`. The current application films also receive focused browser checks for canonical order, source-image return, inspection controls, responsive layouts, reduced motion and runtime errors. Comprehensive cross-device validation remains deferred until visual approval. The older browser suite and VALIDATION.md predate this film architecture and must be updated before treating them as release gates.
 
 ```sh
 pnpm test:evidence

@@ -38,14 +38,11 @@ export function createPapyrusStudy(el, wake) {
   });
   const register = relations.querySelector(".papyrus-register"),
     surface = el.querySelector(".papyrus-comparison");
-  const statement = el.querySelector(".papyrus-statement"),
-    chapter = el.querySelector(".papyrus-chapter");
-  const control = el.querySelector(".study-control input"),
-    progressLabel = el.querySelector(".papyrus-progress-label");
+  const statement = el.querySelector(".papyrus-statement");
+  const control = el.querySelector(".study-control input");
   const inspection = el.querySelector(".papyrus-inspection"),
     reading = el.querySelector(".papyrus-reading");
-  const buttons = [...el.querySelectorAll("[data-difference]")],
-    provenance = el.querySelector(".papyrus-provenance");
+  const buttons = [...el.querySelectorAll("[data-difference]")];
   const original = el.querySelector(".papyrus-original"),
     source = comparison.source;
   const weights = comparison.rows.map(() => 0);
@@ -178,8 +175,8 @@ export function createPapyrusStudy(el, wake) {
       inspection.style.opacity = reduced
         ? 1
         : phase(p, 0.635, 0.05) * (1 - phase(p, 0.855, 0.045));
-      original.inert = !reduced && p > 0.2 && p < 0.955;
-      original.style.opacity = reduced || p < 0.2 || p > 0.955 ? "1" : "0";
+      original.inert = false;
+      original.style.opacity = "1";
 
       const roi = source.comparison;
       const focusedScale = Math.min(w / roi.width, h / roi.height) * 0.97;
@@ -319,33 +316,15 @@ export function createPapyrusStudy(el, wake) {
       if (state !== lastState) {
         lastState = state;
         statement.textContent = [
-          "Papyrus Reader.",
+          "",
           "Position is not meaning.",
-          "Match the step.",
+          "",
           "Keep the difference.",
-          "Papyrus Reader.",
-        ][state];
-        chapter.textContent = [
-          "Logical recipe and text comparison.",
-          "Two raw positions. The same named structure.",
-          "Match by node and property.",
-          "Same structure. A changed value.",
-          "The difference, back in context.",
-        ][state];
-        progressLabel.textContent = [
-          "01 / Interface",
-          "02 / Raw positions",
-          "03 / Correspondence",
-          "04 / Differences",
-          "05 / Original interface",
+          "",
         ][state];
       }
-      const sourceLabel =
-        !reduced && (p < 0.235 || p > 0.968)
-          ? "Actual Papyrus Reader interface"
-          : "Illustrative XML excerpt · example differences";
-      if (provenance.textContent !== sourceLabel)
-        provenance.textContent = sourceLabel;
+      el.querySelector(".papyrus-heading").style.opacity =
+        state === 1 || state === 3 ? "1" : "0";
       if (active >= 0) {
         const r = comparison.rows[active];
         if (lastReading !== r.id) {

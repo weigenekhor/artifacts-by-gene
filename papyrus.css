@@ -8,74 +8,6 @@
   background: var(--bg);
   color: var(--ink);
 }
-.papyrus-study .papyrus-stage {
-  height: calc(100svh - var(--header));
-  min-height: 0;
-  padding: 0;
-  overflow: hidden;
-  background: radial-gradient(
-    ellipse at 50% 46%,
-    #1c2828 0,
-    #0e1718 56%,
-    #0a1112 100%
-  );
-  transition: none;
-}
-.papyrus-meta {
-  position: absolute;
-  top: 25px;
-  left: var(--gutter);
-  right: var(--gutter);
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  color: #93a69f;
-  font-size: 11px;
-}
-.papyrus-meta h2 {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0;
-  color: #d5ded5;
-}
-.papyrus-meta .study-menu {
-  margin-left: auto;
-  font-size: 10px;
-  color: #a6b8ad;
-}
-.papyrus-heading {
-  position: absolute;
-  left: var(--gutter);
-  right: var(--gutter);
-  top: 75px;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 25px;
-}
-.papyrus-statement {
-  font-size: clamp(30px, 3.6vw, 64px);
-  line-height: 1.08;
-  letter-spacing: -0.05em;
-  font-weight: 450;
-  margin: 0;
-}
-.papyrus-chapter {
-  font-size: 12px;
-  color: #91a49c;
-  line-height: 1.5;
-  max-width: 255px;
-  text-align: right;
-}
-.papyrus-view {
-  position: absolute;
-  left: var(--gutter);
-  right: var(--gutter);
-  top: 153px;
-  bottom: 146px;
-  isolation: isolate;
-  overflow: hidden;
-}
 .papyrus-capture {
   position: absolute;
   left: 0;
@@ -268,45 +200,10 @@
   letter-spacing: 0.03em;
   color: #9fb2a5;
 }
-.papyrus-inspection {
-  position: absolute;
-  left: var(--gutter);
-  right: var(--gutter);
-  bottom: 92px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  opacity: 0;
-  min-height: 44px;
-  border-top: 1px solid #8094832c;
-  padding-top: 8px;
-}
-.papyrus-inspection-cue {
-  font-size: 10px;
-  color: #789086;
-}
-.papyrus-reading {
-  font-size: 12px;
-  color: #b8c9bc;
-  min-width: 145px;
-}
 .papyrus-reading b {
   color: #edb194;
   font-weight: 450;
   margin-left: 12px;
-}
-.papyrus-differences {
-  display: flex;
-  gap: 8px;
-  margin-left: auto;
-}
-.papyrus-differences button {
-  min-height: 36px;
-  padding: 8px 13px;
-  border: 1px solid #485c51;
-  background: transparent;
-  font-size: 10px;
-  color: #b2c5b6;
 }
 .papyrus-differences button span {
   margin-left: 12px;
@@ -317,68 +214,9 @@
   background: #b8784920;
   color: #f0e8d6;
 }
-.papyrus-bottom {
-  position: absolute;
-  left: var(--gutter);
-  right: var(--gutter);
-  bottom: 68px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: 9px;
-  color: #758d82;
-  min-height: 20px;
-}
-.papyrus-original {
-  font-size: 10px;
-  padding: 8px 0;
-  color: #c7d8c6;
-}
 .papyrus-original:hover {
   text-decoration: underline;
   text-underline-offset: 5px;
-}
-.papyrus-transport {
-  position: absolute;
-  left: var(--gutter);
-  right: var(--gutter);
-  bottom: 22px;
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  height: 36px;
-}
-.papyrus-study .study-play {
-  position: static;
-  flex: none;
-  font-size: 11px;
-  min-height: 36px;
-  padding: 5px 0;
-  color: #c6d5c8;
-  border: 0;
-  background: none;
-}
-.papyrus-study .study-control {
-  position: static;
-  flex: 1;
-  width: auto;
-  font-size: 0;
-  margin: 0;
-}
-.papyrus-study .study-control input {
-  height: 28px;
-  max-width: none;
-  width: 100%;
-  accent-color: #d9b294;
-  cursor: ew-resize;
-}
-.papyrus-progress-label {
-  font-size: 9px;
-  font-variant-numeric: tabular-nums;
-  color: #8ca396;
-  min-width: 124px;
-  text-align: right;
 }
 .papyrus-accessible,
 .papyrus-study .sr-only {
@@ -394,34 +232,6 @@
 }
 
 @media (max-width: 700px) {
-  .papyrus-meta {
-    top: 20px;
-    font-size: 9px;
-    gap: 15px;
-  }
-  .papyrus-meta h2 {
-    font-size: 11px;
-  }
-  .papyrus-meta .study-menu {
-    font-size: 8px;
-  }
-  .papyrus-heading {
-    top: 58px;
-    display: block;
-  }
-  .papyrus-statement {
-    font-size: 32px;
-  }
-  .papyrus-chapter {
-    text-align: left;
-    font-size: 10px;
-    margin-top: 9px;
-    max-width: none;
-  }
-  .papyrus-view {
-    top: 136px;
-    bottom: 184px;
-  }
   .papyrus-pane-label {
     height: 32px;
     font-size: 9px;
@@ -472,78 +282,11 @@
     content: "↔";
     font-size: 11px;
   }
-  .papyrus-inspection {
-    bottom: 106px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 8px;
-    padding-top: 10px;
-  }
-  .papyrus-inspection-cue {
-    font-size: 8px;
-  }
-  .papyrus-reading {
-    min-width: 0;
-    font-size: 10px;
-    text-align: right;
-  }
-  .papyrus-differences {
-    grid-column: 1/-1;
-    width: 100%;
-    margin: 0;
-    gap: 8px;
-  }
-  .papyrus-differences button {
-    flex: 1;
-    min-height: 36px;
-    padding: 8px;
-    font-size: 10px;
-  }
   .papyrus-differences button span {
     margin-left: 8px;
   }
-  .papyrus-bottom {
-    bottom: 69px;
-    font-size: 8px;
-    gap: 12px;
-    line-height: 1.4;
-  }
-  .papyrus-original {
-    font-size: 9px;
-    white-space: nowrap;
-  }
-  .papyrus-transport {
-    gap: 14px;
-    bottom: 22px;
-  }
-  .papyrus-study .study-play {
-    font-size: 10px;
-  }
-  .papyrus-progress-label {
-    min-width: 0;
-    width: 48px;
-    font-size: 8px;
-    line-height: 1.4;
-  }
 }
 @media (max-height: 700px) and (max-width: 700px) {
-  .papyrus-meta {
-    top: 12px;
-  }
-  .papyrus-heading {
-    top: 40px;
-  }
-  .papyrus-statement {
-    font-size: 24px;
-  }
-  .papyrus-chapter {
-    font-size: 9px;
-    margin-top: 5px;
-  }
-  .papyrus-view {
-    top: 104px;
-    bottom: 144px;
-  }
   .papyrus-pane-label {
     height: 22px;
     font-size: 8px;
@@ -572,50 +315,8 @@
   .papyrus-row-mark {
     top: 18px;
   }
-  .papyrus-inspection {
-    bottom: 81px;
-    padding-top: 6px;
-    gap: 5px;
-  }
-  .papyrus-inspection-cue {
-    display: none;
-  }
-  .papyrus-reading {
-    grid-column: 1/-1;
-    text-align: left;
-    font-size: 9px;
-  }
-  .papyrus-differences button {
-    min-height: 30px;
-    padding: 5px;
-  }
-  .papyrus-bottom {
-    bottom: 53px;
-    font-size: 7px;
-  }
-  .papyrus-transport {
-    bottom: 12px;
-    gap: 10px;
-  }
 }
 @media (max-height: 650px) and (min-width: 701px) {
-  .papyrus-meta {
-    top: 13px;
-    font-size: 9px;
-  }
-  .papyrus-heading {
-    top: 45px;
-  }
-  .papyrus-statement {
-    font-size: 32px;
-  }
-  .papyrus-chapter {
-    font-size: 10px;
-  }
-  .papyrus-view {
-    top: 101px;
-    bottom: 138px;
-  }
   .papyrus-row {
     padding-top: 5px;
     padding-bottom: 3px;
@@ -633,16 +334,6 @@
   }
 }
 @media (max-height: 450px) and (min-width: 701px) {
-  .papyrus-heading {
-    top: 43px;
-  }
-  .papyrus-statement {
-    font-size: 24px;
-  }
-  .papyrus-view {
-    top: 81px;
-    bottom: 74px;
-  }
   .papyrus-pane-label {
     height: 20px;
     font-size: 8px;
@@ -684,16 +375,6 @@
   }
   .papyrus-property i {
     display: none;
-  }
-  .papyrus-inspection {
-    display: none;
-  }
-  .papyrus-bottom {
-    bottom: 46px;
-  }
-  .papyrus-transport {
-    bottom: 9px;
-    height: 29px;
   }
 }
 .reduced .papyrus-study,
@@ -742,13 +423,6 @@ html:not(.enhanced) .papyrus-capture > img {
   position: relative;
   height: 560px;
   flex: none;
-  opacity: 1;
-}
-.reduced .papyrus-inspection,
-.reduced .papyrus-bottom,
-html:not(.enhanced) .papyrus-bottom {
-  position: static;
-  margin-top: 25px;
   opacity: 1;
 }
 .reduced .papyrus-transport,

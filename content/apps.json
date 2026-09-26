@@ -48,7 +48,10 @@
         "height": 490,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Lot events, wafer states and durations"
+        "label": "Lot events, wafer states and durations",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Every event.\nIn context."
     },
@@ -106,7 +109,10 @@
         "height": 630,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Reactor schedules in a common view"
+        "label": "Reactor schedules in a common view",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Know what’s next."
     },
@@ -164,7 +170,10 @@
         "height": 610,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Chamber usage counters"
+        "label": "Chamber usage counters",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Make usage\nvisible."
     },
@@ -219,7 +228,10 @@
         "height": 570,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Interpolated wafer surface and scale"
+        "label": "Interpolated wafer surface and scale",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "See the shape\nof variation."
     },
@@ -270,7 +282,10 @@
         "height": 315,
         "fullWidth": 1531,
         "fullHeight": 1002,
-        "label": "Actual paired recipe panes with marked changes"
+        "label": "Actual paired recipe panes with marked changes",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Compare meaning.\nNot line numbers."
     },
@@ -321,7 +336,10 @@
         "height": 630,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Grouped chart selection"
+        "label": "Grouped chart selection",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Less searching.\nMore seeing."
     },
@@ -372,7 +390,10 @@
         "height": 300,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Metrology processing log"
+        "label": "Metrology processing log",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "From measurements\nto a report."
     },
@@ -423,7 +444,10 @@
         "height": 235,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Diagnostic summary and recommended checks"
+        "label": "Diagnostic summary and recommended checks",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Follow the drift.\nFind a direction."
     },
@@ -474,7 +498,10 @@
         "height": 720,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Baseplate assignment visualization"
+        "label": "Baseplate assignment visualization",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "An arrangement\nwith reason."
     },
@@ -525,7 +552,10 @@
         "height": 720,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Inner and outer zone geometry"
+        "label": "Inner and outer zone geometry",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Every zone.\nA shared view."
     },
@@ -576,7 +606,10 @@
         "height": 300,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Structured configuration differences"
+        "label": "Structured configuration differences",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Make changes\nunmistakable."
     },
@@ -634,7 +667,10 @@
         "height": 540,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "GaN parameter control charts"
+        "label": "GaN parameter control charts",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Keep the process\nin perspective."
     },
@@ -692,7 +728,10 @@
         "height": 465,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Legacy parameter review and statuses"
+        "label": "Legacy parameter review and statuses",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "A familiar process.\nA clearer view."
     },
@@ -750,7 +789,10 @@
         "height": 430,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Maintenance statuses and due dates"
+        "label": "Maintenance statuses and due dates",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Plan with the\nwhole picture."
     },
@@ -808,7 +850,10 @@
         "height": 205,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Report compilation activity"
+        "label": "Report compilation activity",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Bring the report\ntogether."
     },
@@ -860,13 +905,17 @@
         "lt-report-compiler"
       ],
       "evidence": {
-        "src": "assets/evidence/metria-spc/detail.webp",
-        "full": "assets/evidence/metria-spc/full.webp",
-        "width": 1260,
-        "height": 440,
-        "fullWidth": 1425,
-        "fullHeight": 950,
-        "label": "Interactive parameter chart and range overview"
+        "src": "assets/artifacts/apps/metria-spc/detail-01.webp",
+        "full": "assets/artifacts/apps/metria-spc/hero.webp",
+        "width": 3226,
+        "height": 756,
+        "fullWidth": 3840,
+        "fullHeight": 2160,
+        "label": "Native 4K Metria sample charts",
+        "sourceQuality": "native-4k",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": null,
+        "alternateCurrentCapture": "assets/evidence/metria-spc/full.webp"
       },
       "headline": "Signals,\nseen together."
     }

@@ -2,7 +2,7 @@
 
 This storyboard implements Gene's identity-and-method brief of 25 September 2026. Read with ARTIFACTS_CREATIVE_DIRECTION.md. The current user prompt overrides earlier visual directions.
 
-The monumental opening is approved. Preserve its composition, copy and interaction. The opening, origin and collection handoff remain approved. The current application-film pass rebuilds the sixteen studies and adopts Gene’s latest exact closing copy.
+The monumental opening is approved. Preserve its composition, copy and interaction. The hero remains approved. The 26 September production revision replaces the origin with three statements, simplifies the film layout and strengthens app-specific operations. Gene’s exact approved closing copy remains.
 
 ## 00 — Almost right is still wrong
 
@@ -16,25 +16,21 @@ No development duration, creator attribution or application count appears in the
 
 ## 01 — Starting over
 
-The origin is a reversible film controlled by native scroll. It is about the cost of reconstructing useful reasoning, not five abstract principles. A single camera stage holds the approved opening, the new evidence sequence and the handoff. No application screenshots, names, icons or previews appear during the origin.
+A continuous, reversible film shares the hero's camera stage. No source screenshots, application-derived labels, faux notes, identifiers or gallery appear here. Editorial shapes suggest observations, comparison, sequence and reference through their behavior.
 
-1. **The answer was never the whole job.** Unequal source fragments occupy different depths: a run record, process observation, recipe, reference, measurement series, review note and investigation record. Some are near the camera; others are distant or partly outside the view. Supporting copy: “First came the work of finding the context.” All identifiers and values are illustrative, explicitly labeled as such.
-2. **The context had to be built.** The run finds its trace first. Recipe and reference align next. A changed settling step finds its event in the trace; its note and measurement context follow. The source fragments retain their identities as the investigation becomes legible. A fine amber comparison register is established here.
-3. **New work. Same reconstruction.** The completed arrangement withdraws into an archive. It clears completely, leaving a brief empty interval. A second run then enters with a different revision, time and values. It begins the same reconstruction. The repetition is experienced before it is explained.
-4. **Good reasoning should outlive the task.** The second task's papers peel away, but the amber registration and the relationship between corresponding steps remain. The camera approaches what was retained. The statement has a clear, independent reading space.
-5. **So I kept the part worth repeating.** The retained correspondence gains a durable boundary. Source, check and record structures develop around it, then join it. The values were temporary; the relationship can be used again.
-6. **I built the part I wanted to keep.** The same structure accepts the next observation and its reference. Input boundaries, comparison states and a repeatable check become visible. The pale working surface withdraws to reveal depth behind it, while the retained structure remains. This is an illustrative account of software taking form, not a fabricated screenshot or an actual application result.
-7. **Then I put it to work.** The working boundary approaches and passes the camera. Its spaces separate into the exact positions used by the real collection. The origin's final geometry and lighting match the collection; actual UI resolves only in this handoff.
+1. **The answer was only part of the work.** A wide field of separated observations closes into one task. Corresponding marks register in order, a sequence connects them, and a quiet completed state holds. The same objects move; the scene does not reset into another diagram.
+2. **Again.** The completed evidence withdraws. A brief interval of almost empty space precedes different evidence entering from another direction. The same relationships have to be reconstructed. This phrase stays small; recurrence is primarily experienced.
+3. **Good reasoning should outlive the task.** Temporary observations depart while their relationships remain. The retained structure gains weight, boundaries and repeatable states. It receives new evidence without rebuilding its logic. There is no separate kept, built or software headline.
 
-Composition moves between a dispersed working field, a reconstructed case, near-empty archive, repeated investigation, close inspection of retained reasoning and a durable working surface. Copy never shares the old fixed diagram/headline/navigation layout. One primary statement accompanies each beat; there is no stage-button strip. A quiet link allows visitors to continue directly to the applications.
+The retained frames gain depth and separate into the exact positions of the real collection. The homepage resolves first; the surrounding real interfaces follow. The collection heading supplies the resolution, without another origin headline.
 
-The combined opening/origin occupies 740svh on desktop and 660svh on mobile. Its final viewport overlaps the collection arrival. The approved hero's composition and pointer/keyboard behavior remain; only the transition out of it changes. The film has no autonomous looping animation, and its renderer stops when scroll/pointer motion settles. Mobile reserves the upper field for the evidence and the lower field for copy. Reduced motion presents the entire sequence in document order with stable rendered scenes and explanatory captions. Without JavaScript, all narrative and visual descriptions remain readable.
+Composition moves from a wide fragmented field to close registration, near-empty completion, a second entrance, dominant retained relationships and architectural depth. One idea leads each viewport. Typography has its own negative space, never overlapping the active geometry. The dark → light → dark journey remains. The origin has no autonomous loop and stops rendering when input settles. Reduced motion presents three stable compositions and narrative descriptions in document order.
 
 ## 02 — The collection opens
 
 **What began as necessity became ARTIFACTS.**
 
-Only after the origin constructs its sixteen positions do the real interfaces enter them. The uncropped ARTIFACTS homepage establishes the centre first; the surrounding interfaces follow, and their labels arrive as the collection opens. As it opens, the homepage retreats and the application planes advance. Bounded rotation retains spatial order.
+Only after the origin constructs its sixteen positions do the real interfaces enter them. The uncropped ARTIFACTS homepage establishes the centre first; the surrounding interfaces follow, with quiet index marks at rest. Only the inspected application receives a prominent name; nearby interfaces recede. As it opens, the homepage retreats and the application planes advance. Bounded rotation retains spatial order.
 
 Hover selects the actual interface under the pointer. It moves forward in depth, turns toward the viewer and gains a small amount of scale and light. Nearby planes recede; ambient rotation slows during inspection. Leaving restores the arrangement through damped interpolation. Keyboard focus receives the same presentation. On touch, the first tap presents an app; a second tap enters its study. Each plane links to its own sequence, and the application picker provides an alternative. Selecting the central homepage opens its full-capture viewer.
 
@@ -44,15 +40,15 @@ There is one complete spatial collection, followed by the sixteen films. There i
 
 All sixteen follow the verified in-application order. Each film starts with its complete real interface. The relevant source region activates as a doorway into its explanatory operation, then receives the visual again before the same full interface closes the film. The next application never appears inside the current study.
 
-Replay lasts 23.2–28.5 seconds, with individual staging and inspection intervals. Native scroll, direct app selection, keyboard ranges and original-size capture viewing remain available. App-specific drawing modules own the operation; the shared controller owns source registration, playback state, pixel density and access controls. Papyrus retains its dedicated DOM comparison renderer. The films pause when input settles and stop updating offscreen. Diagrams are explicitly illustrative; screenshot pixels remain unmodified. Original screenshots appear at the beginning and end rather than as a repeated thumbnail during every conceptual state.
+Replay lasts 23.2–28.5 seconds, with individual staging and inspection intervals. Native scroll, direct app selection, keyboard ranges and original-size capture viewing remain available. App-specific drawing modules own the operation; the shared controller owns source registration, playback state, pixel density and access controls. Papyrus retains its dedicated DOM comparison renderer. The films pause when input settles and stop updating offscreen. Diagrams are described as illustrative in accessible text, without repeating a provenance label in every viewport; screenshot pixels remain unmodified. Original screenshots appear at the beginning and end rather than as a repeated thumbnail during every conceptual state.
 
-Desktop uses a broad working field; mobile adapts the actual composition, including a vertical lot history and relocated baseplate weights. Reduced motion presents complete source images, stable interactive diagrams and textual explanations in document order.
+Film stages use a flowing grid with distinct metadata, visual, contextual inspection and minimal transport regions. Duplicate descriptions, persistent provenance and phase captions are absent. Controls withdraw as the resolved interface exits, before the next chapter enters. Desktop uses a broad working field; mobile adapts the actual composition, including a vertical lot history and relocated baseplate weights. Reduced motion presents complete source images, stable interactive diagrams and textual explanations in document order.
 
 ### Application direction
 
 1. Altus LotViewer: fragmented event records settle into chronological order; illustrative duration becomes visible on a shared timeline, and inspection retains neighboring context.
 2. Altus ANKO Viewer: schedules with separate time offsets align to one axis; a selected window reads across equipment lanes.
-3. Altus WaferCount: dozens of discrete wafer events enter chamber lanes and leave permanent increments as they disappear into the usage state. The small numbers count the animated illustrative events themselves and are labeled accordingly; they are not measured equipment usage.
+3. Altus WaferCount: individual events flow into distinct chamber histories and compress into usage bars. Inspection expands the selected chamber history. Counts refer to the illustrated events, not measured equipment usage.
 4. TopoTracer: sample positions appear first, with neighboring relationships establishing interpolation before the continuous surface gains opacity and height. The resulting shaded field retains sample positions, equal-height contours, directional light and a thin rim. The selected A–A′ section travels across the surface; its profile below derives from the same illustrative field. The height scale is relative, with no invented measured values.
 5. Papyrus Reader: a dedicated 26.5-second comparison film replaces the shared study choreography. The complete real interface opens the scene. Its paired source panes establish the extraction into an explicitly illustrative XML excerpt using the real capture’s node/property vocabulary. Initially plausible positional guides are withdrawn when their node/property identities disagree. Different raw positions then converge by named identity, with separate critically damped travel distances and stationary reference rows. Correspondence registers before unchanged values recede; changed values retain their visible counterparts. Mouse, touch and keyboard inspect paired properties only after alignment. The same source pane bounds receive the representation again, with separate text layers during the optical return to the complete original interface. No next-application preview appears. Reduced motion keeps the real capture and a stable, interactive aligned comparison in document order. The example values and line positions are labeled as explanatory, not as actual results from the screenshot.
 6. SPC Pathfinder: a workcentre, family and parameter path narrows to a chart; selecting another parameter changes both the path and corresponding illustrative trace.
@@ -66,6 +62,8 @@ Desktop uses a broad working field; mobile adapts the actual composition, includ
 14. ANKO Helper: displaced equipment status and due points move into temporal priority around a shared present-time marker; a moving review window distinguishes overdue, due-soon and upcoming work.
 15. LT Report Compiler: rows from a LayTec HTML analysis are selected, extracted and appended beneath existing rows in a base Excel workbook. This row-extraction sequence is distinct from metrology source compilation. Inspection can recall the source rows while preserving run context.
 16. Metria SPC: each parameter begins with its own time range and inspection window. Those axes and windows synchronize into one shared temporal interval. Inspection then moves every trace's cursor together.
+
+Three origin statements span a 606svh combined opening/origin on desktop and 543svh on mobile, with the final viewport overlapping collection arrival. This preserves the approved opening scroll rate while shortening the argument.
 
 The diagram geometry is explanatory. Do not fabricate measured values, software operations or cross-application integrations. Cross-scene continuity is editorial, not a claim that applications exchange data.
 
@@ -85,6 +83,10 @@ ARTIFACTS is the evidence that I never accepted the way things were as the way t
 A quiet “By Gene” attribution precedes the two-column account. Contact links close the account without a further ARTIFACTS sign-off. No job-title labels or generic creator biography are added.
 
 Contact links: https://www.linkedin.com/in/weigenekhor/ and mailto:weigenekhor@gmail.com. These are links only; the site does not send messages or collect form data.
+
+## Production quality gate
+
+Review desktop 1440 and mobile 390: hero, origin statements and intervening visual states, handoff, collection, all sixteen signature/inspection states, and Gene. Check document overflow, visible text bounds, controls versus visual bounds and section exits. Inspect fresh contact sheets with headings mentally blurred: operations must remain recognizably different. A build and runtime check are required; a passing build alone is not visual approval.
 
 ## Access and performance
 

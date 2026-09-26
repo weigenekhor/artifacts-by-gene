@@ -53,6 +53,13 @@ for (const [id, file, rect] of mapping) {
     fullWidth: m.width,
     fullHeight: m.height,
     label: app.evidence.label,
+    sourceQuality: "native-png-lossless-webp",
+    qualityScope:
+      "Current capture; top-level quality flags describe the older archive.",
+    recapture:
+      m.width < 2560
+        ? "For fullscreen high-DPI inspection, provide a populated native capture at 2560px width or greater."
+        : null,
   };
   app.evidence = image;
   const existing = audit.findIndex((a) => a.id === id);

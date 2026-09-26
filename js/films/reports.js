@@ -16,214 +16,201 @@ export function compile(d, q, f, W, H, m, hit) {
     teal,
   } = d;
   const sources = ["LayTec", "PL / Plato", "XRR", "XRD"],
-    active = Math.min(3, Math.floor(f * 4));
-  const reportX = W * (m ? 0.56 : 0.62),
-    reportY = H * 0.17,
-    reportW = W * (m ? 0.39 : 0.32),
-    reportH = H * 0.68;
-  const frame = at(q, 0.25, 0.2);
-  alpha(frame, () => {
-    rect(reportX, reportY, reportW, reportH, null, muted);
-    text("Base workbook", reportX + 18, reportY + 34, 20, ink);
-    line(
-      [
-        [reportX + 18, reportY + 51],
-        [reportX + reportW - 18, reportY + 51],
-      ],
-      faint,
-    );
+    active = Math.min(3, Math.floor(f * 4)),
+    rx = W * (m ? 0.59 : 0.63),
+    ry = H * 0.14,
+    rw = W * (m ? 0.36 : 0.31),
+    rh = H * 0.72;
+  alpha(at(q, 0.24, 0.18), () => {
+    rect(rx, ry, rw, rh, null, muted);
+    text(m ? "Workbook" : "Base workbook", rx + 14, ry + 32, 20, ink);
   });
   sources.forEach((name, i) => {
-    const y = H * (0.14 + i * 0.205),
-      x = W * 0.06,
-      ww = W * (m ? 0.35 : 0.29),
-      t = settle((q - 0.31 - i * 0.049) / 0.24),
-      toY = reportY + H * (0.14 + i * 0.13),
-      chosen = i === active && q > 0.68;
-    alpha(mix(1, chosen ? 1 : 0.4, at(q, 0.63, 0.13)), () => {
-      text(name, x, y, 23, chosen ? accent : ink);
-      if (i === 0) trace(x, y + 10, ww, H * 0.1, 2, at(q, 0.025, 0.17), teal);
-      else if (i === 1) {
-        for (let j = 0; j < 28; j++) {
-          const xx = x + (ww * j) / 28;
+    const x = W * 0.055,
+      y = H * (0.12 + i * 0.21),
+      ww = W * (m ? 0.34 : 0.3),
+      selected = i === active,
+      arrive = at(q, 0.34 + i * 0.055, 0.22);
+    alpha(1 - at(q, 0.67, 0.1) * (selected ? 0 : 0.58), () => {
+      text(name, x, y, 23, selected ? accent : ink);
+      if (i === 0) trace(x, y + 10, ww, H * 0.11, 2, at(q, 0.02, 0.16), teal);
+      if (i === 1)
+        for (let j = 0; j < 22; j++) {
+          const ht = Math.exp(-(((j - 11) / 4.4) ** 2)) * H * 0.1;
           line(
             [
-              [xx, y + H * 0.13],
-              [xx, y + H * 0.13 - Math.exp(-(((j - 14) / 5) ** 2)) * H * 0.105],
+              [x + (ww * j) / 22, y + H * 0.14],
+              [x + (ww * j) / 22, y + H * 0.14 - ht],
             ],
             teal,
-            2,
+            1.8,
           );
         }
-      } else {
-        for (let j = 0; j < 34; j++)
+      if (i === 2)
+        for (let j = 0; j < 32; j++)
           dot(
-            x + (ww * j) / 34,
-            y + 45 + Math.sin(j * 0.25 + i) * 20 * (1 - j / 44),
+            x + (ww * j) / 31,
+            y +
+              18 +
+              H *
+                0.11 *
+                (1 - Math.exp(-j / 9) * (0.7 + Math.cos(j * 0.7) * 0.16)),
             2,
             teal,
           );
+      if (i === 3) {
+        const pts = [];
+        for (let j = 0; j < 70; j++)
+          pts.push([
+            x + (ww * j) / 69,
+            y +
+              H * 0.14 -
+              H *
+                0.11 *
+                (Math.exp(-(((j - 29) / 4) ** 2)) +
+                  0.5 * Math.exp(-(((j - 51) / 3) ** 2))),
+          ]);
+        line(pts, teal, 1.6);
       }
-      text("Selected source", x, y + H * 0.16, 14, muted);
     });
+    const yy = ry + H * (0.15 + i * 0.14);
     alpha(
-      at(q, 0.26 + i * 0.035, 0.11) * (q > 0.7 ? (chosen ? 1 : 0.16) : 1),
+      at(q, 0.3 + i * 0.055, 0.1) *
+        (1 - at(q, 0.68, 0.1) * (selected ? 0 : 0.94)),
       () =>
         path(
-          [x + ww, y + 30],
-          [reportX + 18, toY],
-          chosen ? accent : muted,
-          1.1,
+          [x + ww, y + H * 0.07],
+          [rx + 14, yy],
+          selected ? accent : muted,
+          1.2,
         ),
     );
-    for (let j = 0; j < 5; j++) {
-      const travel = settle((q - 0.29 - i * 0.045 - j * 0.009) / 0.25),
-        xx = mix(
-          x + ww * 0.2 + j * ww * 0.12,
-          reportX + 18 + (j * (reportW - 36)) / 5,
-          travel,
-        ),
-        yy = mix(y + H * 0.1, toY + 23, travel);
-      alpha(at(q, 0.22 + i * 0.045 + j * 0.009, 0.04), () =>
+    for (let j = 0; j < 4; j++) {
+      const t = at(q, 0.31 + i * 0.055 + j * 0.015, 0.26),
+        xx = mix(x + (ww * (j + 0.5)) / 4, rx + 16 + (j * (rw - 32)) / 4, t),
+        ty = mix(y + H * 0.09, yy + 24, t);
+      alpha(at(q, 0.27 + i * 0.055 + j * 0.015, 0.08), () =>
         line(
           [
-            [xx, yy],
-            [xx + mix(12, (reportW - 50) / 5, travel), yy],
+            [xx, ty],
+            [xx + mix(8, (rw - 40) / 4, t), ty],
           ],
-          chosen ? accent : teal,
+          selected ? accent : teal,
           2,
         ),
       );
     }
-    alpha(t, () => text(name, reportX + 18, toY, 18, chosen ? accent : ink));
-    hit((i + 0.5) / 4, reportX, toY - 23, reportW, H * 0.13, name);
+    alpha(arrive, () => {
+      text(name, rx + 14, yy, 18, selected ? ink : muted);
+      line(
+        [
+          [rx + 14, yy + 36],
+          [rx + rw - 14, yy + 36],
+        ],
+        faint,
+      );
+    });
+    hit((i + 0.5) / 4, rx, yy - 25, rw, H * 0.14, name);
   });
-  alpha(at(q, 0.63, 0.13), () => {
-    text(
-      "Source → processed record",
-      reportX,
-      reportY + reportH + 39,
-      19,
-      muted,
-    );
-    line(
-      [
-        [reportX, reportY + reportH + 10],
-        [reportX + reportW, reportY + reportH + 10],
-      ],
-      accent,
-      1.3,
-    );
-  });
-  return sources[active] + " · source provenance remains available";
+  return sources[active] + " → workbook";
 }
 
 export function report(d, q, f, W, H, m, hit, alternate) {
   const { text, line, path, rect, alpha, ink, muted, faint, accent, teal } = d;
-  const extract = at(q, 0.18, 0.28),
-    append = (1 - alternate) * at(q, 0.44, 0.23),
-    active = Math.min(2, Math.floor(f * 3));
-  const x = W * 0.06,
-    y = H * 0.18,
-    sw = W * 0.33,
-    outX = W * 0.64,
-    outW = W * 0.3,
-    row = H * 0.053;
-  text("LayTec analysis .htm", x, H * 0.1, 22, ink);
-  text("Base file .xlsx", outX, H * 0.1, 22, ink);
-  rect(x, y, sw, H * 0.63, null, faint);
-  rect(outX, y, outW, H * 0.63, null, muted);
-  // Source capture shows analysis-file row extraction and append to an existing workbook.
-  for (let i = 0; i < 10; i++) {
-    const yy = y + 35 + i * row,
-      kept = i >= 2 && i <= 7;
-    alpha(kept ? 1 : 1 - extract * 0.8, () => {
-      text(
-        i === 0 ? "<table>" : i === 9 ? "</table>" : "<tr>",
-        x + 12,
-        yy,
-        15,
-        faint,
-      );
-      for (let c = 0; c < 3; c++)
+  const active = Math.min(2, Math.floor(f * 3)),
+    extract = at(q, 0.18, 0.2),
+    append = at(q, 0.4, 0.25) * (1 - alternate);
+  const x = W * 0.055,
+    y = H * (m ? 0.1 : 0.2),
+    sw = W * (m ? 0.89 : 0.34),
+    outX = m ? x : W * 0.61,
+    outY = m ? H * 0.56 : y,
+    outW = sw,
+    row = H * (m ? 0.045 : 0.085);
+  text("LayTec analysis .htm", x, y - 25, 22, ink);
+  text("Base workbook .xlsx", outX, outY - 25, 22, ink);
+  rect(x, y, sw, row * 5.7, null, faint);
+  rect(outX, outY, outW, row * 7, null, muted);
+  for (let i = 0; i < 2; i++) {
+    line(
+      [
+        [outX + 18, outY + 20 + i * row],
+        [outX + outW - 18, outY + 20 + i * row],
+      ],
+      faint,
+      1.5,
+    );
+  }
+  alpha(at(q, 0.1, 0.12), () =>
+    text("Existing rows", outX + 16, outY + row * 2.3, 17, muted),
+  );
+  for (let i = 0; i < 3; i++) {
+    const yy = y + row * (1.3 + i * 1.3),
+      t = at(q, 0.39 + i * 0.06, 0.24) * (1 - alternate),
+      tx = mix(x + sw * 0.18, outX + outW * 0.08, t),
+      ty = mix(yy, outY + row * (3.4 + i), t);
+    alpha(1 - t * 0.8, () => {
+      text("<tr>", x + 14, yy + 5, 17, muted);
+      for (let j = 0; j < 3; j++)
         line(
           [
-            [x + sw * 0.23 + c * sw * 0.23, yy - 6],
-            [x + sw * 0.39 + c * sw * 0.23, yy - 6],
+            [x + sw * (0.22 + j * 0.25), yy],
+            [x + sw * (0.4 + j * 0.25), yy],
           ],
-          kept ? teal : faint,
+          teal,
           2,
         );
     });
-    if (kept) {
-      const t = settle((q - 0.36 - (i - 2) * 0.018) / 0.3) * (1 - alternate),
-        xx = mix(x + sw * 0.23, outX + outW * 0.1, t),
-        ty = mix(yy, y + H * 0.22 + (i - 2) * row, t);
-      alpha(extract, () => {
-        for (let c = 0; c < 3; c++)
-          line(
-            [
-              [xx + c * outW * 0.28, ty - 6],
-              [xx + (c + 0.7) * outW * 0.28, ty - 6],
-            ],
-            active === 1 ? accent : teal,
-            2.2,
-          );
-      });
-    }
-  }
-  alpha(at(q, 0.12, 0.18), () => {
-    for (let i = 0; i < 3; i++) {
-      const yy = y + 31 + i * row;
-      line(
-        [
-          [outX + 18, yy],
-          [outX + outW - 18, yy],
-        ],
-        muted,
+    alpha(extract, () => {
+      rect(
+        tx - 8,
+        ty - row * 0.35,
+        outW * 0.86,
+        row * 0.73,
+        null,
+        t > 0.99 ? faint : accent,
       );
-    }
-    text("Existing rows", outX + 14, y + H * 0.18, 15, muted);
-  });
-  alpha(extract, () => {
-    const cutY = y + H * 0.19;
+      for (let j = 0; j < 3; j++)
+        line(
+          [
+            [tx + j * outW * 0.27, ty],
+            [tx + (j + 0.7) * outW * 0.27, ty],
+          ],
+          teal,
+          2.3,
+        );
+    });
+  }
+  alpha(append, () =>
     line(
       [
-        [x + sw + 10, cutY],
-        [x + sw + 10, y + H * 0.55],
+        [outX + 12, outY + row * 2.8],
+        [outX + outW - 12, outY + row * 2.8],
       ],
       accent,
-      1.5,
-    );
-    path([x + sw + 10, cutY], [outX - 14, y + H * 0.24], accent, 1.4);
-    text("Extract", W * 0.5, H * 0.52, 20, accent, "center");
-  });
-  alpha(append, () => {
-    line(
-      [
-        [outX + 9, y + H * 0.2],
-        [outX + outW - 9, y + H * 0.2],
-      ],
-      accent,
-      2,
-    );
-    text("Appended analysis rows", outX, y + H * 0.71, 18, ink);
-  });
-  text(
-    "Run identity remains attached to the analysis.",
-    W * 0.5,
-    H * 0.96,
-    20,
-    muted,
-    "center",
+      1.7,
+    ),
   );
-  hit(0.16, x, y, sw, H * 0.63, "Analysis file");
-  hit(0.5, W * 0.4, y, W * 0.23, H * 0.63, "Extracted rows");
-  hit(0.84, outX, y, outW, H * 0.63, "Base workbook");
+  alpha(extract * (1 - at(q, 0.7, 0.12)), () => {
+    const a = [x + sw, y + row * 3],
+      b = [outX, outY + row * 4];
+    if (m) path([W * 0.82, y + row * 5.7], [W * 0.82, outY], accent, 1.3);
+    else path(a, b, accent, 1.3);
+  });
+  hit(0.16, x, y, sw, row * 5.7, "Analysis file");
+  hit(
+    0.5,
+    m ? W * 0.3 : W * 0.43,
+    m ? H * 0.41 : y,
+    m ? W * 0.4 : W * 0.14,
+    m ? H * 0.12 : H * 0.5,
+    "Extracted rows",
+  );
+  hit(0.84, outX, outY, outW, row * 7, "Base workbook");
   return [
-    "Analysis file · LayTec HTML",
-    "Row extraction · selected analysis",
-    "Base workbook · append with run context",
+    "HTML analysis",
+    "Selected analysis rows",
+    "Appended beneath existing rows",
   ][active];
 }
 
@@ -242,74 +229,85 @@ export function legacy(d, q, f, W, H, m, hit, alternate) {
     teal,
   } = d;
   const names = ["G", "J", "B", "E", "H"],
-    states = ["Passed", "Passed", "Review", "Passed", "Review"],
+    states = ["Passed", "Passed", "Failed", "Passed", "Failed"],
     active = Math.min(4, Math.floor(f * 5));
-  const normalise = at(q, 0.2, 0.39) * (1 - alternate),
-    top = H * 0.14,
+  const t = at(q, 0.2, 0.4) * (1 - alternate),
     left = W * 0.06,
-    width = W * 0.86;
+    width = W * 0.88,
+    top = H * 0.13;
   for (let i = 0; i < 5; i++) {
-    const rawX = W * (0.07 + (i % 2) * 0.4),
-      rawY = H * (0.17 + Math.floor(i / 2) * 0.21),
-      x = mix(rawX, left, normalise),
-      y = mix(rawY, top + i * H * 0.083, normalise),
-      ww = mix(W * 0.33, width, normalise),
-      chosen = i === active;
-    line(
-      [
-        [x, y + 30],
-        [x + ww, y + 30],
-      ],
-      chosen ? accent : faint,
-      1.1,
+    const rx = W * (0.06 + (i % 2) * 0.48),
+      ry = H * (0.12 + Math.floor(i / 2) * 0.25),
+      rawWidth = W * (i === 4 ? 0.86 : 0.4),
+      x = mix(rx, left, t),
+      y = mix(ry, top + i * H * 0.085, t),
+      ww = mix(rawWidth, width, t);
+    const selected = i === active;
+    alpha(1 - t, () => {
+      rect(x, y + 25, ww, H * 0.17, null, faint);
+      if (i === 0 || i === 2) {
+        for (let k = 0; k < 3; k++) {
+          line(
+            [
+              [x + ww * (0.15 + k * 0.28), y + 38],
+              [x + ww * (0.15 + k * 0.28), y + H * 0.14],
+            ],
+            muted,
+          );
+        }
+      }
+      if (i === 1) {
+        for (let k = 0; k < 3; k++)
+          line(
+            [
+              [x + 10, y + 39 + k * H * 0.035],
+              [x + ww - 10, y + 39 + k * H * 0.035],
+            ],
+            muted,
+          );
+      }
+      if (i === 3 || i === 4)
+        trace(x + 12, y + 40, ww - 24, H * 0.11, i, 1, teal);
+    });
+    text(
+      "Parameter " + names[i],
+      x,
+      y + 14,
+      m ? 23 : 20,
+      selected ? ink : muted,
     );
-    text("Parameter " + names[i], x, y + 11, 20, chosen ? ink : muted);
-    alpha(at(q, 0.12, 0.2), () => {
-      const statusX = mix(x + ww * 0.1, x + ww * 0.5, normalise),
-        statusY = mix(y + 56, y + 11, normalise);
+    const sx = mix(x + 12, x + ww * 0.52, t),
+      sy = mix(y + H * 0.2, y + 14, t);
+    alpha(at(q, 0.1, 0.1), () =>
       text(
         states[i],
-        statusX,
-        statusY,
-        17,
-        states[i] === "Review" ? accent : teal,
+        sx,
+        sy,
+        m ? 21 : 18,
+        states[i] === "Failed" ? accent : teal,
+      ),
+    );
+    alpha(t, () => {
+      line(
+        [
+          [x, y + 29],
+          [x + ww, y + 29],
+        ],
+        selected ? accent : faint,
       );
-      const chipX = mix(x + ww * 0.55, x + ww * 0.78, normalise),
-        chipY = mix(y + 51, y + 6, normalise);
-      for (let j = 0; j < 4; j++)
-        line(
-          [
-            [chipX + j * 9, chipY],
-            [chipX + j * 9, chipY + Math.sin(i + j) * 10],
-          ],
-          muted,
-        );
+      trace(x + ww * 0.77, y - 4, ww * 0.22, 24, i, 1, selected ? teal : muted);
     });
-    hit((i + 0.5) / 5, left, y - 16, width, H * 0.08, "Parameter " + names[i]);
+    hit((i + 0.5) / 5, x, y - 8, ww, H * 0.085, "Parameter " + names[i]);
   }
-  alpha(at(q, 0.54, 0.15), () => {
-    const y = H * 0.69,
-      h = H * 0.2;
-    text(
-      "Parameter " + names[active] + " / retained chart context",
-      left,
-      y - 25,
-      21,
-      ink,
-    );
-    rect(left, y, width, h, null, faint);
-    trace(
-      left + 12,
-      y + 9,
-      width - 24,
-      h - 16,
-      active,
-      at(q, 0.58, 0.14),
-      teal,
-    );
-    dot(left + width * 0.65, y + h * (1 - sample(0.65, active)), 4, accent);
+  alpha(at(q, 0.57, 0.16) * (1 - alternate), () => {
+    const y = H * 0.71,
+      hh = H * 0.22;
+    text("Parameter " + names[active], left, y - 22, 22, ink);
+    rect(left, y, width, hh, null, faint);
+    trace(left + 16, y + 12, width - 32, hh - 24, active, 1, teal);
+    dot(left + width * 0.65, y + hh * (1 - sample(0.65, active)), 4, accent);
   });
-  return "Parameter " + names[active] + " · record, state and chart";
+  return "Parameter " + names[active] + " · " + states[active];
 }
 
 export function spc(d, q, f, W, H, m, hit) {
@@ -337,6 +335,7 @@ export function spc(d, q, f, W, H, m, hit) {
       ww = mix(W * 0.27, selected ? W * 0.76 : W * 0.19, focus),
       hh = mix(H * 0.17, selected ? H * 0.34 : H * 0.1, focus);
     alpha(selected ? 1 : mix(1, 0.32, focus), () => {
+      rect(x - 8, y - 8, ww + 16, hh + 16, null, faint);
       line(
         [
           [x, y + hh * 0.15],
@@ -371,7 +370,7 @@ export function spc(d, q, f, W, H, m, hit) {
             null,
             accent,
           );
-          text("Review the departure", x, y - 22, 22, ink);
+          text("Parameter " + "ABC"[active], x, y - 25, 22, ink);
           for (let j = 0; j < 30; j++) {
             const u = j / 29;
             dot(
@@ -385,16 +384,6 @@ export function spc(d, q, f, W, H, m, hit) {
       }
     });
   }
-  alpha(at(q, 0.62, 0.1), () =>
-    text(
-      "Release remains an engineering review.",
-      W * 0.5,
-      H * 0.97,
-      21,
-      muted,
-      "center",
-    ),
-  );
   for (let i = 0; i < 3; i++)
     hit(
       (i + 0.5) / 3,
@@ -404,9 +393,5 @@ export function spc(d, q, f, W, H, m, hit) {
       H * 0.78,
       "Parameter " + "ABC"[i],
     );
-  return (
-    "Parameter " +
-    "ABC"[active] +
-    " · excursion, surrounding trend and raw context"
-  );
+  return "Parameter " + "ABC"[active] + " · signal + raw observations";
 }

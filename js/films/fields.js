@@ -1,98 +1,94 @@
 import { mix, at, settle, clamp } from "./drawing.js";
 
 export function usage(d, q, f, W, H, m, hit) {
-  const { text, line, dot, arc, alpha, muted, ink, faint, accent, teal } = d;
-  const count = 60,
-    compression = at(q, 0.4, 0.24),
-    active = Math.min(2, Math.floor(f * 3));
+  const { text, line, rect, dot, arc, alpha, ink, muted, faint, accent, teal } =
+    d;
+  const active = Math.min(2, Math.floor(f * 3)),
+    compress = at(q, 0.42, 0.22),
+    inspect = at(q, 0.72, 0.1),
+    counts = [12, 18, 24];
+  const left = W * 0.23,
+    right = W * 0.91,
+    span = right - left;
   for (let lane = 0; lane < 3; lane++) {
-    const cx = m ? W * 0.55 : W * (0.19 + lane * 0.31),
-      cy = m ? H * (0.19 + lane * 0.28) : H * 0.55;
-    const r = m ? H * 0.075 : W * 0.09,
-      flowStart = m ? [W * 0.07, cy] : [cx, H * 0.09];
+    const cy = H * (0.2 + lane * 0.28),
+      count = counts[lane],
+      chosen = lane === active;
+    text(
+      "Reactor " + "ABC"[lane],
+      W * 0.04,
+      cy - 22,
+      m ? 24 : 21,
+      chosen ? ink : muted,
+    );
+    line(
+      [
+        [left, cy + 20],
+        [right, cy + 20],
+      ],
+      faint,
+    );
+    const reveal = inspect * (chosen ? 1 : 0);
     let delivered = 0;
     for (let i = 0; i < count; i++) {
-      const travel = clamp((q - 0.035 - i * 0.004 - lane * 0.018) / 0.23),
-        arrived = travel >= 1;
-      if (arrived) delivered++;
-      const ringA = -Math.PI / 2 + (i / count) * Math.PI * 2;
-      const pile = [
-        cx + ((i % 10) - 4.5) * 7,
-        cy + (Math.floor(i / 10) - 2.5) * 7,
-      ];
-      const target = [cx + Math.cos(ringA) * r, cy + Math.sin(ringA) * r];
-      const unpack = lane === active ? at(q, 0.7, 0.08) * 0.68 : 0;
-      const compress = mix(compression, 0, unpack);
-      const destination = [
-        mix(pile[0], target[0], compress),
-        mix(pile[1], target[1], compress),
-      ];
-      const x = mix(flowStart[0] + (i % 3) * 6, destination[0], travel),
-        y = mix(flowStart[1] - i * 2, destination[1], travel);
-      alpha(at(q, 0.015 + i * 0.004, 0.035), () => {
-        arc(
-          x,
-          y,
-          arrived ? mix(2.8, 2.1, compress) : 3.4,
-          arrived ? teal : muted,
-          1.1,
-        );
-      });
+      const t = at(q, 0.025 + i * 0.011 + lane * 0.02, 0.18);
+      if (t > 0.999) delivered++;
+      const hx = left + (span * (i + 0.5)) / 24,
+        hy = cy - 14 + (i % 2) * 18;
+      const tx = mix(hx, left + (span * count) / 24, compress),
+        ty = mix(hy, cy, compress);
+      const xx = mix(left - span * 0.25 - i * 3, mix(tx, hx, reveal), t),
+        yy = mix(cy - H * 0.14, mix(ty, cy + 48 + (i % 2) * 20, reveal), t);
+      alpha(
+        at(q, 0.02 + i * 0.011 + lane * 0.02, 0.07) *
+          (1 - compress * (1 - reveal) * 0.9),
+        () => arc(xx, yy, m ? 5 : 4, teal, 1.4),
+      );
     }
-    alpha(at(q, 0.28, 0.16), () => arc(cx, cy, r + 9, faint, 1));
-    alpha(compression, () => {
+    alpha(compress, () => {
+      rect(left, cy - 5, (span * delivered) / 24, 10, chosen ? accent : teal);
+      dot(left + (span * delivered) / 24, cy, 5, chosen ? accent : teal);
       text(
         String(delivered),
-        cx,
-        cy + 10,
-        m ? 28 : 42,
-        active === lane ? accent : ink,
-        "center",
-      );
-      text("illustrated events", cx, cy + r + 42, 16, muted, "center");
-      text("Reactor " + "ABC"[lane], cx, cy - r - 34, 21, ink, "center");
-    });
-    alpha(at(q, 0.61, 0.12), () => {
-      arc(
-        cx,
-        cy,
-        r + 20,
-        active === lane ? accent : faint,
-        active === lane ? 2 : 1,
-        -Math.PI * 0.65,
-        Math.PI * 0.65,
+        right,
+        cy - 20,
+        m ? 34 : 32,
+        chosen ? accent : ink,
+        "right",
       );
     });
+    alpha(reveal, () =>
+      line(
+        [
+          [left, cy + 37],
+          [left, cy + 86],
+          [left + span, cy + 86],
+        ],
+        faint,
+      ),
+    );
     hit(
       (lane + 0.5) / 3,
-      cx - r - 30,
-      cy - r - 30,
-      r * 2 + 60,
-      r * 2 + 60,
+      W * 0.03,
+      cy - H * 0.1,
+      W * 0.93,
+      H * 0.27,
       "Reactor " + "ABC"[lane],
     );
   }
-  alpha(at(q, 0.63, 0.1), () =>
-    text(
-      "Historical activity stays behind the count.",
-      W * 0.5,
-      H * 0.97,
-      20,
-      muted,
-      "center",
-    ),
+  return (
+    "Reactor " + "ABC"[active] + " · " + counts[active] + " illustrated events"
   );
-  return "Reactor " + "ABC"[active] + " · activity behind its usage state";
 }
 
 export function pathfinder(d, q, f, W, H, m, hit) {
   const {
     text,
     line,
-    path,
-    dot,
     rect,
+    dot,
     trace,
+    path,
     alpha,
     ink,
     muted,
@@ -100,92 +96,92 @@ export function pathfinder(d, q, f, W, H, m, hit) {
     accent,
     teal,
   } = d;
-  const narrow = at(q, 0.24, 0.37),
-    chart = at(q, 0.61, 0.13),
-    active = Math.min(4, Math.floor(f * 5)),
-    recall = q > 0.75 && active < 2;
-  const root = [W * 0.05, H * 0.48],
-    wcX = W * 0.24,
-    groupX = W * 0.45,
-    paramX = W * 0.68;
-  const selectedWC = 0,
-    selectedGroup = 1,
-    selectedParam = Math.max(0, active - 2);
-  dot(...root, 5, ink);
-  for (let wc = 0; wc < 2; wc++) {
-    const yy = H * (0.25 + wc * 0.46),
-      selected = wc === selectedWC,
-      opacity = selected ? 1 : 1 - at(q, 0.25, 0.14) * (recall ? 0.65 : 0.94);
-    alpha(opacity, () => {
-      path(root, [wcX, yy], selected ? teal : faint, 1.3, at(q, 0.02, 0.14));
-      dot(wcX, yy, 5, teal);
-      text("Workcentre " + "AB"[wc], wcX, yy - 23, 17, muted, "center");
-      for (let g = 0; g < 3; g++) {
-        const y = yy + (g - 1) * H * 0.12,
-          keep = selected && g === selectedGroup,
-          fade = keep ? 1 : 1 - at(q, 0.35, 0.15) * (recall ? 0.35 : 0.95);
-        alpha(fade, () => {
-          path(
-            [wcX, yy],
-            [groupX, y],
-            keep ? accent : faint,
-            1.2,
-            at(q, 0.06 + g * 0.018, 0.17),
+  const active = Math.min(2, Math.floor(f * 3));
+  const columns = [
+    ["Workcentre A", "Workcentre B"],
+    ["Group 1", "Group 2", "Group 3", "Group 4"],
+    ["Parameter A", "Parameter M", "Parameter Y"],
+  ];
+  const selected = [0, 1, active],
+    gates = [at(q, 0.14, 0.15), at(q, 0.3, 0.16), at(q, 0.47, 0.14)];
+  const positions = [];
+  columns.forEach((names, col) => {
+    const x = m ? W * (0.08 + col * 0.27) : W * (0.05 + col * 0.22),
+      y = H * (m ? 0.16 : 0.22),
+      ww = W * (m ? 0.24 : 0.18),
+      rh = m ? H * 0.063 : H * 0.1;
+    text(
+      ["Workcentre", "Chart group", "Parameter"][col],
+      x,
+      y - 34,
+      m ? 21 : 18,
+      muted,
+    );
+    names.forEach((name, i) => {
+      const selectedRow = selected[col] === i,
+        yy = y + i * rh,
+        visible = selectedRow ? 1 : 1 - gates[col] * 0.88;
+      alpha(visible, () => {
+        line(
+          [
+            [x, yy + rh * 0.72],
+            [x + ww, yy + rh * 0.72],
+          ],
+          faint,
+        );
+        text(
+          m ? name.split(" ").at(-1) : name,
+          x + 10,
+          yy + rh * 0.42,
+          m ? 24 : 20,
+          selectedRow ? ink : muted,
+        );
+      });
+      if (selectedRow) {
+        positions.push([x, yy + rh * 0.38, x + ww]);
+        alpha(gates[col], () => {
+          line(
+            [
+              [x, yy + 6],
+              [x, yy + rh * 0.66],
+            ],
+            accent,
+            2,
           );
-          dot(groupX, y, 4, keep ? accent : muted);
-          if (keep || q < 0.38)
-            text("Group " + (g + 1), groupX, y - 17, 16, muted, "center");
-          for (let j = 0; j < 3; j++) {
-            const py = y + (j - 1) * H * 0.033,
-              target = keep && j === selectedParam;
-            alpha(target ? 1 : 1 - at(q, 0.46, 0.15) * 0.9, () => {
-              path(
-                [groupX, y],
-                [paramX, py],
-                target ? accent : faint,
-                1.4,
-                at(q, 0.13 + j * 0.015, 0.2),
-              );
-              dot(paramX, py, target ? 5 : 2.5, target ? accent : muted);
-            });
-          }
+          dot(x + ww - 4, yy + rh * 0.38, 3, accent);
         });
       }
+      if (col === 2) hit((i + 0.5) / 3, x, yy, ww, rh, name);
     });
-  }
-  const y = H * 0.25 + (selectedParam - 1) * H * 0.033;
-  alpha(chart, () => {
-    const x = m ? W * 0.34 : W * 0.75,
-      yy = m ? H * 0.67 : H * 0.47,
-      ww = m ? W * 0.6 : W * 0.22,
-      hh = H * 0.27;
-    path([paramX, y], [x + ww * 0.12, yy], accent, 1.7);
-    rect(x, yy, ww, hh, null, faint);
-    trace(x + 12, yy + 20, ww - 24, hh - 35, selectedParam, chart, teal);
-    text("Parameter " + ["A", "M", "Y"][selectedParam], x, yy - 18, 19, ink);
   });
-  for (let i = 0; i < 5; i++)
-    hit(
-      (i + 0.5) / 5,
-      W * (0.1 + i * 0.16),
-      H * 0.09,
-      W * 0.16,
-      H * 0.8,
-      [
-        "Workcentre",
-        "Chart group",
-        "Parameter A",
-        "Parameter M",
-        "Parameter Y",
-      ][i],
+  for (let i = 0; i < 2; i++)
+    alpha(gates[i], () =>
+      path(
+        [positions[i][2], positions[i][1]],
+        [positions[i + 1][0], positions[i + 1][1]],
+        teal,
+        1.2,
+        gates[i + 1],
+      ),
     );
-  return [
-    "Recall the workcentre branches",
-    "Recall the chart groups",
-    "Parameter A",
-    "Parameter M",
-    "Parameter Y",
-  ][active];
+  const appear = at(q, 0.62, 0.12),
+    x = m ? W * 0.08 : W * 0.76,
+    y = m ? H * 0.58 : H * 0.28,
+    ww = m ? W * 0.84 : W * 0.21,
+    hh = m ? H * 0.3 : H * 0.4;
+  alpha(appear, () => {
+    path([positions[2][2], positions[2][1]], [x, y + hh * 0.5], accent, 1.3);
+    rect(x, y, ww, hh, d.wash, faint);
+    text(
+      "Parameter " + ["A", "M", "Y"][active],
+      x + 15,
+      y + 32,
+      m ? 24 : 19,
+      ink,
+    );
+    trace(x + 16, y + 50, ww - 32, hh - 70, active, appear, teal);
+  });
+  return "A / Group 2 / Parameter " + ["A", "M", "Y"][active];
 }
 
 export function diagnose(d, q, f, W, H, m, hit) {
@@ -236,7 +232,7 @@ export function diagnose(d, q, f, W, H, m, hit) {
             root,
             [midX, y],
             i === active ? accent : j ? teal : faint,
-            i === active ? 1.7 : 0.9,
+            i === active ? 2.1 : 0.8,
           ),
         );
         dot(midX, y, kept ? 4 : 2.5, kept ? muted : faint);
@@ -253,7 +249,6 @@ export function diagnose(d, q, f, W, H, m, hit) {
       words.forEach((word, k) =>
         text(word, endX + 15, y + k * 24, 18, chosen ? ink : muted),
       );
-      text("CHECK", endX + 15, y + (m ? 65 : 32), 14, accent);
     });
     hit((i + 0.5) / 3, midX, y - H * 0.11, W - midX, H * 0.23, check);
   });
@@ -262,9 +257,7 @@ export function diagnose(d, q, f, W, H, m, hit) {
   }
   alpha(at(q, 0.64, 0.1), () =>
     text(
-      m
-        ? "Checks to investigate. Not a confirmed cause."
-        : "Evidence narrows the checks. It does not confirm a cause.",
+      m ? "Recommended checks" : "Recommended checks · no confirmed cause",
       W * 0.5,
       H * 0.97,
       m ? 18 : 21,
@@ -272,9 +265,7 @@ export function diagnose(d, q, f, W, H, m, hit) {
       "center",
     ),
   );
-  return (
-    checks[active] + " · supporting process and clean observations retained"
-  );
+  return checks[active] + " · recommended check";
 }
 
 export function configuration(d, q, f, W, H, m, hit) {
@@ -291,112 +282,92 @@ export function configuration(d, q, f, W, H, m, hit) {
     accent,
     teal,
   } = d;
-  const compact = at(q, 0.4, 0.23),
-    active = Math.min(2, Math.floor(f * 3)),
-    gap = W * 0.16;
+  const compact = at(q, 0.38, 0.24),
+    align = at(q, 0.15, 0.22),
+    active = Math.min(2, Math.floor(f * 3));
   const labels = ["Popup", "EnableShow", "Number"],
     values = [
       ["0", "—"],
       ["1", "0"],
       ["—", "−1"],
     ];
-  const parentY = H * 0.22;
   for (let side = 0; side < 2; side++) {
-    const x = side ? W * 0.59 : W * 0.05,
-      ww = W * 0.36,
-      align = settle((q - 0.16 - side * 0.035) / 0.3),
-      offset = (1 - align) * (side ? H * 0.11 : 0);
-    text(side ? "Target" : "Reference", x, H * 0.08, 20, muted);
-    text("Devices.XML", x, H * 0.15, 22, ink);
-    line(
-      [
-        [x + 8, H * 0.17],
-        [x + 8, H * 0.85],
-      ],
-      faint,
-    );
-    for (let group = 0; group < 4; group++) {
-      const keep = group === 1,
-        rawY = H * (0.23 + group * 0.15),
-        endY = H * (0.18 + group * 0.026),
-        y = mix(rawY, endY, compact) + offset;
-      const yy = keep ? H * 0.39 + offset : y;
-      alpha(keep ? 1 : 1 - compact * 0.82, () => {
+    const x = W * (side ? 0.56 : 0.04),
+      ww = W * 0.4,
+      offset = (1 - align) * (side ? H * 0.09 : 0);
+    text(side ? "Target" : "Reference", x, H * 0.055, 20, muted);
+    text("Devices.XML", x, H * 0.12, 22, ink);
+    for (let g = 0; g < 6; g++) {
+      const chosen = g === 2,
+        y =
+          mix(H * (0.18 + g * 0.12), H * (0.17 + g * 0.025), compact) + offset;
+      alpha(chosen ? 1 : 1 - compact * 0.85, () => {
         line(
           [
-            [x + 8, yy],
-            [x + 30, yy],
-          ],
-          muted,
-        );
-        dot(x + 30, yy, 3, teal);
-        alpha(keep ? 1 : 1 - compact, () =>
-          text(
-            keep
-              ? m
-                ? "EH35Fault"
-                : "ExHeating.EH35Fault"
-              : "Device branch " + (group + 1),
-            x + (m ? 30 : 43),
-            yy + 5,
-            m ? 18 : 19,
-            keep ? ink : muted,
-          ),
-        );
-        if (!keep)
-          for (let k = 0; k < 3; k++)
-            line(
-              [
-                [x + 43, yy + 16 + k * 8 * (1 - compact)],
-                [x + ww * 0.78, yy + 16 + k * 8 * (1 - compact)],
-              ],
-              faint,
-            );
-      });
-    }
-    labels.forEach((name, i) => {
-      const y = H * (0.5 + i * 0.125) + offset,
-        chosen = i === active;
-      alpha(at(q, 0.5 + i * 0.025, 0.12), () => {
-        line(
-          [
-            [x + 31, H * 0.41 + offset],
-            [x + 31, y],
-            [x + 46, y],
+            [x + 6, H * 0.15],
+            [x + 6, y],
+            [x + 22, y],
           ],
           faint,
         );
-        text(name, x + 50, y + 5, 20, chosen ? ink : muted);
-        text(values[i][side], x + ww, y + 5, 26, accent, "right");
-        if (chosen)
+        for (let k = 0; k < 4; k++) {
+          const yy = y + 11 + k * 7 * (1 - compact),
+            xx = x + ww * (0.22 + (k % 2) * 0.13);
           line(
             [
-              [x + 46, y + 18],
-              [x + ww, y + 18],
+              [x + 22, y],
+              [x + 22, yy],
+              [xx, yy],
+            ],
+            faint,
+          );
+          dot(xx, yy, 2, teal);
+        }
+      });
+    }
+    const y = H * 0.43 + offset;
+    alpha(at(q, 0.32, 0.18), () => {
+      line(
+        [
+          [x + 6, H * 0.15],
+          [x + 6, y],
+          [x + 24, y],
+        ],
+        muted,
+      );
+      text("ExHeating", x + 24, y - 24, m ? 22 : 21, muted);
+      text("EH35Fault", x + 24, y + 4, m ? 24 : 23, ink);
+    });
+    labels.forEach((name, i) => {
+      const yy = H * (0.58 + i * 0.125) + offset,
+        selected = i === active;
+      alpha(at(q, 0.5 + i * 0.03, 0.12), () => {
+        line(
+          [
+            [x + 24, y + 14],
+            [x + 24, yy],
+            [x + 39, yy],
+          ],
+          selected ? accent : faint,
+        );
+        text(name, x + 43, yy + 6, m ? 22 : 21, selected ? ink : muted);
+        text(values[i][side], x + ww, yy + 6, 24, accent, "right");
+        if (selected)
+          line(
+            [
+              [x + 43, yy + 19],
+              [x + ww, yy + 19],
             ],
             accent,
-            1.4,
+            1.2,
           );
       });
-      hit((i + 0.5) / 3, x, y - 22, ww, 65, name);
+      hit((i + 0.5) / 3, x, yy - 28, ww, H * 0.12, name);
     });
   }
-  alpha(at(q, 0.59, 0.11), () => {
-    const y = H * (0.5 + active * 0.125);
-    path([W * 0.43, y], [W * 0.59, y], accent, 1.6);
-    text(
-      ["Removed", "Changed", "Added"][active],
-      W * 0.5,
-      H * 0.92,
-      23,
-      accent,
-      "center",
-    );
+  alpha(at(q, 0.65, 0.1), () => {
+    const y = H * (0.58 + active * 0.125);
+    path([W * 0.445, y], [W * 0.56, y], accent, 1.3);
   });
-  return (
-    "ExHeating.EH35Fault / " +
-    labels[active] +
-    " · " +
-    values[active].join(" → ")
-  );
+  return labels[active] + " · " + values[active].join(" → ") + " / EH35Fault";
 }

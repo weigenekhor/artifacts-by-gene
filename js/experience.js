@@ -66,7 +66,7 @@ function stopPlayback() {
   if (!playback) return;
   const b = features[playback.index].querySelector(".study-play");
   b.setAttribute("aria-pressed", "false");
-  b.innerHTML = "<span aria-hidden=true>▷</span> Watch sequence";
+  b.innerHTML = "<span class=play-symbol aria-hidden=true></span> Play";
   playback = null;
 }
 features.forEach((el, index) =>
@@ -84,7 +84,7 @@ features.forEach((el, index) =>
     };
     el.querySelector(".study-play").setAttribute("aria-pressed", "true");
     el.querySelector(".study-play").innerHTML =
-      "<span aria-hidden=true>Ⅱ</span> Pause sequence";
+      "<span class=pause-symbol aria-hidden=true></span> Pause";
     manualProgress.set(index, 0);
     wake();
   }),
@@ -143,9 +143,21 @@ function tick(time) {
           ? 1
           : clamp(
               (y - b.top + innerHeight * 0.18) /
-                (Math.max(innerHeight * 0.7, b.height - b.stage) +
+                (Math.max(
+                  innerHeight * 0.7,
+                  b.height - b.stage - innerHeight * 0.32,
+                ) +
                   innerHeight * 0.18),
             );
+    const leaving = reduced
+      ? 1
+      : 1 -
+        ease(
+          (y - (b.top + b.height - b.stage - innerHeight * 0.08)) /
+            (innerHeight * 0.22),
+        );
+    el.style.setProperty("--film-presence", leaving);
+    el.firstElementChild.inert = !reduced && leaving < 0.05;
     studyMoving =
       studies[i].update(p, dt, reduced, manual, px, py) || studyMoving;
   });

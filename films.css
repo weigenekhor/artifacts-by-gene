@@ -1,8 +1,8 @@
-/* Shared stage and access controls. Each renderer owns its composition and clock. */
+/* Flowing stage: controls never share the visual's coordinates. */
 .instrument-film {
   --film-bg: #0c1412;
   --film-ink: #e4e8de;
-  --film-muted: #91a699;
+  --film-muted: #9aafa0;
   background: var(--film-bg);
   color: var(--film-ink);
 }
@@ -11,87 +11,82 @@
   --film-ink: #25372e;
   --film-muted: #657465;
 }
-.instrument-film .film-stage {
+.papyrus-study {
+  --film-bg: #0d1415;
+  --film-ink: #e4e7df;
+  --film-muted: #a6b8ad;
+}
+.feature .film-stage,
+.feature .papyrus-stage {
   height: calc(100svh - var(--header));
   min-height: 0;
-  overflow: hidden;
-  padding: 0;
+  padding: 12px var(--gutter) 8px;
+  display: grid;
+  grid-template-rows: 38px 70px minmax(0, 1fr) 58px 44px;
+  gap: 6px;
+  overflow: clip;
   background: var(--film-bg);
+  isolation: isolate;
+  opacity: var(--film-presence, 1);
 }
-.film-meta {
-  position: absolute;
-  top: 24px;
-  left: var(--gutter);
-  right: var(--gutter);
+.film-stage > *,
+.papyrus-stage > * {
+  min-width: 0;
+}
+.film-meta,
+.papyrus-meta {
+  position: static;
   display: flex;
-  gap: 22px;
   align-items: center;
-  color: var(--film-muted);
-  font-size: 11px;
-}
-.film-meta h2 {
+  gap: 20px;
   font-size: 12px;
-  font-weight: 500;
+  color: var(--film-muted);
+  opacity: var(--film-presence, 1);
+}
+.film-meta h2,
+.papyrus-meta h2 {
+  font-size: 14px;
+  font-weight: 450;
   letter-spacing: 0;
   color: var(--film-ink);
 }
-.film-meta .study-menu {
+.film-meta .study-menu,
+.papyrus-meta .study-menu {
   margin-left: auto;
+  min-height: 38px;
+  font-size: 12px;
   color: var(--film-muted);
-  font-size: 10px;
 }
-.film-heading {
-  position: absolute;
-  left: var(--gutter);
-  right: var(--gutter);
-  top: 72px;
+.film-heading,
+.papyrus-heading {
+  position: static;
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 30px;
+  align-items: center;
   pointer-events: none;
+  gap: 0;
 }
-.film-statement {
-  font-size: clamp(28px, 3vw, 58px);
-  font-weight: 450;
-  line-height: 1.12;
-  letter-spacing: -0.045em;
-  max-width: 24ch;
+.film-statement,
+.papyrus-statement {
   margin: 0;
+  font-size: clamp(26px, 2.4vw, 46px);
+  line-height: 1.13;
+  font-weight: 450;
+  letter-spacing: -0.04em;
   text-wrap: balance;
+  max-width: 34ch;
 }
-.film-heading > p {
-  font-size: 11px;
-  max-width: 210px;
-  color: var(--film-muted);
-  text-align: right;
-  line-height: 1.5;
-}
-.instrument-film[data-layout="topology"] .film-heading,
-.instrument-film[data-layout="extraction"] .film-heading {
-  flex-direction: row-reverse;
-}
-.instrument-film[data-layout="topology"] .film-statement,
-.instrument-film[data-layout="extraction"] .film-statement {
-  text-align: right;
-}
-.instrument-film[data-layout="surface"] .film-heading,
-.instrument-film[data-layout="physical"] .film-heading {
-  justify-content: center;
-  text-align: center;
-}
-.instrument-film[data-layout="surface"] .film-heading > p,
-.instrument-film[data-layout="physical"] .film-heading > p {
+.papyrus-chapter,
+.papyrus-progress-label {
   display: none;
 }
-.film-view {
-  position: absolute;
-  left: var(--gutter);
-  right: var(--gutter);
-  top: 175px;
-  bottom: 147px;
+.film-view,
+.papyrus-view {
+  position: relative;
+  inset: auto;
   overflow: hidden;
   isolation: isolate;
+  min-height: 0;
+  opacity: var(--film-presence, 1);
 }
 .film-capture {
   position: absolute;
@@ -101,7 +96,6 @@
   transform-origin: 0 0;
   max-width: none;
   overflow: hidden;
-  box-shadow: 0 18px 65px #0003;
 }
 .film-capture img {
   display: block;
@@ -124,111 +118,114 @@
   height: 100%;
   opacity: 0;
 }
-.instrument-film .film-operation canvas {
+.film-operation canvas {
   display: block;
   width: 100%;
   height: 100%;
 }
-.film-inspection {
-  position: absolute;
-  bottom: 84px;
-  left: var(--gutter);
-  right: var(--gutter);
+.film-inspection,
+.papyrus-inspection {
+  position: static;
   display: flex;
-  gap: 28px;
+  gap: 24px;
   align-items: center;
-  min-height: 48px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
   opacity: 0;
-  border-top: 1px solid color-mix(in srgb, var(--film-muted), transparent 75%);
-  padding-top: 8px;
 }
 .film-inspection label {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--film-muted);
-  min-width: 170px;
+  min-width: 185px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0;
 }
 .film-focus {
   accent-color: #bd956f;
-  height: 20px;
-  max-width: 240px;
+  height: 28px;
+  width: 210px;
+  max-width: 100%;
   cursor: ew-resize;
 }
-.film-reading {
-  font-size: 11px;
+.film-reading,
+.papyrus-reading {
+  font-size: 12px;
+  line-height: 1.35;
   color: var(--film-ink);
-  line-height: 1.5;
-  max-width: 52ch;
+  max-width: 44ch;
 }
-.film-alternate {
+.film-alternate,
+.papyrus-differences button {
   margin-left: auto;
-  border: 1px solid var(--film-muted);
-  font-size: 10px;
+  border: 1px solid color-mix(in srgb, var(--film-muted), transparent 60%);
+  font-size: 12px;
   color: var(--film-ink);
-  padding: 9px 12px;
-  min-height: 36px;
+  padding: 8px 12px;
+  min-height: 40px;
   background: transparent;
 }
 .film-alternate[aria-pressed="true"] {
   background: #bfa57b2a;
 }
-.film-foot {
-  position: absolute;
-  bottom: 58px;
-  left: var(--gutter);
-  right: var(--gutter);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  color: var(--film-muted);
-  font-size: 9px;
-  line-height: 1.5;
-}
-.film-foot button {
-  font-size: 10px;
-  color: var(--film-ink);
-  padding: 8px 0;
-}
-.film-transport {
-  position: absolute;
-  bottom: 15px;
-  left: var(--gutter);
-  right: var(--gutter);
-  display: flex;
-  gap: 25px;
-  align-items: center;
-  height: 34px;
-}
-.instrument-film .study-play {
+.film-transport,
+.papyrus-transport {
   position: static;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  height: auto;
+  opacity: var(--film-presence, 1);
+  border-top: 1px solid color-mix(in srgb, var(--film-muted), transparent 80%);
+}
+.feature .study-play {
+  position: static;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex: none;
   background: none;
   border: 0;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--film-ink);
-  padding: 8px 0;
-  min-height: 34px;
+  padding: 0;
+  min-height: 44px;
 }
-.instrument-film .study-control {
+.feature .study-control {
   position: static;
   flex: 1;
   width: auto;
   margin: 0;
+  min-width: 0;
 }
-.instrument-film .study-control input {
+.feature .study-control input {
   width: 100%;
-  height: 26px;
+  height: 32px;
   max-width: none;
   accent-color: #bc9671;
   cursor: ew-resize;
 }
-.film-phase {
-  font-size: 10px;
-  min-width: 70px;
-  text-align: right;
-  color: var(--film-muted);
+.film-original,
+.papyrus-original {
+  min-height: 44px;
+  font-size: 12px;
+  color: var(--film-ink);
+  white-space: nowrap;
+  padding: 0;
+}
+.play-symbol {
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 6px solid currentColor;
+}
+.pause-symbol {
+  width: 7px;
+  height: 9px;
+  border-left: 2px solid currentColor;
+  border-right: 2px solid currentColor;
 }
 .film-description,
 .film-sr {
@@ -240,182 +237,165 @@
   clip-path: inset(50%);
   white-space: nowrap;
 }
+.papyrus-inspection-cue {
+  display: none;
+}
+.papyrus-differences {
+  gap: 10px;
+}
+.papyrus-differences button {
+  margin: 0;
+}
 .creator-account #creator-title {
   font-size: clamp(36px, 3.8vw, 65px);
   max-width: 14ch;
   line-height: 1.1;
   text-wrap: balance;
 }
+.creator-account {
+  position: relative;
+  isolation: isolate;
+}
+/* Resting planes show the pixels, not sixteen simultaneous captions. */
+.universe-plane > span {
+  background: transparent;
+  border: 0;
+  opacity: var(--label-arrival, 0.16);
+  transition: opacity 0.22s;
+}
+.universe-plane:focus-visible > span,
+.universe-plane:hover > span {
+  opacity: 1;
+}
 @media (max-width: 700px) {
-  .film-meta {
-    top: 18px;
-    font-size: 9px;
-    gap: 13px;
+  .feature .film-stage,
+  .feature .papyrus-stage {
+    padding: 8px var(--gutter) 6px;
+    grid-template-rows: 36px 74px minmax(0, 1fr) 88px 44px;
+    gap: 4px;
   }
-  .film-meta h2 {
-    font-size: 10px;
+  .film-meta,
+  .papyrus-meta {
+    gap: 12px;
+    font-size: 11px;
   }
-  .film-meta .study-menu {
-    font-size: 8px;
+  .film-meta h2,
+  .papyrus-meta h2 {
+    font-size: 12px;
   }
-  .film-heading {
-    top: 57px;
-    display: block !important;
-    text-align: left !important;
+  .film-meta .study-menu,
+  .papyrus-meta .study-menu {
+    font-size: 11px;
   }
-  .film-statement {
-    font-size: 29px;
-    max-width: 23ch;
-    text-align: left !important;
-  }
-  .film-heading > p {
-    display: none;
-  }
-  .film-view {
-    top: 145px;
-    bottom: 178px;
+  .film-statement,
+  .papyrus-statement {
+    font-size: 26px;
+    line-height: 1.14;
   }
   .film-inspection {
-    bottom: 78px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 7px;
-    min-height: 80px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2px 14px;
     align-content: center;
   }
   .film-inspection label {
-    font-size: 9px;
     min-width: 0;
+    font-size: 11px;
+  }
+  .film-focus {
+    width: 100%;
+    height: 26px;
   }
   .film-reading {
-    font-size: 9px;
+    grid-column: 1;
+    font-size: 11px;
   }
   .film-alternate {
-    grid-column: 1/-1;
+    grid-column: 2;
+    grid-row: 1/3;
+    font-size: 11px;
+    padding: 8px;
+  }
+  .film-transport,
+  .papyrus-transport {
+    gap: 14px;
+  }
+  .feature .study-play,
+  .film-original,
+  .papyrus-original {
+    font-size: 11px;
+  }
+  .papyrus-inspection {
+    flex-wrap: wrap;
+    gap: 4px;
+    align-content: center;
+  }
+  .papyrus-reading {
+    width: 100%;
+    font-size: 12px;
+  }
+  .papyrus-differences {
     margin: 0;
-    min-height: 30px;
-    font-size: 9px;
+    width: 100%;
+  }
+  .papyrus-differences button {
+    flex: 1;
     padding: 6px;
-  }
-  .film-foot {
-    bottom: 51px;
-    font-size: 7px;
-  }
-  .film-foot button {
-    font-size: 8px;
-  }
-  .film-transport {
-    bottom: 10px;
-    gap: 12px;
-  }
-  .instrument-film .study-play {
-    font-size: 10px;
-  }
-  .film-phase {
-    min-width: 45px;
-    font-size: 8px;
+    font-size: 11px;
   }
   .creator-account #creator-title {
     font-size: 40px;
     max-width: 15ch;
   }
 }
-@media (max-height: 700px) and (min-width: 701px) {
-  .film-meta {
-    top: 14px;
+@media (max-height: 600px) and (min-width: 701px) {
+  .feature .film-stage,
+  .feature .papyrus-stage {
+    grid-template-rows: 30px 44px minmax(0, 1fr) 42px 38px;
+    gap: 2px;
+    padding-top: 4px;
   }
-  .film-heading {
-    top: 45px;
-  }
-  .film-statement {
-    font-size: 30px;
-  }
-  .film-view {
-    top: 120px;
-    bottom: 131px;
-  }
-  .film-reading {
-    font-size: 10px;
-  }
-  .film-inspection {
-    bottom: 74px;
-  }
-  .film-foot {
-    bottom: 48px;
-  }
-  .film-transport {
-    bottom: 9px;
-  }
-}
-@media (max-height: 450px) {
-  .film-meta {
-    top: 12px;
-  }
-  .film-heading {
-    top: 39px;
-  }
-  .film-statement {
-    font-size: 23px;
-  }
-  .film-view {
-    top: 90px;
-    bottom: 80px;
-  }
-  .film-inspection {
-    bottom: 48px;
-    min-height: 27px;
-    padding: 0;
-    border: 0;
+  .film-statement,
+  .papyrus-statement {
+    font-size: 24px;
   }
   .film-inspection label {
-    font-size: 8px;
     flex-direction: row;
+    gap: 10px;
     align-items: center;
   }
   .film-focus {
-    width: 90px;
-  }
-  .film-reading {
-    font-size: 8px;
+    width: 130px;
   }
   .film-alternate {
-    font-size: 8px;
-    min-height: 25px;
-    padding: 4px;
-  }
-  .film-foot {
-    display: none;
-  }
-  .film-transport {
-    bottom: 6px;
+    min-height: 34px;
   }
 }
 .reduced .instrument-film,
 html:not(.enhanced) .instrument-film {
   height: auto;
 }
-.reduced .instrument-film .film-stage,
-html:not(.enhanced) .instrument-film .film-stage {
+.reduced .feature .film-stage,
+html:not(.enhanced) .feature .film-stage {
   position: relative;
   top: 0;
   height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   padding: 32px var(--gutter);
   overflow: visible;
 }
-.reduced .film-meta,
 .reduced .film-heading,
-html:not(.enhanced) .film-meta,
 html:not(.enhanced) .film-heading {
-  position: static;
-  margin-bottom: 30px;
+  display: none;
 }
 .reduced .film-view,
 html:not(.enhanced) .film-view {
   position: relative;
-  inset: auto;
   display: flex;
   flex-direction: column;
-  gap: 45px;
+  gap: 32px;
   overflow: visible;
 }
 .reduced .film-capture,
@@ -438,15 +418,13 @@ html:not(.enhanced) .film-capture img {
   opacity: 1;
   transform: none !important;
 }
-.reduced .film-inspection,
-.reduced .film-foot,
-html:not(.enhanced) .film-foot {
-  position: static;
-  margin-top: 25px;
+.reduced .film-inspection {
   opacity: 1;
 }
-.reduced .film-transport,
-html:not(.enhanced) .film-transport,
+.reduced .film-transport .study-play,
+.reduced .film-transport .study-control,
+html:not(.enhanced) .film-transport .study-play,
+html:not(.enhanced) .film-transport .study-control,
 html:not(.enhanced) .film-operation,
 html:not(.enhanced) .film-inspection {
   display: none;
@@ -458,38 +436,30 @@ html:not(.enhanced) .film-description {
   width: auto;
   height: auto;
   white-space: normal;
-  margin: 30px 0;
-  line-height: 1.8;
+  margin: 0;
+  line-height: 1.7;
   font-size: 14px;
   color: var(--film-muted);
   max-width: 70ch;
 }
-@media (max-width: 700px) and (max-height: 700px) {
-  .film-heading {
-    top: 52px;
-  }
-  .film-statement {
-    font-size: 26px;
-  }
-  .film-view {
-    top: 125px;
-    bottom: 136px;
-  }
-  .film-inspection {
-    bottom: 65px;
-    min-height: 61px;
-    gap: 4px;
-  }
-  .film-foot {
-    bottom: 40px;
-  }
-  .film-transport {
-    bottom: 2px;
-  }
-  .film-inspection:has(.film-alternate) {
-    min-height: 84px;
-  }
-  .instrument-film:has(.film-alternate) .film-view {
-    bottom: 160px;
-  }
+
+.reduced .feature .papyrus-stage,
+html:not(.enhanced) .feature .papyrus-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.reduced .papyrus-heading,
+html:not(.enhanced) .papyrus-heading {
+  display: none;
+}
+.reduced .papyrus-transport,
+html:not(.enhanced) .papyrus-transport {
+  display: flex;
+}
+.reduced .papyrus-transport .study-play,
+.reduced .papyrus-transport .study-control,
+html:not(.enhanced) .papyrus-transport .study-play,
+html:not(.enhanced) .papyrus-transport .study-control {
+  display: none;
 }

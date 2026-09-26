@@ -6,7 +6,8 @@
     "test": "node tests/browser.mjs",
     "build": "node scripts/build.mjs",
     "test:assets": "node tests/assets.mjs",
-    "test:evidence": "node tests/evidence.mjs"
+    "test:evidence": "node tests/evidence.mjs",
+    "test:production": "node tests/production.mjs"
   },
   "devDependencies": {
     "axe-core": "4.10.3",

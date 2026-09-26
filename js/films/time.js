@@ -143,18 +143,18 @@ export function history(d, q, f, W, H, m, hit) {
 
 export function schedule(d, q, f, W, H, m, hit) {
   const { text, line, rect, dot, alpha, muted, ink, faint, accent, teal } = d;
-  const left = W * (m ? 0.23 : 0.17),
-    width = W * (m ? 0.7 : 0.77),
-    top = H * 0.17,
-    step = H * 0.126;
-  const names = ["A-M1", "D-M1", "A-M2", "B-M1", "C-M1"],
+  const left = W * (m ? 0.2 : 0.16),
+    width = W * (m ? 0.73 : 0.77),
+    top = H * 0.18,
+    step = H * 0.147,
+    names = ["A-M1", "D-M1", "A-M2", "B-M1", "C-M1"],
     dates = [0, 0, 0.2, 0.4, 0.8];
   const shared = q < 0.73 ? at(q, 0.58, 0.16) : f;
-  alpha(at(q, 0.1, 0.2), () => {
+  alpha(at(q, 0.15, 0.18), () => {
     line(
       [
         [left, H * 0.1],
-        [left + width * at(q, 0.1, 0.2), H * 0.1],
+        [left + width, H * 0.1],
       ],
       muted,
     );
@@ -163,65 +163,56 @@ export function schedule(d, q, f, W, H, m, hit) {
         String(20 + i),
         left + (width * i) / 5,
         H * 0.07,
-        17,
+        20,
         muted,
         "center",
       );
   });
   names.forEach((n, i) => {
-    const sync = settle((q - 0.24 - i * 0.029) / 0.29),
-      offset = (1 - sync) * [0.19, -0.13, 0.23, -0.07, 0.06][i] * width,
-      y = top + step * i;
-    text(m ? n : "Reactor " + n, W * 0.025, y + 22, 17, muted);
+    const sync = at(q, 0.24 + i * 0.045, 0.26),
+      span = width * mix([0.65, 0.42, 0.78, 0.56, 0.7][i], 1, sync),
+      x = left + width * [0.12, 0.46, 0.03, 0.32, 0.08][i] * (1 - sync),
+      y = top + i * step;
+    text(n, W * 0.02, y + 22, m ? 23 : 21, ink);
+    alpha(1 - sync, () => {
+      rect(x - 8, y - 7, span + 16, step * 0.71, null, faint);
+      text("20", x, y + step * 0.84, 16, muted);
+      text("25", x + span, y + step * 0.84, 16, muted, "right");
+    });
     line(
       [
-        [left + offset, y + 35],
-        [left + width + offset, y + 35],
+        [x, y + 35],
+        [x + span, y + 35],
       ],
       faint,
     );
     for (let j = 0; j < 6; j++)
       line(
         [
-          [left + offset + (width * j) / 5, y + 31],
-          [left + offset + (width * j) / 5, y + 39],
+          [x + (span * j) / 5, y + 31],
+          [x + (span * j) / 5, y + 39],
         ],
         faint,
       );
-    const x = left + offset + dates[i] * width,
-      active = Math.abs(shared - dates[i]) < 0.19;
-    rect(x, y, width * 0.13, 29, active && q > 0.64 ? accent : teal);
-    dot(x, y + 35, 3, teal);
-    alpha(at(q, 0.43 + i * 0.017, 0.14), () =>
-      text("20–25 Sep", left + width, y + 64, 14, muted, "right"),
-    );
-    hit(i / 4, left, y, width, step, n);
+    const xx = x + dates[i] * span,
+      active = Math.abs(shared - dates[i]) < 0.16 && q > 0.65;
+    rect(xx, y, span * 0.13, 29, active ? accent : teal);
+    dot(xx, y + 35, 3, teal);
   });
-  alpha(at(q, 0.57, 0.1), () => {
+  alpha(at(q, 0.62, 0.12), () => {
     const x = left + width * shared;
-    rect(
-      x - width * 0.065,
-      top - 10,
-      width * 0.13,
-      step * 4 + 64,
-      m ? "#be976717" : "#be976711",
-    );
+    rect(x - width * 0.05, top - 10, width * 0.1, step * 4 + 50, "#be976715");
     line(
       [
         [x, H * 0.1],
-        [x, top + step * 4 + 76],
+        [x, top + step * 4 + 48],
       ],
       accent,
       1.4,
     );
-    names.forEach((n, i) => {
-      if (Math.abs(shared - dates[i]) < 0.19)
-        dot(x, top + step * i + 35, 5, accent);
-    });
-    text("One shared date", W * 0.5, H * 0.93, 22, ink, "center");
   });
   return (
-    "Schedule context · " + String(20 + Math.round(shared * 5)) + " September"
+    String(20 + Math.round(shared * 5)) + " September · equipment schedules"
   );
 }
 
@@ -327,7 +318,23 @@ export function planning(d, q, f, W, H, m, hit) {
       muted,
     );
   });
-  return "Due dates relative to the displayed reference date";
+  const selected = days.reduce(
+    (best, v, i) =>
+      Math.abs((now + v * span * 0.047 - left) / span - review) <
+      Math.abs((now + days[best] * span * 0.047 - left) / span - review)
+        ? i
+        : best,
+    0,
+  );
+  return (
+    names[selected] +
+    " · " +
+    (days[selected] < 0
+      ? "past due"
+      : days[selected] < 2
+        ? "due soon"
+        : "upcoming")
+  );
 }
 
 export function signals(d, q, f, W, H, m, hit, alternate) {
@@ -345,82 +352,104 @@ export function signals(d, q, f, W, H, m, hit, alternate) {
     teal,
   } = d;
   const names = ["Flow A", "Flow B", "Motor speed", "Pressure", "Temperature"],
-    left = W * (m ? 0.23 : 0.17),
-    width = W * (m ? 0.7 : 0.77),
-    top = H * 0.1,
-    row = H * 0.157;
-  const focus = q < 0.76 ? mix(0.12, 0.88, at(q, 0.59, 0.17)) : f,
-    range = mix(0.19, 0.09, alternate);
-
+    left = W * (m ? 0.23 : 0.14),
+    width = W * (m ? 0.72 : 0.81),
+    top = H * 0.055,
+    row = H * 0.177;
+  const inspect = q < 0.74 ? mix(0.17, 0.8, at(q, 0.58, 0.16)) : f,
+    lock = at(q, 0.53, 0.17),
+    range = mix(0.2, 0.08, alternate);
   names.forEach((name, i) => {
-    const sync = settle((q - 0.22 - i * 0.025) / 0.32),
-      offset = (1 - sync) * [0.14, -0.09, 0.19, -0.15, 0.05][i],
-      x = left + offset * width,
-      y = top + i * row;
+    const sync = at(q, 0.2 + i * 0.04, 0.29),
+      raw = [0.64, 0.48, 0.79, 0.54, 0.65][i],
+      rawX = [0.11, 0.38, 0.02, 0.27, 0.18][i];
+    const x = left + rawX * width * (1 - sync),
+      ww = width * mix(raw, 1, sync),
+      y = top + i * row,
+      hh = row * 0.8;
+    const local = mix([0.2, 0.74, 0.43, 0.61, 0.32][i], inspect, lock),
+      xx = x + ww * local;
     text(
       m
         ? name.replace("Motor speed", "Motor").replace("Temperature", "Temp.")
         : name,
-      W * 0.025,
-      y + row * 0.45,
-      18,
-      i === 0 ? accent : muted,
+      W * 0.02,
+      y + hh * 0.5 + 7,
+      m ? 23 : 21,
+      ink,
     );
-    const rawWidth =
-      width * (1 + (1 - sync) * [0.1, -0.07, 0.02, -0.13, 0.08][i]);
-    line(
-      [
-        [x, y + row * 0.84],
-        [x + rawWidth, y + row * 0.84],
-      ],
-      faint,
+    alpha(1 - sync * 0.83, () =>
+      rect(x - 8, y - 3, ww + 16, hh + 8, null, muted),
     );
-    trace(
-      x,
-      y,
-      rawWidth,
-      row * 0.79,
-      i,
-      at(q, 0.03 + i * 0.018, 0.23),
-      i === 0 ? accent : teal,
-      false,
-      offset,
-    );
-    for (let k = 0; k < 6; k++)
+    for (let j = 0; j < 5; j++)
       line(
         [
-          [x + (rawWidth * k) / 5, y + row * 0.84],
-          [x + (rawWidth * k) / 5, y + row * 0.89],
+          [x + (ww * j) / 4, y + hh],
+          [x + (ww * j) / 4, y + hh + 5],
         ],
         faint,
       );
-    const u = mix([0.24, 0.74, 0.41, 0.62, 0.35][i], focus, at(q, 0.53, 0.16)),
-      xx = left + width * u;
-    alpha(at(q, 0.43, 0.14), () => {
-      rect(xx - width * range * 0.5, y, width * range, row * 0.8, "#d5b27812");
+    trace(
+      x,
+      y + 3,
+      ww,
+      hh - 6,
+      i,
+      at(q, 0.02 + i * 0.025, 0.16),
+      i === 0 ? accent : teal,
+      false,
+      (1 - sync) * rawX,
+    );
+    alpha(at(q, 0.085 + i * 0.015, 0.14), () => {
+      rect(xx - (ww * range) / 2, y, ww * range, hh, "#d9b48618");
       line(
         [
           [xx, y],
-          [xx, y + row * 0.84],
+          [xx, y + hh],
         ],
         accent,
-        1.1,
+        1.2,
       );
-      dot(xx, y + row * 0.79 * (1 - sample(u, i)), 4, accent);
+      dot(
+        xx,
+        y + 3 + (hh - 6) * (1 - sample(local + (1 - sync) * rawX, i)),
+        4,
+        accent,
+      );
     });
   });
-  alpha(at(q, 0.64, 0.1), () => {
+  alpha(lock, () => {
+    const x = left + width * inspect;
     line(
       [
-        [left + width * focus, top - 14],
-        [left + width * focus, top + row * 4.85],
+        [x, top - 8],
+        [x, top + row * 4.8],
       ],
       accent,
-      1.4,
+      1.5,
     );
-    text("Shared temporal window", W * 0.5, H * 0.97, 21, ink, "center");
+    line(
+      [
+        [left, H * 0.965],
+        [left + width, H * 0.965],
+      ],
+      muted,
+    );
+    for (let i = 0; i < 11; i++)
+      line(
+        [
+          [left + (width * i) / 10, H * 0.955],
+          [left + (width * i) / 10, H * 0.973],
+        ],
+        faint,
+      );
   });
-  return `${alternate > 0.5 ? "Narrow" : "Shared"} interval · ${Math.round(focus * 100)}% through the illustrative range`;
+  return (
+    (alternate > 0.5 ? "Narrow interval" : "Shared interval") +
+    " · " +
+    Math.round(inspect * 100) +
+    "%"
+  );
 }
 
 function historyPortrait(d, q, f, W, H) {
