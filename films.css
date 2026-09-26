@@ -1,0 +1,495 @@
+/* Shared stage and access controls. Each renderer owns its composition and clock. */
+.instrument-film {
+  --film-bg: #0c1412;
+  --film-ink: #e4e8de;
+  --film-muted: #91a699;
+  background: var(--film-bg);
+  color: var(--film-ink);
+}
+.instrument-film.film-paper {
+  --film-bg: #edf0e6;
+  --film-ink: #25372e;
+  --film-muted: #657465;
+}
+.instrument-film .film-stage {
+  height: calc(100svh - var(--header));
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+  background: var(--film-bg);
+}
+.film-meta {
+  position: absolute;
+  top: 24px;
+  left: var(--gutter);
+  right: var(--gutter);
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  color: var(--film-muted);
+  font-size: 11px;
+}
+.film-meta h2 {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--film-ink);
+}
+.film-meta .study-menu {
+  margin-left: auto;
+  color: var(--film-muted);
+  font-size: 10px;
+}
+.film-heading {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  top: 72px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 30px;
+  pointer-events: none;
+}
+.film-statement {
+  font-size: clamp(28px, 3vw, 58px);
+  font-weight: 450;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  max-width: 24ch;
+  margin: 0;
+  text-wrap: balance;
+}
+.film-heading > p {
+  font-size: 11px;
+  max-width: 210px;
+  color: var(--film-muted);
+  text-align: right;
+  line-height: 1.5;
+}
+.instrument-film[data-layout="topology"] .film-heading,
+.instrument-film[data-layout="extraction"] .film-heading {
+  flex-direction: row-reverse;
+}
+.instrument-film[data-layout="topology"] .film-statement,
+.instrument-film[data-layout="extraction"] .film-statement {
+  text-align: right;
+}
+.instrument-film[data-layout="surface"] .film-heading,
+.instrument-film[data-layout="physical"] .film-heading {
+  justify-content: center;
+  text-align: center;
+}
+.instrument-film[data-layout="surface"] .film-heading > p,
+.instrument-film[data-layout="physical"] .film-heading > p {
+  display: none;
+}
+.film-view {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  top: 175px;
+  bottom: 147px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.film-capture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  transform-origin: 0 0;
+  max-width: none;
+  overflow: hidden;
+  box-shadow: 0 18px 65px #0003;
+}
+.film-capture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-width: none;
+}
+.film-source-focus {
+  position: absolute;
+  opacity: 0;
+  border: 1px solid #abbba1;
+  box-shadow: 0 0 0 1600px #060d1294;
+}
+.instrument-film .film-operation {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.instrument-film .film-operation canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.film-inspection {
+  position: absolute;
+  bottom: 84px;
+  left: var(--gutter);
+  right: var(--gutter);
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  min-height: 48px;
+  opacity: 0;
+  border-top: 1px solid color-mix(in srgb, var(--film-muted), transparent 75%);
+  padding-top: 8px;
+}
+.film-inspection label {
+  font-size: 10px;
+  color: var(--film-muted);
+  min-width: 170px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.film-focus {
+  accent-color: #bd956f;
+  height: 20px;
+  max-width: 240px;
+  cursor: ew-resize;
+}
+.film-reading {
+  font-size: 11px;
+  color: var(--film-ink);
+  line-height: 1.5;
+  max-width: 52ch;
+}
+.film-alternate {
+  margin-left: auto;
+  border: 1px solid var(--film-muted);
+  font-size: 10px;
+  color: var(--film-ink);
+  padding: 9px 12px;
+  min-height: 36px;
+  background: transparent;
+}
+.film-alternate[aria-pressed="true"] {
+  background: #bfa57b2a;
+}
+.film-foot {
+  position: absolute;
+  bottom: 58px;
+  left: var(--gutter);
+  right: var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  color: var(--film-muted);
+  font-size: 9px;
+  line-height: 1.5;
+}
+.film-foot button {
+  font-size: 10px;
+  color: var(--film-ink);
+  padding: 8px 0;
+}
+.film-transport {
+  position: absolute;
+  bottom: 15px;
+  left: var(--gutter);
+  right: var(--gutter);
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  height: 34px;
+}
+.instrument-film .study-play {
+  position: static;
+  background: none;
+  border: 0;
+  font-size: 11px;
+  color: var(--film-ink);
+  padding: 8px 0;
+  min-height: 34px;
+}
+.instrument-film .study-control {
+  position: static;
+  flex: 1;
+  width: auto;
+  margin: 0;
+}
+.instrument-film .study-control input {
+  width: 100%;
+  height: 26px;
+  max-width: none;
+  accent-color: #bc9671;
+  cursor: ew-resize;
+}
+.film-phase {
+  font-size: 10px;
+  min-width: 70px;
+  text-align: right;
+  color: var(--film-muted);
+}
+.film-description,
+.film-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.creator-account #creator-title {
+  font-size: clamp(36px, 3.8vw, 65px);
+  max-width: 14ch;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+@media (max-width: 700px) {
+  .film-meta {
+    top: 18px;
+    font-size: 9px;
+    gap: 13px;
+  }
+  .film-meta h2 {
+    font-size: 10px;
+  }
+  .film-meta .study-menu {
+    font-size: 8px;
+  }
+  .film-heading {
+    top: 57px;
+    display: block !important;
+    text-align: left !important;
+  }
+  .film-statement {
+    font-size: 29px;
+    max-width: 23ch;
+    text-align: left !important;
+  }
+  .film-heading > p {
+    display: none;
+  }
+  .film-view {
+    top: 145px;
+    bottom: 178px;
+  }
+  .film-inspection {
+    bottom: 78px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    min-height: 80px;
+    align-content: center;
+  }
+  .film-inspection label {
+    font-size: 9px;
+    min-width: 0;
+  }
+  .film-reading {
+    font-size: 9px;
+  }
+  .film-alternate {
+    grid-column: 1/-1;
+    margin: 0;
+    min-height: 30px;
+    font-size: 9px;
+    padding: 6px;
+  }
+  .film-foot {
+    bottom: 51px;
+    font-size: 7px;
+  }
+  .film-foot button {
+    font-size: 8px;
+  }
+  .film-transport {
+    bottom: 10px;
+    gap: 12px;
+  }
+  .instrument-film .study-play {
+    font-size: 10px;
+  }
+  .film-phase {
+    min-width: 45px;
+    font-size: 8px;
+  }
+  .creator-account #creator-title {
+    font-size: 40px;
+    max-width: 15ch;
+  }
+}
+@media (max-height: 700px) and (min-width: 701px) {
+  .film-meta {
+    top: 14px;
+  }
+  .film-heading {
+    top: 45px;
+  }
+  .film-statement {
+    font-size: 30px;
+  }
+  .film-view {
+    top: 120px;
+    bottom: 131px;
+  }
+  .film-reading {
+    font-size: 10px;
+  }
+  .film-inspection {
+    bottom: 74px;
+  }
+  .film-foot {
+    bottom: 48px;
+  }
+  .film-transport {
+    bottom: 9px;
+  }
+}
+@media (max-height: 450px) {
+  .film-meta {
+    top: 12px;
+  }
+  .film-heading {
+    top: 39px;
+  }
+  .film-statement {
+    font-size: 23px;
+  }
+  .film-view {
+    top: 90px;
+    bottom: 80px;
+  }
+  .film-inspection {
+    bottom: 48px;
+    min-height: 27px;
+    padding: 0;
+    border: 0;
+  }
+  .film-inspection label {
+    font-size: 8px;
+    flex-direction: row;
+    align-items: center;
+  }
+  .film-focus {
+    width: 90px;
+  }
+  .film-reading {
+    font-size: 8px;
+  }
+  .film-alternate {
+    font-size: 8px;
+    min-height: 25px;
+    padding: 4px;
+  }
+  .film-foot {
+    display: none;
+  }
+  .film-transport {
+    bottom: 6px;
+  }
+}
+.reduced .instrument-film,
+html:not(.enhanced) .instrument-film {
+  height: auto;
+}
+.reduced .instrument-film .film-stage,
+html:not(.enhanced) .instrument-film .film-stage {
+  position: relative;
+  top: 0;
+  height: auto;
+  padding: 32px var(--gutter);
+  overflow: visible;
+}
+.reduced .film-meta,
+.reduced .film-heading,
+html:not(.enhanced) .film-meta,
+html:not(.enhanced) .film-heading {
+  position: static;
+  margin-bottom: 30px;
+}
+.reduced .film-view,
+html:not(.enhanced) .film-view {
+  position: relative;
+  inset: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  overflow: visible;
+}
+.reduced .film-capture,
+html:not(.enhanced) .film-capture {
+  position: relative;
+  width: 100% !important;
+  height: auto !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+.reduced .film-capture img,
+html:not(.enhanced) .film-capture img {
+  height: auto;
+}
+.reduced .instrument-film .film-operation {
+  position: relative;
+  inset: auto;
+  height: 600px;
+  flex: none;
+  opacity: 1;
+  transform: none !important;
+}
+.reduced .film-inspection,
+.reduced .film-foot,
+html:not(.enhanced) .film-foot {
+  position: static;
+  margin-top: 25px;
+  opacity: 1;
+}
+.reduced .film-transport,
+html:not(.enhanced) .film-transport,
+html:not(.enhanced) .film-operation,
+html:not(.enhanced) .film-inspection {
+  display: none;
+}
+.reduced .film-description,
+html:not(.enhanced) .film-description {
+  position: static;
+  clip-path: none;
+  width: auto;
+  height: auto;
+  white-space: normal;
+  margin: 30px 0;
+  line-height: 1.8;
+  font-size: 14px;
+  color: var(--film-muted);
+  max-width: 70ch;
+}
+@media (max-width: 700px) and (max-height: 700px) {
+  .film-heading {
+    top: 52px;
+  }
+  .film-statement {
+    font-size: 26px;
+  }
+  .film-view {
+    top: 125px;
+    bottom: 136px;
+  }
+  .film-inspection {
+    bottom: 65px;
+    min-height: 61px;
+    gap: 4px;
+  }
+  .film-foot {
+    bottom: 40px;
+  }
+  .film-transport {
+    bottom: 2px;
+  }
+  .film-inspection:has(.film-alternate) {
+    min-height: 84px;
+  }
+  .instrument-film:has(.film-alternate) .film-view {
+    bottom: 160px;
+  }
+}

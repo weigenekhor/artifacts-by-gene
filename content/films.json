@@ -1,0 +1,254 @@
+{
+  "history": {
+    "duration": 24400,
+    "length": 450,
+    "layout": "timeline",
+    "pointer": "x",
+    "inspect": "Scrub lot history",
+    "choices": [
+      "Arrival",
+      "Process start",
+      "Deposition",
+      "Process end",
+      "Transfer"
+    ],
+    "beats": [
+      [0, "Altus LotViewer."],
+      [0.14, "A lot is more than its event list."],
+      [0.29, "Find the time."],
+      [0.48, "A history takes its order."],
+      [0.67, "Every event keeps its context."],
+      [0.92, "Altus LotViewer."]
+    ]
+  },
+  "schedule": {
+    "duration": 23200,
+    "length": 440,
+    "layout": "lanes",
+    "pointer": "x",
+    "inspect": "Move the shared date",
+    "choices": ["Earlier dates", "Shared date", "Upcoming schedules"],
+    "beats": [
+      [0, "Altus ANKO Viewer."],
+      [0.15, "Individually correct. Difficult to compare."],
+      [0.34, "Give every schedule the same time."],
+      [0.6, "One date. Every equipment lane."],
+      [0.92, "Altus ANKO Viewer."]
+    ]
+  },
+  "usage": {
+    "duration": 25200,
+    "length": 460,
+    "layout": "chambers",
+    "pointer": "target",
+    "inspect": "Inspect chamber activity",
+    "choices": ["Reactor A", "Reactor B", "Reactor C"],
+    "beats": [
+      [0, "Altus WaferCount."],
+      [0.15, "Every passage leaves a record."],
+      [0.36, "Activity becomes usage."],
+      [0.61, "Keep the information. Release the noise."],
+      [0.92, "Altus WaferCount."]
+    ]
+  },
+  "surface": {
+    "duration": 27000,
+    "length": 480,
+    "layout": "surface",
+    "pointer": "x",
+    "inspect": "Move the wafer section",
+    "choices": ["Lower region", "Centre region", "Upper region"],
+    "beats": [
+      [0, "TopoTracer."],
+      [0.14, "The samples are points."],
+      [0.32, "The space between them matters."],
+      [0.53, "The wafer becomes a surface."],
+      [0.74, "Read the region in the whole."],
+      [0.92, "TopoTracer."]
+    ]
+  },
+  "pathfinder": {
+    "duration": 24400,
+    "length": 450,
+    "layout": "topology",
+    "pointer": "target",
+    "inspect": "Inspect a route",
+    "choices": [
+      "Workcentre",
+      "Chart group",
+      "Parameter A",
+      "Parameter M",
+      "Parameter Y"
+    ],
+    "beats": [
+      [0, "SPC Pathfinder."],
+      [0.15, "The chart is somewhere in here."],
+      [0.32, "Workcentre. Group. Parameter."],
+      [0.6, "The search becomes a path."],
+      [0.92, "SPC Pathfinder."]
+    ]
+  },
+  "compile": {
+    "duration": 26000,
+    "length": 470,
+    "layout": "assembly",
+    "pointer": "target",
+    "inspect": "Trace a report input",
+    "choices": ["LayTec", "PL / Plato", "XRR", "XRD"],
+    "beats": [
+      [0, "GaN Met Compiler."],
+      [0.15, "Separate sources. One reporting task."],
+      [0.34, "Each source keeps its place."],
+      [0.61, "A report with a traceable beginning."],
+      [0.92, "GaN Met Compiler."]
+    ]
+  },
+  "diagnose": {
+    "duration": 27200,
+    "length": 480,
+    "layout": "diagnostic",
+    "pointer": "target",
+    "inspect": "Inspect a recommended check",
+    "choices": ["Ceiling condition", "Optris settings", "LayTec / viewport"],
+    "beats": [
+      [0, "GaN Temp Diagnoser."],
+      [0.14, "The observation stays in view."],
+      [0.31, "More than one explanation remains."],
+      [0.52, "Evidence narrows the investigation."],
+      [0.69, "A check. Not a conclusion."],
+      [0.92, "GaN Temp Diagnoser."]
+    ]
+  },
+  "arrange": {
+    "duration": 28000,
+    "length": 490,
+    "layout": "physical",
+    "pointer": "target",
+    "inspect": "Inspect a baseplate",
+    "choices": ["BP1", "BP2", "BP3", "BP4", "BP5"],
+    "alternate": "Recall the initial positions",
+    "beats": [
+      [0, "AIX ΔT Assistant."],
+      [0.15, "The inputs have a physical consequence."],
+      [0.31, "Two plates. Two different positions."],
+      [0.48, "Lift. Exchange. Seat."],
+      [0.72, "The inputs remain beside the arrangement."],
+      [0.93, "AIX ΔT Assistant."]
+    ]
+  },
+  "zones": {
+    "duration": 24500,
+    "length": 450,
+    "layout": "registration",
+    "pointer": "target",
+    "inspect": "Inspect corresponding zones",
+    "choices": ["S1", "S2", "S3", "S4", "S5"],
+    "beats": [
+      [0, "LT Zone Assistant."],
+      [0.15, "Two references. One geometry to establish."],
+      [0.36, "Find the common origin."],
+      [0.62, "Every boundary has a counterpart."],
+      [0.92, "LT Zone Assistant."]
+    ]
+  },
+  "configuration": {
+    "duration": 26200,
+    "length": 470,
+    "layout": "hierarchy",
+    "pointer": "target",
+    "inspect": "Inspect a device property",
+    "choices": ["Popup", "EnableShow", "Number"],
+    "beats": [
+      [0, "GaN XML Assistant."],
+      [0.14, "A setting belongs to a structure."],
+      [0.33, "Match the branch before the value."],
+      [0.61, "The difference keeps its parent."],
+      [0.92, "GaN XML Assistant."]
+    ]
+  },
+  "spc": {
+    "duration": 25400,
+    "length": 460,
+    "layout": "review",
+    "pointer": "target",
+    "inspect": "Inspect a signal in context",
+    "choices": ["Parameter A", "Parameter B", "Parameter C"],
+    "beats": [
+      [0, "Magus SPC (GaN)."],
+      [0.14, "The process is larger than one chart."],
+      [0.35, "Establish the review context."],
+      [0.6, "Attention without losing the picture."],
+      [0.92, "Magus SPC (GaN)."]
+    ]
+  },
+  "legacy": {
+    "duration": 24500,
+    "length": 450,
+    "layout": "records",
+    "pointer": "target",
+    "inspect": "Inspect a parameter record",
+    "choices": [
+      "Parameter G",
+      "Parameter J",
+      "Parameter B",
+      "Parameter E",
+      "Parameter H"
+    ],
+    "alternate": "Recall the source arrangement",
+    "beats": [
+      [0, "Magus SPC (Legacy)."],
+      [0.14, "The record comes in different forms."],
+      [0.35, "Give the review a consistent frame."],
+      [0.62, "Parameter. State. Chart. Together."],
+      [0.92, "Magus SPC (Legacy)."]
+    ]
+  },
+  "planning": {
+    "duration": 24200,
+    "length": 450,
+    "layout": "priority",
+    "pointer": "x",
+    "inspect": "Move the review date",
+    "choices": ["Past due", "Due soon", "Upcoming"],
+    "beats": [
+      [0, "ANKO Helper."],
+      [0.14, "Status needs a place in time."],
+      [0.35, "Put the due date against now."],
+      [0.62, "The next action becomes visible."],
+      [0.92, "ANKO Helper."]
+    ]
+  },
+  "report": {
+    "duration": 26300,
+    "length": 470,
+    "layout": "extraction",
+    "pointer": "target",
+    "inspect": "Trace the selected output rows",
+    "choices": ["Analysis file", "Extracted rows", "Base workbook"],
+    "alternate": "Recall the analysis rows",
+    "beats": [
+      [0, "LT Report Compiler."],
+      [0.15, "The analysis exists. The workbook needs it."],
+      [0.34, "Extract the rows. Keep the run."],
+      [0.62, "Append the result to the record."],
+      [0.92, "LT Report Compiler."]
+    ]
+  },
+  "signals": {
+    "duration": 28500,
+    "length": 490,
+    "layout": "synchronized",
+    "pointer": "x",
+    "inspect": "Move the shared time window",
+    "choices": ["Early interval", "Middle interval", "Late interval"],
+    "alternate": "Narrow the inspection range",
+    "beats": [
+      [0, "Metria SPC."],
+      [0.14, "Five signals. Five separate views."],
+      [0.35, "Bring their clocks together."],
+      [0.61, "Every trace. The same moment."],
+      [0.77, "Move through the evidence."],
+      [0.93, "Metria SPC."]
+    ]
+  }
+}

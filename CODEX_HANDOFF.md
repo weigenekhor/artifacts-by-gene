@@ -1,21 +1,15 @@
 # Current ARTIFACTS direction
 
-Branch: `experience/software-exhibition`. Review: PR #4. Production remains on main.
+Branch: `experience/software-exhibition`. Existing review: PR #4. Production remains on main.
 
-Read AGENTS.md and both governing design documents. Preserve the approved Gene copy and all sixteen applications in canonical order. Gene requests focused visual iteration before comprehensive QA.
+Read AGENTS.md and both governing design documents. Preserve the approved monumental hero, Starting Over origin, collection handoff and all sixteen apps in canonical order. The latest closing copy is exact in `content/page.html` and the storyboard.
 
-The monumental hero is APPROVED. Do not redesign it. Its rendering was verified pixel-identical to the approved commit at four opening positions (0, .4, .85, .95), with the same pointer state. Page template and Gene copy are unchanged.
+The current pass rebuilds application films. `content/films.json` owns timing/copy/inspection configuration. `js/instrument-film.js` owns the source-interface opening, registered doorway, source return, shared clock integration and access controls. `js/films/` owns distinct time, hierarchy, diagnostic, reporting and physical operations. `js/topography.js` retains the shaded field and derived section; `js/papyrus-study.js` retains its dedicated DOM comparison, now with positional candidates and staged identity convergence. The obsolete `js/function-studies.js` is removed.
 
-`js/identity-field.js` hands off after the opening to `js/origin-construction.js`. Displaced evidence becomes recurring patterns, then retained checkpoints, a tested route and dimensional architecture. Surfaces advance through the light field; `js/collection-layout.js` shares final positions and lighting with the collection. No screenshots appear in the origin. New approved lines: “So I gave it somewhere to stay.” and “And kept building.” Keep “Good reasoning should outlive the task.”
+Actual screenshots stay intact. All conceptual geometry is illustrative. AIX exchanges only BP3 and BP5, matching the source capture. LT Report Compiler extracts LayTec HTML rows and appends them to a base Excel workbook. GaN Met Compiler uses the actual LayTec, PL/Plato, XRR and XRD source types. Diagnostic paths terminate in checks, never confirmed root causes. The diagrams do not claim cross-application integration.
 
-Collection selection follows actual hover or keyboard focus, not cursor proximity. The selected app advances in Z and turns frontal; neighbors recede and the clock slows during inspection. Touch presents on the first tap and navigates on the second. Leaving returns smoothly.
+Each source interface opens and closes its own film. Replay is 23.2–28.5 seconds. Native scroll and direct selection remain. Inspection works with mouse, touch ranges and keyboard; reduced motion shows full screenshots, stable diagrams and descriptions. No next-app preview appears inside a study.
 
-All sixteen studies now demonstrate their own input, operation and result. `js/function-studies.js` covers fifteen, using 2D where alignment and comparison are clearer. TopoTracer stays in `js/topography.js`. TopoTracer and AIX use `js/space.js` and the shared lazy WebGL renderer with a Canvas fallback. The old screenshot-slicing, common camera routine, spatial-studies and diagnostic-study modules are removed. Seven state names are specific to each app in `content/exhibition.json`. Full uncropped screenshots accompany every study. Diagrams are illustrative; no measured values or cross-app integrations are claimed.
+Build: `node scripts/build.mjs`. Generated outputs: index.html, js/apps.js and script.js. Preview: http://127.0.0.1:8001/. Verify the local server before sharing. QA output remains ignored under `.qa/`. Focused visual/runtime checks are appropriate now; comprehensive release validation and the legacy browser-suite update remain deferred.
 
-This pass strengthens every signature operation. Discrete wafer events leave illustrative counts, raw recipe layouts align logically, search/diagnostic branches narrow, references overlay, XML branches contract, legacy formats normalize, due points order in time and separate Metria inspection windows synchronize. AIX separates lift/travel/seat; TopoTracer exposes samples and interpolation before the surface rises. Before each demonstration, an outline highlights the real interface area using audit coordinates, without cropping its image.
-
-Build with `node scripts/build.mjs`. Generated outputs: index.html, js/apps.js and script.js. Preview: http://127.0.0.1:8001/?v=retained-method. Verify the server before sharing.
-
-This pass: build, asset/pixel-fidelity checks, focused two-stage desktop review of all sixteen studies, origin refinement, source activation, collection focus depth, mobile and reduced-motion checks. No page errors were reported. Hero/Gene preservation verified. Prior brief hero timing sample was 16.7ms median / 17.4ms p95; no new broad device/GPU profiling is claimed. Comprehensive validation remains deferred. QA outputs are ignored under .qa/.
-
-Publish through the authenticated GitHub connector, then verify tree equality before synchronizing the local branch. Do not merge production without instruction.
+The latest work is local. The previous push failed because GitHub credentials were unavailable to noninteractive Git. Do not claim that PR #4 or production includes local commits until a push is verified. Do not merge production without instruction.

@@ -2,7 +2,7 @@
 
 This storyboard implements Gene's identity-and-method brief of 25 September 2026. Read with ARTIFACTS_CREATIVE_DIRECTION.md. The current user prompt overrides earlier visual directions.
 
-The monumental opening is approved. Preserve its composition, copy and interaction. This pass replaces only the origin after the approved opening and its handoff into the collection. The sixteen application studies are unchanged.
+The monumental opening is approved. Preserve its composition, copy and interaction. The opening, origin and collection handoff remain approved. The current application-film pass rebuilds the sixteen studies and adopts Gene’s latest exact closing copy.
 
 ## 00 — Almost right is still wrong
 
@@ -42,9 +42,11 @@ There is one complete spatial collection, followed by the sixteen films. There i
 
 ## 03 — The applications
 
-All sixteen follow the verified in-application order. Each sequence has seven app-specific states describing its input, operation and result. The complete source interface establishes the application. An audit-backed outline highlights the relevant functional area without cropping the capture; the demonstration then develops, and the same complete interface returns to close the scene. Never show the next application's image within the current chapter.
+All sixteen follow the verified in-application order. Each film starts with its complete real interface. The relevant source region activates as a doorway into its explanatory operation, then receives the visual again before the same full interface closes the film. The next application never appears inside the current study.
 
-The analytical interval uses a purpose-built functional demonstration. Two-dimensional alignment is preferred for schedules, comparisons, reports and signal review; TopoTracer's height field and AIX baseplate exchanges use meaningful three-dimensional geometry. There is no shared screenshot-slicing or analysis-orbit routine. A small, uncropped real capture remains alongside each demonstration. Inspection controls select an event, chamber, parameter, report section or region and visibly change the relevant diagram. Replay lasts 17–18.8 seconds; native scrolling and direct chapter selection remain available. Mobile keeps the same sequence with a compact composition.
+Replay lasts 23.2–28.5 seconds, with individual staging and inspection intervals. Native scroll, direct app selection, keyboard ranges and original-size capture viewing remain available. App-specific drawing modules own the operation; the shared controller owns source registration, playback state, pixel density and access controls. Papyrus retains its dedicated DOM comparison renderer. The films pause when input settles and stop updating offscreen. Diagrams are explicitly illustrative; screenshot pixels remain unmodified. Original screenshots appear at the beginning and end rather than as a repeated thumbnail during every conceptual state.
+
+Desktop uses a broad working field; mobile adapts the actual composition, including a vertical lot history and relocated baseplate weights. Reduced motion presents complete source images, stable interactive diagrams and textual explanations in document order.
 
 ### Application direction
 
@@ -52,17 +54,17 @@ The analytical interval uses a purpose-built functional demonstration. Two-dimen
 2. Altus ANKO Viewer: schedules with separate time offsets align to one axis; a selected window reads across equipment lanes.
 3. Altus WaferCount: dozens of discrete wafer events enter chamber lanes and leave permanent increments as they disappear into the usage state. The small numbers count the animated illustrative events themselves and are labeled accordingly; they are not measured equipment usage.
 4. TopoTracer: sample positions appear first, with neighboring relationships establishing interpolation before the continuous surface gains opacity and height. The resulting shaded field retains sample positions, equal-height contours, directional light and a thin rim. The selected A–A′ section travels across the surface; its profile below derives from the same illustrative field. The height scale is relative, with no invented measured values.
-5. Papyrus Reader: a dedicated 22-second comparison film replaces the shared study choreography. The complete real interface opens the scene. Its paired source panes establish the extraction into an explicitly illustrative XML excerpt using the real capture’s node/property vocabulary. Different raw positions converge by named identity, with separate critically damped travel distances and stationary reference rows. Correspondence registers before unchanged values recede; changed values retain their visible counterparts. Mouse, touch and keyboard inspect paired properties only after alignment. The same source pane bounds receive the representation again, with separate text layers during the optical return to the complete original interface. No next-application preview appears. Reduced motion keeps the real capture and a stable, interactive aligned comparison in document order. The example values and line positions are labeled as explanatory, not as actual results from the screenshot.
+5. Papyrus Reader: a dedicated 26.5-second comparison film replaces the shared study choreography. The complete real interface opens the scene. Its paired source panes establish the extraction into an explicitly illustrative XML excerpt using the real capture’s node/property vocabulary. Initially plausible positional guides are withdrawn when their node/property identities disagree. Different raw positions then converge by named identity, with separate critically damped travel distances and stationary reference rows. Correspondence registers before unchanged values recede; changed values retain their visible counterparts. Mouse, touch and keyboard inspect paired properties only after alignment. The same source pane bounds receive the representation again, with separate text layers during the optical return to the complete original interface. No next-application preview appears. Reduced motion keeps the real capture and a stable, interactive aligned comparison in document order. The example values and line positions are labeled as explanatory, not as actual results from the screenshot.
 6. SPC Pathfinder: a workcentre, family and parameter path narrows to a chart; selecting another parameter changes both the path and corresponding illustrative trace.
-7. GaN Met Compiler: measurements, source records and calculation inputs pass through a calculation structure into report sections; inspection traces a selected output back toward its inputs.
+7. GaN Met Compiler: the actual LayTec, PL/Plato, XRR and XRD inputs establish distinct sources. Selected source marks travel into separate workbook regions with staggered arrival. Inspection restores the corresponding source and its provenance path.
 8. GaN Temp Diagnoser: process and clean-recipe observations open a wider field of investigation. Those routes converge on the remaining checks: ceiling condition, Optris settings and LayTec/viewport. Selecting a check emphasizes its paths. Curves are illustrative; narrowing leads to checks, never a confirmed diagnosis.
-9. AIX ΔT Assistant: weight/temperature inputs remain alongside two paired baseplate swaps. Identified plates lift, exchange positions on curved paths and seat again. Fixed slot labels retain location context. This is an illustrative exchange, not a computed recommendation.
+9. AIX ΔT Assistant: The displayed source weights remain alongside the arrangement. Only BP3 and BP5 exchange, matching the captured example; BP1, BP2 and BP4 stay in their seats. The two selected plates release, lift, exchange on controlled paths and seat again. An inspection control recalls the original arrangement through damped motion. Fixed slot labels retain location context. This is an illustrative exchange, not a computed recommendation.
 10. LT Zone Assistant: separate inner and outer reference diagrams approach, reorient and overlay around one shared origin. Corresponding positions retain their identity; selected boundary rays reveal their relationship.
 11. GaN XML Assistant: reference/target hierarchies align; unchanged branches contract while a changed branch stays expanded. Inspection reveals the selected property in both structures.
 12. Magus SPC (GaN): a dense signal field resolves into a review frame. Routine traces lose prominence while an illustrative excursion retains attention and chart context. Inspection selects the signal; release remains a review.
 13. Magus SPC (Legacy): differently structured columns, rows and compact traces normalize into a consistent parameter index beside a stable chart. Selection changes the corresponding trace without losing its parameter context.
 14. ANKO Helper: displaced equipment status and due points move into temporal priority around a shared present-time marker; a moving review window distinguishes overdue, due-soon and upcoming work.
-15. LT Report Compiler: LayTec result fragments assemble into run context, results and summary sections; section inspection retains a visible connection to its source.
+15. LT Report Compiler: rows from a LayTec HTML analysis are selected, extracted and appended beneath existing rows in a base Excel workbook. This row-extraction sequence is distinct from metrology source compilation. Inspection can recall the source rows while preserving run context.
 16. Metria SPC: each parameter begins with its own time range and inspection window. Those axes and windows synchronize into one shared temporal interval. Inspection then moves every trace's cursor together.
 
 The diagram geometry is explanatory. Do not fabricate measured values, software operations or cross-application integrations. Cross-scene continuity is editorial, not a claim that applications exchange data.
@@ -71,13 +73,14 @@ The diagram geometry is explanatory. Do not fabricate measured values, software 
 
 Gene’s approved wording is reproduced exactly:
 
-**Three years. Sixteen applications.**
+**I spent my entire life improving processes.**
 
-ARTIFACTS began with one belief: if the work could be better, it should be.
+ARTIFACTS began when I realised engineering itself was one of them.
 
-So I built what I needed, one problem at a time. Some tools stayed small. Others grew far beyond where they began. But every one came from the same place: care for the work, and a refusal to accept friction as inevitable.
+What repeated, I automated.
+What stood in the way, I rebuilt.
 
-Three years later, I still build every tool as if my own work depends on it. Because it does.
+ARTIFACTS is the evidence that I never accepted the way things were as the way they had to stay.
 
 A quiet “By Gene” attribution precedes the two-column account. Contact links close the account without a further ARTIFACTS sign-off. No job-title labels or generic creator biography are added.
 

@@ -99,12 +99,13 @@ export function createTopography(el, wake) {
       ")"
     );
   };
-  return (p, inspection, reduced, px, py) => {
-    const growth = smooth((p - 0.22) / 0.45),
-      interpolate = smooth((p - 0.12) / 0.3),
-      top = smooth((p - 0.48) / 0.3),
+  return (p, inspection, reduced, px, py, closing = 0) => {
+    const growth = smooth((p - 0.14) / 0.33) * (1 - closing),
+      interpolate = smooth((p - 0.3) / 0.27),
+      top = smooth((p - 0.43) / 0.24),
       key = [
         p.toFixed(3),
+        closing.toFixed(3),
         inspection.toFixed(3),
         px.toFixed(2),
         py.toFixed(2),
@@ -119,8 +120,8 @@ export function createTopography(el, wake) {
     const scale = Math.min(w / 7.3, h / 5.4),
       cx = w * 0.5,
       cy = h * 0.4,
-      yaw = -0.3 + (reduced ? 0 : px * 0.07),
-      tilt = mix(0.75, 0.92, top) + (reduced ? 0 : py * 0.03),
+      yaw = mix(-0.12, -0.4, top) + (reduced ? 0 : px * 0.07),
+      tilt = mix(0.28, 0.96, top) + (reduced ? 0 : py * 0.03),
       lift = 0.96 * growth;
     const project = ([x, y, z]) => {
       const xx = x * Math.cos(yaw) - y * Math.sin(yaw),
@@ -200,13 +201,13 @@ export function createTopography(el, wake) {
         depth: project([t.x, t.y, t.v])[2],
       }))
       .sort((a, b) => a.depth - b.depth);
-    ctx.globalAlpha = interpolate;
+    ctx.globalAlpha = 1;
     const mesh = faces.map((t) => ({
       pts: t.pts.map((q) => [q[0], q[1], q[2] * 80]),
       depth: t.depth * 80,
       normal: [0, 0, 1],
       material: [125, 157, 138],
-      alpha: 1,
+      alpha: smooth((interpolate * 6.5 - (t.x + 2.74)) / 0.8),
       fill: true,
       unlit: true,
       vertexColors: t.vertexColors.map((v) =>
@@ -215,6 +216,7 @@ export function createTopography(el, wake) {
     }));
     if (!renderMaterialField(ctx, mesh, w, h))
       for (const t of faces) {
+        ctx.globalAlpha = smooth((interpolate * 6.5 - (t.x + 2.74)) / 0.8);
         ctx.beginPath();
         t.pts.forEach((v, i) =>
           i ? ctx.lineTo(v[0], v[1]) : ctx.moveTo(v[0], v[1]),
@@ -246,9 +248,13 @@ export function createTopography(el, wake) {
         ctx.lineWidth = 0.6;
         ctx.stroke();
       }
-    ctx.globalAlpha = interpolate * 0.65;
+    ctx.globalAlpha = smooth((p - 0.46) / 0.2) * 0.7;
     ctx.beginPath();
-    for (let i = 0; i < contours.length; i += 6) {
+    for (
+      let i = 0;
+      i < Math.floor((contours.length / 6) * smooth((p - 0.46) / 0.2)) * 6;
+      i += 6
+    ) {
       const a = project([
           contours[i],
           contours[i + 1],
@@ -281,7 +287,8 @@ export function createTopography(el, wake) {
         for (let j = i + 1; j < dots.length; j++) {
           const b = dots[j];
           if (Math.hypot(a[0] - b[0], a[1] - b[1]) < 0.87) {
-            ctx.globalAlpha = interpolate * (1 - growth) * 0.4;
+            ctx.globalAlpha =
+              smooth((p - 0.14) / 0.15) * (1 - interpolate) * 0.45;
             line([project(a), project(b)], "#65816e", 0.7);
           }
         }
@@ -291,7 +298,8 @@ export function createTopography(el, wake) {
     for (const [i, d] of dots.entries()) {
       const q = project(d),
         base = project([d[0], d[1], -0.15]),
-        draw = smooth((p - i * 0.002) / 0.25);
+        draw = smooth((p - i * 0.0014) / 0.13);
+      ctx.globalAlpha = draw;
       line([base, [q[0], mix(base[1], q[1], draw)]], "#536f6060", 0.7);
       ctx.beginPath();
       ctx.arc(q[0], q[1], 1.8 + 1.8 * (1 - growth), 0, Math.PI * 2);
@@ -306,7 +314,7 @@ export function createTopography(el, wake) {
       const x = mix(-extent, extent, i / 89);
       section.push([x, selectedY, field(x, selectedY)]);
     }
-    ctx.globalAlpha = smooth((p - 0.45) / 0.2);
+    ctx.globalAlpha = smooth((p - 0.63) / 0.12) * (1 - closing);
     line(section.map(project), "#fff4cf", 2);
     const ends = [project(section[0]), project(section.at(-1))];
     ctx.font = "11px Geist, Arial";
@@ -332,5 +340,20 @@ export function createTopography(el, wake) {
     ctx.font = `${w < 400 ? 9 : 11}px Geist, Arial`;
     ctx.fillText("A — A′ / selected section", w * 0.38, h * 0.96);
     ctx.globalAlpha = 1;
+    ctx.font = `${w < 500 ? 10 : 12}px Geist, Arial`;
+    ctx.fillStyle = "#556d55";
+    ctx.fillText(
+      p < 0.16
+        ? "SAMPLE POSITIONS"
+        : p < 0.3
+          ? "RELATIVE OFFSETS"
+          : p < 0.48
+            ? "INTERPOLATING BETWEEN SAMPLES"
+            : p < 0.65
+              ? "CONTINUOUS SURFACE · EQUAL-HEIGHT CONTOURS"
+              : "SECTION THROUGH THE SAME FIELD",
+      w * 0.07,
+      h * 0.06,
+    );
   };
 }

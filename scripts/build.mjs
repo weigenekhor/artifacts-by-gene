@@ -1,3 +1,4 @@
+import { renderFilm } from "./film-markup.mjs";
 import { renderPapyrus } from "./papyrus-markup.mjs";
 import fs from "node:fs/promises";
 import { build } from "esbuild";
@@ -7,6 +8,7 @@ const { apps } = await read("content/apps.json"),
   features = await read("content/exhibition.json");
 const homepage = await read("content/homepage.json");
 const papyrus = await read("content/papyrus.json");
+const films = await read("content/films.json");
 const captureAudit = await read("assets/evidence/audit.json");
 const esc = (s) =>
   String(s)
@@ -15,23 +17,6 @@ const esc = (s) =>
     .replaceAll('"', "&quot;");
 const lines = (s) => esc(s).replaceAll("\n", "<br>");
 const number = (n) => String(n).padStart(2, "0");
-const image = (a, full = false) =>
-  `<img src="${full ? a.evidence.full : a.evidence.src}" width="${full ? a.evidence.fullWidth : a.evidence.width}" height="${full ? a.evidence.fullHeight : a.evidence.height}" alt="${esc(a.evidence.label)} in ${esc(a.name)}" loading="lazy" decoding="async">`;
-function sceneLayers(a) {
-  return (
-    '<div class="study-source" aria-hidden="true">' +
-    image(a, true) +
-    '<i class="source-region"></i><span>' +
-    esc(a.name) +
-    "</span></div>"
-  );
-}
-function visual(f) {
-  if (f.kind === "surface")
-    return `<div class="topography" aria-hidden="true"><div class="topography-key"><span>Sample positions → contour field</span><span>Illustrative geometry</span></div><canvas></canvas><div class="topography-scale"><span>Lower</span><i></i><span>Higher</span></div></div>`;
-  return `<div class="function-study" aria-hidden="true"><canvas></canvas></div>`;
-}
-
 let html = await fs.readFile("content/page.html", "utf8");
 const story = await read("content/story.json");
 html = html.replace(
@@ -47,10 +32,15 @@ html = html.replace(
   "<!-- FEATURES -->",
   features
     .map((f, i) => {
-      const a = apps.find((a) => a.id === f.id),
-        next = features[i + 1];
+      const a = apps.find((a) => a.id === f.id);
       if (f.kind === "compare") return renderPapyrus(a, papyrus, esc);
-      return `<section class="feature feature-${f.kind}${f.paper ? " feature-paper" : ""}" id="${f.kind}" style="--scene-length:${f.duration}svh" data-feature="${f.kind}" data-timings="${f.timings.join(",")}" data-states="${esc(JSON.stringify(f.states))}" data-study-app="${a.id}" data-source-region="${esc(JSON.stringify(captureAudit.find((r) => r.id === a.id).region))}" data-beats="${esc(JSON.stringify(f.beats))}" aria-labelledby="title-${f.kind}"><div class="feature-stage"><div class="feature-top"><span>${f.number} / 16</span><span>${esc(a.name)}</span><button class="study-menu" aria-haspopup="dialog" aria-controls="study-picker">Choose an application ↗</button></div><div class="feature-copy"><p class="eyebrow">${esc(a.description)}</p><h2 id="title-${f.kind}">${lines(f.title)}</h2><p>${esc(f.text)}</p><div class="feature-verbs">${f.verbs.map((v, i) => `<span data-phase="${i}">${v}</span>`).join("<i>→</i>")}</div><p class="study-beat">${esc(f.beats[0])}</p></div><div class="feature-visual">${visual(f, a)}<div class="focus-caption"><span>${esc(f.focusLabel)}</span><output class="focus-position">01</output></div></div>${sceneLayers(a)}<button class="evidence" data-capture="${a.id}" aria-label="See the actual ${esc(a.name)} interface">${image(a, true)}<span><b>Inside ${esc(a.name)}</b><i>↗</i></span></button><div class="study-actions"><label class="study-focus">${esc(f.focusLabel)}<input type="range" min="0" max="100" value="50" class="focus-range" aria-label="Inspect ${esc(f.focusLabel)} in the concept demonstration"></label><button class="study-play" aria-label="Play the ${esc(a.name)} sequence" aria-pressed="false"><span aria-hidden="true">▷</span> Watch sequence</button></div><label class="study-control"><span>Explore the sequence <b>↔</b></span><input type="range" min="0" max="100" value="0" aria-label="Explore ${esc(a.name)} concept motion"></label><div class="study-state" aria-hidden="true"><span class="state-number">01 / 07</span><span class="state-name">Identity</span></div><div class="study-timeline" aria-hidden="true"><i></i></div><div class="feature-foot"><span>Illustrative sequence · actual interface ↗</span><a href="#${next ? next.kind : "gene"}">Next / ${esc(next ? f.handoff : "A note from Gene")} <b>↓</b></a></div></div></section>`;
+      return renderFilm(
+        a,
+        f,
+        films[f.kind],
+        captureAudit.find((r) => r.id === a.id).region,
+        esc,
+      );
     })
     .join(""),
 );

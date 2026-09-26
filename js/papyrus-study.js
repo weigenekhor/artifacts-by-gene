@@ -24,6 +24,18 @@ export function createPapyrusStudy(el, wake) {
     relations = el.querySelector(".papyrus-relations");
   const paths = [...relations.querySelectorAll("path")],
     dots = [...relations.querySelectorAll("circle")];
+  // A positional candidate is plausible until its node/property identity is read.
+  const candidates = [
+    [1, 0],
+    [3, 2],
+  ].map(() => {
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke", "#ccaa8a");
+    path.setAttribute("stroke-dasharray", "3 5");
+    relations.prepend(path);
+    return path;
+  });
   const register = relations.querySelector(".papyrus-register"),
     surface = el.querySelector(".papyrus-comparison");
   const statement = el.querySelector(".papyrus-statement"),
@@ -142,7 +154,7 @@ export function createPapyrusStudy(el, wake) {
       }
       const unfold = phase(p, 0.205, 0.15) * (1 - phase(p, 0.855, 0.085));
       const visible = phase(p, 0.263, 0.045) * (1 - phase(p, 0.927, 0.022));
-      const distinguish = phase(p, 0.61, 0.072),
+      const distinguish = phase(p, 0.635, 0.057),
         closing = phase(p, 0.86, 0.1);
       canInspect = reduced || (p > 0.65 && p < 0.87);
       const active = canInspect ? (selected ?? (p < 0.775 ? 2 : 3)) : -1;
@@ -225,6 +237,9 @@ export function createPapyrusStudy(el, wake) {
           const changed = r.left !== r.right;
           const quiet = mix(1, changed ? 0.92 : 0.42, distinguish);
           row.style.opacity = mix(quiet, 1, weights[i]);
+          row.querySelector(".papyrus-node").style.opacity = reduced
+            ? 1
+            : mix(0.3, 1, phase(p, 0.34, 0.065));
           row.style.setProperty(
             "--difference",
             distinguish * (changed ? 1 : 0),
@@ -238,6 +253,23 @@ export function createPapyrusStudy(el, wake) {
             y: paneRect.y + labelHeight + y + rowSize * 0.5,
           };
         });
+      });
+      candidates.forEach((path, i) => {
+        const indices = [
+            [1, 0],
+            [3, 2],
+          ][i],
+          a = positions[0][indices[0]],
+          b = positions[1][indices[1]];
+        path.setAttribute(
+          "d",
+          `M${a.x} ${a.y} C${a.x + gap * 0.45} ${a.y} ${b.x - gap * 0.45} ${b.y} ${b.x} ${b.y}`,
+        );
+        path.style.opacity = reduced
+          ? 0
+          : phase(p, 0.315 + i * 0.009, 0.03) *
+            (1 - phase(p, 0.37 + i * 0.008, 0.035)) *
+            0.7;
       });
       paths.forEach((path, i) => {
         const a = positions[0][i],

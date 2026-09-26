@@ -14,7 +14,7 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The approved opening makes ARTIFACTS typography the spatial surface. It is preserved in this pass. Its field continues into five distinct origin compositions: displaced evidence, recurring patterns, retained checkpoints, a tested method and dimensional architecture. Material surfaces advance through the light environment and construct sixteen positions before any application screenshots appear. Those positions receive the real interfaces in the collection. Diagrams are illustrative, not measured output.
+The approved opening makes ARTIFACTS typography the spatial surface. It is preserved in this pass. Its field continues into the approved Starting Over origin: fragmented evidence, a reconstructed task, an archive, repeated reasoning, retained structure and software. Material surfaces advance through the light environment and construct sixteen positions before any application screenshots appear. Those positions receive the real interfaces in the collection. Diagrams are illustrative, not measured output.
 
 The uncropped homepage begins in front of the sixteen applications and recedes as they advance. Hovering or focusing an interface brings that specific app forward, turns it toward the viewer and reduces ambient movement. On touch, one tap presents the app and the next enters it. Leaving restores the arrangement smoothly.
 
@@ -22,7 +22,7 @@ All sixteen studies show input, operation and result through task-specific demon
 
 Read `ARTIFACTS_CREATIVE_DIRECTION.md` and `ARTIFACTS_EXPERIENCE_STORYBOARD.md` for governing direction and factual boundaries. One shared clock pauses ambient scenes offscreen. Mobile uses reduced spatial depth; reduced motion retains the narrative without pinned sequences.
 
-Every app has seven individually named states, beginning and ending with its complete source interface. An outline highlights its relevant interface region using coordinates from the evidence audit; captures stay uncropped. Each signature operation is distinct: ordering, synchronization, event counting, interpolation, logical matching, search narrowing, compilation, diagnostic narrowing, physical exchange, spatial mapping, hierarchy collapse, review attention, normalization or temporal priority. Native scrolling controls the sequences; optional replay runs for 17–18.8 seconds. A second keyboard-accessible range changes a task-specific inspection region. Diagrams illustrate relationships, not measured results or cross-application integration.
+Each application has an independently staged film, beginning and ending with its complete source interface. An outline highlights its relevant interface region using coordinates from the evidence audit; captures stay uncropped. Each signature operation is distinct: ordering, synchronization, event counting, interpolation, logical matching, search narrowing, compilation, diagnostic narrowing, physical exchange, spatial mapping, hierarchy collapse, review attention, normalization or temporal priority. Native scrolling controls the sequences; optional replay runs for 23.2–28.5 seconds. A second keyboard-accessible range changes a task-specific inspection region. Diagrams illustrate relationships, not measured results or cross-application integration.
 
 ## Source files
 
@@ -38,9 +38,13 @@ Every app has seven individually named states, beginning and ending with its com
 - `js/origin-construction.js`: fragment, pattern, memory, iteration and dimensional construction choreography.
 - `js/collection-layout.js`: common spatial positions and lighting for the origin handoff and application collection.
 - `js/space.js` and `js/material-renderer.js`: shared projection, depth-tested materials and Canvas fallback.
-- `js/function-studies.js`: fifteen task-specific input/operation/result demonstrations, including the diagnostic map and baseplate exchange.
+- `content/films.json`: film pacing, statements and inspection controls.
+- `js/instrument-film.js`: source-region registration, shared lifecycle and access controls.
+- `js/films/`: individual time, field, reporting and physical choreography, with shared drawing primitives.
+- `js/papyrus-study.js` and `content/papyrus.json`: dedicated logical-comparison film and example correspondence.
+- `films.css` and `papyrus.css`: responsive film stages and reduced-motion composition.
 - `js/topography.js`: shaded circular height field, contours and matching interactive section profile.
-- `content/story.json`: five-stage construction narrative, without application examples.
+- `content/story.json`: Starting Over narrative, without application examples.
 - `js/hero-interaction.js`: drag, keyboard, separation and reset controls.
 - `content/homepage.json`: the central homepage capture and its full-image viewer.
 - `entry.css`: application assembly, study typography and baseplate exchange.
@@ -48,7 +52,7 @@ Every app has seven individually named states, beginning and ending with its com
 - `artifact.css`: current Artifact, interface passage and responsive study composition.
 - `experience.css`: entry composition, image fitting and picker.
 - `styles.css` and `studies.css`: visual design, extended study pacing, responsive composition and reduced motion.
-- `js/studies.js`: source-to-demonstration handoff, individual phases and inspection state.
+- `js/studies.js`: dispatches application films to their renderers.
 
 Generated files: `index.html`, `js/apps.js`, `script.js`. Edit their sources and rebuild.
 
@@ -56,7 +60,7 @@ Generated files: `index.html`, `js/apps.js`, `script.js`. Edit their sources and
 
 Current lossless assets are under `assets/evidence/<app-id>/`, derived from `C:/Users/Gene/Desktop/Artifacts Images`. `detail.webp` is a deliberate native crop; `full.webp` preserves the entire capture. Papyrus uses the updated **1531 × 1002** source. The other fifteen captures are **1425 × 950**. No upscaling, fabricated screens or generated application imagery is used.
 
-Full captures are displayed in the later collection. Small uncropped full captures accompany every conceptual demonstration. Their layout preserves the image aspect ratio and provides an original-size viewer. Every app opens a fitted original with an actual-size option. The original-resolution limit remains: these sources are not native 4K screenshots. The archive assets under `assets/artifacts/apps/` are preserved but not used by the exhibition.
+Full captures are displayed in the later collection. Each film opens and closes with its complete source capture. Their layout preserves the image aspect ratio and provides an original-size viewer. Every app opens a fitted original with an actual-size option. The original-resolution limit remains: these sources are not native 4K screenshots. The archive assets under `assets/artifacts/apps/` are preserved but not used by the exhibition.
 
 ```sh
 node scripts/prepare-evidence.mjs /path/to/Artifacts-Images papyrus-reader
@@ -68,7 +72,7 @@ Review the crop rectangle in `scripts/prepare-evidence.mjs` when a source layout
 
 ## Verification
 
-This pass includes a build, asset/pixel-fidelity checks, two-stage desktop review of all sixteen demonstrations, origin transitions, interface-region activation, collection focus depth, representative mobile scenes and reduced motion. These checks reported no page errors. The approved hero renders identically at four sampled opening positions; the page template and Gene copy are unchanged. A prior short headless Edge hero sample measured 16.7ms median / 17.4ms p95 frame intervals; it is not new cross-device profiling or a performance guarantee. Broad validation remains deferred until visual approval. Existing browser-suite and VALIDATION.md results predate this redesign.
+The current application films receive focused browser checks for canonical order, source-image return, inspection controls, responsive layouts, reduced motion and runtime errors. Comprehensive cross-device validation remains deferred until visual approval. The older browser suite and VALIDATION.md predate this film architecture and must be updated before treating them as release gates.
 
 ```sh
 pnpm test:evidence
@@ -76,4 +80,4 @@ pnpm test:assets
 pnpm test
 ```
 
-The browser suite defaults to installed Microsoft Edge. Set `BROWSER_CHANNEL` to another installed Chromium channel if needed. Tests cover all sixteen scroll states and image viewers, study controls, keyboard navigation, direct links, mobile layouts, reduced motion, no-JavaScript content, accessibility and local frame timing. See `VALIDATION.md` for results and limits. QA outputs are ignored under `.qa/`.
+The browser suite defaults to installed Microsoft Edge. Set `BROWSER_CHANNEL` to another installed Chromium channel if needed. The legacy browser tests describe earlier states; they are not evidence of validation for the current films. QA outputs are ignored under `.qa/`.
