@@ -28,7 +28,7 @@ Composition moves from a wide fragmented field to close registration, near-empty
 
 ## 02 — The collection opens
 
-**What began as necessity became ARTIFACTS.**
+**What the work demanded.**
 
 Only after the origin constructs its sixteen positions do the real interfaces enter them. The uncropped ARTIFACTS homepage establishes the centre first; the surrounding interfaces follow, with quiet index marks at rest. Only the inspected application receives a prominent name; nearby interfaces recede. As it opens, the homepage retreats and the application planes advance. Bounded rotation retains spatial order.
 
