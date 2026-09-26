@@ -139,7 +139,7 @@
     "id": "papyrus-reader",
     "kind": "compare",
     "kicker": "Logical recipe and text comparison.",
-    "title": "Compare the steps.\nKeep the sequence.",
+    "title": "Position is not meaning.",
     "text": "Line positions can change without a process change. Align equivalent recipe steps before isolating the differences.",
     "verbs": ["Read", "Align", "Compare"],
     "caption": "Logical recipe and text comparison.",
@@ -153,10 +153,9 @@
       "Inspect a changed step beside its counterpart.",
       "Return to the real comparison with the difference in context."
     ],
-    "paper": true,
-    "handoff": "SPC Pathfinder",
-    "focusLabel": "Recipe step",
-    "duration": 420,
+    "paper": false,
+    "focusLabel": "Paired property",
+    "duration": 460,
     "closure": "The comparison returns to the complete recipes.",
     "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
     "states": [

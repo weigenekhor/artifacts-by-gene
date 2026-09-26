@@ -157,13 +157,6 @@
 .feature-paper .feature-verbs span.active {
   color: #785132;
 }
-.feature-paper .compare-labels,
-.feature-paper .compare-guide {
-  color: #546547;
-}
-.feature-paper .changed-key {
-  color: #8b5830;
-}
 .feature-paper .study-control input::-webkit-slider-thumb {
   background: #805a38;
   border-color: #805a38;
@@ -296,26 +289,6 @@
 }
 .calculation-block {
   stroke: var(--diagram-warm);
-}
-.comparison {
-  transform: perspective(1400px) rotateY(calc((1 - var(--gather)) * -12deg));
-}
-.recipe-step {
-  transform: translate(
-    calc(var(--shift) * 14px * (1 - var(--resolve))),
-    calc(var(--shift) * 40px * (1 - var(--resolve)))
-  );
-  opacity: calc(1 - var(--inspect) * 0.48);
-}
-.recipe-step.changed {
-  opacity: 1;
-  box-shadow: 0 0 calc(var(--inspect) * 20px) #bb814817;
-}
-.recipe-step.changed i {
-  width: calc(52% + var(--inspect) * 22%) !important;
-}
-.compare-guide {
-  opacity: calc(0.3 + var(--inspect) * 0.7);
 }
 .surface-map {
   transform: rotateX(calc(57deg - var(--resolve) * 37deg))
@@ -522,18 +495,6 @@
     font-size: 7px;
     padding: 8px;
   }
-  .comparison {
-    inset: 0 4% 0;
-  }
-  .recipe-column {
-    gap: 6px;
-  }
-  .recipe-step {
-    height: 16px;
-  }
-  .compare-columns {
-    padding: 12px 0;
-  }
   .surface-map {
     top: -10%;
     height: 115%;
@@ -542,9 +503,6 @@
     bottom: 12%;
     max-width: 45%;
     text-align: right;
-  }
-  .compare-guide {
-    font-size: 7px;
   }
   .surface-label {
     font-size: 7px;
@@ -638,25 +596,6 @@
   .feature-foot > span {
     font-size: 7px;
   }
-  .comparison {
-    inset: 3% 0;
-  }
-  .recipe-step {
-    height: 16px;
-  }
-  .recipe-column {
-    gap: 6px;
-  }
-  .compare-columns {
-    padding: 8px 0;
-    gap: 20px;
-  }
-  .compare-labels {
-    padding-bottom: 8px;
-  }
-  .compare-guide {
-    padding-top: 7px;
-  }
   .instrument-svg text {
     font-size: 12px;
   }
@@ -707,8 +646,7 @@
   }
   .instrument-svg,
   .surface-map,
-  .diagnosis-object svg,
-  .comparison {
+  .diagnosis-object svg {
     transform: none !important;
   }
 }

@@ -359,64 +359,6 @@ export function createFunctionStudy(el, wake) {
           label("Events pass. Usage remains.", 32, y + 4, 15, muted);
         });
       }
-    } else if (kind === "compare") {
-      heading("RAW REFERENCE POSITION", "LOGICAL CORRESPONDENCE");
-      const names = [
-          "Load",
-          "Stabilise",
-          "Ramp",
-          "Hold",
-          "Measure",
-          "Purge",
-          "Complete",
-        ],
-        raw = [0, 1.5, 2.25, 3.8, 4.15, 5.8, 6.9],
-        active = selected(7);
-      for (let i = 0; i < 7; i++) {
-        const match = ease((p - 0.04 - i * 0.018) / 0.39),
-          y = 91 + i * 44,
-          yy = mix(82 + raw[i] * 43, y, match),
-          changed = i === 3,
-          opacity =
-            changed || active === i ? 1 : mix(1, 0.24, ease((p - 0.49) / 0.18));
-        alpha(opacity, () => {
-          label(String(i + 1).padStart(2, "0"), 26, y + 5, 11, muted);
-          label(names[i], 66, y + 5, 15, ink);
-          label(names[i], 449, yy + 5, 15, ink);
-          line(
-            [
-              [181, y],
-              [326, y],
-            ],
-            changed ? accent : teal,
-            changed ? 2.4 : 1.1,
-          );
-          line(
-            [
-              [565, yy],
-              [750 - (changed ? 39 : 0), yy],
-            ],
-            changed ? accent : teal,
-            changed ? 2.4 : 1.1,
-          );
-          path([336, y], [439, yy], changed ? accent : muted, match * 0.8);
-          if (changed) {
-            alpha(resolve, () => {
-              rect(555, yy + 11, 148, 22, wash, accent);
-              label("Parameter changed", 564, yy + 26, 11, accent);
-            });
-          }
-          if (match > 0.98 && i === active) dot(391, y, 4, accent);
-        });
-      }
-      alpha(resolve, () =>
-        label(
-          "Equivalent steps stay paired. Differences stay visible.",
-          28,
-          442,
-          16,
-        ),
-      );
     } else if (kind === "pathfinder") {
       heading("SEARCH SPACE", "TARGET CHART");
       const labels = ["Workcentre", "Parameter family", "Parameter"],

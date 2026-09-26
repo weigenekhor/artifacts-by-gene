@@ -560,78 +560,6 @@ img {
 .evidence:hover {
   border-color: #9b9574;
 }
-.comparison {
-  position: absolute;
-  inset: 10% 0 0;
-  transform: rotateY(calc((1 - var(--progress)) * -12deg));
-  transform-origin: center;
-}
-.compare-labels,
-.compare-guide {
-  display: flex;
-  justify-content: space-between;
-  font-size: 10px;
-  color: #9fab96;
-  padding: 0 10px 20px;
-}
-.compare-labels {
-  border-bottom: 1px solid #394131;
-}
-.compare-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  padding: 28px 0;
-}
-.recipe-column {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.recipe-step {
-  height: 32px;
-  display: flex;
-  align-items: center;
-  padding: 0 12px;
-  gap: 15px;
-  border: 1px solid #77856a26;
-  background: linear-gradient(100deg, #283022, #171c15);
-  transform: translateY(calc(var(--shift) * 40px * (1 - var(--progress))));
-  position: relative;
-}
-.recipe-step span {
-  font-size: 9px;
-  color: #9aab8c;
-}
-.recipe-step i {
-  display: block;
-  height: 3px;
-  background: #94a487;
-  opacity: 0.5;
-}
-.recipe-step b {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #bacba9;
-  margin-left: auto;
-}
-.recipe-step.changed {
-  background: linear-gradient(100deg, #6d50372e, #292119);
-  border-color: #987653;
-}
-.recipe-step.changed i,
-.recipe-step.changed b {
-  background: #e0ab73;
-}
-.compare-guide {
-  border-top: 1px solid #394131;
-  padding-top: 18px;
-  font-size: 9px;
-}
-.changed-key {
-  color: var(--accent);
-}
 .surface-object {
   height: 100%;
   position: relative;
@@ -1147,15 +1075,6 @@ dialog::backdrop {
   .evidence img {
     max-height: 145px;
   }
-  .comparison {
-    inset: 14% 7% 0;
-  }
-  .recipe-step {
-    height: 45px;
-  }
-  .recipe-column {
-    gap: 20px;
-  }
   .signal-plane img {
     height: 160px;
   }
@@ -1223,24 +1142,6 @@ dialog::backdrop {
     right: 4vw;
     top: 18%;
     bottom: 25%;
-  }
-  .compare-columns {
-    gap: 30px;
-  }
-  .recipe-step {
-    padding: 0 8px;
-    gap: 9px;
-    height: 27px;
-  }
-  .recipe-column {
-    gap: 10px;
-  }
-  .comparison {
-    inset: 8% 0 0;
-  }
-  .compare-labels,
-  .compare-guide {
-    font-size: 8px;
   }
   .feature-verbs {
     gap: 8px;
@@ -1489,38 +1390,6 @@ dialog::backdrop {
     bottom: 17%;
     left: var(--gutter);
     right: var(--gutter);
-  }
-  .comparison {
-    inset: 0 4% 0;
-  }
-  .compare-labels {
-    padding-bottom: 12px;
-  }
-  .compare-columns {
-    padding: 15px 0;
-    gap: 35px;
-  }
-  .recipe-step {
-    height: 17px;
-    padding: 0 7px;
-    gap: 8px;
-  }
-  .recipe-step span {
-    font-size: 7px;
-  }
-  .recipe-step i {
-    height: 2px;
-  }
-  .recipe-step b {
-    height: 3px;
-    width: 3px;
-  }
-  .recipe-column {
-    gap: 7px;
-  }
-  .compare-guide {
-    font-size: 7px;
-    padding-top: 10px;
   }
   .evidence {
     bottom: 7%;
@@ -2080,10 +1949,4 @@ html:not(.enhanced) .origin-progress {
   border: 0;
   background: #d6af82;
   border-radius: 50%;
-}
-.recipe-step {
-  transform: translate(
-    calc(var(--shift) * 14px * (1 - var(--progress))),
-    calc(var(--shift) * 40px * (1 - var(--progress)))
-  );
 }

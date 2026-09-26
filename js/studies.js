@@ -1,3 +1,4 @@
+import { createPapyrusStudy } from "./papyrus-study.js";
 import { createTopography } from "./topography.js";
 import { createFunctionStudy } from "./function-studies.js";
 // Interface, method, inspection and handoff share the page's single clock.
@@ -7,6 +8,7 @@ const smooth = (v) => {
   return v * v * v * (v * (v * 6 - 15) + 10);
 };
 export function createStudy(el, wake) {
+  if (el.dataset.feature === "compare") return createPapyrusStudy(el, wake);
   const beats = JSON.parse(el.dataset.beats),
     beat = el.querySelector(".study-beat"),
     control = el.querySelector(".study-control input"),
@@ -66,7 +68,6 @@ export function createStudy(el, wake) {
     schedule: ["Interval", 8],
     usage: ["Chamber", 3],
     surface: ["Region", 5],
-    compare: ["Step", 7],
     pathfinder: ["Parameter", 3],
     compile: ["Report section", 3],
     diagnose: ["Recommended check", 3],
