@@ -1,4 +1,5 @@
 import { createGenesis } from "./genesis.js";
+import { createEpilogue } from "./epilogue.js";
 import { apps, homepage } from "./apps.js";
 import { createStudy } from "./studies.js";
 import { createHero } from "./hero.js";
@@ -17,6 +18,7 @@ const root = document.documentElement,
 const collection = [homepage, ...apps];
 const studies = features.map((el) => createStudy(el, wake));
 const genesis = createGenesis(hero, wake);
+const epilogue = createEpilogue($(".creator"));
 const toolsScene = createHero($("#tools-universe"), apps, wake);
 let heroMoving = false,
   toolsMoving = false,
@@ -45,6 +47,7 @@ preference.addEventListener("change", syncMotion);
 function measure() {
   const y = scrollY;
   genesis.measure();
+  epilogue.measure();
   toolsScene.resize();
   toolsTop = toolsSection.offsetTop;
   toolsHeight = toolsSection.offsetHeight;
@@ -66,7 +69,7 @@ function stopPlayback() {
   if (!playback) return;
   const b = features[playback.index].querySelector(".study-play");
   b.setAttribute("aria-pressed", "false");
-  b.innerHTML = "<span aria-hidden=true>▷</span> Watch sequence";
+  b.innerHTML = "<span class=play-symbol aria-hidden=true></span> Play";
   playback = null;
 }
 features.forEach((el, index) =>
@@ -80,11 +83,11 @@ features.forEach((el, index) =>
     playback = {
       index,
       start: performance.now(),
-      duration: 17000 + (index % 3) * 900,
+      duration: Number(el.dataset.playbackMs) || 17000 + (index % 3) * 900,
     };
     el.querySelector(".study-play").setAttribute("aria-pressed", "true");
     el.querySelector(".study-play").innerHTML =
-      "<span aria-hidden=true>Ⅱ</span> Pause sequence";
+      "<span class=pause-symbol aria-hidden=true></span> Pause";
     manualProgress.set(index, 0);
     wake();
   }),
@@ -106,8 +109,13 @@ function tick(time) {
   px += (tx - px) * (1 - Math.exp(-dt / 160));
   py += (ty - py) * (1 - Math.exp(-dt / 160));
   heroMoving = genesis.update(y, time, dt, px, py, reduced);
+  const closingMoving = epilogue.update(y, dt, reduced);
   toolsMoving = false;
-  if (y + innerHeight > toolsTop && y < toolsTop + toolsHeight) {
+  if (
+    (y >= toolsTop - innerHeight * 0.32 || reduced) &&
+    y < toolsTop + toolsHeight
+  ) {
+    toolsSection.firstElementChild.style.visibility = "visible";
     const arrival = reduced
       ? 1
       : ease((y - toolsTop + innerHeight * 0.32) / (innerHeight * 0.65));
@@ -127,6 +135,8 @@ function tick(time) {
       toolsScene.render(time, p, px, py, reduced, dt, interaction, arrival) ||
       interaction.moving;
   }
+  if (!reduced && y < toolsTop - innerHeight * 0.32)
+    toolsSection.firstElementChild.style.visibility = "hidden";
   if (playback) {
     const p = clamp((time - playback.start) / playback.duration);
     manualProgress.set(playback.index, p);
@@ -143,14 +153,36 @@ function tick(time) {
           ? 1
           : clamp(
               (y - b.top + innerHeight * 0.18) /
-                (Math.max(innerHeight * 0.7, b.height - b.stage) +
+                (Math.max(
+                  innerHeight * 0.7,
+                  b.height - b.stage - innerHeight * 0.32,
+                ) +
                   innerHeight * 0.18),
             );
+    // The resolved interface stays present as the next study enters. Both
+    // surfaces pass through the same frontal viewing plane; no black interlude.
+    const arriving = reduced ? 1 : ease((y + innerHeight - b.top) / b.stage);
+    const departure = reduced
+      ? 0
+      : clamp((y - (b.top + b.height - b.stage)) / b.stage);
+    const leaving = 1 - ease((departure - 0.55) / 0.4);
+    el.style.setProperty("--film-presence", leaving);
+    el.style.setProperty("--film-chrome", 1 - ease(departure / 0.3));
+    el.style.setProperty(
+      "--film-depth",
+      `${-145 * (1 - arriving) - 110 * ease(departure)}px`,
+    );
+    el.style.setProperty(
+      "--film-pitch",
+      `${-5 * (1 - arriving) + 5 * ease(departure)}deg`,
+    );
+    el.firstElementChild.inert = !reduced && leaving < 0.05;
     studyMoving =
       studies[i].update(p, dt, reduced, manual, px, py) || studyMoving;
   });
   if (
     heroMoving ||
+    closingMoving ||
     toolsMoving ||
     studyMoving ||
     Math.abs(px - tx) + Math.abs(py - ty) > 0.001

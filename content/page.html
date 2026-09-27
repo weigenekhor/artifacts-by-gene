@@ -36,6 +36,10 @@
     <link rel="stylesheet" href="artifact.css" />
     <link rel="stylesheet" href="entry.css" />
     <link rel="stylesheet" href="genesis.css" />
+    <link rel="stylesheet" href="origin.css" />
+    <link rel="stylesheet" href="papyrus.css" />
+    <link rel="stylesheet" href="films.css" />
+    <link rel="stylesheet" href="epilogue.css" />
     <script type="module" src="script.js"></script>
   </head>
   <body>
@@ -100,20 +104,15 @@
             <span>Move to inspect the structure</span
             ><span>Scroll to trace its beginnings ↓</span>
           </div>
-          <div class="construction-copy">
-            <p class="construction-kicker">Why ARTIFACTS exists</p>
-            <div class="construction-pages"><!-- ORIGIN PAGES --></div>
+          <div class="origin-film" aria-label="Why ARTIFACTS exists">
+            <div class="origin-heading">
+              <span>01 / Why ARTIFACTS exists</span>
+            </div>
+            <div class="origin-captions"><!-- ORIGIN PAGES --></div>
+            <div class="origin-foot">
+              <a href="#collection">Continue to the applications ↗</a>
+            </div>
           </div>
-          <div class="construction-legend" aria-hidden="true">
-            <span class="build-state">An unresolved task</span
-            ><span>Schematic / not application output</span>
-          </div>
-          <nav class="construction-nav" aria-label="Construction story">
-            <!-- ORIGIN CONTROLS -->
-          </nav>
-          <a class="construction-next" href="#collection"
-            >Enter the applications <span aria-hidden="true">↓</span></a
-          >
         </div>
       </section>
       <section
@@ -123,10 +122,7 @@
       >
         <div class="tools-stage">
           <div class="tools-heading" id="work">
-            <p class="eyebrow">02 / The applications</p>
-            <h2 id="tools-title">
-              What began as necessity<br /><em>became ARTIFACTS.</em>
-            </h2>
+            <h2 class="eyebrow" id="tools-title">02 / The applications</h2>
           </div>
           <div
             id="tools-universe"
@@ -173,50 +169,47 @@
       </div>
       <!-- FEATURES -->
       <section class="creator" id="gene" aria-labelledby="creator-title">
-        <div class="creator-top">
-          <span>By Gene</span>
-        </div>
-        <div class="creator-account">
-          <h2 id="creator-title">Three years.<br />Sixteen applications.</h2>
-          <div class="creator-writing">
-            <p>
-              ARTIFACTS began with one belief: if the work could be better, it
-              should be.
-            </p>
-            <p>
-              So I built what I needed, one problem at a time. Some tools stayed
-              small. Others grew far beyond where they began. But every one came
-              from the same place: care for the work, and a refusal to accept
-              friction as inevitable.
-            </p>
-            <p>
-              Three years later, I still build every tool as if my own work
-              depends on it. Because it does.
-            </p>
+        <div class="creator-stage">
+          <div class="creator-rule" aria-hidden="true"></div>
+          <canvas class="creator-environment" aria-hidden="true"></canvas>
+          <div class="creator-account">
+            <div class="creator-beat creator-first">
+              <h2 id="creator-title">
+                I spent my entire life improving processes.
+              </h2>
+            </div>
+            <div class="creator-beat creator-second">
+              <p>
+                ARTIFACTS began when I realised engineering itself was one of
+                them.
+              </p>
+            </div>
+            <div class="creator-beat creator-pair">
+              <p>
+                <span>What repeated, I automated.</span>
+                <span>What stood in the way, I rebuilt.</span>
+              </p>
+            </div>
+            <div class="creator-beat creator-last">
+              <p>
+                ARTIFACTS is the evidence that I never accepted the way things
+                were as the way they had to stay.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="creator-contact">
-          <span>Gene</span
-          ><a href="mailto:weigenekhor@gmail.com">weigenekhor@gmail.com ↗</a
-          ><a
-            href="https://www.linkedin.com/in/weigenekhor/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >LinkedIn ↗</a
-          >
+          <div class="creator-contact">
+            <span>Gene</span
+            ><a href="mailto:weigenekhor@gmail.com">weigenekhor@gmail.com ↗</a
+            ><a
+              href="https://www.linkedin.com/in/weigenekhor/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn ↗</a
+            >
+          </div>
         </div>
       </section>
     </main>
-    <footer class="footer">
-      <img
-        src="assets/brand/artifacts-symbol.svg"
-        alt=""
-        width="28"
-        height="28"
-      /><span>ARTIFACTS</span>
-      <p>Engineering software by Gene.</p>
-      <a href="#collection">Explore the collection ↗</a>
-    </footer>
     <dialog id="study-picker" aria-labelledby="picker-title">
       <div class="picker-heading">
         <div>

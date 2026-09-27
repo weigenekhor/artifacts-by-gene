@@ -1,4 +1,10 @@
-import { collectionPosition } from "./collection-layout.js";
+import {
+  collectionPosition,
+  collectionBounds,
+  configureCollection,
+  paintCollectionField,
+  paintWorkingStructures,
+} from "./collection-layout.js";
 // Direct inspection presents one interface without rearranging the collection.
 const clamp = (v) => Math.max(0, Math.min(1, v));
 const ease = (v) => {
@@ -7,7 +13,7 @@ const ease = (v) => {
 };
 const mix = (a, b, t) => a + (b - a) * t;
 export function createHero(stage, apps, wake) {
-  const home = stage.querySelector(".collection-home");
+  const home = document.querySelector(".collection-home");
   const scaffold = document.createElement("canvas");
   scaffold.className = "collection-scaffold";
   scaffold.setAttribute("aria-hidden", "true");
@@ -40,6 +46,7 @@ export function createHero(stage, apps, wake) {
     const a = document.createElement("a"),
       image = new Image();
     a.className = "universe-plane";
+    a.style.opacity = "0";
     a.dataset.app = app.id;
     a.dataset.position = i;
     a.addEventListener("pointerenter", (e) => {
@@ -104,7 +111,7 @@ export function createHero(stage, apps, wake) {
           enter();
           return;
         }
-        const source = target.querySelector(".study-source");
+        const source = target.querySelector(".film-capture, .papyrus-capture");
         a.style.viewTransitionName = "artifact-app";
         document
           .startViewTransition(() => {
@@ -130,6 +137,14 @@ export function createHero(stage, apps, wake) {
     resize() {
       w = stage.clientWidth;
       h = stage.clientHeight;
+      configureCollection(
+        w,
+        h,
+        planes.map(
+          (plane) =>
+            (plane.size = { w: plane.a.offsetWidth, h: plane.a.offsetHeight }),
+        ),
+      );
       scaffold.width = w * Math.min(devicePixelRatio || 1, 2);
       scaffold.height = h * Math.min(devicePixelRatio || 1, 2);
     },
@@ -149,23 +164,29 @@ export function createHero(stage, apps, wake) {
         (desiredOpen - opening) * (reduced ? 1 : 1 - Math.exp(-dt / 170));
       const open = opening;
 
-      if (!reduced) clock += (Math.min(dt, 40) / 1000) * (1 - inspection * 0.7);
-      const turn = reduced ? 0 : Math.sin(clock * 0.12),
-        breath = reduced ? 0 : Math.sin(clock * 0.19);
+      if (!reduced)
+        clock += (Math.min(dt, 40) / 1000) * (1 - inspection * 0.96);
+      const turn = reduced ? 0 : Math.sin(clock * 0.045),
+        breath = reduced ? 0 : Math.sin(clock * 0.055);
       const yaw =
-        state.yaw * 0.26 + (reduced ? 0 : px * 0.1) + turn * 0.14 * open;
+        state.yaw * 0.26 + (reduced ? 0 : px * 0.1) + turn * 0.035 * open;
       const pitch =
-        state.pitch * 0.18 + (reduced ? 0 : py * 0.035) + breath * 0.025;
+        state.pitch * 0.18 + (reduced ? 0 : py * 0.035) + breath * 0.008;
       const mobile = w < 700;
       const cx = w * 0.5,
-        cy = h * mix(0.48, mobile ? 0.57 : 0.59, open);
-      if (home) {
+        cy = h * mix(0.48, mobile ? 0.46 : 0.51, open);
+      if (home && (arrival > 0 || reduced)) {
+        if (home.parentElement !== stage) stage.append(home);
+        home.classList.remove("origin-surface");
+        home.style.position = "absolute";
+        home.style.left = "50%";
+        home.style.width = "";
+        home.inert = arrival < 0.6 && !reduced;
+        home.style.setProperty("--recognition", 1);
         const retreat = ease(open);
-        home.style.transform = `translate(-50%,-50%) translateZ(${-retreat * 520}px) rotateY(${reduced ? 0 : yaw * 12}deg) rotateX(${reduced ? 0 : pitch * 14 - retreat * 5}deg) scale(${mix(1, 0.72, retreat)})`;
+        home.style.transform = `translate(-50%,-50%) translateZ(${-retreat * 230}px) rotateY(${reduced ? 0 : yaw * 12}deg) rotateX(${reduced ? 0 : pitch * 14 - retreat * 5}deg) scale(${mix(1, 0.86, retreat)})`;
         home.style.zIndex = String(Math.round(mix(850, 50, retreat)));
-        home.style.opacity = String(
-          mix(1, 0.48, retreat) * ease((arrival - 0.25) / 0.75),
-        );
+        home.style.opacity = String(mix(1, 0.8, retreat));
         home.style.top = (cy / h) * 100 + "%";
         home.style.setProperty("--home-light", 0.1 + Math.max(0, px) * 0.12);
       }
@@ -193,8 +214,8 @@ export function createHero(stage, apps, wake) {
         );
         context.clearRect(0, 0, w, h);
         if (arrival > 0) {
-          context.fillStyle = "#050708";
-          context.fillRect(0, 0, w, h);
+          paintCollectionField(context, w, h);
+          paintWorkingStructures(context, w, h, 1, ease(arrival / 0.65));
         }
       }
       planes.forEach((plane, i) => {
@@ -213,8 +234,11 @@ export function createHero(stage, apps, wake) {
           active < 0
             ? 0
             : Math.exp(
-                -Math.min(Math.abs(i - active), 16 - Math.abs(i - active)) *
-                  0.75,
+                -Math.hypot(
+                  position.x - collectionPosition(active, w, h, open, turn).x,
+                  position.y - collectionPosition(active, w, h, open, turn).y,
+                ) /
+                  (w * 0.16),
               ) *
               inspection *
               (1 - focus);
@@ -227,15 +251,38 @@ export function createHero(stage, apps, wake) {
             y * Math.sin(pitch) +
             Z * Math.cos(pitch) +
             focus * (mobile ? 155 : 360);
-        const drift = reduced ? 0 : Math.sin(clock * 0.25 + i * 0.6);
-        const reveal = ease((arrival - i * 0.015) / 0.66);
-        a.style.transform = `translate3d(${cx + X * (1 - focus * 0.2)}px,${cy + Y * (1 - focus * 0.08)}px,${depth}px) translate(-50%,-50%) rotateX(${(5 + pitch * 35 + drift) * (1 - focus * 0.95)}deg) rotateY(${(-Math.cos(angle) * 11 + yaw * 45 + drift) * (1 - focus * 0.95)}deg) scale(${scale * (1 + focus * 0.12)})`;
+        const drift = reduced ? 0 : Math.sin(clock * 0.075 + i * 0.6) * 0.25;
+        const reveal = ease((arrival - 0.16 - (i % 4) * 0.11) / 0.42);
+        const k = 1600 / (1600 - depth),
+          projectedW = plane.size.w * scale * (1 + focus * 0.12) * k,
+          projectedH = plane.size.h * scale * (1 + focus * 0.12) * k;
+        const { margin: left, top, bottom } = collectionBounds(w, h);
+        const screenX = Math.max(
+          left + projectedW / 2,
+          Math.min(w - left - projectedW / 2, cx + X * (1 - focus * 0.2) * k),
+        );
+        const screenY = Math.max(
+          top + projectedH / 2,
+          Math.min(
+            bottom - projectedH / 2,
+            h / 2 + (cy + Y * (1 - focus * 0.08) - h / 2) * k,
+          ),
+        );
+        const planeX = cx + (screenX - cx) / k,
+          planeY = h / 2 + (screenY - h / 2) / k;
+        a.style.transform = `translate3d(${planeX}px,${planeY}px,${depth}px) translate(-50%,-50%) rotateX(${(5 + pitch * 35 + drift) * (1 - focus * 0.95)}deg) rotateY(${(-Math.cos(angle) * 11 + yaw * 45 + drift) * (1 - focus * 0.95)}deg) scale(${scale * (1 + focus * 0.12)})`;
         a.style.opacity = String(reveal * (1 - neighbor * 0.16));
+        a.style.setProperty(
+          "--label-arrival",
+          Math.max(focus, ease((open - 0.12) / 0.4) * 0.16),
+        );
         a.style.clipPath = `inset(${(1 - reveal) * 100}% 0 0)`;
         a.style.zIndex = String(Math.round(depth + 500 + focus * 1000));
         a.style.setProperty(
           "--plane-brightness",
-          1 + focus * 0.15 - neighbor * 0.1,
+          ([3, 10, 11, 12].includes(i) ? 0.83 : 1) +
+            focus * 0.17 -
+            neighbor * 0.16,
         );
         a.style.setProperty(
           "--plane-label",

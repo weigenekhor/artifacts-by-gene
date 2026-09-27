@@ -1,59 +1,36 @@
-# Validation — ARTIFACTS software exhibition
+# Validation — cinematic rebuild candidate
 
-**Latest targeted redesign (working system):** static build and focused Edge checks passed. Desktop/mobile review covered the ordered hero, expanded assembly, five story stages, engineering situations and creator note. Fixed a legacy CSS collision that hid the method register and reduced fragment overlap. Verified visible rotation, pause on hover/focus, app handoff, all sixteen method entries and task-context coverage, removal of rejected copy, reduced-motion composition, and no page/console errors or horizontal overflow. Ambient motion now intentionally runs while the hero is visible; after leaving and settling, a one-second sample recorded zero callbacks. Broader validation remains deferred.
+27 September 2026. These results apply to the complete rebuild on `experience/software-exhibition`; they do not certify Gene's visual approval.
 
-**Previous visual refinement (application assembly):** build and focused Edge checks passed at 1440 × 900 and 390 × 844 with no page/console errors or horizontal overflow. All sixteen hero images loaded. Opening, direct app handoff, faster replay, reduced-motion navigation and idle behaviour passed; a settled one-second sample recorded zero callbacks. The full media catalogue is unchanged. Visual refinement corrected creator layout inheritance and spacing between task examples. Comprehensive validation remains deferred.
+## Verified
 
-**Previous visual refinement (merged reveal):** restored the original reveal chapter and connected the current sectional surface to a passage of real application captures. Focused Edge checks at 1440 × 900 and 390 × 844 passed without page/console errors or horizontal overflow; the light-scene shadow and image overlap were corrected after visual review. A 1.5-second settled sample recorded zero animation callbacks. Static build passed. Full validation remains deferred.
+- Static build succeeds. The approved opening renderer and hero markup are unchanged. Gene's wording remains exact; only its presentation changed.
+- Both image suites pass: all sixteen source hashes, full-image decoded pixels, native detail pixels, dimensions and catalogue entries. The Papyrus import recipe and pane coordinates match the current Desktop source.
+- Browser suite: all sixteen complete opening/return images, canonical order, keyboard inspection, alternate controls, original viewer/Escape, exact Gene copy and all sixteen reduced-motion starting/result states pass. No console, page or resource errors were recorded.
+- Responsive smoke coverage: 320×568, 390×844, 844×390, 1024×1366, 1366×768, 1440×900, 1920×1080, 2560×1440 and 3840×2160. Full sixteen-film review applies to 1440×900 and 390×844; other sizes exercise representative layouts.
+- Full-progress sweep: all sixteen films at 201 positions on desktop/mobile, plus alternate inspection samples, with no detected text collision or clipping after the AIX label repair.
+- Dedicated GaN Met Compiler / LT Report Compiler sweep: 201 positions at 1440, 1280 and 390 widths, with no detected label collision or clipping.
+- Production geometry checks: all sixteen films at five states at desktop/mobile, plus physical departures, with no detected overlap, overflow, clipped labels or active exiting controls.
+- Collection: 64 focused layouts across desktop, portrait, narrow portrait and landscape pass; two-tap touch entry passes.
+- Continuity: one persistent homepage surface, no early application exposure, sixteen no-JavaScript source links and Metria pin handoff pass.
+- Mobile reduced-motion axe A/AA check returns zero reported violations. Automated testing does not replace assistive-technology testing.
 
-**Previous visual refinement (sectional entry):** static build and focused Edge browser checks passed. Replaced the always-running WebGL hero with a finite Canvas 2D renderer. A local 180-frame pointer sample measured 16.7 ms median / 17.3 ms p95; after settling, no animation callbacks occurred during a one-second idle sample. These are local headless observations, not a hardware-wide performance guarantee. Keyboard separation, sixteen own-app image boundaries, representative desktop/mobile compositions and runtime checks passed with no page or console errors. Original application motion and media are retained. Full browser/device/accessibility validation remains deferred.
+## Visual review
 
-**Scope:** the results below record v10, before the sixteen-study expansion. The current visual pass has a successful build and basic runtime check across all sixteen studies, with no reported page/resource errors. Full validation of this expansion is deferred until visual approval.
+The local review set contains 197 captures: twelve origin states per primary size, collection rest/focus and desktop hover, five states for all sixteen films, and four Gene beats per size. Open `.qa/cinema-complete/index.html` through the local server. Contact sheets and individual scenes were inspected; revisions corrected sparse framing, a temporary empty SPC interval, a featureless origin base, ribbon seams, AIX label collisions and small XML framing.
 
-Validated on 22 September 2026 using Playwright and installed Microsoft Edge in headless mode. Tests serve the static files under a GitHub Pages-style `/artifacts-by-gene/` subpath.
+Screenshots document composition; they cannot establish cinematic pacing or user comprehension. The candidate remains subject to Gene's visual review.
 
-## Functional checks
+## Performance and limits
 
-- All sixteen applications advance through native scrolling and display the correct name, purpose and complete source capture.
-- All sixteen full-image dialogs preserve intrinsic source dimensions; Escape and return focus passed. Papyrus actual-size inspection renders at its native 1531-pixel width.
-- Archive rail, previous/next controls, keyboard arrows and direct app links passed.
-- All four study range controls update their visual progression. Native scrolling resumes progression after manual inspection.
-- Reduced motion retains settled diagrams and the full collection. With JavaScript disabled, all sixteen screenshots and linked index entries remain available.
-- Four full-document axe WCAG A/AA scans passed with **zero violations**: desktop, viewer, mobile and reduced motion.
-- **Zero console warnings/errors, page exceptions or failed resource responses.**
+A local headless Edge sample used this laptop's RTX 4060 via ANGLE/D3D11. Each of sixteen film middles was swept for three seconds at 1440×900. All had median frame intervals near 16.7 ms. Some heavier scenes had 95th-percentile intervals around 33–50 ms; this is not a locked 60 fps guarantee. WaferCount originally measured around 50 ms median and was corrected by consolidating hidden stack faces and replacing mesh shadows with shader shadows. The final reduced-mesh recheck retained a 16.7 ms median for WaferCount, TopoTracer and Metria. A settled film recorded zero callbacks over the 550 ms idle sample.
 
-## Screen sizes
+Fifteen populated captures are 1425×950. Metria is 3840×2160. Pixels are preserved, not upscaled into supposed 4K imagery. The original-size viewer remains available. Papyrus's real text-mode capture and its separately identified XML comparison interpretation are intentionally distinguished.
 
-| Viewport    | DPR |
-| ----------- | --- |
-| 3840 × 2160 | 1   |
-| 2560 × 1440 | 1   |
-| 1920 × 1080 | 1   |
-| 1440 × 900  | 2   |
-| 1366 × 768  | 1   |
-| 1024 × 1366 | 1   |
-| 430 × 932   | 2   |
-| 390 × 844   | 3   |
-| 320 × 740   | 2   |
-| 844 × 390   | 2   |
-| 667 × 375   | 2   |
+Mobile is emulated. Physical iOS/Android devices, Safari, Firefox and assistive technologies were not tested. Illustrative values are not live equipment results; diagnostics do not prove a physical cause; cross-scene continuity does not claim app integration.
 
-Each viewport passed four demonstration compositions and four representative archive states. Checks cover horizontal overflow, copy/visual/control collisions, archive header clearance and screenshot/navigation clearance. Visual review included opening, origin, all four demonstrations, collection and mobile portrait/landscape. Refinement corrected long headline wrapping, small-text contrast, screenshot composition, header transparency and a redundant diagram caption.
+## Reproduce
 
-A recorded continuous-scroll review is saved under ignored `.qa/film-v10/`. Additional checks confirm that resizing from desktop to portrait preserves the active application, and that the new viewing interval holds the active capture straight-on. The archive transition leaves readable pauses between movements.
+`pnpm build`, `pnpm test`, `pnpm test:assets`, `pnpm test:evidence`, `pnpm test:continuity`, `pnpm test:collection`, `pnpm test:production`, `pnpm test:reports`, `pnpm test:cinema`.
 
-## Performance
-
-A local 360-frame scroll sweep at 1920 × 1080 recorded **16.7 ms median**, **16.8 ms p95**, **zero long tasks**, and **zero idle animation callbacks** after settling. This is a local sample, not a device-wide FPS guarantee.
-
-The previous Three.js renderer and dependency were removed. The current browser bundle is approximately **14.5 kB / 4.9 kB gzip**. The contour graphic is generated at build time; CSS provides perspective. Native DOM images preserve the original captures, with lazy loading below the fold. The controller sleeps at rest and while the document is hidden.
-
-## Image fidelity
-
-Both image suites passed. Full lossless WebP images and detail crops preserve source pixels and recorded dimensions. The current Papyrus capture is **1531 × 1002**; the remaining fifteen are **1425 × 950**. Complete originals remain available in the viewer. Crops are deliberate source fragments, and no screenshots are generated, retouched or artificially upscaled. The original ARTIFACTS symbol and matching favicon are retained.
-
-## Reproduce and limits
-
-Run `pnpm build`, `pnpm test:evidence`, `pnpm test:assets` and `pnpm test`. The browser suite defaults to `msedge`; `BROWSER_CHANNEL` can select another installed Chromium channel. Reports and images are in ignored `.qa/validation-v10.json` and `.qa/v10-*.png`.
-
-Mobile checks are emulated; physical devices, Safari and Firefox have not been tested. Automated accessibility checks do not replace assistive-technology review. Concept motion explains an application's purpose; it does not represent measured outputs or a live engineering simulation. Native image resolution limits remain; these captures are not 4K source material.
+Tests serve the site under a GitHub Pages-style subpath. Generated HTML/JavaScript are static and require no server runtime. Production has not been changed.

@@ -14,15 +14,15 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The opening makes ARTIFACTS typography the spatial surface. Its computational field continues into the origin, becoming recurring observations, retained checks and a visibly refined method. The origin constructs sixteen positions before any application screenshots appear. Those same positions receive the real interfaces in the collection. Diagrams are illustrative, not measured output.
+The approved opening remains unchanged. The wordless origin visits an obstructed route, an alignment mechanism and a report assembly. Each intervention remains in the same environment as the camera pulls back. A central material surface resolves into the real homepage and continues into the collection. These are interpretations of friction and improvement, not measured output or a claim that the applications exchange data. This revision is for visual review.
 
 The uncropped homepage begins in front of the sixteen applications and recedes as they advance. Hovering or focusing an interface brings that specific app forward, turns it toward the viewer and reduces ambient movement. On touch, one tap presents the app and the next enters it. Leaving restores the arrangement smoothly.
 
-All sixteen studies show input, operation and result through task-specific demonstrations. Timeline alignment, recipe comparison, report assembly and signal review use clear two-dimensional relationships; TopoTracer's height field and AIX's baseplate exchange retain three-dimensional materials. GaN Temp Diagnoser relates process/clean observations to possible checks without fabricating measured values or a confirmed diagnosis. Full captures, app order and Gene's approved closing remain intact.
+All sixteen films have their own camera route, visual scale, material treatment and inspection composition. Physical trajectories, document fields, measurement surfaces, temporal gates and structural hierarchies explain verified operations. GaN Temp Diagnoser narrows recommended checks using process/clean context; it never asserts a confirmed cause. Complete captures and canonical app order remain intact. Metria's actual inspection rule continues into a four-beat epilogue using Gene's exact approved wording.
 
 Read `ARTIFACTS_CREATIVE_DIRECTION.md` and `ARTIFACTS_EXPERIENCE_STORYBOARD.md` for governing direction and factual boundaries. One shared clock pauses ambient scenes offscreen. Mobile uses reduced spatial depth; reduced motion retains the narrative without pinned sequences.
 
-Every app has seven individually named states, beginning and ending with its complete source interface. There is no shared screenshot-slicing routine. Native scrolling controls the sequences; optional replay runs for 17–18.8 seconds. A second keyboard-accessible range changes a task-specific inspection region. Diagrams illustrate relationships, not measured results or cross-application integration.
+Each application has an independently staged film, beginning and ending with its complete source interface. An outline highlights its relevant interface region using coordinates from the evidence audit; captures stay uncropped. Each signature operation is distinct: per-wafer reconstruction, recipe-based renewal, illustrative processed-wafer counts, interpolation, named XML correspondence, chart dispatch, report compilation, paired-context diagnosis, baseplate exchange, angular sampling windows, device-property comparison, status evidence, recent-population review, gated renewal, context-preserving report append and linked investigation. Native scrolling controls the sequences; optional replay runs for 23.2–28.5 seconds. A second keyboard-accessible range changes a task-specific inspection region. Diagrams illustrate relationships, not measured results or cross-application integration.
 
 ## Source files
 
@@ -30,16 +30,23 @@ Every app has seven individually named states, beginning and ending with its com
 - `content/exhibition.json`: sixteen multi-phase demonstration narratives and source app IDs.
 - `content/apps.json`: all sixteen verified apps, purposes, original source groups and asset provenance.
 - `scripts/build.mjs`: static SVG generation, HTML rendering and script bundling.
-- `js/contours.js`: equal-height contour extraction for an illustrative field.
 - `js/experience.js`: shared clock, scroll progression, replay, app picker and image viewer.
 - `js/hero.js`: later application assembly, direct hover/focus depth inspection, touch presentation and shared-element navigation.
 - `js/genesis.js`: opening/origin timing, pointer inertia and narrative controls.
-- `js/identity-field.js`: monumental typography, continuous evidence field, retained method and constructed collection frames.
-- `js/collection-layout.js`: common spatial positions for the origin handoff and application collection.
-- `js/space.js` and `js/material-renderer.js`: shared projection, depth-tested materials and Canvas fallback.
-- `js/function-studies.js`: fifteen task-specific input/operation/result demonstrations, including the diagnostic map and baseplate exchange.
-- `js/topography.js`: shaded circular height field, contours and matching interactive section profile.
-- `content/story.json`: five-stage construction narrative, without application examples.
+- `js/identity-field.js`: approved monumental typography and opening field; hands off after the opening.
+- `js/origin-film.js`: wordless camera route, lighting evolution and persistent collection handoff.
+- `js/films/environment.js`: the same physical mechanisms used by both origin and collection.
+- `js/films/set.js`: material volumes, continuous ribbon geometry, wafers and terrain.
+- `js/collection-layout.js`: size-aware asymmetric packing, four anchors and shared handoff positions.
+- `js/films/studio.js` and `js/material-renderer.js`: camera projection, smooth normals, depth-tested materials and Canvas fallback.
+- `content/films.json`: film pacing, statements and inspection controls.
+- `js/instrument-film.js`: source-region registration, shared lifecycle and access controls.
+- `js/films/`: time, field, document, reporting and physical choreography; `composition.js` owns each film's desktop/mobile safe regions.
+- `js/papyrus-study.js` and `content/papyrus.json`: dedicated logical-comparison film and example correspondence.
+- `films.css` and `papyrus.css`: responsive film stages and reduced-motion composition.
+- `js/films/instruments.js`: illustrative processed-wafer totals, measurement surface, baseplate exchange and angular windows.
+- `content/story.json`: accessible descriptions of the wordless origin; no early application examples.
+- `js/epilogue.js` and `epilogue.css`: Metria rule handoff and four distinct typographic compositions.
 - `js/hero-interaction.js`: drag, keyboard, separation and reset controls.
 - `content/homepage.json`: the central homepage capture and its full-image viewer.
 - `entry.css`: application assembly, study typography and baseplate exchange.
@@ -47,15 +54,15 @@ Every app has seven individually named states, beginning and ending with its com
 - `artifact.css`: current Artifact, interface passage and responsive study composition.
 - `experience.css`: entry composition, image fitting and picker.
 - `styles.css` and `studies.css`: visual design, extended study pacing, responsive composition and reduced motion.
-- `js/studies.js`: source-to-demonstration handoff, individual phases and inspection state.
+- `js/studies.js`: dispatches application films to their renderers.
 
 Generated files: `index.html`, `js/apps.js`, `script.js`. Edit their sources and rebuild.
 
 ## Actual software images
 
-Current lossless assets are under `assets/evidence/<app-id>/`, derived from `C:/Users/Gene/Desktop/Artifacts Images`. `detail.webp` is a deliberate native crop; `full.webp` preserves the entire capture. Papyrus uses the updated **1531 × 1002** source. The other fifteen captures are **1425 × 950**. No upscaling, fabricated screens or generated application imagery is used.
+Current lossless assets are under `assets/evidence/<app-id>/`, derived from `C:/Users/Gene/Desktop/Artifacts Images`. `detail.webp` is a deliberate native crop; `full.webp` preserves the entire capture. Fifteen sources, including the replacement Papyrus capture, are **1425 × 950**. Metria uses its populated **3840 × 2160** native capture. No upscaling, fabricated screens or generated application imagery is used. The replacement Papyrus image shows text comparison; its explanatory middle explicitly illustrates the separately verified XML identity mode.
 
-Full captures are displayed in the later collection. Small uncropped full captures accompany every conceptual demonstration. Their layout preserves the image aspect ratio and provides an original-size viewer. Every app opens a fitted original with an actual-size option. The original-resolution limit remains: these sources are not native 4K screenshots. The archive assets under `assets/artifacts/apps/` are preserved but not used by the exhibition.
+Full captures are displayed in the later collection. Each film opens and closes with its complete source capture. Their layout preserves the image aspect ratio and provides an original-size viewer. Every app opens a fitted original with an actual-size option. The fifteen newer populated sources remain below native 4K; their pixels are preserved without upscaling. The seven older native 4K captures were reviewed: six are empty entry states, while Metria contains useful sample charts and is now used. See `assets/evidence/README.md` for the current capture checklist. Top-level catalogue quality flags describe archive files; `evidence.sourceQuality` describes the displayed capture.
 
 ```sh
 node scripts/prepare-evidence.mjs /path/to/Artifacts-Images papyrus-reader
@@ -67,12 +74,18 @@ Review the crop rectangle in `scripts/prepare-evidence.mjs` when a source layout
 
 ## Verification
 
-This pass includes a build, focused runtime review of all sixteen desktop studies, collection hover/focus depth changes, the story handoff, touch entry, representative mobile scenes and reduced motion. These checks reported no page errors; all full captures loaded. Asset and pixel-fidelity checks pass. A short local headless Edge hero sample measured 16.7ms median and 17.4ms p95 frame intervals; this is not cross-device GPU profiling or a performance guarantee. Broad validation remains deferred until visual approval. Existing browser-suite and VALIDATION.md results predate this redesign.
+The current browser suites start their own static server under a GitHub Pages-style subpath. `pnpm test` checks all sixteen source returns, inspection controls, order, viewport smoke checks, reduced motion and accessibility. `pnpm test:continuity` checks the persistent homepage handoff, collection visibility, pin interaction and no-JavaScript access. `pnpm test:production` checks desktop/mobile geometry, canvas-label bounds and section exits, producing contact sheets in ignored `.qa/`.
 
 ```sh
-pnpm test:evidence
+pnpm build
 pnpm test:assets
+pnpm test:evidence
 pnpm test
+pnpm test:continuity
+pnpm test:production
+pnpm test:reports
+pnpm test:cinema
+pnpm test:collection
 ```
 
-The browser suite defaults to installed Microsoft Edge. Set `BROWSER_CHANNEL` to another installed Chromium channel if needed. Tests cover all sixteen scroll states and image viewers, study controls, keyboard navigation, direct links, mobile layouts, reduced motion, no-JavaScript content, accessibility and local frame timing. See `VALIDATION.md` for results and limits. QA outputs are ignored under `.qa/`.
+Tests default to installed Microsoft Edge; set `BROWSER_CHANNEL` for another installed Chromium channel. `test:cinema` sweeps film composition and canvas labels throughout progress, including alternate inspection states. See `VALIDATION.md` for actual coverage and limitations, and `ARTIFACTS_IMPLEMENTATION_REPORT.md` for the film-by-film implementation record.

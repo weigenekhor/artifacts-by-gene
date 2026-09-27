@@ -38,7 +38,8 @@ for (const a of apps) {
   bytes += detail.length;
 }
 const html = await readFile("index.html", "utf8");
-assert.equal((html.split("<body>")[1].match(/by Gene/g) || []).length, 1);
+assert.equal((html.match(/<span>Gene<\/span/g) || []).length, 1, "Creator attribution appears once at the close");
+assert.ok(!html.includes('class="footer"'), "No redundant closing sign-off");
 assert.equal((html.match(/data-study-app="/g) || []).length, 16);
 for (const app of apps) {
   assert.ok(html.includes('data-study-app="' + app.id + '"'));

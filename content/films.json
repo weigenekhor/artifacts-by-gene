@@ -1,0 +1,538 @@
+{
+  "history": {
+    "duration": 24400,
+    "length": 450,
+    "layout": "timeline",
+    "pointer": "target",
+    "inspect": "Select a wafer",
+    "choices": [
+      "W01",
+      "W02",
+      "W03",
+      "W04",
+      "W05"
+    ],
+    "beats": [
+      [
+        0,
+        ""
+      ],
+      [
+        0.13,
+        "One history breaks."
+      ],
+      [
+        0.32,
+        ""
+      ],
+      [
+        0.68,
+        ""
+      ],
+      [
+        0.88,
+        ""
+      ]
+    ],
+    "defaultFocus": 0.3
+  },
+  "schedule": {
+    "duration": 23200,
+    "length": 440,
+    "layout": "lanes",
+    "pointer": "target",
+    "inspect": "Inspect a chamber",
+    "choices": [
+      "Chamber A",
+      "Chamber B",
+      "Chamber C",
+      "Chamber D"
+    ],
+    "beats": [
+      [
+        0,
+        ""
+      ],
+      [
+        0.13,
+        "Begin with the event."
+      ],
+      [
+        0.32,
+        ""
+      ],
+      [
+        0.68,
+        ""
+      ],
+      [
+        0.88,
+        ""
+      ]
+    ],
+    "defaultFocus": 0.14
+  },
+  "usage": {
+    "duration": 25200,
+    "length": 460,
+    "layout": "chambers",
+    "pointer": "target",
+    "inspect": "Inspect a wafer count",
+    "choices": [
+      "24 wafers",
+      "36 wafers",
+      "48 wafers"
+    ],
+    "beats": [
+      [
+        0,
+        ""
+      ],
+      [
+        0.13,
+        "Every wafer counts."
+      ],
+      [
+        0.32,
+        ""
+      ],
+      [
+        0.68,
+        ""
+      ],
+      [
+        0.88,
+        ""
+      ]
+    ],
+    "defaultFocus": 0.83
+  },
+  "surface": {
+    "duration": 27000,
+    "length": 480,
+    "layout": "surface",
+    "pointer": "x",
+    "inspect": "Choose a derived view",
+    "choices": [
+      "Horizontal centre",
+      "Vertical centre"
+    ],
+    "beats": [
+      [
+        0,
+        ""
+      ],
+      [
+        0.13,
+        "A measurement becomes a landscape."
+      ],
+      [
+        0.32,
+        ""
+      ],
+      [
+        0.68,
+        ""
+      ],
+      [
+        0.88,
+        ""
+      ]
+    ],
+    "defaultFocus": 0.2
+  },
+  "pathfinder": {
+    "duration": 24400,
+    "length": 450,
+    "layout": "topology",
+    "pointer": "target",
+    "inspect": "Choose a selection set",
+    "choices": [
+      "Set A",
+      "Set B",
+      "Set C"
+    ],
+    "beats": [
+      [
+        0,
+        ""
+      ],
+      [
+        0.13,
+        "A destination in an archive."
+      ],
+      [
+        0.32,
+        ""
+      ],
+      [
+        0.68,
+        ""
+      ],
+      [
+        0.88,
+        ""
+      ]
+    ],
+    "defaultFocus": 0.16
+  },
+  "compile": {
+    "duration": 26000,
+    "length": 470,
+    "layout": "assembly",
+    "pointer": "target",
+    "inspect": "Trace an output",
+    "choices": [
+      "PL / Plato",
+      "LayTec",
+      "XRR",
+      "XRD"
+    ],
+    "beats": [
+      [
+        0,
+        ""
+      ],
+      [
+        0.13,
+        "Four kinds of evidence."
+      ],
+      [
+        0.32,
+        ""
+      ],
+      [
+        0.68,
+        ""
+      ],
+      [
+        0.88,
+        ""
+      ]
+    ],
+    "defaultFocus": 0.16
+  },
+  "diagnose": {
+    "duration": 27200,
+    "length": 480,
+    "layout": "diagnostic",
+    "pointer": "target",
+    "inspect": "Compare a configured case",
+    "choices": [
+      "Ceiling / Optris",
+      "LayTec",
+      "Lightpipe / controller"
+    ],
+    "beats": [
+      [
+        0,
+        ""
+      ],
+      [
+        0.13,
+        "A symptom leaves possibilities."
+      ],
+      [
+        0.32,
+        ""
+      ],
+      [
+        0.68,
+        ""
+      ],
+      [
+        0.88,
+        ""
+      ]
+    ],
+    "defaultFocus": 0.1
+  },
+  "arrange": {
+    "duration": 28000,
+    "length": 490,
+    "layout": "physical",
+    "pointer": "target",
+    "inspect": "Inspect a baseplate",
+    "choices": [
+      "BP1",
+      "BP2",
+      "BP3",
+      "BP4",
+      "BP5"
+    ],
+    "alternate": "Before / after",
+    "beats": [
+      [
+        0,
+        ""
+      ],
+      [
+        0.13,
+        "The weight determines the move."
+      ],
+      [
+        0.32,
+        ""
+      ],
+      [
+        0.68,
+        ""
+      ],
+      [
+        0.88,
+        ""
+      ]
+    ]
+  },
+  "zones": {
+    "duration": 24500,
+    "length": 450,
+    "layout": "registration",
+    "pointer": "target",
+    "inspect": "Inner anchor",
+    "choices": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5"
+    ],
+    "beats": [
+      [
+        0,
+        ""
+      ],
+      [
+        0.13,
+        "Settings become locations."
+      ],
+      [
+        0.32,
+        ""
+      ],
+      [
+        0.68,
+        ""
+      ],
+      [
+        0.88,
+        ""
+      ]
+    ],
+    "alternate": "Narrow / wide",
+    "adjust": "Outer anchor",
+    "defaultFocus": 0.2
+  },
+  "configuration": {
+    "duration": 26200,
+    "length": 470,
+    "layout": "hierarchy",
+    "pointer": "target",
+    "inspect": "Inspect a difference",
+    "choices": [
+      "Changed",
+      "Removed",
+      "Added"
+    ],
+    "beats": [
+      [
+        0,
+        ""
+      ],
+      [
+        0.13,
+        "A change inside the structure."
+      ],
+      [
+        0.32,
+        ""
+      ],
+      [
+        0.68,
+        ""
+      ],
+      [
+        0.88,
+        ""
+      ]
+    ],
+    "defaultFocus": 0.1
+  },
+  "spc": {
+    "duration": 25400,
+    "length": 460,
+    "layout": "review",
+    "pointer": "target",
+    "inspect": "Inspect a check",
+    "choices": [
+      "Mean",
+      "Raw",
+      "Limits"
+    ],
+    "beats": [
+      [
+        0,
+        ""
+      ],
+      [
+        0.13,
+        "The summary looks calm."
+      ],
+      [
+        0.32,
+        ""
+      ],
+      [
+        0.68,
+        ""
+      ],
+      [
+        0.88,
+        ""
+      ]
+    ],
+    "defaultFocus": 0.5
+  },
+  "legacy": {
+    "duration": 24500,
+    "length": 450,
+    "layout": "records",
+    "pointer": "x",
+    "inspect": "Inspect a sample group",
+    "choices": [
+      "Earlier groups",
+      "Mid history",
+      "Recent groups"
+    ],
+    "alternate": "5 / 3 groups",
+    "beats": [
+      [
+        0,
+        ""
+      ],
+      [
+        0.13,
+        "The history is larger than the decision."
+      ],
+      [
+        0.32,
+        ""
+      ],
+      [
+        0.68,
+        ""
+      ],
+      [
+        0.88,
+        ""
+      ]
+    ]
+  },
+  "planning": {
+    "duration": 24200,
+    "length": 450,
+    "layout": "priority",
+    "pointer": "target",
+    "inspect": "Inspect a result",
+    "choices": [
+      "Pass",
+      "Fail",
+      "Missing"
+    ],
+    "beats": [
+      [
+        0,
+        ""
+      ],
+      [
+        0.13,
+        "The date has to be earned."
+      ],
+      [
+        0.32,
+        ""
+      ],
+      [
+        0.68,
+        ""
+      ],
+      [
+        0.88,
+        ""
+      ]
+    ],
+    "defaultFocus": 0.1
+  },
+  "report": {
+    "duration": 26300,
+    "length": 470,
+    "layout": "extraction",
+    "pointer": "target",
+    "inspect": "Trace a destination column",
+    "choices": [
+      "Step",
+      "Zone",
+      "Wavelength",
+      "Mean"
+    ],
+    "alternate": "Source / appended",
+    "beats": [
+      [
+        0,
+        ""
+      ],
+      [
+        0.13,
+        "A value needs its context."
+      ],
+      [
+        0.32,
+        ""
+      ],
+      [
+        0.68,
+        ""
+      ],
+      [
+        0.88,
+        ""
+      ]
+    ]
+  },
+  "signals": {
+    "duration": 28500,
+    "length": 490,
+    "layout": "synchronized",
+    "pointer": "x",
+    "inspect": "Inspect linked observations",
+    "choices": [
+      "Earlier",
+      "Centre",
+      "Later"
+    ],
+    "alternate": "Narrow / wide",
+    "beats": [
+      [
+        0,
+        ""
+      ],
+      [
+        0.13,
+        "Hold one clue."
+      ],
+      [
+        0.32,
+        ""
+      ],
+      [
+        0.68,
+        ""
+      ],
+      [
+        0.88,
+        ""
+      ]
+    ],
+    "pin": true
+  }
+}

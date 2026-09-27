@@ -8,7 +8,7 @@ const mapping = [
   ["altus-anko-viewer", "Altus Anko Viewer.png", [80, 190, 1310, 630]],
   ["altus-wafercount", "Altus WaferCounter.png", [80, 220, 1310, 610]],
   ["topotracer", "TopoTracer.png", [95, 310, 1280, 570]],
-  ["papyrus-reader", "Papyrus Reader.png", [95, 385, 1280, 315]],
+  ["papyrus-reader", "Papyrus Reader.png", [75, 196, 1330, 691]],
   ["spc-pathfinder", "SPC Pathfinder.png", [80, 195, 1310, 630]],
   ["gan-met-compiler", "GaN Met Compiler.png", [80, 190, 1300, 300]],
   ["gan-temp-diagnoser", "GaN Temp Diagnoser.png", [705, 190, 675, 235]],
@@ -53,6 +53,13 @@ for (const [id, file, rect] of mapping) {
     fullWidth: m.width,
     fullHeight: m.height,
     label: app.evidence.label,
+    sourceQuality: "native-png-lossless-webp",
+    qualityScope:
+      "Current capture; top-level quality flags describe the older archive.",
+    recapture:
+      m.width < 2560
+        ? "For fullscreen high-DPI inspection, provide a populated native capture at 2560px width or greater."
+        : null,
   };
   app.evidence = image;
   const existing = audit.findIndex((a) => a.id === id);

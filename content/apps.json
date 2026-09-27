@@ -1,5 +1,5 @@
 {
-  "source": "Current ARTIFACTS catalogue; functional context checked against the 23-slide reference presentation. The presentation is an older 15-app snapshot. Original Expedition groups are retained; workflow lenses are editorial.",
+  "source": "Canonical sixteen-application order verified against the legacy ARTIFACTS homepage. Behavior verified against local widget source; see ARTIFACTS_MOTION_REVIEW.md. Original group labels retained only for provenance.",
   "apps": [
     {
       "id": "altus-lotviewer",
@@ -36,11 +36,15 @@
       "sourcePixelSha256": "3e0cab907abf0e1bc0010889ada70ad561201bb74c88f600fe9075643b11539b",
       "workflow": "observe",
       "visualConcept": "history",
-      "shortNarrative": "Process events become a readable history.",
-      "purpose": "Bring process events into one readable history. Align timestamps. Review wafer states. Follow the lot through the work.",
+      "shortNarrative": "The rerun belongs to one wafer.",
+      "purpose": "Reconstruct per-wafer deposition sequences, including interruptions, reruns, partial and excessive deposition counts.",
       "transformation": "Events → history",
       "referenceSlide": 6,
-      "relationships": ["topotracer", "spc-pathfinder", "gan-met-compiler"],
+      "relationships": [
+        "topotracer",
+        "spc-pathfinder",
+        "gan-met-compiler"
+      ],
       "evidence": {
         "src": "assets/evidence/altus-lotviewer/detail.webp",
         "full": "assets/evidence/altus-lotviewer/full.webp",
@@ -48,7 +52,10 @@
         "height": 490,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Lot events, wafer states and durations"
+        "label": "Lot events, wafer states and durations",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Every event.\nIn context."
     },
@@ -87,8 +94,8 @@
       "sourcePixelSha256": "781bee52fc0e9a1542b89a277aa292882a57f8e3aeb982fab2a8754e2ace6634",
       "workflow": "coordinate",
       "visualConcept": "schedule",
-      "shortNarrative": "Schedules become visible together.",
-      "purpose": "Bring ANKO schedules into view across the Altus workflow. The next task starts with knowing what is due.",
+      "shortNarrative": "A due date with a beginning.",
+      "purpose": "Identify the relevant ANKO history and recipe type, then derive the renewal date for each chamber.",
       "transformation": "Schedules → one view",
       "referenceSlide": 3,
       "relationships": [
@@ -106,7 +113,10 @@
         "height": 630,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Reactor schedules in a common view"
+        "label": "Reactor schedules in a common view",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Know what’s next."
     },
@@ -145,8 +155,8 @@
       "sourcePixelSha256": "ff88e341a7d8bdef2c1ea71193513f07166506edd012dbc9f894888fd39d59da",
       "workflow": "coordinate",
       "visualConcept": "usage",
-      "shortNarrative": "Chamber usage becomes visible together.",
-      "purpose": "Turn wafer counts from equipment logs into a clearer basis for maintenance planning.",
+      "shortNarrative": "Two counters. One chamber view.",
+      "purpose": "Read the latest configured chamber counters from equipment records. Gauges use configured display maxima.",
       "transformation": "Logs → chamber usage",
       "referenceSlide": 7,
       "relationships": [
@@ -164,7 +174,10 @@
         "height": 610,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Chamber usage counters"
+        "label": "Chamber usage counters",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Make usage\nvisible."
     },
@@ -203,8 +216,8 @@
       "sourcePixelSha256": "51b6cb19c4d221bb051df8c03e7de96b2d8ae3380f5dd2c42b65e58ccd18e1a2",
       "workflow": "observe",
       "visualConcept": "topology",
-      "shortNarrative": "Measurements become a surface.",
-      "purpose": "Turn wafer measurements into contours. Spatial patterns become visible in a way a column of numbers cannot offer.",
+      "shortNarrative": "Different views. The same field.",
+      "purpose": "Interpolate coordinate measurements into a wafer surface and map. Inspect horizontal and vertical centre profiles or the radial mean.",
       "transformation": "Measurements → contours",
       "referenceSlide": 8,
       "relationships": [
@@ -219,7 +232,10 @@
         "height": 570,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Interpolated wafer surface and scale"
+        "label": "Interpolated wafer surface and scale",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "See the shape\nof variation."
     },
@@ -258,19 +274,24 @@
       "sourcePixelSha256": "ca2d3ff3dc52b85599ea52bf0bdc152c72652560512da1f25ad6b15703c95aeb",
       "workflow": "compare",
       "visualConcept": "comparison",
-      "shortNarrative": "Order changes. Meaning stays aligned.",
-      "purpose": "Match equivalent recipe steps, even when their order changes. Keep attention on the parameters that differ.",
+      "shortNarrative": "Position is not meaning.",
+      "purpose": "Line positions can change without a process change. Align equivalent recipe steps before isolating the differences.",
       "transformation": "Recipes → logical differences",
       "referenceSlide": 9,
-      "relationships": ["gan-xml-assistant"],
+      "relationships": [
+        "gan-xml-assistant"
+      ],
       "evidence": {
         "src": "assets/evidence/papyrus-reader/detail.webp",
         "full": "assets/evidence/papyrus-reader/full.webp",
-        "width": 1280,
-        "height": 315,
-        "fullWidth": 1531,
-        "fullHeight": 1002,
-        "label": "Actual paired recipe panes with marked changes"
+        "width": 1330,
+        "height": 691,
+        "fullWidth": 1425,
+        "fullHeight": 950,
+        "label": "Actual paired recipe panes with marked changes",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current capture; top-level quality flags describe the older archive.",
+        "recapture": "For fullscreen high-DPI inspection, provide a populated native capture at 2560px width or greater."
       },
       "headline": "Compare meaning.\nNot line numbers."
     },
@@ -309,11 +330,15 @@
       "sourcePixelSha256": "a26c5d9705af24d60118905add2f5c603b2f928e2bb2d2a1e6d1266ef0f0dc6c",
       "workflow": "observe",
       "visualConcept": "pathfinder",
-      "shortNarrative": "The chart is one connection away.",
-      "purpose": "Reach the SPC charts you need together, without repeating the same navigation for every parameter.",
+      "shortNarrative": "Several destinations. One selection.",
+      "purpose": "Filter a chart-link index by mainframe, type and parameter. Select multiple entries and request the matching chart links.",
       "transformation": "Parameters → charts",
       "referenceSlide": 10,
-      "relationships": ["altus-lotviewer", "topotracer", "gan-met-compiler"],
+      "relationships": [
+        "altus-lotviewer",
+        "topotracer",
+        "gan-met-compiler"
+      ],
       "evidence": {
         "src": "assets/evidence/spc-pathfinder/detail.webp",
         "full": "assets/evidence/spc-pathfinder/full.webp",
@@ -321,7 +346,10 @@
         "height": 630,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Grouped chart selection"
+        "label": "Grouped chart selection",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Less searching.\nMore seeing."
     },
@@ -360,11 +388,15 @@
       "sourcePixelSha256": "d89977255cca17cb3a088c6ce8f78161204e6244c4a07ce79dd92aaf03f6fff3",
       "workflow": "observe",
       "visualConcept": "compilation",
-      "shortNarrative": "Raw measurements become usable information.",
-      "purpose": "Bring metrology data together. Apply predefined calculations. Produce a consistent report from scattered inputs.",
+      "shortNarrative": "Every result keeps its source.",
+      "purpose": "Bring PL/Plato, LayTec, XRR and XRD measurements into configured calculations, plots and workbook regions.",
       "transformation": "Measurements → report",
       "referenceSlide": 11,
-      "relationships": ["altus-lotviewer", "topotracer", "spc-pathfinder"],
+      "relationships": [
+        "altus-lotviewer",
+        "topotracer",
+        "spc-pathfinder"
+      ],
       "evidence": {
         "src": "assets/evidence/gan-met-compiler/detail.webp",
         "full": "assets/evidence/gan-met-compiler/full.webp",
@@ -372,7 +404,10 @@
         "height": 300,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Metrology processing log"
+        "label": "Metrology processing log",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "From measurements\nto a report."
     },
@@ -411,11 +446,14 @@
       "sourcePixelSha256": "59b9a9a2f63c6f69ffdf6eb1d27f56aeff1cfe9da577abf5aeba2bce24d77dce",
       "workflow": "diagnose",
       "visualConcept": "diagnosis",
-      "shortNarrative": "Behaviour narrows the possibilities.",
-      "purpose": "Use temperature behavior to guide diagnosis and identify the next checks. Give troubleshooting a starting point.",
+      "shortNarrative": "Context changes what to check.",
+      "purpose": "Compare process and clean observations with paired diagnostic-master cases. Review possible explanations and recommended checks; a match does not establish a physical cause.",
       "transformation": "Observations → likely causes",
       "referenceSlide": 14,
-      "relationships": ["aix-dt-assistant", "lt-zone-assistant"],
+      "relationships": [
+        "aix-dt-assistant",
+        "lt-zone-assistant"
+      ],
       "evidence": {
         "src": "assets/evidence/gan-temp-diagnoser/detail.webp",
         "full": "assets/evidence/gan-temp-diagnoser/full.webp",
@@ -423,7 +461,10 @@
         "height": 235,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Diagnostic summary and recommended checks"
+        "label": "Diagnostic summary and recommended checks",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Follow the drift.\nFind a direction."
     },
@@ -462,11 +503,14 @@
       "sourcePixelSha256": "d632ba900f21797327188cb7eaa44a1ae09409147c0660e28ca9070a1f44b5f9",
       "workflow": "diagnose",
       "visualConcept": "difference",
-      "shortNarrative": "Temperature differences become an arrangement.",
-      "purpose": "Use weight and temperature inputs to guide baseplate arrangements. Put the basis for a decision in view.",
+      "shortNarrative": "BP3 and BP5. Exchanged.",
+      "purpose": "Rank heavier plates against colder bare pockets in weight mode, or compare measured thermal offsets in temperature mode. The illustrated pair is BP3 and BP5.",
       "transformation": "Offsets → arrangement",
       "referenceSlide": 15,
-      "relationships": ["gan-temp-diagnoser", "lt-zone-assistant"],
+      "relationships": [
+        "gan-temp-diagnoser",
+        "lt-zone-assistant"
+      ],
       "evidence": {
         "src": "assets/evidence/aix-dt-assistant/detail.webp",
         "full": "assets/evidence/aix-dt-assistant/full.webp",
@@ -474,7 +518,10 @@
         "height": 720,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Baseplate assignment visualization"
+        "label": "Baseplate assignment visualization",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "An arrangement\nwith reason."
     },
@@ -513,11 +560,14 @@
       "sourcePixelSha256": "c54267ca7dfb9eb9b0fbbc9858325106c21014083d36eda321c05700ba6a0a34",
       "workflow": "diagnose",
       "visualConcept": "zones",
-      "shortNarrative": "See the relationship between zones.",
-      "purpose": "Map LayTec zones in one spatial view. Understand where each region sits in relation to the whole.",
+      "shortNarrative": "See where the measurement is taken.",
+      "purpose": "Locate inner and outer angular sampling windows on a five-slot susceptor, with separate anchors and window bounds.",
       "transformation": "Zones → spatial context",
       "referenceSlide": null,
-      "relationships": ["gan-temp-diagnoser", "aix-dt-assistant"],
+      "relationships": [
+        "gan-temp-diagnoser",
+        "aix-dt-assistant"
+      ],
       "evidence": {
         "src": "assets/evidence/lt-zone-assistant/detail.webp",
         "full": "assets/evidence/lt-zone-assistant/full.webp",
@@ -525,7 +575,10 @@
         "height": 720,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Inner and outer zone geometry"
+        "label": "Inner and outer zone geometry",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Every zone.\nA shared view."
     },
@@ -564,11 +617,13 @@
       "sourcePixelSha256": "90050d8050ccc148b3d5bba6c175fa54b724d70adfcd41375275911fba85839b",
       "workflow": "compare",
       "visualConcept": "configuration",
-      "shortNarrative": "Differences emerge from structure.",
-      "purpose": "Compare configurations, settings and constants. Bring differences forward, without losing their context.",
+      "shortNarrative": "Keep the change in its structure.",
+      "purpose": "Compare named NODE, DEVICE and PROPERTY content, including supported boolean equivalence. Retain changed, added and removed properties with their structural address.",
       "transformation": "Configuration → differences",
       "referenceSlide": 16,
-      "relationships": ["papyrus-reader"],
+      "relationships": [
+        "papyrus-reader"
+      ],
       "evidence": {
         "src": "assets/evidence/gan-xml-assistant/detail.webp",
         "full": "assets/evidence/gan-xml-assistant/full.webp",
@@ -576,7 +631,10 @@
         "height": 300,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Structured configuration differences"
+        "label": "Structured configuration differences",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Make changes\nunmistakable."
     },
@@ -615,8 +673,8 @@
       "sourcePixelSha256": "b3d456a1156f26b44f3975084940d122188211ca455818c15fb72a7007836ee6",
       "workflow": "coordinate",
       "visualConcept": "observatory",
-      "shortNarrative": "Separate charts become a shared view.",
-      "purpose": "Review configured GaN SPC charts and parameter states together. Move from a signal to the context around it.",
+      "shortNarrative": "The status has a reason.",
+      "purpose": "Evaluate configured mean, spread, range and raw checks. The illustrative fixture has mean 102 within 90–110, but one raw value of 112 fails. Release still requires review.",
       "transformation": "Charts → review",
       "referenceSlide": 18,
       "relationships": [
@@ -634,7 +692,10 @@
         "height": 540,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "GaN parameter control charts"
+        "label": "GaN parameter control charts",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Keep the process\nin perspective."
     },
@@ -673,8 +734,8 @@
       "sourcePixelSha256": "679508b6bb7d6cc2959cee6d9fd6d3f8e49670b2dd3b4e4486362524adcc55d6",
       "workflow": "coordinate",
       "visualConcept": "legacy",
-      "shortNarrative": "Legacy monitoring, brought together.",
-      "purpose": "Bring legacy SPC charts and parameter states into one review environment. Keep established workflows within reach.",
+      "shortNarrative": "Know which samples decided it.",
+      "purpose": "Review a configured recent group population while retaining earlier history. The illustrative older excursion is outside the current review window.",
       "transformation": "Legacy charts → review",
       "referenceSlide": 18,
       "relationships": [
@@ -692,7 +753,10 @@
         "height": 465,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Legacy parameter review and statuses"
+        "label": "Legacy parameter review and statuses",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "A familiar process.\nA clearer view."
     },
@@ -731,8 +795,8 @@
       "sourcePixelSha256": "135da608db1e5ef64901e374315f536f94e724ba4e4d23eac759ecc6d1f33cf2",
       "workflow": "coordinate",
       "visualConcept": "maintenance",
-      "shortNarrative": "Upcoming work becomes visible.",
-      "purpose": "Put ANKO status and due dates together. See what needs attention before planning what comes next.",
+      "shortNarrative": "No passing result. No next date.",
+      "purpose": "Evaluate the configured checks before deriving the next date from sample date plus cycle. Failed or missing results do not receive a valid renewal date.",
       "transformation": "Status → schedule",
       "referenceSlide": 22,
       "relationships": [
@@ -750,7 +814,10 @@
         "height": 430,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Maintenance statuses and due dates"
+        "label": "Maintenance statuses and due dates",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Plan with the\nwhole picture."
     },
@@ -789,8 +856,8 @@
       "sourcePixelSha256": "7f947a9e77a738e0293d0ce7686602a2604671cc7598c2ca316afb1c1f64fdb6",
       "workflow": "coordinate",
       "visualConcept": "report",
-      "shortNarrative": "Fragments resolve into an output.",
-      "purpose": "Assemble LayTec information into an engineering report. Give repeated reporting work a consistent structure.",
+      "shortNarrative": "Change the format. Keep the context.",
+      "purpose": "Parse LayTec analysis with inherited step, zone and wavelength context. Map fields into workbook columns and append beneath existing data.",
       "transformation": "Inputs → report",
       "referenceSlide": null,
       "relationships": [
@@ -808,7 +875,10 @@
         "height": 205,
         "fullWidth": 1425,
         "fullHeight": 950,
-        "label": "Report compilation activity"
+        "label": "Report compilation activity",
+        "sourceQuality": "native-png-lossless-webp",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
       },
       "headline": "Bring the report\ntogether."
     },
@@ -847,8 +917,8 @@
       "sourcePixelSha256": "243c08ae37743a39dfdfa2500221563f59d0106823faafdf72ada4c72b54ff62",
       "workflow": "coordinate",
       "visualConcept": "signals",
-      "shortNarrative": "Signals become a common field of view.",
-      "purpose": "Explore equipment parameters through interactive SPC analysis. Bring related signals into the same field of view.",
+      "shortNarrative": "Keep it pinned. Widen the investigation.",
+      "purpose": "Pin an observation, relate parameter traces and inspect a shared interval. Identity matches are distinguished from nearest-time fallback.",
       "transformation": "Parameters → shared visibility",
       "referenceSlide": null,
       "relationships": [
@@ -860,13 +930,17 @@
         "lt-report-compiler"
       ],
       "evidence": {
-        "src": "assets/evidence/metria-spc/detail.webp",
-        "full": "assets/evidence/metria-spc/full.webp",
-        "width": 1260,
-        "height": 440,
-        "fullWidth": 1425,
-        "fullHeight": 950,
-        "label": "Interactive parameter chart and range overview"
+        "src": "assets/artifacts/apps/metria-spc/detail-01.webp",
+        "full": "assets/artifacts/apps/metria-spc/hero.webp",
+        "width": 3226,
+        "height": 756,
+        "fullWidth": 3840,
+        "fullHeight": 2160,
+        "label": "Native 4K Metria sample charts",
+        "sourceQuality": "native-4k",
+        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
+        "recapture": null,
+        "alternateCurrentCapture": "assets/evidence/metria-spc/full.webp"
       },
       "headline": "Signals,\nseen together."
     }

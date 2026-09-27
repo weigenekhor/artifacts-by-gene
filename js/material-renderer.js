@@ -27,7 +27,21 @@ function createRenderer() {
   );
   const fragment = shader(
     gl.FRAGMENT_SHADER,
-    `precision mediump float;varying vec3 vNormal;varying vec4 vColor;varying float vMode;varying vec2 vPosition;void main(){vec3 color=vColor.rgb;if(vMode<.5){vec3 n=normalize(vNormal);vec3 light=normalize(vec3(-.38,-.55,.78));float diffuse=abs(dot(n,light));float sheen=pow(max(0.,dot(n,normalize(vec3(-.3,-.2,1.)))),24.);float falloff=1.-.16*length(vPosition-vec2(.2,.15));color=color*(.46+.65*diffuse)*falloff+vec3(.17,.19,.16)*sheen;}gl_FragColor=vec4(color,vColor.a);}`,
+    `precision mediump float;varying vec3 vNormal;varying vec4 vColor;varying float vMode;varying vec2 vPosition;
+    void main(){vec3 color=vColor.rgb;if(vMode<.5){
+      vec3 n=normalize(vNormal);if(n.z<0.)n=-n;
+      vec3 view=normalize(vec3((.5-vPosition)*.55,1.));
+      vec3 key=normalize(vec3(-.75-vPosition.x*.3,-.9-vPosition.y*.3,1.25));
+      vec3 halfVector=normalize(key+view);
+      float diffuse=max(0.,dot(n,key));
+      float spec=pow(max(0.,dot(n,halfVector)),58.);
+      float fresnel=pow(1.-max(0.,dot(n,view)),4.);
+      vec3 reflected=reflect(-view,n);
+      float strip=exp(-pow((reflected.x+reflected.y*.34+.31)*8.,2.));
+      color=color*(.3+.72*diffuse)+vec3(.73,.78,.82)*spec*.53;
+      color+=vec3(.28,.32,.36)*strip*(.12+fresnel*.5);
+      color+=vec3(.2,.135,.09)*fresnel*.45;
+    }float alpha=vColor.a;if(vMode>1.5)alpha*=1.-smoothstep(.18,1.,length(vNormal.xy));gl_FragColor=vec4(color,alpha);}`,
   );
   if (!vertex || !fragment) return null;
   const program = gl.createProgram();
@@ -130,11 +144,18 @@ export function renderMaterialField(ctx, queue, w, h) {
           vertex(
             out,
             q.pts[j],
-            q.normal,
+            q.softShadow
+              ? [
+                  [-1, -1, 0],
+                  [1, -1, 0],
+                  [1, 1, 0],
+                  [-1, 1, 0],
+                ][j]
+              : q.vertexNormals?.[j] || q.normal,
             q.vertexColors
               ? q.vertexColors[j].map((v) => v / 255).concat(q.alpha)
               : c,
-            q.unlit ? 1 : 0,
+            q.softShadow ? 2 : q.unlit ? 1 : 0,
           );
     }
     if (q.stroke) {

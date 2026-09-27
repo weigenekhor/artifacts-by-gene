@@ -1,0 +1,122 @@
+.papyrus-study {
+  --bg: #0d1415;
+  --ink: #e4e7df;
+  --muted: #97a8a0;
+  --accent: #df9e88;
+  --line: #33423e;
+  background: var(--bg);
+  color: var(--ink);
+}
+.papyrus-capture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  max-width: none;
+  transform-origin: 0 0;
+  overflow: hidden;
+}
+.papyrus-capture > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+}
+.papyrus-source-focus {
+  position: absolute;
+  border: 1px solid #a0b7a4;
+  box-shadow: 0 0 0 1600px #080e11a8;
+  opacity: 0;
+  pointer-events: none;
+}
+.papyrus-comparison {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.papyrus-comparison canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.papyrus-differences button span {
+  margin-left: 12px;
+  color: #deb195;
+}
+.papyrus-differences button[aria-pressed="true"] {
+  border-color: #c39176;
+  background: #b8784920;
+  color: #f0e8d6;
+}
+.papyrus-original:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.papyrus-accessible,
+.papyrus-study .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.reduced .papyrus-study,
+html:not(.enhanced) .papyrus-study {
+  height: auto;
+}
+.reduced .papyrus-study .papyrus-stage,
+html:not(.enhanced) .papyrus-study .papyrus-stage {
+  position: relative;
+  top: 0;
+  height: auto;
+  min-height: 0;
+  padding: 28px var(--gutter) 35px;
+  overflow: visible;
+}
+.reduced .papyrus-view,
+html:not(.enhanced) .papyrus-view {
+  position: relative;
+  inset: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  overflow: visible;
+}
+.reduced .papyrus-capture,
+html:not(.enhanced) .papyrus-capture {
+  position: relative;
+  inset: auto;
+  width: 100% !important;
+  height: auto !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+.reduced .papyrus-capture > img,
+html:not(.enhanced) .papyrus-capture > img {
+  height: auto;
+}
+.reduced .papyrus-comparison {
+  position: relative;
+  height: 560px;
+  flex: none;
+  opacity: 1;
+}
+.reduced .papyrus-accessible,
+html:not(.enhanced) .papyrus-accessible {
+  position: static;
+  width: auto;
+  height: auto;
+  clip-path: none;
+  white-space: normal;
+  max-width: 720px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #9aafa1;
+  margin: 30px 0 0;
+}
+html:not(.enhanced) .papyrus-comparison,
+html:not(.enhanced) .papyrus-inspection {
+  display: none;
+}

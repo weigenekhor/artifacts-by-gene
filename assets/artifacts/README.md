@@ -1,4 +1,4 @@
-> **Archive:** This audit describes the preserved screenshot assets from the earlier exhibition. The current site uses newly supplied, focused software crops in assets/evidence/. These older captures are preserved independently; see the root README for the current source pipeline.
+> **Archive:** This audit describes the preserved screenshot assets from the earlier exhibition. The current site uses complete newer captures in assets/evidence/, plus the populated native 4K Metria archive capture. The current checklist is in [assets/evidence/README.md](../evidence/README.md). These older captures are preserved independently; see the root README for the current source pipeline.
 
 # ARTIFACTS capture audit and replacement checklist
 

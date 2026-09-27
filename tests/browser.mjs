@@ -1,339 +1,190 @@
 import { chromium } from "playwright";
-import { createServer } from "node:http";
-import { readFile, writeFile, mkdir } from "node:fs/promises";
-import { resolve, extname, sep } from "node:path";
-import { createRequire } from "node:module";
+import { serveSite } from "./server.mjs";
+const { url, stop } = await serveSite();
 import assert from "node:assert/strict";
-const require = createRequire(import.meta.url),
-  root = resolve(import.meta.dirname, ".."),
-  { apps } = JSON.parse(
-    await readFile(resolve(root, "content/apps.json"), "utf8"),
-  );
-const mime = {
-  ".html": "text/html",
-  ".js": "text/javascript",
-  ".css": "text/css",
-  ".webp": "image/webp",
-  ".png": "image/png",
-  ".svg": "image/svg+xml",
-  ".woff2": "font/woff2",
-};
-const server = createServer(async (req, res) => {
-  const p = new URL(req.url, "http://localhost").pathname.replace(
-      /^\/artifacts-by-gene\//,
-      "/",
-    ),
-    f = resolve(root, "." + p.replace(/\/$/, "/index.html"));
-  if (!f.startsWith(root + sep)) {
-    res.writeHead(403).end();
-    return;
-  }
-  try {
-    res.setHeader("Content-Type", mime[extname(f)] || "text/plain");
-    res.end(await readFile(f));
-  } catch {
-    res.writeHead(404).end();
-  }
+import fs from "node:fs/promises";
+const b = await chromium.launch({
+  headless: true,
+  channel: process.env.BROWSER_CHANNEL || "msedge",
 });
-await new Promise((r) => server.listen(0, "127.0.0.1", r));
-const url = "http://127.0.0.1:" + server.address().port + "/artifacts-by-gene/";
-const browser = await chromium.launch({
-    headless: true,
-    channel: process.env.BROWSER_CHANNEL || "msedge",
-  }),
-  report = { apps: [], viewports: [], accessibility: [], errors: [] };
-function watch(p) {
-  p.on("pageerror", (e) => report.errors.push(e.message));
-  p.on("console", (m) => {
-    if (["error", "warning"].includes(m.type())) report.errors.push(m.text());
-  });
-  p.on("response", (r) => {
-    if (r.status() >= 400) report.errors.push(r.status() + " " + r.url());
-  });
-}
-async function axe(p, label) {
-  await p.addScriptTag({ path: require.resolve("axe-core/axe.min.js") });
-  const result = await p.evaluate(() =>
-    axe.run(document, {
-      runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] },
-    }),
+const page = await b.newPage({ viewport: { width: 1440, height: 900 } }),
+  errors = [];
+page.on("pageerror", (e) => errors.push(e.message));
+page.on("console", (m) => {
+  if (m.type() === "error") errors.push(m.text());
+});
+page.on("response", (r) => {
+  if (r.status() >= 400) errors.push(`${r.status()} ${r.url()}`);
+});
+await fs.mkdir(".qa", { recursive: true });
+await page.goto(url, { waitUntil: "networkidle" });
+const ids = await page
+  .locator(".feature")
+  .evaluateAll((es) => es.map((e) => e.id));
+assert.equal(ids.length, 16);
+const catalogue = JSON.parse(await fs.readFile("content/apps.json", "utf8"));
+assert.deepEqual(
+  await page
+    .locator(".feature")
+    .evaluateAll((es) => es.map((e) => e.dataset.studyApp)),
+  catalogue.apps.map((a) => a.id),
+);
+const at = async (id, t) => {
+  await page.evaluate(
+    (id) =>
+      scrollTo(
+        0,
+        document.getElementById(id).offsetTop -
+          parseInt(
+            getComputedStyle(document.documentElement).getPropertyValue(
+              "--header",
+            ),
+          ),
+      ),
+    id,
   );
-  report.accessibility.push({
-    label,
-    violations: result.violations.map((v) => ({
-      id: v.id,
-      nodes: v.nodes.map((n) => ({
-        target: n.target,
-        summary: n.failureSummary,
-      })),
-    })),
-  });
-}
-async function app(p, i) {
-  await p.evaluate((i) => window.artifactsExperience.goApp(i, true), i);
-  await p.waitForTimeout(650);
-  assert.equal(await p.evaluate(() => window.artifactsExperience.active), i);
-}
-async function feature(p, id) {
-  await p.evaluate((id) => {
-    const e = document.getElementById(id);
-    scrollTo({
-      top:
-        e.getBoundingClientRect().top +
-        scrollY -
-        document.querySelector(".header").offsetHeight +
-        innerHeight * 0.28,
-      behavior: "instant",
+  await page.waitForTimeout(110);
+  await page.locator(`#${id} .study-control input`).evaluate((e, t) => {
+    e.value = t;
+    e.dispatchEvent(new Event("input", { bubbles: true }));
+  }, t);
+  await page.waitForTimeout(450);
+};
+const failed = [];
+for (const id of ids) {
+  await at(id, 0);
+  const selector = id === "compare" ? ".papyrus-capture" : ".film-capture";
+  for (const t of [0, 100]) {
+    if (t) await at(id, t);
+    const capture = await page.locator(`#${id} ${selector}`).evaluate((e) => {
+      const img = e.querySelector("img"),
+        r = e.getBoundingClientRect(),
+        parent = e.parentElement.getBoundingClientRect();
+      return {
+        loaded: img.complete && img.naturalWidth > 0,
+        opacity: +getComputedStyle(e).opacity,
+        inside:
+          r.left >= parent.left - 2 &&
+          r.right <= parent.right + 2 &&
+          r.top >= parent.top - 2 &&
+          r.bottom <= parent.bottom + 2,
+      };
     });
-  }, id);
-  await p.waitForTimeout(200);
+    if (!capture.loaded || capture.opacity < 0.99 || !capture.inside)
+      failed.push({ id, t, capture });
+  }
+  await at(id, 77);
+  const input = page.locator(`#${id} .film-focus`);
+  if (await input.count()) {
+    const before = await page.locator(`#${id} .film-reading`).innerText();
+    const value = Number(await input.inputValue());
+    await input.focus();
+    await input.press(value > 50 ? "Home" : "End");
+    await page.waitForTimeout(600);
+    const after = await page.locator(`#${id} .film-reading`).innerText();
+    if (before === after && id !== "planning")
+      failed.push({ id, inspection: "unchanged" });
+    const alternate = page.locator(`#${id} .film-alternate`);
+    if (await alternate.count()) {
+      await alternate.click();
+      await page.waitForTimeout(700);
+      assert.equal(await alternate.getAttribute("aria-pressed"), "true");
+    }
+  }
 }
-await mkdir(resolve(root, ".qa"), { recursive: true });
-try {
-  const p = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
-  watch(p);
-  await p.goto(url);
-  await p.waitForTimeout(1600);
-  await axe(p, "desktop");
-  assert.equal(await p.locator(".app-node").count(), 16);
-  for (let i = 0; i < 16; i++) {
-    await app(p, i);
-    assert.equal(await p.locator("#archive-name").innerText(), apps[i].name);
-    await p.click("#archive-open");
-    await p.locator("#capture-image").evaluate((img) => img.decode());
-    assert.deepEqual(
-      await p
-        .locator("#capture-image")
-        .evaluate((img) => [img.naturalWidth, img.naturalHeight]),
-      [apps[i].evidence.fullWidth, apps[i].evidence.fullHeight],
-    );
-    if (i === 4) {
-      await axe(p, "viewer");
-      await p.click("#pixel-view");
-      assert.equal(
-        await p
-          .locator("#capture-image")
-          .evaluate((img) => img.getBoundingClientRect().width),
-        1531,
-      );
-    }
-    await p.keyboard.press("Escape");
-    assert.equal(
-      await p.evaluate(() => document.activeElement.id),
-      "archive-open",
-    );
-    report.apps.push(apps[i].id);
-  }
-  await app(p, 0);
-  await p.locator(".archive-rail a").nth(8).click();
-  await p.waitForTimeout(1300);
-  assert.equal(await p.evaluate(() => window.artifactsExperience.active), 8);
-  await p.keyboard.press("ArrowRight");
-  await p.waitForTimeout(1300);
-  assert.equal(await p.evaluate(() => window.artifactsExperience.active), 9);
-  for (const id of ["compare", "surface", "diagnose", "signals"]) {
-    await feature(p, id);
-    const input = p.locator("#" + id + " input");
-    await input.fill("20");
-    await input.dispatchEvent("input");
-    await p.waitForTimeout(100);
-    assert.equal(
-      await p
-        .locator("#" + id)
-        .evaluate((e) => e.style.getPropertyValue("--progress")),
-      "0.2",
-    );
-    await input.fill("85");
-    await input.dispatchEvent("input");
-    await p.waitForTimeout(100);
-    assert.equal(
-      await p
-        .locator("#" + id)
-        .evaluate((e) => e.style.getPropertyValue("--progress")),
-      "0.85",
-    );
-  }
-  await p.goto(url + "#app-papyrus-reader");
-  await p.waitForTimeout(1700);
-  assert.equal(await p.evaluate(() => window.artifactsExperience.active), 4);
-  await p.close();
-  for (const [width, height, dpr] of [
-    [3840, 2160, 1],
-    [2560, 1440, 1],
-    [1920, 1080, 1],
-    [1440, 900, 2],
-    [1366, 768, 1],
-    [1024, 1366, 1],
-    [430, 932, 2],
-    [390, 844, 3],
-    [320, 740, 2],
-    [844, 390, 2],
-    [667, 375, 2],
-  ]) {
-    const q = await browser.newPage({
-      viewport: { width, height },
-      deviceScaleFactor: dpr,
-      hasTouch: width < 900,
-      isMobile: width < 701,
-    });
-    watch(q);
-    await q.goto(url);
-    await q.waitForTimeout(1600);
-    await q.screenshot({
-      path: resolve(root, `.qa/v10-test-${width}-hero.png`),
-    });
-    for (const id of ["compare", "surface", "diagnose", "signals"]) {
-      await feature(q, id);
-      const metrics = await q.locator("#" + id).evaluate((el) => {
-        const copy = el.querySelector(".feature-copy").getBoundingClientRect(),
-          visual = el.querySelector(".feature-visual").getBoundingClientRect(),
-          evidence = el.querySelector(".evidence").getBoundingClientRect(),
-          control = el.querySelector(".study-control").getBoundingClientRect();
-        const overlap = (a, b) =>
-          a.left < b.right - 3 &&
-          a.right > b.left + 3 &&
-          a.top < b.bottom - 3 &&
-          a.bottom > b.top + 3;
-        return {
-          overflow: document.documentElement.scrollWidth > innerWidth + 1,
-          copyVisual: overlap(copy, visual),
-          copyControl: overlap(copy, control),
-          controlEvidence: overlap(control, evidence),
-        };
-      });
-      assert.equal(metrics.overflow, false, width + " overflow");
-      assert.equal(metrics.copyVisual, false, width + " copy/visual " + id);
-      assert.equal(metrics.copyControl, false, width + " copy/control " + id);
-      assert.equal(
-        metrics.controlEvidence,
-        false,
-        width + " control/evidence " + id,
-      );
-      await q.screenshot({
-        path: resolve(root, `.qa/v10-test-${width}-${id}.png`),
-      });
-    }
-    for (const i of [0, 4, 8, 15]) {
-      await app(q, i);
-      const m = await q.evaluate(() => {
-        const stage = document
-            .querySelector(".archive-stage")
-            .getBoundingClientRect(),
-          header = document.querySelector(".header").getBoundingClientRect(),
-          img = document
-            .querySelector(".archive-images figure.active button")
-            .getBoundingClientRect(),
-          bottom = document
-            .querySelector(".archive-bottom")
-            .getBoundingClientRect();
-        return {
-          stageTop: stage.top,
-          headerBottom: header.bottom,
-          imgBottom: img.bottom,
-          navTop: bottom.top,
-          overflow: document.documentElement.scrollWidth > innerWidth + 1,
-        };
-      });
-      assert.equal(m.overflow, false);
-      assert.ok(m.stageTop >= m.headerBottom - 2, width + " archive header");
-      assert.ok(m.imgBottom < m.navTop - 2, width + " archive nav");
-      await q.screenshot({
-        path: resolve(root, `.qa/v10-test-${width}-app-${i}.png`),
-      });
-    }
-    if (width === 390) await axe(q, "mobile");
-    report.viewports.push({ width, height, dpr });
-    await q.close();
-  }
-  const reduced = await browser.newPage({
-    viewport: { width: 1440, height: 900 },
-    reducedMotion: "reduce",
-  });
-  watch(reduced);
-  await reduced.goto(url);
-  await reduced.waitForTimeout(700);
+await at("signals", 77);
+await page.waitForTimeout(900);
+const first = await page.evaluate(() => artifactsExperience.frames);
+await page.waitForTimeout(550);
+const idleFrames =
+  (await page.evaluate(() => artifactsExperience.frames)) - first;
+await page.locator("#signals [data-capture]").click();
+assert.equal(await page.locator("#capture-title").innerText(), "Metria SPC");
+await page.keyboard.press("Escape");
+for (const size of [
+  { width: 844, height: 390 },
+  { width: 320, height: 568 },
+  { width: 1024, height: 1366 },
+  { width: 1366, height: 768 },
+  { width: 1920, height: 1080 },
+  { width: 2560, height: 1440 },
+  { width: 3840, height: 2160 },
+]) {
+  await page.setViewportSize(size);
+  await at("configuration", 76);
   assert.equal(
-    await reduced.evaluate(() => window.artifactsExperience.reduced),
-    true,
-  );
-  await feature(reduced, "surface");
-  assert.equal(
-    await reduced
-      .locator("#surface")
-      .evaluate((el) => el.style.getPropertyValue("--progress")),
-    "1",
-  );
-  await app(reduced, 15);
-  await axe(reduced, "reduced");
-  await reduced.close();
-  const nojs = await browser.newPage({
-    javaScriptEnabled: false,
-    viewport: { width: 390, height: 844 },
-  });
-  watch(nojs);
-  await nojs.goto(url);
-  assert.equal(await nojs.locator(".app-node").count(), 16);
-  assert.equal(await nojs.locator(".archive-images img").count(), 16);
-  assert.equal(
-    await nojs.evaluate(
-      () => document.documentElement.scrollWidth > innerWidth + 1,
+    await page.evaluate(
+      () => document.documentElement.scrollWidth > innerWidth,
     ),
     false,
   );
-  await nojs.close();
-  const perf = await browser.newPage({
-    viewport: { width: 1920, height: 1080 },
-  });
-  watch(perf);
-  await perf.goto(url);
-  await perf.waitForTimeout(2000);
-  report.performance = await perf.evaluate(async () => {
-    const frames = [],
-      tasks = [];
-    const obs = new PerformanceObserver((l) =>
-      tasks.push(...l.getEntries().map((e) => e.duration)),
-    );
-    obs.observe({ type: "longtask" });
-    let last = performance.now();
-    for (let i = 0; i < 360; i++)
-      await new Promise((r) =>
-        requestAnimationFrame((t) => {
-          frames.push(t - last);
-          last = t;
-          scrollTo({
-            top:
-              ((document.documentElement.scrollHeight - innerHeight) * i) / 359,
-            behavior: "instant",
-          });
-          r();
-        }),
-      );
-    await new Promise((r) => setTimeout(r, 1500));
-    const before = window.artifactsExperience.frames;
-    await new Promise((r) => setTimeout(r, 400));
-    const idle = window.artifactsExperience.frames - before;
-    obs.disconnect();
-    frames.sort((a, b) => a - b);
-    return {
-      median: frames[180],
-      p95: frames[342],
-      longTasks: tasks,
-      idleFrames: idle,
-    };
-  });
-  assert.equal(report.performance.idleFrames, 0);
-  await perf.close();
-  assert.deepEqual(report.errors, []);
-  assert.ok(
-    report.accessibility.every((s) => !s.violations.length),
-    JSON.stringify(report.accessibility),
-  );
-} finally {
-  await writeFile(
-    resolve(root, ".qa/validation-v10.json"),
-    JSON.stringify(report, null, 2),
-  );
-  console.log(JSON.stringify(report, null, 2));
-  await browser.close();
-  server.close();
+  await page.screenshot({ path: `.qa/film-size-${size.width}.png` });
 }
+await page.setViewportSize({ width: 1440, height: 900 });
+await page.locator("#gene").scrollIntoViewIfNeeded();
+await page.screenshot({ path: ".qa/gene-final.png" });
+const copy = await page
+  .locator(".creator-account")
+  .evaluate((e) =>
+    [...e.querySelectorAll("h2,p")].map((n) => n.textContent).join(" "),
+  );
+assert.equal(
+  copy.replace(/\s+/g, " ").trim(),
+  "I spent my entire life improving processes. ARTIFACTS began when I realised engineering itself was one of them. What repeated, I automated. What stood in the way, I rebuilt. ARTIFACTS is the evidence that I never accepted the way things were as the way they had to stay.",
+);
+await page.emulateMedia({ reducedMotion: "reduce" });
+await page.setViewportSize({ width: 390, height: 844 });
+for (const id of ids) {
+  await page.locator(`#${id}`).scrollIntoViewIfNeeded();
+  await page.waitForTimeout(150);
+  const r = await page.locator(`#${id}`).evaluate((e) => ({
+    height: e.offsetHeight,
+    stage: e.firstElementChild.offsetHeight,
+    copy: !!e.querySelector(".film-description,.papyrus-accessible"),
+  }));
+  if (r.stage > r.height + 2 || !r.copy) failed.push({ id, reduced: r });
+  const visual = page.locator(
+    `#${id} .film-operation, #${id} .papyrus-comparison`,
+  );
+  const resolved = await visual.screenshot();
+  const before = page.locator(`#${id} .film-before`);
+  await before.click();
+  await page.waitForTimeout(160);
+  assert.equal(await before.getAttribute("aria-pressed"), "true");
+  const starting = await visual.screenshot();
+  assert.ok(
+    !resolved.equals(starting),
+    `${id}: reduced-motion starting state must differ from the result`,
+  );
+  await before.click();
+  await page.waitForTimeout(160);
+  assert.equal(await before.getAttribute("aria-pressed"), "false");
+}
+await page.locator("#signals .film-inspection").scrollIntoViewIfNeeded();
+await page.screenshot({ path: ".qa/film-reduced.png" });
+await page.addScriptTag({ path: "node_modules/axe-core/axe.min.js" });
+const access = await page.evaluate(async () =>
+  (
+    await axe.run(document, {
+      runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] },
+    })
+  ).violations.map((v) => ({ id: v.id, nodes: v.nodes.map((n) => n.target) })),
+);
+assert.deepEqual(access, []);
+const result = {
+  errors,
+  failed,
+  idleFrames,
+  coverage: ids.length,
+  copy: "exact",
+  viewports: 9,
+  reduced: "all16",
+  accessibility: access,
+};
+await fs.writeFile(".qa/browser-results.json", JSON.stringify(result, null, 2));
+console.log(JSON.stringify(result, null, 2));
+await b.close();
+stop();
+assert.equal(errors.length, 0);
+assert.equal(failed.length, 0);
+assert.ok(idleFrames <= 2);

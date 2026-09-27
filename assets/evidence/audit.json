@@ -66,18 +66,18 @@
   {
     "id": "papyrus-reader",
     "file": "Papyrus Reader.png",
-    "sourceWidth": 1531,
-    "sourceHeight": 1002,
-    "sourceSha256": "30073c1c9a20f984219cd8abd6c292912fc508cfd684a2767b0a584f66c2297d",
-    "fullPixelSha256": "0413c34560ac212ebf49f5d37e0a0d10b15c2663847d6735079528562f4ce1f4",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "7326857f8286b1a3a48d5d737aba771ba95cbcf0fed4683370ae18c5c5e92f20",
+    "fullPixelSha256": "abe083f1b42369d7cbacec880730c207a2ed65991cfb555c4b2f4b11881df47e",
     "region": {
-      "left": 95,
-      "top": 385,
-      "width": 1280,
-      "height": 315
+      "left": 75,
+      "top": 196,
+      "width": 1330,
+      "height": 691
     },
-    "detailSha256": "7b71dd53ba0df00f207850fcd7a0b2d5652739e8838eb6313ee61fd9ca4fe3b8",
-    "pixelSha256": "73e83542b4d99593590553d2b18e32e0a8f9e4e6ad93d3d8079958c9e0d0aeeb"
+    "detailSha256": "b884257a46e4c69a295b3a0394d84e29ab03a8ffac30f6be054ad97c41f4fdb8",
+    "pixelSha256": "26cba0825293c0f9b6215108dcca04f3fd5da267de07728301d2d158b2a2d7b8"
   },
   {
     "id": "spc-pathfinder",
@@ -241,18 +241,19 @@
   },
   {
     "id": "metria-spc",
-    "file": "Metria SPC.png",
-    "sourceWidth": 1425,
-    "sourceHeight": 950,
-    "sourceSha256": "9b061dc27bb8fa7abf7499457082d75f3b11483576dff8407b46c058d5a5672d",
-    "fullPixelSha256": "3b4d4917420304b5c63d9dbfad191a49bca0e2fa7f7eefbaaf59f7eee16e4584",
+    "file": "assets/artifacts/apps/metria-spc/hero.webp",
+    "sourceWidth": 3840,
+    "sourceHeight": 2160,
+    "sourceSha256": "d851b2eb0efafead5561e52bc912090b7c79c0ff91037286beca8b348d008a01",
+    "fullPixelSha256": "243c08ae37743a39dfdfa2500221563f59d0106823faafdf72ada4c72b54ff62",
     "region": {
-      "left": 100,
-      "top": 410,
-      "width": 1260,
-      "height": 440
+      "left": 307,
+      "top": 864,
+      "width": 3226,
+      "height": 756
     },
-    "detailSha256": "25dd05e1cb505a143c70be6af1dabfa8644492bd57b1d5ba52372e58bffc96f5",
-    "pixelSha256": "c21c7bdf02d2ab230ebd8826df73df3e142462045879087d2bcd3b22c9860a38"
+    "detailSha256": "2bb728c5135b801386be1d49d7fabde1b5aecd2d37b68fddbf11a56436999c2b",
+    "pixelSha256": "17b7e65ad67fb3837613bcf0b91c45e11562c98122f1d9b097ec92ee2895d5f9",
+    "sourceNote": "Native 4K archive sample; populated. Newer 1425px capture preserved separately."
   }
 ]

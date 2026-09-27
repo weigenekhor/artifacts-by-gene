@@ -1,17 +1,16 @@
-# Current ARTIFACTS direction
+# ARTIFACTS — cinematic rebuild candidate
 
-Branch: `experience/software-exhibition`. Review: PR #4. Production remains on main.
+27 September 2026. Branch: `experience/software-exhibition`. This is a visual review candidate; Gene has not approved it. Production is unchanged.
 
-Read AGENTS.md and both governing design documents. Preserve the approved Gene copy and all sixteen applications in canonical order. Gene requests focused visual iteration before comprehensive QA.
+Read `AGENTS.md`, both governing specifications and `ARTIFACTS_MOTION_REVIEW.md`. The complete-rebuild brief replaces the rejected origin and all sixteen film middles. Preserve the approved opening, exact Gene wording, native screenshots and canonical order.
 
-The hero is monumental ARTIFACTS typography inside a continuous field, rendered by `js/identity-field.js` and controlled by `js/genesis.js`. The same geometry becomes evidence, recurring patterns, retained checks and a refined method. It constructs sixteen positions before screenshots enter. `js/collection-layout.js` shares those positions with the later collection. No screenshots appear in the origin. On scroll the homepage recedes and apps come forward.
+- `js/origin-film.js` directs one wordless environment: obstruction, intervention, improved route, alignment, report assembly, pullback and homepage recognition.
+- `js/films/environment.js` keeps those same physical mechanisms present through the collection handoff. `js/work-mechanisms.js` was removed.
+- `js/films/set.js` supplies beveled solids, continuous ribbons, wafer discs and interpolated fields; `studio.js` handles camera projection and the existing shared material renderer.
+- `chronology.js`, `instruments.js`, `records.js` and `investigation.js` contain the sixteen new scores. Each starts and ends with its real complete interface. Numerical examples are illustrative; diagnostic results recommend checks, not proven causes.
+- WaferCount now depicts processed-wafer totals with labelled illustrative stacks. The actual widget reads latest chamber counters; the film does not claim event-history parsing.
+- App boundaries retain the resolved interface as it recedes and the next interface approaches. This is editorial continuity, not a claim of app-to-app integration.
+- Metria retains one pin as the evidence field expands; its structural rule continues into Gene's four spatial typographic beats. No extra sign-off follows the approved copy.
+- The current Papyrus source matches the file on Gene's Desktop. Full pixels are unchanged; detail/pane regions and the import recipe match that layout.
 
-Collection selection follows actual hover or keyboard focus, not cursor proximity. The selected app advances in Z and turns frontal; neighbors recede and the clock slows during inspection. Touch presents on the first tap and navigates on the second. Leaving returns smoothly.
-
-All sixteen studies now demonstrate their own input, operation and result. `js/function-studies.js` covers fifteen, using 2D where alignment and comparison are clearer. TopoTracer stays in `js/topography.js`. TopoTracer and AIX use `js/space.js` and the shared lazy WebGL renderer with a Canvas fallback. The old screenshot-slicing, common camera routine, spatial-studies and diagnostic-study modules are removed. Seven state names are specific to each app in `content/exhibition.json`. Full uncropped screenshots accompany every study. Diagrams are illustrative; no measured values or cross-app integrations are claimed.
-
-Build with `node scripts/build.mjs`. Generated outputs: index.html, js/apps.js and script.js. Preview: http://127.0.0.1:8001/?v=identity-and-method. Verify the server before sharing.
-
-This pass: build, asset/pixel-fidelity checks, focused desktop review of all sixteen studies, hover/focus depth assertions, touch navigation, mobile and reduced-motion checks. No page errors were reported. Brief local hero frame sampling was 16.7ms median, 17.4ms p95; broad device/GPU validation remains deferred. Approved Gene section verified unchanged. QA outputs are ignored under .qa/.
-
-Publish through the authenticated GitHub connector, then verify tree equality before synchronizing the local branch. Do not merge production without instruction.
+Build with `pnpm build`; serve the root on port 8001. Generated `index.html`, `js/apps.js` and `script.js` are static GitHub Pages output. Review images are in ignored `.qa/cinema-complete/`. See `VALIDATION.md` for actual checks and limits. The earlier five snapshots in `versions/` remain untouched.
