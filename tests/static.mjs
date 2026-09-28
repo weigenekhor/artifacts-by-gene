@@ -17,13 +17,13 @@ assert.equal(new Set(apps.map(a => a.id)).size, 16);
 for (const app of apps) assert.ok(design.includes(`| ${String(app.index).padStart(2, "0")} | ${app.name} |`));
 assert.ok(html.includes("<title>Artifacts by Gene</title>"));
 assert.equal(norm(html.match(/<h1[^>]*>(.*?)<\/h1>/s)[1]), "ARTIFACTS");
-assert.ok(html.includes('<p class="hero-support">Software that moves engineering forward.</p>'));
+assert.equal(norm(html.match(/<p class="hero-support">(.*?)<\/p>/s)[1]), "Built from the refusal to accept friction as inevitable.");
 assert.ok(!html.includes("Good reasoning should outlive the task."));
 assert.ok(!html.includes("Select an interface to view the full capture."));
 const gene = html.match(/<div class="gene-copy">([\s\S]*?)<\/div>/)[1];
 assert.equal(norm(gene), "I spent my entire life improving processes. ARTIFACTS began when I realised engineering itself was one of them. What repeated, I automated. What stood in the way, I rebuilt. ARTIFACTS is the evidence that I never accepted the way things were as the way they had to stay.");
 assert.ok(!/<canvas|<video|<iframe|data-film/i.test(html));
-assert.deepEqual([...html.matchAll(/<script[^>]+src="([^"]+)"/g)].map(m=>m[1]), ["chapter-motion.js"]);
+assert.deepEqual([...html.matchAll(/<script[^>]+src="([^"]+)"/g)].map(m=>m[1].split("?")[0]), ["chapter-motion.js"]);
 assert.ok(!/\son\w+=/i.test(html), "No script-dependent event handlers");
 const css = await fs.readFile("styles.css", "utf8");
 assert.ok(css.includes("prefers-reduced-motion: reduce"));
@@ -55,7 +55,7 @@ for (const entry of [...apps, homepage]) {
 for (const [, url] of html.matchAll(/(?:src|href)="([^"]+)"/g)) {
   if (/^(https?:|mailto:|#)/.test(url)) continue;
   assert.ok(!url.startsWith("/"), `Relative deployment path required: ${url}`);
-  await fs.access(url);
+  await fs.access(url.split("?")[0]);
 }
 assert.equal((await fs.readFile("CNAME", "utf8")).trim(), "artifactsbygene.com");
 await fs.access(".nojekyll");

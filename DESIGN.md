@@ -1,6 +1,6 @@
 # ARTIFACTS — Visual Design System
 
-Version 1.4 · 28 September 2026 · One shared typography system
+Version 1.5 · 28 September 2026 · Identity becomes software
 
 ## 1. Authority and scope
 
@@ -20,7 +20,7 @@ Structural reference: [VoltAgent's Apple design analysis](https://github.com/Vol
 ## 2. Identity and content
 
 - Identity: **ARTIFACTS**. A suite of real semiconductor engineering software built from practical engineering problems.
-- Primary hero heading: **ARTIFACTS**. Supporting copy, visually subordinate: **Software that moves engineering forward.**
+- Primary hero heading: **ARTIFACTS**. Supporting copy, visually subordinate: **Built from the refusal to accept friction as inevitable.**
 - Browser title: **Artifacts by Gene**.
 - Canonical URL: `https://artifactsbygene.com/`.
 - Character: precise, mature, calm, confident and engineered. The software is the primary visual subject.
@@ -76,14 +76,14 @@ Sizes below are CSS pixels at a 16px browser default; implement them in rem. Bre
 | `type.caption` | 14 | 14 | 14 | 14 | 400 | 1.5 | 0 |
 | `type.brand` | 18 | 18 | 18 | 18 | 600 | 1.25 | 0 |
 
-- ARTIFACTS occupies one natural line at default sizing, without masks or fitting transforms; allow reflow under enlarged user fonts. Its supporting sentence uses `type.lead`, at most 28ch. Section headings: at most 24ch. Body maximum: 50ch. All measures shrink to available width.
+- ARTIFACTS occupies one natural line at default sizing, without masks or fitting transforms; allow reflow under enlarged user fonts. Its supporting sentence uses `type.body`, at most 34ch. Section headings: at most 24ch. Body maximum: 50ch. All measures shrink to available width.
 - Hero, section and application titles are sentence case. ARTIFACTS retains uppercase. Avoid all-caps paragraphs and excessive tracking.
 - All chapter headings, including the Gene opening, use `type.section` with identical weight, tracking and leading. The wordmark alone uses the display scale. Application names use the smaller shared title scale.
-- Origin prose, application descriptions and Gene prose use `type.body`. Hero and Origin supporting statements use `type.lead`. Do not make Gene body text a separate size.
+- Hero supporting copy, Origin prose, application descriptions and Gene prose use `type.body`. The Origin lead uses `type.lead`. Do not make Gene body text a separate size.
 - Navigation, text links, chapter labels and the Gene closing strip use `type.ui`. Navigation and the Gene signature use weight 500; other utility text uses 400. The quiet attribution does not become a giant name treatment.
 - Application numbers use `type.caption` at weight 500 with tabular numerals. Image captions use the same size at weight 400. Monospace is unnecessary; if genuine technical metadata later requires it, use `ui-monospace` for that metadata alone.
 - Use `text-wrap: balance` on short headings as an enhancement, with natural wrapping as fallback. Body text stays left-aligned, never justified.
-- No manual line breaks that force desktop compositions onto mobile. The two approved Gene action sentences may retain their paragraph break.
+- No manual line breaks that force desktop compositions onto mobile. The approved hero statement breaks after “refusal”, with natural wrapping below 360px. The two approved Gene action sentences retain their paragraph break.
 - Text is always live HTML, fully visible. No masks, clipping paths, fixed-height text boxes, line clamps, ellipses or transforms used to fit copy. A long app name wraps; it never shrinks to metadata size.
 
 ## 5. Spacing and responsive layout
@@ -150,13 +150,15 @@ In the two-column layout, headers in a row share a minimum two-line title space 
 
 ### Hero — identity, then evidence
 
-Light canvas. The h1 is **ARTIFACTS**, dominant in scale. The exact supporting sentence is **Software that moves engineering forward.** Use the shared container and the type sizes above. The in-flow header retains the real logo. There is one understated Applications anchor, no extra slogan.
+Light canvas. The h1 is **ARTIFACTS**, retaining its enormous scale, left alignment and position. The exact supporting sentence is **Built from the refusal to accept friction as inevitable.** It uses the shared body size and breaks after “refusal” except at the narrowest widths. The in-flow header retains the real logo and Applications/Gene navigation. There is no separate hero CTA, stranded Applications anchor or scroll instruction.
 
-At desktop the heading starts 64px below the header; mobile 48px. Supporting copy follows by 24px. Desktop places the anchor at the opposite end of the supporting row; mobile stacks it beneath. The existing title-to-content token separates this row from the software.
+At desktop the heading starts 64px below the header; mobile 48px. Supporting copy follows by 24px. The heading region has a content-safe minimum height: 72svh minus header height on desktop, 74svh on tablet and 78svh on mobile. At rest, only the upper portion of the real homepage enters near the fold. This is viewport cropping, never cropping of the source image. Content may expand the region at zoom or on a short landscape screen; do not force it into a fixed viewport.
 
-The real homepage is a large composition anchor: 84% of the inner container, capped at 1080px on desktop; full inner width below 1024px. It retains its complete interface and native colours. It is not a link. The image crosses a warm-to-ink surface boundary so the software persists while its surroundings change. The light surface retracts through 85% of its starting depth as the image settles; the dark environment visibly takes over and continues into Origin. A quiet caption identifies the environment and sixteen applications. Do not add floating windows or another interface collage.
+The real homepage is a large composition anchor: 84% of the inner container, capped at 1080px on desktop; full inner width below 1024px. It retains its complete interface and native colours. It is not a link. As the interface approaches, the light surface withdraws completely across its height, revealing the same ink environment that continues into Origin. The image persists across this surface change. A quiet caption identifies the environment and sixteen applications. Preserve the page order: Hero → Origin → Applications → Gene → End. The hero introduces the software; it does not relocate or duplicate the gallery.
 
-Entry resolves in 600–1000ms through small translations (6–20px), never an opacity gate. On desktop the homepage grows from .90 to 1 scale with up to 40px of settling travel. This is a framing transition, with no perspective distortion or simulated 3D. Mobile uses .96 to 1 scale and at most 8px travel. No cursor response, continuous drift or autoplay loop.
+The initial identity is still and fully readable. After the first 24px of native scroll, the homepage grows from .86 to 1 scale, rises by up to 72px beyond natural scrolling, and resolves from 6° X perspective to a frontal view. Tablet uses .92 scale / 32px / 3°; mobile .96 / 16px / 1°. Smoothstep progress reaches the frontal endpoint when the original image top approaches 10% of the viewport height. The wordmark yields by at most 16px and 12% opacity; the supporting copy stays stable. No letters scatter, no blur, no masks, no added scroll spacer or pinning. No entry autoplay.
+
+Desktop fine-pointer inspection adds at most 1° on either axis with a 220ms damping time constant. Bounds are measured from the untransformed figure. Scrolling neutralizes pointer response; pointer movement resumes only after 180ms without scroll. Touch/tablet/mobile receive no pointer response. The final settled, neutral image has **no transform at all** to preserve frontal raster sharpness. No loops remain running at rest. Reduced motion and no JavaScript show the full frontal capture without perspective, image travel or wordmark changes. There is no fake chrome, hardware, extra mat or decorative shadow.
 
 ### Origin — engineering friction, deliberately removed
 
@@ -225,17 +227,17 @@ Place the strip 56px after the conclusion on desktop, 48px on tablet and 40px on
 | Token | Value | Use |
 | --- | --- | --- |
 | `motion.micro` | 180ms | Link colour, underline and control feedback |
-| `motion.entry` | 600–1000ms | Initial hero settling |
+| `motion.inspection` | 220ms time constant | Hero pointer response only |
 | `motion.response` | 80ms time constant | Scroll response damping, no overshoot |
 | `ease.chapter` | `cubic-bezier(0.16, 1, 0.3, 1)` | Confident acceleration, soft settling, no overshoot |
 | `ease.standard` | `cubic-bezier(0.2, 0, 0, 1)` | Consistent settling without bounce |
 
 - The page renders fully visible immediately, including with JavaScript disabled. Do not add entry opacity gates or stagger sixteen cards.
 - Screenshots have no hover, focus, click or playback interaction. Keep all sixteen app articles static.
-- Only hero framing, Origin composition, the Applications heading and chapter surfaces use scroll motion. No cursor-driven scene. Gene text never moves.
+- Only hero framing, Origin composition, the Applications heading and chapter surfaces use scroll motion. The hero alone permits the bounded pointer inspection specified above. Gene text never moves.
 - Focus styling is immediate and independent of hover. Restrained colour feedback is enough for pressed states; no spring or large shrink.
 - With `prefers-reduced-motion: reduce`, remove image transforms and transitions, use immediate state changes and native instant anchor scrolling. No information or composition may depend on motion.
-- Use native scroll; section links use native CSS smooth scrolling, instant with reduced motion. chapter-motion.js has no dependencies. Passive scroll events schedule a single frame; cached document positions avoid per-frame layout reads. Smoothstep progress and an 80ms damping response link edge movement to following content. The timeline depends on viewport position, never gallery height. Rendering stops when settled, hidden or in reduced motion. Re-measure after viewport/font changes. No smooth-scroll library, observers that hide content, application-film runtime, scroll locking or pinned sections.
+- Use native scroll; section links use native CSS smooth scrolling, instant with reduced motion. chapter-motion.js has no dependencies. Passive scroll/pointer events share one frame scheduler; cached document positions avoid per-frame layout reads. Smoothstep progress and an 80ms damping response link edge movement to following content. The timeline depends on viewport position, never gallery height. Snap residual interpolation to exact endpoints before stopping so a tiny transform cannot remain. Rendering stops when settled, hidden or in reduced motion. Re-measure after viewport/font changes. No smooth-scroll library, observers that hide content, application-film runtime, scroll locking or pinned sections. Build fingerprints on CSS/JS URLs prevent mixed cached revisions; asset paths remain relative.
 
 ## 9. Accessibility and text safety
 
