@@ -1,42 +1,51 @@
 # ARTIFACTS — Experience Storyboard
 
-Read with ARTIFACTS_CREATIVE_DIRECTION.md. The current definitive gallery brief supersedes earlier sequential-film direction.
+The current exact film brief f72eb4de-456f-4c14-9c66-3d649cd9d87b governs application choreography. Read with ARTIFACTS_CREATIVE_DIRECTION.md. Preserve the current hero, origin and Gene.
 
-## Opening and origin
+## Opening and origin — preserved
 
-Keep the monumental interactive hero. Its descriptor is Software that moves engineering forward. The primary line remains Built for engineering where almost right is still wrong.
+Keep the monumental interactive hero. Software that moves engineering forward. Built for engineering where almost right is still wrong.
 
-One continuous 6.8-unit clock in genesis.js drives the approved origin:
+The existing 6.8-unit origin clock remains:
 
 1. Enter the working measurement volume from the identity field.
 2. A region loses registration. **Some difficulty belongs to the work.**
-3. A deliberate reference correction removes the obstruction. **Some doesn’t.** Hold the successful correction.
-4. Visit a sampled spatial field, then mismatched comparison structures. Each has a distinct resolution.
-5. Pull back to the retained working structures. This represents shared engineering reasoning, not a claim that apps exchange data.
-6. The central substrate settles into the actual ARTIFACTS homepage. Decode the image before it is needed.
-7. Carry that same homepage element to the next stage. It resolves once and remains present. The destination stays invisible until it owns the element. Scrolling onward reveals the gallery.
+3. A deliberate reference correction removes the obstruction. **Some doesn’t.**
+4. Visit the sampled field and mismatched comparison structures, each with its own resolution.
+5. Pull back to retained working structures.
+6. The central substrate resolves into the actual ARTIFACTS homepage.
+7. The same element passes continuously to the application stage. No disappearance, duplicated reveal or repeated catalogue.
 
-No catalogue, real UI or application names before the final origin handoff. Keep the story almost wordless and the type legible against its dark ink/cobalt environment. No new story metaphor, tiled matrix, presentation-step diagram or conveyor.
+## Application gallery
 
-## Application browsing
+Sixteen applications, actual ARTIFACTS order, two columns desktop and one mobile. Every resting card displays its complete real screenshot on a light mineral stage. Its name and brief value cue sit below the media.
 
-The gallery is the primary application experience. Sixteen entries, in the exact ARTIFACTS order, two columns on desktop and one on mobile. Resting frames have different silhouettes. Names and engineering cues sit below the image, outside the animation.
+One hover/focus clock: screenshot recedes → establish physical world → engineering transformation → decisive image → hold. Approximately 5.2 seconds, no continuous loop. Leave returns to the screenshot. Mobile plays the centered card; reduced motion leaves captures still.
 
-Hover/focus starts a 4–8 second preview. It develops and holds once, rather than looping frenetically. Leaving blends back to the authored poster. Mobile chooses one centered visible card. Reduced motion keeps static posters. Click/Enter opens the deeper film in a dialog; Escape/Back returns focus to the originating card without losing scroll position.
+| Order | Film silhouette and event |
+| --- | --- |
+| 01 LotViewer | Deep historical strata; five substantial routes; a scan traverses them sequentially; invalid routes recede; one copper interpretation survives. |
+| 02 Altus ANKO | Thick concentric temporal tracks; historical anchors grow distinct intervals around a common NOW reference; warm near-due and cool farther-due positions. |
+| 03 WaferCount | Three machined reactor apertures; physical wafers register process completion; retained marks compress into counts; maintenance proximity resolves. |
+| 04 TopoTracer | Approved surface, interpolation, contours and section — unchanged core. |
+| 05 Papyrus | Large recipe-document sheets; grouped statements gain depth; the comparison joins; irrelevant structure settles and the real Anneal_Time difference remains raised. |
+| 06 Pathfinder | A deep architectural directory; navigation rooms open; a direct route parts the hierarchy; the camera reaches the intended external chart. |
+| 07 Met Compiler | Four distinct PL/Plato, LayTec, XRR and XRD measurement worlds; physical evidence separates and converges into a central standardized workbook. |
+| 08 Temp Diagnoser | Abstract reactor volume; temperature, gas, process and clean observations change diagnostic relevance; the camera resolves on recommended-check markers. |
+| 09 AIX ΔT | Five physical plates above a thermal field; lift/cross/seat twice with clearance; the thermal variation flattens after each evaluated exchange. |
+| 10 LT Zone | Five-wafer susceptor, rotating under two optical sampling windows; the sampled areas illuminate on each wafer; inspect one then rise overhead. |
+| 11 GaN XML | Two substantial branching configurations; identity matching reorders them; matching subtrees align; changed/added/removed structures remain in a small report plane. |
+| 12 Magus GaN | Travel sideways across one immense curved analytical canvas; pull back to concurrent parameters and a compact pass/fail overview. |
+| 13 Magus Legacy | Move forward through process-family analytical sheets; arrange them into a broad multi-process archive overview. |
+| 14 ANKO Helper | A physical scheduling table; workcenters validate sequentially; valid paths reach future positions; invalid checks stop without generating a date. |
+| 15 LT Report | A bare value gains attached step/zone/wavelength/analysis layers; the semantic object crosses into a workbook and appends below stable existing records. |
+| 16 Metria | One physical pin remains as signal surfaces enter at different depths; a shared time slab crosses them; exact matches lock, nearest-time associations remain weaker. |
 
-A detailed film retains full real interface → registered source region → cinematic interpretation → full interface. Only this chosen experience has playback and inspection controls. Original opens the complete fitted capture with a native-size option. No forced long scroll films remain in the main document.
+The detailed experience uses the same scene, actual source capture, optional viewing-angle inspection and transport. It is chosen, never forced on main-page scrolling. TopoTracer retains its original internal treatment. Film captions stay outside the cinematic media.
 
-Application-specific logic and factual boundaries are in ARTIFACTS_MOTION_REVIEW.md.
+## Gene — exact words
 
-## Safe areas
-
-Metadata, statement, visual, inspection and transport occupy separate rows in the detail dialog. Within the visual, labels have margins and do not compete with physical geometry. Mobile recomposes. Aspect ratios stay correct. Test every intermediate state, not merely endpoints.
-
-## Gene
-
-The gallery gives way to stillness and a restrained architectural reference. Four held typographic compositions, with controlled spatial transitions. No pale paragraph fade sequence. End with only Gene, email and LinkedIn.
-
-Approved wording, exact:
+Four held compositions, restrained architectural depth and stillness. Preserve these words:
 
 > I spent my entire life improving processes.
 >
@@ -47,4 +56,4 @@ Approved wording, exact:
 >
 > ARTIFACTS is the evidence that I never accepted the way things were as the way they had to stay.
 
-No additional slogan, job-title strip, oversized name, biography or repeated catalogue. Reduced motion and short viewports use natural document flow.
+End with only Gene, email and LinkedIn. No new slogans or job-title strip. Reduced motion and short viewports use natural document flow.

@@ -129,7 +129,7 @@ export function createInstrumentFilm(el, wake) {
     const hit = (value, x, y, w, h, label) =>
       targets.push({ value, x, y, w, h, label });
     return renderers[kind](
-      drawing(ctx, el.classList.contains("film-paper"), mobile),
+      drawing(ctx, true, mobile),
       q,
       focus,
       W,

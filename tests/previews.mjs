@@ -20,7 +20,7 @@ await fs.writeFile(
 );
 await build({
   stdin: {
-    contents: `import {renderPreview} from './js/gallery-renderer.js';import {createTopography} from './js/topography.js';import settings from './content/gallery.json';const cards=[...document.querySelectorAll('.gallery-card')];let topo;window.renderQA=async(kind,q)=>{const e=cards.find(e=>e.dataset.film===kind),c=e.querySelector('.gallery-poster'),a=e.querySelector('.gallery-art');if(kind==='surface'&&!topo){topo=createTopography({querySelector:()=>c},()=>{});await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));}renderPreview(c,{kind,q:q??settings[kind].rest,w:a.clientWidth,h:a.clientHeight,mobile:innerWidth<700,topography:topo})};window.qaSettings=settings;`,
+    contents: `import {renderPreview} from './js/gallery-renderer.js';import {createTopography} from './js/topography.js';import settings from './content/gallery.json';const cards=[...document.querySelectorAll('.gallery-card')];let topo;window.renderQA=async(kind,q)=>{const e=cards.find(e=>e.dataset.film===kind),c=e.querySelector('.gallery-preview'),a=e.querySelector('.gallery-art');c.style.opacity=q===null?0:1;a.style.setProperty('--film-reveal',q===null?0:1);if(q===null){await e.querySelector('img').decode();return}if(kind==='surface'&&!topo){topo=createTopography({querySelector:()=>c},()=>{});await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));}renderPreview(c,{kind,q,w:a.clientWidth,h:a.clientHeight,mobile:innerWidth<700,topography:topo})};window.qaSettings=settings;`,
     resolveDir: process.cwd(),
   },
   bundle: true,
@@ -78,7 +78,7 @@ for (const width of [1440, 1280, 390]) {
   for (const phase of ["rest", "development", "decisive"]) {
     const captures = [];
     for (const [i, kind] of ids.entries()) {
-      const q = phase === "rest" ? null : phase === "development" ? 0.4 : 0.86;
+      const q = phase === "rest" ? null : phase === "development" ? 0.45 : 0.96;
       await p.evaluate(({ kind, q }) => window.renderQA(kind, q), { kind, q });
       const card = p.locator('[data-film="' + kind + '"]');
       await card.scrollIntoViewIfNeeded();

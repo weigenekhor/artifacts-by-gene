@@ -43,12 +43,7 @@
 .gallery-art {
   position: relative;
   aspect-ratio: 1.56;
-  background: radial-gradient(
-    ellipse at 55% 35%,
-    #182635,
-    #0c141e 63%,
-    #0a1017
-  );
+  background: #eeeee8;
   overflow: hidden;
   isolation: isolate;
 }
@@ -73,29 +68,11 @@
 }
 .gallery-preview {
   opacity: 0;
-  background: radial-gradient(
-    ellipse at 55% 35%,
-    #182635,
-    #0c141e 63%,
-    #0a1017
-  );
+  background: #eeeee8;
 }
 .gallery-paper .gallery-art,
 .gallery-paper .gallery-preview {
-  background: #e7eeed;
-}
-.gallery-open {
-  position: absolute;
-  right: 20px;
-  top: 15px;
-  font-size: 23px;
-  color: #b8cad7;
-  opacity: 0;
-  transition: opacity 0.25s;
-}
-.gallery-card:hover .gallery-open,
-.gallery-card:focus-visible .gallery-open {
-  opacity: 1;
+  background: #eeeee8;
 }
 .gallery-caption {
   display: flex;
@@ -215,6 +192,16 @@
 #film-detail .film-meta {
   padding: 0;
 }
+#film-detail .film-visual-only .film-stage {
+  grid-template-rows: 38px 0 minmax(0, 1fr) 64px 44px;
+}
+#film-detail .film-visual-only .film-heading {
+  visibility: hidden;
+  overflow: hidden;
+}
+.reduced #film-detail .film-visual-only .film-stage {
+  grid-template-rows: 38px 0 minmax(280px, 50vh) 76px 48px;
+}
 .reduced #film-detail .film-stage {
   height: auto;
   min-height: calc(100dvh - 66px);
@@ -271,12 +258,6 @@
   .gallery-caption p {
     font-size: 14px;
   }
-  .gallery-open {
-    opacity: 1;
-    font-size: 18px;
-    top: 10px;
-    right: 12px;
-  }
   .detail-toolbar {
     padding: 0 20px;
     height: 58px;
@@ -295,17 +276,22 @@
   .gallery-preview {
     display: none;
   }
-  .gallery-art:after,
-  .gallery-open {
+  .gallery-art:after {
     transition: none;
   }
 }
 
 .gallery-fallback {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
+  padding: clamp(14px, 2vw, 28px);
+  filter: drop-shadow(0 10px 12px #15202b24);
+  transform: perspective(1000px) translateZ(calc(var(--film-reveal, 0) * -90px));
+  opacity: calc(1 - var(--film-reveal, 0));
 }
-.enhanced .gallery-fallback {
-  display: none;
+.film-operation {
+  background: #eeeee8;
 }

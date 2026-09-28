@@ -102,6 +102,21 @@ try {
   ])
     assert.ok(!text.includes(phrase));
   await scroll(p, ".gallery-card");
+  await p.mouse.move(0, 0);
+  assert.equal(
+    (await p.evaluate(() => window.artifactsExperience.gallery)).filter(
+      (s) => s.active,
+    ).length,
+    0,
+    "Desktop does not autoplay",
+  );
+  const rest = p.locator(".gallery-card").first().locator(".gallery-fallback");
+  await rest.evaluate((e) => e.decode());
+  assert.equal(
+    await rest.evaluate((e) => getComputedStyle(e).opacity),
+    "1",
+    "The actual screenshot is the resting frame",
+  );
   await p.locator(".gallery-card").first().hover();
   await p.waitForTimeout(700);
   let states = await p.evaluate(() => window.artifactsExperience.gallery);
@@ -121,6 +136,11 @@ try {
   assert.equal(
     (await p.evaluate(() => window.artifactsExperience.gallery))[0].alpha,
     0,
+  );
+  assert.equal(
+    await rest.evaluate((e) => getComputedStyle(e).opacity),
+    "1",
+    "Mouse leave returns to the original screenshot",
   );
   await p.locator(".gallery-card").first().focus();
   await p.waitForTimeout(250);

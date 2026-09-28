@@ -49,7 +49,13 @@ export function space(
       k = 1400 / (1400 - Z);
     return [w * cx + xx * unit * k, h * cy + Y * unit * k, Z, k];
   };
-  const poly = (pts, color = palette.dark, alpha = 1, edge = false) => {
+  const poly = (
+    pts,
+    color = palette.dark,
+    alpha = 1,
+    edge = false,
+    vertexColors = null,
+  ) => {
     const a = pts[0],
       b = pts[1],
       c = pts[2],
@@ -87,6 +93,7 @@ export function space(
           length,
       ],
       material: color,
+      vertexColors,
       alpha,
       lit,
       stroke: edge ? rgb(color, 1.25, alpha * 0.6) : null,

@@ -48,7 +48,7 @@ html = html.replace(
     .map((f) => {
       const app = apps.find((a) => a.id === f.id),
         card = gallery[f.kind];
-      return `<a class="gallery-card ${f.kind === "surface" ? "gallery-paper" : ""}" href="${esc(app.evidence.full)}" data-film="${f.kind}" style="--accent:${card.accent}" aria-label="Explore ${esc(app.name)}"><div class="gallery-art ${f.kind === "surface" ? "topography" : ""}" aria-hidden="true"><img class="gallery-fallback" src="${esc(app.evidence.full)}" width="${app.evidence.fullWidth}" height="${app.evidence.fullHeight}" loading="lazy" alt=""><canvas class="gallery-poster"></canvas><canvas class="gallery-preview"></canvas><span class="gallery-open">↗</span></div><div class="gallery-caption"><span class="gallery-number">${f.number}</span><div><h3>${esc(app.name)}</h3><p>${esc(card.cue)}</p></div><span class="gallery-evidence">View the film ↗</span></div></a>`;
+      return `<a class="gallery-card gallery-paper" href="${esc(app.evidence.full)}" data-film="${f.kind}" style="--accent:${card.accent}" aria-label="Explore ${esc(app.name)}"><div class="gallery-art ${f.kind === "surface" ? "topography" : ""}" aria-hidden="true"><img class="gallery-fallback" src="${esc(app.evidence.full)}" width="${app.evidence.fullWidth}" height="${app.evidence.fullHeight}" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">${f.number}</span><div><h3>${esc(app.name)}</h3><p>${esc(card.cue)}</p></div><span class="gallery-evidence">View the film ↗</span></div></a>`;
     })
     .join(""),
 );

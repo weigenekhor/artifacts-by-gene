@@ -16,18 +16,18 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 Approved interactive hero → almost-wordless origin → continuous real homepage reveal → sixteen large gallery previews → optional detailed films → exact personal closing.
 
-Desktop gallery previews play once on hover/focus. Mobile plays the centered visible card. Leaving settles to a poster. The main document has no forced sixteen-film scroll sequence. Click/Enter opens a film with full real interface, playback, inspection and an original-size image viewer. Escape returns to the card. Reduced motion keeps static previews and a readable story.
+Desktop gallery previews play once on hover/focus. Mobile plays the centered visible card. Every card rests on the complete real screenshot. Hover/focus opens a 5.0–5.3 second film on a warm light stage, holds, then returns to that screenshot on leave. The main document has no forced sixteen-film scroll sequence. Click/Enter opens a film with full real interface, playback, inspection and an original-size image viewer. Escape returns to the card. Reduced motion keeps the real captures still and a readable story.
 
 - content/page.html: page template and approved words.
-- content/gallery.json: cues, accents, resting frames and preview durations.
+- content/gallery.json: cues, accents and preview durations.
 - content/apps.json and exhibition.json: verified catalogue and real order.
 - content/films.json: detail statements, timing and inspection semantics.
 - content/story.json: approved origin lines and accessible descriptions.
-- js/gallery.js: poster cache, hover/focus/mobile active state, one-shot preview.
+- js/gallery.js: real-screenshot rest state, nearby prewarming, hover/focus/mobile active state and one-shot preview.
 - js/experience.js: shared clock, dialogs, navigation and source viewer.
 - js/genesis.js and origin-construction.js: origin clock, material scene and single homepage handoff.
 - js/identity-field.js and topography.js: protected hero and TopoTracer.
-- js/instrument-film.js and films/: common film lifecycle and individual cinematic operations.
+- js/instrument-film.js and films/: detail lifecycle and physical films in history-worlds.js, document-worlds.js, hardware-worlds.js and measurement-worlds.js. stage.js supplies lighting and geometry primitives.
 - js/space.js and material-renderer.js: projection, material light, one shared GPU target and fallback.
 - js/epilogue.js: exact Gene copy in held spatial compositions.
 - gallery.css: main gallery and detail overlay; films.css: film safe rows and closing.

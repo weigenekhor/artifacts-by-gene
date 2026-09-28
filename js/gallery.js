@@ -1,9 +1,9 @@
 import data from "../content/gallery.json";
 import { renderPreview } from "./gallery-renderer.js";
-import { at, mix } from "./films/drawing.js";
+import { mix } from "./films/drawing.js";
 import { createTopography } from "./topography.js";
 
-// Resting posters are rendered once. Only the active preview advances on the page clock.
+// The original interface is the resting state. Only one film advances on the page clock.
 export function createGallery(section, wake, openFilm) {
   let mobile = false,
     hover = -1,
@@ -12,13 +12,11 @@ export function createGallery(section, wake, openFilm) {
     (el, index) => {
       const kind = el.dataset.film,
         art = el.querySelector(".gallery-art"),
-        poster = el.querySelector(".gallery-poster"),
         preview = el.querySelector(".gallery-preview");
       const state = {
         el,
         kind,
         art,
-        poster,
         preview,
         index,
         visible: false,
@@ -32,10 +30,6 @@ export function createGallery(section, wake, openFilm) {
         drawn: -1,
       };
       if (kind === "surface") {
-        state.topoPoster = createTopography(
-          { querySelector: () => poster },
-          wake,
-        );
         state.topoPreview = createTopography(
           { querySelector: () => preview },
           wake,
@@ -77,14 +71,14 @@ export function createGallery(section, wake, openFilm) {
     { rootMargin: "120px" },
   );
   cards.forEach((c) => io.observe(c.el));
-  function render(s, canvas, q, poster = false) {
+  function render(s, canvas, q) {
     renderPreview(canvas, {
       kind: s.kind,
       w: s.w,
       h: s.h,
       q,
       mobile,
-      topography: poster ? s.topoPoster : s.topoPreview,
+      topography: s.topoPreview,
     });
   }
   return {
@@ -117,10 +111,13 @@ export function createGallery(section, wake, openFilm) {
           s.active = false;
           s.alpha = 0;
           s.preview.style.opacity = 0;
+          s.art.style.setProperty("--film-reveal", 0);
           continue;
         }
         if (s.dirty) {
-          render(s, s.poster, data[s.kind].rest, true);
+          // Prewarm the first film frame near the viewport, behind the real capture.
+          render(s, s.preview, 0);
+          s.drawn = -1;
           s.dirty = false;
         }
         const active =
@@ -133,16 +130,18 @@ export function createGallery(section, wake, openFilm) {
         if (active)
           s.elapsed = Math.min(s.elapsed + dt, data[s.kind].seconds * 1000);
         const alphaTarget = active ? 1 : 0;
-        s.alpha = mix(s.alpha, alphaTarget, 1 - Math.exp(-dt / 180));
+        s.alpha = mix(
+          s.alpha,
+          alphaTarget,
+          1 - Math.exp(-dt / (active ? 90 : 170)),
+        );
         if (Math.abs(s.alpha - alphaTarget) < 0.002) s.alpha = alphaTarget;
         s.preview.style.opacity = s.alpha;
+        s.art.style.setProperty("--film-reveal", s.alpha);
         s.el.classList.toggle("is-previewing", active);
         // One shot: hold the decisive frame, never restart while the pointer stays.
-        const q = mix(
-          0.025,
-          0.9,
-          at(s.elapsed / data[s.kind].seconds / 1000, 0, 1),
-        );
+        // Linear film clock; each authored event owns its easing. Last 0.6 seconds hold.
+        const q = Math.min(1, s.elapsed / data[s.kind].seconds / 1000);
         if ((active || s.alpha > 0.005) && Math.abs(q - s.drawn) > 0.0002) {
           render(s, s.preview, q);
           s.drawn = q;

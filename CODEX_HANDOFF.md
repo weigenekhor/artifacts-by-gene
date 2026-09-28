@@ -1,13 +1,15 @@
 # Current ARTIFACTS implementation
 
-Continue experience/ee65f20-rebuild. The latest attached definitive brief (2db8fa29) changes the browsing model to a two-column gallery. Do not restore the prior spatial collection or sequential scroll films. Saved /versions/<commit>/ previews are immutable.
+Continue the current work, never reset to an archive. The exact cinematic film brief f72eb4de replaces previous application films. Two-column gallery, real screenshots at rest, light-stage physical films on hover/focus, one-shot 5.0–5.3 seconds, decisive hold, smooth return. One centered active film on mobile. Reduced motion keeps screenshots still.
 
-Read AGENTS.md and both governing direction documents fully. Preserve identity-field.js, TopoTracer and exact Gene words. Current Papyrus uses recipe-text comparison; GaN XML owns node matching. Current Papyrus source is 1425×950.
+Read AGENTS.md and both governing documents completely. Preserve hero identity-field.js, origin/homepage handoff, TopoTracer topography.js, actual app order and exact Gene copy. Current Papyrus and GaN XML source captures were inspected; Papyrus is text/recipe comparison, XML is identity-based structural comparison.
 
-Source: content/page.html, gallery.json, films.json, story.json. Build via node scripts/build.mjs or pnpm build. index.html, js/apps.js and script.js are generated static output for GitHub Pages.
+Sources: content/page.html, gallery.json, films.json, story.json. Build with pnpm build. index.html, js/apps.js and script.js are generated GitHub Pages output.
 
-experience.js owns the shared RAF and dialogs. gallery.js owns visible posters and one active preview. genesis.js alone owns the transferred homepage element; destination visibility follows --collection-arrival. No duplicate transform writer. instrument-film.js is initialized only when a detail is opened. Film-specific renderers are registered in js/films/renderers.js.
+experience.js owns the shared clock/dialogs. gallery.js owns screenshot-to-film lifecycle and nearby prewarming. gallery-renderer.js uses the shared renderer registry. Individual scenes are in history-worlds.js, document-worlds.js, hardware-worlds.js and measurement-worlds.js; stage.js supplies only physical primitives, stage lighting and optional inspection camera offset. No prior line-film modules remain. TopoTracer keeps its own renderer.
 
-Run tests/browser.mjs, tests/production.mjs, tests/evidence.mjs, tests/assets.mjs and tests/assignment.mjs. See VALIDATION.md for actual results. Never infer artistic approval from geometry checks.
+The homepage is one element managed by genesis.js, with destination visibility following --collection-arrival. Do not add competing transform writers or duplicate reveals. Optional details are initialized only on open. New detail films run in eight seconds including source entry/return; TopoTracer retains its protected treatment.
 
-Archive each presented revision under a new commit URL. Keep existing archives and production main untouched. GitHub authentication was previously absent; verify actual push before claiming publication. Do not force-push or merge production.
+Run browser, preview, production geometry and assignment checks after meaningful changes. Review actual frames and transitions, not tests alone. Local .qa/ contains captures and timing observations. Preserve historical /versions/<commit>/ links, and create a new immutable archive for each presented revision.
+
+Local development branch: experience/ee65f20-rebuild. Existing GitHub draft PR #5 uses experience/cinematic-gallery; its last confirmed published snapshot predates this exact-film revision. On 28 September, CLI push had no credentials and the GitHub plugin was not installed in this session. This revision is saved locally for review. After GitHub is connected, publish to the review branch and verify tree equality before reporting publication. Never force-push or merge production without the user's instruction.

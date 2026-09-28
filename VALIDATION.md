@@ -1,28 +1,26 @@
-# Validation — cinematic application gallery
+# Validation — exact cinematic films
 
-28 September 2026. Continues the current experience/ee65f20-rebuild implementation from b6d8ed7. Production has not been merged or deployed. Earlier local review archives remain available.
+28 September 2026. Continues the current experience/ee65f20-rebuild from c67e1f2. This revision is local; the existing GitHub PR has not been updated because CLI authentication and the GitHub connection are unavailable. Production and historical review archives are unchanged.
 
 ## Completed checks
 
-- Static build passes. CNAME, relative assets and GitHub Pages deployment are retained. Browser tests also serve the site under /artifacts-by-gene/ to check repository-relative paths.
-- The approved identity-field.js hero and topography.js core are unchanged.
-- All sixteen gallery entries appear in the actual application order. Two columns on desktop; one on mobile. No forced sequential film sections remain in the main document.
-- Final browser suite passes: one-shot desktop hover and keyboard previews, held final frame, graceful return to poster, one centered mobile preview, all sixteen detail dialogs and original images, nested Escape/focus return, reduced motion, and real-image links without JavaScript. No runtime or resource errors reported.
-- Automated axe checks report no violations for the desktop gallery, mobile gallery and reduced-motion detail view. This is not a complete assistive-technology audit.
-- Final preview suite captures all sixteen resting, development and decisive states at 1440, 1280 and 390 pixels: 144 images. No reported canvas text collisions, clipped labels or runtime/resource errors.
-- Detailed films were sampled through 0–100% at five-percent increments, at 1440×900, 1280×800 and 390×844. Initial review found intermediate WaferCount, XML and ANKO Helper label problems; those were corrected. Nine affected films then passed the complete progress sampling. The final LotViewer, Diagnoser and Met Compiler refinements also passed complete progress sampling at all three widths.
-- Fresh origin, homepage handoff, gallery and Gene captures were reviewed at those three widths, alongside individual preview frames and contact sheets. Review prompted changes to phone compositions, retained-history depth, the diagnostic symptom curve, source-plot crossfades and text placement.
-- The homepage uses one DOM element throughout forward and reverse travel. After resolving, its measured opacity remains 1. Its position and dimensions are identical immediately before and after the owner transfer at 1440×900. No disappear/reappear stage remains.
-- Full source-capture fidelity checks pass for all sixteen apps. Papyrus now uses the current recipe-text capture. Its pixels and dimensions are verified against the source. No screenshot is fabricated or upscaled.
-- AIX assignment verification passes all 120 permutations. The illustrative fixture retains five physical plates through two swaps, with span 16 → 8 → 0 °C; these are synthetic demonstration values, not a production-equipment result.
+- Static build passes. GitHub Pages output, CNAME and relative assets are retained. The browser suite also serves the site under /artifacts-by-gene/.
+- The approved hero, origin, homepage handoff, TopoTracer core and Gene source files are unchanged.
+- Sixteen entries retain the real order. Every card rests on its full source screenshot. Desktop plays only on hover/focus, once, then holds; leaving restores the screenshot. Mobile plays one centered card. Previews last 5.0–5.3 seconds.
+- Browser checks pass for all sixteen detail films and original images, keyboard focus, Escape/focus return, reduced motion and no-JavaScript image access. No runtime or resource errors. Axe reports zero violations in the desktop gallery, mobile gallery and reduced-motion detail sample; this is not a complete assistive-technology audit.
+- Preview captures cover real rest, development and decisive frames at 1440, 1280 and 390 pixels. Canvas label bounds and text collisions are checked. Five-beat contact sheets additionally cover all fifteen new films, with manual review of depth, physical events and final composition.
+- Detailed films were sampled every five percent at 1440×900, 1280×800 and 390×844, with zero reported geometry or runtime issues. A focused rerun covers films changed in the final framing pass. Label/object placement also received visual review; automated text checks alone cannot establish this.
+- The homepage remains one DOM element. Forward/reverse samples after its resolution retain opacity 1. No duplicate reveal was introduced.
+- All sixteen source hashes, decoded pixels, native crops and derivative paths pass. Papyrus retains the current recipe-text source; it is not presented as XML node matching. No capture is fabricated or upscaled.
+- AIX checks cover all 120 illustrative assignment permutations, correct final slot identities after both exchanges and physical clearance sampled every 0.01 seconds. Its synthetic fixture demonstrates span 16 → 8 → 0 °C; this is not a production-equipment result.
 
 ## Local performance observation
 
-An isolated headless Edge run at 1440×900 recorded 492 frames during the AIX gallery preview: median interval 16.7 ms, 95th percentile 16.9 ms, no long tasks. Rapid origin travel recorded median 16.7 ms and 95th percentile 17.5 ms after reducing redundant profile tessellation. Resting Gene produced zero shared-render frames over 600 ms. These local observations do not guarantee 60 FPS on every device.
+The first isolated AIX run showed a 33.4 ms 95th-percentile frame interval. Reducing redundant radial geometry in that film improved the next isolated headless Edge run at 1440×900 to median 16.7 ms, 95th percentile 16.9 ms, 486 sampled frames and no long tasks. The 8.4-second observation includes entry, active playback and the held frame. Rapid origin travel recorded median 16.7 ms and 95th percentile 17 ms. The resting closing section produced zero shared-render frames over 600 ms. These are local observations, not a guarantee on every device.
 
 ## Reproduce
 
-Run the static server on 127.0.0.1:8001, then:
+Start the static server on 127.0.0.1:8001, then run:
 
 ```sh
 pnpm build
@@ -34,10 +32,10 @@ pnpm test:evidence
 pnpm test:assignment
 ```
 
-Tracked tests live in tests/. Local review captures and results remain ignored under .qa/, including browser-results.json, preview-results.json, production-results.json and gallery-performance.json. Focused production runs overwrite production-results.json; it is not a cumulative report.
+Tracked checks are in tests/. Local images and results are ignored under .qa/, including browser-results.json, preview-results.json, production-results.json, film-sequence-*.png and gallery-performance.json. Focused production runs replace their result file; they are not cumulative.
 
-## Remaining review limits
+## Review limits
 
-The visual revision needs Gene's approval. Tests establish behavior and sampled geometry, not artistic quality. Physical-device testing, Safari/Firefox, screen-reader use and sustained performance on the user's hardware remain unverified.
+The visual revision awaits Gene's review. Tests establish sampled behavior and geometry, not artistic approval. Physical devices, Safari/Firefox, screen readers and sustained performance on the user's hardware remain unverified.
 
-Fifteen current source captures are 1425×950; Metria is 3840×2160. The smaller originals remain honest at native size, but cannot supply native-resolution fullscreen 4K text. Higher-resolution source captures are needed for that use case. Procedural motion is DPR-aware and does not share this raster limitation.
+Fifteen source captures are 1425×950; Metria is 3840×2160. The smaller originals cannot provide native-resolution fullscreen 4K UI text. Higher-resolution source captures are required for that use case. Procedural films are DPR-aware and do not share this raster limitation. All procedural measurements and equipment geometry are illustrative.

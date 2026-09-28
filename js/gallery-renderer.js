@@ -23,13 +23,7 @@ export function renderPreview(
   }
   ctx.setTransform(canvas.width / W, 0, 0, canvas.height / H, 0, 0);
   ctx.clearRect(0, 0, W, H);
-  const d = drawing(ctx, false, false),
-    text = d.text;
+  const d = drawing(ctx, true, false);
   d.preview = true;
-  // Long explanatory statements live in the caption/detail; preview labels identify evidence.
-  d.text = (str, x, y, size, color, align) => {
-    if (str.length > 31) return;
-    text(str, x, y, Math.max(size || 18, w < 420 ? 29 : 23), color, align);
-  };
   renderers[kind](d, q, 0.55, W, H, false, () => {}, 0);
 }

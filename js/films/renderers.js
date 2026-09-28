@@ -1,18 +1,14 @@
-import { schedule, signals } from "./time.js";
-import { usage } from "./wafers.js";
-import { compile, report } from "./reports.js";
+import { history, schedule, usage, pathfinder } from "./history-worlds.js";
+import { recipes, configuration, report } from "./document-worlds.js";
+import { arrange, zones, diagnose } from "./hardware-worlds.js";
 import {
-  history,
-  pathfinder,
-  diagnose,
-  configuration,
+  compile,
   spc,
   legacy,
   planning,
-} from "./exhibition.js";
-import { arrange, zones } from "./physical.js";
-import { recipes } from "./recipes.js";
-export const renderers = {
+  signals,
+} from "./measurement-worlds.js";
+const scenes = {
   history,
   schedule,
   planning,
@@ -29,3 +25,12 @@ export const renderers = {
   zones,
   compare: recipes,
 };
+export const renderers = Object.fromEntries(
+  Object.entries(scenes).map(([key, scene]) => [
+    key,
+    (d, q, f, ...rest) => {
+      d.focus = f;
+      return scene(d, q, f, ...rest);
+    },
+  ]),
+);

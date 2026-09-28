@@ -2,44 +2,46 @@
 
 ## Governing revision
 
-The definitive brief attached as 2db8fa29-177c-4316-bd33-708cf28ab923 governs the current revision. Continue from the CURRENT implementation on experience/ee65f20-rebuild. Do not reset to an archived version. The latest explicit user prompt overrides this document.
+The exact cinematic film brief attached as f72eb4de-456f-4c14-9c66-3d649cd9d87b governs the current application films. Continue the CURRENT implementation. Do not reset to an archive. The latest explicit user instruction overrides this document.
 
-This pass replaces the sixteen forced sequential scroll films with a two-column application gallery. This is intentional and supersedes earlier prohibitions on galleries. Do not restore the orbiting screenshot collection, sixteen long main-page studies, old Papyrus node-matching film, or removed utility toolbar. Saved /versions/<commit>/ previews remain immutable.
+The two-column gallery remains. The new brief replaces its procedural resting posters and previous line/plot films: every card now rests on its real, full application screenshot. The screenshot recedes into a short tangible film on hover/focus, the film holds, and leaving returns smoothly to that same screenshot. Do not restore the forced sixteen-film scroll journey or orbiting screenshot collection. Historical /versions/<commit>/ previews remain immutable.
 
 ## Protected identity
 
-Preserve the approved opening identity-field.js and the TopoTracer core in topography.js. Preserve the real brand symbol, real app order, full unmodified source captures and the exact Gene wording in the storyboard.
+Preserve identity-field.js, the approved hero, and the core TopoTracer film in topography.js. Preserve the real logo, app order, full source captures, approved origin and exact Gene wording.
 
 Browser title: **Artifacts by Gene**.
-Small hero descriptor: **Software that moves engineering forward.**
+Hero descriptor: **Software that moves engineering forward.**
 Hero line: **Built for engineering where almost right is still wrong.**
 
-No extra collection slogan, Open the collection, Refresh or View the ARTIFACTS homepage utility. The central real homepage remains inspectable. No fabricated software screens, metrics, live equipment connections, automatic configuration changes or proven physical diagnoses.
+No added collection slogan, collection utility toolbar or fabricated software screen. No live equipment claims, invented performance metrics, automatic configuration changes or proven physical diagnoses.
 
-## Experience
+## Narrative structure
 
-Hero → almost-wordless origin → one continuous homepage reveal → sixteen application previews → chosen detailed film → return to gallery → Gene.
+Hero → almost-wordless origin → one continuous real homepage reveal → sixteen application previews → chosen detailed film → return to gallery → Gene.
 
-The approved origin keeps its story: engineering complexity, avoidable obstruction, deliberate intervention, improved work, different problems resolved, retained capability, software system. Do not rewrite this into a new metaphor. Improve material, camera, color and continuity. No apps until its concluding real homepage reveal.
+The origin story and its existing camera progression are retained in this pass. The homepage is one DOM element. genesis.js owns its transform and transfer; experience.js controls destination visibility. Never introduce a second reveal or a competing animation owner.
 
-The homepage is ONE DOM element. genesis.js alone owns its transform and transfer; experience.js controls the destination stage visibility. Never let legacy CSS force that destination visible before the handoff. Avoid appear/disappear/reappear or duplicate scene owners.
+## Gallery lifecycle
 
-## Gallery and films
+Desktop: two cards per row. Mobile: one. The complete original screenshot is the resting image, contained with a light margin; do not crop it, replace it with an abstract poster or autoplay desktop films before hover/focus.
 
-Desktop: two generous previews per row. Mobile: one column. Every card owns a substantial resting frame, name and short value cue. On hover or keyboard focus, play one 4–8 second mini-film with establishment, development, decisive event and hold. Leave settles smoothly to the poster. No preview scrubber or Play button. Mobile plays only the nearest centered visible card. Offscreen rendering sleeps.
+Hover/focus starts one authored film of approximately 5.2 seconds. Response begins immediately. Establish the physical world by about 1.2 seconds; transform it through 3.8; resolve by 4.6; hold thereafter. Individual events own their easing. Do not ease the entire clock into a slow indistinct animation. Mouse leave settles back to the capture. Brief re-entry during settling resumes rather than snapping. Mobile activates only the clearly centered visible card.
 
-Click or Enter opens a detailed film with its actual full interface and optional playback/scrubbing/inspection. The user chooses depth; the main page never forces sixteen long films. Keep the full interface uncropped and provide fit/native-size inspection. Interpretations explain engineering value, not operating instructions.
+Reduced motion shows the real screenshots. Click/Enter opens the detailed film and full original capture. Optional scene viewing-angle inspection is meaningful; TopoTracer retains its cross-section interaction. AIX retains before/after, Metria narrow/wide interval. No nonfunctional legacy controls.
 
-Each film owns its composition and choreography. Shared rendering primitives do not justify identical stories. Papyrus now means recipe-text comparison, grounded in the current screenshot. Identity-aware node matching belongs to GaN XML. SPC must look like SPC: plots, limits, observations and statuses across a continuous review surface. Examples remain illustrative.
+## Physical art direction
 
-## Material and color
+Every media stage is warm white, ivory or very light mineral grey. The surrounding page remains dark. Dark objects, restrained rich color, soft contact shadows, visible thickness, composed depth and deliberate camera progression create the film. No random glow, particle field, conveyor or generic animated dashboard.
 
-Carbon, ink, graphite, near-black blue/green. One controlled accent family per tool; supporting colors mean urgency, change, selection, failure, matching or measurement. Rich readable geometry, no washed-out diagram palette, random glow, fake complexity, conveyor, stock device frame or cartoon rainbow.
+Each film needs an identifiable object, foreground/background, real depth, a composition change, a physical transformation and a decisive frame. TopoTracer is the benchmark, not a template to turn every application into terrain. Distinct silhouettes are mandatory.
 
-Type, motion and light belong to one system. Give text real safe areas outside graphics and controls. Recompose instead of shrinking labels to hide collisions. Use aspect-correct, DPR-aware rendering. Never upscale a screenshot and call it HD. Preserve source pixels and disclose source-resolution limitations.
+Inside the media: almost no prose. Use at most two to four brief object labels or values when required. The card already names the app and its engineering value. Put interpretation and factual limits in the optional detail context. Reserve breathing room for labels rather than laying words over hero geometry.
 
-## Engineering and review
+## Rendering and evidence
 
-Static GitHub Pages output, no runtime CDN. Shared demand-driven RAF, capped DPR, lazy detailed films, cached geometry and one active gallery preview. No autoplay sound. Reduced motion has static posters, a readable origin and Gene, plus inspectable detailed states.
+Shared demand-driven RAF and hover lifecycle. Each app owns its scene, camera and choreography. One shared offscreen material renderer, aspect-correct canvas backing buffers, capped DPR, nearby prewarming, lazy detail creation and offscreen sleep. TopoTracer keeps its independent surface renderer. Keep GPU and Canvas fallback behavior.
 
-Build and run before claiming completion. Review origin/handoff, all 16 rest/development/decisive frames, interaction and Gene at 1440, 1280 and 390. Check intermediate text collisions, controls and full image return. Tests are evidence of functionality, never proof of artistic approval or universal 60 FPS. Record observed limitations honestly.
+Current Papyrus and XML captures were inspected in Artifacts Images. Papyrus is recipe/text comparison; it is not XML node sorting. Node identity matching belongs to GaN XML. Do not invent app capabilities. Procedural values and geometries are illustrative; real screenshots remain the evidence.
+
+Read ARTIFACTS_EXPERIENCE_STORYBOARD.md and ARTIFACTS_MOTION_REVIEW.md for exact film structure. Build/run before completion. Review rest, intermediate and decisive frames on desktop and mobile, actual hover playback, source return, labels and performance. Tests are not artistic approval.
