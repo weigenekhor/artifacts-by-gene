@@ -7,7 +7,7 @@
       "description": "Lot history analysis.",
       "purpose": "Bring process events into one readable history. Align timestamps. Review wafer states. Follow the lot through the work.",
       "sourceFilename": "Altus LotViewer.png",
-      "valueLine": "Follow process events, wafer states and timestamps through each lot.",
+      "valueLine": "Lot history, reconstructed from process events.",
       "alt": "Altus LotViewer showing a lot history with reactor, wafer and deposition events",
       "capture": {
         "src": "assets/evidence/altus-lotviewer/full.webp",
@@ -38,7 +38,7 @@
       "description": "ANKO schedule retrieval.",
       "purpose": "Bring ANKO schedules into view across the Altus workflow. The next task starts with knowing what is due.",
       "sourceFilename": "Altus Anko Viewer.png",
-      "valueLine": "Bring ANKO schedules and upcoming checks into view.",
+      "valueLine": "Equipment checks, with the next due date in reach.",
       "alt": "Altus ANKO Viewer showing equipment checks and their next due dates",
       "capture": {
         "src": "assets/evidence/altus-anko-viewer/full.webp",
@@ -69,7 +69,7 @@
       "description": "Chamber usage and wafer counts.",
       "purpose": "Turn wafer counts from equipment logs into a clearer basis for maintenance planning.",
       "sourceFilename": "Altus WaferCounter.png",
-      "valueLine": "Read chamber usage and wafer counts for maintenance planning.",
+      "valueLine": "Wafer counts that inform maintenance planning.",
       "alt": "Altus WaferCount displaying chamber wafer counts against maintenance limits",
       "capture": {
         "src": "assets/evidence/altus-wafercount/full.webp",
@@ -100,7 +100,7 @@
       "description": "Contour and topography plots.",
       "purpose": "Turn wafer measurements into contours. Spatial patterns become visible in a way a column of numbers cannot offer.",
       "sourceFilename": "TopoTracer.png",
-      "valueLine": "Turn wafer measurements into contour and topography plots.",
+      "valueLine": "Wafer measurements with their spatial patterns intact.",
       "alt": "TopoTracer displaying an interpolated wafer surface and its measurement scale",
       "capture": {
         "src": "assets/evidence/topotracer/full.webp",
@@ -131,7 +131,7 @@
       "description": "Logical recipe and text comparison.",
       "purpose": "Match equivalent recipe steps, even when their order changes. Keep attention on the parameters that differ.",
       "sourceFilename": "Papyrus Reader.png",
-      "valueLine": "Match equivalent recipe steps and identify parameter differences.",
+      "valueLine": "Recipe differences, beyond the order of the lines.",
       "alt": "Papyrus Reader comparing two recipes with changed and added parameters highlighted",
       "capture": {
         "src": "assets/evidence/papyrus-reader/full.webp",
@@ -162,7 +162,7 @@
       "description": "SPC chart finder.",
       "purpose": "Reach the SPC charts you need together, without repeating the same navigation for every parameter.",
       "sourceFilename": "SPC Pathfinder.png",
-      "valueLine": "Reach related SPC charts without repeating the same navigation.",
+      "valueLine": "The SPC charts you need, without the search.",
       "alt": "SPC Pathfinder grouping parameter chart links by workcentre",
       "capture": {
         "src": "assets/evidence/spc-pathfinder/full.webp",
@@ -193,7 +193,7 @@
       "description": "Metrology report compiler.",
       "purpose": "Bring metrology data together. Apply predefined calculations. Produce a consistent report from scattered inputs.",
       "sourceFilename": "GaN Met Compiler.png",
-      "valueLine": "Combine metrology inputs and predefined calculations in one report.",
+      "valueLine": "Scattered metrology inputs. One consistent report.",
       "alt": "GaN Met Compiler showing metrology file inputs and the processing log",
       "capture": {
         "src": "assets/evidence/gan-met-compiler/full.webp",
@@ -224,7 +224,7 @@
       "description": "Temperature drift diagnosis.",
       "purpose": "Use temperature behavior to guide diagnosis and identify the next checks. Give troubleshooting a starting point.",
       "sourceFilename": "GaN Temp Diagnoser.png",
-      "valueLine": "Use temperature observations to guide diagnosis and the next checks.",
+      "valueLine": "Temperature symptoms with a direction for investigation.",
       "alt": "GaN Temp Diagnoser showing observation controls and recommended diagnostic checks",
       "capture": {
         "src": "assets/evidence/gan-temp-diagnoser/full.webp",
@@ -255,7 +255,7 @@
       "description": "Baseplate arrangement guidance.",
       "purpose": "Use weight and temperature inputs to guide baseplate arrangements. Put the basis for a decision in view.",
       "sourceFilename": "AIX dT Assistant.png",
-      "valueLine": "Guide baseplate arrangements using weight and temperature inputs.",
+      "valueLine": "Baseplate arrangements informed by weight and temperature.",
       "alt": "AIX ΔT Assistant showing baseplate weights and a five-position arrangement",
       "capture": {
         "src": "assets/evidence/aix-dt-assistant/full.webp",
@@ -286,7 +286,7 @@
       "description": "LayTec zone mapping.",
       "purpose": "Map LayTec zones in one spatial view. Understand where each region sits in relation to the whole.",
       "sourceFilename": "LT Zone Assistant.png",
-      "valueLine": "See inner and outer LayTec zones in spatial context.",
+      "valueLine": "LayTec regions placed in their physical context.",
       "alt": "LT Zone Assistant showing inner and outer zone geometry on a five-wafer layout",
       "capture": {
         "src": "assets/evidence/lt-zone-assistant/full.webp",
@@ -317,7 +317,7 @@
       "description": "Devices.XML comparison.",
       "purpose": "Compare configurations, settings and constants. Bring differences forward, without losing their context.",
       "sourceFilename": "GaN XML Assistant.png",
-      "valueLine": "Compare device configurations and bring their differences into view.",
+      "valueLine": "Configuration changes, with their reference alongside.",
       "alt": "GaN XML Assistant showing changed, added and removed device configuration values",
       "capture": {
         "src": "assets/evidence/gan-xml-assistant/full.webp",
@@ -348,7 +348,7 @@
       "description": "GaN SPC release review.",
       "purpose": "Review configured GaN SPC charts and parameter states together. Move from a signal to the context around it.",
       "sourceFilename": "Magus SPC - GaN.png",
-      "valueLine": "Review GaN parameter charts and release states together.",
+      "valueLine": "GaN release decisions with the charts in context.",
       "alt": "Magus SPC GaN showing parameter control charts and specification limits",
       "capture": {
         "src": "assets/evidence/magus-spc-gan/full.webp",
@@ -379,7 +379,7 @@
       "description": "Legacy SPC release review.",
       "purpose": "Bring legacy SPC charts and parameter states into one review environment. Keep established workflows within reach.",
       "sourceFilename": "Magus SPC - Legacy.png",
-      "valueLine": "Bring legacy parameter charts and release states into one review.",
+      "valueLine": "Legacy SPC parameters in one continuous review.",
       "alt": "Magus SPC Legacy showing parameter review states and a control chart",
       "capture": {
         "src": "assets/evidence/magus-spc-legacy/full.webp",
@@ -410,7 +410,7 @@
       "description": "ANKO status and due dates.",
       "purpose": "Put ANKO status and due dates together. See what needs attention before planning what comes next.",
       "sourceFilename": "ANKO Helper.png",
-      "valueLine": "Review ANKO status and due dates before planning the next checks.",
+      "valueLine": "ANKO status and due dates, ready for planning.",
       "alt": "ANKO Helper showing equipment status, last sample and next due dates",
       "capture": {
         "src": "assets/evidence/anko-helper/full.webp",
@@ -441,7 +441,7 @@
       "description": "LayTec report compilation.",
       "purpose": "Assemble LayTec information into an engineering report. Give repeated reporting work a consistent structure.",
       "sourceFilename": "LT Report Compiler.png",
-      "valueLine": "Compile LayTec analysis into a consistent engineering report.",
+      "valueLine": "Repeatable reports from LayTec analysis.",
       "alt": "LT Report Compiler showing selected analysis files and a completed processing log",
       "capture": {
         "src": "assets/evidence/lt-report-compiler/full.webp",
@@ -472,7 +472,7 @@
       "description": "Interactive multi-parameter equipment SPC.",
       "purpose": "Explore equipment parameters through interactive SPC analysis. Bring related signals into the same field of view.",
       "sourceFilename": "Metria SPC.png",
-      "valueLine": "Explore equipment parameters together through interactive SPC analysis.",
+      "valueLine": "Related equipment signals in the same investigation.",
       "alt": "Metria SPC showing equipment parameter controls, a signal plot and a variation plot",
       "capture": {
         "src": "assets/evidence/metria-spc/full.webp",

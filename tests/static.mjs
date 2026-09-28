@@ -16,16 +16,30 @@ assert.deepEqual(names, apps.map(a => a.name));
 assert.equal(new Set(apps.map(a => a.id)).size, 16);
 for (const app of apps) assert.ok(design.includes(`| ${String(app.index).padStart(2, "0")} | ${app.name} |`));
 assert.ok(html.includes("<title>Artifacts by Gene</title>"));
-assert.equal(norm(html.match(/<h1[^>]*>(.*?)<\/h1>/s)[1]), "Software that moves engineering forward.");
+assert.equal(norm(html.match(/<h1[^>]*>(.*?)<\/h1>/s)[1]), "ARTIFACTS");
+assert.ok(html.includes('<p class="hero-support">Software that moves engineering forward.</p>'));
+assert.ok(!html.includes("Good reasoning should outlive the task."));
+assert.ok(!html.includes("Select an interface to view the full capture."));
 const gene = html.match(/<div class="gene-copy">([\s\S]*?)<\/div>/)[1];
 assert.equal(norm(gene), "I spent my entire life improving processes. ARTIFACTS began when I realised engineering itself was one of them. What repeated, I automated. What stood in the way, I rebuilt. ARTIFACTS is the evidence that I never accepted the way things were as the way they had to stay.");
-assert.ok(!/<script|<canvas|<video|<iframe|data-film/i.test(html));
+assert.ok(!/<canvas|<video|<iframe|data-film/i.test(html));
+assert.deepEqual([...html.matchAll(/<script[^>]+src="([^"]+)"/g)].map(m=>m[1]), ["chapter-motion.js"]);
 assert.ok(!/\son\w+=/i.test(html), "No script-dependent event handlers");
 const css = await fs.readFile("styles.css", "utf8");
 assert.ok(css.includes("prefers-reduced-motion: reduce"));
 assert.ok(css.includes("transition: none !important"));
 assert.ok(!/@keyframes|animation:|scroll-snap|position:\s*(fixed|sticky)/.test(css));
 assert.equal([...html.matchAll(/rel="stylesheet"/g)].length, 1);
+const composition = JSON.parse(await fs.readFile("content/composition.json", "utf8"));
+for (const item of [composition.origin, ...composition.archive]) {
+  const app = apps.find(a=>a.id===item.appId);
+  assert.ok(app, `Unknown evidence owner: ${item.appId}`);
+  for (const c of [item.crop, item.mobileCrop].filter(Boolean)) {
+    assert.ok(c.x >= 0 && c.y >= 0 && c.width > 0 && c.height > 0);
+    assert.ok(c.x+c.width <= app.capture.width && c.y+c.height <= app.capture.height);
+  }
+}
+assert.equal(composition.archive.length, 3);
 const symbol = await fs.readFile("assets/brand/artifacts-symbol.svg", "utf8");
 for (const [, d] of symbol.matchAll(/<path d="([^"]+)"/g)) assert.ok(html.includes(`d="${d}"`));
 
@@ -48,4 +62,4 @@ for (const [, url] of html.matchAll(/(?:src|href)="([^"]+)"/g)) {
 }
 assert.equal((await fs.readFile("CNAME", "utf8")).trim(), "artifactsbygene.com");
 await fs.access(".nojekyll");
-console.log("PASS: 16 ordered applications, lossless full captures, source dimensions, real logo, exact copy, local assets and zero client runtime.");
+console.log("PASS: 16 static applications, lossless captures, bounded evidence crops, real logo, approved copy and local assets.");

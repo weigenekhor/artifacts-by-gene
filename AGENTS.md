@@ -8,5 +8,5 @@ Before performing any substantial frontend, visual, motion, WebGL, layout, story
 4. Do not substitute generic SaaS, AI-startup, portfolio, gaming, or template design conventions.
 5. Follow the current user prompt when it explicitly overrides the documents.
 6. Do not claim visual work is complete without running the project and checking for build/runtime errors.
-7. This is a static exhibition: no application movies, Canvas, WebGL, masked text or animation runtime. Use real screenshot evidence and verified facts.
-8. Edit `content/page.html`, `content/apps.json` and `styles.css`; run `pnpm build` to regenerate `index.html`. `pnpm test` checks content and capture integrity. Review actual rendered desktop and mobile compositions.
+7. Keep the application gallery static. No application movies, Canvas, WebGL, masked text or legacy animation runtime. Hero/chapter transitions and Gene evidence may use the bounded, progressively enhanced motion specified in DESIGN.md. Natural scrolling and a complete no-JavaScript/reduced-motion composition are mandatory.
+8. Edit `content/page.html`, `content/apps.json`, `content/composition.json`, `styles.css` and, for chapter motion only, `chapter-motion.js`; run `pnpm build` to regenerate `index.html`. `pnpm test` checks content, capture integrity and motion lifecycle. Review rendered desktop/mobile compositions and transition states.
