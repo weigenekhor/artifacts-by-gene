@@ -1,15 +1,13 @@
 # Current ARTIFACTS implementation
 
-Work on experience/ee65f20-rebuild as it stands. This is the current definitive revision of the previous local commit 69f697e; do not reset to ee65f20. Saved previews are immutable. ee65f20 and 84baa04 are component references only.
+Continue experience/ee65f20-rebuild. The latest attached definitive brief (2db8fa29) changes the browsing model to a two-column gallery. Do not restore the prior spatial collection or sequential scroll films. Saved /versions/<commit>/ previews are immutable.
 
-Read AGENTS.md and both governing documents completely. The latest definitive brief supersedes rejected tiled-origin and two-column-Gene directions. Preserve identity-field.js and topography.js. Never claim that geometry tests prove the visual quality has been approved.
+Read AGENTS.md and both governing direction documents fully. Preserve identity-field.js, TopoTracer and exact Gene words. Current Papyrus uses recipe-text comparison; GaN XML owns node matching. Current Papyrus source is 1425×950.
 
-Source: content/page.html, content/films.json, content/story.json. Build with pnpm build. Generated index.html, js/apps.js and script.js are committed static output compatible with GitHub Pages.
+Source: content/page.html, gallery.json, films.json, story.json. Build via node scripts/build.mjs or pnpm build. index.html, js/apps.js and script.js are generated static output for GitHub Pages.
 
-Origin: origin-construction.js owns the spatial operations. genesis.js owns the clock and cached chapter measurements. The same real homepage element crosses into the collection; hero.js stages app groups and prewarms captures. Film modules own individual operations; cinema.js and space.js provide drawing and projection primitives. epilogue.js stages the exact approved words on the shared page clock.
+experience.js owns the shared RAF and dialogs. gallery.js owns visible posters and one active preview. genesis.js alone owns the transferred homepage element; destination visibility follows --collection-arrival. No duplicate transform writer. instrument-film.js is initialized only when a detail is opened. Film-specific renderers are registered in js/films/renderers.js.
 
-No source screenshots, real app order, desktop app files, CNAME or production branch were changed. Examples are illustrative. The AIX fixture is explicitly synthetic and independently checked across 120 assignments.
+Run tests/browser.mjs, tests/production.mjs, tests/evidence.mjs, tests/assets.mjs and tests/assignment.mjs. See VALIDATION.md for actual results. Never infer artistic approval from geometry checks.
 
-Checks: pnpm test:production, test:evidence, test:assets, test:assignment. The older pnpm test suite describes a removed archive interface. Review current output under .qa/ and VALIDATION.md. Save a new immutable /versions/<commit>/ URL after each presented revision; preserve all prior ones.
-
-GitHub push was previously blocked by absent credentials. Verify publication before claiming the remote contains a new local commit. Do not force-push or merge production. PR #4 belongs to an older branch.
+Archive each presented revision under a new commit URL. Keep existing archives and production main untouched. GitHub authentication was previously absent; verify actual push before claiming publication. Do not force-push or merge production.

@@ -1,14 +1,12 @@
 import { chromium } from "playwright";
 import { createServer } from "node:http";
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import fs from "node:fs/promises";
 import { resolve, extname, sep } from "node:path";
 import { createRequire } from "node:module";
 import assert from "node:assert/strict";
 const require = createRequire(import.meta.url),
-  root = resolve(import.meta.dirname, ".."),
-  { apps } = JSON.parse(
-    await readFile(resolve(root, "content/apps.json"), "utf8"),
-  );
+  root = resolve(import.meta.dirname, "..");
+const { apps } = JSON.parse(await fs.readFile("content/apps.json", "utf8"));
 const mime = {
   ".html": "text/html",
   ".js": "text/javascript",
@@ -19,18 +17,18 @@ const mime = {
   ".woff2": "font/woff2",
 };
 const server = createServer(async (req, res) => {
-  const p = new URL(req.url, "http://localhost").pathname.replace(
+  const path = new URL(req.url, "http://localhost").pathname.replace(
       /^\/artifacts-by-gene\//,
       "/",
     ),
-    f = resolve(root, "." + p.replace(/\/$/, "/index.html"));
-  if (!f.startsWith(root + sep)) {
+    file = resolve(root, "." + path.replace(/\/$/, "/index.html"));
+  if (!file.startsWith(root + sep)) {
     res.writeHead(403).end();
     return;
   }
   try {
-    res.setHeader("Content-Type", mime[extname(f)] || "text/plain");
-    res.end(await readFile(f));
+    res.setHeader("Content-Type", mime[extname(file)] || "text/plain");
+    res.end(await fs.readFile(file));
   } catch {
     res.writeHead(404).end();
   }
@@ -38,302 +36,280 @@ const server = createServer(async (req, res) => {
 await new Promise((r) => server.listen(0, "127.0.0.1", r));
 const url = "http://127.0.0.1:" + server.address().port + "/artifacts-by-gene/";
 const browser = await chromium.launch({
-    headless: true,
     channel: process.env.BROWSER_CHANNEL || "msedge",
+    headless: true,
   }),
-  report = { apps: [], viewports: [], accessibility: [], errors: [] };
-function watch(p) {
+  report = {
+    errors: [],
+    images: [],
+    interactions: [],
+    handoff: [],
+    accessibility: [],
+  };
+await fs.mkdir(".qa", { recursive: true });
+const page = async (options = {}) => {
+  const p = await browser.newPage(options);
   p.on("pageerror", (e) => report.errors.push(e.message));
-  p.on("console", (m) => {
-    if (["error", "warning"].includes(m.type())) report.errors.push(m.text());
-  });
   p.on("response", (r) => {
     if (r.status() >= 400) report.errors.push(r.status() + " " + r.url());
   });
-}
-async function axe(p, label) {
+  await p.goto(url, { waitUntil: "networkidle" });
+  return p;
+};
+const scroll = async (p, selector) => {
+  await p.locator(selector).first().scrollIntoViewIfNeeded();
+  await p.waitForTimeout(220);
+};
+const axe = async (p, label) => {
   await p.addScriptTag({ path: require.resolve("axe-core/axe.min.js") });
-  const result = await p.evaluate(() =>
-    axe.run(document, {
+  const violations = await p.evaluate(async () => {
+    const r = await axe.run(document, {
       runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] },
-    }),
-  );
-  report.accessibility.push({
-    label,
-    violations: result.violations.map((v) => ({
+    });
+    return r.violations.map((v) => ({
       id: v.id,
       nodes: v.nodes.map((n) => ({
         target: n.target,
-        summary: n.failureSummary,
+        reason: n.failureSummary,
       })),
-    })),
+    }));
   });
-}
-async function app(p, i) {
-  await p.evaluate((i) => window.artifactsExperience.goApp(i, true), i);
-  await p.waitForTimeout(650);
-  assert.equal(await p.evaluate(() => window.artifactsExperience.active), i);
-}
-async function feature(p, id) {
-  await p.evaluate((id) => {
-    const e = document.getElementById(id);
-    scrollTo({
-      top:
-        e.getBoundingClientRect().top +
-        scrollY -
-        document.querySelector(".header").offsetHeight +
-        innerHeight * 0.28,
-      behavior: "instant",
-    });
-  }, id);
-  await p.waitForTimeout(200);
-}
-await mkdir(resolve(root, ".qa"), { recursive: true });
+  report.accessibility.push({ label, violations });
+};
 try {
-  const p = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
-  watch(p);
-  await p.goto(url);
-  await p.waitForTimeout(1600);
-  await axe(p, "desktop");
-  assert.equal(await p.locator(".app-node").count(), 16);
+  const p = await page({ viewport: { width: 1440, height: 900 } });
+  assert.equal(await p.title(), "Artifacts by Gene");
+  assert.equal(await p.locator(".gallery-card").count(), 16);
+  assert.equal(await p.locator("main .feature").count(), 0);
+  assert.equal(
+    await p
+      .locator(".gallery-grid")
+      .evaluate(
+        (e) => getComputedStyle(e).gridTemplateColumns.split(" ").length,
+      ),
+    2,
+  );
+  for (const [i, a] of apps.entries())
+    assert.equal(
+      await p.locator(".gallery-card h3").nth(i).innerText(),
+      a.name,
+    );
+  const text = await p.locator("body").innerText();
+  for (const phrase of [
+    "What the work demanded.",
+    "Correspondence",
+    "A software suite by",
+  ])
+    assert.ok(!text.includes(phrase));
+  await scroll(p, ".gallery-card");
+  await p.locator(".gallery-card").first().hover();
+  await p.waitForTimeout(700);
+  let states = await p.evaluate(() => window.artifactsExperience.gallery);
+  assert.equal(states.filter((s) => s.active).length, 1);
+  assert.ok(states[0].elapsed > 300);
+  await p.waitForTimeout(7100);
+  const elapsed = (
+    await p.evaluate(() => window.artifactsExperience.gallery)
+  )[0].elapsed;
+  await p.waitForTimeout(300);
+  assert.equal(
+    (await p.evaluate(() => window.artifactsExperience.gallery))[0].elapsed,
+    elapsed,
+  );
+  await p.mouse.move(0, 0);
+  await p.waitForTimeout(1300);
+  assert.equal(
+    (await p.evaluate(() => window.artifactsExperience.gallery))[0].alpha,
+    0,
+  );
+  await p.locator(".gallery-card").first().focus();
+  await p.waitForTimeout(250);
+  assert.equal(
+    (await p.evaluate(() => window.artifactsExperience.gallery))[0].active,
+    true,
+  );
+  await axe(p, "desktop gallery");
   for (let i = 0; i < 16; i++) {
-    await app(p, i);
-    assert.equal(await p.locator("#archive-name").innerText(), apps[i].name);
-    await p.click("#archive-open");
-    await p.locator("#capture-image").evaluate((img) => img.decode());
+    const card = p.locator(".gallery-card").nth(i);
+    await card.scrollIntoViewIfNeeded();
+    await card.click();
+    assert.equal(await p.locator("#film-detail").evaluate((e) => e.open), true);
+    const id = await p.locator(".feature.is-open").getAttribute("id");
+    await p.locator("#" + id + " .film-original").click();
+    await p.locator("#capture-image").evaluate((e) => e.decode());
     assert.deepEqual(
       await p
         .locator("#capture-image")
-        .evaluate((img) => [img.naturalWidth, img.naturalHeight]),
+        .evaluate((e) => [e.naturalWidth, e.naturalHeight]),
       [apps[i].evidence.fullWidth, apps[i].evidence.fullHeight],
     );
     if (i === 4) {
-      await axe(p, "viewer");
-      await p.click("#pixel-view");
+      await p.locator("#pixel-view").click();
       assert.equal(
         await p
           .locator("#capture-image")
-          .evaluate((img) => img.getBoundingClientRect().width),
-        1531,
+          .evaluate((e) => e.getBoundingClientRect().width),
+        1425,
       );
     }
     await p.keyboard.press("Escape");
     assert.equal(
-      await p.evaluate(() => document.activeElement.id),
-      "archive-open",
+      await p.evaluate(() => document.activeElement.className),
+      "film-original",
     );
-    report.apps.push(apps[i].id);
-  }
-  await app(p, 0);
-  await p.locator(".archive-rail a").nth(8).click();
-  await p.waitForTimeout(1300);
-  assert.equal(await p.evaluate(() => window.artifactsExperience.active), 8);
-  await p.keyboard.press("ArrowRight");
-  await p.waitForTimeout(1300);
-  assert.equal(await p.evaluate(() => window.artifactsExperience.active), 9);
-  for (const id of ["compare", "surface", "diagnose", "signals"]) {
-    await feature(p, id);
-    const input = p.locator("#" + id + " input");
-    await input.fill("20");
-    await input.dispatchEvent("input");
-    await p.waitForTimeout(100);
+    await p.keyboard.press("Escape");
     assert.equal(
-      await p
-        .locator("#" + id)
-        .evaluate((e) => e.style.getPropertyValue("--progress")),
-      "0.2",
+      await card.evaluate((e) => e === document.activeElement),
+      true,
     );
-    await input.fill("85");
-    await input.dispatchEvent("input");
-    await p.waitForTimeout(100);
-    assert.equal(
-      await p
-        .locator("#" + id)
-        .evaluate((e) => e.style.getPropertyValue("--progress")),
-      "0.85",
-    );
+    report.images.push(apps[i].id);
   }
-  await p.goto(url + "#app-papyrus-reader");
-  await p.waitForTimeout(1700);
-  assert.equal(await p.evaluate(() => window.artifactsExperience.active), 4);
-  await p.close();
-  for (const [width, height, dpr] of [
-    [3840, 2160, 1],
-    [2560, 1440, 1],
-    [1920, 1080, 1],
-    [1440, 900, 2],
-    [1366, 768, 1],
-    [1024, 1366, 1],
-    [430, 932, 2],
-    [390, 844, 3],
-    [320, 740, 2],
-    [844, 390, 2],
-    [667, 375, 2],
-  ]) {
-    const q = await browser.newPage({
-      viewport: { width, height },
-      deviceScaleFactor: dpr,
-      hasTouch: width < 900,
-      isMobile: width < 701,
+  report.interactions.push(
+    "desktop one-shot, hold, settle, keyboard focus, all 16 details and originals, modal return focus",
+  );
+  // Trace the shared homepage across the boundary. Its opacity cannot fall after first reveal.
+  await p.mouse.move(0, 0);
+  await p
+    .locator(".gallery-card")
+    .first()
+    .evaluate((e) => e.blur());
+  for (const v of [5.7, 5.9, 6.1, 6.3, 6.5, 6.65, 6.75, 6.8, 6.85, 6.9]) {
+    await p.evaluate((v) => {
+      const s = document.querySelector(".genesis");
+      scrollTo({
+        top: ((s.offsetHeight - innerHeight) * v) / 6.8,
+        behavior: "instant",
+      });
+    }, v);
+    await p.waitForTimeout(400);
+    const st = await p.locator(".collection-home").evaluate((e) => {
+      const r = e.getBoundingClientRect();
+      let opacity = 1;
+      for (let p = e; p; p = p.parentElement)
+        opacity *= +getComputedStyle(p).opacity;
+      return {
+        count: document.querySelectorAll(".collection-home").length,
+        opacity,
+        x: r.x,
+        y: r.y,
+        w: r.width,
+        h: r.height,
+        owner: e.parentElement.className,
+      };
     });
-    watch(q);
-    await q.goto(url);
-    await q.waitForTimeout(1600);
-    await q.screenshot({
-      path: resolve(root, `.qa/v10-test-${width}-hero.png`),
-    });
-    for (const id of ["compare", "surface", "diagnose", "signals"]) {
-      await feature(q, id);
-      const metrics = await q.locator("#" + id).evaluate((el) => {
-        const copy = el.querySelector(".feature-copy").getBoundingClientRect(),
-          visual = el.querySelector(".feature-visual").getBoundingClientRect(),
-          evidence = el.querySelector(".evidence").getBoundingClientRect(),
-          control = el.querySelector(".study-control").getBoundingClientRect();
-        const overlap = (a, b) =>
-          a.left < b.right - 3 &&
-          a.right > b.left + 3 &&
-          a.top < b.bottom - 3 &&
-          a.bottom > b.top + 3;
-        return {
-          overflow: document.documentElement.scrollWidth > innerWidth + 1,
-          copyVisual: overlap(copy, visual),
-          copyControl: overlap(copy, control),
-          controlEvidence: overlap(control, evidence),
-        };
-      });
-      assert.equal(metrics.overflow, false, width + " overflow");
-      assert.equal(metrics.copyVisual, false, width + " copy/visual " + id);
-      assert.equal(metrics.copyControl, false, width + " copy/control " + id);
-      assert.equal(
-        metrics.controlEvidence,
-        false,
-        width + " control/evidence " + id,
-      );
-      await q.screenshot({
-        path: resolve(root, `.qa/v10-test-${width}-${id}.png`),
-      });
-    }
-    for (const i of [0, 4, 8, 15]) {
-      await app(q, i);
-      const m = await q.evaluate(() => {
-        const stage = document
-            .querySelector(".archive-stage")
-            .getBoundingClientRect(),
-          header = document.querySelector(".header").getBoundingClientRect(),
-          img = document
-            .querySelector(".archive-images figure.active button")
-            .getBoundingClientRect(),
-          bottom = document
-            .querySelector(".archive-bottom")
-            .getBoundingClientRect();
-        return {
-          stageTop: stage.top,
-          headerBottom: header.bottom,
-          imgBottom: img.bottom,
-          navTop: bottom.top,
-          overflow: document.documentElement.scrollWidth > innerWidth + 1,
-        };
-      });
-      assert.equal(m.overflow, false);
-      assert.ok(m.stageTop >= m.headerBottom - 2, width + " archive header");
-      assert.ok(m.imgBottom < m.navTop - 2, width + " archive nav");
-      await q.screenshot({
-        path: resolve(root, `.qa/v10-test-${width}-app-${i}.png`),
-      });
-    }
-    if (width === 390) await axe(q, "mobile");
-    report.viewports.push({ width, height, dpr });
-    await q.close();
+    report.handoff.push({ v, ...st });
+    assert.equal(st.count, 1);
+    if (v >= 6.1)
+      assert.ok(st.opacity > 0.98, "homepage lost during handoff at " + v);
   }
-  const reduced = await browser.newPage({
-    viewport: { width: 1440, height: 900 },
-    reducedMotion: "reduce",
-  });
-  watch(reduced);
-  await reduced.goto(url);
-  await reduced.waitForTimeout(700);
-  assert.equal(
-    await reduced.evaluate(() => window.artifactsExperience.reduced),
-    true,
-  );
-  await feature(reduced, "surface");
-  assert.equal(
-    await reduced
-      .locator("#surface")
-      .evaluate((el) => el.style.getPropertyValue("--progress")),
-    "1",
-  );
-  await app(reduced, 15);
-  await axe(reduced, "reduced");
-  await reduced.close();
-  const nojs = await browser.newPage({
-    javaScriptEnabled: false,
-    viewport: { width: 390, height: 844 },
-  });
-  watch(nojs);
-  await nojs.goto(url);
-  assert.equal(await nojs.locator(".app-node").count(), 16);
-  assert.equal(await nojs.locator(".archive-images img").count(), 16);
-  assert.equal(
-    await nojs.evaluate(
-      () => document.documentElement.scrollWidth > innerWidth + 1,
-    ),
-    false,
-  );
-  await nojs.close();
-  const perf = await browser.newPage({
-    viewport: { width: 1920, height: 1080 },
-  });
-  watch(perf);
-  await perf.goto(url);
-  await perf.waitForTimeout(2000);
-  report.performance = await perf.evaluate(async () => {
-    const frames = [],
-      tasks = [];
-    const obs = new PerformanceObserver((l) =>
-      tasks.push(...l.getEntries().map((e) => e.duration)),
-    );
-    obs.observe({ type: "longtask" });
-    let last = performance.now();
-    for (let i = 0; i < 360; i++)
-      await new Promise((r) =>
-        requestAnimationFrame((t) => {
-          frames.push(t - last);
-          last = t;
+  for (const width of [1440, 1280, 390]) {
+    await p.setViewportSize({
+      width,
+      height: width === 1440 ? 900 : width === 1280 ? 800 : 844,
+    });
+    for (const v of [0, 1.7, 2.7, 3.6, 4.7, 5.7, 6.1, 6.8]) {
+      await p.evaluate(
+        (v) =>
           scrollTo({
             top:
-              ((document.documentElement.scrollHeight - innerHeight) * i) / 359,
+              ((document.querySelector(".genesis").offsetHeight - innerHeight) *
+                v) /
+              6.8,
             behavior: "instant",
-          });
-          r();
-        }),
+          }),
+        v,
       );
-    await new Promise((r) => setTimeout(r, 1500));
-    const before = window.artifactsExperience.frames;
-    await new Promise((r) => setTimeout(r, 400));
-    const idle = window.artifactsExperience.frames - before;
-    obs.disconnect();
-    frames.sort((a, b) => a - b);
-    return {
-      median: frames[180],
-      p95: frames[342],
-      longTasks: tasks,
-      idleFrames: idle,
-    };
+      await p.waitForTimeout(250);
+      await p.screenshot({
+        path: ".qa/review-" + width + "-origin-" + v + ".png",
+      });
+    }
+    await scroll(p, ".app-gallery");
+    await p.mouse.move(0, 0);
+    await p.screenshot({ path: ".qa/review-" + width + "-gallery.png" });
+    await p.evaluate(() => {
+      const e = document.querySelector("#gene");
+      scrollTo(0, e.offsetTop + (e.offsetHeight - innerHeight) * 0.78);
+    });
+    await p.waitForTimeout(200);
+    await p.screenshot({ path: ".qa/review-" + width + "-gene.png" });
+    assert.equal(
+      await p.evaluate(
+        () => document.documentElement.scrollWidth > innerWidth + 1,
+      ),
+      false,
+    );
+  }
+  await p.close();
+  const mobile = await page({
+    viewport: { width: 390, height: 844 },
+    hasTouch: true,
+    isMobile: true,
+    deviceScaleFactor: 2,
   });
-  assert.equal(report.performance.idleFrames, 0);
-  await perf.close();
+  assert.equal(
+    await mobile
+      .locator(".gallery-grid")
+      .evaluate(
+        (e) => getComputedStyle(e).gridTemplateColumns.split(" ").length,
+      ),
+    1,
+  );
+  for (const i of [0, 3, 8, 15]) {
+    await mobile
+      .locator(".gallery-card")
+      .nth(i)
+      .evaluate((e) =>
+        e.scrollIntoView({ block: "center", behavior: "instant" }),
+      );
+    await mobile.waitForTimeout(400);
+    const s = await mobile.evaluate(() => window.artifactsExperience.gallery);
+    assert.equal(s.filter((x) => x.active).length, 1);
+    assert.equal(s[i].active, true);
+  }
+  await axe(mobile, "mobile gallery");
+  await mobile.close();
+  report.interactions.push("single-column mobile, one centered preview");
+  const reduced = await page({
+    viewport: { width: 390, height: 844 },
+    reducedMotion: "reduce",
+  });
+  await scroll(reduced, ".app-gallery");
+  await reduced.waitForTimeout(500);
+  assert.equal(
+    (await reduced.evaluate(() => window.artifactsExperience.gallery)).filter(
+      (s) => s.active,
+    ).length,
+    0,
+  );
+  await reduced.locator(".gallery-card").nth(4).click();
+  await reduced.waitForTimeout(350);
+  await reduced.screenshot({ path: ".qa/review-reduced-film.png" });
+  await axe(reduced, "reduced detail");
+  await reduced.close();
+  const nojs = await page({
+    viewport: { width: 390, height: 844 },
+    javaScriptEnabled: false,
+  });
+  assert.equal(await nojs.locator(".gallery-fallback").count(), 16);
+  assert.equal(
+    await nojs.locator(".gallery-card").first().getAttribute("href"),
+    apps[0].evidence.full,
+  );
+  await nojs.close();
+  report.interactions.push("reduced motion and static/no-JS originals");
   assert.deepEqual(report.errors, []);
-  assert.ok(
-    report.accessibility.every((s) => !s.violations.length),
-    JSON.stringify(report.accessibility),
+  assert.equal(
+    report.accessibility.flatMap((x) => x.violations).length,
+    0,
+    "accessibility: see .qa/browser-results.json",
   );
 } finally {
-  await writeFile(
-    resolve(root, ".qa/validation-v10.json"),
+  await fs.writeFile(
+    ".qa/browser-results.json",
     JSON.stringify(report, null, 2),
   );
-  console.log(JSON.stringify(report, null, 2));
+  console.log(JSON.stringify(report));
   await browser.close();
   server.close();
 }

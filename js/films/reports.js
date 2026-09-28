@@ -1,5 +1,5 @@
 import { space } from "../space.js";
-import { lens, at, mix, palette as P, waveform } from "./cinema.js";
+import { lens, at, mix, palette as P } from "./cinema.js";
 const sources = ["PL / Plato", "LayTec", "XRR", "XRD"];
 const readings = [
   [98, 100, 102],
@@ -19,7 +19,7 @@ export function compile(d, q, f, W, H, m, hit) {
     const x = W * (i % 2 ? 0.55 : 0.08),
       y = H * (i < 2 ? 0.12 : 0.59),
       targetY = H * (0.24 + i * 0.155);
-    s.alpha(1 - combine, () => {
+    s.alpha(1 - at(combine, 0, 0.4), () => {
       const amount = at(q, i * 0.03, 0.18),
         points = [];
       // Distinct source measurements, not four copies of one chart. Values remain illustrative.
@@ -67,13 +67,16 @@ export function compile(d, q, f, W, H, m, hit) {
     for (let j = 0; j < 3; j++) {
       const X = mix(x + (j * sw) / 3, W * (0.43 + j * 0.18), combine),
         Y = mix(y + sh + 18, targetY, combine);
+      // Illustrative format rule: upper readings receive the same emphasis in each source row.
+      if (j === 2)
+        s.alpha(format, () => s.rect(X - 29, Y - 31, 58, 44, "#dba76d20"));
       s.alpha(at(q, 0.08 + i * 0.025, 0.13), () =>
         s.label(
           String(readings[i][j]),
           X,
           Y,
           m ? 24 : 29,
-          combine > 0.8 ? s.ink : P.blue,
+          combine > 0.8 ? (format > 0.5 && j === 2 ? P.amber : s.ink) : P.blue,
           "center",
         ),
       );
@@ -126,6 +129,52 @@ export function report(d, q, f, W, H, m, hit, alternate = 0) {
     "center",
   );
   const names = ["Step 03", "Outer zone", "λ 950 nm", "Analysis value"];
+  // Context is made visible before it becomes a workbook row. No cell is the starting point.
+  s.alpha(context * (1 - cross), () => {
+    const trace = Array.from({ length: 65 }, (_, i) => {
+      const u = i / 64;
+      return [
+        W * (0.08 + u * 0.24),
+        H * (0.29 - (u > 0.28 && u < 0.7 ? 0.08 : 0)),
+      ];
+    });
+    s.path(trace, P.amber, 2.4, context);
+    const cx = W * 0.385,
+      cy = H * 0.56,
+      r = H * 0.07;
+    s.arc(cx, cy, r, P.muted, 1);
+    s.arc(cx, cy, r * 0.84, P.amber, 6, -Math.PI * 0.12, Math.PI * 0.72);
+    for (let i = 0; i < 32; i++) {
+      const u = i / 31,
+        x = W * (0.52 + u * 0.2),
+        v = Math.exp(-(((u - 0.53) * 7) ** 2));
+      s.line(
+        [
+          [x, H * 0.3],
+          [x, H * (0.3 - v * 0.09)],
+        ],
+        P.amber,
+        2,
+        0.45 + v * 0.55,
+      );
+    }
+    s.line(
+      [
+        [W * 0.8, H * 0.52],
+        [W * 0.9, H * 0.52],
+      ],
+      P.muted,
+      1,
+    );
+    s.line(
+      [
+        [W * 0.85, H * 0.48],
+        [W * 0.85, H * 0.56],
+      ],
+      P.amber,
+      2.5,
+    );
+  });
   names.forEach((name, i) => {
     const sx = W * (0.15 + i * 0.235),
       sy = i % 2 ? H * 0.69 : H * 0.18,
@@ -192,110 +241,4 @@ export function report(d, q, f, W, H, m, hit, alternate = 0) {
   return alternate > 0.5
     ? "Source context retained"
     : "Step · zone · wavelength · value · appended beneath existing records";
-}
-function monitor(d, q, f, W, H, m, hit, legacy = false) {
-  const s = lens(d, W, H, m, legacy ? P.violet : P.cyan),
-    travel = at(q, 0.25, 0.29),
-    overview = at(q, 0.62, 0.22),
-    count = 18,
-    active = Math.min(count - 1, Math.floor(f * count));
-  const tint = legacy ? [160, 125, 195] : [71, 151, 175],
-    failColor = [204, 112, 103];
-  const scale = mix(legacy ? 1.65 : 2.05, m ? 1.25 : 1.04, overview);
-  const g = space(d.c, {
-    w: W,
-    h: H,
-    scale,
-    cy: mix(0.7, 0.48, overview),
-    yaw: legacy ? mix(0.35, -0.13, overview) : mix(-0.24, 0.08, overview),
-    tilt: mix(1.09, m ? 0.22 : 0.6, overview),
-  });
-  // One continuous analytical plane; history direction differs for the non-GaN sibling.
-  const width = m ? 460 : legacy ? 620 : 560,
-    height = m ? 580 : legacy ? 340 : 390;
-  g.box(0, 0, -13, width + 26, height + 22, 8, [30, 42, 53]);
-  const cols = legacy ? 1 : m ? 2 : 3,
-    rows = count / cols,
-    cw = width / cols,
-    rh = height / rows;
-  for (let i = 0; i < count; i++) {
-    const col = i % cols,
-      row = Math.floor(i / cols),
-      x = -width / 2 + col * cw + 8,
-      y = -height / 2 + row * rh + rh * 0.7;
-    const scroll = (1 - overview) * travel * (legacy ? 1 : -1) * 145,
-      yy = y + scroll,
-      fail = i === 4 || i === 13;
-    if (yy < -height / 2 || yy > height / 2) continue;
-    const pts = [];
-    for (let j = 0; j <= 64; j++) {
-      const u = j / 64;
-      pts.push([
-        x + u * (cw - 18),
-        yy,
-        3 + waveform(i, u, fail) * (legacy ? 16 : 36),
-      ]);
-    }
-    const opacity = at(q, i * 0.009, 0.16);
-    g.line(pts, fail ? failColor : tint, 1.35, opacity);
-    g.line(
-      [
-        [x, yy, 0],
-        [x + cw - 18, yy, 0],
-      ],
-      [103, 126, 146],
-      0.6,
-      0.28,
-    );
-    g.dot([x + cw - 10, yy - 4, 6], 2.5, fail ? failColor : tint);
-    const point = g.project([x, yy, 0]);
-    hit(
-      (i + 0.5) / count,
-      point[0],
-      point[1] - 16,
-      cw * g.unit,
-      rh * g.unit,
-      "Parameter " + (i + 1),
-    );
-  }
-  g.draw();
-  s.alpha(overview, () => {
-    s.label(
-      (legacy ? "Non-GaN / " : "GaN / ") + "continuous review",
-      W * 0.045,
-      H * 0.07,
-      23,
-      s.ink,
-    );
-    s.label(
-      "Parameter " +
-        (active + 1) +
-        " · " +
-        ([4, 13].includes(active) ? "FAIL" : "PASS"),
-      W * 0.045,
-      H * 0.94,
-      m ? 23 : 26,
-      [4, 13].includes(active) ? P.coral : s.ink,
-    );
-    for (let i = 0; i < count; i++) {
-      const x = W * (0.045 + i * 0.051);
-      s.rect(
-        x,
-        H * 0.985,
-        W * 0.034,
-        3,
-        [4, 13].includes(i) ? P.coral : legacy ? P.violet : P.cyan,
-      );
-    }
-  });
-  return (
-    (legacy ? "Non-GaN" : "GaN") +
-    " · all 18 illustrative signals retain a pass/fail status · choose a parameter"
-  );
-}
-export function spc(d, q, f, W, H, m, hit) {
-  return monitor(d, q, f, W, H, m, hit, false);
-}
-export function legacy(d, q, f, W, H, m, hit) {
-  return monitor(d, q, f, W, H, m, hit, true);
 }

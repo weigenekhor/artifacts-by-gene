@@ -38,7 +38,7 @@ for (const a of apps) {
   bytes += detail.length;
 }
 const html = await readFile("index.html", "utf8");
-assert.ok(html.includes("A software suite by Weigenekhor"));
+assert.ok(html.includes("Software that moves engineering forward."));
 assert.match(html, /<span>Gene<\/span\s*>/);
 assert.equal((html.match(/data-study-app="/g) || []).length, 16);
 for (const app of apps) {

@@ -1,26 +1,7 @@
 import films from "../content/films.json";
 import { drawing, clamp, mix, at } from "./films/drawing.js";
-import { history, schedule, planning, signals } from "./films/time.js";
-import { usage, pathfinder, diagnose, configuration } from "./films/fields.js";
-import { compile, report, legacy, spc } from "./films/reports.js";
-import { arrange, zones } from "./films/physical.js";
+import { renderers } from "./films/renderers.js";
 import { createTopography } from "./topography.js";
-const renderers = {
-  history,
-  schedule,
-  planning,
-  signals,
-  usage,
-  pathfinder,
-  diagnose,
-  configuration,
-  compile,
-  report,
-  legacy,
-  spc,
-  arrange,
-  zones,
-};
 
 export function createInstrumentFilm(el, wake) {
   const kind = el.dataset.feature,
@@ -60,8 +41,8 @@ export function createInstrumentFilm(el, wake) {
     canInspect = false,
     world = { w: 1100, h: 660, scale: 1, x: 0, y: 0 };
   function measure() {
-    w = view.clientWidth;
-    h = operation.clientHeight;
+    w = Math.max(1, view.clientWidth);
+    h = Math.max(1, operation.clientHeight);
     dpr = Math.min(devicePixelRatio || 1, innerWidth < 700 ? 1.5 : 2);
     fit = Math.min(w / iw, view.clientHeight / ih, 1);
     if (ctx) {

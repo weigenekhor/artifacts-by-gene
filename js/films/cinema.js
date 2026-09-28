@@ -1,11 +1,11 @@
 import { at, mix, clamp, sample } from "./drawing.js";
 export { at, mix, clamp, sample };
 export const palette = {
-  blue: "#779be4",
-  cyan: "#69c5ce",
-  amber: "#d6b07b",
-  coral: "#d58683",
-  violet: "#b19cd6",
+  blue: "#619df6",
+  cyan: "#45cbbd",
+  amber: "#e1ac68",
+  coral: "#e38d96",
+  violet: "#b599ef",
   white: "#d9e0e3",
   muted: "#71838e",
   line: "#34454e",

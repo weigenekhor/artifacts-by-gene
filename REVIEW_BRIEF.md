@@ -1,15 +1,17 @@
-# Review brief — definitive cinematic revision
+# ARTIFACTS — gallery revision review
 
-Review the current implementation, not the saved ee65f20 or 69f697e archive. The user has not approved this revision yet.
+Review the current implementation. Do not reset to an older archive. The current user brief explicitly chooses a two-column application gallery instead of sixteen mandatory scroll films.
 
-Protected: opening hero, TopoTracer core film, Papyrus matching concept, real full captures, actual app order, exact Gene wording.
+Protected: approved hero core, TopoTracer core, actual app order, complete source captures, exact Gene wording. Papyrus is NOT protected as node matching: its new recipe-text image requires a new film. Identity matching now belongs to GaN XML.
 
-Review separately:
+Review:
 
-1. Origin with copy hidden: registration works, obstruction develops, intervention improves it, different operations resolve, pullback establishes one environment, substrate resolves into the homepage, collection opens progressively.
-2. All sixteen app films: full UI, development, decisive state, inspection, same full UI. Are their distinct engineering roles understandable? Are their silhouettes and pacing sufficiently different?
-3. Transitions: reversible homepage handoff with decoded captures; no outgoing study fading to an empty stage; retained time reference into Gene.
-4. Safety: 1440 / 1280 / 390, intermediate labels, physical swaps, full captures, phone touch controls, reduced motion.
-5. Art direction: controlled accent families, dimensional composition, no huge accidental voids, no noisy utilities, no added claims or fake app imagery.
+1. Origin contrast and visual coherence, with the approved almost-wordless story retained.
+2. Homepage handoff in both directions and at fast scroll speeds: one visible element, one reveal, no flash or repeat.
+3. Every gallery card at rest, development and decisive hold. Distinct roles and silhouettes, strong optical framing, no playback furniture.
+4. Hover/focus one-shot playback and graceful leave. On phone, one centered visible preview only.
+5. Click-through films, fitted full originals, scrubbing, keyboard return focus, reduced motion and mobile touch.
+6. LotViewer's three evaluated routes; true recipe comparison; XML matching; two AIX swaps; SPC limits/status; maintenance and valid schedule logic.
+7. Gene's exact words, four held compositions and only three closing contact items.
 
-Judge the silent film, poster frame, differentiation, composition and color independently from automated tests. Do not infer artistic approval from a successful build. Report specific scenes and progress values that still need work.
+Inspect fresh 1440, 1280 and 390 captures, including intermediate text states. Tests do not prove cinematic quality, general 60 FPS or user approval. Report weak moments with app name and progress.

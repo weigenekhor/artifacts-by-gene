@@ -59,18 +59,9 @@ const selectedIds = process.env.FILMS
   : ids;
 const state = async (id, value) => {
   await p.evaluate((id) => {
-    const e = document.getElementById(id);
-    scrollTo(
-      0,
-      e.offsetTop -
-        parseFloat(
-          getComputedStyle(document.documentElement).getPropertyValue(
-            "--header",
-          ),
-        ),
-    );
-  }, id);
-  await p.waitForTimeout(70);
+    if(!document.querySelector('#'+id+'.is-open')) window.artifactsExperience.openFilm(id);
+  },id);
+  await p.waitForTimeout(40);
   await p.locator("#" + id + " .study-control input").evaluate((e, v) => {
     e.value = v;
     e.dispatchEvent(new Event("input", { bubbles: true }));
@@ -156,18 +147,7 @@ for (const size of [
           });
       }
     }
-    await p.evaluate((id) => {
-      const e = document.getElementById(id);
-      scrollTo(0, e.offsetTop + e.offsetHeight - innerHeight * 0.55);
-    }, id);
-    await p.waitForTimeout(260);
-    const leaving = await p
-      .locator("#" + id + " .feature-stage")
-      .evaluate((e) => ({
-        opacity: +getComputedStyle(e).opacity,
-        inert: e.inert,
-      }));
-    if (!leaving.inert) issues.push({ id, width: size.width, leaving });
+
   }
   const tw = size.width !== 390 ? 480 : 195,
     th = size.width !== 390 ? 300 : 422;

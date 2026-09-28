@@ -40,7 +40,11 @@
       "purpose": "Bring process events into one readable history. Align timestamps. Review wafer states. Follow the lot through the work.",
       "transformation": "Events → history",
       "referenceSlide": 6,
-      "relationships": ["topotracer", "spc-pathfinder", "gan-met-compiler"],
+      "relationships": [
+        "topotracer",
+        "spc-pathfinder",
+        "gan-met-compiler"
+      ],
       "evidence": {
         "src": "assets/evidence/altus-lotviewer/detail.webp",
         "full": "assets/evidence/altus-lotviewer/full.webp",
@@ -274,18 +278,20 @@
       "purpose": "Match equivalent recipe steps, even when their order changes. Keep attention on the parameters that differ.",
       "transformation": "Recipes → logical differences",
       "referenceSlide": 9,
-      "relationships": ["gan-xml-assistant"],
+      "relationships": [
+        "gan-xml-assistant"
+      ],
       "evidence": {
         "src": "assets/evidence/papyrus-reader/detail.webp",
         "full": "assets/evidence/papyrus-reader/full.webp",
         "width": 1280,
         "height": 315,
-        "fullWidth": 1531,
-        "fullHeight": 1002,
+        "fullWidth": 1425,
+        "fullHeight": 950,
         "label": "Actual paired recipe panes with marked changes",
         "sourceQuality": "native-png-lossless-webp",
-        "qualityScope": "Current populated capture; top-level sourceQuality and needsRecapture describe the older archive only.",
-        "recapture": "For fullscreen high-DPI inspection, recapture this populated state at 2560px width or greater. Current native pixels are preserved."
+        "qualityScope": "Current capture; top-level quality flags describe the older archive.",
+        "recapture": "For fullscreen high-DPI inspection, provide a populated native capture at 2560px width or greater."
       },
       "headline": "Compare meaning.\nNot line numbers."
     },
@@ -328,7 +334,11 @@
       "purpose": "Reach the SPC charts you need together, without repeating the same navigation for every parameter.",
       "transformation": "Parameters → charts",
       "referenceSlide": 10,
-      "relationships": ["altus-lotviewer", "topotracer", "gan-met-compiler"],
+      "relationships": [
+        "altus-lotviewer",
+        "topotracer",
+        "gan-met-compiler"
+      ],
       "evidence": {
         "src": "assets/evidence/spc-pathfinder/detail.webp",
         "full": "assets/evidence/spc-pathfinder/full.webp",
@@ -382,7 +392,11 @@
       "purpose": "Bring metrology data together. Apply predefined calculations. Produce a consistent report from scattered inputs.",
       "transformation": "Measurements → report",
       "referenceSlide": 11,
-      "relationships": ["altus-lotviewer", "topotracer", "spc-pathfinder"],
+      "relationships": [
+        "altus-lotviewer",
+        "topotracer",
+        "spc-pathfinder"
+      ],
       "evidence": {
         "src": "assets/evidence/gan-met-compiler/detail.webp",
         "full": "assets/evidence/gan-met-compiler/full.webp",
@@ -436,7 +450,10 @@
       "purpose": "Use temperature behavior to guide diagnosis and identify the next checks. Give troubleshooting a starting point.",
       "transformation": "Observations → likely causes",
       "referenceSlide": 14,
-      "relationships": ["aix-dt-assistant", "lt-zone-assistant"],
+      "relationships": [
+        "aix-dt-assistant",
+        "lt-zone-assistant"
+      ],
       "evidence": {
         "src": "assets/evidence/gan-temp-diagnoser/detail.webp",
         "full": "assets/evidence/gan-temp-diagnoser/full.webp",
@@ -490,7 +507,10 @@
       "purpose": "Use weight and temperature inputs to guide baseplate arrangements. Put the basis for a decision in view.",
       "transformation": "Offsets → arrangement",
       "referenceSlide": 15,
-      "relationships": ["gan-temp-diagnoser", "lt-zone-assistant"],
+      "relationships": [
+        "gan-temp-diagnoser",
+        "lt-zone-assistant"
+      ],
       "evidence": {
         "src": "assets/evidence/aix-dt-assistant/detail.webp",
         "full": "assets/evidence/aix-dt-assistant/full.webp",
@@ -544,7 +564,10 @@
       "purpose": "Map LayTec zones in one spatial view. Understand where each region sits in relation to the whole.",
       "transformation": "Zones → spatial context",
       "referenceSlide": null,
-      "relationships": ["gan-temp-diagnoser", "aix-dt-assistant"],
+      "relationships": [
+        "gan-temp-diagnoser",
+        "aix-dt-assistant"
+      ],
       "evidence": {
         "src": "assets/evidence/lt-zone-assistant/detail.webp",
         "full": "assets/evidence/lt-zone-assistant/full.webp",
@@ -598,7 +621,9 @@
       "purpose": "Compare configurations, settings and constants. Bring differences forward, without losing their context.",
       "transformation": "Configuration → differences",
       "referenceSlide": 16,
-      "relationships": ["papyrus-reader"],
+      "relationships": [
+        "papyrus-reader"
+      ],
       "evidence": {
         "src": "assets/evidence/gan-xml-assistant/detail.webp",
         "full": "assets/evidence/gan-xml-assistant/full.webp",

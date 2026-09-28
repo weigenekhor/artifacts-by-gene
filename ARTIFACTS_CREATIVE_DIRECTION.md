@@ -1,42 +1,45 @@
 # ARTIFACTS — Creative Direction
 
-## Governing brief
+## Governing revision
 
-The definitive cinematic brief supplied on 28 September 2026 supersedes the earlier reconstruction passes. Continue on the current `experience/ee65f20-rebuild` implementation. Do not reset to an archive. `ee65f20` is the Altus ANKO Viewer reference; `84baa04/#compile` is the GaN Met Compiler reference. Neither is permission to revert the whole site. Saved `/versions/` URLs are immutable.
+The definitive brief attached as 2db8fa29-177c-4316-bd33-708cf28ab923 governs the current revision. Continue from the CURRENT implementation on experience/ee65f20-rebuild. Do not reset to an archived version. The latest explicit user prompt overrides this document.
 
-Read this file and ARTIFACTS_EXPERIENCE_STORYBOARD.md completely before visual changes. Current explicit user instructions take precedence.
+This pass replaces the sixteen forced sequential scroll films with a two-column application gallery. This is intentional and supersedes earlier prohibitions on galleries. Do not restore the orbiting screenshot collection, sixteen long main-page studies, old Papyrus node-matching film, or removed utility toolbar. Saved /versions/<commit>/ previews remain immutable.
 
-## Protected work
+## Protected identity
 
-Preserve the approved monumental hero (`identity-field.js`) and TopoTracer's sampling, interpolation, contour and cross-section film (`topography.js`). Papyrus keeps identity-aware paired comparison; do not substitute XML sorting for it. Keep actual unmodified full captures and the real brand symbol. The approved Gene text is verbatim in the storyboard.
-
-## Identity and voice
+Preserve the approved opening identity-field.js and the TopoTracer core in topography.js. Preserve the real brand symbol, real app order, full unmodified source captures and the exact Gene wording in the storyboard.
 
 Browser title: **Artifacts by Gene**.
-Hero descriptor: **A software suite by Weigenekhor**.
-Main hero line: **Built for engineering where almost right is still wrong.**
-No collection slogan, expand/reset utility toolbar or duplicate homepage link. Applications are the reveal. Do not add invented accomplishments, timings, accuracy figures, live connections, technical integrations or proven diagnoses. Illustrative examples must remain identifiable as such.
+Small hero descriptor: **Software that moves engineering forward.**
+Hero line: **Built for engineering where almost right is still wrong.**
 
-## Narrative and material
+No extra collection slogan, Open the collection, Refresh or View the ARTIFACTS homepage utility. The central real homepage remains inspectable. No fabricated software screens, metrics, live equipment connections, automatic configuration changes or proven physical diagnoses.
 
-Hero → functioning engineering volume → avoidable interruption → deliberate intervention and a hold → different problems resolved → retained working structures → central homepage surface → staged 3 / 6 / 10 / 16 collection → individual films → Gene.
+## Experience
 
-The current origin uses spatial measurement profiles, a sampled field and identity comparison structures. Camera visits happen before the pullback. This replaces the rejected tiled matrix. Do not restore that matrix, the five-principle schematic, Starting Over, a factory, a conveyor, or app previews during the origin. The origin remains almost wordless. Its two statements are unboxed and secondary to the event.
+Hero → almost-wordless origin → one continuous homepage reveal → sixteen application previews → chosen detailed film → return to gallery → Gene.
 
-A film must reveal engineering importance through an event. Real complete interface → interpretation → same complete interface. A shared transport is useful; a shared visual story is not. Each renderer owns composition, sequence, camera and interaction. Avoid presenting every tool as an identical array of colored panels. Meaning comes before spectacle; functional correctness alone does not establish visual success.
+The approved origin keeps its story: engineering complexity, avoidable obstruction, deliberate intervention, improved work, different problems resolved, retained capability, software system. Do not rewrite this into a new metaphor. Improve material, camera, color and continuity. No apps until its concluding real homepage reveal.
 
-## Color, type and imagery
+The homepage is ONE DOM element. genesis.js alone owns its transform and transfer; experience.js controls the destination stage visibility. Never let legacy CSS force that destination visible before the handoff. Avoid appear/disappear/reappear or duplicate scene owners.
 
-Carbon, graphite and ink environments; controlled light chapters for contrast. One main accent per film, with a second only where it means selection, changed state, exception or measurement. Neutral physical baseplates and carrier; sampling and temperature differences receive color. No toy rainbow palette, generic glow or random particles.
+## Gallery and films
 
-Important text owns a safe area outside geometry and controls. Recompose when it does not fit. Never hide a collision by indiscriminately reducing type. Captures remain uncropped, aspect-correct, limited to their useful native resolution. Real images live under `assets/evidence/`; originals are in `C:/Users/Gene/Desktop/Artifacts Images`.
+Desktop: two generous previews per row. Mobile: one column. Every card owns a substantial resting frame, name and short value cue. On hover or keyboard focus, play one 4–8 second mini-film with establishment, development, decisive event and hold. Leave settles smoothly to the poster. No preview scrubber or Play button. Mobile plays only the nearest centered visible card. Offscreen rendering sleeps.
 
-## Motion and implementation
+Click or Enter opens a detailed film with its actual full interface and optional playback/scrubbing/inspection. The user chooses depth; the main page never forces sixteen long films. Keep the full interface uncropped and provide fit/native-size inspection. Interpretations explain engineering value, not operating instructions.
 
-Native reversible scroll, a single page clock, bounded inertia, no scroll trap. Prewarm the collection before the origin handoff. Measure geometry on resize, not in the animation loop. Rendering sleeps offscreen. Canvas buffers track DPR, capped at 2 desktop and 1.5 phone. TopoTracer's shared material path must not change accidentally.
+Each film owns its composition and choreography. Shared rendering primitives do not justify identical stories. Papyrus now means recipe-text comparison, grounded in the current screenshot. Identity-aware node matching belongs to GaN XML. SPC must look like SPC: plots, limits, observations and statuses across a continuous review surface. Examples remain illustrative.
 
-Reduced motion is a designed reading sequence with static origin images, full app captures and inspectable film states. Gene becomes natural document flow. All controls work with keyboard and touch. No autoplay sound.
+## Material and color
 
-## Completion and review
+Carbon, ink, graphite, near-black blue/green. One controlled accent family per tool; supporting colors mean urgency, change, selection, failure, matching or measurement. Rich readable geometry, no washed-out diagram palette, random glow, fake complexity, conveyor, stock device frame or cartoon rainbow.
 
-Build, check runtime and real asset loading, then inspect fresh evidence at 1440, 1280 and 390. Sample the complete timeline for text bounds and collisions. Capture each application's interface, development, decisive state, inspection and return. Review the origin handoff forward and backward. Visual quality still requires human judgment; neither a passing test nor a new renderer earns the label world-class by itself.
+Type, motion and light belong to one system. Give text real safe areas outside graphics and controls. Recompose instead of shrinking labels to hide collisions. Use aspect-correct, DPR-aware rendering. Never upscale a screenshot and call it HD. Preserve source pixels and disclose source-resolution limitations.
+
+## Engineering and review
+
+Static GitHub Pages output, no runtime CDN. Shared demand-driven RAF, capped DPR, lazy detailed films, cached geometry and one active gallery preview. No autoplay sound. Reduced motion has static posters, a readable origin and Gene, plus inspectable detailed states.
+
+Build and run before claiming completion. Review origin/handoff, all 16 rest/development/decisive frames, interaction and Gene at 1440, 1280 and 390. Check intermediate text collisions, controls and full image return. Tests are evidence of functionality, never proof of artistic approval or universal 60 FPS. Record observed limitations honestly.

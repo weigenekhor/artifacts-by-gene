@@ -5,7 +5,11 @@
     "title": "Reconstruct\nthe lot.",
     "text": "Process events are only useful in sequence. Align timestamps, wafer states and durations around the same lot.",
     "kicker": "Lot history analysis.",
-    "verbs": ["Gather", "Order", "Follow"],
+    "verbs": [
+      "Gather",
+      "Order",
+      "Follow"
+    ],
     "beats": [
       "Start with the real lot history interface.",
       "Events arrive with their own timestamps and states.",
@@ -22,7 +26,14 @@
     "focusLabel": "Event context",
     "duration": 420,
     "closure": "The lot history returns with its context intact.",
-    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "timings": [
+      0.1,
+      0.22,
+      0.36,
+      0.53,
+      0.72,
+      0.9
+    ],
     "states": [
       "Interface",
       "Process events",
@@ -39,7 +50,11 @@
     "title": "Put the schedule\nagainst the equipment.",
     "text": "Retrieve ANKO schedules across Altus equipment. Read dates in the context of the equipment they belong to.",
     "kicker": "ANKO schedule retrieval.",
-    "verbs": ["Retrieve", "Align", "Look ahead"],
+    "verbs": [
+      "Retrieve",
+      "Align",
+      "Look ahead"
+    ],
     "beats": [
       "Start with the retrieved equipment schedules.",
       "Separate schedules retain their equipment identity.",
@@ -56,7 +71,14 @@
     "focusLabel": "Schedule interval",
     "duration": 420,
     "closure": "Dates stay attached to the equipment.",
-    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "timings": [
+      0.1,
+      0.22,
+      0.36,
+      0.53,
+      0.72,
+      0.9
+    ],
     "states": [
       "Interface",
       "Schedules",
@@ -73,7 +95,11 @@
     "title": "Count the work\nthrough the chamber.",
     "text": "Collect wafer counts from equipment logs. Review chamber usage as an input to maintenance planning.",
     "kicker": "Chamber usage and wafer counts.",
-    "verbs": ["Collect", "Accumulate", "Review"],
+    "verbs": [
+      "Collect",
+      "Accumulate",
+      "Review"
+    ],
     "beats": [
       "Start with chamber usage in the real interface.",
       "Individual wafer events enter their chamber lanes.",
@@ -90,7 +116,14 @@
     "focusLabel": "Chamber activity",
     "duration": 420,
     "closure": "Chamber usage returns to the complete view.",
-    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "timings": [
+      0.1,
+      0.22,
+      0.36,
+      0.53,
+      0.72,
+      0.9
+    ],
     "states": [
       "Interface",
       "Wafer activity",
@@ -107,7 +140,11 @@
     "kicker": "Contour and topography plots.",
     "title": "Locate\nthe variation.",
     "text": "Measurements acquire meaning when their positions are retained. Resolve a contour field from the wafer samples.",
-    "verbs": ["Measure", "Interpolate", "Understand"],
+    "verbs": [
+      "Measure",
+      "Interpolate",
+      "Understand"
+    ],
     "caption": "Contour and topography plots.",
     "number": "04",
     "beats": [
@@ -124,7 +161,14 @@
     "focusLabel": "Wafer region",
     "duration": 420,
     "closure": "The region returns to the whole wafer.",
-    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "timings": [
+      0.1,
+      0.22,
+      0.36,
+      0.53,
+      0.72,
+      0.9
+    ],
     "states": [
       "Interface",
       "Sample positions",
@@ -140,8 +184,12 @@
     "kind": "compare",
     "kicker": "Logical recipe and text comparison.",
     "title": "Position is not meaning.",
-    "text": "Line positions can change without a process change. Align equivalent recipe steps before isolating the differences.",
-    "verbs": ["Read", "Align", "Compare"],
+    "text": "Compare recipe text and isolate missing, changed and added lines without losing their surrounding context.",
+    "verbs": [
+      "Read",
+      "Align",
+      "Compare"
+    ],
     "caption": "Logical recipe and text comparison.",
     "number": "05",
     "beats": [
@@ -157,12 +205,19 @@
     "focusLabel": "Paired property",
     "duration": 460,
     "closure": "The comparison returns to the complete recipes.",
-    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "timings": [
+      0.1,
+      0.22,
+      0.36,
+      0.53,
+      0.72,
+      0.9
+    ],
     "states": [
       "Interface",
       "Two recipes",
       "Logical steps",
-      "Correspondence",
+      "Recipe alignment",
       "Differences",
       "Inspect counterparts",
       "Comparison"
@@ -174,7 +229,11 @@
     "title": "Get to\nthe parameter.",
     "text": "Navigate workcentres and parameter groups to locate the required SPC chart.",
     "kicker": "SPC chart finder.",
-    "verbs": ["Locate", "Select", "Open"],
+    "verbs": [
+      "Locate",
+      "Select",
+      "Open"
+    ],
     "beats": [
       "Start with the SPC chart finder.",
       "Begin inside a workcentre.",
@@ -186,12 +245,19 @@
     ],
     "caption": "SPC chart finder.",
     "number": "06",
-    "paper": true,
+    "paper": false,
     "handoff": "GaN Met Compiler",
     "focusLabel": "Selected parameter",
     "duration": 420,
     "closure": "Chart and selection context return together.",
-    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "timings": [
+      0.1,
+      0.22,
+      0.36,
+      0.53,
+      0.72,
+      0.9
+    ],
     "states": [
       "Interface",
       "Workcentre",
@@ -208,7 +274,11 @@
     "title": "From metrology\nto a report.",
     "text": "Gather measurement files, apply predefined calculations and compile the result into a consistent reporting structure.",
     "kicker": "Metrology report compiler.",
-    "verbs": ["Gather", "Calculate", "Compile"],
+    "verbs": [
+      "Gather",
+      "Calculate",
+      "Compile"
+    ],
     "beats": [
       "Start with the actual metrology compiler.",
       "Separate metrology sources remain identifiable.",
@@ -225,7 +295,14 @@
     "focusLabel": "Report section",
     "duration": 420,
     "closure": "The compiled report keeps a visible source context.",
-    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "timings": [
+      0.1,
+      0.22,
+      0.36,
+      0.53,
+      0.72,
+      0.9
+    ],
     "states": [
       "Interface",
       "Source records",
@@ -242,7 +319,11 @@
     "kicker": "Temperature drift diagnosis.",
     "title": "Read the symptoms.\nTest the explanation.",
     "text": "Bring process and clean-recipe observations into one diagnostic view. Follow the recommended checks before drawing a conclusion.",
-    "verbs": ["Observe", "Relate", "Investigate"],
+    "verbs": [
+      "Observe",
+      "Relate",
+      "Investigate"
+    ],
     "caption": "Temperature drift diagnosis.",
     "number": "08",
     "beats": [
@@ -259,7 +340,14 @@
     "focusLabel": "Recommended check",
     "duration": 420,
     "closure": "Return to the observations before drawing a conclusion.",
-    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "timings": [
+      0.1,
+      0.22,
+      0.36,
+      0.53,
+      0.72,
+      0.9
+    ],
     "states": [
       "Interface",
       "Observed drift",
@@ -276,7 +364,11 @@
     "title": "Exchange the plates.\nKeep the context.",
     "text": "Use weight and temperature inputs to guide baseplate swaps. Follow each plate from its current position to its new seat.",
     "kicker": "Baseplate arrangement guidance.",
-    "verbs": ["Evaluate", "Exchange", "Review"],
+    "verbs": [
+      "Evaluate",
+      "Exchange",
+      "Review"
+    ],
     "beats": [
       "Baseplate swapping, with its inputs in view.",
       "Locate the weight and temperature inputs.",
@@ -293,7 +385,14 @@
     "focusLabel": "Baseplate position",
     "duration": 420,
     "closure": "The placement returns to the full arrangement.",
-    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "timings": [
+      0.1,
+      0.22,
+      0.36,
+      0.53,
+      0.72,
+      0.9
+    ],
     "states": [
       "Interface",
       "Input context",
@@ -310,7 +409,11 @@
     "title": "Define the region.\nRetain the geometry.",
     "text": "Map LayTec inner and outer zones within one coordinate system. Review each boundary in relation to the whole.",
     "kicker": "LayTec zone mapping.",
-    "verbs": ["Locate", "Map", "Relate"],
+    "verbs": [
+      "Locate",
+      "Map",
+      "Relate"
+    ],
     "beats": [
       "Start with the LayTec zone interface.",
       "Each source zone keeps its own reference.",
@@ -327,7 +430,14 @@
     "focusLabel": "Zone boundary",
     "duration": 420,
     "closure": "All regions return to one spatial view.",
-    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "timings": [
+      0.1,
+      0.22,
+      0.36,
+      0.53,
+      0.72,
+      0.9
+    ],
     "states": [
       "Interface",
       "Zone references",
@@ -344,7 +454,11 @@
     "title": "Isolate the change\nin Devices.XML.",
     "text": "Match properties between reference and target configurations. Read changed settings and constants in context.",
     "kicker": "Devices.XML comparison.",
-    "verbs": ["Load", "Match", "Distinguish"],
+    "verbs": [
+      "Load",
+      "Match",
+      "Distinguish"
+    ],
     "beats": [
       "Start with the Devices.XML comparison.",
       "Keep reference and target states separate.",
@@ -361,7 +475,14 @@
     "focusLabel": "Configuration property",
     "duration": 420,
     "closure": "The difference returns to its configuration context.",
-    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "timings": [
+      0.1,
+      0.22,
+      0.36,
+      0.53,
+      0.72,
+      0.9
+    ],
     "states": [
       "Interface",
       "Two configurations",
@@ -378,7 +499,11 @@
     "title": "Review the chart\nwith its state.",
     "text": "Bring configured GaN SPC charts and parameter states into the same review.",
     "kicker": "GaN SPC release review.",
-    "verbs": ["Select", "Review", "Focus"],
+    "verbs": [
+      "Select",
+      "Review",
+      "Focus"
+    ],
     "beats": [
       "Start with the GaN release-review interface.",
       "Bring the relevant SPC signals into view.",
@@ -390,12 +515,19 @@
     ],
     "caption": "GaN SPC release review.",
     "number": "12",
-    "paper": true,
+    "paper": false,
     "handoff": "Magus SPC (Legacy)",
     "focusLabel": "Signal under review",
     "duration": 420,
     "closure": "Charts and state settle back into one review.",
-    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "timings": [
+      0.1,
+      0.22,
+      0.36,
+      0.53,
+      0.72,
+      0.9
+    ],
     "states": [
       "Interface",
       "Relevant signals",
@@ -412,7 +544,11 @@
     "title": "Keep the parameter\nbeside its chart.",
     "text": "Retrieve legacy SPC parameter states and charts within the established review workflow.",
     "kicker": "Legacy SPC release review.",
-    "verbs": ["Retrieve", "Expand", "Review"],
+    "verbs": [
+      "Retrieve",
+      "Expand",
+      "Review"
+    ],
     "beats": [
       "Start with the legacy release-review interface.",
       "Separate legacy records retain their parameter identity.",
@@ -424,12 +560,19 @@
     ],
     "caption": "Legacy SPC release review.",
     "number": "13",
-    "paper": true,
+    "paper": false,
     "handoff": "ANKO Helper",
     "focusLabel": "Selected parameter",
     "duration": 420,
     "closure": "Parameter, chart and state return together.",
-    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "timings": [
+      0.1,
+      0.22,
+      0.36,
+      0.53,
+      0.72,
+      0.9
+    ],
     "states": [
       "Interface",
       "Legacy records",
@@ -446,7 +589,11 @@
     "title": "Status. Due date.\nNext action.",
     "text": "Align ANKO status and due dates by equipment before deciding what needs attention.",
     "kicker": "ANKO status and due dates.",
-    "verbs": ["Gather", "Prioritise", "Plan"],
+    "verbs": [
+      "Gather",
+      "Prioritise",
+      "Plan"
+    ],
     "beats": [
       "Start with equipment status and due dates.",
       "Separate items keep their equipment identity.",
@@ -458,12 +605,19 @@
     ],
     "caption": "ANKO status and due dates.",
     "number": "14",
-    "paper": true,
+    "paper": false,
     "handoff": "LT Report Compiler",
     "focusLabel": "Equipment row",
     "duration": 420,
     "closure": "Status and due date remain attached to each item.",
-    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "timings": [
+      0.1,
+      0.22,
+      0.36,
+      0.53,
+      0.72,
+      0.9
+    ],
     "states": [
       "Interface",
       "Equipment status",
@@ -480,7 +634,11 @@
     "title": "Compile the record.\nRepeat the method.",
     "text": "Assemble LayTec source information into an engineering report without rebuilding the reporting structure each time.",
     "kicker": "LayTec report compilation.",
-    "verbs": ["Read", "Assemble", "Report"],
+    "verbs": [
+      "Read",
+      "Assemble",
+      "Report"
+    ],
     "beats": [
       "Start with the LayTec report compiler.",
       "Separate LayTec sources remain visible.",
@@ -497,7 +655,14 @@
     "focusLabel": "Report assembly",
     "duration": 420,
     "closure": "The report settles into a repeatable structure.",
-    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "timings": [
+      0.1,
+      0.22,
+      0.36,
+      0.53,
+      0.72,
+      0.9
+    ],
     "states": [
       "Interface",
       "LayTec sources",
@@ -514,7 +679,11 @@
     "kicker": "Interactive multi-parameter equipment SPC.",
     "title": "Different parameters.\nThe same interval.",
     "text": "Inspect equipment parameter traces together. Follow one time window across the signals while retaining each chart.",
-    "verbs": ["Gather", "Relate", "Explore"],
+    "verbs": [
+      "Gather",
+      "Relate",
+      "Explore"
+    ],
     "caption": "Interactive multi-parameter equipment SPC.",
     "number": "16",
     "beats": [
@@ -531,7 +700,14 @@
     "focusLabel": "Shared time window",
     "duration": 420,
     "closure": "Independent signals return to a shared review.",
-    "timings": [0.1, 0.22, 0.36, 0.53, 0.72, 0.9],
+    "timings": [
+      0.1,
+      0.22,
+      0.36,
+      0.53,
+      0.72,
+      0.9
+    ],
     "states": [
       "Interface",
       "Independent signals",

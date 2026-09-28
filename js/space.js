@@ -31,6 +31,8 @@ export function space(
     light = false,
     target = [0, 0, 0],
     cull = false,
+    segments = 64,
+    rings = 4,
   },
 ) {
   const unit = Math.min(w / 760, h / 470) * scale,
@@ -158,23 +160,23 @@ export function space(
     start = 0,
     end = Math.PI * 2,
   ) => {
-    const q = Array.from({ length: 65 }, (_, i) => [
-      x + Math.cos(mix(start, end, i / 64)) * r,
-      y + Math.sin(mix(start, end, i / 64)) * r,
+    const q = Array.from({ length: segments + 1 }, (_, i) => [
+      x + Math.cos(mix(start, end, i / segments)) * r,
+      y + Math.sin(mix(start, end, i / segments)) * r,
       z,
     ]);
     line(q, color, width);
   };
   const disc = (x, y, z, r, t, color = palette.dark) => {
-    for (let i = 0; i < 64; i++) {
-      const a = (i / 64) * Math.PI * 2,
-        b = ((i + 1) / 64) * Math.PI * 2,
+    for (let i = 0; i < segments; i++) {
+      const a = (i / segments) * Math.PI * 2,
+        b = ((i + 1) / segments) * Math.PI * 2,
         p = [x + Math.cos(a) * r, y + Math.sin(a) * r, z],
         q = [x + Math.cos(b) * r, y + Math.sin(b) * r, z];
       poly([p, q, [q[0], q[1], z + t], [p[0], p[1], z + t]], color);
-      for (let j = 0; j < 4; j++) {
-        const r0 = (r * j) / 4,
-          r1 = (r * (j + 1)) / 4;
+      for (let j = 0; j < rings; j++) {
+        const r0 = (r * j) / rings,
+          r1 = (r * (j + 1)) / rings;
         poly(
           [
             [x + Math.cos(a) * r0, y + Math.sin(a) * r0, z + t],

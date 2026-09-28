@@ -66,18 +66,18 @@
   {
     "id": "papyrus-reader",
     "file": "Papyrus Reader.png",
-    "sourceWidth": 1531,
-    "sourceHeight": 1002,
-    "sourceSha256": "30073c1c9a20f984219cd8abd6c292912fc508cfd684a2767b0a584f66c2297d",
-    "fullPixelSha256": "0413c34560ac212ebf49f5d37e0a0d10b15c2663847d6735079528562f4ce1f4",
+    "sourceWidth": 1425,
+    "sourceHeight": 950,
+    "sourceSha256": "7326857f8286b1a3a48d5d737aba771ba95cbcf0fed4683370ae18c5c5e92f20",
+    "fullPixelSha256": "abe083f1b42369d7cbacec880730c207a2ed65991cfb555c4b2f4b11881df47e",
     "region": {
       "left": 95,
       "top": 385,
       "width": 1280,
       "height": 315
     },
-    "detailSha256": "7b71dd53ba0df00f207850fcd7a0b2d5652739e8838eb6313ee61fd9ca4fe3b8",
-    "pixelSha256": "73e83542b4d99593590553d2b18e32e0a8f9e4e6ad93d3d8079958c9e0d0aeeb"
+    "detailSha256": "611e6b368afe4c70634ef969a333500627cad30a6680d2ce51e2988334ee6b4c",
+    "pixelSha256": "a9129e3646f7824aaca081b7526aba9d9027709fd4b549c090ec7f80072858be"
   },
   {
     "id": "spc-pathfinder",

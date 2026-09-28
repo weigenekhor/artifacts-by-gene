@@ -8,8 +8,8 @@ const seats = Array.from({ length: 5 }, (_, i) => {
 const carbon = [32, 42, 48],
   metal = [104, 122, 132],
   edge = [170, 184, 187],
-  cool = [69, 163, 179],
-  warm = [208, 151, 85];
+  cool = [51, 216, 197],
+  warm = [231, 166, 79];
 function carrier(g) {
   g.disc(0, 0, -30, 211, 17, carbon);
   g.ring(0, 0, -12, 209, edge, 1.1);
@@ -38,11 +38,10 @@ function plate(g, x, y, z, i, selected, heat = 0) {
     g.ring(x, y, z + 12.3, 13 + j * 7, [81, 100, 111], 0.35);
   for (let j = 0; j < 6; j++) {
     const a = (j * Math.PI) / 3;
-    g.disc(x + Math.cos(a) * 41, y + Math.sin(a) * 41, z + 12.5, 2, 1, carbon);
+    g.dot([x + Math.cos(a) * 41, y + Math.sin(a) * 41, z + 12.5], 1.6, carbon);
   }
   if (heat > 0) g.ring(x, y, z + 13, 48, warm, 2, 0, Math.PI * 2 * heat);
   if (selected) g.ring(x, y, z + 13, 54, cool, 1.5);
-  g.label("BP" + (i + 1), [x, y + 5, z + 14], 18, edge, "center");
 }
 function exchange(a, b, t, out) {
   // Release and rise, hold at clearance, translate, then make contact. No spring bounce.
@@ -68,8 +67,10 @@ export function arrange(d, q, f, W, H, m, hit, alternate = 0) {
   const g = space(d.c, {
     w: W,
     h: H,
-    scale: m ? 1.43 : 1.12,
-    cy: 0.56,
+    segments: 40,
+    rings: 2,
+    scale: m ? 1.4 : 1.08,
+    cy: 0.48,
     yaw: mix(-0.18, 0.12, at(q, 0.4, 0.42)),
     tilt: mix(0.6, 0.8, at(q, 0.14, 0.3)),
   });
@@ -121,7 +122,7 @@ export function arrange(d, q, f, W, H, m, hit, alternate = 0) {
     d.ink,
     "center",
   );
-  d.text("Illustrative assignment", W * 0.5, H * 0.985, 16, d.muted, "center");
+  d.text("Illustrative assignment", W * 0.5, H * 0.98, 16, d.muted, "center");
   return (
     "BP" +
     (active + 1) +
@@ -136,7 +137,9 @@ export function zones(d, q, f, W, H, m, hit) {
   const g = space(d.c, {
     w: W,
     h: H,
-    scale: m ? 1.38 : 1.0,
+    segments: 40,
+    rings: 2,
+    scale: m ? 1.32 : 0.93,
     cy: 0.54,
     yaw: mix(-0.2, 0, overhead),
     tilt: mix(0.95, 0.12, overhead),
@@ -162,7 +165,7 @@ export function zones(d, q, f, W, H, m, hit) {
         g.poly(
           [verts[0], verts[2], verts[3], verts[1]],
           col,
-          i === active ? 0.95 : 0.52,
+          i === active ? 1 : 0.82,
         );
       }
     }

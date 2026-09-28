@@ -124,14 +124,8 @@ export function createGenesis(section, wake) {
         ease((p - 0.97) / 0.18) * (1 - ease((p - 5.38) / 0.22)),
       );
       section.style.setProperty("--travel", clamp(p / LENGTH));
-      section.style.setProperty(
-        "--reading-ink",
-        p > 4.8 ? "#e7e9df" : "#263b34",
-      );
-      section.style.setProperty(
-        "--reading-muted",
-        p > 4.8 ? "#b4c2b1" : "#69786c",
-      );
+      section.style.setProperty("--reading-ink", "#e1ebee");
+      section.style.setProperty("--reading-muted", "#9eb8c5");
       section.style.setProperty("--light", light);
       intro.inert = !reduced && p > 0.65;
       film.inert = !reduced && (p < 1 || p > 5.6);
@@ -163,6 +157,11 @@ export function createGenesis(section, wake) {
         homeParent.append(home);
         home.classList.remove("origin-home");
         home.inert = false;
+      }
+      if (!transferring) {
+        home.style.top = "50%";
+        home.style.opacity = "1";
+        home.style.transform = "translate(-50%,-50%)";
       }
       const moving = Math.abs(progress - target) > 0.0005;
       // Only the approved identity has ambient motion. The film renders on scroll/pointer input.

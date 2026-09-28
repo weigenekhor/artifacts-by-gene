@@ -1,42 +1,42 @@
 # ARTIFACTS — Experience Storyboard
 
-## Current source, not a reset
+Read with ARTIFACTS_CREATIVE_DIRECTION.md. The current definitive gallery brief supersedes earlier sequential-film direction.
 
-Continue on the current branch. Archives are comparison references. Preserve the hero and TopoTracer. The September 28 definitive brief governs this pass.
+## Opening and origin
 
-## Opening
+Keep the monumental interactive hero. Its descriptor is Software that moves engineering forward. The primary line remains Built for engineering where almost right is still wrong.
 
-The monumental identity remains unchanged. Small descriptor: A software suite by Weigenekhor. Main line: Built for engineering where almost right is still wrong.
+One continuous 6.8-unit clock in genesis.js drives the approved origin:
 
-## Origin / one camera clock
+1. Enter the working measurement volume from the identity field.
+2. A region loses registration. **Some difficulty belongs to the work.**
+3. A deliberate reference correction removes the obstruction. **Some doesn’t.** Hold the successful correction.
+4. Visit a sampled spatial field, then mismatched comparison structures. Each has a distinct resolution.
+5. Pull back to the retained working structures. This represents shared engineering reasoning, not a claim that apps exchange data.
+6. The central substrate settles into the actual ARTIFACTS homepage. Decode the image before it is needed.
+7. Carry that same homepage element to the next stage. It resolves once and remains present. The destination stays invisible until it owns the element. Scrolling onward reveals the gallery.
 
-`genesis.js` drives `origin-construction.js` across 6.8 timeline units.
+No catalogue, real UI or application names before the final origin handoff. Keep the story almost wordless and the type legible against its dark ink/cobalt environment. No new story metaphor, tiled matrix, presentation-step diagram or conveyor.
 
-1. Enter a large bank of dimensional measurement profiles from the identity field. Registration initially works. Scale and material establish a working environment rather than a dashboard.
-2. One region loses registration. A useful relationship is interrupted. Quiet statement: **Some difficulty belongs to the work.**
-3. A reference moves deliberately into place. Registration returns. Hold the improved state before moving on. Quiet statement: **Some doesn’t.**
-4. Travel to sampled positions that become a continuous spatial field; then to mismatched comparison structures. Matching geometry settles; one meaningful change remains warm.
-5. Pull back. All three solved structures remain in one environment. This is philosophical continuity, not an assertion of real app integration.
-6. Approach the central substrate. It gains material and turns frontal. The real homepage occupies the same centre and dimensions. No app names or previews before this point.
-7. The same homepage DOM element transfers into the collection. Decode the real captures beforehand. It retreats as three, six, ten and finally sixteen surfaces arrive. Keep the chapter identity quiet; no utility toolbar or headline.
+## Application browsing
 
-No tiled matrix, five-principle diagram, repeated evidence reset, factory conveyor or screenshot catalogue in this chapter.
+The gallery is the primary application experience. Sixteen entries, in the exact ARTIFACTS order, two columns on desktop and one on mobile. Resting frames have different silhouettes. Names and engineering cues sit below the image, outside the animation.
 
-## Applications
+Hover/focus starts a 4–8 second preview. It develops and holds once, rather than looping frenetically. Leaving blends back to the authored poster. Mobile chooses one centered visible card. Reduced motion keeps static posters. Click/Enter opens the deeper film in a dialog; Escape/Back returns focus to the originating card without losing scroll position.
 
-Sixteen complete captures remain in the actual application order. The source region supplies an entry point, the interpretation develops, a decisive state holds for inspection, and the same full interface returns. Native vertical movement carries the outgoing capture into the next study instead of dissolving the entire stage to blank. Durations remain individually assigned.
+A detailed film retains full real interface → registered source region → cinematic interpretation → full interface. Only this chosen experience has playback and inspection controls. Original opens the complete fitted capture with a native-size option. No forced long scroll films remain in the main document.
 
-The visual roles are documented per app in ARTIFACTS_MOTION_REVIEW.md. The approved TopoTracer and Papyrus concepts are protected. The remaining studies use individual camera, geometry, time and evidence relationships.
+Application-specific logic and factual boundaries are in ARTIFACTS_MOTION_REVIEW.md.
 
-## Safe composition
+## Safe areas
 
-Metadata, primary statement, visual, inspection and transport own separate flow rows. Canvas labels occupy dedicated margins within the visual. Important marks must not collide with those labels. Input ranges never overlap imagery. Full captures use contain fitting. Scene samples must include intermediate states, not only final screenshots.
+Metadata, statement, visual, inspection and transport occupy separate rows in the detail dialog. Within the visual, labels have margins and do not compete with physical geometry. Mobile recomposes. Aspect ratios stay correct. Test every intermediate state, not merely endpoints.
 
-## Gene / the final time reference
+## Gene
 
-Metria's shared time reference becomes a restrained architectural rule. The reading slows. Four passages occupy successive held compositions with spatial entrance and departure, not paragraph opacity fades. The final statement stays, followed only by Gene, email and LinkedIn.
+The gallery gives way to stillness and a restrained architectural reference. Four held typographic compositions, with controlled spatial transitions. No pale paragraph fade sequence. End with only Gene, email and LinkedIn.
 
-Approved copy, verbatim:
+Approved wording, exact:
 
 > I spent my entire life improving processes.
 >
@@ -47,4 +47,4 @@ Approved copy, verbatim:
 >
 > ARTIFACTS is the evidence that I never accepted the way things were as the way they had to stay.
 
-No additional slogan, biography, job-title strip, footer branding or oversized Gene treatment. Reduced motion presents the passages in natural reading order.
+No additional slogan, job-title strip, oversized name, biography or repeated catalogue. Reduced motion and short viewports use natural document flow.

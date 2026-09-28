@@ -5,13 +5,32 @@
     "layout": "timeline",
     "pointer": "target",
     "inspect": "Inspect wafer interpretation",
-    "choices": ["Complete", "Partial", "Missing", "Excess", "Rerun"],
+    "choices": [
+      "Complete",
+      "Interrupted",
+      "Rerun"
+    ],
     "beats": [
-      [0, ""],
-      [0.135, "Thousands of events. One readable history."],
-      [0.335, ""],
-      [0.69, "Deposition, interpreted wafer by wafer."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "Thousands of events. One readable history."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.69,
+        "One evaluated history. No manual reconstruction."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "schedule": {
@@ -20,13 +39,34 @@
     "layout": "lanes",
     "pointer": "target",
     "inspect": "Inspect next-check reasoning",
-    "choices": ["A-M1", "D-M1", "A-M2", "B-M1", "C-M1"],
+    "choices": [
+      "A-M1",
+      "D-M1",
+      "A-M2",
+      "B-M1",
+      "C-M1"
+    ],
     "beats": [
-      [0, ""],
-      [0.135, "The next check should never be a guess."],
-      [0.335, ""],
-      [0.69, "History gives the next check its place."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "The next check should never be a guess."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.69,
+        "History gives the next check its place."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "usage": {
@@ -35,13 +75,32 @@
     "layout": "chambers",
     "pointer": "target",
     "inspect": "Inspect processed wafers",
-    "choices": ["Reactor A", "Reactor B", "Reactor C"],
+    "choices": [
+      "Reactor A",
+      "Reactor B",
+      "Reactor C"
+    ],
     "beats": [
-      [0, ""],
-      [0.135, "Every processed wafer counts."],
-      [0.335, ""],
-      [0.67, "Maintenance begins with knowing the load."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "Every processed wafer counts."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "Maintenance begins with knowing the load."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "surface": {
@@ -50,13 +109,32 @@
     "layout": "surface",
     "pointer": "x",
     "inspect": "Move the wafer section",
-    "choices": ["Lower region", "Centre region", "Upper region"],
+    "choices": [
+      "Lower region",
+      "Centre region",
+      "Upper region"
+    ],
     "beats": [
-      [0, ""],
-      [0.135, "A point is not the whole surface."],
-      [0.335, ""],
-      [0.67, "Variation, given its full dimension."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "A point is not the whole surface."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "Variation, given its full dimension."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "pathfinder": {
@@ -65,13 +143,32 @@
     "layout": "topology",
     "pointer": "target",
     "inspect": "Select a parameter",
-    "choices": ["Parameter A", "Parameter M", "Parameter Y"],
+    "choices": [
+      "Parameter A",
+      "Parameter M",
+      "Parameter Y"
+    ],
     "beats": [
-      [0, ""],
-      [0.135, "Skip the hierarchy."],
-      [0.335, ""],
-      [0.69, "Go straight to the chart."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "Skip the hierarchy. Go straight to the chart."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.69,
+        "Go straight to the chart."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "compile": {
@@ -80,13 +177,33 @@
     "layout": "assembly",
     "pointer": "target",
     "inspect": "Trace workbook input",
-    "choices": ["PL / Plato", "LayTec", "XRR", "XRD"],
+    "choices": [
+      "PL / Plato",
+      "LayTec",
+      "XRR",
+      "XRD"
+    ],
     "beats": [
-      [0, ""],
-      [0.135, "Different measurements."],
-      [0.335, ""],
-      [0.69, "One standardized engineering record."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "Different measurements."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.69,
+        "One standardized engineering record."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "diagnose": {
@@ -95,13 +212,32 @@
     "layout": "diagnostic",
     "pointer": "target",
     "inspect": "Inspect a recommended check",
-    "choices": ["Ceiling condition", "Optris settings", "LayTec / viewport"],
+    "choices": [
+      "Ceiling condition",
+      "Optris settings",
+      "LayTec / viewport"
+    ],
     "beats": [
-      [0, ""],
-      [0.135, "A symptom is the beginning."],
-      [0.335, ""],
-      [0.69, "Turn reactor symptoms into a directed investigation."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "A symptom is the beginning."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.69,
+        "Turn reactor symptoms into a directed investigation."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "arrange": {
@@ -110,14 +246,35 @@
     "layout": "physical",
     "pointer": "target",
     "inspect": "Inspect a baseplate",
-    "choices": ["BP1", "BP2", "BP3", "BP4", "BP5"],
+    "choices": [
+      "BP1",
+      "BP2",
+      "BP3",
+      "BP4",
+      "BP5"
+    ],
     "alternate": "Before / after",
     "beats": [
-      [0, ""],
-      [0.135, "Assignment becomes an optimisation problem."],
-      [0.335, ""],
-      [0.69, "Two exchanges. Re-evaluate each one."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "Assignment becomes an optimisation problem."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.69,
+        "Two exchanges. Re-evaluate each one."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "zones": {
@@ -126,13 +283,34 @@
     "layout": "registration",
     "pointer": "target",
     "inspect": "Inspect corresponding zones",
-    "choices": ["S1", "S2", "S3", "S4", "S5"],
+    "choices": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5"
+    ],
     "beats": [
-      [0, ""],
-      [0.135, "Know exactly where LayTec is measuring."],
-      [0.335, ""],
-      [0.69, "The region belongs to the wafer."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "Know exactly where LayTec is measuring."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.69,
+        "The region belongs to the wafer."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "configuration": {
@@ -141,13 +319,32 @@
     "layout": "hierarchy",
     "pointer": "target",
     "inspect": "Inspect a device property",
-    "choices": ["Popup", "EnableShow", "Number"],
+    "choices": [
+      "Popup",
+      "EnableShow",
+      "Number"
+    ],
     "beats": [
-      [0, ""],
-      [0.135, "Standardization starts with the difference."],
-      [0.335, ""],
-      [0.69, "Know exactly what changed."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "Standardization starts with the difference."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.69,
+        "Know exactly what changed."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "spc": {
@@ -177,11 +374,26 @@
       "Parameter 18"
     ],
     "beats": [
-      [0, ""],
-      [0.135, "Every parameter."],
-      [0.335, ""],
-      [0.69, "One continuous review."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "Every parameter."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.69,
+        "One continuous review."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "legacy": {
@@ -211,11 +423,26 @@
       "Parameter 18"
     ],
     "beats": [
-      [0, ""],
-      [0.135, "A different process history."],
-      [0.335, ""],
-      [0.69, "The same standard of review."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "A different process history."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.69,
+        "The same standard of review."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "planning": {
@@ -224,13 +451,32 @@
     "layout": "priority",
     "pointer": "target",
     "inspect": "Inspect workcentre",
-    "choices": ["Workcenter A", "Workcenter B", "Workcenter C"],
+    "choices": [
+      "Workcenter A",
+      "Workcenter B",
+      "Workcenter C"
+    ],
     "beats": [
-      [0, ""],
-      [0.135, "One schedule logic across every workcenter."],
-      [0.335, ""],
-      [0.69, "A due date has to be earned."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "One schedule logic across every workcenter."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.69,
+        "A due date has to be earned."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "report": {
@@ -239,14 +485,33 @@
     "layout": "extraction",
     "pointer": "target",
     "inspect": "Trace the selected output rows",
-    "choices": ["Analysis file", "Extracted rows", "Base workbook"],
+    "choices": [
+      "Analysis file",
+      "Extracted rows",
+      "Base workbook"
+    ],
     "alternate": "Source / appended",
     "beats": [
-      [0, ""],
-      [0.135, "The format can change."],
-      [0.335, ""],
-      [0.69, "The engineering context cannot."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "The format can change."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.69,
+        "The engineering context cannot."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "signals": {
@@ -255,14 +520,65 @@
     "layout": "synchronized",
     "pointer": "x",
     "inspect": "Move the shared time window",
-    "choices": ["Early interval", "Middle interval", "Late interval"],
+    "choices": [
+      "Early interval",
+      "Middle interval",
+      "Late interval"
+    ],
     "alternate": "Narrow / wide",
     "beats": [
-      [0, ""],
-      [0.135, "One clue stays visible."],
-      [0.335, ""],
-      [0.69, "The investigation expands around it."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "One clue stays visible."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.69,
+        "The investigation expands around it."
+      ],
+      [
+        0.88,
+        ""
+      ]
+    ]
+  },
+  "compare": {
+    "duration": 23500,
+    "length": 400,
+    "layout": "recipes",
+    "pointer": "target",
+    "inspect": "Inspect the recipe difference",
+    "choices": [
+      "Anneal duration"
+    ],
+    "beats": [
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "Find the change inside the recipe."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.69,
+        "The difference stays in context."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   }
 }

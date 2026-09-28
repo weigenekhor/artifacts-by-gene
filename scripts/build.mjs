@@ -1,5 +1,4 @@
 import { renderFilm } from "./film-markup.mjs";
-import { renderPapyrus } from "./papyrus-markup.mjs";
 import fs from "node:fs/promises";
 import { build } from "esbuild";
 const read = async (p) =>
@@ -7,7 +6,7 @@ const read = async (p) =>
 const { apps } = await read("content/apps.json"),
   features = await read("content/exhibition.json");
 const homepage = await read("content/homepage.json");
-const papyrus = await read("content/papyrus.json");
+const gallery = await read("content/gallery.json");
 const films = await read("content/films.json");
 const captureAudit = await read("assets/evidence/audit.json");
 const esc = (s) =>
@@ -16,7 +15,7 @@ const esc = (s) =>
     .replaceAll("<", "&lt;")
     .replaceAll('"', "&quot;");
 const lines = (s) => esc(s).replaceAll("\n", "<br>");
-const number = (n) => String(n).padStart(2, "0");
+
 let html = await fs.readFile("content/page.html", "utf8");
 const story = await read("content/story.json");
 html = html.replace(
@@ -33,7 +32,6 @@ html = html.replace(
   features
     .map((f, i) => {
       const a = apps.find((a) => a.id === f.id);
-      if (f.kind === "compare") return renderPapyrus(a, papyrus, esc);
       return renderFilm(
         a,
         f,
@@ -45,32 +43,12 @@ html = html.replace(
     .join(""),
 );
 html = html.replace(
-  "<!-- STUDY OPTIONS -->",
+  "<!-- GALLERY -->",
   features
-    .map(
-      (f) =>
-        `<option value="${f.kind}">${f.number} — ${esc(apps.find((a) => a.id === f.id).name)}</option>`,
-    )
-    .join(""),
-);
-html = html.replace(
-  "<!-- PICKER -->",
-  features
-    .map((f, i) => {
-      const a = apps.find((a) => a.id === f.id);
-      return (
-        '<a href="#' +
-        f.kind +
-        '" data-study-jump="' +
-        f.kind +
-        '"><span>' +
-        number(i + 1) +
-        "</span><div><b>" +
-        esc(a.name) +
-        "</b><small>" +
-        esc(a.description) +
-        '</small></div><i aria-hidden="true">↗</i></a>'
-      );
+    .map((f) => {
+      const app = apps.find((a) => a.id === f.id),
+        card = gallery[f.kind];
+      return `<a class="gallery-card ${f.kind === "surface" ? "gallery-paper" : ""}" href="${esc(app.evidence.full)}" data-film="${f.kind}" style="--accent:${card.accent}" aria-label="Explore ${esc(app.name)}"><div class="gallery-art ${f.kind === "surface" ? "topography" : ""}" aria-hidden="true"><img class="gallery-fallback" src="${esc(app.evidence.full)}" width="${app.evidence.fullWidth}" height="${app.evidence.fullHeight}" loading="lazy" alt=""><canvas class="gallery-poster"></canvas><canvas class="gallery-preview"></canvas><span class="gallery-open">↗</span></div><div class="gallery-caption"><span class="gallery-number">${f.number}</span><div><h3>${esc(app.name)}</h3><p>${esc(card.cue)}</p></div><span class="gallery-evidence">View the film ↗</span></div></a>`;
     })
     .join(""),
 );

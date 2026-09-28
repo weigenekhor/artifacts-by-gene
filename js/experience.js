@@ -1,191 +1,157 @@
 import { createEpilogue } from "./epilogue.js";
 import { createGenesis } from "./genesis.js";
-import { apps, homepage } from "./apps.js";
+import { createGallery } from "./gallery.js";
 import { createStudy } from "./studies.js";
-import { createHero } from "./hero.js";
-import { createHeroInteraction } from "./hero-interaction.js";
+import { apps, homepage } from "./apps.js";
 const $ = (s) => document.querySelector(s),
   $$ = (s) => [...document.querySelectorAll(s)],
-  clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v)),
-  ease = (v) => {
-    v = clamp(v);
-    return v * v * (3 - 2 * v);
-  };
+  clamp = (v) => Math.max(0, Math.min(1, v));
 const root = document.documentElement,
   hero = $(".genesis"),
-  toolsSection = $(".tools-entry"),
-  features = $$(".feature");
-const collection = [homepage, ...apps];
-const studies = features.map((el) => createStudy(el, wake));
-const genesis = createGenesis(hero, wake);
-const toolsScene = createHero($("#tools-universe"), apps, wake);
-const epilogue = createEpilogue(document.querySelector("#gene"));
-let heroMoving = false,
-  toolsMoving = false,
-  toolsTop = 0,
-  toolsHeight = 1;
-const preference = matchMedia("(prefers-reduced-motion: reduce)");
-let reduced = preference.matches,
-  raf = 0,
+  tools = $(".tools-entry"),
+  features = $$(".feature"),
+  detail = $("#film-detail"),
+  collection = [homepage, ...apps];
+let raf = 0,
   last = 0,
+  frames = 0,
   px = 0,
   py = 0,
   tx = 0,
   ty = 0,
-  featureBounds = [],
-  renderCount = 0;
-
+  toolsTop = 0,
+  active = -1,
+  progress = 0,
+  playback = null,
+  returnCard = null;
+const studies = features.map(() => null),
+  preference = matchMedia("(prefers-reduced-motion: reduce)");
+let reduced = preference.matches;
 root.classList.add("enhanced");
-const toolsInteraction = createHeroInteraction($("#tools-universe"), wake);
-function syncMotion() {
-  reduced = preference.matches;
-  if (reduced) stopPlayback();
-  root.classList.toggle("reduced", reduced);
-  measure();
-}
-preference.addEventListener("change", syncMotion);
+const genesis = createGenesis(hero, wake),
+  epilogue = createEpilogue($("#gene")),
+  gallery = createGallery($(".app-gallery"), wake, openFilm);
 function measure() {
-  const y = scrollY;
   genesis.measure();
   epilogue.measure();
-  toolsScene.resize();
-  toolsTop = toolsSection.offsetTop;
-  toolsHeight = toolsSection.offsetHeight;
-  featureBounds = features.map((el) => ({
-    top: el.getBoundingClientRect().top + y,
-    height: el.offsetHeight,
-    stage: el.firstElementChild.offsetHeight,
-  }));
+  toolsTop = tools.offsetTop;
+  gallery.measure();
   wake();
 }
-$("#study-select").addEventListener("change", (e) => {
-  const section = document.getElementById(e.target.value);
-  section.scrollIntoView({ behavior: reduced ? "instant" : "smooth" });
-  history.replaceState(null, "", "#" + e.target.value);
-});
-const manualProgress = new Map();
-let playback = null;
+function syncMotion() {
+  reduced = preference.matches;
+  root.classList.toggle("reduced", reduced);
+  if (reduced) stopPlayback();
+  measure();
+}
 function stopPlayback() {
-  if (!playback) return;
-  const b = features[playback.index].querySelector(".study-play");
-  b.setAttribute("aria-pressed", "false");
-  b.innerHTML = "<span class=play-symbol aria-hidden=true></span> Play";
+  if (active >= 0) {
+    const b = features[active].querySelector(".study-play");
+    b.setAttribute("aria-pressed", "false");
+    b.innerHTML = '<span class="play-symbol" aria-hidden="true"></span> Play';
+  }
   playback = null;
 }
-features.forEach((el, index) =>
+function openFilm(kind, source) {
+  const next = features.findIndex((e) => e.id === kind);
+  if (next < 0) return;
+  stopPlayback();
+  if (active >= 0) features[active].classList.remove("is-open");
+  active = next;
+  progress = 0;
+  returnCard = source || document.querySelector(`[data-film="${kind}"]`);
+  features[active].classList.add("is-open");
+  features[active].firstElementChild.inert = false;
+  $("#detail-name").textContent = apps.find(
+    (a) => a.id === features[active].dataset.studyApp,
+  ).name;
+  if (!detail.open) detail.showModal();
+  document.body.style.overflow = "hidden";
+  studies[active] ??= createStudy(features[active], wake);
+  const image = features[active].querySelector(".film-capture img");
+  image.loading = "eager";
+  image.decode().catch(() => {});
+  history.replaceState(null, "", "#" + kind);
+  detail.scrollTop = 0;
+  $("#detail-close").focus({ preventScroll: true });
+  wake();
+}
+function closeFilm() {
+  if (detail.open) detail.close();
+}
+$("#detail-close").addEventListener("click", closeFilm);
+$("#detail-back").addEventListener("click", (e) => {
+  e.preventDefault();
+  closeFilm();
+});
+detail.addEventListener("close", () => {
+  stopPlayback();
+  features[active]?.classList.remove("is-open");
+  active = -1;
+  document.body.style.overflow = "";
+  history.replaceState(null, "", "#collection");
+  returnCard?.focus({ preventScroll: true });
+  wake();
+});
+features.forEach((el, i) => {
   el.querySelector(".study-play").addEventListener("click", () => {
-    const same = playback?.index === index;
+    const was = !!playback;
     stopPlayback();
-    if (same) {
+    if (was) {
       wake();
       return;
     }
-    playback = {
-      index,
-      start: performance.now(),
-      duration: Number(el.dataset.playbackMs) || 17000 + (index % 3) * 900,
-    };
-    el.querySelector(".study-play").setAttribute("aria-pressed", "true");
-    el.querySelector(".study-play").innerHTML =
-      "<span class=pause-symbol aria-hidden=true></span> Pause";
-    manualProgress.set(index, 0);
+    progress = 0;
+    playback = { start: performance.now(), duration: +el.dataset.playbackMs };
+    const b = el.querySelector(".study-play");
+    b.setAttribute("aria-pressed", "true");
+    b.innerHTML = '<span class="pause-symbol" aria-hidden="true"></span> Pause';
     wake();
-  }),
-);
-features.forEach((el, i) =>
+  });
   el.querySelector(".study-control input").addEventListener("input", (e) => {
     stopPlayback();
-    manualProgress.set(i, Number(e.target.value) / 100);
+    progress = +e.target.value / 100;
     wake();
-  }),
-);
+  });
+});
 function tick(time) {
   raf = 0;
   if (document.hidden) return;
   const dt = Math.min(50, time - last || 16);
   last = time;
-  renderCount++;
+  frames++;
   const y = scrollY;
   px += (tx - px) * (1 - Math.exp(-dt / 160));
   py += (ty - py) * (1 - Math.exp(-dt / 160));
-  heroMoving = genesis.update(y, time, dt, px, py, reduced);
-  epilogue.update(y, reduced);
-  if (y + innerHeight * 2.5 > toolsTop) toolsScene.prewarm();
-  toolsMoving = false;
-  if (y + innerHeight > toolsTop && y < toolsTop + toolsHeight) {
-    const arrival = reduced ? 1 : Number(y >= toolsTop);
-    const toolsStage = toolsSection.firstElementChild;
-    toolsStage.style.setProperty("--collection-arrival", arrival);
-    toolsStage.style.setProperty(
-      "--collection-labels",
-      ease((arrival - 0.65) / 0.35),
-    );
-    toolsStage.style.transform = reduced
-      ? "none"
-      : `translateY(${-Math.max(0, toolsTop - y)}px)`;
-    toolsStage.inert = !reduced && arrival < 0.8;
-    const p = clamp((y - toolsTop) / Math.max(1, toolsHeight - innerHeight));
-    const interaction = toolsInteraction.update(dt, reduced);
-    toolsMoving =
-      toolsScene.render(time, p, px, py, reduced, dt, interaction, arrival) ||
-      interaction.moving;
+  let moving = false;
+  if (!detail.open) {
+    moving = genesis.update(y, time, dt, px, py, reduced);
+    epilogue.update(y, reduced);
+    const stage = tools.firstElementChild,
+      arrived = reduced || y >= toolsTop;
+    stage.style.setProperty("--collection-arrival", arrived ? 1 : 0);
+    stage.style.setProperty("--collection-labels", arrived ? 1 : 0);
+    stage.inert = !arrived;
   }
-  if (playback) {
-    const p = clamp((time - playback.start) / playback.duration);
-    manualProgress.set(playback.index, p);
-    if (p === 1) stopPlayback();
+  moving = gallery.update(y, dt, reduced, detail.open) || moving;
+  if (active >= 0) {
+    if (playback) {
+      progress = clamp((time - playback.start) / playback.duration);
+      if (progress === 1) stopPlayback();
+    }
+    moving =
+      studies[active].update(progress, dt, reduced, true, px, py) ||
+      moving ||
+      !!playback;
   }
-  let studyMoving = Boolean(playback);
-  features.forEach((el, i) => {
-    const b = featureBounds[i];
-    if (y + innerHeight < b.top || y > b.top + b.height) return;
-    const manual = manualProgress.has(i),
-      p = manual
-        ? manualProgress.get(i)
-        : reduced
-          ? 1
-          : clamp(
-              (y - b.top + innerHeight * 0.18) /
-                (Math.max(
-                  innerHeight * 0.7,
-                  b.height - b.stage - innerHeight * 0.32,
-                ) +
-                  innerHeight * 0.18),
-            );
-    const leaving = reduced
-      ? 1
-      : 1 -
-        ease(
-          (y - (b.top + b.height - b.stage - innerHeight * 0.08)) /
-            (innerHeight * 0.22),
-        );
-    el.style.setProperty("--film-presence", 1);
-    el.firstElementChild.inert = !reduced && leaving < 0.05;
-    studyMoving =
-      studies[i].update(p, dt, reduced, manual, px, py) || studyMoving;
-  });
-  if (
-    heroMoving ||
-    toolsMoving ||
-    studyMoving ||
-    Math.abs(px - tx) + Math.abs(py - ty) > 0.001
-  )
-    wake();
+  if (moving || Math.abs(px - tx) + Math.abs(py - ty) > 0.001) wake();
 }
-
 function wake() {
   if (!raf && !document.hidden) raf = requestAnimationFrame(tick);
 }
-addEventListener(
-  "scroll",
-  () => {
-    stopPlayback();
-    manualProgress.clear();
-    wake();
-  },
-  { passive: true },
-);
+addEventListener("scroll", wake, { passive: true });
 addEventListener("resize", measure, { passive: true });
+preference.addEventListener("change", syncMotion);
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) {
     cancelAnimationFrame(raf);
@@ -207,36 +173,6 @@ if (matchMedia("(pointer:fine)").matches) {
     wake();
   });
 }
-const picker = $("#study-picker");
-let pickerFocus = null;
-$$(".study-menu").forEach((b) =>
-  b.addEventListener("click", () => {
-    pickerFocus = b;
-    stopPlayback();
-    picker.showModal();
-    document.body.style.overflow = "hidden";
-  }),
-);
-$("#picker-close").addEventListener("click", () => picker.close());
-picker.addEventListener("close", () => {
-  document.body.style.overflow = "";
-  pickerFocus?.focus({ preventScroll: true });
-});
-$$("[data-study-jump]").forEach((a) =>
-  a.addEventListener("click", () => picker.close()),
-);
-picker.addEventListener("click", (e) => {
-  if (e.target === picker) {
-    const r = picker.getBoundingClientRect();
-    if (
-      e.clientX < r.left ||
-      e.clientX > r.right ||
-      e.clientY < r.top ||
-      e.clientY > r.bottom
-    )
-      picker.close();
-  }
-});
 const dialog = $("#capture"),
   capture = $("#capture-image"),
   viewport = $(".capture-viewport");
@@ -265,6 +201,10 @@ $$("[data-capture]").forEach((b) =>
   b.addEventListener("click", () => openCapture(b.dataset.capture)),
 );
 $("#capture-close").addEventListener("click", () => dialog.close());
+dialog.addEventListener("close", () => {
+  document.body.style.overflow = detail.open ? "hidden" : "";
+  returnFocus?.focus({ preventScroll: true });
+});
 dialog.addEventListener("click", (e) => {
   if (e.target === dialog) {
     const r = dialog.getBoundingClientRect();
@@ -277,20 +217,17 @@ dialog.addEventListener("click", (e) => {
       dialog.close();
   }
 });
-dialog.addEventListener("close", () => {
-  document.body.style.overflow = "";
-  returnFocus?.focus({ preventScroll: true });
-});
 $("#pixel-view").addEventListener("click", () => {
   native = !native;
   viewport.classList.toggle("native", native);
   $("#pixel-view").setAttribute("aria-pressed", String(native));
   $("#pixel-view").textContent = native ? "Fit to view" : "View actual size";
 });
-$$('a[href^="#"]:not([data-jump])').forEach((a) =>
+$$('a[href^="#"]:not([data-film])').forEach((a) =>
   a.addEventListener("click", (e) => {
+    if (a.id === "detail-back") return;
     const to = document.getElementById(a.hash.slice(1));
-    if (to) {
+    if (to && !to.classList.contains("feature")) {
       e.preventDefault();
       to.scrollIntoView({ behavior: reduced ? "instant" : "smooth" });
       history.replaceState(null, "", a.hash);
@@ -298,16 +235,15 @@ $$('a[href^="#"]:not([data-jump])').forEach((a) =>
   }),
 );
 function hashNavigate() {
-  if (location.hash.startsWith("#app-")) {
-    const id = location.hash.slice(5),
-      el = features.find((el) => el.dataset.studyApp === id);
-    if (el) el.scrollIntoView({ behavior: "instant" });
-    else if (id === "homepage")
-      toolsSection.scrollIntoView({ behavior: "instant" });
-  }
+  const key = location.hash.slice(1),
+    match = features.find(
+      (e) => e.id === key || e.dataset.studyApp === key.replace(/^app-/, ""),
+    );
+  if (match) openFilm(match.id);
 }
 measure();
 syncMotion();
+document.fonts.ready.then(measure);
 addEventListener(
   "load",
   () => {
@@ -321,21 +257,22 @@ addEventListener("pagehide", () => {
   cancelAnimationFrame(raf);
   raf = 0;
 });
-addEventListener("pageshow", (event) => {
-  if (event.persisted) measure();
+addEventListener("pageshow", (e) => {
+  if (e.persisted) measure();
 });
 window.artifactsExperience = {
   get heroState() {
     return genesis.state;
   },
-  get toolsState() {
-    return toolsInteraction.state;
-  },
   get reduced() {
     return reduced;
   },
   get frames() {
-    return renderCount;
+    return frames;
+  },
+  get gallery() {
+    return gallery.state;
   },
   openCapture,
+  openFilm,
 };

@@ -6,8 +6,8 @@ The older `sourceQuality` / `needsRecapture` fields at app level describe files 
 
 ## Sources reviewed
 
-- Fourteen populated PNG captures: 1425 × 950, encoded losslessly as WebP.
-- Updated Papyrus Reader: 1531 × 1002, encoded losslessly as WebP.
+- Fifteen populated PNG captures: 1425 × 950, encoded losslessly as WebP.
+- Papyrus Reader now uses the current 1425 × 950 recipe-text comparison (Ref.txt / Golden HEMT Coat.txt).
 - Metria SPC: populated native 3840 × 2160 capture, now used for the collection, film and original viewer. Its newer 1425 × 950 capture remains preserved as `metria-spc/full.webp`.
 - Six other native 4K archive captures: Papyrus, temperature diagnosis, AIX, XML and both Magus tools. These are entry/empty states. They were not substituted for the populated evidence simply to increase pixel dimensions.
 
@@ -21,7 +21,7 @@ The current files are genuine and usable. To resolve the remaining fullscreen/Re
 | Altus ANKO Viewer  | Multiple equipment schedules with dates                    |
 | Altus WaferCount   | Populated chamber usage counters                           |
 | TopoTracer         | Loaded samples and the rendered topographic field          |
-| Papyrus Reader     | The current paired XML comparison, with differences        |
+| Papyrus Reader     | The current paired recipe-text comparison, with differences        |
 | SPC Pathfinder     | Workcentre, group and parameter navigation                 |
 | GaN Met Compiler   | LayTec, PL/Plato, XRR and XRD inputs and workbook activity |
 | GaN Temp Diagnoser | Process/clean observations and recommended checks          |

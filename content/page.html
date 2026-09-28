@@ -37,8 +37,9 @@
     <link rel="stylesheet" href="entry.css" />
     <link rel="stylesheet" href="genesis.css" />
     <link rel="stylesheet" href="origin.css" />
-    <link rel="stylesheet" href="papyrus.css" />
+
     <link rel="stylesheet" href="films.css" />
+    <link rel="stylesheet" href="gallery.css" />
     <script type="module" src="script.js"></script>
   </head>
   <body>
@@ -90,7 +91,9 @@
             </svg>
           </div>
           <div class="genesis-intro">
-            <p class="genesis-kicker">A software suite by Weigenekhor</p>
+            <p class="genesis-kicker">
+              Software that moves engineering forward.
+            </p>
             <h1 id="hero-title">ARTIFACTS</h1>
             <div class="genesis-opening">
               <p>Built for engineering where almost right is still wrong.</p>
@@ -114,29 +117,16 @@
           </div>
         </div>
       </section>
-      <section
-        class="tools-entry"
-        id="collection"
-        aria-labelledby="tools-title"
-      >
+      <section class="tools-entry" aria-label="ARTIFACTS software environment">
         <div class="tools-stage">
-          <div class="tools-heading" id="work">
+          <div class="tools-heading">
             <p class="eyebrow">02 / The applications</p>
-            <h2 id="tools-title" class="sr-only">
-              The complete ARTIFACTS collection
-            </h2>
           </div>
-          <div
-            id="tools-universe"
-            class="application-universe"
-            tabindex="0"
-            role="group"
-            aria-label="The complete application collection. Drag or use arrow keys to rotate. Enter opens the assembly."
-          >
+          <div id="tools-universe" class="application-universe">
             <button
               class="collection-home"
               data-capture="homepage"
-              aria-label="View the complete ARTIFACTS homepage"
+              aria-label="Inspect the ARTIFACTS homepage"
             >
               <img
                 src="assets/evidence/homepage/full.webp"
@@ -144,24 +134,29 @@
                 height="950"
                 loading="eager"
                 decoding="async"
-                alt="ARTIFACTS homepage with the application collection"
+                alt="The real ARTIFACTS application homepage"
               />
-              <span>ARTIFACTS <i>The complete environment ↗</i></span>
             </button>
           </div>
-
-          <a class="begin-studies" href="#history"
-            >Enter the first application <span aria-hidden="true">↓</span></a
+          <a class="begin-studies" href="#collection"
+            >Explore the applications <span aria-hidden="true">↓</span></a
           >
         </div>
       </section>
-      <div class="study-index" id="study-index">
-        <label for="study-select">Inside the work <span>01—16</span></label
-        ><select id="study-select">
-          <!-- STUDY OPTIONS --></select
-        ><a href="#collection">Go to the interfaces ↗</a>
-      </div>
-      <!-- FEATURES -->
+      <section
+        class="app-gallery"
+        id="collection"
+        aria-labelledby="gallery-title"
+      >
+        <header class="gallery-heading">
+          <div>
+            <p class="eyebrow">The collection / 01—16</p>
+            <h2 id="gallery-title">Inside ARTIFACTS.</h2>
+          </div>
+          <p>Sixteen engineering applications.</p>
+        </header>
+        <div class="gallery-grid"><!-- GALLERY --></div>
+      </section>
       <section class="creator" id="gene" aria-labelledby="creator-title">
         <div class="creator-stage">
           <canvas class="creator-residue" aria-hidden="true"></canvas>
@@ -195,22 +190,15 @@
       </section>
     </main>
 
-    <dialog id="study-picker" aria-labelledby="picker-title">
-      <div class="picker-heading">
-        <div>
-          <p class="eyebrow">Inside the work</p>
-          <h2 id="picker-title">Choose your starting point.</h2>
-        </div>
-        <button id="picker-close" aria-label="Close application index">
+    <dialog id="film-detail" aria-label="Application film">
+      <div class="detail-toolbar">
+        <a href="#collection" id="detail-back">← The collection</a
+        ><span id="detail-name"></span
+        ><button id="detail-close" aria-label="Close application film">
           ×
         </button>
       </div>
-      <nav class="picker-list" aria-label="Application studies">
-        <!-- PICKER -->
-      </nav>
-      <p class="picker-note">
-        Sixteen tools. Follow the sequence, or enter anywhere.
-      </p>
+      <!-- FEATURES -->
     </dialog>
     <dialog id="capture" aria-labelledby="capture-title">
       <div class="capture-toolbar">

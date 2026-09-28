@@ -1,7 +1,7 @@
 import { space, mix, ease } from "./space.js";
 const at = (p, s, l) => ease((p - s) / l),
-  blue = [64, 138, 172],
-  silver = [152, 171, 181],
+  blue = [55, 156, 187],
+  silver = [155, 188, 203],
   amber = [212, 164, 96],
   ink = [25, 43, 55];
 // An inhabited measurement volume. Three retained operations share one camera and material field.
@@ -26,11 +26,11 @@ export function drawOrigin(ctx, { width: w, height: h, p, px = 0, py = 0 }) {
   );
   bg.addColorStop(
     0,
-    `rgb(${mix(18, 222, light)},${mix(30, 233, light)},${mix(39, 236, light)})`,
+    `rgb(${mix(18, 35, light)},${mix(30, 62, light)},${mix(39, 79, light)})`,
   );
   bg.addColorStop(
     1,
-    `rgb(${mix(5, 149, light)},${mix(10, 174, light)},${mix(15, 187, light)})`,
+    `rgb(${mix(5, 9, light)},${mix(10, 19, light)},${mix(15, 29, light)})`,
   );
   ctx.fillStyle = bg;
   ctx.fillRect(0, 0, w, h);
@@ -65,17 +65,17 @@ export function drawOrigin(ctx, { width: w, height: h, p, px = 0, py = 0 }) {
   for (let j = 0; j < 17; j++) {
     const y = -168 + j * 21,
       points = [];
-    for (let i = 0; i <= 70; i++) {
-      const u = i / 70,
+    for (let i = 0; i <= 48; i++) {
+      const u = i / 48,
         x = -300 + u * 600,
-        shift = i > 35 ? fault * (1 - repair) * 55 : 0;
+        shift = u > 0.5 ? fault * (1 - repair) * 55 : 0;
       const z =
         30 +
         58 * Math.exp(-(((u - 0.36) * 4) ** 2)) +
         Math.sin(u * 10 + j * 0.06) * 16;
       points.push([x, y + shift, z]);
     }
-    for (let i = 0; i < 70; i++)
+    for (let i = 0; i < 48; i++)
       g.poly(
         [
           [points[i][0], points[i][1], -16],
@@ -169,7 +169,7 @@ export function drawOrigin(ctx, { width: w, height: h, p, px = 0, py = 0 }) {
     ww = Math.min(w * (mobile ? 0.8 : 0.38), 640),
     hh = ww / 1.5;
   g.draw();
-  const base = [mix(5, 149, light), mix(10, 174, light), mix(15, 187, light)]
+  const base = [mix(5, 9, light), mix(10, 19, light), mix(15, 29, light)]
     .map(Math.round)
     .join(",");
   const lower = ctx.createLinearGradient(0, h * 0.7, 0, h * 0.92);
