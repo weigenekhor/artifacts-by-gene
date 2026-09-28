@@ -5,7 +5,7 @@ const { apps } = JSON.parse(await fs.readFile("content/apps.json", "utf8"));
 const homepage = JSON.parse(await fs.readFile("content/homepage.json", "utf8"));
 const escape = value => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll('"', "&quot;");
 const gallerySizes = "(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)";
-const heroSizes = "(min-width: 1392px) 1296px, (min-width: 1024px) calc(100vw - 96px), (min-width: 768px) calc(100vw - 64px), (max-width: 359px) calc(100vw - 32px), calc(100vw - 40px)";
+const heroSizes = "(min-width: 1056px) 960px, (min-width: 1024px) calc(100vw - 96px), (min-width: 768px) calc(100vw - 64px), (max-width: 359px) calc(100vw - 32px), calc(100vw - 40px)";
 const image = (capture, alt, sizes, priority = false) => `<img src="${escape(capture.src)}" srcset="${capture.sources.map(s => `${escape(s.src)} ${s.width}w`).join(", ")}" sizes="${sizes}" width="${capture.width}" height="${capture.height}" alt="${escape(alt)}" loading="${priority ? "eager" : "lazy"}" ${priority ? 'fetchpriority="high" ' : ''}decoding="async">`;
 
 if (apps.length !== 16 || apps.some((a, i) => a.index !== i + 1)) throw Error("Expected sixteen applications in canonical order.");
