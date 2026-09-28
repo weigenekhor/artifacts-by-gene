@@ -1,6 +1,6 @@
 # ARTIFACTS — Visual Design System
 
-Version 1.2 · 28 September 2026 · Fluid chapters, software reserved for the exhibition
+Version 1.3 · 28 September 2026 · Editorial Gene closing chapter
 
 ## 1. Authority and scope
 
@@ -78,7 +78,7 @@ Sizes below are CSS pixels at a 16px browser default; implement them in rem. Bre
 
 - ARTIFACTS occupies one natural line at default sizing, without masks or fitting transforms; allow reflow under enlarged user fonts. Its supporting sentence uses `type.lead`, at most 28ch. Section headings: at most 24ch. Body maximum: 54ch. All measures shrink to available width.
 - Hero, section and application titles are sentence case. ARTIFACTS retains uppercase. Avoid all-caps paragraphs and excessive tracking.
-- Navigation uses `type.caption` at weight 500. The quiet Gene attribution uses `type.body`; it does not become a giant name treatment.
+- Navigation uses `type.caption` at weight 500. The quiet Gene attribution uses the 16px closing-strip size defined in section 7; it does not become a giant name treatment.
 - Application numbers use `type.meta` with tabular numerals. Monospace is unnecessary; if genuine technical metadata later requires it, use `ui-monospace` for that metadata alone.
 - Use `text-wrap: balance` on short headings as an enhancement, with natural wrapping as fallback. Body text stays left-aligned, never justified.
 - No manual line breaks that force desktop compositions onto mobile. The two approved Gene action sentences may retain their paragraph break.
@@ -191,11 +191,21 @@ Light canvas, one section heading and the continuous gallery defined above. No i
 
 If a source image cannot be confidently identified, report the missing asset; never substitute a different app or fabricated screen. Keep the app's place in the content model.
 
-### Gene — a quiet reading section
+### Gene — a quiet editorial closing chapter
 
-Ink surface. Use one centred reading column, at most 704px wide, with copy at most 54ch and natural full-width reflow on smaller screens. No screenshot, archive, illustration, portrait, skills list or app demo. The gallery's light surface flattens into the dark chapter using the same background-only edge as Origin → Applications. Keep the exact Gene copy entirely still.
+Flat ink surface. Use one primary editorial block, not a two-column composition or centred article. At desktop, begin 16% into the shared inner container, using its remaining 84% up to a maximum of 1040px. At tablet and mobile, use the full inner width with the existing gutters. Do not add a visual column, screenshot, archive, illustration, portrait, marker, hairline, logo or filler. The transition from Applications is a simple light-to-ink boundary; no curved edge, wipe or scroll-driven motion in Gene.
 
-Preserve the following wording and punctuation exactly. Paragraph breaks are intentional; the paired action sentences may use separate lines. Use `type.lead` for the first paragraph and `type.body` for the rest, with 24px paragraph gaps. Do not enlarge every sentence into a separate scene.
+Preserve the following wording and punctuation exactly. Paragraph breaks are intentional; the paired action sentences retain their line break. Gene has its own scoped editorial type scale, overriding the ordinary lead/body sizes only in this closing chapter:
+
+| Gene type | ≥1440px | 1024–1439px | 768–1023px | <768px |
+| --- | ---: | ---: | ---: | ---: |
+| Opening statement | 64px | 56px | 48px | clamp(36px, 9.8vw, 42px) |
+| Body | 24px | 22px | 20px | 18px |
+| Closing strip | 16px | 16px | 16px | 16px |
+
+Implement fixed sizes in rem. Opening: weight 500, line-height 1.1, tracking -.03em, maximum 18ch, balanced natural wrapping. It is the chapter heading, with no forced desktop line breaks. Body: weight 400, line-height 1.55, maximum 50ch, left aligned. The action pair uses weight 500 and warm white; the final paragraph also uses warm white. Other body text uses inverse-secondary. Do not mask or clip any copy.
+
+Desktop spacing: opening-to-body 48px, normal paragraph gaps 32px, gap before conclusion 40px. Tablet uses 40px, 24px and 32px. Mobile uses 32px, 24px and 32px. Gene top padding: 112px large desktop, 96px laptop, 80px tablet and 64px mobile. Height is content-driven; no artificial minimum viewport or empty column.
 
 > I spent my entire life improving processes.
 >
@@ -206,11 +216,13 @@ Preserve the following wording and punctuation exactly. Paragraph breaks are int
 >
 > ARTIFACTS is the evidence that I never accepted the way things were as the way they had to stay.
 
-Keep every word visible and still in natural flow. No masks, text animation, staged swaps, clipping, pinning, decorative boxes, additional biography or closing slogan. A quiet visible Gene heading follows the final sentence as the signature.
+Keep every word visible and still in natural flow. No masks, text animation, staged swaps, clipping, pinning, decorative boxes, additional biography or closing slogan. Gene is removed from the scroll-motion timeline. The completed static composition is the intended experience, including without JavaScript and with reduced motion.
 
 ### End
 
-Continue the Gene ink surface without a new visual scene. Place essential contacts below the signature, aligned to the reading column on desktop and naturally stacked on small screens. Gene bottom padding is 32px; footer bottom padding 64px. Essential contacts only: [weigenekhor@gmail.com](mailto:weigenekhor@gmail.com) and [LinkedIn](https://www.linkedin.com/in/weigenekhor/). Use `type.body`, clear link treatment and wrapping. Gene attribution and a discreet top link are sufficient. Do not add another catalogue, oversized wordmark or marketing footer. End in stillness.
+Continue the Gene ink surface into one integrated closing strip: Gene, [weigenekhor@gmail.com](mailto:weigenekhor@gmail.com), [LinkedIn](https://www.linkedin.com/in/weigenekhor/) and Back to top. Use the same editorial alignment as the copy. Desktop/tablet: one baseline where space permits, 32px horizontal gaps, Back to top pushed to the far right. Allow natural wrapping at enlarged font sizes. Mobile: stack in that order, 8px gaps, plus 8px before Back to top. All links have at least 44px hit height. Gene is a quiet attribution, not another heading.
+
+Place the strip 56px after the conclusion on desktop, 48px on tablet and 40px on mobile. Bottom padding: 96px large desktop, 80px laptop/tablet and 64px mobile. No separate gap between Gene and the footer, additional catalogue, oversized wordmark or closing slogan. End in stillness.
 
 ## 8. Interaction tokens
 

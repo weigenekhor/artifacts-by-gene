@@ -92,7 +92,6 @@ main:focus-visible .hero-title { outline: 2px solid var(--accent-on-light); outl
 .surface-turn { height: var(--surface-depth); margin-bottom: calc(var(--section-pad) - var(--surface-depth)); pointer-events: none; }
 .surface-turn svg { width: 100%; height: 100%; transform-origin: top; transform: scaleY(calc(1 - var(--chapter-enter))); }
 .applications .surface-turn { fill: var(--surface-ink); }
-.gene .surface-turn { fill: var(--surface-canvas); }
 .applications { padding-bottom: var(--section-pad); }
 .applications .section-heading { transform: translateY(calc((1 - var(--chapter-settle)) * var(--travel))); }
 .section-heading { margin-bottom: var(--title-gap); }
@@ -106,23 +105,30 @@ main:focus-visible .hero-title { outline: 2px solid var(--accent-on-light); outl
 .media-stage { display: flex; justify-content: center; align-items: center; aspect-ratio: 3 / 2; padding: var(--media-inset); background: var(--surface-media); }
 .media-stage img { width: 100%; height: 100%; object-fit: contain; border-radius: 2px; box-shadow: 0 6px 20px rgba(23,25,28,.08); }
 .application-value { margin-top: 1.25rem; color: var(--secondary); max-width: 54ch; }
-.gene { padding-bottom: 2rem; }
-.reading-column, .footer-content { width: min(44rem, 100%); margin-inline: auto; min-width: 0; }
-.gene-signature { margin-top: 2rem; font-size: var(--type-body); font-weight: 500; }
-.gene-copy { max-width: 54ch; }
+.gene { --gene-statement: clamp(2.25rem, 9.8vw, 2.625rem); --gene-body: 1.125rem; padding-top: 4rem; }
+.gene-editorial { width: 100%; min-width: 0; }
+.gene-copy { font-size: var(--gene-body); line-height: 1.55; }
+.gene-opening { max-width: 18ch; font-size: var(--gene-statement); font-weight: 500; line-height: 1.1; letter-spacing: -.03em; text-wrap: balance; }
+.gene-copy p { max-width: 50ch; color: var(--secondary); }
+.gene-copy .gene-opening + p { margin-top: 2rem; }
 .gene-copy p + p { margin-top: 1.5rem; }
-.gene-copy .lead { font-size: var(--type-lead); line-height: 1.5; letter-spacing: -.01em; }
-.gene-copy p:not(.lead) { color: var(--secondary); }
-.site-footer { padding-block: 0 4rem; }
-.footer-inner { display: grid; }
-.footer-content { display: grid; gap: 2rem; }
-.contact-links { display: flex; align-items: baseline; gap: .5rem 2rem; flex-wrap: wrap; }
-.contact-links a, .back-to-top { display: inline-flex; min-height: 2.75rem; align-items: center; overflow-wrap: anywhere; }
+.gene-copy .gene-actions { color: var(--text-inverse); font-weight: 500; }
+.gene-copy .gene-conclusion { margin-top: 2rem; color: var(--text-inverse); }
+.site-footer { padding-block: 2.5rem 4rem; }
+.gene-closing { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; font-size: 1rem; line-height: 1.5; }
+.gene-signature { display: flex; align-items: center; min-height: 2.75rem; font-weight: 500; }
+.gene-closing a { display: inline-flex; align-items: center; min-height: 2.75rem; max-width: 100%; overflow-wrap: anywhere; }
+.gene-closing .back-to-top { margin-top: .5rem; }
 @media (min-width: 768px) {
   :root { --page-gutter: 2rem; --section-pad: 5rem; --title-gap: 2.5rem; --media-inset: 1rem; --type-hero: clamp(7rem, 15vw, 9rem); --type-section: 2.5rem; --type-lead: 1.375rem; --type-body: 1.125rem; --surface-depth: 5rem; --travel: 2.5rem; }
   .header-nav .header-gene { display: inline-flex; }
   .hero-heading { padding-top: 4rem; }
   .hero-intro { flex-direction: row; align-items: flex-end; gap: 2rem; }
+  .gene { --gene-statement: 3rem; --gene-body: 1.25rem; padding-top: 5rem; }
+  .gene-copy .gene-opening + p { margin-top: 2.5rem; }
+  .site-footer { padding-block: 3rem 5rem; }
+  .gene-closing { flex-direction: row; align-items: baseline; flex-wrap: wrap; gap: .5rem 2rem; }
+  .gene-closing .back-to-top { margin-top: 0; margin-left: auto; }
 }
 @media (min-width: 1024px) {
   :root { --page-gutter: 3rem; --section-pad: 6rem; --gallery-gap: 2.5rem; --gallery-row-gap: 5rem; --title-gap: 3rem; --header-height: 5rem; --type-hero: clamp(9rem, 14.6vw, 11.5rem); --type-section: 3rem; }
@@ -132,9 +138,17 @@ main:focus-visible .hero-title { outline: 2px solid var(--accent-on-light); outl
   .application-header { min-height: calc(var(--type-app) * 2.5); }
   .origin-layout { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 4rem; }
   .origin-response { padding-top: calc(var(--type-caption) * 1.5 + 2rem); }
+  .gene { --gene-statement: 3.5rem; --gene-body: 1.375rem; padding-top: 6rem; }
+  .gene-editorial { width: min(65rem, 84%); margin-left: 16%; }
+  .gene-copy .gene-opening + p { margin-top: 3rem; }
+  .gene-copy p + p { margin-top: 2rem; }
+  .gene-copy .gene-conclusion { margin-top: 2.5rem; }
+  .site-footer { padding-top: 3.5rem; }
 }
 @media (min-width: 1440px) {
   :root { --page-gutter: 4rem; --section-pad: 8rem; --gallery-gap: 3rem; --gallery-row-gap: 6rem; --title-gap: 4rem; --type-hero: clamp(11.5rem, 14vw, 13rem); --type-section: 3.5rem; --type-app: 1.625rem; --type-lead: 1.5rem; --surface-depth: 8rem; }
+  .gene { --gene-statement: 4rem; --gene-body: 1.5rem; padding-top: 7rem; }
+  .site-footer { padding-bottom: 6rem; }
 }
 @media (max-width: 767px) {
   .hero-image { transform: translateY(calc((1 - var(--chapter-settle)) * .5rem)) scale(calc(.96 + var(--chapter-settle) * .04)); }
