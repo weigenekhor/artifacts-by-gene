@@ -26,7 +26,7 @@ Keep the four chapters distinct; use two equal gallery columns inside each on de
 - Font: assets/fonts/Geist-Latin.woff2, with OFL licence retained.
 - Authoritative source folder: C:\Users\Gene\Desktop\Artifacts Images.
 - Application facts and order: content/apps.json.
-- Chapter names, order and introductory sentences: content/expeditions.json.
+- Chapter names and order: content/expeditions.json.
 - Homepage mapping: content/homepage.json.
 - Import provenance: content/source-manifest.json.
 
@@ -69,9 +69,9 @@ Use Geist, system-ui, Segoe UI, sans-serif with font synthesis disabled. Use 400
 | Navigation / contact | 16px | 16px | 16px | 400–500 / 1.5 |
 | Chapter label / app number | 14px | 14px | 14px | 400–500 / 1.5 |
 
-Use rem equivalents. Hero tracking -.065em, chapter titles -.055em, general headings -.04em, app names -.02em. Chapter metadata may use .055em tracking; paragraphs must not. Hero narrative copy uses 28–40px desktop, 28px tablet and 24px mobile. Every app name uses the same app scale. Origin uses the shared chapter scale for its first response and the section scale for its final conviction.
+Use rem equivalents. Hero tracking -.065em, chapter titles -.055em, general headings -.04em, app names -.02em. Chapter metadata may use .055em tracking; paragraphs must not. Hero narrative copy uses 28–40px desktop, 28px tablet and 24px mobile. Every app name uses the same app scale. Origin uses the shared chapter scale for its first response and the resolution.
 
-Headings wrap naturally and may balance. Keep body measure near 50ch, chapter thoughts 28–30ch. Do not make all meaningful copy huge. Below 360px the wordmark becomes 48px; preserve body readability.
+Headings wrap naturally and may balance. Keep body measure near 50ch. Do not make all meaningful copy huge. Below 360px the wordmark becomes 48px; preserve body readability.
 
 ## 5. Shared grid and responsiveness
 
@@ -119,20 +119,19 @@ Engineering is difficult enough.
 Some difficulty belongs to the work.
 Some doesn’t.
 
-The response develops through five beats:
+The response develops through four beats:
 1. One problem became a tool.
 2. Then another.
 3. There was no masterplan. Just work that kept revealing where it could be better.
-4. Different problems. The same refusal to leave friction untouched.
-5. That became ARTIFACTS.
+4. Tool by tool, ARTIFACTS took shape.
 
-These are narrative beats, never a visible numbered sequence. Preserve the words; adapt line breaks. One problem begins large and left-aligned; Then another shifts the composition right. The supporting thought sits quieter and farther right. The conviction changes from ink to paper, with a small opening line and a larger offset response. The resolution lands on warm mineral and leads directly into ALTUS.
+These are narrative beats, never a visible numbered sequence. Preserve the words; adapt line breaks. One problem begins large and left-aligned; Then another shifts the composition right. The supporting thought sits quieter and farther right. Go directly from the supporting thought on ink to the resolution on warm mineral, then into ALTUS. There is no intervening conviction section.
 
 Use native flow, scale and lateral movement to change emphasis as the page advances. No text masks or invisible pre-reveal copy. No pinning of story text, artificial scroll distances, paragraphs replacing each other, or simultaneous competing statements. On mobile bring offsets to 8% and reduce lateral travel. The static and reduced-motion composition must read as a complete story.
 
 ## 8. Four application chapters
 
-Every chapter opens with its precise marker, name and one verified short sentence. Keep common typography and alignment while changing surface rhythm. Screenshot hierarchy stays equal.
+Every chapter opens with only its precise marker and name. Do not add chapter descriptions. Keep common typography and alignment while changing surface rhythm. Screenshot hierarchy stays equal.
 
 | Number | Name | Chapter |
 | --- | --- | --- |
@@ -222,7 +221,7 @@ Continue the same ink surface into Gene / email / LinkedIn / Back to top. Closin
 
 Edit content/page.html, content/apps.json, content/expeditions.json, styles.css, chapter-motion.js and image-viewer.js. Run pnpm build to regenerate index.html. pnpm test verifies app/chapter order, approved copy, lossless source integrity and the motion lifecycle.
 
-Review actual rendered captures at 1920, 1440, 1280, 834 and 390px. Include hero first/mid/final, Origin premise/response/conviction/resolution, every Expedition, final Metria, Gene and mobile compositions. Check equal stages, hover layout stability, all viewer close paths, image clicks, focus restoration, scroll preservation, mobile viewer fit, reduced/static fallback, keyboard and320px reflow. Do not approve composition from tests alone.
+Review actual rendered captures at 1920, 1440, 1280, 834 and 390px. Include hero first/mid/final, Origin premise/response/resolution, every Expedition, final Metria, Gene and mobile compositions. Check equal stages, hover layout stability, all viewer close paths, image clicks, focus restoration, scroll preservation, mobile viewer fit, reduced/static fallback, keyboard and320px reflow. Do not approve composition from tests alone.
 
 History remains recoverable in Git; the previous clean hero is commit3054923. The previous mosaic edition is preserved at b3b41b0. Do not restore rejected films, collection renderers, mosaic roles or competing direction documents. Do not delete original user screenshots.
 

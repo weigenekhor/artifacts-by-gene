@@ -24,7 +24,7 @@ assert.equal(norm(html.match(/<h1[^>]*>(.*?)<\/h1>/s)[1]), "ARTIFACTS");
 assert.equal(norm(html.match(/<p class="hero-descriptor">(.*?)<\/p>/s)[1]), "Software that moves engineering forward.");
 assert.equal(norm(html.match(/<p class="hero-fact">(.*?)<\/p>/s)[1]), "Built from the work itself.");
 assert.ok(!/Three years\. Sixteen applications\.|GaN Met Compiler|friction-lines|origin-friction/.test(html));
-for (const copy of ["One problem became a tool.", "Then another.", "There was no masterplan.", "Different problems.", "The same refusal to leave friction untouched.", "That became ARTIFACTS."]) assert.ok(norm(html).includes(copy), copy);
+for (const copy of ["One problem became a tool.", "Then another.", "There was no masterplan.", "Tool by tool, ARTIFACTS took shape."]) assert.ok(norm(html).includes(copy), copy);
 assert.ok(!html.includes("Good reasoning should outlive the task."));
 assert.ok(!html.includes("Select an interface to view the full capture."));
 const gene = html.match(/<div class="gene-editorial gene-copy">([\s\S]*?)<\/div>/)[1];

@@ -24,7 +24,7 @@ function measure() {
     startWidth: Math.min(1425, container.width * .96), endWidth };
   for (const beat of beats) {
     // Remove the previous transform from the cached document position.
-    const travel = ["build", "another", "different", "refusal", "resolution"].includes(beat.kind) ? 0 : width < 768 ? 16 : beat.kind === "chapter" ? 32 : 24;
+    const travel = ["build", "another", "resolution"].includes(beat.kind) ? 0 : width < 768 ? 16 : beat.kind === "chapter" ? 32 : 24;
     beat.top = beat.element.getBoundingClientRect().top + scrollY - (1 - (beat.value ?? 1)) * travel;
   }
   dirty = false;

@@ -27,7 +27,6 @@ html = html.replace("<!-- EXPEDITIONS -->", expeditions.map(e => `<section class
         <header class="expedition-heading" data-motion="chapter">
           <p class="chapter-label">${e.marker}</p>
           <h2 id="${e.id}-title">${escape(e.name)}</h2>
-          <p class="expedition-thought">${escape(e.description)}</p>
         </header>
         <div class="expedition-works">${e.apps.map(id => article(apps.find(a => a.id === id))).join("\n        ")}</div>
       </div>

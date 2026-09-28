@@ -59,17 +59,13 @@ button,input{font:inherit}
 .story-statement{transform-origin:0 50%;max-width:17ch}
 .story-another{margin:5rem 0 0 22%;transform-origin:100% 50%;max-width:15ch}
 .story-context{margin:3rem 0 0 50%;color:var(--soft);max-width:32ch}
-.origin-conviction{padding:var(--section) 0;background:var(--paper);color:var(--text)}
-.story-different{font-size:clamp(2rem,3.4vw,3.25rem);line-height:1.15;letter-spacing:-.035em;transform-origin:0 50%}
-.story-refusal{font-size:var(--section-type);font-weight:500;line-height:1.12;letter-spacing:-.04em;margin:4rem 0 0 35%;max-width:19ch;transform-origin:100% 50%}
 .origin-resolution{background:var(--canvas);color:var(--text);padding:var(--section) 0 3rem}
 .origin-resolution p{font-size:clamp(1.5rem,2.4vw,2.5rem);line-height:1.4;letter-spacing:-.035em;font-weight:400;transform-origin:0 50%}
 .origin-resolution span{display:block;font-size:var(--chapter);line-height:1.12;font-weight:500;letter-spacing:-.055em}
 .expedition{position:relative;padding:var(--section) 0}
-.expedition-heading{display:grid;grid-template-columns:7fr 5fr;gap:1.5rem 3rem;margin-bottom:4rem}
-.expedition-heading .chapter-label{grid-column:1/-1;color:var(--muted)}
-.expedition-heading h2{font-size:var(--chapter);letter-spacing:-.055em}
-.expedition-thought{align-self:end;max-width:28ch;justify-self:end;color:var(--muted)}
+.expedition-heading{margin-bottom:4rem}
+.expedition-heading .chapter-label{color:var(--muted)}
+.expedition-heading h2{font-size:var(--chapter);letter-spacing:-.055em;margin-top:1.5rem}
 .expedition-works{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5rem var(--gap);align-items:start}
 .application{min-width:0;position:relative;transition:transform 480ms var(--ease)}
 .application-header{display:flex;gap:.75rem;align-items:baseline;min-height:2.5rem;margin-bottom:1rem}
@@ -85,7 +81,7 @@ button,input{font:inherit}
 .expedition--altus{padding-top:3rem}
 .expedition--interstice{background:var(--paper)}
 .expedition--gan{background:var(--ink);color:var(--white)}
-.expedition--gan .chapter-label,.expedition--gan .expedition-thought,.expedition--gan .application-number,.expedition--gan .application-value,.expedition--gan .open-mark{color:var(--soft)}
+.expedition--gan .chapter-label,.expedition--gan .application-number,.expedition--gan .application-value,.expedition--gan .open-mark{color:var(--soft)}
 .expedition--gan button:focus-visible{outline-color:var(--accent-dark)}
 .expedition--planetfall{background:var(--media)}
 .expedition--planetfall .application-image{background:var(--canvas)}
@@ -128,8 +124,6 @@ html.viewer-open{background:#080a0c}
 .expedition-heading{transform:translateY(calc((1 - var(--progress))*32px))}
 .story-statement{transform:scale(calc(.94 + var(--progress)*.06))}
 .story-another{transform:translateX(calc((1 - var(--progress))*-48px)) scale(calc(.96 + var(--progress)*.04))}
-.story-different{transform:translateX(calc((1 - var(--progress))*24px))}
-.story-refusal{transform:scale(calc(.95 + var(--progress)*.05))}
 .origin-resolution [data-motion]{transform:scale(calc(.96 + var(--progress)*.04))}
 @media (max-width:1439px){
   :root{--gutter:3rem;--section:6rem;--gap:2.5rem;--section-type:3.5rem;--app:1.5rem}
@@ -143,12 +137,10 @@ html.viewer-open{background:#080a0c}
   .hero-fact{font-size:1.75rem}
   .hero-interface{margin-top:2rem}
   .origin-premise{padding-bottom:3rem}
-  .expedition-heading{gap:1rem 2rem}
   .expedition-works{grid-template-columns:minmax(0,1fr);gap:4rem}
   .application{width:100%}
   .story-another{margin-top:4rem}
   .story-context{margin-left:35%}
-  .story-refusal{margin-left:22%}
   .gene{padding-top:5rem}
   .gene-editorial{margin-left:0}
   .site-footer{padding:3rem 0 5rem}
@@ -171,13 +163,11 @@ html.viewer-open{background:#080a0c}
   .origin-build{padding:2rem 0 4rem}
   .story-another{margin:3rem 0 0 8%;font-size:clamp(2.5rem,10vw,4rem)}
   .story-context{margin:2rem 0 0 8%}
-  .story-refusal{margin:3rem 0 0 8%}
   .origin-resolution{padding:4rem 0 2rem}
   .expedition{padding:4rem 0}
   .expedition--altus{padding-top:2rem}
   .expedition-heading{display:block;margin-bottom:2rem}
   .expedition-heading h2{margin-top:1rem}
-  .expedition-thought{margin-top:1rem;max-width:30ch}
   .expedition-works{gap:3rem}
   .application-header{gap:.5rem}
   .application h3{font-size:1.5rem}
@@ -189,9 +179,8 @@ html.viewer-open{background:#080a0c}
   .site-footer{padding:2.5rem 0 4rem}
   .gene-closing{display:flex;flex-direction:column;align-items:flex-start;gap:.5rem}
   .back-to-top{margin:.5rem 0 0}
-  [data-motion]:not(.story-statement,.story-another,.story-different,.story-refusal){transform:translateY(calc((1 - var(--progress))*16px))}
+  [data-motion]:not(.story-statement,.story-another){transform:translateY(calc((1 - var(--progress))*16px))}
   .story-another{transform:translateX(calc((1 - var(--progress))*-16px))}
-  .story-different{transform:translateX(calc((1 - var(--progress))*12px))}
 }
 @media (max-width:359px){:root{--gutter:1rem;--display:3rem}.header-nav a{font-size:.875rem}.brand{font-size:.9375rem}.open-mark{width:12px}}
 @media (prefers-reduced-motion:reduce){
