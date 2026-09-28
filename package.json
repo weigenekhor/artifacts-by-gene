@@ -3,18 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node tests/browser.mjs",
     "build": "node scripts/build.mjs",
-    "test:assets": "node tests/assets.mjs",
-    "test:evidence": "node tests/evidence.mjs",
-    "test:production": "node tests/production.mjs",
-    "test:previews": "node tests/previews.mjs",
-    "test:assignment": "node tests/assignment.mjs"
+    "test": "node tests/static.mjs",
+    "import:captures": "node scripts/import-captures.mjs",
+    "serve": "node scripts/serve.mjs"
   },
   "devDependencies": {
-    "axe-core": "4.10.3",
-    "esbuild": "0.25.10",
-    "playwright": "1.62.1",
     "sharp": "0.34.5"
   }
 }

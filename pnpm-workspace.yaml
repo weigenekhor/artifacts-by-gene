@@ -1,4 +1,3 @@
-# Sharp uses the platform binaries installed as optional dependencies.
+# Screenshot preparation uses Sharp platform binaries.
 allowBuilds:
-  esbuild: true
   sharp: false

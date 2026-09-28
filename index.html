@@ -1,333 +1,164 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Artifacts by Gene</title>
-    <meta
-      name="description"
-      content="Sixteen engineering applications. Methods shaped by engineering work. Explore ARTIFACTS, a personal collection of engineering software by Gene."
-    />
-    <link rel="canonical" href="https://artifactsbygene.com/" />
-    <meta name="theme-color" content="#101211" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Artifacts by Gene" />
-    <meta
-      property="og:description"
-      content="Sixteen engineering applications. Methods shaped by engineering work."
-    />
-    <meta property="og:url" content="https://artifactsbygene.com/" />
-    <meta
-      property="og:image"
-      content="https://artifactsbygene.com/assets/social-preview.png"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link
-      rel="preload"
-      href="assets/fonts/Geist-Latin.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="studies.css" />
-    <link rel="stylesheet" href="experience.css" />
-    <link rel="stylesheet" href="artifact.css" />
-    <link rel="stylesheet" href="entry.css" />
-    <link rel="stylesheet" href="genesis.css" />
-    <link rel="stylesheet" href="origin.css" />
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artifacts by Gene</title>
+  <meta name="description" content="Software that moves engineering forward. Explore sixteen real semiconductor engineering applications built by Gene.">
+  <link rel="canonical" href="https://artifactsbygene.com/">
+  <meta name="theme-color" content="#F7F6F2">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Artifacts by Gene">
+  <meta property="og:description" content="Software that moves engineering forward.">
+  <meta property="og:url" content="https://artifactsbygene.com/">
+  <meta property="og:image" content="https://artifactsbygene.com/assets/evidence/homepage/full.webp">
+  <meta property="og:image:alt" content="The real ARTIFACTS application homepage">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/Geist-Latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="ARTIFACTS — back to top"><svg class="brand-symbol" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
 
-    <link rel="stylesheet" href="films.css" />
-    <link rel="stylesheet" href="gallery.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <a class="skip-link" href="#collection">Skip to the applications</a>
-    <header class="header">
-      <a class="brand" href="#top" aria-label="ARTIFACTS home"
-        ><img
-          src="assets/brand/artifacts-symbol.svg"
-          width="32"
-          height="32"
-          alt=""
-        /><span>ARTIFACTS</span></a
-      >
-      <nav aria-label="Main navigation">
-        <a href="#story">The story</a
-        ><a href="#collection"
-          >All 16 applications <span aria-hidden="true">↗</span></a
-        >
-      </nav>
-    </header>
-    <main>
-      <section class="genesis" id="top" aria-labelledby="hero-title">
-        <div id="story" class="story-anchor" aria-hidden="true"></div>
-        <div class="genesis-stage">
-          <div
-            class="identity-field"
-            tabindex="0"
-            role="group"
-            aria-label="Explore the engineering structure. Move the pointer or use arrow keys to change perspective. R resets the view."
-          >
-            <canvas aria-hidden="true"></canvas
-            ><svg
-              class="identity-fallback"
-              viewBox="0 0 700 300"
-              aria-hidden="true"
-            >
-              <path d="M0 70H120L160 35H270L310 90H450L495 60H700" />
-              <path d="M0 84H120L160 49H270L310 104H450L495 74H700" />
-              <path d="M0 98H120L160 63H270L310 118H450L495 88H700" />
-              <path d="M0 112H120L160 77H270L310 132H450L495 102H700" />
-              <path d="M0 126H120L160 91H270L310 146H450L495 116H700" />
-              <path d="M0 140H120L160 105H270L310 160H450L495 130H700" />
-              <path d="M0 154H120L160 119H270L310 174H450L495 144H700" />
-              <path d="M0 168H120L160 133H270L310 188H450L495 158H700" />
-              <path d="M0 182H120L160 147H270L310 202H450L495 172H700" />
-              <path d="M0 196H120L160 161H270L310 216H450L495 186H700" />
-              <path d="M0 210H120L160 175H270L310 230H450L495 200H700" />
-              <path d="M0 224H120L160 189H270L310 244H450L495 214H700" />
-            </svg>
-          </div>
-          <div class="genesis-intro">
-            <p class="genesis-kicker">
-              Software that moves engineering forward.
-            </p>
-            <h1 id="hero-title">ARTIFACTS</h1>
-            <div class="genesis-opening">
-              <p>Built for engineering where almost right is still wrong.</p>
-              <a href="#story"
-                >Follow the construction <span aria-hidden="true">↘</span></a
-              >
-            </div>
-          </div>
-          <div class="genesis-register">
-            <span>Move to inspect the structure</span
-            ><span>Scroll to trace its beginnings ↓</span>
-          </div>
-          <div class="origin-film" aria-label="Why ARTIFACTS exists">
-            <div class="origin-heading">
-              <span>01 / Why ARTIFACTS exists</span>
-            </div>
-            <div class="origin-captions"><article class="origin-caption origin-pressure" data-origin-start="1.3" data-origin-end="1.9" data-origin-still="1.7"><div class="origin-words"><h2>Some difficulty belongs to the work.</h2></div><canvas class="origin-still" aria-hidden="true"></canvas><p class="origin-description">A vast registration instrument works until one region loses its reference. The obstruction is separate from the complexity of the work.</p></article><article class="origin-caption origin-intervention" data-origin-start="2.18" data-origin-end="2.88" data-origin-still="2.7"><div class="origin-words"><h2>Some doesn’t.</h2></div><canvas class="origin-still" aria-hidden="true"></canvas><p class="origin-description">The reference is deliberately repositioned. Alignment returns and holds. The improvement remains while the camera moves on.</p></article><article class="origin-caption origin-structure" data-origin-start="3" data-origin-end="5.7" data-origin-still="4.7"><div class="origin-words"><h2></h2></div><canvas class="origin-still" aria-hidden="true"></canvas><p class="origin-description">A spatial field resolves, then comparison structures align. The camera pulls back to reveal the retained operations. A central substrate turns forward and becomes the real ARTIFACTS homepage.</p></article></div>
-            <div class="origin-foot">
-              <a href="#collection">Continue to the applications ↗</a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="tools-entry" aria-label="ARTIFACTS software environment">
-        <div class="tools-stage">
-          <div class="tools-heading">
-            <p class="eyebrow">02 / The applications</p>
-          </div>
-          <div id="tools-universe" class="application-universe">
-            <button
-              class="collection-home"
-              data-capture="homepage"
-              aria-label="Inspect the ARTIFACTS homepage"
-            >
-              <img
-                src="assets/evidence/homepage/full.webp"
-                width="1425"
-                height="950"
-                loading="eager"
-                decoding="async"
-                alt="The real ARTIFACTS application homepage"
-              />
-            </button>
-          </div>
-          <a class="begin-studies" href="#collection"
-            >Explore the applications <span aria-hidden="true">↓</span></a
-          >
-        </div>
-      </section>
-      <section
-        class="app-gallery"
-        id="collection"
-        aria-labelledby="gallery-title"
-      >
-        <header class="gallery-heading">
-          <div>
-            <p class="eyebrow">The collection / 01—16</p>
-            <h2 id="gallery-title">Inside ARTIFACTS.</h2>
-          </div>
-          <p>Sixteen engineering applications.</p>
-        </header>
-        <div class="gallery-grid"><a class="gallery-card gallery-paper" href="assets/evidence/altus-lotviewer/full.webp" data-film="history" style="--accent:#579af2" aria-label="Explore Altus LotViewer"><div class="gallery-art " aria-hidden="true"><img class="gallery-fallback" src="assets/evidence/altus-lotviewer/full.webp" width="1425" height="950" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">01</span><div><h3>Altus LotViewer</h3><p>Lot history, interpreted.</p></div><span class="gallery-evidence">View the film ↗</span></div></a><a class="gallery-card gallery-paper" href="assets/evidence/altus-anko-viewer/full.webp" data-film="schedule" style="--accent:#dda365" aria-label="Explore Altus ANKO Viewer"><div class="gallery-art " aria-hidden="true"><img class="gallery-fallback" src="assets/evidence/altus-anko-viewer/full.webp" width="1425" height="950" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">02</span><div><h3>Altus ANKO Viewer</h3><p>The next check, derived from history.</p></div><span class="gallery-evidence">View the film ↗</span></div></a><a class="gallery-card gallery-paper" href="assets/evidence/altus-wafercount/full.webp" data-film="usage" style="--accent:#48c7bf" aria-label="Explore Altus WaferCount"><div class="gallery-art " aria-hidden="true"><img class="gallery-fallback" src="assets/evidence/altus-wafercount/full.webp" width="1425" height="950" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">03</span><div><h3>Altus WaferCount</h3><p>Processed wafers. Maintenance context.</p></div><span class="gallery-evidence">View the film ↗</span></div></a><a class="gallery-card gallery-paper" href="assets/evidence/topotracer/full.webp" data-film="surface" style="--accent:#58bcae" aria-label="Explore TopoTracer"><div class="gallery-art topography" aria-hidden="true"><img class="gallery-fallback" src="assets/evidence/topotracer/full.webp" width="1425" height="950" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">04</span><div><h3>TopoTracer</h3><p>Measurement, in full dimension.</p></div><span class="gallery-evidence">View the film ↗</span></div></a><a class="gallery-card gallery-paper" href="assets/evidence/papyrus-reader/full.webp" data-film="compare" style="--accent:#ab98ed" aria-label="Explore Papyrus Reader"><div class="gallery-art " aria-hidden="true"><img class="gallery-fallback" src="assets/evidence/papyrus-reader/full.webp" width="1425" height="950" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">05</span><div><h3>Papyrus Reader</h3><p>Recipe differences, without the search.</p></div><span class="gallery-evidence">View the film ↗</span></div></a><a class="gallery-card gallery-paper" href="assets/evidence/spc-pathfinder/full.webp" data-film="pathfinder" style="--accent:#659dff" aria-label="Explore SPC Pathfinder"><div class="gallery-art " aria-hidden="true"><img class="gallery-fallback" src="assets/evidence/spc-pathfinder/full.webp" width="1425" height="950" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">06</span><div><h3>SPC Pathfinder</h3><p>Straight to the intended chart.</p></div><span class="gallery-evidence">View the film ↗</span></div></a><a class="gallery-card gallery-paper" href="assets/evidence/gan-met-compiler/full.webp" data-film="compile" style="--accent:#79a7fa" aria-label="Explore GaN Met Compiler"><div class="gallery-art " aria-hidden="true"><img class="gallery-fallback" src="assets/evidence/gan-met-compiler/full.webp" width="1425" height="950" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">07</span><div><h3>GaN Met Compiler</h3><p>Different measurements. One record.</p></div><span class="gallery-evidence">View the film ↗</span></div></a><a class="gallery-card gallery-paper" href="assets/evidence/gan-temp-diagnoser/full.webp" data-film="diagnose" style="--accent:#e58080" aria-label="Explore GaN Temp Diagnoser"><div class="gallery-art " aria-hidden="true"><img class="gallery-fallback" src="assets/evidence/gan-temp-diagnoser/full.webp" width="1425" height="950" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">08</span><div><h3>GaN Temp Diagnoser</h3><p>A directed reactor investigation.</p></div><span class="gallery-evidence">View the film ↗</span></div></a><a class="gallery-card gallery-paper" href="assets/evidence/aix-dt-assistant/full.webp" data-film="arrange" style="--accent:#d6ae73" aria-label="Explore AIX ΔT Assistant"><div class="gallery-art " aria-hidden="true"><img class="gallery-fallback" src="assets/evidence/aix-dt-assistant/full.webp" width="1425" height="950" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">09</span><div><h3>AIX ΔT Assistant</h3><p>Temperature uniformity, reassigned.</p></div><span class="gallery-evidence">View the film ↗</span></div></a><a class="gallery-card gallery-paper" href="assets/evidence/lt-zone-assistant/full.webp" data-film="zones" style="--accent:#4ed9ce" aria-label="Explore LT Zone Assistant"><div class="gallery-art " aria-hidden="true"><img class="gallery-fallback" src="assets/evidence/lt-zone-assistant/full.webp" width="1425" height="950" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">10</span><div><h3>LT Zone Assistant</h3><p>Exactly where LayTec measures.</p></div><span class="gallery-evidence">View the film ↗</span></div></a><a class="gallery-card gallery-paper" href="assets/evidence/gan-xml-assistant/full.webp" data-film="configuration" style="--accent:#7daef5" aria-label="Explore GaN XML Assistant"><div class="gallery-art " aria-hidden="true"><img class="gallery-fallback" src="assets/evidence/gan-xml-assistant/full.webp" width="1425" height="950" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">11</span><div><h3>GaN XML Assistant</h3><p>Reactor configurations, compared.</p></div><span class="gallery-evidence">View the film ↗</span></div></a><a class="gallery-card gallery-paper" href="assets/evidence/magus-spc-gan/full.webp" data-film="spc" style="--accent:#51c8bb" aria-label="Explore Magus SPC (GaN)"><div class="gallery-art " aria-hidden="true"><img class="gallery-fallback" src="assets/evidence/magus-spc-gan/full.webp" width="1425" height="950" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">12</span><div><h3>Magus SPC (GaN)</h3><p>Every parameter. One review surface.</p></div><span class="gallery-evidence">View the film ↗</span></div></a><a class="gallery-card gallery-paper" href="assets/evidence/magus-spc-legacy/full.webp" data-film="legacy" style="--accent:#b099e8" aria-label="Explore Magus SPC (Legacy)"><div class="gallery-art " aria-hidden="true"><img class="gallery-fallback" src="assets/evidence/magus-spc-legacy/full.webp" width="1425" height="950" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">13</span><div><h3>Magus SPC (Legacy)</h3><p>Process history. Immediate status.</p></div><span class="gallery-evidence">View the film ↗</span></div></a><a class="gallery-card gallery-paper" href="assets/evidence/anko-helper/full.webp" data-film="planning" style="--accent:#d6aa70" aria-label="Explore ANKO Helper"><div class="gallery-art " aria-hidden="true"><img class="gallery-fallback" src="assets/evidence/anko-helper/full.webp" width="1425" height="950" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">14</span><div><h3>ANKO Helper</h3><p>Valid checks. A justified due date.</p></div><span class="gallery-evidence">View the film ↗</span></div></a><a class="gallery-card gallery-paper" href="assets/evidence/lt-report-compiler/full.webp" data-film="report" style="--accent:#ddb789" aria-label="Explore LT Report Compiler"><div class="gallery-art " aria-hidden="true"><img class="gallery-fallback" src="assets/evidence/lt-report-compiler/full.webp" width="1425" height="950" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">15</span><div><h3>LT Report Compiler</h3><p>The format changes. Context stays.</p></div><span class="gallery-evidence">View the film ↗</span></div></a><a class="gallery-card gallery-paper" href="assets/artifacts/apps/metria-spc/hero.webp" data-film="signals" style="--accent:#65d2dd" aria-label="Explore Metria SPC"><div class="gallery-art " aria-hidden="true"><img class="gallery-fallback" src="assets/artifacts/apps/metria-spc/hero.webp" width="3840" height="2160" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">16</span><div><h3>Metria SPC</h3><p>One clue. An expanding investigation.</p></div><span class="gallery-evidence">View the film ↗</span></div></a></div>
-      </section>
-      <section class="creator" id="gene" aria-labelledby="creator-title">
-        <div class="creator-stage">
-          <canvas class="creator-residue" aria-hidden="true"></canvas>
-          <div class="creator-passages">
-            <h2 id="creator-title" class="creator-passage">
-              I spent my entire life improving processes.
-            </h2>
-            <p class="creator-passage">
-              ARTIFACTS began when I realised engineering itself was one of
-              them.
-            </p>
-            <p class="creator-passage">
-              What repeated, I automated.<br />What stood in the way, I rebuilt.
-            </p>
-            <p class="creator-passage creator-final">
-              ARTIFACTS is the evidence that I never accepted the way things
-              were as the way they had to stay.
-            </p>
-          </div>
-        </div>
-        <div class="creator-contact">
-          <span>Gene</span
-          ><a href="mailto:weigenekhor@gmail.com">weigenekhor@gmail.com ↗</a
-          ><a
-            href="https://www.linkedin.com/in/weigenekhor/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >LinkedIn ↗</a
-          >
-        </div>
-      </section>
-    </main>
 
-    <dialog id="film-detail" aria-label="Application film">
-      <div class="detail-toolbar">
-        <a href="#collection" id="detail-back">← The collection</a
-        ><span id="detail-name"></span
-        ><button id="detail-close" aria-label="Close application film">
-          ×
-        </button>
+  <g fill="currentColor">
+    <path d="M8 28.5L41 8.5Q43.5 7 46.5 8.5L62.5 17.5L33.5 34.5Q25 39.5 18 35Z"/>
+    <path d="M8 45L20 38.5Q27.5 44 35.5 39.5L55.5 28Q57.5 27 59.5 28L70.5 34L40.5 51.5Q31.5 57 24 53Z"/>
+    <path d="M18 62L30 55Q38 60 46 55.5L63 46Q64.5 45 66 46L74 51L47 67Q39 72 32 68Z"/>
+  </g>
+</svg>
+ <span>ARTIFACTS</span></a>
+      <nav class="header-nav" aria-label="Main navigation"><a href="#applications">Applications</a><a class="header-gene" href="#gene">Gene</a></nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <section class="hero section" aria-labelledby="hero-title">
+      <div class="container">
+        <h1 class="hero-title" id="hero-title">Software that moves engineering forward.</h1>
+        <a class="text-link hero-link" href="#applications">Explore the applications <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v11m-4-4 4 4 4-4" stroke="currentColor" stroke-width="1.3"/></svg></a>
       </div>
-      <section class="feature instrument-film film-visual-only " id="history" data-feature="history" data-study-app="altus-lotviewer" data-layout="timeline" data-playback-ms="8000" data-source-region="{&quot;left&quot;:76,&quot;top&quot;:385,&quot;width&quot;:1315,&quot;height&quot;:490}" style="--scene-length:450svh" aria-labelledby="title-history"><div class="feature-stage film-stage">
-    <div class="film-meta"><span>01 / 16</span><h2 id="title-history">Altus LotViewer</h2></div>
-    <div class="film-heading"><h3 class="film-statement">Altus LotViewer.</h3></div>
-    <div class="film-view"><figure class="film-capture"><img src="assets/evidence/altus-lotviewer/full.webp" width="1425" height="950" alt="Altus LotViewer: Lot events, wafer states and durations" loading="lazy" decoding="async"><i class="film-source-focus" aria-hidden="true"></i></figure><div class="film-operation " aria-hidden="true"><canvas></canvas></div></div>
-    <div class="film-inspection"><label>Inspect the viewing angle<input class="film-focus" type="range" min="0" max="100" value="50"></label><output class="film-reading" aria-live="polite"></output></div>
-    <div class="film-transport"><button class="study-play" aria-label="Play the Altus LotViewer film" aria-pressed="false"><span class="play-symbol" aria-hidden="true"></span> Play</button><label class="study-control"><span class="film-sr">Explore Altus LotViewer</span><input type="range" min="0" max="100" value="0" aria-label="Explore the Altus LotViewer film"></label><button class="film-original" data-capture="altus-lotviewer">Original ↗</button></div>
-    <p class="film-description">Process events are only useful in sequence. Align timestamps, wafer states and durations around the same lot. The animation illustrates the operation; it is not a live application result. </p>
-  </div></section><section class="feature instrument-film film-visual-only " id="schedule" data-feature="schedule" data-study-app="altus-anko-viewer" data-layout="lanes" data-playback-ms="8000" data-source-region="{&quot;left&quot;:80,&quot;top&quot;:190,&quot;width&quot;:1310,&quot;height&quot;:630}" style="--scene-length:440svh" aria-labelledby="title-schedule"><div class="feature-stage film-stage">
-    <div class="film-meta"><span>02 / 16</span><h2 id="title-schedule">Altus ANKO Viewer</h2></div>
-    <div class="film-heading"><h3 class="film-statement">Altus ANKO Viewer.</h3></div>
-    <div class="film-view"><figure class="film-capture"><img src="assets/evidence/altus-anko-viewer/full.webp" width="1425" height="950" alt="Altus ANKO Viewer: Reactor schedules in a common view" loading="lazy" decoding="async"><i class="film-source-focus" aria-hidden="true"></i></figure><div class="film-operation " aria-hidden="true"><canvas></canvas></div></div>
-    <div class="film-inspection"><label>Inspect the viewing angle<input class="film-focus" type="range" min="0" max="100" value="50"></label><output class="film-reading" aria-live="polite"></output></div>
-    <div class="film-transport"><button class="study-play" aria-label="Play the Altus ANKO Viewer film" aria-pressed="false"><span class="play-symbol" aria-hidden="true"></span> Play</button><label class="study-control"><span class="film-sr">Explore Altus ANKO Viewer</span><input type="range" min="0" max="100" value="0" aria-label="Explore the Altus ANKO Viewer film"></label><button class="film-original" data-capture="altus-anko-viewer">Original ↗</button></div>
-    <p class="film-description">Retrieve ANKO schedules across Altus equipment. Read dates in the context of the equipment they belong to. The animation illustrates the operation; it is not a live application result. </p>
-  </div></section><section class="feature instrument-film film-visual-only " id="usage" data-feature="usage" data-study-app="altus-wafercount" data-layout="chambers" data-playback-ms="8000" data-source-region="{&quot;left&quot;:80,&quot;top&quot;:220,&quot;width&quot;:1310,&quot;height&quot;:610}" style="--scene-length:460svh" aria-labelledby="title-usage"><div class="feature-stage film-stage">
-    <div class="film-meta"><span>03 / 16</span><h2 id="title-usage">Altus WaferCount</h2></div>
-    <div class="film-heading"><h3 class="film-statement">Altus WaferCount.</h3></div>
-    <div class="film-view"><figure class="film-capture"><img src="assets/evidence/altus-wafercount/full.webp" width="1425" height="950" alt="Altus WaferCount: Chamber usage counters" loading="lazy" decoding="async"><i class="film-source-focus" aria-hidden="true"></i></figure><div class="film-operation " aria-hidden="true"><canvas></canvas></div></div>
-    <div class="film-inspection"><label>Inspect the viewing angle<input class="film-focus" type="range" min="0" max="100" value="50"></label><output class="film-reading" aria-live="polite"></output></div>
-    <div class="film-transport"><button class="study-play" aria-label="Play the Altus WaferCount film" aria-pressed="false"><span class="play-symbol" aria-hidden="true"></span> Play</button><label class="study-control"><span class="film-sr">Explore Altus WaferCount</span><input type="range" min="0" max="100" value="0" aria-label="Explore the Altus WaferCount film"></label><button class="film-original" data-capture="altus-wafercount">Original ↗</button></div>
-    <p class="film-description">Collect wafer counts from equipment logs. Review chamber usage as an input to maintenance planning. The animation illustrates the operation; it is not a live application result. </p>
-  </div></section><section class="feature instrument-film  film-paper" id="surface" data-feature="surface" data-study-app="topotracer" data-layout="surface" data-playback-ms="27000" data-source-region="{&quot;left&quot;:95,&quot;top&quot;:310,&quot;width&quot;:1280,&quot;height&quot;:570}" style="--scene-length:480svh" aria-labelledby="title-surface"><div class="feature-stage film-stage">
-    <div class="film-meta"><span>04 / 16</span><h2 id="title-surface">TopoTracer</h2></div>
-    <div class="film-heading"><h3 class="film-statement">TopoTracer.</h3></div>
-    <div class="film-view"><figure class="film-capture"><img src="assets/evidence/topotracer/full.webp" width="1425" height="950" alt="TopoTracer: Interpolated wafer surface and scale" loading="lazy" decoding="async"><i class="film-source-focus" aria-hidden="true"></i></figure><div class="film-operation topography" aria-hidden="true"><canvas></canvas></div></div>
-    <div class="film-inspection"><label>Move the wafer section<input class="film-focus" type="range" min="0" max="100" value="50"></label><output class="film-reading" aria-live="polite"></output></div>
-    <div class="film-transport"><button class="study-play" aria-label="Play the TopoTracer film" aria-pressed="false"><span class="play-symbol" aria-hidden="true"></span> Play</button><label class="study-control"><span class="film-sr">Explore TopoTracer</span><input type="range" min="0" max="100" value="0" aria-label="Explore the TopoTracer film"></label><button class="film-original" data-capture="topotracer">Original ↗</button></div>
-    <p class="film-description">Measurements acquire meaning when their positions are retained. Resolve a contour field from the wafer samples. The animation illustrates the operation; it is not a live application result. A point is not the whole surface.  Variation, given its full dimension.</p>
-  </div></section><section class="feature instrument-film film-visual-only " id="compare" data-feature="compare" data-study-app="papyrus-reader" data-layout="recipes" data-playback-ms="8000" data-source-region="{&quot;left&quot;:95,&quot;top&quot;:385,&quot;width&quot;:1280,&quot;height&quot;:315}" style="--scene-length:400svh" aria-labelledby="title-compare"><div class="feature-stage film-stage">
-    <div class="film-meta"><span>05 / 16</span><h2 id="title-compare">Papyrus Reader</h2></div>
-    <div class="film-heading"><h3 class="film-statement">Papyrus Reader.</h3></div>
-    <div class="film-view"><figure class="film-capture"><img src="assets/evidence/papyrus-reader/full.webp" width="1425" height="950" alt="Papyrus Reader: Actual paired recipe panes with marked changes" loading="lazy" decoding="async"><i class="film-source-focus" aria-hidden="true"></i></figure><div class="film-operation " aria-hidden="true"><canvas></canvas></div></div>
-    <div class="film-inspection"><label>Inspect the viewing angle<input class="film-focus" type="range" min="0" max="100" value="50"></label><output class="film-reading" aria-live="polite"></output></div>
-    <div class="film-transport"><button class="study-play" aria-label="Play the Papyrus Reader film" aria-pressed="false"><span class="play-symbol" aria-hidden="true"></span> Play</button><label class="study-control"><span class="film-sr">Explore Papyrus Reader</span><input type="range" min="0" max="100" value="0" aria-label="Explore the Papyrus Reader film"></label><button class="film-original" data-capture="papyrus-reader">Original ↗</button></div>
-    <p class="film-description">Compare recipe text and isolate missing, changed and added lines without losing their surrounding context. The animation illustrates the operation; it is not a live application result. </p>
-  </div></section><section class="feature instrument-film film-visual-only " id="pathfinder" data-feature="pathfinder" data-study-app="spc-pathfinder" data-layout="topology" data-playback-ms="8000" data-source-region="{&quot;left&quot;:80,&quot;top&quot;:195,&quot;width&quot;:1310,&quot;height&quot;:630}" style="--scene-length:450svh" aria-labelledby="title-pathfinder"><div class="feature-stage film-stage">
-    <div class="film-meta"><span>06 / 16</span><h2 id="title-pathfinder">SPC Pathfinder</h2></div>
-    <div class="film-heading"><h3 class="film-statement">SPC Pathfinder.</h3></div>
-    <div class="film-view"><figure class="film-capture"><img src="assets/evidence/spc-pathfinder/full.webp" width="1425" height="950" alt="SPC Pathfinder: Grouped chart selection" loading="lazy" decoding="async"><i class="film-source-focus" aria-hidden="true"></i></figure><div class="film-operation " aria-hidden="true"><canvas></canvas></div></div>
-    <div class="film-inspection"><label>Inspect the viewing angle<input class="film-focus" type="range" min="0" max="100" value="50"></label><output class="film-reading" aria-live="polite"></output></div>
-    <div class="film-transport"><button class="study-play" aria-label="Play the SPC Pathfinder film" aria-pressed="false"><span class="play-symbol" aria-hidden="true"></span> Play</button><label class="study-control"><span class="film-sr">Explore SPC Pathfinder</span><input type="range" min="0" max="100" value="0" aria-label="Explore the SPC Pathfinder film"></label><button class="film-original" data-capture="spc-pathfinder">Original ↗</button></div>
-    <p class="film-description">Navigate workcentres and parameter groups to locate the required SPC chart. The animation illustrates the operation; it is not a live application result. </p>
-  </div></section><section class="feature instrument-film film-visual-only " id="compile" data-feature="compile" data-study-app="gan-met-compiler" data-layout="assembly" data-playback-ms="8000" data-source-region="{&quot;left&quot;:80,&quot;top&quot;:190,&quot;width&quot;:1300,&quot;height&quot;:300}" style="--scene-length:470svh" aria-labelledby="title-compile"><div class="feature-stage film-stage">
-    <div class="film-meta"><span>07 / 16</span><h2 id="title-compile">GaN Met Compiler</h2></div>
-    <div class="film-heading"><h3 class="film-statement">GaN Met Compiler.</h3></div>
-    <div class="film-view"><figure class="film-capture"><img src="assets/evidence/gan-met-compiler/full.webp" width="1425" height="950" alt="GaN Met Compiler: Metrology processing log" loading="lazy" decoding="async"><i class="film-source-focus" aria-hidden="true"></i></figure><div class="film-operation " aria-hidden="true"><canvas></canvas></div></div>
-    <div class="film-inspection"><label>Inspect the viewing angle<input class="film-focus" type="range" min="0" max="100" value="50"></label><output class="film-reading" aria-live="polite"></output></div>
-    <div class="film-transport"><button class="study-play" aria-label="Play the GaN Met Compiler film" aria-pressed="false"><span class="play-symbol" aria-hidden="true"></span> Play</button><label class="study-control"><span class="film-sr">Explore GaN Met Compiler</span><input type="range" min="0" max="100" value="0" aria-label="Explore the GaN Met Compiler film"></label><button class="film-original" data-capture="gan-met-compiler">Original ↗</button></div>
-    <p class="film-description">Gather measurement files, apply predefined calculations and compile the result into a consistent reporting structure. The animation illustrates the operation; it is not a live application result. </p>
-  </div></section><section class="feature instrument-film film-visual-only " id="diagnose" data-feature="diagnose" data-study-app="gan-temp-diagnoser" data-layout="diagnostic" data-playback-ms="8000" data-source-region="{&quot;left&quot;:705,&quot;top&quot;:190,&quot;width&quot;:675,&quot;height&quot;:235}" style="--scene-length:480svh" aria-labelledby="title-diagnose"><div class="feature-stage film-stage">
-    <div class="film-meta"><span>08 / 16</span><h2 id="title-diagnose">GaN Temp Diagnoser</h2></div>
-    <div class="film-heading"><h3 class="film-statement">GaN Temp Diagnoser.</h3></div>
-    <div class="film-view"><figure class="film-capture"><img src="assets/evidence/gan-temp-diagnoser/full.webp" width="1425" height="950" alt="GaN Temp Diagnoser: Diagnostic summary and recommended checks" loading="lazy" decoding="async"><i class="film-source-focus" aria-hidden="true"></i></figure><div class="film-operation " aria-hidden="true"><canvas></canvas></div></div>
-    <div class="film-inspection"><label>Inspect the viewing angle<input class="film-focus" type="range" min="0" max="100" value="50"></label><output class="film-reading" aria-live="polite"></output></div>
-    <div class="film-transport"><button class="study-play" aria-label="Play the GaN Temp Diagnoser film" aria-pressed="false"><span class="play-symbol" aria-hidden="true"></span> Play</button><label class="study-control"><span class="film-sr">Explore GaN Temp Diagnoser</span><input type="range" min="0" max="100" value="0" aria-label="Explore the GaN Temp Diagnoser film"></label><button class="film-original" data-capture="gan-temp-diagnoser">Original ↗</button></div>
-    <p class="film-description">Bring process and clean-recipe observations into one diagnostic view. Follow the recommended checks before drawing a conclusion. The animation illustrates the operation; it is not a live application result. </p>
-  </div></section><section class="feature instrument-film film-visual-only " id="arrange" data-feature="arrange" data-study-app="aix-dt-assistant" data-layout="physical" data-playback-ms="8000" data-source-region="{&quot;left&quot;:720,&quot;top&quot;:155,&quot;width&quot;:650,&quot;height&quot;:720}" style="--scene-length:490svh" aria-labelledby="title-arrange"><div class="feature-stage film-stage">
-    <div class="film-meta"><span>09 / 16</span><h2 id="title-arrange">AIX ΔT Assistant</h2></div>
-    <div class="film-heading"><h3 class="film-statement">AIX ΔT Assistant.</h3></div>
-    <div class="film-view"><figure class="film-capture"><img src="assets/evidence/aix-dt-assistant/full.webp" width="1425" height="950" alt="AIX ΔT Assistant: Baseplate assignment visualization" loading="lazy" decoding="async"><i class="film-source-focus" aria-hidden="true"></i></figure><div class="film-operation " aria-hidden="true"><canvas></canvas></div></div>
-    <div class="film-inspection"><label>Inspect the viewing angle<input class="film-focus" type="range" min="0" max="100" value="50"></label><output class="film-reading" aria-live="polite"></output><button class="film-alternate" aria-pressed="false">Before / after</button></div>
-    <div class="film-transport"><button class="study-play" aria-label="Play the AIX ΔT Assistant film" aria-pressed="false"><span class="play-symbol" aria-hidden="true"></span> Play</button><label class="study-control"><span class="film-sr">Explore AIX ΔT Assistant</span><input type="range" min="0" max="100" value="0" aria-label="Explore the AIX ΔT Assistant film"></label><button class="film-original" data-capture="aix-dt-assistant">Original ↗</button></div>
-    <p class="film-description">Use weight and temperature inputs to guide baseplate swaps. Follow each plate from its current position to its new seat. The animation illustrates the operation; it is not a live application result. </p>
-  </div></section><section class="feature instrument-film film-visual-only " id="zones" data-feature="zones" data-study-app="lt-zone-assistant" data-layout="registration" data-playback-ms="8000" data-source-region="{&quot;left&quot;:410,&quot;top&quot;:170,&quot;width&quot;:975,&quot;height&quot;:720}" style="--scene-length:450svh" aria-labelledby="title-zones"><div class="feature-stage film-stage">
-    <div class="film-meta"><span>10 / 16</span><h2 id="title-zones">LT Zone Assistant</h2></div>
-    <div class="film-heading"><h3 class="film-statement">LT Zone Assistant.</h3></div>
-    <div class="film-view"><figure class="film-capture"><img src="assets/evidence/lt-zone-assistant/full.webp" width="1425" height="950" alt="LT Zone Assistant: Inner and outer zone geometry" loading="lazy" decoding="async"><i class="film-source-focus" aria-hidden="true"></i></figure><div class="film-operation " aria-hidden="true"><canvas></canvas></div></div>
-    <div class="film-inspection"><label>Inspect the viewing angle<input class="film-focus" type="range" min="0" max="100" value="50"></label><output class="film-reading" aria-live="polite"></output></div>
-    <div class="film-transport"><button class="study-play" aria-label="Play the LT Zone Assistant film" aria-pressed="false"><span class="play-symbol" aria-hidden="true"></span> Play</button><label class="study-control"><span class="film-sr">Explore LT Zone Assistant</span><input type="range" min="0" max="100" value="0" aria-label="Explore the LT Zone Assistant film"></label><button class="film-original" data-capture="lt-zone-assistant">Original ↗</button></div>
-    <p class="film-description">Map LayTec inner and outer zones within one coordinate system. Review each boundary in relation to the whole. The animation illustrates the operation; it is not a live application result. </p>
-  </div></section><section class="feature instrument-film film-visual-only " id="configuration" data-feature="configuration" data-study-app="gan-xml-assistant" data-layout="hierarchy" data-playback-ms="8000" data-source-region="{&quot;left&quot;:105,&quot;top&quot;:395,&quot;width&quot;:1260,&quot;height&quot;:300}" style="--scene-length:470svh" aria-labelledby="title-configuration"><div class="feature-stage film-stage">
-    <div class="film-meta"><span>11 / 16</span><h2 id="title-configuration">GaN XML Assistant</h2></div>
-    <div class="film-heading"><h3 class="film-statement">GaN XML Assistant.</h3></div>
-    <div class="film-view"><figure class="film-capture"><img src="assets/evidence/gan-xml-assistant/full.webp" width="1425" height="950" alt="GaN XML Assistant: Structured configuration differences" loading="lazy" decoding="async"><i class="film-source-focus" aria-hidden="true"></i></figure><div class="film-operation " aria-hidden="true"><canvas></canvas></div></div>
-    <div class="film-inspection"><label>Inspect the viewing angle<input class="film-focus" type="range" min="0" max="100" value="50"></label><output class="film-reading" aria-live="polite"></output></div>
-    <div class="film-transport"><button class="study-play" aria-label="Play the GaN XML Assistant film" aria-pressed="false"><span class="play-symbol" aria-hidden="true"></span> Play</button><label class="study-control"><span class="film-sr">Explore GaN XML Assistant</span><input type="range" min="0" max="100" value="0" aria-label="Explore the GaN XML Assistant film"></label><button class="film-original" data-capture="gan-xml-assistant">Original ↗</button></div>
-    <p class="film-description">Match properties between reference and target configurations. Read changed settings and constants in context. The animation illustrates the operation; it is not a live application result. </p>
-  </div></section><section class="feature instrument-film film-visual-only " id="spc" data-feature="spc" data-study-app="magus-spc-gan" data-layout="review" data-playback-ms="8000" data-source-region="{&quot;left&quot;:110,&quot;top&quot;:290,&quot;width&quot;:1260,&quot;height&quot;:540}" style="--scene-length:460svh" aria-labelledby="title-spc"><div class="feature-stage film-stage">
-    <div class="film-meta"><span>12 / 16</span><h2 id="title-spc">Magus SPC (GaN)</h2></div>
-    <div class="film-heading"><h3 class="film-statement">Magus SPC (GaN).</h3></div>
-    <div class="film-view"><figure class="film-capture"><img src="assets/evidence/magus-spc-gan/full.webp" width="1425" height="950" alt="Magus SPC (GaN): GaN parameter control charts" loading="lazy" decoding="async"><i class="film-source-focus" aria-hidden="true"></i></figure><div class="film-operation " aria-hidden="true"><canvas></canvas></div></div>
-    <div class="film-inspection"><label>Inspect the viewing angle<input class="film-focus" type="range" min="0" max="100" value="50"></label><output class="film-reading" aria-live="polite"></output></div>
-    <div class="film-transport"><button class="study-play" aria-label="Play the Magus SPC (GaN) film" aria-pressed="false"><span class="play-symbol" aria-hidden="true"></span> Play</button><label class="study-control"><span class="film-sr">Explore Magus SPC (GaN)</span><input type="range" min="0" max="100" value="0" aria-label="Explore the Magus SPC (GaN) film"></label><button class="film-original" data-capture="magus-spc-gan">Original ↗</button></div>
-    <p class="film-description">Bring configured GaN SPC charts and parameter states into the same review. The animation illustrates the operation; it is not a live application result. </p>
-  </div></section><section class="feature instrument-film film-visual-only " id="legacy" data-feature="legacy" data-study-app="magus-spc-legacy" data-layout="records" data-playback-ms="8000" data-source-region="{&quot;left&quot;:85,&quot;top&quot;:235,&quot;width&quot;:1300,&quot;height&quot;:465}" style="--scene-length:450svh" aria-labelledby="title-legacy"><div class="feature-stage film-stage">
-    <div class="film-meta"><span>13 / 16</span><h2 id="title-legacy">Magus SPC (Legacy)</h2></div>
-    <div class="film-heading"><h3 class="film-statement">Magus SPC (Legacy).</h3></div>
-    <div class="film-view"><figure class="film-capture"><img src="assets/evidence/magus-spc-legacy/full.webp" width="1425" height="950" alt="Magus SPC (Legacy): Legacy parameter review and statuses" loading="lazy" decoding="async"><i class="film-source-focus" aria-hidden="true"></i></figure><div class="film-operation " aria-hidden="true"><canvas></canvas></div></div>
-    <div class="film-inspection"><label>Inspect the viewing angle<input class="film-focus" type="range" min="0" max="100" value="50"></label><output class="film-reading" aria-live="polite"></output></div>
-    <div class="film-transport"><button class="study-play" aria-label="Play the Magus SPC (Legacy) film" aria-pressed="false"><span class="play-symbol" aria-hidden="true"></span> Play</button><label class="study-control"><span class="film-sr">Explore Magus SPC (Legacy)</span><input type="range" min="0" max="100" value="0" aria-label="Explore the Magus SPC (Legacy) film"></label><button class="film-original" data-capture="magus-spc-legacy">Original ↗</button></div>
-    <p class="film-description">Retrieve legacy SPC parameter states and charts within the established review workflow. The animation illustrates the operation; it is not a live application result. </p>
-  </div></section><section class="feature instrument-film film-visual-only " id="planning" data-feature="planning" data-study-app="anko-helper" data-layout="priority" data-playback-ms="8000" data-source-region="{&quot;left&quot;:95,&quot;top&quot;:255,&quot;width&quot;:1280,&quot;height&quot;:430}" style="--scene-length:450svh" aria-labelledby="title-planning"><div class="feature-stage film-stage">
-    <div class="film-meta"><span>14 / 16</span><h2 id="title-planning">ANKO Helper</h2></div>
-    <div class="film-heading"><h3 class="film-statement">ANKO Helper.</h3></div>
-    <div class="film-view"><figure class="film-capture"><img src="assets/evidence/anko-helper/full.webp" width="1425" height="950" alt="ANKO Helper: Maintenance statuses and due dates" loading="lazy" decoding="async"><i class="film-source-focus" aria-hidden="true"></i></figure><div class="film-operation " aria-hidden="true"><canvas></canvas></div></div>
-    <div class="film-inspection"><label>Inspect the viewing angle<input class="film-focus" type="range" min="0" max="100" value="50"></label><output class="film-reading" aria-live="polite"></output></div>
-    <div class="film-transport"><button class="study-play" aria-label="Play the ANKO Helper film" aria-pressed="false"><span class="play-symbol" aria-hidden="true"></span> Play</button><label class="study-control"><span class="film-sr">Explore ANKO Helper</span><input type="range" min="0" max="100" value="0" aria-label="Explore the ANKO Helper film"></label><button class="film-original" data-capture="anko-helper">Original ↗</button></div>
-    <p class="film-description">Align ANKO status and due dates by equipment before deciding what needs attention. The animation illustrates the operation; it is not a live application result. </p>
-  </div></section><section class="feature instrument-film film-visual-only " id="report" data-feature="report" data-study-app="lt-report-compiler" data-layout="extraction" data-playback-ms="8000" data-source-region="{&quot;left&quot;:80,&quot;top&quot;:130,&quot;width&quot;:1310,&quot;height&quot;:205}" style="--scene-length:470svh" aria-labelledby="title-report"><div class="feature-stage film-stage">
-    <div class="film-meta"><span>15 / 16</span><h2 id="title-report">LT Report Compiler</h2></div>
-    <div class="film-heading"><h3 class="film-statement">LT Report Compiler.</h3></div>
-    <div class="film-view"><figure class="film-capture"><img src="assets/evidence/lt-report-compiler/full.webp" width="1425" height="950" alt="LT Report Compiler: Report compilation activity" loading="lazy" decoding="async"><i class="film-source-focus" aria-hidden="true"></i></figure><div class="film-operation " aria-hidden="true"><canvas></canvas></div></div>
-    <div class="film-inspection"><label>Inspect the viewing angle<input class="film-focus" type="range" min="0" max="100" value="50"></label><output class="film-reading" aria-live="polite"></output></div>
-    <div class="film-transport"><button class="study-play" aria-label="Play the LT Report Compiler film" aria-pressed="false"><span class="play-symbol" aria-hidden="true"></span> Play</button><label class="study-control"><span class="film-sr">Explore LT Report Compiler</span><input type="range" min="0" max="100" value="0" aria-label="Explore the LT Report Compiler film"></label><button class="film-original" data-capture="lt-report-compiler">Original ↗</button></div>
-    <p class="film-description">Assemble LayTec source information into an engineering report without rebuilding the reporting structure each time. The animation illustrates the operation; it is not a live application result. </p>
-  </div></section><section class="feature instrument-film film-visual-only " id="signals" data-feature="signals" data-study-app="metria-spc" data-layout="synchronized" data-playback-ms="8000" data-source-region="{&quot;left&quot;:307,&quot;top&quot;:864,&quot;width&quot;:3226,&quot;height&quot;:756}" style="--scene-length:490svh" aria-labelledby="title-signals"><div class="feature-stage film-stage">
-    <div class="film-meta"><span>16 / 16</span><h2 id="title-signals">Metria SPC</h2></div>
-    <div class="film-heading"><h3 class="film-statement">Metria SPC.</h3></div>
-    <div class="film-view"><figure class="film-capture"><img src="assets/artifacts/apps/metria-spc/hero.webp" width="3840" height="2160" alt="Metria SPC: Native 4K Metria sample charts" loading="lazy" decoding="async"><i class="film-source-focus" aria-hidden="true"></i></figure><div class="film-operation " aria-hidden="true"><canvas></canvas></div></div>
-    <div class="film-inspection"><label>Inspect the viewing angle<input class="film-focus" type="range" min="0" max="100" value="50"></label><output class="film-reading" aria-live="polite"></output><button class="film-alternate" aria-pressed="false">Narrow / wide</button></div>
-    <div class="film-transport"><button class="study-play" aria-label="Play the Metria SPC film" aria-pressed="false"><span class="play-symbol" aria-hidden="true"></span> Play</button><label class="study-control"><span class="film-sr">Explore Metria SPC</span><input type="range" min="0" max="100" value="0" aria-label="Explore the Metria SPC film"></label><button class="film-original" data-capture="metria-spc">Original ↗</button></div>
-    <p class="film-description">Inspect equipment parameter traces together. Follow one time window across the signals while retaining each chart. The animation illustrates the operation; it is not a live application result. </p>
-  </div></section>
-    </dialog>
-    <dialog id="capture" aria-labelledby="capture-title">
-      <div class="capture-toolbar">
-        <div>
-          <p class="eyebrow">Inside ARTIFACTS</p>
-          <h2 id="capture-title"></h2>
+    </section>
+    <section class="origin section dark" id="origin" aria-labelledby="origin-title">
+      <div class="container origin-layout">
+        <div class="origin-copy">
+          <h2 class="section-title" id="origin-title">Good reasoning should outlive the task.</h2>
+          <p>Engineering work kept asking for the same comparisons, checks and reports. Rebuilding the process each time was friction I could remove.</p>
+          <p>So I built tools that kept the useful reasoning ready for the next task.</p>
         </div>
-        <button id="capture-close" aria-label="Close interface">×</button>
+        <figure class="origin-evidence">
+          <a class="origin-image-link" href="assets/evidence/homepage/full.webp" aria-label="View the full ARTIFACTS homepage"><img src="assets/evidence/homepage/full.webp" srcset="assets/evidence/homepage/width-768.webp 768w, assets/evidence/homepage/width-1120.webp 1120w, assets/evidence/homepage/full.webp 1425w" sizes="(min-width: 1568px) 812px, (min-width: 1440px) calc((100vw - 176px) * .583333), (min-width: 1024px) calc((100vw - 144px) * .583333), (min-width: 768px) calc(100vw - 64px), (max-width: 359px) calc(100vw - 32px), calc(100vw - 40px)" width="1425" height="950" alt="ARTIFACTS homepage with all sixteen engineering applications" loading="lazy" decoding="async"></a>
+          <figcaption>The ARTIFACTS environment</figcaption>
+        </figure>
       </div>
-      <div class="capture-viewport"><img id="capture-image" alt="" /></div>
-      <div class="capture-tools">
-        <button id="pixel-view" aria-pressed="false">View actual size</button
-        ><span id="capture-size"></span
-        ><a id="capture-source" target="_blank" rel="noopener"
-          >Open original ↗</a
-        >
+    </section>
+    <section class="applications section" id="applications" aria-labelledby="applications-title">
+      <div class="container">
+        <div class="section-heading"><h2 class="section-title" id="applications-title">The applications</h2><p>Select an interface to view the full capture.</p></div>
+        <div class="application-grid">
+          <article class="application" id="altus-lotviewer" aria-labelledby="altus-lotviewer-title">
+            <header class="application-header"><span class="application-number">01</span><h3 class="application-title" id="altus-lotviewer-title">Altus LotViewer</h3></header>
+            <a class="media-stage" href="assets/evidence/altus-lotviewer/full.webp" aria-label="View the full Altus LotViewer interface"><img src="assets/evidence/altus-lotviewer/full.webp" srcset="assets/evidence/altus-lotviewer/width-768.webp 768w, assets/evidence/altus-lotviewer/width-1120.webp 1120w, assets/evidence/altus-lotviewer/full.webp 1425w" sizes="(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)" width="1425" height="950" alt="Altus LotViewer showing a lot history with reactor, wafer and deposition events" loading="lazy" decoding="async"></a>
+            <p class="application-value">Follow process events, wafer states and timestamps through each lot.</p>
+          </article>
+          <article class="application" id="altus-anko-viewer" aria-labelledby="altus-anko-viewer-title">
+            <header class="application-header"><span class="application-number">02</span><h3 class="application-title" id="altus-anko-viewer-title">Altus ANKO Viewer</h3></header>
+            <a class="media-stage" href="assets/evidence/altus-anko-viewer/full.webp" aria-label="View the full Altus ANKO Viewer interface"><img src="assets/evidence/altus-anko-viewer/full.webp" srcset="assets/evidence/altus-anko-viewer/width-768.webp 768w, assets/evidence/altus-anko-viewer/width-1120.webp 1120w, assets/evidence/altus-anko-viewer/full.webp 1425w" sizes="(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)" width="1425" height="950" alt="Altus ANKO Viewer showing equipment checks and their next due dates" loading="lazy" decoding="async"></a>
+            <p class="application-value">Bring ANKO schedules and upcoming checks into view.</p>
+          </article>
+          <article class="application" id="altus-wafercount" aria-labelledby="altus-wafercount-title">
+            <header class="application-header"><span class="application-number">03</span><h3 class="application-title" id="altus-wafercount-title">Altus WaferCount</h3></header>
+            <a class="media-stage" href="assets/evidence/altus-wafercount/full.webp" aria-label="View the full Altus WaferCount interface"><img src="assets/evidence/altus-wafercount/full.webp" srcset="assets/evidence/altus-wafercount/width-768.webp 768w, assets/evidence/altus-wafercount/width-1120.webp 1120w, assets/evidence/altus-wafercount/full.webp 1425w" sizes="(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)" width="1425" height="950" alt="Altus WaferCount displaying chamber wafer counts against maintenance limits" loading="lazy" decoding="async"></a>
+            <p class="application-value">Read chamber usage and wafer counts for maintenance planning.</p>
+          </article>
+          <article class="application" id="topotracer" aria-labelledby="topotracer-title">
+            <header class="application-header"><span class="application-number">04</span><h3 class="application-title" id="topotracer-title">TopoTracer</h3></header>
+            <a class="media-stage" href="assets/evidence/topotracer/full.webp" aria-label="View the full TopoTracer interface"><img src="assets/evidence/topotracer/full.webp" srcset="assets/evidence/topotracer/width-768.webp 768w, assets/evidence/topotracer/width-1120.webp 1120w, assets/evidence/topotracer/full.webp 1425w" sizes="(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)" width="1425" height="950" alt="TopoTracer displaying an interpolated wafer surface and its measurement scale" loading="lazy" decoding="async"></a>
+            <p class="application-value">Turn wafer measurements into contour and topography plots.</p>
+          </article>
+          <article class="application" id="papyrus-reader" aria-labelledby="papyrus-reader-title">
+            <header class="application-header"><span class="application-number">05</span><h3 class="application-title" id="papyrus-reader-title">Papyrus Reader</h3></header>
+            <a class="media-stage" href="assets/evidence/papyrus-reader/full.webp" aria-label="View the full Papyrus Reader interface"><img src="assets/evidence/papyrus-reader/full.webp" srcset="assets/evidence/papyrus-reader/width-768.webp 768w, assets/evidence/papyrus-reader/width-1120.webp 1120w, assets/evidence/papyrus-reader/full.webp 1425w" sizes="(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)" width="1425" height="950" alt="Papyrus Reader comparing two recipes with changed and added parameters highlighted" loading="lazy" decoding="async"></a>
+            <p class="application-value">Match equivalent recipe steps and identify parameter differences.</p>
+          </article>
+          <article class="application" id="spc-pathfinder" aria-labelledby="spc-pathfinder-title">
+            <header class="application-header"><span class="application-number">06</span><h3 class="application-title" id="spc-pathfinder-title">SPC Pathfinder</h3></header>
+            <a class="media-stage" href="assets/evidence/spc-pathfinder/full.webp" aria-label="View the full SPC Pathfinder interface"><img src="assets/evidence/spc-pathfinder/full.webp" srcset="assets/evidence/spc-pathfinder/width-768.webp 768w, assets/evidence/spc-pathfinder/width-1120.webp 1120w, assets/evidence/spc-pathfinder/full.webp 1425w" sizes="(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)" width="1425" height="950" alt="SPC Pathfinder grouping parameter chart links by workcentre" loading="lazy" decoding="async"></a>
+            <p class="application-value">Reach related SPC charts without repeating the same navigation.</p>
+          </article>
+          <article class="application" id="gan-met-compiler" aria-labelledby="gan-met-compiler-title">
+            <header class="application-header"><span class="application-number">07</span><h3 class="application-title" id="gan-met-compiler-title">GaN Met Compiler</h3></header>
+            <a class="media-stage" href="assets/evidence/gan-met-compiler/full.webp" aria-label="View the full GaN Met Compiler interface"><img src="assets/evidence/gan-met-compiler/full.webp" srcset="assets/evidence/gan-met-compiler/width-768.webp 768w, assets/evidence/gan-met-compiler/width-1120.webp 1120w, assets/evidence/gan-met-compiler/full.webp 1425w" sizes="(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)" width="1425" height="950" alt="GaN Met Compiler showing metrology file inputs and the processing log" loading="lazy" decoding="async"></a>
+            <p class="application-value">Combine metrology inputs and predefined calculations in one report.</p>
+          </article>
+          <article class="application" id="gan-temp-diagnoser" aria-labelledby="gan-temp-diagnoser-title">
+            <header class="application-header"><span class="application-number">08</span><h3 class="application-title" id="gan-temp-diagnoser-title">GaN Temp Diagnoser</h3></header>
+            <a class="media-stage" href="assets/evidence/gan-temp-diagnoser/full.webp" aria-label="View the full GaN Temp Diagnoser interface"><img src="assets/evidence/gan-temp-diagnoser/full.webp" srcset="assets/evidence/gan-temp-diagnoser/width-768.webp 768w, assets/evidence/gan-temp-diagnoser/width-1120.webp 1120w, assets/evidence/gan-temp-diagnoser/full.webp 1425w" sizes="(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)" width="1425" height="950" alt="GaN Temp Diagnoser showing observation controls and recommended diagnostic checks" loading="lazy" decoding="async"></a>
+            <p class="application-value">Use temperature observations to guide diagnosis and the next checks.</p>
+          </article>
+          <article class="application" id="aix-dt-assistant" aria-labelledby="aix-dt-assistant-title">
+            <header class="application-header"><span class="application-number">09</span><h3 class="application-title" id="aix-dt-assistant-title">AIX ΔT Assistant</h3></header>
+            <a class="media-stage" href="assets/evidence/aix-dt-assistant/full.webp" aria-label="View the full AIX ΔT Assistant interface"><img src="assets/evidence/aix-dt-assistant/full.webp" srcset="assets/evidence/aix-dt-assistant/width-768.webp 768w, assets/evidence/aix-dt-assistant/width-1120.webp 1120w, assets/evidence/aix-dt-assistant/full.webp 1425w" sizes="(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)" width="1425" height="950" alt="AIX ΔT Assistant showing baseplate weights and a five-position arrangement" loading="lazy" decoding="async"></a>
+            <p class="application-value">Guide baseplate arrangements using weight and temperature inputs.</p>
+          </article>
+          <article class="application" id="lt-zone-assistant" aria-labelledby="lt-zone-assistant-title">
+            <header class="application-header"><span class="application-number">10</span><h3 class="application-title" id="lt-zone-assistant-title">LT Zone Assistant</h3></header>
+            <a class="media-stage" href="assets/evidence/lt-zone-assistant/full.webp" aria-label="View the full LT Zone Assistant interface"><img src="assets/evidence/lt-zone-assistant/full.webp" srcset="assets/evidence/lt-zone-assistant/width-768.webp 768w, assets/evidence/lt-zone-assistant/width-1120.webp 1120w, assets/evidence/lt-zone-assistant/full.webp 1425w" sizes="(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)" width="1425" height="950" alt="LT Zone Assistant showing inner and outer zone geometry on a five-wafer layout" loading="lazy" decoding="async"></a>
+            <p class="application-value">See inner and outer LayTec zones in spatial context.</p>
+          </article>
+          <article class="application" id="gan-xml-assistant" aria-labelledby="gan-xml-assistant-title">
+            <header class="application-header"><span class="application-number">11</span><h3 class="application-title" id="gan-xml-assistant-title">GaN XML Assistant</h3></header>
+            <a class="media-stage" href="assets/evidence/gan-xml-assistant/full.webp" aria-label="View the full GaN XML Assistant interface"><img src="assets/evidence/gan-xml-assistant/full.webp" srcset="assets/evidence/gan-xml-assistant/width-768.webp 768w, assets/evidence/gan-xml-assistant/width-1120.webp 1120w, assets/evidence/gan-xml-assistant/full.webp 1425w" sizes="(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)" width="1425" height="950" alt="GaN XML Assistant showing changed, added and removed device configuration values" loading="lazy" decoding="async"></a>
+            <p class="application-value">Compare device configurations and bring their differences into view.</p>
+          </article>
+          <article class="application" id="magus-spc-gan" aria-labelledby="magus-spc-gan-title">
+            <header class="application-header"><span class="application-number">12</span><h3 class="application-title" id="magus-spc-gan-title">Magus SPC (GaN)</h3></header>
+            <a class="media-stage" href="assets/evidence/magus-spc-gan/full.webp" aria-label="View the full Magus SPC (GaN) interface"><img src="assets/evidence/magus-spc-gan/full.webp" srcset="assets/evidence/magus-spc-gan/width-768.webp 768w, assets/evidence/magus-spc-gan/width-1120.webp 1120w, assets/evidence/magus-spc-gan/full.webp 1425w" sizes="(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)" width="1425" height="950" alt="Magus SPC GaN showing parameter control charts and specification limits" loading="lazy" decoding="async"></a>
+            <p class="application-value">Review GaN parameter charts and release states together.</p>
+          </article>
+          <article class="application" id="magus-spc-legacy" aria-labelledby="magus-spc-legacy-title">
+            <header class="application-header"><span class="application-number">13</span><h3 class="application-title" id="magus-spc-legacy-title">Magus SPC (Legacy)</h3></header>
+            <a class="media-stage" href="assets/evidence/magus-spc-legacy/full.webp" aria-label="View the full Magus SPC (Legacy) interface"><img src="assets/evidence/magus-spc-legacy/full.webp" srcset="assets/evidence/magus-spc-legacy/width-768.webp 768w, assets/evidence/magus-spc-legacy/width-1120.webp 1120w, assets/evidence/magus-spc-legacy/full.webp 1425w" sizes="(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)" width="1425" height="950" alt="Magus SPC Legacy showing parameter review states and a control chart" loading="lazy" decoding="async"></a>
+            <p class="application-value">Bring legacy parameter charts and release states into one review.</p>
+          </article>
+          <article class="application" id="anko-helper" aria-labelledby="anko-helper-title">
+            <header class="application-header"><span class="application-number">14</span><h3 class="application-title" id="anko-helper-title">ANKO Helper</h3></header>
+            <a class="media-stage" href="assets/evidence/anko-helper/full.webp" aria-label="View the full ANKO Helper interface"><img src="assets/evidence/anko-helper/full.webp" srcset="assets/evidence/anko-helper/width-768.webp 768w, assets/evidence/anko-helper/width-1120.webp 1120w, assets/evidence/anko-helper/full.webp 1425w" sizes="(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)" width="1425" height="950" alt="ANKO Helper showing equipment status, last sample and next due dates" loading="lazy" decoding="async"></a>
+            <p class="application-value">Review ANKO status and due dates before planning the next checks.</p>
+          </article>
+          <article class="application" id="lt-report-compiler" aria-labelledby="lt-report-compiler-title">
+            <header class="application-header"><span class="application-number">15</span><h3 class="application-title" id="lt-report-compiler-title">LT Report Compiler</h3></header>
+            <a class="media-stage" href="assets/evidence/lt-report-compiler/full.webp" aria-label="View the full LT Report Compiler interface"><img src="assets/evidence/lt-report-compiler/full.webp" srcset="assets/evidence/lt-report-compiler/width-768.webp 768w, assets/evidence/lt-report-compiler/width-1120.webp 1120w, assets/evidence/lt-report-compiler/full.webp 1425w" sizes="(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)" width="1425" height="950" alt="LT Report Compiler showing selected analysis files and a completed processing log" loading="lazy" decoding="async"></a>
+            <p class="application-value">Compile LayTec analysis into a consistent engineering report.</p>
+          </article>
+          <article class="application" id="metria-spc" aria-labelledby="metria-spc-title">
+            <header class="application-header"><span class="application-number">16</span><h3 class="application-title" id="metria-spc-title">Metria SPC</h3></header>
+            <a class="media-stage" href="assets/evidence/metria-spc/full.webp" aria-label="View the full Metria SPC interface"><img src="assets/evidence/metria-spc/full.webp" srcset="assets/evidence/metria-spc/width-768.webp 768w, assets/evidence/metria-spc/width-1120.webp 1120w, assets/evidence/metria-spc/full.webp 1425w" sizes="(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)" width="1425" height="950" alt="Metria SPC showing equipment parameter controls, a signal plot and a variation plot" loading="lazy" decoding="async"></a>
+            <p class="application-value">Explore equipment parameters together through interactive SPC analysis.</p>
+          </article>
+        </div>
       </div>
-    </dialog>
-  </body>
+    </section>
+    <section class="gene section dark" id="gene" aria-labelledby="gene-title">
+      <div class="container gene-layout">
+        <h2 class="gene-title" id="gene-title">Gene</h2>
+        <div class="gene-copy">
+          <p class="lead">I spent my entire life improving processes.</p>
+          <p>ARTIFACTS began when I realised engineering itself was one of them.</p>
+          <p>What repeated, I automated.<br>What stood in the way, I rebuilt.</p>
+          <p>ARTIFACTS is the evidence that I never accepted the way things were as the way they had to stay.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer dark">
+    <div class="container footer-inner">
+      <div class="contact-links"><a href="mailto:weigenekhor@gmail.com">weigenekhor@gmail.com</a><a href="https://www.linkedin.com/in/weigenekhor/">LinkedIn</a></div>
+      <a class="text-link back-to-top" href="#top">Back to top <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 14V3m-4 4 4-4 4 4" stroke="currentColor" stroke-width="1.3"/></svg></a>
+    </div>
+  </footer>
+</body>
 </html>

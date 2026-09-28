@@ -1,69 +1,24 @@
-import { renderFilm } from "./film-markup.mjs";
 import fs from "node:fs/promises";
-import { build } from "esbuild";
-const read = async (p) =>
-  JSON.parse((await fs.readFile(p, "utf8")).replace(/^\uFEFF/, ""));
-const { apps } = await read("content/apps.json"),
-  features = await read("content/exhibition.json");
-const homepage = await read("content/homepage.json");
-const gallery = await read("content/gallery.json");
-const films = await read("content/films.json");
-const captureAudit = await read("assets/evidence/audit.json");
-const esc = (s) =>
-  String(s)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll('"', "&quot;");
-const lines = (s) => esc(s).replaceAll("\n", "<br>");
 
+const { apps } = JSON.parse(await fs.readFile("content/apps.json", "utf8"));
+const homepage = JSON.parse(await fs.readFile("content/homepage.json", "utf8"));
+const escape = value => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll('"', "&quot;");
+const gallerySizes = "(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)";
+const originSizes = "(min-width: 1568px) 812px, (min-width: 1440px) calc((100vw - 176px) * .583333), (min-width: 1024px) calc((100vw - 144px) * .583333), (min-width: 768px) calc(100vw - 64px), (max-width: 359px) calc(100vw - 32px), calc(100vw - 40px)";
+const image = (capture, alt, sizes) => `<img src="${escape(capture.src)}" srcset="${capture.sources.map(s => `${escape(s.src)} ${s.width}w`).join(", ")}" sizes="${sizes}" width="${capture.width}" height="${capture.height}" alt="${escape(alt)}" loading="lazy" decoding="async">`;
+
+if (apps.length !== 16 || apps.some((a, i) => a.index !== i + 1)) throw Error("Expected sixteen applications in canonical order.");
 let html = await fs.readFile("content/page.html", "utf8");
-const story = await read("content/story.json");
-html = html.replace(
-  "<!-- ORIGIN PAGES -->",
-  story.phases
-    .map(
-      (p) =>
-        `<article class="origin-caption origin-${p.id}" data-origin-start="${p.start}" data-origin-end="${p.end}" data-origin-still="${p.still}"><div class="origin-words"><h2>${lines(p.title)}</h2>${p.text ? `<p>${esc(p.text)}</p>` : ""}</div><canvas class="origin-still" aria-hidden="true"></canvas><p class="origin-description">${esc(p.description)}</p></article>`,
-    )
-    .join(""),
-);
-html = html.replace(
-  "<!-- FEATURES -->",
-  features
-    .map((f, i) => {
-      const a = apps.find((a) => a.id === f.id);
-      return renderFilm(
-        a,
-        f,
-        films[f.kind],
-        captureAudit.find((r) => r.id === a.id).region,
-        esc,
-      );
-    })
-    .join(""),
-);
-html = html.replace(
-  "<!-- GALLERY -->",
-  features
-    .map((f) => {
-      const app = apps.find((a) => a.id === f.id),
-        card = gallery[f.kind];
-      return `<a class="gallery-card gallery-paper" href="${esc(app.evidence.full)}" data-film="${f.kind}" style="--accent:${card.accent}" aria-label="Explore ${esc(app.name)}"><div class="gallery-art ${f.kind === "surface" ? "topography" : ""}" aria-hidden="true"><img class="gallery-fallback" src="${esc(app.evidence.full)}" width="${app.evidence.fullWidth}" height="${app.evidence.fullHeight}" loading="lazy" decoding="async" alt=""><canvas class="gallery-preview"></canvas></div><div class="gallery-caption"><span class="gallery-number">${f.number}</span><div><h3>${esc(app.name)}</h3><p>${esc(card.cue)}</p></div><span class="gallery-evidence">View the film ↗</span></div></a>`;
-    })
-    .join(""),
-);
-await fs.writeFile("index.html", html.replace(/^\uFEFF/, ""));
-await fs.writeFile(
-  "js/apps.js",
-  `// Generated from the verified source catalogue.\nexport const homepage=${JSON.stringify(homepage)};\nexport const apps=${JSON.stringify(apps.map(({ id, index, name, category, description, purpose, evidence, headline }) => ({ id, index, name, category, description, purpose, evidence, headline })))};`,
-);
-await build({
-  entryPoints: ["js/experience.js"],
-  bundle: true,
-  format: "esm",
-  minify: true,
-  target: ["es2022"],
-  outfile: "script.js",
-  legalComments: "eof",
-});
-console.log("Built ARTIFACTS software exhibition.");
+const symbol = (await fs.readFile("assets/brand/artifacts-symbol.svg", "utf8"))
+  .replace('<svg ', '<svg class="brand-symbol" aria-hidden="true" focusable="false" ')
+  .replace(/<title>[\s\S]*?<\/title>|<desc>[\s\S]*?<\/desc>/g, "")
+  .replaceAll('fill="#e9edf0"', 'fill="currentColor"');
+html = html.replace("<!-- BRAND -->", symbol);
+html = html.replace("<!-- HOMEPAGE -->", `<a class="origin-image-link" href="${homepage.capture.src}" aria-label="View the full ARTIFACTS homepage">${image(homepage.capture, "ARTIFACTS homepage with all sixteen engineering applications", originSizes)}</a>`);
+html = html.replace("<!-- APPLICATIONS -->", apps.map(a => `<article class="application" id="${a.id}" aria-labelledby="${a.id}-title">
+            <header class="application-header"><span class="application-number">${String(a.index).padStart(2, "0")}</span><h3 class="application-title" id="${a.id}-title">${escape(a.name)}</h3></header>
+            <a class="media-stage" href="${a.capture.src}" aria-label="View the full ${escape(a.name)} interface">${image(a.capture, a.alt, gallerySizes)}</a>
+            <p class="application-value">${escape(a.valueLine)}</p>
+          </article>`).join("\n          "));
+await fs.writeFile("index.html", html.replace(/[\t ]+$/gm, ""));
+console.log(`Built ${apps.length} applications. Static HTML + one stylesheet; no client JavaScript.`);

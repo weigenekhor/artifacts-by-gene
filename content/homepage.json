@@ -1,12 +1,25 @@
 {
   "id": "homepage",
-  "name": "ARTIFACTS",
-  "category": "The starting point",
-  "purpose": "Sixteen applications. One place to enter the work. Start with the ARTIFACTS homepage, then explore each tool in its original order.",
-  "evidence": {
-    "full": "assets/evidence/homepage/full.webp",
-    "fullWidth": 1425,
-    "fullHeight": 950,
-    "label": "ARTIFACTS homepage — the complete application collection"
+  "sourceFilename": "Homepage.png",
+  "capture": {
+    "src": "assets/evidence/homepage/full.webp",
+    "width": 1425,
+    "height": 950,
+    "sources": [
+      {
+        "src": "assets/evidence/homepage/width-768.webp",
+        "width": 768
+      },
+      {
+        "src": "assets/evidence/homepage/width-1120.webp",
+        "width": 1120
+      },
+      {
+        "src": "assets/evidence/homepage/full.webp",
+        "width": 1425
+      }
+    ],
+    "sourceSha256": "3576519a87a3dbea1af9caefbc250648e962ed0ce90a41407e12484229ff1db4",
+    "pixelSha256": "3b6950be6e381042e56a4204226f3ed07e96af6e03440e044abaab0075d1b203"
   }
 }
