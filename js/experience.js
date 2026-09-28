@@ -1,3 +1,4 @@
+import { createEpilogue } from "./epilogue.js";
 import { createGenesis } from "./genesis.js";
 import { apps, homepage } from "./apps.js";
 import { createStudy } from "./studies.js";
@@ -18,6 +19,7 @@ const collection = [homepage, ...apps];
 const studies = features.map((el) => createStudy(el, wake));
 const genesis = createGenesis(hero, wake);
 const toolsScene = createHero($("#tools-universe"), apps, wake);
+const epilogue = createEpilogue(document.querySelector("#gene"));
 let heroMoving = false,
   toolsMoving = false,
   toolsTop = 0,
@@ -45,6 +47,7 @@ preference.addEventListener("change", syncMotion);
 function measure() {
   const y = scrollY;
   genesis.measure();
+  epilogue.measure();
   toolsScene.resize();
   toolsTop = toolsSection.offsetTop;
   toolsHeight = toolsSection.offsetHeight;
@@ -106,11 +109,11 @@ function tick(time) {
   px += (tx - px) * (1 - Math.exp(-dt / 160));
   py += (ty - py) * (1 - Math.exp(-dt / 160));
   heroMoving = genesis.update(y, time, dt, px, py, reduced);
+  epilogue.update(y, reduced);
+  if (y + innerHeight * 2.5 > toolsTop) toolsScene.prewarm();
   toolsMoving = false;
   if (y + innerHeight > toolsTop && y < toolsTop + toolsHeight) {
-    const arrival = reduced
-      ? 1
-      : ease((y - toolsTop + innerHeight * 0.32) / (innerHeight * 0.65));
+    const arrival = reduced ? 1 : Number(y >= toolsTop);
     const toolsStage = toolsSection.firstElementChild;
     toolsStage.style.setProperty("--collection-arrival", arrival);
     toolsStage.style.setProperty(
@@ -156,7 +159,7 @@ function tick(time) {
           (y - (b.top + b.height - b.stage - innerHeight * 0.08)) /
             (innerHeight * 0.22),
         );
-    el.style.setProperty("--film-presence", leaving);
+    el.style.setProperty("--film-presence", 1);
     el.firstElementChild.inert = !reduced && leaving < 0.05;
     studyMoving =
       studies[i].update(p, dt, reduced, manual, px, py) || studyMoving;

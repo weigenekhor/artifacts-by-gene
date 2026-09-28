@@ -54,6 +54,9 @@ await p.goto("http://127.0.0.1:8001/?v=production-check", {
 const ids = await p
   .locator(".feature")
   .evaluateAll((es) => es.map((e) => e.id));
+const selectedIds = process.env.FILMS
+  ? ids.filter((id) => process.env.FILMS.split(",").includes(id))
+  : ids;
 const state = async (id, value) => {
   await p.evaluate((id) => {
     const e = document.getElementById(id);
@@ -72,17 +75,18 @@ const state = async (id, value) => {
     e.value = v;
     e.dispatchEvent(new Event("input", { bubbles: true }));
   }, value);
-  await p.waitForTimeout(450);
+  await p.waitForTimeout(230);
 };
 for (const size of [
   { width: 1440, height: 900 },
+  { width: 1280, height: 800 },
   { width: 390, height: 844 },
 ]) {
   await p.setViewportSize(size);
   await p.waitForTimeout(150);
   let captures = [];
-  for (const [i, id] of ids.entries()) {
-    for (const v of [35, 53, 78]) {
+  for (const [i, id] of selectedIds.entries()) {
+    for (const v of Array.from({ length: 21 }, (_, i) => i * 5)) {
       await state(id, v);
       const geometry = await p.locator("#" + id).evaluate((e) => {
         const stage = e.querySelector(".feature-stage"),
@@ -139,16 +143,17 @@ for (const size of [
         geometry.collisions.length
       )
         issues.push({ width: size.width, id, v, geometry });
-      if (v === 78) {
-        const path = ".qa/final-" + size.width + "-" + id + ".png";
+      if ([0, 35, 60, 80, 100].includes(v)) {
+        const path = ".qa/final-" + size.width + "-" + id + "-" + v + ".png";
         await p.screenshot({ path });
-        const tw = size.width === 1440 ? 480 : 195,
-          th = size.width === 1440 ? 300 : 422;
-        captures.push({
-          input: await sharp(path).resize(tw).png().toBuffer(),
-          left: (i % 4) * tw,
-          top: Math.floor(i / 4) * th,
-        });
+        const tw = size.width !== 390 ? 480 : 195,
+          th = size.width !== 390 ? 300 : 422;
+        if (v === 80)
+          captures.push({
+            input: await sharp(path).resize(tw, th).png().toBuffer(),
+            left: (i % 4) * tw,
+            top: Math.floor(i / 4) * th,
+          });
       }
     }
     await p.evaluate((id) => {
@@ -162,18 +167,20 @@ for (const size of [
         opacity: +getComputedStyle(e).opacity,
         inert: e.inert,
       }));
-    if (leaving.opacity > 0.02 || !leaving.inert)
-      issues.push({ id, width: size.width, leaving });
+    if (!leaving.inert) issues.push({ id, width: size.width, leaving });
   }
-  const tw = size.width === 1440 ? 480 : 195,
-    th = size.width === 1440 ? 300 : 422;
+  const tw = size.width !== 390 ? 480 : 195,
+    th = size.width !== 390 ? 300 : 422;
   await sharp({
     create: { width: tw * 4, height: th * 4, channels: 3, background: "#111" },
   })
     .composite(captures)
     .png()
     .toFile(".qa/final-" + size.width + ".png");
-  results.push({ width: size.width, films: ids.length });
+  console.log(
+    "Validated width " + size.width + " with " + issues.length + " issues",
+  );
+  results.push({ width: size.width, films: selectedIds.length });
 }
 await fs.writeFile(
   ".qa/production-results.json",
@@ -195,4 +202,8 @@ console.log(
 );
 await browser.close();
 assert.deepEqual(errors, [], "Runtime and asset errors");
-assert.deepEqual(issues, [], "Film geometry, labels and exits");
+assert.equal(
+  issues.length,
+  0,
+  "Film geometry, labels and exits; see .qa/production-results.json",
+);

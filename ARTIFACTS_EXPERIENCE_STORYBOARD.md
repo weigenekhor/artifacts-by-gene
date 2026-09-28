@@ -1,47 +1,42 @@
-# ARTIFACTS — EXPERIENCE STORYBOARD
+# ARTIFACTS — Experience Storyboard
 
-## Base and scope
+## Current source, not a reset
 
-Implement on ee65f20, not on a later experimental source tree. This branch begins directly at ee65f20d04458564dfe35c049de6df04469b6a19. The saved version is immutable. Preserve the hero, collection layout, original captures and the native sequential journey. 84baa04 is a GaN Met Compiler reference only.
+Continue on the current branch. Archives are comparison references. Preserve the hero and TopoTracer. The September 28 definitive brief governs this pass.
 
-## Opening — protected
+## Opening
 
-The monumental ARTIFACTS identity and its responsive material field remain the ee65f20 implementation. Main copy: “Built for engineering where almost right is still wrong.” Small label: “Built against the cost of getting it wrong.” The logo remains in the navigation. Do not redesign this hero without Gene's explicit instruction.
+The monumental identity remains unchanged. Small descriptor: A software suite by Weigenekhor. Main line: Built for engineering where almost right is still wrong.
 
-## Origin — one persistent surface
+## Origin / one camera clock
 
-The source is js/origin-construction.js, driven by the existing js/genesis.js scroll clock. js/starting-over.js has been deleted.
+`genesis.js` drives `origin-construction.js` across 6.8 timeline units.
 
-1. **Complex work.** Enter a close, spatial evidence surface from the existing identity field. Individual cells have competing positions and depth; the viewer sees a context that is difficult to read. The light environment develops during this approach.
-2. **Friction.** Neighbouring regions shear, interrupting registration. The field is visibly harder to inspect. One statement: “The work was difficult enough.”
-3. **Intervention.** The disturbance relaxes and the original cells regain a shared reference. The material persists; a different scene is not swapped in. “Friction was not a requirement.”
-4. **Capabilities.** Measurement, comparison and structured recording rise from regions of that same surface. They coexist without becoming named application cards or screenshot previews.
-5. **System.** The separate depth relationships settle into one front-facing surface. The lighting darkens through the same camera composition.
-6. **Reality.** The genuine homepage is revealed in that position. Its actual DOM element moves from the genesis stage into its original collection parent; there are not two screenshot copies fading across one another. The collection opens as the homepage recedes.
+1. Enter a large bank of dimensional measurement profiles from the identity field. Registration initially works. Scale and material establish a working environment rather than a dashboard.
+2. One region loses registration. A useful relationship is interrupted. Quiet statement: **Some difficulty belongs to the work.**
+3. A reference moves deliberately into place. Registration returns. Hold the improved state before moving on. Quiet statement: **Some doesn’t.**
+4. Travel to sampled positions that become a continuous spatial field; then to mismatched comparison structures. Matching geometry settles; one meaningful change remains warm.
+5. Pull back. All three solved structures remain in one environment. This is philosophical continuity, not an assertion of real app integration.
+6. Approach the central substrate. It gains material and turns frontal. The real homepage occupies the same centre and dimensions. No app names or previews before this point.
+7. The same homepage DOM element transfers into the collection. Decode the real captures beforehand. It retreats as three, six, ten and finally sixteen surfaces arrive. Keep the chapter identity quiet; no utility toolbar or headline.
 
-The origin uses two main statements. Accessible descriptions and static stills explain the sequence in reduced motion. Do not restore “Again”, the previous repeat-the-task sequence, a factory conveyor, or a five-stage abstract-principles diagram. No application names or screenshots before the last handoff. No headline over the collection.
+No tiled matrix, five-principle diagram, repeated evidence reset, factory conveyor or screenshot catalogue in this chapter.
 
-## Application experience — original ee65f20 architecture
+## Applications
 
-Keep js/instrument-film.js, its source-region handoff, native timeline controls, image fitting and offscreen lifecycle. Keep the js/films/time.js, fields.js, physical.js and reports.js modules. The richer geometry uses the existing js/space.js and shared material renderer. Do not substitute the rejected experimental studio/set architecture.
+Sixteen complete captures remain in the actual application order. The source region supplies an entry point, the interpretation develops, a decisive state holds for inspection, and the same full interface returns. Native vertical movement carries the outgoing capture into the next study instead of dissolving the entire stage to blank. Durations remain individually assigned.
 
-Every film opens on the full real capture, expands from its relevant source area into a functional interpretation, holds a result for pointer/touch/keyboard inspection, then returns to the same full capture. All sixteen remain in the original application order. See ARTIFACTS_MOTION_REVIEW.md for the individual operations.
+The visual roles are documented per app in ARTIFACTS_MOTION_REVIEW.md. The approved TopoTracer and Papyrus concepts are protected. The remaining studies use individual camera, geometry, time and evidence relationships.
 
-Each film has its own camera change and physical arrangement. Comparisons retain references; records retain provenance; baseplates exchange actual positions; linked signals retain a common time position. No decorative movement that implies nonexistent capabilities.
+## Safe composition
 
-### Layout and motion safety
+Metadata, primary statement, visual, inspection and transport own separate flow rows. Canvas labels occupy dedicated margins within the visual. Important marks must not collide with those labels. Input ranges never overlap imagery. Full captures use contain fitting. Scene samples must include intermediate states, not only final screenshots.
 
-- Metadata, statement, visual, inspection and transport have separate grid rows.
-- Reserve room for wrapped headings before calculating the visual's height.
-- Do not overlay prose on data labels or fill unused areas with UI.
-- Source images use intrinsic sizes and contain fitting. Never upscale them to masquerade as new HD captures.
-- Native scrolling is reversible; Play is optional. No scroll hijacking or autoplay sound.
-- Reduced motion shows full source captures, static interpretations and plain descriptions. Inspection remains possible without camera motion.
-- Background changes and the quiet intervals are intentional parts of the pace.
+## Gene / the final time reference
 
-## Closing — Gene
+Metria's shared time reference becomes a restrained architectural rule. The reading slows. Four passages occupy successive held compositions with spatial entrance and departure, not paragraph opacity fades. The final statement stays, followed only by Gene, email and LinkedIn.
 
-Preserve this exact text, including its first-person voice:
+Approved copy, verbatim:
 
 > I spent my entire life improving processes.
 >
@@ -52,8 +47,4 @@ Preserve this exact text, including its first-person voice:
 >
 > ARTIFACTS is the evidence that I never accepted the way things were as the way they had to stay.
 
-The existing two-column account becomes a longer reading movement, with a held heading and generous intervals between the three supporting passages. Mobile has a natural reading order. Keep the email and LinkedIn links. No extra creator slogans, job titles, oversized Gene wordmark, or final sign-off paragraph.
-
-## Review criteria
-
-Judge the story and films visually; passing tests does not establish artistic approval. Confirm the persistent homepage handoff forwards and backwards, both baseplate swaps, full capture returns, intermediate headings, phone controls and reduced-motion composition. Preserve a separate saved URL for every version presented for review.
+No additional slogan, biography, job-title strip, footer branding or oversized Gene treatment. Reduced motion presents the passages in natural reading order.

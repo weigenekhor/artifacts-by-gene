@@ -1,99 +1,361 @@
-import { mix, at, world, sheet, curve, colors as C } from "./drawing.js";
+import { space } from "../space.js";
+import { lens, at, mix, palette as P, waveform } from "./cinema.js";
 export function history(d, q, f, W, H, m, hit) {
-  const resolve = at(q, 0.23, 0.34), lift = at(q, 0.62, 0.18), active = Math.min(4, Math.floor(f * 5));
-  const g = world(d, W, H, m, { tilt: mix(0.82, 0.3, lift), yaw: mix(-0.3, 0.02, resolve), scale: m ? 0.83 : 1.18, cy: 0.48 });
-  const status = ["Complete", "Partial", "Missing", "Excess", "Rerun"];
-  for (let wafer = 0; wafer < 5; wafer++) {
-    const x = (wafer - 2) * 112;
-    g.disc(x, 88, -12, 40, 5, C.graphite);
-    for (let e = 0; e < 5; e++) {
-      const align = at(q, 0.16 + e * 0.033, 0.3);
-      const xx = mix(x + Math.sin(wafer * 4 + e * 2) * 90, x, align), yy = mix(-170 + e * 43, -116 + e * 32, align);
-      const z = mix(20 + (wafer * 3 + e) % 5 * 23, 4, align);
-      const valid = wafer !== 2 && !(wafer === 1 && e > 2);
-      if (valid) {
-        g.box(xx, yy, z, 76, 18, 3, wafer === 3 ? C.coral : wafer === 4 ? C.violet : C.cyan);
-      } else g.line([[xx - 38, yy, z], [xx + 38, yy, z]], C.silver, 0.8, 0.35);
-      if (wafer === 3 && e === 4) g.box(xx, yy, z + 8, 76, 18, 3, C.coral);
-    }
-    const h = [20, 11, 0, 30, 22][wafer] * lift;
-    if (h) g.disc(x, 88, -6, 37, h, wafer === 1 || wafer === 3 ? C.coral : wafer === 4 ? C.violet : C.cyan);
-    g.label("W" + String(wafer + 1).padStart(2, "0"), [x, 151, 5], m ? 20 : 18, C.silver, "center");
-    const p = g.project([x, 0, 5]);
-    hit((wafer + 0.5) / 5, p[0] - 50, p[1] - 95, 100, 190, status[wafer]);
-    if (wafer === active && lift > 0.5) g.ring(x, 88, h, 46, C.amber, 2);
-  }
-  g.draw();
-  d.alpha(lift, () => d.text(status[active], W * 0.5, H * 0.08, 26, d.ink, "center"));
-  return "Wafer " + (active + 1) + " \xB7 " + status[active] + " deposition \xB7 illustrative lot";
-}
-export function schedule(d, q, f, W, H, m, hit) {
-  const find = at(q, 0.14, 0.22), calculate = at(q, 0.41, 0.22), lock = at(q, 0.7, 0.12);
-  const g = world(d, W, H, m, { tilt: mix(0.68, 0.22, lock), yaw: mix(-0.18, 0.02, calculate), scale: m ? 0.93 : 1.36 });
-  const selected = Math.min(2, Math.floor(f * 3));
-  for (let r = 0; r < 3; r++) {
-    const y = (r - 1) * 116;
-    for (let e = 0; e < 8; e++) {
-      const match = e === [2, 4, 3][r], x = -285 + e * 64;
-      const z = mix(e % 3 * 12, match ? 37 : -40, find);
-      g.box(x, y, z, 36, 46, 4, match ? C.cyan : C.graphite);
-      if (match) {
-        g.line([[x, y, z + 5], [mix(x, 220, calculate), y, z + 5]], C.cyan, 2);
-        g.box(mix(x, 220, calculate), y, mix(z, 8, calculate), 42, 48, 5, C.emerald);
-        g.label("Next check", [220, y + 47, 10], m ? 19 : 18, C.silver, "center");
+  const s = lens(d, W, H, m, P.blue),
+    enter = at(q, 0.09, 0.27),
+    resolve = at(q, 0.38, 0.26),
+    hold = at(q, 0.7, 0.13),
+    active = Math.min(4, Math.floor(f * 5));
+  const g = space(d.c, {
+    w: W,
+    h: H,
+    scale: m ? 1.15 : 1.37,
+    cy: 0.54,
+    yaw: mix(-0.38, 0.035, resolve),
+    tilt: mix(1.04, 0.54, resolve),
+  });
+  // Histories are depth planes in an event volume. The selected lot advances through them.
+  for (let layer = 0; layer < 12 && resolve < 0.995; layer++) {
+    const z = -layer * 24 - 120 * enter;
+    for (let row = 0; row < 12; row++) {
+      const y = -160 + row * 29;
+      for (let e = 0; e < 28; e++) {
+        const x = -280 + e * 20;
+        g.line(
+          [
+            [x, y, z],
+            [x + 8 + ((e * 7) % 5), y, z],
+          ],
+          layer % 3 === 0 ? [118, 163, 210] : [106, 131, 153],
+          1,
+          (1 - resolve) * (0.65 - layer * 0.026),
+        );
       }
     }
-    g.label("Reactor " + "ABC"[r], [-295, y - 40, 10], m ? 21 : 19, C.silver);
-    if (selected === r) g.line([[-285, y + 65, 10], [250, y + 65, 10]], C.amber, 1.5);
-    const p = g.project([0, y, 10]);
-    hit((r + 0.5) / 3, 40, p[1] - 40, W - 80, 80, "Reactor " + "ABC"[r]);
+  }
+  const names = ["Complete", "Interrupted", "Missing", "Repeated", "Rerun"];
+  for (let row = 0; row < 5; row++) {
+    const y = (row - 2) * (m ? 145 : 70),
+      z = mix(-80, 22, enter),
+      colour = row === 1 || row === 3 ? [208, 168, 109] : [105, 160, 220];
+    const pts = [];
+    for (let i = 0; i <= 100; i++) {
+      const u = i / 100,
+        x = -270 + 540 * u;
+      let height = u > 0.17 && u < 0.78 ? 27 : 0;
+      if (row === 1 && u > 0.48) height = 0;
+      if (row === 2) height = 0;
+      if (row === 3 && u > 0.4 && u < 0.9) height = 43;
+      if (row === 4)
+        height = (u > 0.18 && u < 0.36) || (u > 0.57 && u < 0.89) ? 27 : 0;
+      pts.push([x, y, z + height * resolve]);
+    }
+    for (let i = 0; i < pts.length - 1; i++)
+      g.poly(
+        [[pts[i][0], y, z], [pts[i + 1][0], y, z], pts[i + 1], pts[i]],
+        colour,
+        0.18 * resolve,
+      );
+    g.line(pts, colour, 2, enter);
+    for (let i = 0; i < 25; i++)
+      g.line(
+        [
+          [-270 + i * 22, y - 5, z],
+          [-270 + i * 22, y + 5, z],
+        ],
+        [151, 170, 191],
+        0.9,
+        enter * 0.7,
+      );
+    if (row === active && hold > 0.5)
+      g.line(
+        [
+          [-280, y, z],
+          [-280, y, z + 48],
+        ],
+        colour,
+        2,
+      );
+    const p = g.project([-280, y, z]);
+    hit((row + 0.5) / 5, 0, p[1] - 25, W, 50, names[row]);
   }
   g.draw();
-  d.alpha(calculate, () => d.text("Valid check \u2192 next due", W * 0.5, H * 0.07, 22, d.ink, "center"));
-  return "Reactor " + "ABC"[selected] + " \xB7 next check derived from valid ANKO history";
+  s.label("Event history / illustrative", W * 0.08, H * 0.075, 19, s.muted);
+  s.alpha(hold, () =>
+    s.label(
+      names[active] + " deposition",
+      W * 0.08,
+      H * 0.94,
+      m ? 25 : 29,
+      s.ink,
+    ),
+  );
+  return (
+    "Wafer " +
+    (active + 1) +
+    " · " +
+    names[active] +
+    " · event interpretation, not manual reconstruction"
+  );
+}
+export function schedule(d, q, f, W, H, m, hit) {
+  const s = lens(d, W, H, m, P.amber),
+    align = at(q, 0.12, 0.32),
+    derive = at(q, 0.43, 0.28),
+    active = Math.min(4, Math.floor(f * 5));
+  const left = W * (m ? 0.2 : 0.15),
+    width = W * (m ? 0.73 : 0.78),
+    names = ["A-M1", "D-M1", "A-M2", "B-M1", "C-M1"];
+  s.label("History", left, H * 0.09, 20);
+  s.label("Next ANKO", W * 0.94, H * 0.09, 20, P.amber, "right");
+  names.forEach((name, i) => {
+    const y = H * (0.23 + i * 0.14),
+      raw = [0.11, 0.43, 0.24, 0.38, 0.09][i],
+      check = 0.13 + i * 0.055,
+      due = check + 0.37;
+    s.label(name, W * 0.03, y + 6, 22, s.ink);
+    for (let t = 0; t < 24; t++) {
+      const x = left + (width * t) / 24,
+        offset = (1 - align) * Math.sin(i * 3) * W * 0.05;
+      s.line(
+        [
+          [x + offset, y - 14],
+          [x + offset, y + 14],
+        ],
+        P.muted,
+        0.8,
+        0.35,
+      );
+    }
+    const x = left + width * mix(raw, check, align),
+      end = mix(x, left + width * due, derive);
+    s.line(
+      [
+        [left, y],
+        [left + width, y],
+      ],
+      P.muted,
+      0.6,
+      0.45,
+    );
+    s.point(x, y, 5, P.white);
+    s.line(
+      [
+        [x, y],
+        [end, y],
+      ],
+      P.amber,
+      3,
+    );
+    s.alpha(derive, () => {
+      s.point(end, y, 6, P.amber);
+      s.line(
+        [
+          [x, y - 24],
+          [end, y - 24],
+        ],
+        P.amber,
+        0.8,
+        0.7,
+      );
+    });
+    if (i === active && q > 0.72) s.rect(end - 9, y - 33, 18, 66, "#d6b07b20");
+    hit((i + 0.5) / 5, 0, y - H * 0.06, W, H * 0.12, name);
+  });
+  s.alpha(derive, () =>
+    s.label(
+      "Valid check + required interval",
+      W * 0.5,
+      H * 0.96,
+      20,
+      P.white,
+      "center",
+    ),
+  );
+  return (
+    names[active] +
+    " · valid historical check → interval → next due · illustrative time"
+  );
 }
 export function planning(d, q, f, W, H, m, hit) {
-  const g = world(d, W, H, m, { tilt: mix(0.72, 0.25, at(q, 0.48, 0.3)), yaw: mix(0.16, -0.05, at(q, 0.2, 0.5)), scale: m ? 0.91 : 1.32 });
-  const active = Math.min(2, Math.floor(f * 3)), names = ["ALTUS", "AIXTRON", "LAYTEC"];
-  for (let r = 0; r < 3; r++) {
-    const y = (r - 1) * 118;
-    g.label(names[r], [-293, y - 40, 12], m ? 22 : 20, C.silver);
-    for (let i = 0; i < 6; i++) {
-      const x = -255 + i * 76, passed = i !== 2 && i !== 4 && !(r === 1 && i === 5), t = at(q, 0.1 + i * 0.047 + r * 0.025, 0.18);
-      const z = mix(66, -4, t);
-      g.box(x, y, z, 55, 50, 6, passed ? C.emerald : C.coral);
-      if (passed && t > 0.7) g.line([[x - 12, y, z + 7], [x - 2, y + 9, z + 7], [x + 15, y - 11, z + 7]], C.silver, 2);
-      if (!passed) g.line([[x - 9, y - 9, z + 7], [x + 9, y + 9, z + 7]], C.silver, 2);
+  const s = lens(d, W, H, m, P.amber),
+    validate = at(q, 0.16, 0.28),
+    schedule = at(q, 0.51, 0.24),
+    active = Math.min(2, Math.floor(f * 3));
+  const names = ["Workcenter A", "Workcenter B", "Workcenter C"],
+    cx = W * 0.5,
+    cy = H * 0.46,
+    rx = W * (m ? 0.32 : 0.36),
+    ry = H * 0.33;
+  // History sits on concentric time horizons; future positions are earned by valid checks.
+  for (let lane = 0; lane < 3; lane++) {
+    const y = H * (0.25 + lane * 0.23),
+      left = W * 0.17,
+      right = W * 0.88;
+    s.label(names[lane], W * 0.035, y - 35, m ? 21 : 20, s.ink);
+    for (let e = 0; e < 24; e++) {
+      const t = e / 23,
+        theta = Math.PI * (0.15 + t * 0.7),
+        x = mix(cx + Math.cos(theta) * rx, left + t * (right - left), validate),
+        yy = mix(cy + Math.sin(theta) * ry + (lane - 1) * 35, y, validate);
+      s.line(
+        [
+          [x, yy - 9],
+          [x, yy + 9],
+        ],
+        e % 7 === 3 ? P.coral : P.muted,
+        1.5,
+        0.75,
+      );
     }
-    const due = at(q, 0.56 + r * 0.045, 0.17);
-    // A date is issued only after a passing check; a failed check stays unresolved.
-    g.box(240, y, 5, 63, 58, 6, r === 1 ? C.coral : C.cyan);
-    if (due > 0.5) g.label(r === 1 ? "Review" : "Due", [240, y + 8, 14], m ? 21 : 20, C.silver, "center");
-    g.line([[160, y, 6], [160 + 55 * due, y, 6]], r === 1 ? C.coral : C.cyan, 2);
-    if (active === r) g.line([[-288, y + 52, 5], [274, y + 52, 5]], C.amber, 1.3);
-    const p = g.project([0, y, 0]);
-    hit((r + 0.5) / 3, 30, p[1] - 45, W - 60, 90, names[r]);
+    const valid = lane !== 1,
+      origin = left + (right - left) * 0.58,
+      forecast = valid ? mix(origin, right, schedule) : origin;
+    s.line(
+      [
+        [origin, y],
+        [forecast, y],
+      ],
+      valid ? P.amber : P.coral,
+      3,
+      schedule,
+    );
+    s.point(origin, y, 5, valid ? P.white : P.coral);
+    s.alpha(schedule, () => {
+      s.point(forecast, y, 7, valid ? P.amber : P.coral);
+      s.label(
+        valid ? "NEXT DUE" : "REVIEW",
+        right,
+        y + 42,
+        19,
+        valid ? P.amber : P.coral,
+        "right",
+      );
+    });
+    hit((lane + 0.5) / 3, W * 0.05, y - 40, W * 0.9, 85, names[lane]);
   }
-  g.draw();
-  return names[active] + " \xB7 " + (active === 1 ? "failed check requires review" : "next date follows a valid pass");
+  s.alpha(schedule, () =>
+    s.line(
+      [
+        [W * 0.65, H * 0.1],
+        [W * 0.65, H * 0.9],
+      ],
+      P.white,
+      1,
+      0.2,
+    ),
+  );
+  return (
+    names[active] +
+    " · illustrative check history · " +
+    (active === 1
+      ? "No future date issued for a failed check"
+      : "Due state derived from passing history")
+  );
 }
 export function signals(d, q, f, W, H, m, hit, alternate = 0) {
-  const gather = at(q, 0.17, 0.33), pin = at(q, 0.52, 0.18), range = at(q, 0.68, 0.13), names = ["Flow A", "Flow B", "Throttle Valve angle", "Pressure", "Temperature"];
-  const g = world(d, W, H, m, { tilt: mix(0.85, 0.16, at(q, 0.56, 0.2)), yaw: mix(-0.19, 0, gather), scale: m ? 0.88 : 1.2, cy: 0.52 });
-  const cursor = mix(-170, 220, f), colors = [C.cyan, C.cobalt, C.amber, C.violet, C.coral];
+  const s = lens(d, W, H, m, P.cyan),
+    expand = at(q, 0.17, 0.5),
+    front = at(q, 0.68, 0.16),
+    names = [
+      "Flow A",
+      "Flow B",
+      "Throttle Valve angle",
+      "Pressure",
+      "Temperature",
+    ];
+  const g = space(d.c, {
+    w: W,
+    h: H,
+    scale: m ? 1.12 : 1.42,
+    cy: 0.56,
+    yaw: mix(-0.27, 0, front),
+    tilt: mix(0.93, 0.31, front),
+  });
+  const cursor = q > 0.76 ? f : 0.63,
+    colors = [
+      [78, 185, 200],
+      [90, 132, 201],
+      [205, 164, 101],
+      [127, 149, 165],
+      [150, 165, 172],
+    ];
   names.forEach((name, i) => {
-    const y = (i - 2) * 69, offset = (1 - gather) * (i % 2 ? 65 : -65), z = (1 - gather) * (i - 2) * 25;
-    sheet(g, 0, y, z, 610, 56, C.graphite);
-    curve(g, -205 + offset, y, z + 5, 445, 75, i, at(q, i * 0.025, 0.18), colors[i]);
-    if (pin > 0.5 && i < 2) g.dot([-276, y, z + 7], 4, colors[i]);
-    g.label(m ? ["Flow A", "Flow B", "Valve angle", "Pressure", "Temp."][i] : name, [-280, y - 23, z + 6], m ? 18 : 17, C.silver);
-    if (range > 0) {
-      const half = mix(50, 105, alternate);
-      g.poly([[cursor - half, y - 24, z + 8], [cursor + half, y - 24, z + 8], [cursor + half, y + 24, z + 8], [cursor - half, y + 24, z + 8]], C.cyan, 0.1 * range);
-      g.line([[cursor, y - 24, z + 10], [cursor, y + 24, z + 10]], C.amber, 1.5);
-      g.dot([cursor, y + 12 * Math.sin(f * 13 + i), z + 11], 3, colors[i]);
+    const visible = i === 0 ? 1 : at(q, 0.13 + i * 0.095, 0.14),
+      y = mix(0, (i - 2) * (m ? 140 : 70), expand),
+      z = (1 - expand) * (i * -45);
+    const points = [];
+    for (let j = 0; j <= 110; j++) {
+      const u = j / 110;
+      points.push([-285 + u * 570, y, z + waveform(i, u, i < 2) * 75]);
+    }
+    if (visible > 0.01) {
+      for (let j = 0; j < points.length - 1; j++)
+        g.poly(
+          [
+            [points[j][0], y, z],
+            [points[j + 1][0], y, z],
+            points[j + 1],
+            points[j],
+          ],
+          colors[i],
+          visible * 0.12,
+        );
+      g.line(points, colors[i], 1.8, visible);
+      const clue = [-285 + 570 * 0.63, y, z + waveform(i, 0.63, i < 2) * 75];
+      if (i === 0) {
+        g.dot(clue, 5, [225, 240, 239]);
+        g.line([[clue[0], y, z - 12], clue], colors[0], 1.3);
+      }
+      const xx = -285 + cursor * 570,
+        half = 570 * mix(0.055, 0.14, alternate),
+        start = Math.max(-285, xx - half),
+        end = Math.min(285, xx + half);
+      g.poly(
+        [
+          [start, y, z],
+          [end, y, z],
+          [end, y, z + 85],
+          [start, y, z + 85],
+        ],
+        colors[0],
+        front * 0.09,
+      );
+      for (const boundary of [start, end])
+        g.line(
+          [
+            [boundary, y, z],
+            [boundary, y, z + 85],
+          ],
+          colors[0],
+          0.8,
+          front * 0.4,
+        );
+      g.line(
+        [
+          [xx, y - 16, z],
+          [xx, y + 16, z + 85],
+        ],
+        colors[0],
+        1,
+        front * 0.5,
+      );
+      const p = g.project([-290, y, z]);
+      s.alpha(front, () =>
+        s.label(
+          name,
+          m ? W * 0.055 : W * 0.08,
+          p[1] - 35,
+          m ? 19 : 17,
+          i === 0 ? P.cyan : s.muted,
+        ),
+      );
     }
   });
   g.draw();
-  return "Shared interval \xB7 linked traces \xB7 Flow A and Flow B pinned";
+  return (
+    "Flow A remains pinned · " +
+    (alternate > 0.5 ? "Wider" : "Narrow") +
+    " shared interval · illustrative signals"
+  );
 }

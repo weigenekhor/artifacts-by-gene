@@ -1,363 +1,42 @@
-# ARTIFACTS WEBSITE — CREATIVE DIRECTION
+# ARTIFACTS — Creative Direction
 
-## Canonical implementation baseline
+## Governing brief
 
-This branch is a direct descendant of **ee65f20d04458564dfe35c049de6df04469b6a19**. The source tree was clean and identical to that commit before the rebuild began. Work lives in the repository root on experience/ee65f20-rebuild.
-
-The immutable preview at http://127.0.0.1:8001/versions/ee65f20/ remains the comparison baseline. Do not overwrite it. Do not base future work on the rejected experimental branch, import its architecture, or use 84baa04 as the project base. That version is a visual reference for GaN Met Compiler only.
+The definitive cinematic brief supplied on 28 September 2026 supersedes the earlier reconstruction passes. Continue on the current `experience/ee65f20-rebuild` implementation. Do not reset to an archive. `ee65f20` is the Altus ANKO Viewer reference; `84baa04/#compile` is the GaN Met Compiler reference. Neither is permission to revert the whole site. Saved `/versions/` URLs are immutable.
 
-## Current scope and protected strengths
+Read this file and ARTIFACTS_EXPERIENCE_STORYBOARD.md completely before visual changes. Current explicit user instructions take precedence.
 
-- Preserve ee65f20's monumental hero, main line, pointer response, brand, navigation, native scroll, application order, capture assets and collection arrangement.
-- The small hero label is now “Built against the cost of getting it wrong.” The browser title is exactly “Artifacts by Gene”.
-- Rebuild the origin and all application films directly inside this source tree. TopoTracer retains its surface construction and Papyrus its identity-aware paired comparison. Enrich these rather than replace their correct concepts.
-- Keep the dark-to-light rhythm. Use richer controlled cyan, cobalt, coral, emerald, amber and violet in the films; no rainbow decoration.
-- The origin is a persistent spatial evidence surface: congestion and distortion give way to deliberate organisation, different capabilities remain, and the real homepage resolves into the same position. That exact DOM image then passes into the collection. No apps before the final handoff.
-- Remove the old Starting Over choreography and its three statements. Do not restore the five-principle diagram, repeated reconstruction loop, pipeline/factory metaphor, or collection headline “What the work demanded.”
-- Keep occasional copy outside the visual. Every film is complete real UI → authored interpretation → the same complete real UI. Captures remain uncropped and original-pixel assets remain unchanged.
-- Give all sixteen films individual geometry, evidence, choreography and inspection. Sharing a projection/material renderer does not justify sharing the same story.
-- Keep the approved Gene wording exactly. Its existing two-column reading structure has more space, larger supporting type and a held first-person heading. Do not replace it with a founder biography or another app gallery.
+## Protected work
 
-## Truth and functional meaning
+Preserve the approved monumental hero (`identity-field.js`) and TopoTracer's sampling, interpolation, contour and cross-section film (`topography.js`). Papyrus keeps identity-aware paired comparison; do not substitute XML sorting for it. Keep actual unmodified full captures and the real brand symbol. The approved Gene text is verbatim in the storyboard.
 
-Follow ARTIFACTS_MOTION_REVIEW.md. Illustrative records are not live measurements. No asserted zero-error rate, performance metric, production threshold or inferred root cause. The temperature assignment example is explicitly synthetic, calculated from the same offset rule as dt.py, and tested independently across all permutations.
+## Identity and voice
 
-## Sequence
+Browser title: **Artifacts by Gene**.
+Hero descriptor: **A software suite by Weigenekhor**.
+Main hero line: **Built for engineering where almost right is still wrong.**
+No collection slogan, expand/reset utility toolbar or duplicate homepage link. Applications are the reveal. Do not add invented accomplishments, timings, accuracy figures, live connections, technical integrations or proven diagnoses. Illustrative examples must remain identifiable as such.
 
-1. Altus LotViewer
-2. Altus ANKO Viewer
-3. Altus WaferCount
-4. TopoTracer
-5. Papyrus Reader
-6. SPC Pathfinder
-7. GaN Met Compiler
-8. GaN Temp Diagnoser
-9. AIX ΔT Assistant
-10. LT Zone Assistant
-11. GaN XML Assistant
-12. Magus SPC (GaN)
-13. Magus SPC (Legacy)
-14. ANKO Helper
-15. LT Report Compiler
-16. Metria SPC
+## Narrative and material
 
-Do not put “Expeditions” in authored website labels. Unmodified genuine screenshots may contain their original desktop terminology.
+Hero → functioning engineering volume → avoidable interruption → deliberate intervention and a hold → different problems resolved → retained working structures → central homepage surface → staged 3 / 6 / 10 / 16 collection → individual films → Gene.
 
-## Review and implementation rules
+The current origin uses spatial measurement profiles, a sampled field and identity comparison structures. Camera visits happen before the pullback. This replaces the rejected tiled matrix. Do not restore that matrix, the five-principle schematic, Starting Over, a factory, a conveyor, or app previews during the origin. The origin remains almost wordless. Its two statements are unboxed and secondary to the event.
 
-Read this document and ARTIFACTS_EXPERIENCE_STORYBOARD.md before frontend work. Current user instructions override these files. Preserve immutable previews when creating a review version. Run the static build and check runtime/asset loading before presenting changes; inspect intermediate film states and mobile layout. Avoid repeated broad audits during visual exploration. Do not equate passing tests with the user's artistic approval.
+A film must reveal engineering importance through an event. Real complete interface → interpretation → same complete interface. A shared transport is useful; a shared visual story is not. Each renderer owns composition, sequence, camera and interaction. Avoid presenting every tool as an identical array of colored panels. Meaning comes before spectacle; functional correctness alone does not establish visual success.
 
-The quality reference is the craft of exceptional interactive studios. Do not copy Lusion's design, code, assets or wording. The visual quality target is an aspiration, not a claim automatically earned by a working implementation.
+## Color, type and imagery
 
-## CORE IDENTITY
+Carbon, graphite and ink environments; controlled light chapters for contrast. One main accent per film, with a second only where it means selection, changed state, exception or measurement. Neutral physical baseplates and carrier; sampling and temperature differences receive color. No toy rainbow palette, generic glow or random particles.
 
-ARTIFACTS is an internal semiconductor engineering software ecosystem consisting of 16 real engineering applications.
+Important text owns a safe area outside geometry and controls. Recompose when it does not fit. Never hide a collision by indiscriminately reducing type. Captures remain uncropped, aspect-correct, limited to their useful native resolution. Real images live under `assets/evidence/`; originals are in `C:/Users/Gene/Desktop/Artifacts Images`.
 
-The website must communicate:
+## Motion and implementation
 
-- precision
-- engineering authority
-- systems thinking
-- semiconductor technology
-- computational engineering
-- interconnected tools
-- purpose-built software
-- technical maturity
+Native reversible scroll, a single page clock, bounded inertia, no scroll trap. Prewarm the collection before the origin handoff. Measure geometry on resize, not in the animation loop. Rendering sleeps offscreen. Canvas buffers track DPR, capped at 2 desktop and 1.5 phone. TopoTracer's shared material path must not change accidentally.
 
-It must not look like:
+Reduced motion is a designed reading sequence with static origin images, full app captures and inspectable film states. Gene becomes natural document flow. All controls work with keyboard and touch. No autoplay sound.
 
-- SaaS template
-- AI startup
-- gaming website
-- crypto website
-- cyberpunk UI
-- generic developer portfolio
-- dashboard template
-- agency landing page
+## Completion and review
 
-## CENTRAL VISUAL LANGUAGE
-
-The visual world must come from ARTIFACTS itself.
-
-Use:
-
-- actual application interfaces
-- plots
-- process data
-- engineering diagrams
-- wafers
-- reactor concepts
-- parameter fields
-- coordinate systems
-- grids
-- computational layers
-- semiconductor visual structures
-
-Avoid meaningless decorative Three.js objects.
-
-Do not use random:
-
-- spheres
-- cubes
-- toruses
-- particles
-- glowing blobs
-- abstract ribbons
-- star fields
-
-unless they have a clear conceptual role.
-
-## REAL APPLICATION ASSETS
-
-Real ARTIFACTS screenshots and visual snippets exist at:
-
-C:\Users\Gene\Desktop\Artifacts Images
-
-Inspect and use them wherever accessible.
-
-They are not decorative screenshots.
-
-They must become major parts of the visual storytelling.
-
-Some interfaces should:
-
-- exist as planes in 3D space
-- move toward the camera
-- become full-screen
-- reveal engineering information
-- break into visual layers
-- transition into other applications or concepts
-
-All 16 applications must eventually appear.
-
-Do not represent all 16 as identical cards.
-
-## STORY STRUCTURE
-
-Use the exact chronology in ARTIFACTS_EXPERIENCE_STORYBOARD.md:
-
-Approved hero → origin and deliberate improvement → persistent homepage handoff → one application collection → all sixteen films → Gene.
-
-The origin explains why; the films demonstrate what. No duplicate catalogue after the films, no app gallery in the origin, and no assertion of automated cross-application data integration. Each film is an editorial chapter in the same body of work.
-
-## SCROLL BEHAVIOUR
-
-Scrolling should drive a master visual timeline.
-
-Use scroll progress to control:
-
-- camera position
-- camera target
-- camera rotation
-- object positions
-- interface depth
-- scene lighting
-- typography
-- clipping
-- masking
-- scaling
-- UI assembly/disassembly
-- transitions
-
-Avoid isolated reveal animations.
-
-Animations should overlap and transition continuously.
-
-Do not rely mainly on:
-
-- fadeIn
-- slideUp
-- simple parallax
-- basic rotate-on-scroll
-- endless floating
-
-## MOTION
-
-Motion must have:
-
-- weight
-- inertia
-- anticipation
-- settling
-- deliberate easing
-- continuity
-
-Some moments should be highly animated.
-
-Other moments should deliberately become quiet so users can inspect a real ARTIFACTS interface.
-
-Premium motion requires contrast and restraint.
-
-## HERO
-
-The hero must not resemble a normal website hero.
-
-ARTIFACTS should exist inside a designed spatial environment.
-
-The first interaction should establish:
-
-- depth
-- precision
-- confidence
-- technical sophistication
-
-The central visual should be meaningful and derived from ARTIFACTS.
-
-Pointer movement may create subtle:
-
-- camera response
-- layer separation
-- perspective changes
-- lighting changes
-
-When scrolling begins, the camera should move INTO the visual system.
-
-The hero should transform into the next scene instead of disappearing.
-
-## TYPOGRAPHY
-
-Typography must be restrained.
-
-Avoid:
-
-- excessive giant text
-- huge paragraphs
-- meaningless marketing copy
-- fake futuristic technical wording
-
-Avoid phrases such as:
-
-- Engineering the future
-- Built for tomorrow
-- Unlocking innovation
-- Where technology meets precision
-- Redefining possibilities
-
-Copy should be:
-
-- short
-- specific
-- technical
-- intelligent
-- intriguing
-
-## VISUAL DESIGN
-
-Use:
-
-- strong composition
-- disciplined spacing
-- controlled negative space
-- excellent alignment
-- few type styles
-- restrained colour palette
-- clear hierarchy
-
-Avoid:
-
-- excessive glassmorphism
-- neon borders everywhere
-- gradient abuse
-- repeated rounded cards
-- fake terminals
-- decorative complexity
-
-## TECHNOLOGY
-
-Inspect the current repository before changing architecture.
-
-Use the existing framework where sensible.
-
-Potentially use:
-
-- Three.js
-- React Three Fiber
-- GSAP
-- ScrollTrigger
-- custom shaders
-
-only when they improve the result.
-
-The ideal control architecture is:
-
-normalized scroll progress
-→ master experience timeline
-→ camera state
-→ WebGL scene state
-→ DOM state
-→ typography state
-
-Avoid dozens of disconnected scroll handlers.
-
-## 3D QUALITY
-
-If WebGL is used, it must have production-level quality.
-
-Focus on:
-
-- strong art direction
-- camera framing
-- controlled lighting
-- materials
-- depth
-- shadows
-- antialiasing
-- subtle post-processing where useful
-- high-quality textures
-- high-resolution assets
-
-Three.js tutorial aesthetics are unacceptable.
-
-## RESPONSIVENESS
-
-Desktop is the flagship experience.
-
-Mobile should have a deliberately simplified version of the same storytelling.
-
-Do not simply squeeze the desktop experience into mobile.
-
-Respect prefers-reduced-motion.
-
-## PERFORMANCE
-
-Use:
-
-- lazy loading
-- optimized textures
-- compressed assets
-- code splitting
-- adaptive DPR
-- efficient render loops
-- sensible geometry complexity
-- instancing where appropriate
-
-Do not sacrifice usability for visual spectacle.
-
-## QUALITY GATE
-
-Before considering any major scene complete, compare its quality against the reference standard.
-
-Check:
-
-1. Does this feel custom-built for ARTIFACTS?
-2. Is the visual concept meaningful?
-3. Is the motion sophisticated rather than decorative?
-4. Does scrolling control choreography?
-5. Are transitions continuous?
-6. Are real ARTIFACTS interfaces prominent?
-7. Is the composition polished?
-8. Does the scene avoid generic SaaS design?
-9. Does the 3D actually communicate something?
-10. Would this hold attention without relying on marketing copy?
-
-If several answers are no, the work is not finished.
-
-## IMPORTANT IMPLEMENTATION RULE
-
-Never treat this document as optional inspiration.
-
-ARTIFACTS_CREATIVE_DIRECTION.md is the governing design specification for every future website modification.
-
-Before performing any major ARTIFACTS frontend task, read this file completely.
-
-When another instruction conflicts with it, follow the newer explicit user instruction, otherwise follow this document.
+Build, check runtime and real asset loading, then inspect fresh evidence at 1440, 1280 and 390. Sample the complete timeline for text bounds and collisions. Capture each application's interface, development, decisive state, inspection and return. Review the origin handoff forward and backward. Visual quality still requires human judgment; neither a passing test nor a new renderer earns the label world-class by itself.

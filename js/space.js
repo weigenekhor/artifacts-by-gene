@@ -29,12 +29,17 @@ export function space(
     yaw = -0.25,
     tilt = 0.7,
     light = false,
+    target = [0, 0, 0],
+    cull = false,
   },
 ) {
   const unit = Math.min(w / 760, h / 470) * scale,
     queue = [],
     labels = [];
   const project = ([x, y, z = 0]) => {
+    x -= target[0];
+    y -= target[1];
+    z -= target[2];
     const xx = x * Math.cos(yaw) - y * Math.sin(yaw),
       yy = x * Math.sin(yaw) + y * Math.cos(yaw),
       Y = yy * Math.cos(tilt) - z * Math.sin(tilt),
@@ -58,14 +63,26 @@ export function space(
       0.57 +
       0.5 * Math.abs((n[0] * -0.35 + n[1] * -0.5 + n[2] * 0.78) / length);
     const q = pts.map(project);
+    if (
+      cull &&
+      (q.every((p) => p[0] < -8) ||
+        q.every((p) => p[0] > w + 8) ||
+        q.every((p) => p[1] < -8) ||
+        q.every((p) => p[1] > h + 8))
+    )
+      return;
     queue.push({
       pts: q,
       depth: q.reduce((s, p) => s + p[2], 0) / q.length,
       fill: rgb(color, lit, alpha),
       normal: [
-        (n[0]*Math.cos(yaw)-n[1]*Math.sin(yaw))/length,
-        ((n[0]*Math.sin(yaw)+n[1]*Math.cos(yaw))*Math.cos(tilt)-n[2]*Math.sin(tilt))/length,
-        ((n[0]*Math.sin(yaw)+n[1]*Math.cos(yaw))*Math.sin(tilt)+n[2]*Math.cos(tilt))/length,
+        (n[0] * Math.cos(yaw) - n[1] * Math.sin(yaw)) / length,
+        ((n[0] * Math.sin(yaw) + n[1] * Math.cos(yaw)) * Math.cos(tilt) -
+          n[2] * Math.sin(tilt)) /
+          length,
+        ((n[0] * Math.sin(yaw) + n[1] * Math.cos(yaw)) * Math.sin(tilt) +
+          n[2] * Math.cos(tilt)) /
+          length,
       ],
       material: color,
       alpha,
@@ -77,7 +94,15 @@ export function space(
   const line = (pts, color = palette.sage, width = 1, alpha = 1) => {
     if (pts.length < 2) return;
     const q = pts.map(project);
-    for (let i = 0; i < q.length - 1; i++)
+    for (let i = 0; i < q.length - 1; i++) {
+      if (
+        cull &&
+        ((q[i][0] < -8 && q[i + 1][0] < -8) ||
+          (q[i][0] > w + 8 && q[i + 1][0] > w + 8) ||
+          (q[i][1] < -8 && q[i + 1][1] < -8) ||
+          (q[i][1] > h + 8 && q[i + 1][1] > h + 8))
+      )
+        continue;
       queue.push({
         pts: [q[i], q[i + 1]],
         depth: (q[i][2] + q[i + 1][2]) / 2 + 0.4,
@@ -85,6 +110,7 @@ export function space(
         width,
         fill: null,
       });
+    }
   };
   const box = (x, y, z, w, d, t, color = palette.dark) => {
     const a = [x - w / 2, y - d / 2, z],
@@ -163,13 +189,15 @@ export function space(
     ring(x, y, z + t + 0.1, r, palette.metal, 0.75);
     return z + t;
   };
-  const dot = (p, r = 3, color = palette.warm) => {
+  const dot = (p, r = 3, color = palette.warm, alpha = 1) => {
     const q = project(p);
+    if (cull && (q[0] < -r || q[0] > w + r || q[1] < -r || q[1] > h + r))
+      return;
     queue.push({
       point: q,
       depth: q[2] + 0.5,
       r: r * Math.sqrt(q[3]),
-      fill: rgb(color),
+      fill: rgb(color, 1, alpha),
     });
   };
   const label = (
@@ -178,7 +206,14 @@ export function space(
     size = 12,
     color = light ? palette.ink : palette.metal,
     align = "left",
-  ) => labels.push({ s, p: project(p), size: w < 700 ? Math.max(size, 22) : size, color, align });
+  ) =>
+    labels.push({
+      s,
+      p: project(p),
+      size: w < 700 ? Math.max(size, 22) : size,
+      color,
+      align,
+    });
   const plot = (
     fn,
     {
@@ -257,8 +292,15 @@ export function space(
       ctx.font = `400 ${l.size}px Geist, Arial`;
       ctx.textAlign = l.align;
       const width = ctx.measureText(l.s).width;
-      const left = l.p[0] - (l.align === 'center' ? width / 2 : l.align === 'right' ? width : 0);
-      if (left >= 10 && left + width <= w - 10 && l.p[1] >= l.size + 8 && l.p[1] <= h - 12)
+      const left =
+        l.p[0] -
+        (l.align === "center" ? width / 2 : l.align === "right" ? width : 0);
+      if (
+        left >= 10 &&
+        left + width <= w - 10 &&
+        l.p[1] >= l.size + 8 &&
+        l.p[1] <= h - 12
+      )
         ctx.fillText(l.s, l.p[0], l.p[1]);
     }
     ctx.textAlign = "left";

@@ -1,43 +1,30 @@
-# ARTIFACTS — MOTION REVIEW
+# ARTIFACTS — Motion Review
 
-## Baseline and evidence
+## Truth and current execution
 
-This implementation evolves commit ee65f20 directly. It does not import the rejected later architecture. The approved identity field, hero interaction, collection position model and all original asset files remain unchanged from that commit. Changes are in the origin, existing film modules, safe layout, materials, approved copy corrections and Gene presentation.
+The desktop widgets and real screenshots ground the films. None is a live equipment interface. The new XML image available in the supplied folder was inspected: ExHeating.EH35Fault shows Popup removed (0 → missing), EnableShow changed (1 → 0), Number added (missing → −1). These exact properties ground its report state.
 
-Functional grounding comes from the earlier source review of all sixteen widgets under C:/Users/Gene/Desktop/Plessey AppVerse/AppVerse/Genepy/widgets, the real captures, and Gene's app-specific corrections. These are editorial interpretations, not live equipment/database integrations. No desktop application code has been copied into the website.
+| Order / application | Sequence and visual identity |
+| --- | --- |
+| 01 Altus LotViewer | Camera enters an event volume; selected histories advance into dimensional deposition profiles. Interruptions, missing deposition, repeated deposition and reruns remain distinct. Cobalt / warm exceptions. No unsupported error-rate claim. |
+| 02 Altus ANKO Viewer | Misregistered equipment histories acquire shared time; the valid historical check extends by its interval to a future due point. Derived chronology, not invented live dates. Amber / ivory. Based on the ee65f20 temporal concept only. |
+| 03 Altus WaferCount | Hundreds of individual completed-wafer marks form retained reactor records in depth. Count and visual memory coexist; counts are illustrative maintenance context, not production thresholds. Teal / graphite. |
+| 04 TopoTracer | Approved samples → interpolated surface → contours → cross-section. Core rendering and choreography frozen. |
+| 05 Papyrus Reader | Approved paired identity matching, quiet matches and persistent differences. Visible terminology uses matching. No XML random-node sorting. |
+| 06 SPC Pathfinder | A depth hierarchy contains many possible destinations. One target receives a direct route and becomes the external chart. The app is a shortcut, not a chart engine. Blue / neutral. |
+| 07 GaN Met Compiler | Four balanced source regions (PL/Plato, LayTec, XRR, XRD) deliver retained readings into a standardized record. Mean and emphasis appear after registration. Source values are illustrative. |
+| 08 GaN Temp Diagnoser | Initial thermal symptom remains while process, gas and clean observations arrive. Candidate checks replace the evidence field. These are troubleshooting suggestions, not proven physical causes. Coral / graphite. |
+| 09 AIX ΔT Assistant | Neutral machined plates: evaluate, release, lift, hold, exchange, contact; re-evaluate; repeat for a second pair. No left weights column. Synthetic measured-offset fixture: BP3↔BP5 then BP1↔BP2; span 16 → 8 → 0 °C. Independently tested against all assignments. This is an explanatory example, not a promised result. |
+| 10 LT Zone Assistant | Five physical wafers on a carrier; oblique camera becomes overhead. Inner and outer sampling intersections are filled regions on actual wafers rather than many decorative rings. Teal / amber sampling. |
+| 11 GaN XML Assistant | Reordered property identities register, matches quiet, real removal/change/addition properties remain and resolve into the report. No automatic modification of reactor files is implied. |
+| 12 Magus SPC (GaN) | Multiple parameter charts populate a continuous analytical surface. Camera travel precedes the overview; every illustrative signal retains a pass/fail mark. Cyan / exceptions. |
+| 13 Magus SPC (Legacy) | Same review family, different single-column history composition, reverse approach and violet accent. Non-GaN review, not file-format conversion. |
+| 14 ANKO Helper | Histories across workcentres settle onto schedule logic; passing checks earn future due positions, failed checks remain review states. A/B/C are illustrative workcentres, not invented equipment-family claims. Broader scope than the Altus film. |
+| 15 LT Report Compiler | One isolated value gains step, zone, wavelength and analysis context; crosses a format boundary and appends below unchanged workbook rows. Context is the subject, not a full-sheet animation. |
+| 16 Metria SPC | Pin the first clue; related signals appear as depth profiles; the same inspection position spans the larger context. Throttle Valve angle is the correct term. The shared time reference supplies the quiet closing. |
 
-Some widgets use local demonstration data. Metria's database entry point is not a live integration. Do not imply that the website is reading a reactor or running the desktop tools.
+## Rendering and review
 
-## Current film treatments
+One page RAF, demand-driven film redraws, prewarmed collection captures, cached section positions and DPR-correct canvases. `space.js` supplies projected geometry with a shared GPU material target and Canvas fallback; `cinema.js` supplies optical primitives. Neither determines the individual story.
 
-| App | Functional subject | Directed sequence and inspection |
-| --- | --- | --- |
-| Altus LotViewer | Automatic wafer-level deposition interpretation | Disordered event segments register to five wafer positions. Missing, partial, excessive and rerun states remain distinct. Inspect a wafer's result. No asserted error-rate or speed metric. |
-| Altus ANKO Viewer | Next ANKO determination | Identify the relevant equipment check among history records; extend that event into a next-check position for each reactor. No invented calendar dates. |
-| Altus WaferCount | Processed wafers per reactor, used as a maintenance indicator | Incoming wafer surfaces settle into reactor stacks; the processed count remains tied to its reactor. No unsupported preventive-maintenance threshold or historical database claim. |
-| TopoTracer | Spatial interpretation of sampled data | Preserve the original samples → interpolated wafer surface → contours → selected cross-section. Richer cobalt, turquoise and warm peak colors; refined depth. |
-| Papyrus Reader | Matching meaning despite changed positions | Preserve the baseline's paired identities, rejected positional matches, staggered convergence and visible differences. A small depth lift strengthens movement while inspection remains frontal. The illustrative comparison is distinct from the real capture. |
-| SPC Pathfinder | Direct access to external SPC charts | Multi-level navigation recedes while one selected chart gains a direct route. The app dispatches shortcuts; it is not presented as a chart calculation engine. |
-| GaN Met Compiler | Automated source tabulation and formatting | Four distinct measurement sources deliver illustrative values into one workbook. Means, alignment and emphasis follow. 84baa04 supplies only the source/output visual reference. Values 98/100/102, 49/50/51, 24/25/26 and 39/40/41 are labelled illustrative. |
-| GaN Temp Diagnoser | Troubleshooting assistance from process and clean observations | Separate observation surfaces develop, then feed candidate investigations. Focus transfers among ceiling, Optris and viewport checks. Recommendations remain suggestions, never confirmed fault diagnoses. |
-| AIX ΔT Assistant | Temperature-offset assignment | Two spatial exchanges: BP3/BP5, then BP1/BP2. No left-hand weights column. A labelled synthetic example follows dt.py's measured-offset rule, reaching illustrative spans 16 → 8 → 0 °C. Tests check every possible assignment and conservation of all five plates. Not a promised production result. |
-| LT Zone Assistant | Inner and outer LayTec measurement regions | Five wafers retain their position on one carrier while independent inner/outer tracks resolve measurement windows. Inspection chooses a wafer region. |
-| GaN XML Assistant | Node-aware reactor configuration comparison | Reordered structures align, device differences remain visible, and a selected property survives into the report result. No claim of automatically modifying a reactor. |
-| Magus SPC (GaN) | All parameter charts and pass/fail together | Traverse one continuous chart surface, then settle into a parameter overview. Every chart has its own status. Curves and exceptions are illustrative, not actual process performance. |
-| Magus SPC (Legacy) | Equivalent monitoring for non-GaN processes | The same truthful monitoring capability receives a different camera approach and violet/coral palette. Not file-format normalization. |
-| ANKO Helper | Valid checks and due status across workcentres | Checks settle across workcentres, passing history produces a due state, and failed checks stay unresolved. No valid future date is invented for a failed check. |
-| LT Report Compiler | Context-preserving append | Analysis rows retain step/zone/wavelength identity while entering the base workbook beneath existing records. Existing rows never move or disappear. |
-| Metria SPC | Linked trace inspection, pinning and shared interval | Separate traces register to one time axis, the first two pin in place, and one inspection window intersects all signals. Use “Throttle Valve angle”; never “Motor speed”. |
-
-## Engineering details
-
-- The renderer rotates material normals with the camera and uses restrained directional reflection. Canvas fallback remains available.
-- A wafer stack batches settled wafers into one cylinder plus thin edge rings. Only incoming wafers need independent full geometry.
-- Canvas rendering is demand-driven outside the approved hero/collection ambient motion. DPR remains capped at 2 desktop / 1.5 mobile.
-- Text and controls own flow rows. Canvas label bounds are guarded separately. Check intermediate states, not only final compositions.
-- The origin contains no real app imagery until its persistent homepage handoff. Its obsolete Starting Over module has been removed.
-- Keep an accurate distinction between functional correctness, passing checks, and Gene's still-pending visual approval.
-
-## Checks for this review pass
-
-Static build; sixteen source-image/pixel-fidelity checks; desktop and phone film runtime/asset loading; intermediate text bounds, label collisions, visual/inspection/transport separation; film departures; independent baseplate assignment fixture. Broader viewport and reduced-motion checks are recorded in the local review output. This document is not a claim of 60 FPS on every device or full accessibility certification.
+`tests/production.mjs` samples every film at five-percent intervals at 1440, 1280 and 390; it records label clipping/collisions and flow-row separation. Fresh capture evidence is local under `.qa/`. Tests do not assert visual acclaim, universal 60 FPS or full accessibility certification. See VALIDATION.md for the actual outcome of the latest run.

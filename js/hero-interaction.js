@@ -1,8 +1,5 @@
 // Pointer, keyboard and touch input all settle on the shared page clock.
 export function createHeroInteraction(canvas, wake) {
-  const scope = canvas.closest("section"),
-    expand = scope.querySelector("[data-expand]"),
-    reset = scope.querySelector("[data-reset]");
   const target = { yaw: 0, pitch: 0, spread: 0 },
     current = { ...target };
   let manual = false,
@@ -10,14 +7,9 @@ export function createHeroInteraction(canvas, wake) {
     suppressClick = false;
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   function toggle() {
-    if (!expand) return;
     manual = true;
     target.spread =
       Number(canvas.style.getPropertyValue("--unfold")) > 0.5 ? 0 : 1;
-    expand.setAttribute("aria-pressed", String(!!target.spread));
-    expand.innerHTML = target.spread
-      ? 'Gather the collection <span aria-hidden="true">−</span>'
-      : 'Open the collection <span aria-hidden="true">+</span>';
     wake();
   }
   function restore() {
@@ -26,8 +18,6 @@ export function createHeroInteraction(canvas, wake) {
     target.spread = 0;
     wake();
   }
-  expand?.addEventListener("click", toggle);
-  reset?.addEventListener("click", restore);
   canvas.addEventListener("pointerdown", (e) => {
     if (e.button !== 0) return;
     drag = {

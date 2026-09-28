@@ -14,7 +14,7 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-This branch begins directly at ee65f20d04458564dfe35c049de6df04469b6a19. Its approved monumental hero is preserved. The rebuilt origin uses a persistent evidence surface: complexity and friction resolve through deliberate reorganisation, different capabilities persist, and the genuine homepage takes their place. The same homepage DOM element passes into the original collection. All interpretation geometry and numeric examples are illustrative.
+This revision continues the current branch. The approved hero and TopoTracer are preserved. The origin travels through registration, mapping and comparison operations before resolving its central surface into the real homepage. The collection opens in stages. All interpretation geometry and numeric examples are illustrative.
 
 The uncropped homepage begins in front of the sixteen applications and recedes as they advance. Hovering or focusing an interface brings that specific app forward, turns it toward the viewer and reduces ambient movement. On touch, one tap presents the app and the next enters it. Leaving restores the arrangement smoothly.
 
@@ -35,7 +35,7 @@ Each film retains native scroll, optional 23.2–28.5 second playback and keyboa
 - `js/hero.js`: later application assembly, direct hover/focus depth inspection, touch presentation and shared-element navigation.
 - `js/genesis.js`: opening/origin timing, pointer inertia and narrative controls.
 - `js/identity-field.js`: approved monumental typography and opening field; hands off after the opening.
-- `js/origin-construction.js`: persistent evidence surface, intervention, retained capabilities and homepage handoff.
+- `js/origin-construction.js`: spatial registration, sampled field, comparison, camera visits and homepage handoff.
 - `js/collection-layout.js`: common spatial positions and lighting for the origin handoff and application collection.
 - `js/space.js` and `js/material-renderer.js`: shared projection, depth-tested materials and Canvas fallback.
 - `content/films.json`: film pacing, statements and inspection controls.
@@ -45,10 +45,10 @@ Each film retains native scroll, optional 23.2–28.5 second playback and keyboa
 - `films.css` and `papyrus.css`: responsive film stages and reduced-motion composition.
 - `js/topography.js`: shaded circular height field, contours and matching interactive section profile.
 - `content/story.json`: origin statements and accessible descriptions, without app examples.
-- `js/hero-interaction.js`: drag, keyboard, separation and reset controls.
+- `js/hero-interaction.js`: drag and keyboard orientation; the visible utility toolbar has been removed.
 - `content/homepage.json`: the central homepage capture and its full-image viewer.
 - `entry.css`: application assembly, study typography and baseplate exchange.
-- `genesis.css`: continuous opening/origin, responsive staging and approved creator closing.
+- `genesis.css`: continuous opening/origin, responsive staging and origin staging. The cinematic creator closing is in films.css and js/epilogue.js.
 - `artifact.css`: current Artifact, interface passage and responsive study composition.
 - `experience.css`: entry composition, image fitting and picker.
 - `styles.css` and `studies.css`: visual design, extended study pacing, responsive composition and reduced motion.
@@ -72,12 +72,12 @@ Review the crop rectangle in `scripts/prepare-evidence.mjs` when a source layout
 
 ## Verification
 
-`pnpm test:production` runs the focused desktop/mobile geometry, canvas-label collision and section-exit checks, writing contact sheets to `.qa/`. The current application films also receive focused browser checks for canonical order, source-image return, inspection controls, responsive layouts, reduced motion and runtime errors. Comprehensive cross-device validation remains deferred until visual approval. The older browser suite and VALIDATION.md predate this film architecture and must be updated before treating them as release gates.
+`pnpm test:production` runs the focused desktop/mobile geometry, canvas-label collision and section-exit checks, writing contact sheets to `.qa/`. The current application films also receive focused browser checks for canonical order, source-image return, inspection controls, responsive layouts, reduced motion and runtime errors. Comprehensive cross-device validation remains deferred until visual approval. VALIDATION.md records current results. The older browser suite predates this architecture and is not a release gate.
 
 ```sh
 pnpm test:evidence
 pnpm test:assets
-pnpm test
+pnpm test:production
 ```
 
 The browser suite defaults to installed Microsoft Edge. Set `BROWSER_CHANNEL` to another installed Chromium channel if needed. The legacy browser tests describe earlier states; they are not evidence of validation for the current films. QA outputs are ignored under `.qa/`.

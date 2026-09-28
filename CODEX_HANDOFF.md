@@ -1,15 +1,15 @@
 # Current ARTIFACTS implementation
 
-Branch: experience/ee65f20-rebuild. Base: ee65f20d04458564dfe35c049de6df04469b6a19. This is a fresh branch from the requested exact commit, not a reconstruction based on the latest experimental branch. The frozen /versions/ee65f20/ preview stays unchanged. The earlier experimental branch remains available separately; do not merge it into this branch.
+Work on experience/ee65f20-rebuild as it stands. This is the current definitive revision of the previous local commit 69f697e; do not reset to ee65f20. Saved previews are immutable. ee65f20 and 84baa04 are component references only.
 
-Read AGENTS.md and both governing documents before frontend work. Preserve the ee65f20 monumental hero, main copy, interaction, collection arrangement, native page flow, all source images and application order. This pass replaces the origin, redesigns the existing application film modules, enriches TopoTracer/Papyrus, corrects functional copy and improves Gene's existing account layout without changing his approved words.
+Read AGENTS.md and both governing documents completely. The latest definitive brief supersedes rejected tiled-origin and two-column-Gene directions. Preserve identity-field.js and topography.js. Never claim that geometry tests prove the visual quality has been approved.
 
-The original js/instrument-film.js owns source capture → interpretation → source capture and controls. Individual operations remain in js/films/time.js, fields.js, physical.js and reports.js. js/origin-construction.js replaces deleted js/starting-over.js. js/genesis.js moves the same homepage element into the collection at the handoff; js/hero.js must not update that element while it belongs to the origin.
+Source: content/page.html, content/films.json, content/story.json. Build with pnpm build. Generated index.html, js/apps.js and script.js are committed static output compatible with GitHub Pages.
 
-AIX uses two swaps and an explicitly synthetic temperature fixture in js/baseplate-example.js. tests/assignment.mjs verifies the offset formula against all possible permutations. Actual source captures are unchanged. No film is a live equipment/database integration.
+Origin: origin-construction.js owns the spatial operations. genesis.js owns the clock and cached chapter measurements. The same real homepage element crosses into the collection; hero.js stages app groups and prewarms captures. Film modules own individual operations; cinema.js and space.js provide drawing and projection primitives. epilogue.js stages the exact approved words on the shared page clock.
 
-Build: pnpm build. Generated: index.html, js/apps.js, script.js. Preview: http://127.0.0.1:8001/. Keep the preview server alive before giving a local URL. Preserve every published review snapshot under the ignored versions directory.
+No source screenshots, real app order, desktop app files, CNAME or production branch were changed. Examples are illustrative. The AIX fixture is explicitly synthetic and independently checked across 120 assignments.
 
-Run focused checks with pnpm test:production, test:evidence, test:assets and test:assignment. The older pnpm test browser suite describes a removed archive and is not a valid release gate for these films. Do not represent its old results as current validation. See VALIDATION.md for the checks actually completed.
+Checks: pnpm test:production, test:evidence, test:assets, test:assignment. The older pnpm test suite describes a removed archive interface. Review current output under .qa/ and VALIDATION.md. Save a new immutable /versions/<commit>/ URL after each presented revision; preserve all prior ones.
 
-GitHub publication is not complete until an authenticated push succeeds. PR #4 is associated with the older branch, not automatically with this strict-baseline branch. Do not force-push, merge production or claim the remote includes local commits without verification.
+GitHub push was previously blocked by absent credentials. Verify publication before claiming the remote contains a new local commit. Do not force-push or merge production. PR #4 belongs to an older branch.

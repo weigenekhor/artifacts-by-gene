@@ -5,34 +5,13 @@
     "layout": "timeline",
     "pointer": "target",
     "inspect": "Inspect wafer interpretation",
-    "choices": [
-      "Complete",
-      "Partial",
-      "Missing",
-      "Excess",
-      "Rerun"
-    ],
+    "choices": ["Complete", "Partial", "Missing", "Excess", "Rerun"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.135,
-        "Read the lot. Not a hundred events."
-      ],
-      [
-        0.335,
-        ""
-      ],
-      [
-        0.67,
-        "Deposition, interpreted wafer by wafer."
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.135, "Thousands of events. One readable history."],
+      [0.335, ""],
+      [0.69, "Deposition, interpreted wafer by wafer."],
+      [0.88, ""]
     ]
   },
   "schedule": {
@@ -41,32 +20,13 @@
     "layout": "lanes",
     "pointer": "target",
     "inspect": "Inspect next-check reasoning",
-    "choices": [
-      "Reactor A",
-      "Reactor B",
-      "Reactor C"
-    ],
+    "choices": ["A-M1", "D-M1", "A-M2", "B-M1", "C-M1"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.135,
-        "The next check should never be a guess."
-      ],
-      [
-        0.335,
-        ""
-      ],
-      [
-        0.67,
-        "Equipment history becomes the next due check."
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.135, "The next check should never be a guess."],
+      [0.335, ""],
+      [0.69, "History gives the next check its place."],
+      [0.88, ""]
     ]
   },
   "usage": {
@@ -75,32 +35,13 @@
     "layout": "chambers",
     "pointer": "target",
     "inspect": "Inspect processed wafers",
-    "choices": [
-      "Reactor A",
-      "Reactor B",
-      "Reactor C"
-    ],
+    "choices": ["Reactor A", "Reactor B", "Reactor C"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.135,
-        "Every processed wafer counts."
-      ],
-      [
-        0.335,
-        ""
-      ],
-      [
-        0.67,
-        "Maintenance begins with knowing the load."
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.135, "Every processed wafer counts."],
+      [0.335, ""],
+      [0.67, "Maintenance begins with knowing the load."],
+      [0.88, ""]
     ]
   },
   "surface": {
@@ -109,32 +50,13 @@
     "layout": "surface",
     "pointer": "x",
     "inspect": "Move the wafer section",
-    "choices": [
-      "Lower region",
-      "Centre region",
-      "Upper region"
-    ],
+    "choices": ["Lower region", "Centre region", "Upper region"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.135,
-        "A point is not the whole surface."
-      ],
-      [
-        0.335,
-        ""
-      ],
-      [
-        0.67,
-        "Variation, given its full dimension."
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.135, "A point is not the whole surface."],
+      [0.335, ""],
+      [0.67, "Variation, given its full dimension."],
+      [0.88, ""]
     ]
   },
   "pathfinder": {
@@ -143,32 +65,13 @@
     "layout": "topology",
     "pointer": "target",
     "inspect": "Select a parameter",
-    "choices": [
-      "Parameter A",
-      "Parameter M",
-      "Parameter Y"
-    ],
+    "choices": ["Parameter A", "Parameter M", "Parameter Y"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.135,
-        "The chart. Without the search."
-      ],
-      [
-        0.335,
-        ""
-      ],
-      [
-        0.67,
-        "Go straight to the parameter that matters."
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.135, "Skip the hierarchy."],
+      [0.335, ""],
+      [0.69, "Go straight to the chart."],
+      [0.88, ""]
     ]
   },
   "compile": {
@@ -177,33 +80,13 @@
     "layout": "assembly",
     "pointer": "target",
     "inspect": "Trace workbook input",
-    "choices": [
-      "PL / Plato",
-      "LayTec",
-      "XRR",
-      "XRD"
-    ],
+    "choices": ["PL / Plato", "LayTec", "XRR", "XRD"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.135,
-        "The analysis should not end in copy and paste."
-      ],
-      [
-        0.335,
-        ""
-      ],
-      [
-        0.67,
-        "Every source. One consistent workbook."
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.135, "Different measurements."],
+      [0.335, ""],
+      [0.69, "One standardized engineering record."],
+      [0.88, ""]
     ]
   },
   "diagnose": {
@@ -212,32 +95,13 @@
     "layout": "diagnostic",
     "pointer": "target",
     "inspect": "Inspect a recommended check",
-    "choices": [
-      "Ceiling condition",
-      "Optris settings",
-      "LayTec / viewport"
-    ],
+    "choices": ["Ceiling condition", "Optris settings", "LayTec / viewport"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.135,
-        "A reactor gives clues."
-      ],
-      [
-        0.335,
-        ""
-      ],
-      [
-        0.67,
-        "Turn observations into the next investigation."
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.135, "A symptom is the beginning."],
+      [0.335, ""],
+      [0.69, "Turn reactor symptoms into a directed investigation."],
+      [0.88, ""]
     ]
   },
   "arrange": {
@@ -246,35 +110,14 @@
     "layout": "physical",
     "pointer": "target",
     "inspect": "Inspect a baseplate",
-    "choices": [
-      "BP1",
-      "BP2",
-      "BP3",
-      "BP4",
-      "BP5"
-    ],
+    "choices": ["BP1", "BP2", "BP3", "BP4", "BP5"],
     "alternate": "Before / after",
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.135,
-        "Temperature uniformity is an assignment problem."
-      ],
-      [
-        0.335,
-        ""
-      ],
-      [
-        0.67,
-        "Two exchanges. One deliberate arrangement."
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.135, "Assignment becomes an optimisation problem."],
+      [0.335, ""],
+      [0.69, "Two exchanges. Re-evaluate each one."],
+      [0.88, ""]
     ]
   },
   "zones": {
@@ -283,34 +126,13 @@
     "layout": "registration",
     "pointer": "target",
     "inspect": "Inspect corresponding zones",
-    "choices": [
-      "S1",
-      "S2",
-      "S3",
-      "S4",
-      "S5"
-    ],
+    "choices": ["S1", "S2", "S3", "S4", "S5"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.135,
-        "Where is the temperature actually measured?"
-      ],
-      [
-        0.335,
-        ""
-      ],
-      [
-        0.67,
-        "The measurement belongs to a region."
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.135, "Know exactly where LayTec is measuring."],
+      [0.335, ""],
+      [0.69, "The region belongs to the wafer."],
+      [0.88, ""]
     ]
   },
   "configuration": {
@@ -319,32 +141,13 @@
     "layout": "hierarchy",
     "pointer": "target",
     "inspect": "Inspect a device property",
-    "choices": [
-      "Popup",
-      "EnableShow",
-      "Number"
-    ],
+    "choices": ["Popup", "EnableShow", "Number"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.135,
-        "A matching line is not a matching device."
-      ],
-      [
-        0.335,
-        ""
-      ],
-      [
-        0.67,
-        "Match the node. Expose the difference."
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.135, "Standardization starts with the difference."],
+      [0.335, ""],
+      [0.69, "Know exactly what changed."],
+      [0.88, ""]
     ]
   },
   "spc": {
@@ -354,34 +157,31 @@
     "pointer": "target",
     "inspect": "Inspect a signal in context",
     "choices": [
-      "Parameter A",
-      "Parameter B",
-      "Parameter C",
-      "Parameter D",
-      "Parameter E",
-      "Parameter F"
+      "Parameter 1",
+      "Parameter 2",
+      "Parameter 3",
+      "Parameter 4",
+      "Parameter 5",
+      "Parameter 6",
+      "Parameter 7",
+      "Parameter 8",
+      "Parameter 9",
+      "Parameter 10",
+      "Parameter 11",
+      "Parameter 12",
+      "Parameter 13",
+      "Parameter 14",
+      "Parameter 15",
+      "Parameter 16",
+      "Parameter 17",
+      "Parameter 18"
     ],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.135,
-        "The process will not fit in one chart."
-      ],
-      [
-        0.335,
-        ""
-      ],
-      [
-        0.67,
-        "Every parameter, in the same view."
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.135, "Every parameter."],
+      [0.335, ""],
+      [0.69, "One continuous review."],
+      [0.88, ""]
     ]
   },
   "legacy": {
@@ -391,34 +191,31 @@
     "pointer": "target",
     "inspect": "Inspect a parameter record",
     "choices": [
-      "Parameter A",
-      "Parameter B",
-      "Parameter C",
-      "Parameter D",
-      "Parameter E",
-      "Parameter F"
+      "Parameter 1",
+      "Parameter 2",
+      "Parameter 3",
+      "Parameter 4",
+      "Parameter 5",
+      "Parameter 6",
+      "Parameter 7",
+      "Parameter 8",
+      "Parameter 9",
+      "Parameter 10",
+      "Parameter 11",
+      "Parameter 12",
+      "Parameter 13",
+      "Parameter 14",
+      "Parameter 15",
+      "Parameter 16",
+      "Parameter 17",
+      "Parameter 18"
     ],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.135,
-        "Different processes. The same need to see."
-      ],
-      [
-        0.335,
-        ""
-      ],
-      [
-        0.67,
-        "Every chart. Every pass. Every exception."
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.135, "A different process history."],
+      [0.335, ""],
+      [0.69, "The same standard of review."],
+      [0.88, ""]
     ]
   },
   "planning": {
@@ -427,32 +224,13 @@
     "layout": "priority",
     "pointer": "target",
     "inspect": "Inspect workcentre",
-    "choices": [
-      "ALTUS",
-      "AIXTRON",
-      "LAYTEC"
-    ],
+    "choices": ["Workcenter A", "Workcenter B", "Workcenter C"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.135,
-        "A check is only useful if it is not missed."
-      ],
-      [
-        0.335,
-        ""
-      ],
-      [
-        0.67,
-        "Every workcentre. The next check in view."
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.135, "One schedule logic across every workcenter."],
+      [0.335, ""],
+      [0.69, "A due date has to be earned."],
+      [0.88, ""]
     ]
   },
   "report": {
@@ -461,33 +239,14 @@
     "layout": "extraction",
     "pointer": "target",
     "inspect": "Trace the selected output rows",
-    "choices": [
-      "Analysis file",
-      "Extracted rows",
-      "Base workbook"
-    ],
+    "choices": ["Analysis file", "Extracted rows", "Base workbook"],
     "alternate": "Source / appended",
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.135,
-        "Keep the context when the numbers move."
-      ],
-      [
-        0.335,
-        ""
-      ],
-      [
-        0.67,
-        "Add the result. Preserve the record."
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.135, "The format can change."],
+      [0.335, ""],
+      [0.69, "The engineering context cannot."],
+      [0.88, ""]
     ]
   },
   "signals": {
@@ -496,33 +255,14 @@
     "layout": "synchronized",
     "pointer": "x",
     "inspect": "Move the shared time window",
-    "choices": [
-      "Early interval",
-      "Middle interval",
-      "Late interval"
-    ],
+    "choices": ["Early interval", "Middle interval", "Late interval"],
     "alternate": "Narrow / wide",
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.135,
-        "A signal changes. What changed with it?"
-      ],
-      [
-        0.335,
-        ""
-      ],
-      [
-        0.67,
-        "Different traces. One shared moment."
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.135, "One clue stays visible."],
+      [0.335, ""],
+      [0.69, "The investigation expands around it."],
+      [0.88, ""]
     ]
   }
 }

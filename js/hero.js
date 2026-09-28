@@ -35,7 +35,8 @@ export function createHero(stage, apps, wake) {
     hovered = -1;
     wake();
   });
-  let w = 1,
+  let warmed = false,
+    w = 1,
     h = 1,
     clock = 0,
     opening = 0;
@@ -130,6 +131,18 @@ export function createHero(stage, apps, wake) {
   stage.classList.add("ready");
 
   return {
+    prewarm() {
+      if (warmed) return;
+      warmed = true;
+      const images = [
+        home.querySelector("img"),
+        ...planes.map((p) => p.a.querySelector("img")),
+      ];
+      for (const image of images) {
+        image.loading = "eager";
+        image.decode().catch(() => {});
+      }
+    },
     resize() {
       w = stage.clientWidth;
       h = stage.clientHeight;
@@ -147,9 +160,9 @@ export function createHero(stage, apps, wake) {
         ? 1
         : state.manual
           ? ease(state.spread)
-          : ease((p - 0.12) / 0.58);
+          : ease((p - 0.06) / 0.72);
       opening +=
-        (desiredOpen - opening) * (reduced ? 1 : 1 - Math.exp(-dt / 170));
+        (desiredOpen - opening) * (reduced ? 1 : 1 - Math.exp(-dt / 70));
       const open = opening;
 
       if (!reduced) clock += (Math.min(dt, 40) / 1000) * (1 - inspection * 0.7);
@@ -161,29 +174,16 @@ export function createHero(stage, apps, wake) {
         state.pitch * 0.18 + (reduced ? 0 : py * 0.035) + breath * 0.025;
       const mobile = w < 700;
       const cx = w * 0.5,
-        cy = h * mix(0.48, mobile ? 0.57 : 0.59, open);
+        cy = h * mix(0.5, mobile ? 0.57 : 0.59, open);
       if (home && home.parentElement === stage) {
         const retreat = ease(open);
         home.style.transform = `translate(-50%,-50%) translateZ(${-retreat * 520}px) rotateY(${reduced ? 0 : yaw * 12}deg) rotateX(${reduced ? 0 : pitch * 14 - retreat * 5}deg) scale(${mix(1, 0.72, retreat)})`;
         home.style.zIndex = String(Math.round(mix(850, 50, retreat)));
-        home.style.opacity = String(
-          mix(1, 0.48, retreat) * ease(arrival / 0.4),
-        );
+        home.style.opacity = String(mix(1, 0.48, retreat));
         home.style.top = (cy / h) * 100 + "%";
         home.style.setProperty("--home-light", 0.1 + Math.max(0, px) * 0.12);
       }
       stage.style.setProperty("--unfold", open);
-      const expand = stage.closest("section").querySelector("[data-expand]");
-      if (
-        expand &&
-        expand.getAttribute("aria-pressed") !== String(open > 0.5)
-      ) {
-        expand.setAttribute("aria-pressed", String(open > 0.5));
-        expand.innerHTML =
-          open > 0.5
-            ? 'Gather the collection <span aria-hidden="true">−</span>'
-            : 'Open the collection <span aria-hidden="true">+</span>';
-      }
       stage.parentElement.style.setProperty("--unfold", open);
       if (context) {
         context.setTransform(
@@ -230,14 +230,20 @@ export function createHero(stage, apps, wake) {
             Z * Math.cos(pitch) +
             focus * (mobile ? 155 : 360);
         const drift = reduced ? 0 : Math.sin(clock * 0.25 + i * 0.6);
-        const reveal = ease((arrival - 0.2 - i * 0.01) / 0.64);
+        const group = i < 3 ? 0 : i < 6 ? 1 : i < 10 ? 2 : 3;
+        const reveal = reduced
+          ? 1
+          : state.manual
+            ? ease((open - group * 0.18) / 0.25)
+            : ease((p - 0.06 - group * 0.16 - (i % 3) * 0.017) / 0.18);
         a.style.transform = `translate3d(${cx + X * (1 - focus * 0.2)}px,${cy + Y * (1 - focus * 0.08)}px,${depth}px) translate(-50%,-50%) rotateX(${(5 + pitch * 35 + drift) * (1 - focus * 0.95)}deg) rotateY(${(-Math.cos(angle) * 11 + yaw * 45 + drift) * (1 - focus * 0.95)}deg) scale(${scale * (1 + focus * 0.12)})`;
         a.style.opacity = String(reveal * (1 - neighbor * 0.16));
         a.style.setProperty(
           "--label-arrival",
           Math.max(focus, ease((open - 0.12) / 0.4) * 0.16),
         );
-        a.style.clipPath = `inset(${(1 - reveal) * 100}% 0 0)`;
+        a.style.clipPath = "none";
+        a.inert = reveal < 0.85;
         a.style.zIndex = String(Math.round(depth + 500 + focus * 1000));
         a.style.setProperty(
           "--plane-brightness",
@@ -247,19 +253,6 @@ export function createHero(stage, apps, wake) {
           "--plane-label",
           focus > 0.5 ? "#fff5dc" : "#c4cdc1",
         );
-        if (context && arrival > 0 && reveal < 1) {
-          const k = 1600 / (1600 - position.z),
-            ww = 240 * scale * k,
-            hh = 191 * scale * k;
-          context.strokeStyle = `rgba(137,155,142,${1 - reveal})`;
-          context.lineWidth = 0.75;
-          context.strokeRect(
-            w * 0.5 + (position.x - w * 0.5) * k - ww / 2,
-            h * 0.5 + (position.y - h * 0.5) * k - hh / 2,
-            ww,
-            hh,
-          );
-        }
         a.style.setProperty(
           "--plane-light",
           (0.1 + focus * 0.2 + breath * 0.02).toFixed(3),

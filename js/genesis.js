@@ -11,7 +11,8 @@ export function createGenesis(section, wake) {
   const field = section.querySelector(".identity-field"),
     canvas = field.querySelector("canvas"),
     ctx = canvas.getContext("2d");
-  const home = document.querySelector(".collection-home"), homeParent = home.parentElement;
+  const home = document.querySelector(".collection-home"),
+    homeParent = home.parentElement;
   const intro = section.querySelector(".genesis-intro"),
     film = section.querySelector(".origin-film");
   const captions = [...section.querySelectorAll(".origin-caption")].map(
@@ -24,7 +25,8 @@ export function createGenesis(section, wake) {
   );
 
   if (ctx) field.classList.add("ready");
-  let width = 1,
+  let collectionTop = 0,
+    width = 1,
     height = 1,
     distance = 1,
     top = 0,
@@ -77,6 +79,7 @@ export function createGenesis(section, wake) {
       height = innerHeight;
       top = section.offsetTop;
       distance = Math.max(1, section.offsetHeight - height);
+      collectionTop = homeParent.closest(".tools-entry").offsetTop;
       dpr = Math.min(devicePixelRatio || 1, width <= 700 ? 1.5 : 2);
       canvas.width = Math.round(width * dpr);
       canvas.height = Math.round(height * dpr);
@@ -93,11 +96,15 @@ export function createGenesis(section, wake) {
     update(y, time, dt, px, py, reduced) {
       if (reduced && stillsDirty) drawStills();
       if (y + height < top || y > top + distance + height) {
-        if (home.parentElement !== homeParent) { homeParent.append(home); home.classList.remove('origin-home'); home.inert=false; }
+        if (home.parentElement !== homeParent) {
+          homeParent.append(home);
+          home.classList.remove("origin-home");
+          home.inert = false;
+        }
         return false;
       }
       const target = clamp((y - top) / distance) * LENGTH;
-      progress = reduced ? 0 : mix(progress, target, 1 - Math.exp(-dt / 95));
+      progress = reduced ? 0 : mix(progress, target, 1 - Math.exp(-dt / 60));
       clock += reduced ? 0 : Math.min(dt, 40) / 1000;
       yaw = mix(
         yaw,
@@ -119,11 +126,11 @@ export function createGenesis(section, wake) {
       section.style.setProperty("--travel", clamp(p / LENGTH));
       section.style.setProperty(
         "--reading-ink",
-        p > 5.6 ? "#e7e9df" : "#263b34",
+        p > 4.8 ? "#e7e9df" : "#263b34",
       );
       section.style.setProperty(
         "--reading-muted",
-        p > 5.6 ? "#b4c2b1" : "#69786c",
+        p > 4.8 ? "#b4c2b1" : "#69786c",
       );
       section.style.setProperty("--light", light);
       intro.inert = !reduced && p > 0.65;
@@ -141,14 +148,15 @@ export function createGenesis(section, wake) {
       });
       section.dataset.originBeat = String(current);
       // One actual homepage element crosses the chapter boundary, in both directions.
-      const collectionTop = homeParent.closest(".tools-entry").offsetTop;
-      const transferring = !reduced && p > 5.2 && y < collectionTop - height * .32;
+
+      const transferring = !reduced && p > 5.62 && y < collectionTop;
       if (transferring) {
-        if (home.parentElement !== section.querySelector(".genesis-stage")) section.querySelector(".genesis-stage").append(home);
+        if (home.parentElement !== section.querySelector(".genesis-stage"))
+          section.querySelector(".genesis-stage").append(home);
         home.classList.add("origin-home");
-        home.style.opacity = ease((p - 5.25) / .5);
-        home.style.top = "calc(48% + var(--header) * .52)";
-        home.style.transform = `translate(-50%,-50%) perspective(1600px) rotateX(${(1-ease((p-5.2)/.6))*20}deg)`;
+        home.style.opacity = ease((p - 5.62) / 0.42);
+        home.style.top = "50%";
+        home.style.transform = `translate(-50%,-50%) perspective(1600px) rotateX(${(1 - ease((p - 5.45) / 0.6)) * 20}deg)`;
         home.style.zIndex = "4";
         home.inert = p < 5.65;
       } else if (home.parentElement !== homeParent) {

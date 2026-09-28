@@ -1,7 +1,31 @@
 {
- "phases":[
-  {"id":"pressure","title":"The work was difficult enough.","text":"","start":1.32,"end":2.17,"still":1.9,"description":"Engineering evidence is present, but fragmented: positions compete, records lose alignment, and comparisons require reconstruction."},
-  {"id":"intervention","title":"Friction was not a requirement.","text":"","start":2.55,"end":3.42,"still":3.2,"description":"A deliberate intervention separates useful structure from unnecessary reconstruction. Values regain their reference and measurement traces become readable."},
-  {"id":"structure","title":"","text":"","start":3.65,"end":5.48,"still":4.3,"description":"Different kinds of work are resolved: a spatial measurement, a comparison and a structured record. Their capabilities stay in one surface, which becomes the real ARTIFACTS homepage and opens into the applications."}
- ]
+  "phases": [
+    {
+      "id": "pressure",
+      "title": "Some difficulty belongs to the work.",
+      "text": "",
+      "start": 1.3,
+      "end": 1.9,
+      "still": 1.7,
+      "description": "A vast registration instrument works until one region loses its reference. The obstruction is separate from the complexity of the work."
+    },
+    {
+      "id": "intervention",
+      "title": "Some doesn’t.",
+      "text": "",
+      "start": 2.18,
+      "end": 2.88,
+      "still": 2.7,
+      "description": "The reference is deliberately repositioned. Alignment returns and holds. The improvement remains while the camera moves on."
+    },
+    {
+      "id": "structure",
+      "title": "",
+      "text": "",
+      "start": 3,
+      "end": 5.7,
+      "still": 4.7,
+      "description": "A spatial field resolves, then comparison structures align. The camera pulls back to reveal the retained operations. A central substrate turns forward and becomes the real ARTIFACTS homepage."
+    }
+  ]
 }
