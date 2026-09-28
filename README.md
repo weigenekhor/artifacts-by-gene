@@ -1,33 +1,65 @@
-# Artifacts by Gene
+# ARTIFACTS — engineering software exhibition
 
-A personal engineering software showcase for **https://artifactsbygene.com**.
+Personal engineering work at https://artifactsbygene.com. Current review branch: experience/ee65f20-rebuild. Production changes only after review and merge.
 
-Plain HTML, CSS, and JavaScript. No build step, framework, CDN, analytics, or runtime dependencies. Geist is self-hosted under the SIL Open Font License; the license is included in `assets/fonts/OFL.txt`.
+## Run and deploy
 
-## Local preview
+```sh
+pnpm install --frozen-lockfile
+pnpm build
+python -m http.server 8001 --bind 127.0.0.1
+```
 
-Run `python -m http.server 8000` from the repository root and open http://localhost:8000. Any static HTTP server works.
+Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed static files from main/root. Preserve CNAME. Asset URLs are relative, with no runtime CDN, backend or remote fonts. WebGL material rendering has a Canvas fallback.
 
-## GitHub Pages
+## Experience and source
 
-This repository is designed for branch-based GitHub Pages publishing. In **Settings → Pages**, choose **Deploy from a branch**, **main**, and **/ (root)**. Merging the website changes into main makes them available to the configured Pages deployment. No build command is needed.
+Approved interactive hero → almost-wordless origin → continuous real homepage reveal → sixteen large gallery previews → optional detailed films → exact personal closing.
 
-The existing `CNAME` is preserved and specifies `artifactsbygene.com`. Keep the domain's existing DNS configuration. Enable HTTPS in Pages settings once GitHub has provisioned the certificate. Relative asset paths also work at the repository's default GitHub Pages address.
+Desktop gallery previews play once on hover/focus. Mobile plays the centered visible card. Leaving settles to a poster. The main document has no forced sixteen-film scroll sequence. Click/Enter opens a film with full real interface, playback, inspection and an original-size image viewer. Escape returns to the card. Reduced motion keeps static previews and a readable story.
 
-## Content to finish
+- content/page.html: page template and approved words.
+- content/gallery.json: cues, accents, resting frames and preview durations.
+- content/apps.json and exhibition.json: verified catalogue and real order.
+- content/films.json: detail statements, timing and inspection semantics.
+- content/story.json: approved origin lines and accessible descriptions.
+- js/gallery.js: poster cache, hover/focus/mobile active state, one-shot preview.
+- js/experience.js: shared clock, dialogs, navigation and source viewer.
+- js/genesis.js and origin-construction.js: origin clock, material scene and single homepage handoff.
+- js/identity-field.js and topography.js: protected hero and TopoTracer.
+- js/instrument-film.js and films/: common film lifecycle and individual cinematic operations.
+- js/space.js and material-renderer.js: projection, material light, one shared GPU target and fallback.
+- js/epilogue.js: exact Gene copy in held spatial compositions.
+- gallery.css: main gallery and detail overlay; films.css: film safe rows and closing.
+- scripts/build.mjs: builds index.html, js/apps.js and script.js. Edit sources, then rebuild.
 
-- **Project profiles:** the `systems` object at the top of `script.js` contains clearly marked placeholder descriptions. Replace them with verified descriptions, interface captures, technical notes, and actual project links. Keep the initial GaN profile in `index.html` synchronized for visitors without JavaScript.
-- **Project artwork:** current SVG plots are explicitly labeled conceptual, not live data. Replace them with approved interface captures when available.
-- **About and approach:** editorial draft copy in `index.html` is marked for approval or replacement. No employers, dates, achievements, metrics, or unverified capabilities have been added.
-- **Experience / CV / contact:** add when ready. No fake contact links or unavailable downloads are exposed.
-- **Evolution:** intentionally undated until verified project history is available.
-- **Brand:** the temporary geometric A mark appears in the header and `assets/favicon.svg`.
-- **Social preview:** `assets/social-preview.png` is the 1200 × 630 sharing image referenced by Open Graph metadata.
+Read ARTIFACTS_CREATIVE_DIRECTION.md and ARTIFACTS_EXPERIENCE_STORYBOARD.md before visual edits. ARTIFACTS_MOTION_REVIEW.md records each application's meaning and factual boundaries.
 
-## Interaction and performance
+## Real imagery
 
-The hero uses a custom WebGL shader with one triangle, an analytic surface, a procedural die grid, a measured edge, controlled specular lighting, and slow rotation. It has no downloaded textures or 3D libraries. Rendering pauses offscreen and in hidden tabs; pixel density is capped. Desktop pointer movement subtly shifts lighting and orientation. Mobile renders a still surface. A CSS surface remains visible when WebGL cannot initialize or the context is lost.
+Current full captures are lossless WebP under assets/evidence/<app-id>/. Fifteen are 1425×950, including the current recipe-text Papyrus screenshot. Metria uses a populated 3840×2160 capture. Full frames preserve pixels and aspect ratio. The detail crop is used for source-region registration, not presented as a fabricated app.
 
-Reduced-motion mode disables continuous motion, pointer response, reveal animation, and smooth scrolling. Projects use accessible tabs with arrow keys, Home, and End. Notes use a native modal dialog with Escape dismissal and focus restoration. Navigation uses normal anchors; JavaScript failure leaves the main editorial content readable.
+Original PNGs are in C:/Users/Gene/Desktop/Artifacts Images. To replace one capture:
 
-See `VALIDATION.md` for checks and their limitations.
+```sh
+node scripts/prepare-evidence.mjs /path/to/source-folder papyrus-reader
+pnpm build
+pnpm test:evidence
+```
+
+Review the crop region when the layout changes. Higher-resolution populated captures are still needed for native fullscreen 4K inspection of the fifteen smaller sources; do not upscale them. See assets/evidence/README.md. Procedural films are resolution-independent and do not imply live reactor output.
+
+## Checks
+
+```sh
+pnpm test
+pnpm test:previews
+pnpm test:production
+pnpm test:assets
+pnpm test:evidence
+pnpm test:assignment
+```
+
+Browser checks use installed Edge by default. Production geometry checks expect the local server on 8001. Review captures/results are ignored under .qa/. VALIDATION.md records actual outcomes; passing tests does not equal artistic approval or guarantee performance on every device.
+
+Historical /versions/<commit>/ URLs are immutable local review archives. A query parameter on the root URL does not save a version. Keep previous archives when making a new one.
