@@ -1,0 +1,31 @@
+{
+  "phases": [
+    {
+      "id": "work",
+      "title": "",
+      "text": "",
+      "start": 1.1,
+      "end": 1.94,
+      "still": 1.6,
+      "description": "Measurements exist in depth, but without a common reference their relationships remain ambiguous. A datum arrives; each observation gains a position against it."
+    },
+    {
+      "id": "intervention",
+      "title": "",
+      "text": "",
+      "start": 1.94,
+      "end": 3.65,
+      "still": 2.54,
+      "description": "Two structures fail to register. A deliberate spatial correction brings their boundaries into agreement. The camera holds the result before entering a different problem."
+    },
+    {
+      "id": "system",
+      "title": "",
+      "text": "",
+      "start": 3.65,
+      "end": 5.55,
+      "still": 4.5,
+      "description": "Relevant evidence is hidden inside a deep observation field. A selected section remains while the surrounding volume withdraws. These distinct capabilities occupy one environment; its central surface becomes the real ARTIFACTS homepage. This is editorial continuity, not a claim of data exchange between applications."
+    }
+  ]
+}

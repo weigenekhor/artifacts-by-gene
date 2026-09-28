@@ -1,0 +1,185 @@
+/* Almost wordless: the camera carries friction, intervention and recognition. */
+.origin-film {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  color: var(--reading-ink);
+  opacity: var(--story);
+}
+.origin-heading {
+  position: absolute;
+  top: calc(var(--header) + 28px);
+  left: var(--gutter);
+  font-size: 12px;
+  color: var(--reading-muted);
+}
+.origin-caption {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+  opacity: var(--caption, 0);
+}
+.origin-caption.current {
+  visibility: visible;
+}
+.origin-foot {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 22px;
+  display: flex;
+  justify-content: flex-end;
+  color: var(--reading-muted);
+  font-size: 11px;
+}
+.origin-foot a {
+  pointer-events: auto;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.origin-still {
+  display: none;
+}
+.origin-description {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+/* The alternate experience keeps the sequence and its meaning without camera travel. */
+.reduced .origin-film,
+html:not(.enhanced) .origin-film {
+  position: relative;
+  opacity: 1;
+  inset: auto;
+  background: #ebe9df;
+  color: #263b34;
+  padding: 42px var(--gutter) 55px;
+  pointer-events: auto;
+}
+.reduced .origin-heading,
+html:not(.enhanced) .origin-heading {
+  position: static;
+  color: #536451;
+  margin-bottom: 45px;
+}
+.reduced .origin-caption,
+html:not(.enhanced) .origin-caption {
+  position: relative;
+  inset: auto;
+  visibility: visible;
+  opacity: 1;
+  margin-bottom: 75px;
+}
+.reduced .origin-words,
+html:not(.enhanced) .origin-words {
+  position: static;
+  width: 100%;
+  max-width: 900px;
+}
+.reduced .origin-caption h2,
+html:not(.enhanced) .origin-caption h2 {
+  font-size: clamp(30px, 4vw, 65px);
+  color: #263b34;
+}
+.reduced .origin-still {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.613;
+  margin-top: 28px;
+}
+.reduced .origin-description,
+html:not(.enhanced) .origin-description {
+  position: static;
+  width: auto;
+  height: auto;
+  clip-path: none;
+  white-space: normal;
+  max-width: 650px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #566858;
+  margin-top: 24px;
+}
+.reduced .origin-caption .origin-words p,
+html:not(.enhanced) .origin-caption .origin-words p {
+  color: #566858;
+}
+.reduced .origin-foot,
+html:not(.enhanced) .origin-foot {
+  position: static;
+  color: #566858;
+}
+/* The constructed face and real homepage are one persistent surface. */
+.working-face {
+  display: none;
+}
+.origin-surface {
+  padding: 0;
+  pointer-events: none;
+  box-shadow:
+    0 5px 0 #334c3d,
+    0 25px 70px #0003;
+  border: 1px solid #80977f;
+  aspect-ratio: 1.5;
+  background: #12231c;
+}
+.origin-surface > img {
+  clip-path: inset(0 calc((1 - var(--recognition, 0)) * 100%) 0 0);
+  position: relative;
+  z-index: 2;
+  display: block;
+}
+.origin-surface > span,
+.origin-surface:after {
+  display: none;
+}
+.origin-surface .working-face {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: #8ba68c;
+  stroke-width: 1;
+  opacity: calc(1 - var(--recognition, 0));
+}
+.origin-surface .working-face path + path {
+  stroke: #d7b68d;
+}
+.origin-surface .working-face circle {
+  fill: #d7b68d;
+}
+.enhanced:not(.reduced) .tools-stage {
+  opacity: 1;
+  background: transparent;
+}
+.enhanced:not(.reduced) .collection-scaffold {
+  opacity: var(--collection-arrival, 0);
+}
+.enhanced:not(.reduced) .begin-studies {
+  opacity: var(--collection-labels, 0);
+}
+/* Preserve the exact image plane across the origin/collection boundary. */
+.collection-home {
+  padding: 0;
+  aspect-ratio: 1.5;
+}
+.collection-home > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.collection-home > span {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 12px 4px;
+}
