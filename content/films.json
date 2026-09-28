@@ -5,34 +5,12 @@
     "layout": "timeline",
     "pointer": "target",
     "inspect": "Select a wafer",
-    "choices": [
-      "W01",
-      "W02",
-      "W03",
-      "W04",
-      "W05"
-    ],
+    "choices": ["W01", "W02", "W03", "W04", "W05"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.13,
-        "One history breaks."
-      ],
-      [
-        0.32,
-        ""
-      ],
-      [
-        0.68,
-        ""
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.13, "A broken history should still be recoverable."],
+      [0.32, ""],
+      [0.88, ""]
     ],
     "defaultFocus": 0.3
   },
@@ -42,33 +20,12 @@
     "layout": "lanes",
     "pointer": "target",
     "inspect": "Inspect a chamber",
-    "choices": [
-      "Chamber A",
-      "Chamber B",
-      "Chamber C",
-      "Chamber D"
-    ],
+    "choices": ["Chamber A", "Chamber B", "Chamber C", "Chamber D"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.13,
-        "Begin with the event."
-      ],
-      [
-        0.32,
-        ""
-      ],
-      [
-        0.68,
-        ""
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.13, "Every due date begins with evidence."],
+      [0.32, ""],
+      [0.88, ""]
     ],
     "defaultFocus": 0.14
   },
@@ -78,32 +35,12 @@
     "layout": "chambers",
     "pointer": "target",
     "inspect": "Inspect a wafer count",
-    "choices": [
-      "24 wafers",
-      "36 wafers",
-      "48 wafers"
-    ],
+    "choices": ["24 wafers", "36 wafers", "48 wafers"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.13,
-        "Every wafer counts."
-      ],
-      [
-        0.32,
-        ""
-      ],
-      [
-        0.68,
-        ""
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.13, "Every wafer processed should count."],
+      [0.32, ""],
+      [0.88, ""]
     ],
     "defaultFocus": 0.83
   },
@@ -113,31 +50,12 @@
     "layout": "surface",
     "pointer": "x",
     "inspect": "Choose a derived view",
-    "choices": [
-      "Horizontal centre",
-      "Vertical centre"
-    ],
+    "choices": ["Horizontal centre", "Vertical centre"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.13,
-        "A measurement becomes a landscape."
-      ],
-      [
-        0.32,
-        ""
-      ],
-      [
-        0.68,
-        ""
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.13, "Variation has a shape."],
+      [0.32, ""],
+      [0.88, ""]
     ],
     "defaultFocus": 0.2
   },
@@ -147,32 +65,12 @@
     "layout": "topology",
     "pointer": "target",
     "inspect": "Choose a selection set",
-    "choices": [
-      "Set A",
-      "Set B",
-      "Set C"
-    ],
+    "choices": ["Set A", "Set B", "Set C"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.13,
-        "A destination in an archive."
-      ],
-      [
-        0.32,
-        ""
-      ],
-      [
-        0.68,
-        ""
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.13, "The right evidence should never stay buried."],
+      [0.32, ""],
+      [0.88, ""]
     ],
     "defaultFocus": 0.16
   },
@@ -182,33 +80,12 @@
     "layout": "assembly",
     "pointer": "target",
     "inspect": "Trace an output",
-    "choices": [
-      "PL / Plato",
-      "LayTec",
-      "XRR",
-      "XRD"
-    ],
+    "choices": ["PL / Plato", "LayTec", "XRR", "XRD"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.13,
-        "Four kinds of evidence."
-      ],
-      [
-        0.32,
-        ""
-      ],
-      [
-        0.68,
-        ""
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.13, "Different measurements. One engineering record."],
+      [0.32, ""],
+      [0.88, ""]
     ],
     "defaultFocus": 0.16
   },
@@ -218,32 +95,12 @@
     "layout": "diagnostic",
     "pointer": "target",
     "inspect": "Compare a configured case",
-    "choices": [
-      "Ceiling / Optris",
-      "LayTec",
-      "Lightpipe / controller"
-    ],
+    "choices": ["Ceiling / Optris", "LayTec", "Lightpipe / controller"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.13,
-        "A symptom leaves possibilities."
-      ],
-      [
-        0.32,
-        ""
-      ],
-      [
-        0.68,
-        ""
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.13, "A symptom means little without context."],
+      [0.32, ""],
+      [0.88, ""]
     ],
     "defaultFocus": 0.1
   },
@@ -253,35 +110,13 @@
     "layout": "physical",
     "pointer": "target",
     "inspect": "Inspect a baseplate",
-    "choices": [
-      "BP1",
-      "BP2",
-      "BP3",
-      "BP4",
-      "BP5"
-    ],
+    "choices": ["BP1", "BP2", "BP3", "BP4", "BP5"],
     "alternate": "Before / after",
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.13,
-        "The weight determines the move."
-      ],
-      [
-        0.32,
-        ""
-      ],
-      [
-        0.68,
-        ""
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.13, "A physical decision needs evidence."],
+      [0.32, ""],
+      [0.88, ""]
     ]
   },
   "zones": {
@@ -290,34 +125,12 @@
     "layout": "registration",
     "pointer": "target",
     "inspect": "Inner anchor",
-    "choices": [
-      "S1",
-      "S2",
-      "S3",
-      "S4",
-      "S5"
-    ],
+    "choices": ["S1", "S2", "S3", "S4", "S5"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.13,
-        "Settings become locations."
-      ],
-      [
-        0.32,
-        ""
-      ],
-      [
-        0.68,
-        ""
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.13, "Know exactly where you measured."],
+      [0.32, ""],
+      [0.88, ""]
     ],
     "alternate": "Narrow / wide",
     "adjust": "Outer anchor",
@@ -329,32 +142,12 @@
     "layout": "hierarchy",
     "pointer": "target",
     "inspect": "Inspect a difference",
-    "choices": [
-      "Changed",
-      "Removed",
-      "Added"
-    ],
+    "choices": ["Changed", "Removed", "Added"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.13,
-        "A change inside the structure."
-      ],
-      [
-        0.32,
-        ""
-      ],
-      [
-        0.68,
-        ""
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.13, "Find the change that matters."],
+      [0.32, ""],
+      [0.88, ""]
     ],
     "defaultFocus": 0.1
   },
@@ -364,32 +157,12 @@
     "layout": "review",
     "pointer": "target",
     "inspect": "Inspect a check",
-    "choices": [
-      "Mean",
-      "Raw",
-      "Limits"
-    ],
+    "choices": ["Mean", "Raw", "Limits"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.13,
-        "The summary looks calm."
-      ],
-      [
-        0.32,
-        ""
-      ],
-      [
-        0.68,
-        ""
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.13, "A status should explain itself."],
+      [0.32, ""],
+      [0.88, ""]
     ],
     "defaultFocus": 0.5
   },
@@ -399,33 +172,13 @@
     "layout": "records",
     "pointer": "x",
     "inspect": "Inspect a sample group",
-    "choices": [
-      "Earlier groups",
-      "Mid history",
-      "Recent groups"
-    ],
+    "choices": ["Earlier groups", "Mid history", "Recent groups"],
     "alternate": "5 / 3 groups",
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.13,
-        "The history is larger than the decision."
-      ],
-      [
-        0.32,
-        ""
-      ],
-      [
-        0.68,
-        ""
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.13, "The evidence window changes the review."],
+      [0.32, ""],
+      [0.88, ""]
     ]
   },
   "planning": {
@@ -434,32 +187,12 @@
     "layout": "priority",
     "pointer": "target",
     "inspect": "Inspect a result",
-    "choices": [
-      "Pass",
-      "Fail",
-      "Missing"
-    ],
+    "choices": ["Pass", "Fail", "Missing"],
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.13,
-        "The date has to be earned."
-      ],
-      [
-        0.32,
-        ""
-      ],
-      [
-        0.68,
-        ""
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.13, "A future date has to be earned."],
+      [0.32, ""],
+      [0.88, ""]
     ],
     "defaultFocus": 0.1
   },
@@ -469,34 +202,13 @@
     "layout": "extraction",
     "pointer": "target",
     "inspect": "Trace a destination column",
-    "choices": [
-      "Step",
-      "Zone",
-      "Wavelength",
-      "Mean"
-    ],
+    "choices": ["Step", "Zone", "Wavelength", "Mean"],
     "alternate": "Source / appended",
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.13,
-        "A value needs its context."
-      ],
-      [
-        0.32,
-        ""
-      ],
-      [
-        0.68,
-        ""
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.13, "Context survives the change in format."],
+      [0.32, ""],
+      [0.88, ""]
     ]
   },
   "signals": {
@@ -505,33 +217,13 @@
     "layout": "synchronized",
     "pointer": "x",
     "inspect": "Inspect linked observations",
-    "choices": [
-      "Earlier",
-      "Centre",
-      "Later"
-    ],
+    "choices": ["Earlier", "Centre", "Later"],
     "alternate": "Narrow / wide",
     "beats": [
-      [
-        0,
-        ""
-      ],
-      [
-        0.13,
-        "Hold one clue."
-      ],
-      [
-        0.32,
-        ""
-      ],
-      [
-        0.68,
-        ""
-      ],
-      [
-        0.88,
-        ""
-      ]
+      [0, ""],
+      [0.13, "The investigation grows. The clue stays."],
+      [0.32, ""],
+      [0.88, ""]
     ],
     "pin": true
   }

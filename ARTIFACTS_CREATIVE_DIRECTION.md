@@ -1,20 +1,20 @@
 # ARTIFACTS WEBSITE — CREATIVE DIRECTION
 
-## Current revision status
+## Current revision — 28 September 2026
 
-The 27 September complete-rebuild brief governs this candidate. Preserve the approved opening, exact closing copy, canonical app order and verified functional facts. The almost-wordless origin visits distinct physical interventions within one continuous environment; the same working structures remain during the homepage reveal. All sixteen film middles are rebuilt around their verified ideas. This candidate awaits Gene's visual review.
+The hard art-direction brief replaces the previous origin and all sixteen film middles. The approved monumental opening, exact Gene wording, real captures and canonical app order remain protected. This revision is a candidate for visual review, not an assertion of approval.
 
-## Friction becomes infrastructure — current governing direction
+## The governing visual contract
 
-This contract supersedes the older diagram-led film layout below. Preserve the approved monumental hero unchanged. Preserve the exact Gene wording; stage it as four successive compositions instead of a static biography. Remove the collection slogan completely: only the quiet application chapter label belongs above the installation.
+No conveyors, production lines, generic tracks, factory pipelines or input-through-machine storytelling. The origin is a large engineering problem-space: missing measurement reference, failed spatial registration, and evidence obscured by depth. Three different interventions leave three different capabilities. The camera discovers their shared environment; one material surface becomes the real homepage on the same DOM element. No origin slogans, app names, mock interfaces or screenshots before recognition.
 
-Each application is a film about one verified truth: reality → cinematic interpretation → reality. Composition, camera, scale, depth, focus, anticipation, transformation, stillness, recognition and resolution carry its meaning. Technical labels support the decisive inspection; they must not narrate every frame. One dominant event per composition. Shared projection, lighting, transport and accessibility infrastructure are welcome; shared choreography is not. Sixteen films must have sixteen recognisable visual silhouettes.
+Each film goes from its actual interface into a cinematic interpretation of its verified purpose, then returns to that complete interface. Do not redraw the screenshot. Distinct camera routes, scale changes, evidence, anticipation, transformation and a decisive inspection must carry the idea. Color is purposeful and richer: cyan, cobalt, coral, violet, emerald and amber, with one dominant identity per film. TopoTracer's scientific spectrum and the compiler's four-source palette are deliberate exceptions. Retain dark/light chapter changes.
 
-The origin is now almost wordless: complex work → friction → precise intervention → improvement → different interventions → one environment → ARTIFACTS. The reconstruction/loss/retention narrative and its three statements are rejected. A detour is physically rebuilt, comparison structures align, and output becomes organised. Camera travel reveals a larger system. A central material surface becomes the real homepage without a cut.
+Text is unboxed, sparse and given explicit safe space away from the header, controls and viewport edges. A caption cannot rescue unclear action. Keep source-quality limits explicit: native captures are not upscaled and called HD.
 
-Do not reintroduce “What the work demanded.” Use balanced asymmetry with four anchors and secondary interfaces distributed by actual image brightness. The collection is a nearly still installation with real Z-axis inspection, quiet labels, and two-tap touch exploration. Preserve native scrolling, one demand-driven animation scheduler, capped pixel density, offscreen suspension, full uncropped original captures and a meaningful reduced-motion reading experience.
+Preserve native scrolling, demand-driven rendering, capped density, offscreen suspension, keyboard and touch inspection, full uncropped captures, and meaningful reduced-motion reading. Share rendering infrastructure, not identical choreography. The last Metria inspection line carries into Gene's exact words; a single folded architectural surface responds, then clears for the final sentence.
 
-Mobile is a recomposition: fewer simultaneous labels and larger essential geometry. GaN Met Compiler has four bounded source territories, never interleaved labels. Check its full timeline at 1440, 1280 and 390 pixels. Validate opening, transformation, decisive hold, inspection and return for all sixteen films; inspect images as well as runtime checks. Never claim a measured frame rate without measuring it.
+The detailed score is in ARTIFACTS_EXPERIENCE_STORYBOARD.md. Historical directions below retain functional constraints only where compatible with this contract and the current user prompt.
 
 ## Earlier retained foundations
 

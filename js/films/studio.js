@@ -11,6 +11,13 @@ export const C = {
   copper: [207, 151, 107],
   blue: [111, 151, 166],
   dim: [82, 98, 113],
+  cyan: [37, 206, 237],
+  cobalt: [61, 108, 239],
+  coral: [255, 104, 91],
+  amber: [255, 184, 62],
+  emerald: [38, 208, 155],
+  violet: [165, 123, 255],
+  magenta: [235, 106, 189],
 };
 export function camera(q, keys) {
   let i = Math.max(
@@ -142,10 +149,11 @@ export function studio(d, W, H, state = {}) {
     opacity = 1,
   ) => {
     if (opacity < 0.002) return;
+    const segments = Math.max(20, Math.min(96, Math.ceil(r * 1.1)));
     line(
-      Array.from({ length: 97 }, (_, i) => [
-        p[0] + Math.cos(mix(start, end, i / 96)) * r,
-        p[1] + Math.sin(mix(start, end, i / 96)) * r,
+      Array.from({ length: segments + 1 }, (_, i) => [
+        p[0] + Math.cos(mix(start, end, i / segments)) * r,
+        p[1] + Math.sin(mix(start, end, i / segments)) * r,
         p[2],
       ]),
       color,
@@ -154,7 +162,10 @@ export function studio(d, W, H, state = {}) {
     );
   };
   const arc = (p, r, thickness, start, end, color = C.silver, opacity = 1) => {
-    const n = Math.max(2, Math.ceil(Math.abs(end - start) * 18));
+    const n = Math.max(
+      2,
+      Math.ceil(Math.abs(end - start) * Math.min(18, Math.max(4, r * 0.14))),
+    );
     for (let i = 0; i < n; i++) {
       const a = mix(start, end, i / n),
         b = mix(start, end, (i + 1) / n);
@@ -240,6 +251,7 @@ export function studio(d, W, H, state = {}) {
     for (const t of labels) {
       // An annotation may approach the lens, but its lettering must stay whole.
       // Geometry may crop cinematically; words use a safe screen-space margin.
+      if (t.alpha < 0.04) continue;
       d.c.font = `400 ${Math.max(t.size, W < 700 ? 21 : 16)}px Geist,Arial`;
       const width = d.c.measureText(t.s).width;
       const offset =

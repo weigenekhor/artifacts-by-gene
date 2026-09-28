@@ -64,9 +64,7 @@ for (const size of [
         const beat = config?.beats.findLast((b) => p >= b[0]);
         title.textContent =
           id === "compare"
-            ? p < 0.4
-              ? "Position is not identity."
-              : "The difference keeps its context."
+            ? "Position changes. Identity stays."
             : beat?.[1] || "";
         const show = beat
           ? !!beat[1] && p > beat[0] + 0.02 && p < beat[0] + 0.17

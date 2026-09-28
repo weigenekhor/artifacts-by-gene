@@ -28,7 +28,7 @@ export function createGenesis(section, wake) {
   face.classList.add("working-face");
   face.setAttribute("aria-hidden", "true");
   face.innerHTML =
-    '<defs><linearGradient id="method-material" x2=".8" y2="1"><stop stop-color="#344550"/><stop offset="1" stop-color="#101820"/></linearGradient></defs><path fill="url(#method-material)" stroke="none" d="M0 0H434V284H0Z"/><path stroke="#a7b3b8" stroke-width="2" d="M22 22H412V262H22Z"/><path stroke="#718895" stroke-width="8" d="M44 76H390M44 112H310M44 148H350M44 184H390M44 220H267"/>';
+    '<defs><linearGradient id="method-material" x2=".8" y2="1"><stop stop-color="#436174"/><stop offset=".47" stop-color="#152638"/><stop offset=".51" stop-color="#587683"/><stop offset="1" stop-color="#101c29"/></linearGradient></defs><path fill="url(#method-material)" d="M0 0H434V284H0Z"/>';
   home.append(face);
   if (ctx) field.classList.add("ready");
   let width = 1,

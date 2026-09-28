@@ -1,6 +1,5 @@
 import { at, mix, drawing } from "./films/drawing.js";
 import { studio, C } from "./films/studio.js";
-import { block } from "./films/set.js";
 
 // The investigation's rule persists in the DOM while the surrounding set clears.
 // Each sentence occupies a different physical composition, with no copy rewrite.
@@ -111,32 +110,47 @@ export function createEpilogue(section) {
               x: -80,
               y: 0,
             });
-          for (let i = 0; i < 8; i++) {
-            const x = mix(120 + i * 30, 290, automate),
-              y = mix(-130 + i * 42, -100 + i * 12, automate),
-              z = i * 8;
-            block(
-              g,
-              [x, y, z],
-              [mix(95, 220, automate), 6, 4],
+          // One crease persists. Repeated depth compresses into its fold; the
+          // barrier opens in the perpendicular axis. No framed prose or extra copy.
+          const fold = Math.PI * 0.42 * (1 - automate);
+          for (let i = 0; i < 12; i++) {
+            const x = 210 + i * 18 * (1 - automate);
+            const z = Math.sin(fold) * i * 12;
+            g.line(
+              [
+                [x, -260, z],
+                [x, 250, z],
+              ],
               C.dim,
-              visible * 0.17,
+              0.6,
+              visible * 0.12,
             );
           }
-          block(
-            g,
-            [300, -50 - rebuild * 130, 35],
-            [270, 94, 20],
-            C.dim,
-            visible * 0.17,
-          );
-          block(
-            g,
-            [300, 54 + rebuild * 50, 35],
-            [270, 94, 20],
-            C.dim,
-            visible * 0.17,
-          );
+          const hinge = 225,
+            opening = rebuild * Math.PI * 0.36;
+          for (const side of [-1, 1]) {
+            const edge = hinge + side * 170 * Math.cos(opening);
+            const z = Math.sin(opening) * 170;
+            g.face(
+              [
+                [hinge, -300, 0],
+                [edge, -300, z],
+                [edge, 300, z],
+                [hinge, 300, 0],
+              ],
+              C.pale,
+              visible * 0.12,
+            );
+            g.line(
+              [
+                [edge, -300, z],
+                [edge, 300, z],
+              ],
+              C.dim,
+              0.8,
+              visible * 0.25,
+            );
+          }
           g.draw();
         }
       }

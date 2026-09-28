@@ -5,6 +5,7 @@ import { at, mix } from "./drawing.js";
 export { C, TAU, points, at, mix };
 export function cinema(d, q, W, H, keys, mobile = false, map = null) {
   const cam = camera(q, keys);
+  if (mobile) cam.zoom *= 1.22;
   const g = studio(d, W, H, { ...cam, cropLabels: true, map });
   const light = d.c.createRadialGradient(
     W * 0.57,
@@ -66,57 +67,6 @@ export function block(g, p, size, color = C.graphite, opacity = 1, turn = 0) {
   }
 }
 
-export function rail(
-  g,
-  path,
-  width = 22,
-  depth = 9,
-  color = C.silver,
-  alpha = 1,
-) {
-  if (alpha < 0.002) return;
-  const normals = path.map((p, i) => {
-    const a = path[Math.max(0, i - 1)],
-      b = path[Math.min(path.length - 1, i + 1)];
-    const dx = b[0] - a[0],
-      dy = b[1] - a[1],
-      dz = b[2] - a[2];
-    return [-dz * dx, -dz * dy, dx * dx + dy * dy];
-  });
-  const edges = path.map((p, i) => {
-    const a = path[Math.max(0, i - 1)],
-      b = path[Math.min(path.length - 1, i + 1)],
-      len = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
-    const nx = ((-(b[1] - a[1]) / len) * width) / 2,
-      ny = (((b[0] - a[0]) / len) * width) / 2;
-    return [
-      [p[0] + nx, p[1] + ny, p[2]],
-      [p[0] - nx, p[1] - ny, p[2]],
-    ];
-  });
-  for (let i = 1; i < path.length; i++) {
-    const [A, D] = edges[i - 1],
-      [B, E] = edges[i];
-    g.face([A, B, E, D], color, alpha, [
-      normals[i - 1],
-      normals[i],
-      normals[i],
-      normals[i - 1],
-    ]);
-    g.face(
-      [A, [A[0], A[1], A[2] - depth], [B[0], B[1], B[2] - depth], B],
-      C.dim,
-      alpha,
-    );
-    g.face(
-      [D, E, [E[0], E[1], E[2] - depth], [D[0], D[1], D[2] - depth]],
-      C.dim,
-      alpha,
-    );
-    g.line([A, B], C.pale, 0.45, alpha * 0.55);
-  }
-}
-
 export function wafer(
   g,
   p,
@@ -127,7 +77,7 @@ export function wafer(
   notch = true,
 ) {
   if (alpha < 0.002) return;
-  const n = r <= 28 ? 32 : 56;
+  const n = r <= 18 ? 16 : r <= 32 ? 20 : 56;
   const v = (a, z) => {
     const radius = notch && Math.abs(a - Math.PI * 1.5) < 0.09 ? r * 0.945 : r;
     return [p[0] + Math.cos(a) * radius, p[1] + Math.sin(a) * radius, p[2] + z];
@@ -154,13 +104,6 @@ export function wafer(
 
 export function shadow(g, p, r, lift = 0) {
   g.softShadow(p, r * (1.14 + lift * 0.001), 0.14 * (1 - lift / 400));
-}
-
-export function portal(g, p, w, h, open = 1, color = C.silver) {
-  block(g, [p[0] - w / 2, p[1], p[2]], [6, h, 10], color, open);
-  block(g, [p[0] + w / 2, p[1], p[2]], [6, h, 10], color, open);
-  block(g, [p[0], p[1] - h / 2, p[2]], [w, 6, 10], color, open);
-  block(g, [p[0], p[1] + h / 2, p[2]], [w, 6, 10], color, open);
 }
 
 export function landscape(
@@ -206,7 +149,7 @@ export function landscape(
         color.map((c, k) =>
           mix(
             c,
-            C.copper[k],
+            Math.min(255, color[k] + 72),
             Math.max(0, Math.min(0.85, fn(a, b) * 0.7 + 0.25)),
           ),
         ),
@@ -228,4 +171,43 @@ export function note(d, W, H, text, sub = "", align = "left", alpha = 1) {
     d.text(text, x, 42, W < 700 ? 25 : 23, d.ink, align);
     if (sub) d.text(sub, x, 72, W < 700 ? 21 : 17, d.muted, align);
   });
+}
+
+// A curve with material depth: reserved for measured evidence, not generic tracks.
+export function curtain(g, path, floor, color, alpha = 1) {
+  for (let i = 1; i < path.length; i++) {
+    const a = path[i - 1],
+      b = path[i];
+    g.face([a, b, [b[0], b[1], floor], [a[0], a[1], floor]], color, alpha);
+  }
+  g.line(
+    path,
+    color.map((v) => mix(v, 245, 0.28)),
+    1.6,
+    alpha,
+  );
+}
+export function spectral(t) {
+  const stops = [
+    [36, 65, 185],
+    [31, 138, 226],
+    [32, 210, 194],
+    [92, 211, 119],
+    [240, 216, 70],
+    [255, 132, 45],
+    [227, 66, 59],
+  ];
+  const v = Math.max(0, Math.min(0.9999, t)) * (stops.length - 1),
+    i = Math.floor(v);
+  return stops[i].map((n, k) => mix(n, stops[i + 1][k], v - i));
+}
+export function glow(d, g, point, radius, color, alpha = 0.25) {
+  const p = g.project(point),
+    r = radius * g.unit * Math.sqrt(p[3]);
+  if (r < 1 || alpha < 0.002) return;
+  const gradient = d.c.createRadialGradient(p[0], p[1], 0, p[0], p[1], r);
+  gradient.addColorStop(0, `rgba(${color.join(",")},${alpha})`);
+  gradient.addColorStop(1, `rgba(${color.join(",")},0)`);
+  d.c.fillStyle = gradient;
+  d.c.fillRect(p[0] - r, p[1] - r, r * 2, r * 2);
 }

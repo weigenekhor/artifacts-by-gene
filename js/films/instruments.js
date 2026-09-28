@@ -9,84 +9,79 @@ import {
   points,
   at,
   mix,
+  spectral,
 } from "./set.js";
 import { index } from "./studio.js";
 
 export function usage(d, q, f, W, H, m, hit) {
-  const sel = index(f, 3),
-    total = [24, 36, 48][sel],
-    gather = at(q, 0.15, 0.53),
-    resolve = at(q, 0.76, 0.1);
+  const total = [24, 36, 48][index(f, 3)],
+    settle = at(q, 0.65, 0.18);
   const g = cinema(
     d,
     q,
     W,
     H,
     [
-      [0, -0.25, 0.93, 1.55, -180, -50],
-      [0.23, 0.24, 1.1, 1.36, -30, 0],
-      [0.6, -0.2, 1.02, 1.24, 0, 0],
-      [0.9, -0.12, 0.88, 1.18, 0, 0],
-      [1, -0.12, 0.88, 1.18, 0, 0],
+      [0, -0.15, 0.85, 2.8, -180, -90, 0],
+      [0.18, 0.25, 1.02, 2, -100, -30, 30],
+      [0.42, -0.28, 0.68, 1.12, 0, 0, -40],
+      [0.68, -0.16, 0.64, 0.92, 0, 0, -60],
+      [0.86, -0.1, 0.52, 1.06, -30, 15, -40],
+      [1, -0.1, 0.52, 1.06, -30, 15, -40],
     ],
     m,
   );
-  for (let i = 0; i < 3; i++) shadow(g, [(i - 1) * 205, 40, -60], 77, 25);
-  let processed = 0;
-  const seated = [0, 0, 0];
+  let completed = 0;
   for (let i = total - 1; i >= 0; i--) {
-    const stack = i % 3,
-      level = Math.floor(i / 3),
-      t = at(gather, (i / total) * 0.82, 0.17);
-    if (t > 0.98) {
-      processed++;
-      seated[stack]++;
-      continue;
+    const t = at(
+        q,
+        i === 0 ? 0.025 : 0.16 + ((i - 1) / (total - 1)) * 0.4,
+        0.14,
+      ),
+      x = ((i % 8) - 3.5) * 80,
+      y = (Math.floor(i / 8) - 2.5) * 77;
+    if (t > 0.99) completed++;
+    const p = [
+      mix(x, x * 0.47 - 165, settle),
+      mix(y, y * 0.47 + 25, settle),
+      mix(-180, 10, t) - Math.floor(i / 8) * 10,
+    ];
+    if (t > 0.001) {
+      const radius = mix(31, 14, settle);
+      if (i === 0 && q < 0.38) wafer(g, p, radius, 2, [65, 120, 162], t);
+      else {
+        // Small completed discs need one lit cap, not buried side tessellation.
+        const edge = points(20, (u) => [
+          p[0] + Math.cos(u * TAU) * radius,
+          p[1] + Math.sin(u * TAU) * radius,
+          p[2],
+        ]);
+        g.face(edge.slice(0, -1), t > 0.94 ? [65, 120, 162] : C.cobalt, t);
+        g.line(edge, C.cyan, 0.75, t);
+      }
+      if (t < 0.995)
+        g.arc(
+          [p[0], p[1], p[2] + 1],
+          mix(34, 16, settle),
+          2,
+          -Math.PI / 2,
+          -Math.PI / 2 + TAU * t,
+          C.cyan,
+          t * (1 - settle * 0.5),
+        );
     }
-    if (t < 0.002 && i > 2) continue;
-    const start = [
-        (stack - 1) * 245 - 140,
-        -190 - level * 42,
-        -270 + level * 9,
-      ],
-      end = [(stack - 1) * 205, 40, -55 + level * 9];
-    const p = start.map((v, k) => mix(v, end[k], t));
-    p[2] += Math.sin(t * Math.PI) * 105;
-    wafer(g, p, 76, 2.2, t > 0.98 ? [119, 144, 162] : C.dim);
   }
-  // Landed wafers become a single capped stack with separate visible seams.
-  // Buried faces contribute no pixels and no longer consume frame time.
-  seated.forEach((count, i) => {
-    if (!count) return;
-    const x = (i - 1) * 205,
-      top = -55 + (count - 1) * 9;
-    wafer(g, [x, 40, top], 76, 2.2 + (count - 1) * 9, [119, 144, 162]);
-    for (let j = 0; j < count - 1; j++)
-      g.line(
-        points(40, (t) => [
-          x + Math.cos(t * TAU) * 76,
-          40 + Math.sin(t * TAU) * 76,
-          -55 + j * 9,
-        ]),
-        C.silver,
-        0.65,
-      );
-  });
   g.draw();
-  note(
-    d,
-    W,
-    H,
-    "Wafers processed",
-    "Illustrative count · latest chamber record",
-    "left",
-    at(q, 0.01, 0.08),
+  if (q > 0.76)
+    d.alpha(at(q, 0.76, 0.07), () => {
+      d.text(String(completed), W * 0.7, H * 0.54, 98, d.ink, "center");
+      d.text("wafers processed", W * 0.7, H * 0.54 + 38, 21, d.muted, "center");
+    });
+  return (
+    "Illustrative " +
+    total +
+    "-wafer count. WaferCount reads the latest chamber counters; the scene does not imply an event-history parser."
   );
-  d.alpha(resolve, () => {
-    d.text(String(processed), W * 0.82, H * 0.82, 72, d.ink, "center");
-    d.text("wafers", W * 0.82, H * 0.82 + 29, 21, d.muted, "center");
-  });
-  return `Illustrative ${total}-wafer count. The real application reads latest A/B counters; the film does not imply an event-history parser.`;
 }
 
 const height = (x, y) =>
@@ -104,7 +99,7 @@ export function surface(d, q, f, W, H, m, hit) {
     W,
     H,
     [
-      [0, -0.34, 1.25, 3.1, -65, -36],
+      [0, -0.34, 1.25, 3.8, 0, 0],
       [0.15, -0.35, 1.1, 2.2, -30, -15],
       [0.37, 0.1, 1.13, 1.6, 28, 0],
       [0.6, 0, 0.08, 1.25, 0, 0],
@@ -146,9 +141,10 @@ export function surface(d, q, f, W, H, m, hit) {
           0,
           Math.min(1, (height(x / 85, y / 85) + 0.45) / 1.2),
         );
-        return [70, 110, 130].map((c, k) => mix(c, [227, 188, 129][k], t));
+        return spectral(t);
       });
-      if (grow > 0.01) g.face(v, C.blue, grow, normals, colors);
+      if (grow > 0.01)
+        g.face(v, C.cyan, at(grow, (j / rings) * 0.65, 0.32), normals, colors);
     }
   for (let i = 0; i < 25; i++) {
     const a = i * 2.39996,
@@ -156,7 +152,7 @@ export function surface(d, q, f, W, H, m, hit) {
       p = vertex(r, a);
     p[2] += 2;
     const show = i === 0 ? 1 : at(q, 0.04 + i * 0.003, 0.13);
-    g.dot(p, mix(3, 1.4, grow), C.pale);
+    g.dot(p, mix(5, 1.8, grow), C.cyan, false, show);
     if (grow < 0.92)
       g.line([[p[0], p[1], -60], p], C.dim, 0.7, show * (1 - grow));
   }
@@ -178,8 +174,8 @@ export function surface(d, q, f, W, H, m, hit) {
         b = extracted[i];
       g.face(
         [a, b, [b[0], b[1], 50 * cut], [a[0], a[1], 50 * cut]],
-        C.copper,
-        cut * 0.75,
+        C.cyan,
+        cut * 0.85,
       );
     }
     g.line(section, C.pale, 2, cut);
@@ -225,7 +221,11 @@ export function arrange(d, q, f, W, H, m, hit, alternate = 0) {
     const a = -Math.PI / 2 + (i * TAU) / 5;
     return [Math.cos(a) * 146, Math.sin(a) * 146];
   });
-  wafer(g, [0, 0, -34], 224, 15, [45, 52, 60]);
+  wafer(g, [0, 0, -34], 230, 24, [33, 42, 57]);
+  for (let i = 0; i < 10; i++) {
+    const a = (i * TAU) / 10;
+    wafer(g, [Math.cos(a) * 212, Math.sin(a) * 212, -32], 4, 3, C.silver);
+  }
   seats.forEach(([x, y], i) => {
     shadow(g, [x, y, -17], 58, 0);
     wafer(g, [x, y, -20], 57, 3, [19, 25, 32]);
@@ -245,7 +245,26 @@ export function arrange(d, q, f, W, H, m, hit, alternate = 0) {
       : y;
     const z = moving ? -7 + lift * (i === 2 ? 117 : 190) : -7;
     shadow(g, [xx, yy, -16], 53, z + 7);
-    wafer(g, [xx, yy, z], 53, 10, moving ? [168, 178, 185] : [82, 95, 108]);
+    wafer(
+      g,
+      [xx, yy, z],
+      53,
+      13,
+      moving
+        ? [110, 123, 142].map((v, k) =>
+            mix(v, (i === 2 ? C.cobalt : C.coral)[k], release),
+          )
+        : [110, 123, 142],
+    );
+    g.arc(
+      [xx, yy, z + 0.8],
+      49,
+      2,
+      0,
+      TAU,
+      moving ? (i === 2 ? C.cyan : C.amber) : C.silver,
+      0.8,
+    );
     for (let k = 0; k < 6; k++)
       g.ring([xx, yy, z + 0.5], 19 + k * 4.7, C.graphite, 0.4, 0, TAU, 0.27);
     // During the lift, the moving plates own the annotation plane. Fixed-seat
@@ -257,7 +276,7 @@ export function arrange(d, q, f, W, H, m, hit, alternate = 0) {
       "BP" + (i + 1),
       [xx, yy + 6, z + 1],
       18,
-      moving ? "#17202a" : "#e6e9e9",
+      "#f5f6fa",
       "center",
       labelPresence,
     );
@@ -271,16 +290,6 @@ export function arrange(d, q, f, W, H, m, hit, alternate = 0) {
     );
   });
   g.draw();
-  if (q < 0.24)
-    note(
-      d,
-      W,
-      H,
-      "Heavier plates. Colder bare pockets.",
-      "Weight-based reassignment",
-      "left",
-      release * (1 - at(q, 0.2, 0.04)),
-    );
   return `BP${choose + 1} · ${[500.6, 521, 509.9, 541.3, 530.5][choose]} g. Weight-mode illustration: BP3 ↔ BP5; BP1, BP2 and BP4 remain in their original seats.`;
 }
 
@@ -303,7 +312,9 @@ export function zones(d, q, f, W, H, m, hit, alternate = 0, adjust = 0.5) {
     ],
     m,
   );
-  wafer(g, [0, 0, -14], 222, 9, [29, 40, 50]);
+  wafer(g, [0, 0, -14], 228, 18, [22, 32, 46]);
+  for (let r = 205; r < 226; r += 5)
+    g.ring([0, 0, -12], r, C.silver, 0.45, 0, TAU, 0.35);
   const angle = (i) => -Math.PI / 2 + (i * TAU) / 5,
     half = ((alternate > 0.5 ? 12 : 7.2) * Math.PI) / 180,
     omin = (10.8 * Math.PI) / 180,
@@ -313,7 +324,17 @@ export function zones(d, q, f, W, H, m, hit, alternate = 0, adjust = 0.5) {
     const a = angle(i) + rotation,
       cx = Math.cos(a) * 135,
       cy = Math.sin(a) * 135;
-    wafer(g, [cx, cy, 0], 64, 2, C.dim);
+    wafer(g, [cx, cy, 0], 64, 3, [55, 85 + i * 3, 132 + i * 5]);
+    for (let band = 0; band < 5; band++)
+      g.arc(
+        [cx, cy, 0.6],
+        26 + band * 8,
+        1.5,
+        -1.2 + rotation,
+        0.8 + rotation,
+        C.cyan,
+        0.05 + band * 0.014,
+      );
     for (let j = 0; j < 18; j++)
       for (let k = 0; k < 18; k++) {
         const x = (j - 8.5) * 7,
@@ -338,7 +359,7 @@ export function zones(d, q, f, W, H, m, hit, alternate = 0, adjust = 0.5) {
               [ax + 3.5, ay + 3.5, 1],
               [ax - 3.5, ay + 3.5, 1],
             ],
-            blue ? C.blue : C.copper,
+            blue ? C.cyan : C.emerald,
             open,
           );
       }
@@ -346,9 +367,9 @@ export function zones(d, q, f, W, H, m, hit, alternate = 0, adjust = 0.5) {
   }
   // The windows remain in instrument coordinates as wafer regions pass through.
   for (const [a, b, r, w, color] of [
-    [angle(inner) - half, angle(inner) + half, 158, 50, C.blue],
-    [angle(outer) - omax, angle(outer) - omin, 200, 31, C.copper],
-    [angle(outer) + omin, angle(outer) + omax, 200, 31, C.copper],
+    [angle(inner) - half, angle(inner) + half, 158, 50, C.cyan],
+    [angle(outer) - omax, angle(outer) - omin, 200, 31, C.emerald],
+    [angle(outer) + omin, angle(outer) + omax, 200, 31, C.emerald],
   ]) {
     g.arc([0, 0, 25], r, w, a, b, color, open * 0.32);
     for (const t of [a, b])

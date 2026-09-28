@@ -133,15 +133,10 @@ export function createPapyrusStudy(el, wake) {
         height: (roi.height / source.height) * 100 + "%",
         opacity: reduced ? 0 : at(p, 0.08, 0.05) * (1 - at(p, 0.18, 0.025)),
       });
-      const text =
-        p < 0.4
-          ? "Position is not identity."
-          : "The difference keeps its context.";
-      statement.textContent = text;
+      statement.textContent = "Position changes. Identity stays.";
       heading.style.opacity = reduced
         ? 0
-        : at(p, 0.13, 0.035) * (1 - at(p, 0.27, 0.04)) +
-          at(p, 0.68, 0.04) * (1 - at(p, 0.84, 0.04));
+        : at(p, 0.13, 0.035) * (1 - at(p, 0.29, 0.04));
       if (visible > 0.002 || reduced)
         draw(reduced ? (before ? 0.12 : 0.83) : q);
       const row = comparison.rows[selected];

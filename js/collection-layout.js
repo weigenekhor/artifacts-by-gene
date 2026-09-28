@@ -1,8 +1,7 @@
 import { drawWork } from "./films/environment.js";
 import { mix } from "./films/drawing.js";
 import { drawing } from "./films/drawing.js";
-import { studio, C } from "./films/studio.js";
-import { block, rail, portal } from "./films/set.js";
+import { studio } from "./films/studio.js";
 // Four anchors establish the composition. Image luminance, actual bounds and available
 // viewport space determine final size; the coordinates are only the initial arrangement.
 const cache = new Map();
