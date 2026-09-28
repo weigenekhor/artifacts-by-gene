@@ -7,41 +7,53 @@ const html = await fs.readFile("index.html", "utf8");
 const design = await fs.readFile("DESIGN.md", "utf8");
 const { apps } = JSON.parse(await fs.readFile("content/apps.json", "utf8"));
 const homepage = JSON.parse(await fs.readFile("content/homepage.json", "utf8"));
+const expeditions = JSON.parse(await fs.readFile("content/expeditions.json", "utf8"));
+const manifest = JSON.parse(await fs.readFile("content/source-manifest.json", "utf8"));
 const hash = b => createHash("sha256").update(b).digest("hex");
 const norm = s => s.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
 
 assert.equal(apps.length, 16);
-const names = [...html.matchAll(/<h3[^>]*>([^<]+)<\/h3>/g)].map(m => m[1]);
+const names = [...html.matchAll(/<h3 id="[^"]+-title">([^<]+)<\/h3>/g)].map(m => m[1]);
 assert.deepEqual(names, apps.map(a => a.name));
+assert.deepEqual(expeditions.map(e => e.name), ["ALTUS", "INTERSTICE", "GaN EPI", "PLANETFALL"]);
+assert.deepEqual(expeditions.flatMap(e => e.apps), apps.map(a => a.id));
 assert.equal(new Set(apps.map(a => a.id)).size, 16);
 for (const app of apps) assert.ok(design.includes(`| ${String(app.index).padStart(2, "0")} | ${app.name} |`));
 assert.ok(html.includes("<title>Artifacts by Gene</title>"));
 assert.equal(norm(html.match(/<h1[^>]*>(.*?)<\/h1>/s)[1]), "ARTIFACTS");
-assert.equal(norm(html.match(/<p class="hero-support">(.*?)<\/p>/s)[1]), "Built from the refusal to accept friction as inevitable.");
+assert.equal(norm(html.match(/<p class="hero-descriptor">(.*?)<\/p>/s)[1]), "Software that moves engineering forward.");
+assert.equal(norm(html.match(/<p class="hero-fact">(.*?)<\/p>/s)[1]), "Three years. Sixteen applications.");
 assert.ok(!html.includes("Good reasoning should outlive the task."));
 assert.ok(!html.includes("Select an interface to view the full capture."));
-const gene = html.match(/<div class="gene-copy">([\s\S]*?)<\/div>/)[1];
+const gene = html.match(/<div class="gene-editorial gene-copy">([\s\S]*?)<\/div>/)[1];
 assert.equal(norm(gene), "I spent my entire life improving processes. ARTIFACTS began when I realised engineering itself was one of them. What repeated, I automated. What stood in the way, I rebuilt. ARTIFACTS is the evidence that I never accepted the way things were as the way they had to stay.");
 assert.ok(!/<canvas|<video|<iframe|data-film/i.test(html));
 assert.deepEqual([...html.matchAll(/<script[^>]+src="([^"]+)"/g)].map(m=>m[1].split("?")[0]), ["chapter-motion.js"]);
 assert.ok(!/\son\w+=/i.test(html), "No script-dependent event handlers");
 const css = await fs.readFile("styles.css", "utf8");
-assert.ok(css.includes("prefers-reduced-motion: reduce"));
-assert.ok(css.includes("transition: none !important"));
-assert.ok(!/@keyframes|animation:|scroll-snap|position:\s*(fixed|sticky)/.test(css));
+assert.match(css, /prefers-reduced-motion:\s*reduce/);
+assert.ok(css.includes("transition:none!important"));
+assert.ok(!/@keyframes|animation:|scroll-snap|position:\s*fixed/.test(css));
+assert.ok(!/aspect-ratio|application-grid/.test(css), "No forced presentation ratio or old equal grid");
 assert.equal([...html.matchAll(/rel="stylesheet"/g)].length, 1);
 for (const id of ["origin", "gene"]) {
   const section = html.match(new RegExp(`<section[^>]+id="${id}"[^>]*>([\\s\\S]*?)</section>`))[1];
   assert.ok(!/<img|<picture/.test(section), `${id} must not contain screenshots`);
 }
 assert.equal([...html.matchAll(/<img /g)].length, 17, "One homepage and sixteen app captures only");
-for (const [anchor] of html.matchAll(/<a\b[^>]*>[\s\S]*?<\/a>/g)) assert.ok(!/<img/.test(anchor), "Screenshot containers must not be links");
-assert.ok(!/<a[^>]+href="[^"]+\.(webp|png|jpe?g)"/.test(html), "Images must not open when clicked");
+const captureLinks = [...html.matchAll(/<a href="([^"]+\/full\.webp)"[^>]*aria-label="([^"]+)"/g)];
+assert.equal(captureLinks.length, 16, "Each application offers its native full-resolution capture");
+assert.deepEqual(captureLinks.map(m => m[1]), apps.map(a => a.capture.src));
 const symbol = await fs.readFile("assets/brand/artifacts-symbol.svg", "utf8");
 for (const [, d] of symbol.matchAll(/<path d="([^"]+)"/g)) assert.ok(html.includes(`d="${d}"`));
 
 for (const entry of [...apps, homepage]) {
   const c = entry.capture;
+  const record = manifest.entries.find(r => r.id === entry.id);
+  assert.ok(record, `${entry.id}: no source provenance`);
+  assert.equal(record.sourceFilename, entry.sourceFilename);
+  assert.equal(record.sourceSha256, c.sourceSha256);
+  assert.equal(record.width, c.width);
   const decoded = await sharp(c.src).ensureAlpha().raw().toBuffer();
   assert.equal(hash(decoded), c.pixelSha256, `${entry.id}: full capture pixels changed`);
   for (const source of c.sources) {
@@ -59,4 +71,4 @@ for (const [, url] of html.matchAll(/(?:src|href)="([^"]+)"/g)) {
 }
 assert.equal((await fs.readFile("CNAME", "utf8")).trim(), "artifactsbygene.com");
 await fs.access(".nojekyll");
-console.log("PASS: 16 static applications, lossless captures, text-only Origin/Gene, noninteractive images, real logo and approved copy.");
+console.log("PASS: four canonical chapters, 16 complete linked captures, source provenance, exact copy, real logo and static deployment paths.");

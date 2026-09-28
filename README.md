@@ -23,9 +23,11 @@ pnpm test
 - `content/page.html`: semantic page template and exact approved Gene copy.
 - `content/apps.json`: canonical application order, verified facts, concise captions and capture provenance.
 - `content/homepage.json`: real ARTIFACTS homepage capture.
+- `content/expeditions.json`: the four canonical chapters and their application order.
+- `content/source-manifest.json`: source filenames, dates, dimensions and hashes from the latest capture import.
 - `chapter-motion.js`: bounded native-scroll enhancement; no animation library, idle loop or application films.
 - `styles.css`: the DESIGN.md tokens and responsive layouts; the only active stylesheet.
-- `scripts/build.mjs`: generates complete static HTML. Screenshots appear only in the homepage reveal and static gallery, and are noninteractive. Origin and Gene are text-only. `chapter-motion.js` enhances hero framing, chapter surfaces and Origin pacing; Gene copy stays still.
+- `scripts/build.mjs`: generates complete static HTML. One homepage reveal leads into a text-only Origin, then four art-directed application chapters. App images open their full-resolution capture in a new tab. `chapter-motion.js` enhances the short desktop hero and chapter entrances; the software itself and Gene copy remain still.
 - `scripts/import-captures.mjs`: imports current named PNG sources as lossless full-size WebP plus smaller responsive derivatives.
 
 To refresh captures, use `pnpm import:captures` or `pnpm import:captures "path/to/Artifacts Images"`, then rebuild. The default source folder is `C:\Users\Gene\Desktop\Artifacts Images`. Keep filenames aligned with `sourceFilename` in the catalogue. Importing preserves full native pixels and records source and decoded-pixel SHA-256 hashes. All current source captures are 1425 x 950; derivatives never upscale them. Higher-resolution recaptures can replace these later.
@@ -42,3 +44,5 @@ The static baseline is tagged `archive/static-exhibition-8829813`. The cinematic
 The version preceding screenshot removal and fluid chapter handoffs is tagged `archive/chapter-refinement-eb45b2d`.
 
 The clean rebuild lives on `rebuild/static-exhibition`. Old films, renderers, animation styles and conflicting direction documents were removed from the active source tree and remain recoverable in Git. Source screenshots and verified software content were retained.
+
+The previous compact hero and equal gallery are preserved at `3054923`. The current Expedition rebuild continues from that commit, with the latest homepage and GaN Met Compiler captures, and no application simulation runtime.

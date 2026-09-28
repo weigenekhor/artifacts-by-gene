@@ -7,7 +7,7 @@
       "description": "Lot history analysis.",
       "purpose": "Bring process events into one readable history. Align timestamps. Review wafer states. Follow the lot through the work.",
       "sourceFilename": "Altus LotViewer.png",
-      "valueLine": "Lot history, reconstructed from process events.",
+      "valueLine": "Process events become a readable lot history.",
       "alt": "Altus LotViewer showing a lot history with reactor, wafer and deposition events",
       "capture": {
         "src": "assets/evidence/altus-lotviewer/full.webp",
@@ -29,6 +29,11 @@
         ],
         "sourceSha256": "e5b495d24344034c7c66268eb41e05ea6898f72b36978e69a176688be73badba",
         "pixelSha256": "5a5eff6a95dceb0af981160be483406afb24c55027298ebd7286f37fa14fd26c"
+      },
+      "presentation": {
+        "role": "anchor",
+        "maxWidth": 1120,
+        "crop": "none"
       }
     },
     {
@@ -38,7 +43,7 @@
       "description": "ANKO schedule retrieval.",
       "purpose": "Bring ANKO schedules into view across the Altus workflow. The next task starts with knowing what is due.",
       "sourceFilename": "Altus Anko Viewer.png",
-      "valueLine": "Equipment checks, with the next due date in reach.",
+      "valueLine": "Equipment checks, with their next due dates.",
       "alt": "Altus ANKO Viewer showing equipment checks and their next due dates",
       "capture": {
         "src": "assets/evidence/altus-anko-viewer/full.webp",
@@ -60,6 +65,11 @@
         ],
         "sourceSha256": "d888157c8c55d5b22f5045e02ff41c390550b8bf3d4e4d0e662b50bba5f87e68",
         "pixelSha256": "a7eddbc56790b2bae8e06901a22eeac113124c525131d9b4cb75630e8b199985"
+      },
+      "presentation": {
+        "role": "support-left",
+        "maxWidth": 696,
+        "crop": "none"
       }
     },
     {
@@ -69,7 +79,7 @@
       "description": "Chamber usage and wafer counts.",
       "purpose": "Turn wafer counts from equipment logs into a clearer basis for maintenance planning.",
       "sourceFilename": "Altus WaferCounter.png",
-      "valueLine": "Wafer counts that inform maintenance planning.",
+      "valueLine": "Chamber usage measured against maintenance limits.",
       "alt": "Altus WaferCount displaying chamber wafer counts against maintenance limits",
       "capture": {
         "src": "assets/evidence/altus-wafercount/full.webp",
@@ -91,6 +101,11 @@
         ],
         "sourceSha256": "72d116a7a3697ce34826a8cf92ba65613e8ea1bdfa3b9077679bf19e1581e85d",
         "pixelSha256": "210f1e4327c7439489dd3a231f30a4067f4bf8d27916a109345995aeb9d7ad8e"
+      },
+      "presentation": {
+        "role": "support-right",
+        "maxWidth": 572,
+        "crop": "none"
       }
     },
     {
@@ -100,7 +115,7 @@
       "description": "Contour and topography plots.",
       "purpose": "Turn wafer measurements into contours. Spatial patterns become visible in a way a column of numbers cannot offer.",
       "sourceFilename": "TopoTracer.png",
-      "valueLine": "Wafer measurements with their spatial patterns intact.",
+      "valueLine": "Wafer measurements reveal their spatial patterns.",
       "alt": "TopoTracer displaying an interpolated wafer surface and its measurement scale",
       "capture": {
         "src": "assets/evidence/topotracer/full.webp",
@@ -122,6 +137,11 @@
         ],
         "sourceSha256": "05b807b23a33a5774767ccf31a5dff09f85bf78f9358a1ad80afc4c4c15c8091",
         "pixelSha256": "632719f9c6b6f0f82dbc7f7de155e31a3a6188bf8704627d7b1a1df30c783cb1"
+      },
+      "presentation": {
+        "role": "spatial",
+        "maxWidth": 1056,
+        "crop": "none"
       }
     },
     {
@@ -131,7 +151,7 @@
       "description": "Logical recipe and text comparison.",
       "purpose": "Match equivalent recipe steps, even when their order changes. Keep attention on the parameters that differ.",
       "sourceFilename": "Papyrus Reader.png",
-      "valueLine": "Recipe differences, beyond the order of the lines.",
+      "valueLine": "Equivalent recipe steps. The differences that matter.",
       "alt": "Papyrus Reader comparing two recipes with changed and added parameters highlighted",
       "capture": {
         "src": "assets/evidence/papyrus-reader/full.webp",
@@ -153,6 +173,11 @@
         ],
         "sourceSha256": "7326857f8286b1a3a48d5d737aba771ba95cbcf0fed4683370ae18c5c5e92f20",
         "pixelSha256": "abe083f1b42369d7cbacec880730c207a2ed65991cfb555c4b2f4b11881df47e"
+      },
+      "presentation": {
+        "role": "comparison",
+        "maxWidth": 1192,
+        "crop": "none"
       }
     },
     {
@@ -162,7 +187,7 @@
       "description": "SPC chart finder.",
       "purpose": "Reach the SPC charts you need together, without repeating the same navigation for every parameter.",
       "sourceFilename": "SPC Pathfinder.png",
-      "valueLine": "The SPC charts you need, without the search.",
+      "valueLine": "The right SPC charts, without the repeated search.",
       "alt": "SPC Pathfinder grouping parameter chart links by workcentre",
       "capture": {
         "src": "assets/evidence/spc-pathfinder/full.webp",
@@ -184,6 +209,11 @@
         ],
         "sourceSha256": "34af170dcbaad6870d81ff0ffee944657eea98b4c09ed8cba98159c369a9a390",
         "pixelSha256": "9ec4d080cd9c6d2388ed8bc655303aee7b872a5e263bcfd80511b3c1a7957a2e"
+      },
+      "presentation": {
+        "role": "finder",
+        "maxWidth": 944,
+        "crop": "none"
       }
     },
     {
@@ -193,8 +223,8 @@
       "description": "Metrology report compiler.",
       "purpose": "Bring metrology data together. Apply predefined calculations. Produce a consistent report from scattered inputs.",
       "sourceFilename": "GaN Met Compiler.png",
-      "valueLine": "Scattered metrology inputs. One consistent report.",
-      "alt": "GaN Met Compiler showing metrology file inputs and the processing log",
+      "valueLine": "Metrology inputs compiled into a consistent report.",
+      "alt": "GaN Met Compiler showing metrology input files, validation checks and compile controls",
       "capture": {
         "src": "assets/evidence/gan-met-compiler/full.webp",
         "width": 1425,
@@ -213,8 +243,13 @@
             "width": 1425
           }
         ],
-        "sourceSha256": "16de1a9fccc84dd29d5c0c0a55f6b762bc19957d378b1889e621e8c9d1278fe1",
-        "pixelSha256": "308fe1b48b5395608e17ac300dc0727e0ad54a14ec594e15cb3790ddc17d0ec1"
+        "sourceSha256": "2823191bb6e71d7b6bc4d356a3592cce24d2a31ade65b2315a987bdeebd2af12",
+        "pixelSha256": "16e3358aba6459c1cb93213a9a78609b6d92a69dca097e431b818b14348efbba"
+      },
+      "presentation": {
+        "role": "anchor",
+        "maxWidth": 1120,
+        "crop": "none"
       }
     },
     {
@@ -224,7 +259,7 @@
       "description": "Temperature drift diagnosis.",
       "purpose": "Use temperature behavior to guide diagnosis and identify the next checks. Give troubleshooting a starting point.",
       "sourceFilename": "GaN Temp Diagnoser.png",
-      "valueLine": "Temperature symptoms with a direction for investigation.",
+      "valueLine": "Temperature symptoms become a direction for investigation.",
       "alt": "GaN Temp Diagnoser showing observation controls and recommended diagnostic checks",
       "capture": {
         "src": "assets/evidence/gan-temp-diagnoser/full.webp",
@@ -246,6 +281,11 @@
         ],
         "sourceSha256": "3653617d5dd9359a9657d585955fb685407fbfa1f7019e0ce20169ee061d895e",
         "pixelSha256": "1dd9ed061b6a0d11d57648785d88900515c498e2b07521428599612c5e4e77ca"
+      },
+      "presentation": {
+        "role": "diagnosis",
+        "maxWidth": 820,
+        "crop": "none"
       }
     },
     {
@@ -255,7 +295,7 @@
       "description": "Baseplate arrangement guidance.",
       "purpose": "Use weight and temperature inputs to guide baseplate arrangements. Put the basis for a decision in view.",
       "sourceFilename": "AIX dT Assistant.png",
-      "valueLine": "Baseplate arrangements informed by weight and temperature.",
+      "valueLine": "Baseplate arrangements grounded in weight and temperature.",
       "alt": "AIX ΔT Assistant showing baseplate weights and a five-position arrangement",
       "capture": {
         "src": "assets/evidence/aix-dt-assistant/full.webp",
@@ -277,6 +317,11 @@
         ],
         "sourceSha256": "1f001fffe65d7ddac4aac900cf5b1b268617796561201ba435409df2f9ca8fe0",
         "pixelSha256": "fdf25b6bfebb0ee9cadb51bcdf58661df1e22245274ba5257ee7ddd11f825a98"
+      },
+      "presentation": {
+        "role": "arrangement",
+        "maxWidth": 572,
+        "crop": "none"
       }
     },
     {
@@ -286,7 +331,7 @@
       "description": "LayTec zone mapping.",
       "purpose": "Map LayTec zones in one spatial view. Understand where each region sits in relation to the whole.",
       "sourceFilename": "LT Zone Assistant.png",
-      "valueLine": "LayTec regions placed in their physical context.",
+      "valueLine": "LayTec measurement zones in their physical context.",
       "alt": "LT Zone Assistant showing inner and outer zone geometry on a five-wafer layout",
       "capture": {
         "src": "assets/evidence/lt-zone-assistant/full.webp",
@@ -308,6 +353,11 @@
         ],
         "sourceSha256": "307a45631ad9995bcc7133f00452a4a5945979e75cf5561dbc34a77cddfb4ebf",
         "pixelSha256": "e8d3302efc797462620d6f676c471295693a692799ffd42a4b26ac0cc85061e0"
+      },
+      "presentation": {
+        "role": "mapping",
+        "maxWidth": 572,
+        "crop": "none"
       }
     },
     {
@@ -317,7 +367,7 @@
       "description": "Devices.XML comparison.",
       "purpose": "Compare configurations, settings and constants. Bring differences forward, without losing their context.",
       "sourceFilename": "GaN XML Assistant.png",
-      "valueLine": "Configuration changes, with their reference alongside.",
+      "valueLine": "Configuration differences kept beside their reference.",
       "alt": "GaN XML Assistant showing changed, added and removed device configuration values",
       "capture": {
         "src": "assets/evidence/gan-xml-assistant/full.webp",
@@ -339,6 +389,11 @@
         ],
         "sourceSha256": "bfdd68152fce460c5900148d495e1a35819505f8685c55a84e4873f07d5bd928",
         "pixelSha256": "e23f8c72cd3aae9d501133fdb9e0cf738336f39437c9949e8f3082219408ac5b"
+      },
+      "presentation": {
+        "role": "configuration",
+        "maxWidth": 696,
+        "crop": "none"
       }
     },
     {
@@ -348,7 +403,7 @@
       "description": "GaN SPC release review.",
       "purpose": "Review configured GaN SPC charts and parameter states together. Move from a signal to the context around it.",
       "sourceFilename": "Magus SPC - GaN.png",
-      "valueLine": "GaN release decisions with the charts in context.",
+      "valueLine": "GaN control charts with their specification limits.",
       "alt": "Magus SPC GaN showing parameter control charts and specification limits",
       "capture": {
         "src": "assets/evidence/magus-spc-gan/full.webp",
@@ -370,6 +425,11 @@
         ],
         "sourceSha256": "ad90125f8e879926d692e524000b9d321e05199101546236f7bf2c6822aa7937",
         "pixelSha256": "8ccd193644e9df0be8c423a65b68ea3df14ff07ac5fe46bb9fdbfd4599c6ffdb"
+      },
+      "presentation": {
+        "role": "spatial",
+        "maxWidth": 1056,
+        "crop": "none"
       }
     },
     {
@@ -379,7 +439,7 @@
       "description": "Legacy SPC release review.",
       "purpose": "Bring legacy SPC charts and parameter states into one review environment. Keep established workflows within reach.",
       "sourceFilename": "Magus SPC - Legacy.png",
-      "valueLine": "Legacy SPC parameters in one continuous review.",
+      "valueLine": "Legacy parameters and charts in one review.",
       "alt": "Magus SPC Legacy showing parameter review states and a control chart",
       "capture": {
         "src": "assets/evidence/magus-spc-legacy/full.webp",
@@ -401,6 +461,11 @@
         ],
         "sourceSha256": "2ba8266f84fbf76ce9199fdfc49752b63f2f046a7cc3e8ece79a062ec696600c",
         "pixelSha256": "77eb40686be3b09e297e5b56244daa965c4b718fd722e1b45e61ba2aed9519b4"
+      },
+      "presentation": {
+        "role": "legacy",
+        "maxWidth": 1192,
+        "crop": "none"
       }
     },
     {
@@ -410,7 +475,7 @@
       "description": "ANKO status and due dates.",
       "purpose": "Put ANKO status and due dates together. See what needs attention before planning what comes next.",
       "sourceFilename": "ANKO Helper.png",
-      "valueLine": "ANKO status and due dates, ready for planning.",
+      "valueLine": "Equipment status and due dates, ready for planning.",
       "alt": "ANKO Helper showing equipment status, last sample and next due dates",
       "capture": {
         "src": "assets/evidence/anko-helper/full.webp",
@@ -432,6 +497,11 @@
         ],
         "sourceSha256": "1ed04816aa1c40edbdafdd91e160ca3281c956558d1af5967a1bfeee59cac438",
         "pixelSha256": "f7fa7ce796cbf6f7742826544a0d3108c0ba7908b33c7c4b274cf9e389ca8746"
+      },
+      "presentation": {
+        "role": "schedule",
+        "maxWidth": 696,
+        "crop": "none"
       }
     },
     {
@@ -441,7 +511,7 @@
       "description": "LayTec report compilation.",
       "purpose": "Assemble LayTec information into an engineering report. Give repeated reporting work a consistent structure.",
       "sourceFilename": "LT Report Compiler.png",
-      "valueLine": "Repeatable reports from LayTec analysis.",
+      "valueLine": "LayTec analysis files become a repeatable report.",
       "alt": "LT Report Compiler showing selected analysis files and a completed processing log",
       "capture": {
         "src": "assets/evidence/lt-report-compiler/full.webp",
@@ -463,6 +533,11 @@
         ],
         "sourceSha256": "6f47550c20cc34da330f9cc4c6a6032bf8e0aba3b808648712f7aab0f373eb0e",
         "pixelSha256": "baca29df56f753fcfcfc8d8f3f3cda7d9635cd81a7afafc5f928208e20261375"
+      },
+      "presentation": {
+        "role": "report",
+        "maxWidth": 572,
+        "crop": "none"
       }
     },
     {
@@ -494,6 +569,11 @@
         ],
         "sourceSha256": "9b061dc27bb8fa7abf7499457082d75f3b11483576dff8407b46c058d5a5672d",
         "pixelSha256": "3b4d4917420304b5c63d9dbfad191a49bca0e2fa7f7eefbaaf59f7eee16e4584"
+      },
+      "presentation": {
+        "role": "finale",
+        "maxWidth": 1200,
+        "crop": "none"
       }
     }
   ]

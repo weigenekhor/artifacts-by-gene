@@ -1,30 +1,39 @@
 import fs from "node:fs/promises";
 import { createHash } from "node:crypto";
-
 const { apps } = JSON.parse(await fs.readFile("content/apps.json", "utf8"));
+const expeditions = JSON.parse(await fs.readFile("content/expeditions.json", "utf8"));
 const homepage = JSON.parse(await fs.readFile("content/homepage.json", "utf8"));
 const escape = value => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll('"', "&quot;");
-const gallerySizes = "(min-width: 1568px) 664px, (min-width: 1440px) calc((100vw - 240px) / 2), (min-width: 1024px) calc((100vw - 200px) / 2), (min-width: 768px) calc(100vw - 96px), (max-width: 359px) calc(100vw - 56px), calc(100vw - 64px)";
-const heroSizes = "(min-width: 1056px) 960px, (min-width: 1024px) calc(100vw - 96px), (min-width: 768px) calc(100vw - 64px), (max-width: 359px) calc(100vw - 32px), calc(100vw - 40px)";
-const image = (capture, alt, sizes, priority = false) => `<img src="${escape(capture.src)}" srcset="${capture.sources.map(s => `${escape(s.src)} ${s.width}w`).join(", ")}" sizes="${sizes}" width="${capture.width}" height="${capture.height}" alt="${escape(alt)}" loading="${priority ? "eager" : "lazy"}" ${priority ? 'fetchpriority="high" ' : ''}decoding="async">`;
-
+const sizes = width => `(min-width: 1568px) ${width}px, (min-width: 1024px) ${Math.round(width / 1440 * 100)}vw, (min-width: 768px) calc(100vw - 64px), (max-width: 359px) calc(100vw - 32px), calc(100vw - 40px)`;
+const image = (capture, alt, imageSizes, priority = false) => `<img src="${escape(capture.src)}" srcset="${capture.sources.map(s => `${escape(s.src)} ${s.width}w`).join(", ")}" sizes="${imageSizes}" width="${capture.width}" height="${capture.height}" alt="${escape(alt)}" loading="${priority ? "eager" : "lazy"}" ${priority ? 'fetchpriority="high" ' : ''}decoding="async">`;
+const arrow = '<svg class="open-mark" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" stroke="currentColor" stroke-width="1.25"/></svg>';
 if (apps.length !== 16 || apps.some((a, i) => a.index !== i + 1)) throw Error("Expected sixteen applications in canonical order.");
+if (expeditions.flatMap(e => e.apps).join() !== apps.map(a => a.id).join()) throw Error("Expedition order does not match the catalogue.");
+const article = app => `<article class="application ${escape(app.presentation.role)}" id="${app.id}" aria-labelledby="${app.id}-title">
+          <header class="application-header"><span class="application-number">${String(app.index).padStart(2, "0")}</span><h3 id="${app.id}-title">${escape(app.name)}</h3>${arrow}</header>
+          <figure class="application-image"><a href="${escape(app.capture.src)}" target="_blank" rel="noopener" aria-label="Open ${escape(app.name)} full-resolution screenshot in a new tab">${image(app.capture, app.alt, sizes(app.presentation.maxWidth))}</a></figure>
+          <p class="application-value">${escape(app.valueLine)}</p>
+        </article>`;
 let html = await fs.readFile("content/page.html", "utf8");
 const symbol = (await fs.readFile("assets/brand/artifacts-symbol.svg", "utf8"))
   .replace('<svg ', '<svg class="brand-symbol" aria-hidden="true" focusable="false" ')
   .replace(/<title>[\s\S]*?<\/title>|<desc>[\s\S]*?<\/desc>/g, "")
   .replaceAll('fill="#e9edf0"', 'fill="currentColor"');
 html = html.replace("<!-- BRAND -->", symbol);
-html = html.replace("<!-- HOMEPAGE -->", `<div class="hero-image">${image(homepage.capture, "ARTIFACTS homepage with all sixteen engineering applications", heroSizes, true)}</div>`);
-html = html.replace("<!-- APPLICATIONS -->", apps.map(a => `<article class="application" id="${a.id}" aria-labelledby="${a.id}-title">
-            <header class="application-header"><span class="application-number">${String(a.index).padStart(2, "0")}</span><h3 class="application-title" id="${a.id}-title">${escape(a.name)}</h3></header>
-            <figure class="media-stage">${image(a.capture, a.alt, gallerySizes)}</figure>
-            <p class="application-value">${escape(a.valueLine)}</p>
-          </article>`).join("\n          "));
-// Content fingerprints keep previews and Pages from combining new markup with cached motion.
+html = html.replace("<!-- HOMEPAGE -->", image(homepage.capture, "ARTIFACTS homepage with all sixteen engineering applications", "(min-width: 1024px) 1425px, (min-width: 768px) calc(100vw - 64px), calc(100vw - 40px)", true));
+html = html.replace("<!-- EXPEDITIONS -->", expeditions.map(e => `<section class="expedition expedition--${e.id}" id="${e.id}" aria-labelledby="${e.id}-title">
+      <div class="container">
+        <header class="expedition-heading" data-motion="chapter">
+          <p class="chapter-label">${e.marker}</p>
+          <h2 id="${e.id}-title">${escape(e.name)}</h2>
+          <p class="expedition-thought">${escape(e.description)}</p>
+        </header>
+        <div class="expedition-works">${e.apps.map(id => article(apps.find(a => a.id === id))).join("\n        ")}</div>
+      </div>
+    </section>`).join("\n    "));
 for (const asset of ["styles.css", "chapter-motion.js"]) {
   const revision = createHash("sha256").update(await fs.readFile(asset)).digest("hex").slice(0, 10);
   html = html.replace(`"${asset}"`, `"${asset}?v=${revision}"`);
 }
 await fs.writeFile("index.html", html.replace(/[\t ]+$/gm, ""));
-console.log(`Built ${apps.length} static applications with noninteractive captures and text-only Origin/Gene chapters.`);
+console.log(`Built four Expeditions, ${apps.length} applications and one real homepage reveal.`);

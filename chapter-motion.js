@@ -1,124 +1,99 @@
-// Progressive enhancement only. The HTML and CSS already contain the final composition.
+// Progressive enhancement: all copy and imagery already exist in the static HTML.
 const reduced = matchMedia("(prefers-reduced-motion: reduce)");
-const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
-const chapters = [...document.querySelectorAll("[data-chapter]")].map(element => ({ element, kind: element.dataset.chapter, top: 0, enter: null, settle: null }));
-const hero = chapters.find(chapter => chapter.kind === "hero");
-const bridge = hero?.element.querySelector(".hero-bridge");
-const evidence = hero?.element.querySelector(".hero-evidence");
-const clamp = value => Math.max(0, Math.min(1, value));
-const ease = value => value * value * (3 - 2 * value);
-let frame = 0;
-let previousTime = 0;
-let previousPointerTime = 0;
-let viewportHeight = innerHeight;
-let measureNeeded = true;
-let lastScroll = -Infinity;
-const pointer = { x: 0, y: 0, targetX: 0, targetY: 0, left: 0, top: 0, width: 1, height: 1 };
-
+const desktop = matchMedia("(min-width: 1024px) and (min-height: 700px)");
+const hero = document.querySelector(".hero");
+const stage = document.querySelector(".hero-stage");
+const root = document.documentElement;
+const beats = [...document.querySelectorAll("[data-motion]")].map(element => ({
+  element, kind: element.dataset.motion, top: 0, value: null,
+  image: element.dataset.motion === "chapter" ? element.nextElementSibling?.querySelector(".application-image") : null
+}));
+const clamp = n => Math.max(0, Math.min(1, n));
+const smooth = n => n * n * (3 - 2 * n);
+const mix = (a, b, p) => a + (b - a) * p;
+let frame = 0, lastTime = 0, dirty = true, heroProgress = null;
+let geometry = { height: innerHeight, top: 0, range: 1, startX: 0, endX: 0, startWidth: 1, endWidth: 1 };
 function measure() {
-  viewportHeight = innerHeight;
-  for (const chapter of chapters) {
-    const rect = (chapter === hero ? bridge : chapter.element).getBoundingClientRect();
-    chapter.top = rect.top + scrollY;
+  const height = innerHeight;
+  const width = innerWidth;
+  const heroRect = hero.getBoundingClientRect();
+  const stageRect = stage.getBoundingClientRect();
+  const container = hero.querySelector(".container").getBoundingClientRect();
+  const endWidth = Math.min(1024, container.width, (height - 224) * 1.5);
+  geometry = { height, top: heroRect.top + scrollY, range: Math.max(1, heroRect.height - stageRect.height),
+    startX: container.left + container.width * .37, endX: (width - endWidth) / 2,
+    startWidth: Math.min(1425, container.width * .96), endWidth };
+  for (const beat of beats) {
+    // Remove the previous transform from the cached document position.
+    const travel = beat.kind === "line" && width >= 768 ? 0 : width < 768 ? (beat.kind === "line" ? 12 : 16) : beat.kind === "chapter" ? 32 : 24;
+    beat.top = beat.element.getBoundingClientRect().top + scrollY - (1 - (beat.value ?? 1)) * travel;
   }
-  if (evidence) {
-    const rect = evidence.getBoundingClientRect();
-    Object.assign(pointer, { left: rect.left, top: rect.top + scrollY, width: rect.width, height: rect.height });
-  }
-  measureNeeded = false;
+  dirty = false;
 }
-
 function render(time) {
   frame = 0;
   if (reduced.matches || document.hidden) return;
-  if (measureNeeded) measure();
-  const amount = 1 - Math.exp(-Math.min(64, time - (previousTime || time - 16)) / 80);
-  previousTime = time;
-  const y = scrollY;
+  if (dirty) measure();
+  const alpha = 1 - Math.exp(-Math.min(64, time - (lastTime || time - 16)) / 65);
+  lastTime = time;
   let settling = false;
-  for (const chapter of chapters) {
-    // A shared viewport rhythm links the surface handoff to the following text.
-    // It is independent of gallery length: sixteen apps do not stretch the transition.
-    const position = (chapter.top - y) / Math.max(1, viewportHeight);
-    // The homepage approaches a readable frontal view near the top of the viewport.
-    // Its original document position supplies the travel; no pinning or extra spacer.
-    const progress = chapter === hero ? clamp((y - 24) / Math.max(1, chapter.top - viewportHeight * .1 - 24)) : 0;
-    const enter = chapter === hero ? ease(clamp(progress / .8)) : ease(clamp((.98 - position) / .52));
-    const settle = chapter === hero ? ease(progress) : ease(clamp((.78 - position) / .52));
-    for (const [key, target] of [["enter", enter], ["settle", settle]]) {
-      const old = chapter[key];
-      const interpolated = old === null ? target : old + (target - old) * amount;
-      const next = Math.abs(target - interpolated) < .001 ? target : interpolated;
-      if (Math.abs(target - next) >= .001) settling = true;
-      if (old !== next) chapter.element.style.setProperty(`--chapter-${key}`, next.toFixed(4));
-      chapter[key] = next;
-    }
+  const approach = (current, target) => {
+    const value = current === null ? target : mix(current, target, alpha);
+    if (Math.abs(value - target) < .0005) return target;
+    settling = true;
+    return value;
+  };
+  if (desktop.matches) {
+    heroProgress = approach(heroProgress, clamp((scrollY - geometry.top) / geometry.range));
+    const p = smooth(heroProgress);
+    const open = smooth(clamp(p / .88));
+    const surface = smooth(clamp((p - .5) / .5));
+    stage.style.setProperty("--image-x", mix(geometry.startX, geometry.endX, open).toFixed(2) + "px");
+    stage.style.setProperty("--image-y", mix(geometry.height * .32, 152, open).toFixed(2) + "px");
+    stage.style.setProperty("--image-width", mix(geometry.startWidth, geometry.endWidth, open).toFixed(2) + "px");
+    stage.style.setProperty("--fact-y", mix(geometry.height * .38, 40, smooth(clamp(p / .45))).toFixed(2) + "px");
+    stage.style.setProperty("--descriptor-opacity", (1 - smooth(clamp(p / .65))).toFixed(4));
+    stage.style.setProperty("--title-y", (-48 * p).toFixed(2) + "px");
+    stage.style.setProperty("--title-opacity", (1 - smooth(clamp(p / .18))).toFixed(4));
+    stage.style.setProperty("--hero-surface", [mix(247,23,surface),mix(246,25,surface),mix(242,28,surface)].map(Math.round).join(" "));
+    // Choose a contrasting text colour through the surface handoff.
+    stage.style.setProperty("--hero-ink", surface > .58 ? "#f7f6f2" : "#17191c");
   }
-  if (hero) {
-    const visible = y < pointer.top + pointer.height && y + viewportHeight > pointer.top;
-    if (!visible) pointer.targetX = pointer.targetY = 0;
-    const inertia = 1 - Math.exp(-Math.min(64, time - (previousPointerTime || time - 16)) / 220);
-    previousPointerTime = time;
-    for (const [axis, target] of [["x", pointer.targetX], ["y", pointer.targetY]]) {
-      const old = pointer[axis];
-      const interpolated = old + (target - old) * inertia;
-      const next = Math.abs(target - interpolated) < .001 ? target : interpolated;
-      pointer[axis] = next;
-      if (Math.abs(target - next) >= .001) settling = true;
-      if (old !== next) hero.element.style.setProperty(`--inspect-${axis}`, next.toFixed(4));
+  for (const beat of beats) {
+    const target = smooth(clamp((scrollY + geometry.height * .96 - beat.top) / (geometry.height * .44)));
+    const value = approach(beat.value, target);
+    if (value !== beat.value) {
+      beat.element.style.setProperty("--progress", value.toFixed(4));
+      beat.image?.style.setProperty("--entry", value.toFixed(4));
+      beat.value = value;
     }
-    // Remove the transform completely at rest: the final UI is rasterized frontally.
-    hero.element.toggleAttribute("data-hero-moving", hero.settle < 1 || pointer.x !== 0 || pointer.y !== 0);
   }
   if (settling) frame = requestAnimationFrame(render);
-  else previousTime = previousPointerTime = 0;
+  else lastTime = 0;
 }
-
 function schedule() {
   if (!frame && !reduced.matches && !document.hidden) frame = requestAnimationFrame(render);
 }
-
 function reset() {
-  cancelAnimationFrame(frame);
-  frame = 0;
-  previousTime = 0;
-  previousPointerTime = 0;
-  pointer.x = pointer.y = pointer.targetX = pointer.targetY = 0;
-  if (hero) {
-    hero.element.removeAttribute("data-hero-moving");
-    hero.element.style.removeProperty("--inspect-x");
-    hero.element.style.removeProperty("--inspect-y");
+  cancelAnimationFrame(frame); frame = 0; lastTime = 0; heroProgress = null;
+  root.classList.toggle("motion-hero", desktop.matches && !reduced.matches);
+  stage.removeAttribute("style");
+  for (const beat of beats) {
+    beat.element.style.removeProperty("--progress");
+    beat.image?.style.removeProperty("--entry");
+    beat.value = null;
   }
-  for (const chapter of chapters) {
-    chapter.element.style.removeProperty("--chapter-enter");
-    chapter.element.style.removeProperty("--chapter-settle");
-    chapter.enter = chapter.settle = null;
-  }
-  measureNeeded = true;
+  dirty = true;
   schedule();
 }
-
-addEventListener("scroll", () => {
-  lastScroll = performance.now();
-  pointer.targetX = pointer.targetY = 0;
-  schedule();
-}, { passive: true });
-addEventListener("resize", () => { measureNeeded = true; schedule(); }, { passive: true });
-addEventListener("pageshow", () => { measureNeeded = true; schedule(); });
+addEventListener("scroll", schedule, {passive:true});
+addEventListener("resize", () => { dirty = true; schedule(); }, {passive:true});
+addEventListener("pageshow", () => { dirty = true; schedule(); });
 document.addEventListener("visibilitychange", () => {
-  if (document.hidden) { cancelAnimationFrame(frame); frame = 0; previousTime = previousPointerTime = 0; pointer.targetX = pointer.targetY = 0; }
-  else { measureNeeded = true; schedule(); }
+  if(document.hidden) { cancelAnimationFrame(frame); frame = 0; lastTime = 0; }
+  else { dirty = true; schedule(); }
 });
 reduced.addEventListener("change", reset);
-finePointer.addEventListener("change", reset);
-document.fonts.ready.then(() => { measureNeeded = true; schedule(); });
-
-evidence?.addEventListener("pointermove", event => {
-  if (!finePointer.matches || innerWidth < 1024 || reduced.matches || event.pointerType !== "mouse" || performance.now() - lastScroll < 180) return;
-  // Cache the untransformed figure bounds so the response cannot chase its own tilt.
-  pointer.targetX = Math.max(-1, Math.min(1, ((event.clientX - pointer.left) / pointer.width - .5) * 2));
-  pointer.targetY = Math.max(-1, Math.min(1, ((event.clientY + scrollY - pointer.top) / pointer.height - .5) * 2));
-  schedule();
-}, { passive: true });
-evidence?.addEventListener("pointerleave", () => { pointer.targetX = pointer.targetY = 0; schedule(); });
-schedule();
+desktop.addEventListener("change", reset);
+document.fonts.ready.then(() => { dirty = true; schedule(); });
+reset();

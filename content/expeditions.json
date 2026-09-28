@@ -1,0 +1,6 @@
+[
+  {"id":"altus","marker":"03 / EXPEDITION I","name":"ALTUS","description":"The history of a lot. The demands of the equipment.","apps":["altus-lotviewer","altus-anko-viewer","altus-wafercount"]},
+  {"id":"interstice","marker":"04 / EXPEDITION II","name":"INTERSTICE","description":"From a measurement field to the difference between two recipes.","apps":["topotracer","papyrus-reader","spc-pathfinder"]},
+  {"id":"gan","marker":"05 / EXPEDITION III","name":"GaN EPI","description":"Measurements, diagnosis and the physical details of a reactor.","apps":["gan-met-compiler","gan-temp-diagnoser","aix-dt-assistant","lt-zone-assistant","gan-xml-assistant"]},
+  {"id":"planetfall","marker":"06 / EXPEDITION IV","name":"PLANETFALL","description":"From the next equipment check to the signals behind an investigation.","apps":["magus-spc-gan","magus-spc-legacy","anko-helper","lt-report-compiler","metria-spc"]}
+]

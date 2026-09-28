@@ -1,0 +1,448 @@
+{
+  "sourceDirectory": "C:/Users/Gene/Desktop/Artifacts Images",
+  "scannedAt": "2026-09-28T21:10:37.969Z",
+  "entries": [
+    {
+      "id": "altus-lotviewer",
+      "name": "Altus LotViewer",
+      "sourceFilename": "Altus LotViewer.png",
+      "sourceModified": "2026-09-19T15:32:55.516Z",
+      "sourceBytes": 219661,
+      "src": "assets/evidence/altus-lotviewer/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/altus-lotviewer/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/altus-lotviewer/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/altus-lotviewer/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "e5b495d24344034c7c66268eb41e05ea6898f72b36978e69a176688be73badba",
+      "pixelSha256": "5a5eff6a95dceb0af981160be483406afb24c55027298ebd7286f37fa14fd26c"
+    },
+    {
+      "id": "altus-anko-viewer",
+      "name": "Altus ANKO Viewer",
+      "sourceFilename": "Altus Anko Viewer.png",
+      "sourceModified": "2026-09-19T15:33:17.449Z",
+      "sourceBytes": 206519,
+      "src": "assets/evidence/altus-anko-viewer/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/altus-anko-viewer/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/altus-anko-viewer/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/altus-anko-viewer/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "d888157c8c55d5b22f5045e02ff41c390550b8bf3d4e4d0e662b50bba5f87e68",
+      "pixelSha256": "a7eddbc56790b2bae8e06901a22eeac113124c525131d9b4cb75630e8b199985"
+    },
+    {
+      "id": "altus-wafercount",
+      "name": "Altus WaferCount",
+      "sourceFilename": "Altus WaferCounter.png",
+      "sourceModified": "2026-09-19T15:34:02.302Z",
+      "sourceBytes": 263317,
+      "src": "assets/evidence/altus-wafercount/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/altus-wafercount/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/altus-wafercount/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/altus-wafercount/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "72d116a7a3697ce34826a8cf92ba65613e8ea1bdfa3b9077679bf19e1581e85d",
+      "pixelSha256": "210f1e4327c7439489dd3a231f30a4067f4bf8d27916a109345995aeb9d7ad8e"
+    },
+    {
+      "id": "topotracer",
+      "name": "TopoTracer",
+      "sourceFilename": "TopoTracer.png",
+      "sourceModified": "2026-09-19T15:34:42.110Z",
+      "sourceBytes": 407061,
+      "src": "assets/evidence/topotracer/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/topotracer/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/topotracer/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/topotracer/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "05b807b23a33a5774767ccf31a5dff09f85bf78f9358a1ad80afc4c4c15c8091",
+      "pixelSha256": "632719f9c6b6f0f82dbc7f7de155e31a3a6188bf8704627d7b1a1df30c783cb1"
+    },
+    {
+      "id": "papyrus-reader",
+      "name": "Papyrus Reader",
+      "sourceFilename": "Papyrus Reader.png",
+      "sourceModified": "2026-09-27T10:09:00.312Z",
+      "sourceBytes": 292629,
+      "src": "assets/evidence/papyrus-reader/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/papyrus-reader/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/papyrus-reader/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/papyrus-reader/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "7326857f8286b1a3a48d5d737aba771ba95cbcf0fed4683370ae18c5c5e92f20",
+      "pixelSha256": "abe083f1b42369d7cbacec880730c207a2ed65991cfb555c4b2f4b11881df47e"
+    },
+    {
+      "id": "spc-pathfinder",
+      "name": "SPC Pathfinder",
+      "sourceFilename": "SPC Pathfinder.png",
+      "sourceModified": "2026-09-19T15:35:46.526Z",
+      "sourceBytes": 190658,
+      "src": "assets/evidence/spc-pathfinder/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/spc-pathfinder/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/spc-pathfinder/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/spc-pathfinder/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "34af170dcbaad6870d81ff0ffee944657eea98b4c09ed8cba98159c369a9a390",
+      "pixelSha256": "9ec4d080cd9c6d2388ed8bc655303aee7b872a5e263bcfd80511b3c1a7957a2e"
+    },
+    {
+      "id": "gan-met-compiler",
+      "name": "GaN Met Compiler",
+      "sourceFilename": "GaN Met Compiler.png",
+      "sourceModified": "2026-09-28T20:32:34.607Z",
+      "sourceBytes": 281225,
+      "src": "assets/evidence/gan-met-compiler/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/gan-met-compiler/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/gan-met-compiler/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/gan-met-compiler/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "2823191bb6e71d7b6bc4d356a3592cce24d2a31ade65b2315a987bdeebd2af12",
+      "pixelSha256": "16e3358aba6459c1cb93213a9a78609b6d92a69dca097e431b818b14348efbba"
+    },
+    {
+      "id": "gan-temp-diagnoser",
+      "name": "GaN Temp Diagnoser",
+      "sourceFilename": "GaN Temp Diagnoser.png",
+      "sourceModified": "2026-09-19T15:39:22.097Z",
+      "sourceBytes": 197810,
+      "src": "assets/evidence/gan-temp-diagnoser/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/gan-temp-diagnoser/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/gan-temp-diagnoser/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/gan-temp-diagnoser/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "3653617d5dd9359a9657d585955fb685407fbfa1f7019e0ce20169ee061d895e",
+      "pixelSha256": "1dd9ed061b6a0d11d57648785d88900515c498e2b07521428599612c5e4e77ca"
+    },
+    {
+      "id": "aix-dt-assistant",
+      "name": "AIX ΔT Assistant",
+      "sourceFilename": "AIX dT Assistant.png",
+      "sourceModified": "2026-09-19T15:39:43.229Z",
+      "sourceBytes": 377939,
+      "src": "assets/evidence/aix-dt-assistant/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/aix-dt-assistant/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/aix-dt-assistant/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/aix-dt-assistant/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "1f001fffe65d7ddac4aac900cf5b1b268617796561201ba435409df2f9ca8fe0",
+      "pixelSha256": "fdf25b6bfebb0ee9cadb51bcdf58661df1e22245274ba5257ee7ddd11f825a98"
+    },
+    {
+      "id": "lt-zone-assistant",
+      "name": "LT Zone Assistant",
+      "sourceFilename": "LT Zone Assistant.png",
+      "sourceModified": "2026-09-19T15:40:19.552Z",
+      "sourceBytes": 335339,
+      "src": "assets/evidence/lt-zone-assistant/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/lt-zone-assistant/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/lt-zone-assistant/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/lt-zone-assistant/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "307a45631ad9995bcc7133f00452a4a5945979e75cf5561dbc34a77cddfb4ebf",
+      "pixelSha256": "e8d3302efc797462620d6f676c471295693a692799ffd42a4b26ac0cc85061e0"
+    },
+    {
+      "id": "gan-xml-assistant",
+      "name": "GaN XML Assistant",
+      "sourceFilename": "GaN XML Assistant.png",
+      "sourceModified": "2026-09-19T15:41:00.835Z",
+      "sourceBytes": 183869,
+      "src": "assets/evidence/gan-xml-assistant/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/gan-xml-assistant/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/gan-xml-assistant/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/gan-xml-assistant/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "bfdd68152fce460c5900148d495e1a35819505f8685c55a84e4873f07d5bd928",
+      "pixelSha256": "e23f8c72cd3aae9d501133fdb9e0cf738336f39437c9949e8f3082219408ac5b"
+    },
+    {
+      "id": "magus-spc-gan",
+      "name": "Magus SPC (GaN)",
+      "sourceFilename": "Magus SPC - GaN.png",
+      "sourceModified": "2026-09-19T15:41:31.978Z",
+      "sourceBytes": 266306,
+      "src": "assets/evidence/magus-spc-gan/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/magus-spc-gan/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/magus-spc-gan/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/magus-spc-gan/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "ad90125f8e879926d692e524000b9d321e05199101546236f7bf2c6822aa7937",
+      "pixelSha256": "8ccd193644e9df0be8c423a65b68ea3df14ff07ac5fe46bb9fdbfd4599c6ffdb"
+    },
+    {
+      "id": "magus-spc-legacy",
+      "name": "Magus SPC (Legacy)",
+      "sourceFilename": "Magus SPC - Legacy.png",
+      "sourceModified": "2026-09-19T15:42:10.442Z",
+      "sourceBytes": 236054,
+      "src": "assets/evidence/magus-spc-legacy/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/magus-spc-legacy/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/magus-spc-legacy/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/magus-spc-legacy/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "2ba8266f84fbf76ce9199fdfc49752b63f2f046a7cc3e8ece79a062ec696600c",
+      "pixelSha256": "77eb40686be3b09e297e5b56244daa965c4b718fd722e1b45e61ba2aed9519b4"
+    },
+    {
+      "id": "anko-helper",
+      "name": "ANKO Helper",
+      "sourceFilename": "ANKO Helper.png",
+      "sourceModified": "2026-09-19T15:42:23.775Z",
+      "sourceBytes": 201992,
+      "src": "assets/evidence/anko-helper/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/anko-helper/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/anko-helper/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/anko-helper/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "1ed04816aa1c40edbdafdd91e160ca3281c956558d1af5967a1bfeee59cac438",
+      "pixelSha256": "f7fa7ce796cbf6f7742826544a0d3108c0ba7908b33c7c4b274cf9e389ca8746"
+    },
+    {
+      "id": "lt-report-compiler",
+      "name": "LT Report Compiler",
+      "sourceFilename": "LT Report Compiler.png",
+      "sourceModified": "2026-09-19T16:11:26.062Z",
+      "sourceBytes": 194399,
+      "src": "assets/evidence/lt-report-compiler/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/lt-report-compiler/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/lt-report-compiler/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/lt-report-compiler/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "6f47550c20cc34da330f9cc4c6a6032bf8e0aba3b808648712f7aab0f373eb0e",
+      "pixelSha256": "baca29df56f753fcfcfc8d8f3f3cda7d9635cd81a7afafc5f928208e20261375"
+    },
+    {
+      "id": "metria-spc",
+      "name": "Metria SPC",
+      "sourceFilename": "Metria SPC.png",
+      "sourceModified": "2026-09-19T15:46:25.718Z",
+      "sourceBytes": 263360,
+      "src": "assets/evidence/metria-spc/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/metria-spc/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/metria-spc/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/metria-spc/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "9b061dc27bb8fa7abf7499457082d75f3b11483576dff8407b46c058d5a5672d",
+      "pixelSha256": "3b4d4917420304b5c63d9dbfad191a49bca0e2fa7f7eefbaaf59f7eee16e4584"
+    },
+    {
+      "id": "homepage",
+      "name": "ARTIFACTS homepage",
+      "sourceFilename": "Homepage.png",
+      "sourceModified": "2026-09-28T20:33:41.530Z",
+      "sourceBytes": 1016590,
+      "src": "assets/evidence/homepage/full.webp",
+      "width": 1425,
+      "height": 950,
+      "sources": [
+        {
+          "src": "assets/evidence/homepage/width-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/evidence/homepage/width-1120.webp",
+          "width": 1120
+        },
+        {
+          "src": "assets/evidence/homepage/full.webp",
+          "width": 1425
+        }
+      ],
+      "sourceSha256": "613880358786b476771a0b310fbd4c2076f817eb40fbec389d85f77107b5a9ce",
+      "pixelSha256": "4b2602bdd66fe86ab4cef972cda8949d6ada9337dc092de091347a318e6514bc"
+    }
+  ]
+}
