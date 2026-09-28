@@ -1,6 +1,6 @@
 # ARTIFACTS — Visual Design System
 
-Version 1.5 · 28 September 2026 · Identity becomes software
+Version 1.6 · 28 September 2026 · Closer hero composition
 
 ## 1. Authority and scope
 
@@ -152,9 +152,9 @@ In the two-column layout, headers in a row share a minimum two-line title space 
 
 Light canvas. The h1 is **ARTIFACTS**, retaining its enormous scale, left alignment and position. The exact supporting sentence is **Built from the refusal to accept friction as inevitable.** It uses the shared body size and breaks after “refusal” except at the narrowest widths. The in-flow header retains the real logo and Applications/Gene navigation. There is no separate hero CTA, stranded Applications anchor or scroll instruction.
 
-At desktop the heading starts 64px below the header; mobile 48px. Supporting copy follows by 24px. The heading region has a content-safe minimum height: 72svh minus header height on desktop, 74svh on tablet and 78svh on mobile. At rest, only the upper portion of the real homepage enters near the fold. This is viewport cropping, never cropping of the source image. Content may expand the region at zoom or on a short landscape screen; do not force it into a fixed viewport.
+At desktop the heading starts 64px below the header; mobile 48px. Supporting copy follows by 4px, bringing it 20px closer to the unchanged wordmark. The heading region has a content-safe minimum height: 72svh on desktop, 74svh on tablet and 78svh on mobile, minus header height and 140px at every breakpoint. Bottom padding is 32px. The desktop homepage now enters approximately 140px higher, with roughly 40% of its frame visible at the initial 1440×900 viewport. This is viewport cropping, never cropping of the source image. Content may expand the region at zoom or on a short landscape screen; do not force it into a fixed viewport. Mobile retains the existing full-width image and safe gutters rather than enlarging beyond the viewport; its shorter capture can be fully visible in the opening frame.
 
-The real homepage is a large composition anchor: 84% of the inner container, capped at 1080px on desktop; full inner width below 1024px. It retains its complete interface and native colours. It is not a link. As the interface approaches, the light surface withdraws completely across its height, revealing the same ink environment that continues into Origin. The image persists across this surface change. A quiet caption identifies the environment and sixteen applications. Preserve the page order: Hero → Origin → Applications → Gene → End. The hero introduces the software; it does not relocate or duplicate the gallery.
+The real homepage is a large composition anchor: the full inner container, capped at 1296px on desktop, approximately 20% larger than the previous framing. It retains its complete interface and native colours. It is not a link. As the interface approaches, the light surface withdraws completely across its height, revealing the same ink environment that continues into Origin. The image persists across this surface change. A quiet caption identifies the environment and sixteen applications. Preserve the page order: Hero → Origin → Applications → Gene → End. The hero introduces the software; it does not relocate or duplicate the gallery.
 
 The initial identity is still and fully readable. After the first 24px of native scroll, the homepage grows from .86 to 1 scale, rises by up to 72px beyond natural scrolling, and resolves from 6° X perspective to a frontal view. Tablet uses .92 scale / 32px / 3°; mobile .96 / 16px / 1°. Smoothstep progress reaches the frontal endpoint when the original image top approaches 10% of the viewport height. The wordmark yields by at most 16px and 12% opacity; the supporting copy stays stable. No letters scatter, no blur, no masks, no added scroll spacer or pinning. No entry autoplay.
 
@@ -201,7 +201,7 @@ Flat ink surface. Use one primary editorial block, not a two-column composition 
 
 Preserve the following wording and punctuation exactly. Paragraph breaks are intentional; the paired action sentences retain their line break. Use the shared typography system from section 4: `type.section` for the opening, `type.body` for the prose, and `type.ui` for the closing strip. There is no separate Gene font scale.
 
-Opening: maximum 18ch, balanced natural wrapping, with no forced desktop line breaks. Body: maximum 50ch and left aligned. The action pair uses weight 500 and warm white; the final paragraph also uses warm white. Other body text uses inverse-secondary. Do not mask or clip any copy.
+Opening: maximum 18ch, balanced natural wrapping, with no forced desktop line breaks. Body: maximum 50ch and left aligned. The action pair uses regular weight 400 and warm white; the final paragraph also uses warm white. Do not bold the action sentences. Other body text uses inverse-secondary. Do not mask or clip any copy.
 
 Desktop spacing: opening-to-body 48px, normal paragraph gaps 32px, gap before conclusion 40px. Tablet uses 40px, 24px and 32px. Mobile uses 32px, 24px and 32px. Gene top padding: 112px large desktop, 96px laptop, 80px tablet and 64px mobile. Height is content-driven; no artificial minimum viewport or empty column.
 
