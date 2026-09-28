@@ -1,15 +1,15 @@
-# Current ARTIFACTS direction
+# Current ARTIFACTS implementation
 
-Branch: `experience/software-exhibition`. Existing review: PR #4. Production remains on main.
+Branch: experience/ee65f20-rebuild. Base: ee65f20d04458564dfe35c049de6df04469b6a19. This is a fresh branch from the requested exact commit, not a reconstruction based on the latest experimental branch. The frozen /versions/ee65f20/ preview stays unchanged. The earlier experimental branch remains available separately; do not merge it into this branch.
 
-Read AGENTS.md and both governing design documents. Preserve the approved monumental hero, Starting Over origin, collection handoff and all sixteen apps in canonical order. The latest closing copy is exact in `content/page.html` and the storyboard.
+Read AGENTS.md and both governing documents before frontend work. Preserve the ee65f20 monumental hero, main copy, interaction, collection arrangement, native page flow, all source images and application order. This pass replaces the origin, redesigns the existing application film modules, enriches TopoTracer/Papyrus, corrects functional copy and improves Gene's existing account layout without changing his approved words.
 
-The current pass rebuilds application films. `content/films.json` owns timing/copy/inspection configuration. `js/instrument-film.js` owns the source-interface opening, registered doorway, source return, shared clock integration and access controls. `js/films/` owns distinct time, hierarchy, diagnostic, reporting and physical operations. `js/topography.js` retains the shaded field and derived section; `js/papyrus-study.js` retains its dedicated DOM comparison, now with positional candidates and staged identity convergence. The obsolete `js/function-studies.js` is removed.
+The original js/instrument-film.js owns source capture → interpretation → source capture and controls. Individual operations remain in js/films/time.js, fields.js, physical.js and reports.js. js/origin-construction.js replaces deleted js/starting-over.js. js/genesis.js moves the same homepage element into the collection at the handoff; js/hero.js must not update that element while it belongs to the origin.
 
-Actual screenshots stay intact. All conceptual geometry is illustrative. AIX exchanges only BP3 and BP5, matching the source capture. LT Report Compiler extracts LayTec HTML rows and appends them to a base Excel workbook. GaN Met Compiler uses the actual LayTec, PL/Plato, XRR and XRD source types. Diagnostic paths terminate in checks, never confirmed root causes. The diagrams do not claim cross-application integration.
+AIX uses two swaps and an explicitly synthetic temperature fixture in js/baseplate-example.js. tests/assignment.mjs verifies the offset formula against all possible permutations. Actual source captures are unchanged. No film is a live equipment/database integration.
 
-Each source interface opens and closes its own film. Replay is 23.2–28.5 seconds. Native scroll and direct selection remain. Inspection works with mouse, touch ranges and keyboard; reduced motion shows full screenshots, stable diagrams and descriptions. No next-app preview appears inside a study.
+Build: pnpm build. Generated: index.html, js/apps.js, script.js. Preview: http://127.0.0.1:8001/. Keep the preview server alive before giving a local URL. Preserve every published review snapshot under the ignored versions directory.
 
-Build: `node scripts/build.mjs`. Generated outputs: index.html, js/apps.js and script.js. Preview: http://127.0.0.1:8001/. Verify the local server before sharing. QA output remains ignored under `.qa/`. Focused visual/runtime checks are appropriate now; comprehensive release validation and the legacy browser-suite update remain deferred.
+Run focused checks with pnpm test:production, test:evidence, test:assets and test:assignment. The older pnpm test browser suite describes a removed archive and is not a valid release gate for these films. Do not represent its old results as current validation. See VALIDATION.md for the checks actually completed.
 
-The latest work is local. The previous push failed because GitHub credentials were unavailable to noninteractive Git. Do not claim that PR #4 or production includes local commits until a push is verified. Do not merge production without instruction.
+GitHub publication is not complete until an authenticated push succeeds. PR #4 is associated with the older branch, not automatically with this strict-baseline branch. Do not force-push, merge production or claim the remote includes local commits without verification.

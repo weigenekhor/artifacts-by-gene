@@ -1,535 +1,99 @@
-import { mix, at, settle, sample, clamp } from "./drawing.js";
-
+import { mix, at, world, sheet, curve, colors as C } from "./drawing.js";
 export function history(d, q, f, W, H, m, hit) {
-  if (m) return historyPortrait(d, q, f, W, H);
-  const {
-    text,
-    line,
-    rect,
-    dot,
-    path,
-    alpha,
-    ink,
-    muted,
-    faint,
-    accent,
-    teal,
-  } = d;
-  const names = [
-      "Arrival",
-      "Process start",
-      "Deposition",
-      "Process end",
-      "Transfer",
-    ],
-    positions = [0, 0.13, 0.39, 0.78, 1],
-    states = ["Loaded", "Processing", "Depositing", "Complete", "Transferred"];
-  const left = W * 0.08,
-    width = W * 0.84,
-    baseline = H * 0.48,
-    order = at(q, 0.19, 0.4),
-    cursor = q < 0.72 ? mix(0.04, 0.96, at(q, 0.57, 0.17)) : f;
-  const camera = m ? 0 : (1 - at(q, 0.63, 0.12)) * at(q, 0.28, 0.2) * W * 0.035;
-  d.c.save();
-  d.c.translate(-camera, 0);
-  alpha(at(q, 0.06, 0.18), () => {
-    line(
-      [
-        [left, baseline],
-        [left + width * at(q, 0.06, 0.26), baseline],
-      ],
-      muted,
-    );
-    for (let i = 0; i < 11; i++)
-      line(
-        [
-          [left + (width * i) / 10, baseline - 5],
-          [left + (width * i) / 10, baseline + 5],
-        ],
-        faint,
-      );
-  });
-  const sweep = left + width * at(q, 0.08, 0.31);
-  alpha(at(q, 0.06, 0.08) * (1 - at(q, 0.46, 0.12)), () =>
-    line(
-      [
-        [sweep, H * 0.13],
-        [sweep, H * 0.78],
-      ],
-      accent,
-      1,
-    ),
-  );
-  const locs = [];
-  names.forEach((name, i) => {
-    const lock = settle((q - 0.18 - i * 0.027) / 0.35),
-      rawX = left + width * [0.69, 0.04, 0.44, 0.26, 0.85][i],
-      rawY = H * [0.17, 0.36, 0.7, 0.24, 0.64][i];
-    const x = mix(rawX, left + positions[i] * width, lock),
-      y = mix(rawY, baseline, lock);
-    locs.push([x, y]);
-    const selected = Math.round(cursor * 4) === i;
-    alpha(mix(0.72, 1, lock), () => {
-      line(
-        [
-          [x, y - 13],
-          [x, y + 13],
-        ],
-        selected && q > 0.6 ? accent : teal,
-        2,
-      );
-      dot(x, y, 4, selected && q > 0.6 ? accent : ink);
-      text(
-        name,
-        x,
-        y - (i % 2 ? 42 : 68),
-        m ? 21 : 19,
-        ink,
-        i === 4 ? "right" : i === 0 ? "left" : "center",
-      );
-      alpha(at(q, 0.13 + i * 0.025, 0.1), () =>
-        text(["t₀", "t₁", "t₂", "t₃", "t₄"][i], x, y + 33, 16, muted, "center"),
-      );
-      alpha(at(q, 0.38 + i * 0.02, 0.15), () =>
-        text(
-          states[i],
-          x,
-          y + (i % 2 ? 85 : 57),
-          16,
-          selected ? accent : muted,
-          i === 4 ? "right" : i === 0 ? "left" : "center",
-        ),
-      );
-    });
-  });
-  alpha(at(q, 0.43, 0.2), () => {
-    const a = locs[1],
-      b = locs[3],
-      y = H * 0.76;
-    line(
-      [
-        [a[0], y - 7],
-        [a[0], y],
-        [b[0], y],
-        [b[0], y - 7],
-      ],
-      accent,
-      1.4,
-    );
-    text(
-      "Processing duration",
-      mix(a[0], b[0], 0.5),
-      y + 32,
-      20,
-      accent,
-      "center",
-    );
-  });
-  alpha(at(q, 0.59, 0.1), () => {
-    const x = left + width * cursor;
-    line(
-      [
-        [x, H * 0.24],
-        [x, H * 0.68],
-      ],
-      accent,
-      1.2,
-    );
-    dot(x, baseline, 7, accent);
-  });
-  d.c.restore();
-  return `${names[Math.round(cursor * 4)]} · ${states[Math.round(cursor * 4)]}`;
+  const resolve = at(q, 0.23, 0.34), lift = at(q, 0.62, 0.18), active = Math.min(4, Math.floor(f * 5));
+  const g = world(d, W, H, m, { tilt: mix(0.82, 0.3, lift), yaw: mix(-0.3, 0.02, resolve), scale: m ? 0.83 : 1.18, cy: 0.48 });
+  const status = ["Complete", "Partial", "Missing", "Excess", "Rerun"];
+  for (let wafer = 0; wafer < 5; wafer++) {
+    const x = (wafer - 2) * 112;
+    g.disc(x, 88, -12, 40, 5, C.graphite);
+    for (let e = 0; e < 5; e++) {
+      const align = at(q, 0.16 + e * 0.033, 0.3);
+      const xx = mix(x + Math.sin(wafer * 4 + e * 2) * 90, x, align), yy = mix(-170 + e * 43, -116 + e * 32, align);
+      const z = mix(20 + (wafer * 3 + e) % 5 * 23, 4, align);
+      const valid = wafer !== 2 && !(wafer === 1 && e > 2);
+      if (valid) {
+        g.box(xx, yy, z, 76, 18, 3, wafer === 3 ? C.coral : wafer === 4 ? C.violet : C.cyan);
+      } else g.line([[xx - 38, yy, z], [xx + 38, yy, z]], C.silver, 0.8, 0.35);
+      if (wafer === 3 && e === 4) g.box(xx, yy, z + 8, 76, 18, 3, C.coral);
+    }
+    const h = [20, 11, 0, 30, 22][wafer] * lift;
+    if (h) g.disc(x, 88, -6, 37, h, wafer === 1 || wafer === 3 ? C.coral : wafer === 4 ? C.violet : C.cyan);
+    g.label("W" + String(wafer + 1).padStart(2, "0"), [x, 151, 5], m ? 20 : 18, C.silver, "center");
+    const p = g.project([x, 0, 5]);
+    hit((wafer + 0.5) / 5, p[0] - 50, p[1] - 95, 100, 190, status[wafer]);
+    if (wafer === active && lift > 0.5) g.ring(x, 88, h, 46, C.amber, 2);
+  }
+  g.draw();
+  d.alpha(lift, () => d.text(status[active], W * 0.5, H * 0.08, 26, d.ink, "center"));
+  return "Wafer " + (active + 1) + " \xB7 " + status[active] + " deposition \xB7 illustrative lot";
 }
-
 export function schedule(d, q, f, W, H, m, hit) {
-  const { text, line, rect, dot, alpha, muted, ink, faint, accent, teal } = d;
-  const left = W * (m ? 0.2 : 0.16),
-    width = W * (m ? 0.73 : 0.77),
-    top = H * 0.18,
-    step = H * 0.147,
-    names = ["A-M1", "D-M1", "A-M2", "B-M1", "C-M1"],
-    dates = [0, 0, 0.2, 0.4, 0.8];
-  const shared = q < 0.73 ? at(q, 0.58, 0.16) : f;
-  alpha(at(q, 0.15, 0.18), () => {
-    line(
-      [
-        [left, H * 0.1],
-        [left + width, H * 0.1],
-      ],
-      muted,
-    );
-    for (let i = 0; i < 6; i++)
-      text(
-        String(20 + i),
-        left + (width * i) / 5,
-        H * 0.07,
-        20,
-        muted,
-        "center",
-      );
-  });
-  names.forEach((n, i) => {
-    const sync = at(q, 0.24 + i * 0.045, 0.26),
-      span = width * mix([0.65, 0.42, 0.78, 0.56, 0.7][i], 1, sync),
-      x = left + width * [0.12, 0.46, 0.03, 0.32, 0.08][i] * (1 - sync),
-      y = top + i * step;
-    text(n, W * 0.02, y + 22, m ? 23 : 21, ink);
-    alpha(1 - sync, () => {
-      rect(x - 8, y - 7, span + 16, step * 0.71, null, faint);
-      text("20", x, y + step * 0.84, 16, muted);
-      text("25", x + span, y + step * 0.84, 16, muted, "right");
-    });
-    line(
-      [
-        [x, y + 35],
-        [x + span, y + 35],
-      ],
-      faint,
-    );
-    for (let j = 0; j < 6; j++)
-      line(
-        [
-          [x + (span * j) / 5, y + 31],
-          [x + (span * j) / 5, y + 39],
-        ],
-        faint,
-      );
-    const xx = x + dates[i] * span,
-      active = Math.abs(shared - dates[i]) < 0.16 && q > 0.65;
-    rect(xx, y, span * 0.13, 29, active ? accent : teal);
-    dot(xx, y + 35, 3, teal);
-  });
-  alpha(at(q, 0.62, 0.12), () => {
-    const x = left + width * shared;
-    rect(x - width * 0.05, top - 10, width * 0.1, step * 4 + 50, "#be976715");
-    line(
-      [
-        [x, H * 0.1],
-        [x, top + step * 4 + 48],
-      ],
-      accent,
-      1.4,
-    );
-  });
-  return (
-    String(20 + Math.round(shared * 5)) + " September · equipment schedules"
-  );
+  const find = at(q, 0.14, 0.22), calculate = at(q, 0.41, 0.22), lock = at(q, 0.7, 0.12);
+  const g = world(d, W, H, m, { tilt: mix(0.68, 0.22, lock), yaw: mix(-0.18, 0.02, calculate), scale: m ? 0.93 : 1.36 });
+  const selected = Math.min(2, Math.floor(f * 3));
+  for (let r = 0; r < 3; r++) {
+    const y = (r - 1) * 116;
+    for (let e = 0; e < 8; e++) {
+      const match = e === [2, 4, 3][r], x = -285 + e * 64;
+      const z = mix(e % 3 * 12, match ? 37 : -40, find);
+      g.box(x, y, z, 36, 46, 4, match ? C.cyan : C.graphite);
+      if (match) {
+        g.line([[x, y, z + 5], [mix(x, 220, calculate), y, z + 5]], C.cyan, 2);
+        g.box(mix(x, 220, calculate), y, mix(z, 8, calculate), 42, 48, 5, C.emerald);
+        g.label("Next check", [220, y + 47, 10], m ? 19 : 18, C.silver, "center");
+      }
+    }
+    g.label("Reactor " + "ABC"[r], [-295, y - 40, 10], m ? 21 : 19, C.silver);
+    if (selected === r) g.line([[-285, y + 65, 10], [250, y + 65, 10]], C.amber, 1.5);
+    const p = g.project([0, y, 10]);
+    hit((r + 0.5) / 3, 40, p[1] - 40, W - 80, 80, "Reactor " + "ABC"[r]);
+  }
+  g.draw();
+  d.alpha(calculate, () => d.text("Valid check \u2192 next due", W * 0.5, H * 0.07, 22, d.ink, "center"));
+  return "Reactor " + "ABC"[selected] + " \xB7 next check derived from valid ANKO history";
 }
-
 export function planning(d, q, f, W, H, m, hit) {
-  const { text, line, rect, dot, alpha, muted, ink, faint, accent, teal } = d;
-  const days = [10, 1, 12, -2, 7],
-    names = [
-      "Parameter A",
-      "Parameter B",
-      "Parameter C",
-      "Parameter D",
-      "Parameter E",
-    ];
-  const now = W * 0.33,
-    left = W * 0.08,
-    span = W * 0.84,
-    y0 = H * 0.3,
-    row = H * 0.105;
-  const review = q < 0.76 ? mix(0.22, 0.66, at(q, 0.61, 0.15)) : f;
-  alpha(at(q, 0.1, 0.22), () => {
-    line(
-      [
-        [left, H * 0.18],
-        [left + span, H * 0.18],
-      ],
-      muted,
-    );
-    text("Past due", left, H * 0.12, 19, accent);
-    text("Upcoming", left + span, H * 0.12, 19, teal, "right");
-  });
-  alpha(at(q, 0.3, 0.13), () => {
-    line(
-      [
-        [now, H * 0.16],
-        [now, H * 0.88],
-      ],
-      accent,
-      1.5,
-    );
-    text("NOW", now, H * 0.95, 18, accent, "center");
-  });
-  names.forEach((name, i) => {
-    const t = settle((q - 0.17 - i * 0.017) / 0.4),
-      target = now + days[i] * (span * 0.047),
-      x = mix(left + [0.4, 0.08, 0.65, 0.52, 0.18][i] * span, target, t),
-      y = mix(H * (0.23 + ((i * 3) % 5) * 0.13), y0 + i * row, t);
-    const color = days[i] < 0 ? accent : days[i] < 2 ? ink : teal;
-    line(
-      [
-        [now, y],
-        [x, y],
-      ],
-      faint,
-    );
-    dot(x, y, 5, color);
-    text(
-      m ? name.replace("Parameter ", "") : name,
-      x + (days[i] < 0 ? -13 : 13),
-      y - 10,
-      18,
-      color,
-      days[i] < 0 ? "right" : "left",
-    );
-    alpha(at(q, 0.48 + i * 0.025, 0.11), () =>
-      text(
-        `${days[i] > 0 ? "+" : ""}${days[i]} days`,
-        x + (days[i] < 0 ? -13 : 13),
-        y + 20,
-        16,
-        muted,
-        days[i] < 0 ? "right" : "left",
-      ),
-    );
-    const selected = Math.abs((x - left) / span - review) < 0.14;
-    alpha(at(q, 0.61, 0.14) * (selected ? 1 : 0), () => {
-      line(
-        [
-          [x - 12, y - 22],
-          [x - 12, y + 29],
-        ],
-        color,
-        2,
-      );
-      if (!m)
-        text(
-          days[i] < 0 ? "Overdue" : days[i] < 2 ? "Due soon" : "Scheduled",
-          W * 0.94,
-          y + 5,
-          17,
-          color,
-          "right",
-        );
-    });
-  });
-  alpha(at(q, 0.64, 0.1), () => {
-    const x = left + span * review;
-    rect(x - 20, H * 0.2, 40, H * 0.65, "#be986a11");
-    line(
-      [
-        [x, H * 0.2],
-        [x, H * 0.85],
-      ],
-      muted,
-    );
-  });
-  const selected = days.reduce(
-    (best, v, i) =>
-      Math.abs((now + v * span * 0.047 - left) / span - review) <
-      Math.abs((now + days[best] * span * 0.047 - left) / span - review)
-        ? i
-        : best,
-    0,
-  );
-  return (
-    names[selected] +
-    " · " +
-    (days[selected] < 0
-      ? "past due"
-      : days[selected] < 2
-        ? "due soon"
-        : "upcoming")
-  );
+  const g = world(d, W, H, m, { tilt: mix(0.72, 0.25, at(q, 0.48, 0.3)), yaw: mix(0.16, -0.05, at(q, 0.2, 0.5)), scale: m ? 0.91 : 1.32 });
+  const active = Math.min(2, Math.floor(f * 3)), names = ["ALTUS", "AIXTRON", "LAYTEC"];
+  for (let r = 0; r < 3; r++) {
+    const y = (r - 1) * 118;
+    g.label(names[r], [-293, y - 40, 12], m ? 22 : 20, C.silver);
+    for (let i = 0; i < 6; i++) {
+      const x = -255 + i * 76, passed = i !== 2 && i !== 4 && !(r === 1 && i === 5), t = at(q, 0.1 + i * 0.047 + r * 0.025, 0.18);
+      const z = mix(66, -4, t);
+      g.box(x, y, z, 55, 50, 6, passed ? C.emerald : C.coral);
+      if (passed && t > 0.7) g.line([[x - 12, y, z + 7], [x - 2, y + 9, z + 7], [x + 15, y - 11, z + 7]], C.silver, 2);
+      if (!passed) g.line([[x - 9, y - 9, z + 7], [x + 9, y + 9, z + 7]], C.silver, 2);
+    }
+    const due = at(q, 0.56 + r * 0.045, 0.17);
+    // A date is issued only after a passing check; a failed check stays unresolved.
+    g.box(240, y, 5, 63, 58, 6, r === 1 ? C.coral : C.cyan);
+    if (due > 0.5) g.label(r === 1 ? "Review" : "Due", [240, y + 8, 14], m ? 21 : 20, C.silver, "center");
+    g.line([[160, y, 6], [160 + 55 * due, y, 6]], r === 1 ? C.coral : C.cyan, 2);
+    if (active === r) g.line([[-288, y + 52, 5], [274, y + 52, 5]], C.amber, 1.3);
+    const p = g.project([0, y, 0]);
+    hit((r + 0.5) / 3, 30, p[1] - 45, W - 60, 90, names[r]);
+  }
+  g.draw();
+  return names[active] + " \xB7 " + (active === 1 ? "failed check requires review" : "next date follows a valid pass");
 }
-
-export function signals(d, q, f, W, H, m, hit, alternate) {
-  const {
-    text,
-    line,
-    rect,
-    dot,
-    trace,
-    alpha,
-    ink,
-    muted,
-    faint,
-    accent,
-    teal,
-  } = d;
-  const names = ["Flow A", "Flow B", "Motor speed", "Pressure", "Temperature"],
-    left = W * (m ? 0.23 : 0.14),
-    width = W * (m ? 0.72 : 0.81),
-    top = H * 0.055,
-    row = H * 0.177;
-  const inspect = q < 0.74 ? mix(0.17, 0.8, at(q, 0.58, 0.16)) : f,
-    lock = at(q, 0.53, 0.17),
-    range = mix(0.2, 0.08, alternate);
+export function signals(d, q, f, W, H, m, hit, alternate = 0) {
+  const gather = at(q, 0.17, 0.33), pin = at(q, 0.52, 0.18), range = at(q, 0.68, 0.13), names = ["Flow A", "Flow B", "Throttle Valve angle", "Pressure", "Temperature"];
+  const g = world(d, W, H, m, { tilt: mix(0.85, 0.16, at(q, 0.56, 0.2)), yaw: mix(-0.19, 0, gather), scale: m ? 0.88 : 1.2, cy: 0.52 });
+  const cursor = mix(-170, 220, f), colors = [C.cyan, C.cobalt, C.amber, C.violet, C.coral];
   names.forEach((name, i) => {
-    const sync = at(q, 0.2 + i * 0.04, 0.29),
-      raw = [0.64, 0.48, 0.79, 0.54, 0.65][i],
-      rawX = [0.11, 0.38, 0.02, 0.27, 0.18][i];
-    const x = left + rawX * width * (1 - sync),
-      ww = width * mix(raw, 1, sync),
-      y = top + i * row,
-      hh = row * 0.8;
-    const local = mix([0.2, 0.74, 0.43, 0.61, 0.32][i], inspect, lock),
-      xx = x + ww * local;
-    text(
-      m
-        ? name.replace("Motor speed", "Motor").replace("Temperature", "Temp.")
-        : name,
-      W * 0.02,
-      y + hh * 0.5 + 7,
-      m ? 23 : 21,
-      ink,
-    );
-    alpha(1 - sync * 0.83, () =>
-      rect(x - 8, y - 3, ww + 16, hh + 8, null, muted),
-    );
-    for (let j = 0; j < 5; j++)
-      line(
-        [
-          [x + (ww * j) / 4, y + hh],
-          [x + (ww * j) / 4, y + hh + 5],
-        ],
-        faint,
-      );
-    trace(
-      x,
-      y + 3,
-      ww,
-      hh - 6,
-      i,
-      at(q, 0.02 + i * 0.025, 0.16),
-      i === 0 ? accent : teal,
-      false,
-      (1 - sync) * rawX,
-    );
-    alpha(at(q, 0.085 + i * 0.015, 0.14), () => {
-      rect(xx - (ww * range) / 2, y, ww * range, hh, "#d9b48618");
-      line(
-        [
-          [xx, y],
-          [xx, y + hh],
-        ],
-        accent,
-        1.2,
-      );
-      dot(
-        xx,
-        y + 3 + (hh - 6) * (1 - sample(local + (1 - sync) * rawX, i)),
-        4,
-        accent,
-      );
-    });
+    const y = (i - 2) * 69, offset = (1 - gather) * (i % 2 ? 65 : -65), z = (1 - gather) * (i - 2) * 25;
+    sheet(g, 0, y, z, 610, 56, C.graphite);
+    curve(g, -205 + offset, y, z + 5, 445, 75, i, at(q, i * 0.025, 0.18), colors[i]);
+    if (pin > 0.5 && i < 2) g.dot([-276, y, z + 7], 4, colors[i]);
+    g.label(m ? ["Flow A", "Flow B", "Valve angle", "Pressure", "Temp."][i] : name, [-280, y - 23, z + 6], m ? 18 : 17, C.silver);
+    if (range > 0) {
+      const half = mix(50, 105, alternate);
+      g.poly([[cursor - half, y - 24, z + 8], [cursor + half, y - 24, z + 8], [cursor + half, y + 24, z + 8], [cursor - half, y + 24, z + 8]], C.cyan, 0.1 * range);
+      g.line([[cursor, y - 24, z + 10], [cursor, y + 24, z + 10]], C.amber, 1.5);
+      g.dot([cursor, y + 12 * Math.sin(f * 13 + i), z + 11], 3, colors[i]);
+    }
   });
-  alpha(lock, () => {
-    const x = left + width * inspect;
-    line(
-      [
-        [x, top - 8],
-        [x, top + row * 4.8],
-      ],
-      accent,
-      1.5,
-    );
-    line(
-      [
-        [left, H * 0.965],
-        [left + width, H * 0.965],
-      ],
-      muted,
-    );
-    for (let i = 0; i < 11; i++)
-      line(
-        [
-          [left + (width * i) / 10, H * 0.955],
-          [left + (width * i) / 10, H * 0.973],
-        ],
-        faint,
-      );
-  });
-  return (
-    (alternate > 0.5 ? "Narrow interval" : "Shared interval") +
-    " · " +
-    Math.round(inspect * 100) +
-    "%"
-  );
-}
-
-function historyPortrait(d, q, f, W, H) {
-  const { text, line, dot, alpha, ink, muted, accent, teal } = d;
-  const names = [
-    "Arrival",
-    "Process start",
-    "Deposition",
-    "Process end",
-    "Transfer",
-  ];
-  const states = [
-    "Loaded",
-    "Processing",
-    "Depositing",
-    "Complete",
-    "Transferred",
-  ];
-  const fractions = [0, 0.2, 0.46, 0.75, 1],
-    x = W * 0.3,
-    top = H * 0.1,
-    span = H * 0.7;
-  const cursor = q < 0.72 ? mix(0.04, 0.96, at(q, 0.57, 0.17)) : f;
-  const chosen = fractions.reduce(
-    (best, v, i) =>
-      Math.abs(v - cursor) < Math.abs(fractions[best] - cursor) ? i : best,
-    0,
-  );
-  alpha(at(q, 0.08, 0.2), () =>
-    line(
-      [
-        [x, top],
-        [x, top + span * at(q, 0.08, 0.27)],
-      ],
-      muted,
-    ),
-  );
-  names.forEach((name, i) => {
-    const t = settle((q - 0.18 - i * 0.027) / 0.35),
-      xx = mix(W * (0.25 + (i % 3) * 0.22), x, t),
-      y = mix(H * (0.15 + ((i * 3) % 5) * 0.145), top + fractions[i] * span, t);
-    dot(xx, y, 5, i === chosen ? accent : teal);
-    line(
-      [
-        [xx - 8, y],
-        [xx + 12, y],
-      ],
-      muted,
-    );
-    text(name, xx + 29, y - 8, 26, ink);
-    alpha(at(q, 0.37 + i * 0.022, 0.15), () =>
-      text(states[i], xx + 29, y + 27, 22, i === chosen ? accent : muted),
-    );
-    text("t" + i, xx - 30, y + 6, 21, muted, "right");
-  });
-  alpha(at(q, 0.43, 0.2), () => {
-    const a = top + span * 0.2,
-      b = top + span * 0.75;
-    line(
-      [
-        [W * 0.11 + 8, a],
-        [W * 0.11, a],
-        [W * 0.11, b],
-        [W * 0.11 + 8, b],
-      ],
-      accent,
-      1.5,
-    );
-    text("Processing duration", x, H * 0.94, 23, accent);
-  });
-  alpha(at(q, 0.59, 0.1), () => {
-    const y = top + span * cursor;
-    line(
-      [
-        [x - 12, y],
-        [W * 0.94, y],
-      ],
-      accent,
-      1,
-    );
-  });
-  return names[chosen] + " · " + states[chosen];
+  g.draw();
+  return "Shared interval \xB7 linked traces \xB7 Flow A and Flow B pinned";
 }

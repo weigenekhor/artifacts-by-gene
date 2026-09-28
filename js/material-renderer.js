@@ -27,7 +27,7 @@ function createRenderer() {
   );
   const fragment = shader(
     gl.FRAGMENT_SHADER,
-    `precision mediump float;varying vec3 vNormal;varying vec4 vColor;varying float vMode;varying vec2 vPosition;void main(){vec3 color=vColor.rgb;if(vMode<.5){vec3 n=normalize(vNormal);vec3 light=normalize(vec3(-.38,-.55,.78));float diffuse=abs(dot(n,light));float sheen=pow(max(0.,dot(n,normalize(vec3(-.3,-.2,1.)))),24.);float falloff=1.-.16*length(vPosition-vec2(.2,.15));color=color*(.46+.65*diffuse)*falloff+vec3(.17,.19,.16)*sheen;}gl_FragColor=vec4(color,vColor.a);}`,
+    `precision mediump float;varying vec3 vNormal;varying vec4 vColor;varying float vMode;varying vec2 vPosition;void main(){vec3 color=vColor.rgb;if(vMode<.5){vec3 n=normalize(vNormal);vec3 light=normalize(vec3(-.38,-.55,.78));float diffuse=abs(dot(n,light));float sheen=pow(max(0.,dot(n,normalize(vec3(-.3,-.2,1.)))),24.);float falloff=1.-.28*length(vPosition-vec2(.25,.1));float strip=exp(-pow((vPosition.x+vPosition.y*.45-.65)*7.,2.));color=color*(.30+.72*diffuse)*falloff+vec3(.18,.21,.23)*(sheen*.6+strip*.5)*abs(n.z);}gl_FragColor=vec4(color,vColor.a);}`,
   );
   if (!vertex || !fragment) return null;
   const program = gl.createProgram();

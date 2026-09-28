@@ -1,59 +1,32 @@
-# Validation — ARTIFACTS software exhibition
+# Validation — direct ee65f20 rebuild
 
-**Latest targeted redesign (working system):** static build and focused Edge checks passed. Desktop/mobile review covered the ordered hero, expanded assembly, five story stages, engineering situations and creator note. Fixed a legacy CSS collision that hid the method register and reduced fragment overlap. Verified visible rotation, pause on hover/focus, app handoff, all sixteen method entries and task-context coverage, removal of rejected copy, reduced-motion composition, and no page/console errors or horizontal overflow. Ambient motion now intentionally runs while the hero is visible; after leaving and settling, a one-second sample recorded zero callbacks. Broader validation remains deferred.
+28 September 2026. These checks apply to experience/ee65f20-rebuild, which starts directly at ee65f20d04458564dfe35c049de6df04469b6a19. The older reports described different website architectures and have been replaced here to avoid confusing them with current results.
 
-**Previous visual refinement (application assembly):** build and focused Edge checks passed at 1440 × 900 and 390 × 844 with no page/console errors or horizontal overflow. All sixteen hero images loaded. Opening, direct app handoff, faster replay, reduced-motion navigation and idle behaviour passed; a settled one-second sample recorded zero callbacks. The full media catalogue is unchanged. Visual refinement corrected creator layout inheritance and spacing between task examples. Comprehensive validation remains deferred.
+## Completed
 
-**Previous visual refinement (merged reveal):** restored the original reveal chapter and connected the current sectional surface to a passage of real application captures. Focused Edge checks at 1440 × 900 and 390 × 844 passed without page/console errors or horizontal overflow; the light-scene shadow and image overlap were corrected after visual review. A 1.5-second settled sample recorded zero animation callbacks. Static build passed. Full validation remains deferred.
+- Static build passes. Relative files remain compatible with GitHub Pages; CNAME, source images, logo, favicon and font assets are unchanged.
+- The identity-field, hero-interaction and collection-layout source files are unchanged from ee65f20. No later experimental implementation commits were imported.
+- Sixteen full captures and their existing derivatives pass hash, dimension and decoded-pixel checks.
+- All sixteen films checked at 1440 × 900 and 390 × 844, at three intermediate progress values. No runtime/resource errors, canvas text collisions, clipped canvas labels, overlapping visual/inspection/transport regions or page overflow were reported. Film departure hides and disables its controls before the next study takes over.
+- Additional representative film layouts checked at 3840 × 2160, 2560 × 1440, 1920 × 1080, 1366 × 768, 1024 × 768 and 844 × 390.
+- Origin handoff checked forwards and backwards. Exactly one homepage DOM element is retained and remains visible across both scene parents.
+- Reduced-motion origin stills and the full original capture remain visible; the reduced composition has no horizontal overflow.
+- The AIX demonstration is synthetic. An independent fixture test checks all 120 assignments, verifies two two-plate exchanges and confirms the illustrative span progression 16 → 8 → 0 °C. This is not a claim about production equipment.
 
-**Previous visual refinement (sectional entry):** static build and focused Edge browser checks passed. Replaced the always-running WebGL hero with a finite Canvas 2D renderer. A local 180-frame pointer sample measured 16.7 ms median / 17.3 ms p95; after settling, no animation callbacks occurred during a one-second idle sample. These are local headless observations, not a hardware-wide performance guarantee. Keyboard separation, sixteen own-app image boundaries, representative desktop/mobile compositions and runtime checks passed with no page or console errors. Original application motion and media are retained. Full browser/device/accessibility validation remains deferred.
+## Reproduce
 
-**Scope:** the results below record v10, before the sixteen-study expansion. The current visual pass has a successful build and basic runtime check across all sixteen studies, with no reported page/resource errors. Full validation of this expansion is deferred until visual approval.
+Run the local server on 127.0.0.1:8001, then:
 
-Validated on 22 September 2026 using Playwright and installed Microsoft Edge in headless mode. Tests serve the static files under a GitHub Pages-style `/artifacts-by-gene/` subpath.
+```sh
+pnpm build
+pnpm test:production
+pnpm test:evidence
+pnpm test:assets
+pnpm test:assignment
+```
 
-## Functional checks
+The additional viewport/handoff review outputs are under ignored .qa/. Browser checks use installed Edge with Playwright. The legacy pnpm test suite targets an obsolete archive interface and is not presented as passing for this version.
 
-- All sixteen applications advance through native scrolling and display the correct name, purpose and complete source capture.
-- All sixteen full-image dialogs preserve intrinsic source dimensions; Escape and return focus passed. Papyrus actual-size inspection renders at its native 1531-pixel width.
-- Archive rail, previous/next controls, keyboard arrows and direct app links passed.
-- All four study range controls update their visual progression. Native scrolling resumes progression after manual inspection.
-- Reduced motion retains settled diagrams and the full collection. With JavaScript disabled, all sixteen screenshots and linked index entries remain available.
-- Four full-document axe WCAG A/AA scans passed with **zero violations**: desktop, viewer, mobile and reduced motion.
-- **Zero console warnings/errors, page exceptions or failed resource responses.**
+## Limits
 
-## Screen sizes
-
-| Viewport    | DPR |
-| ----------- | --- |
-| 3840 × 2160 | 1   |
-| 2560 × 1440 | 1   |
-| 1920 × 1080 | 1   |
-| 1440 × 900  | 2   |
-| 1366 × 768  | 1   |
-| 1024 × 1366 | 1   |
-| 430 × 932   | 2   |
-| 390 × 844   | 3   |
-| 320 × 740   | 2   |
-| 844 × 390   | 2   |
-| 667 × 375   | 2   |
-
-Each viewport passed four demonstration compositions and four representative archive states. Checks cover horizontal overflow, copy/visual/control collisions, archive header clearance and screenshot/navigation clearance. Visual review included opening, origin, all four demonstrations, collection and mobile portrait/landscape. Refinement corrected long headline wrapping, small-text contrast, screenshot composition, header transparency and a redundant diagram caption.
-
-A recorded continuous-scroll review is saved under ignored `.qa/film-v10/`. Additional checks confirm that resizing from desktop to portrait preserves the active application, and that the new viewing interval holds the active capture straight-on. The archive transition leaves readable pauses between movements.
-
-## Performance
-
-A local 360-frame scroll sweep at 1920 × 1080 recorded **16.7 ms median**, **16.8 ms p95**, **zero long tasks**, and **zero idle animation callbacks** after settling. This is a local sample, not a device-wide FPS guarantee.
-
-The previous Three.js renderer and dependency were removed. The current browser bundle is approximately **14.5 kB / 4.9 kB gzip**. The contour graphic is generated at build time; CSS provides perspective. Native DOM images preserve the original captures, with lazy loading below the fold. The controller sleeps at rest and while the document is hidden.
-
-## Image fidelity
-
-Both image suites passed. Full lossless WebP images and detail crops preserve source pixels and recorded dimensions. The current Papyrus capture is **1531 × 1002**; the remaining fifteen are **1425 × 950**. Complete originals remain available in the viewer. Crops are deliberate source fragments, and no screenshots are generated, retouched or artificially upscaled. The original ARTIFACTS symbol and matching favicon are retained.
-
-## Reproduce and limits
-
-Run `pnpm build`, `pnpm test:evidence`, `pnpm test:assets` and `pnpm test`. The browser suite defaults to `msedge`; `BROWSER_CHANNEL` can select another installed Chromium channel. Reports and images are in ignored `.qa/validation-v10.json` and `.qa/v10-*.png`.
-
-Mobile checks are emulated; physical devices, Safari and Firefox have not been tested. Automated accessibility checks do not replace assistive-technology review. Concept motion explains an application's purpose; it does not represent measured outputs or a live engineering simulation. Native image resolution limits remain; these captures are not 4K source material.
+This is a review build. Passing geometry and runtime checks does not establish artistic approval. Physical mobile devices, Safari/Firefox, assistive-technology review and sustained performance on the user's hardware remain unverified. No blanket 60 FPS or full accessibility certification is claimed. Preserve the saved ee65f20 preview for comparison.

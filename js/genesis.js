@@ -1,5 +1,5 @@
 import { drawIdentityField } from "./identity-field.js";
-import { drawStartingOver } from "./starting-over.js";
+import { drawOrigin } from "./origin-construction.js";
 const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
 const mix = (a, b, t) => a + (b - a) * t;
 const ease = (v) => {
@@ -11,6 +11,7 @@ export function createGenesis(section, wake) {
   const field = section.querySelector(".identity-field"),
     canvas = field.querySelector("canvas"),
     ctx = canvas.getContext("2d");
+  const home = document.querySelector(".collection-home"), homeParent = home.parentElement;
   const intro = section.querySelector(".genesis-intro"),
     film = section.querySelector(".origin-film");
   const captions = [...section.querySelectorAll(".origin-caption")].map(
@@ -66,7 +67,7 @@ export function createGenesis(section, wake) {
       surface.width = Math.round(w * dpr);
       surface.height = Math.round(h * dpr);
       context.setTransform(dpr, 0, 0, dpr, 0, 0);
-      drawStartingOver(context, { width: w, height: h, p: still });
+      drawOrigin(context, { width: w, height: h, p: still });
     });
     stillsDirty = false;
   }
@@ -91,7 +92,10 @@ export function createGenesis(section, wake) {
     },
     update(y, time, dt, px, py, reduced) {
       if (reduced && stillsDirty) drawStills();
-      if (y + height < top || y > top + distance + height) return false;
+      if (y + height < top || y > top + distance + height) {
+        if (home.parentElement !== homeParent) { homeParent.append(home); home.classList.remove('origin-home'); home.inert=false; }
+        return false;
+      }
       const target = clamp((y - top) / distance) * LENGTH;
       progress = reduced ? 0 : mix(progress, target, 1 - Math.exp(-dt / 95));
       clock += reduced ? 0 : Math.min(dt, 40) / 1000;
@@ -136,6 +140,22 @@ export function createGenesis(section, wake) {
         el.setAttribute("aria-hidden", String(!reduced && !showing));
       });
       section.dataset.originBeat = String(current);
+      // One actual homepage element crosses the chapter boundary, in both directions.
+      const collectionTop = homeParent.closest(".tools-entry").offsetTop;
+      const transferring = !reduced && p > 5.2 && y < collectionTop - height * .32;
+      if (transferring) {
+        if (home.parentElement !== section.querySelector(".genesis-stage")) section.querySelector(".genesis-stage").append(home);
+        home.classList.add("origin-home");
+        home.style.opacity = ease((p - 5.25) / .5);
+        home.style.top = "calc(48% + var(--header) * .52)";
+        home.style.transform = `translate(-50%,-50%) perspective(1600px) rotateX(${(1-ease((p-5.2)/.6))*20}deg)`;
+        home.style.zIndex = "4";
+        home.inert = p < 5.65;
+      } else if (home.parentElement !== homeParent) {
+        homeParent.append(home);
+        home.classList.remove("origin-home");
+        home.inert = false;
+      }
       const moving = Math.abs(progress - target) > 0.0005;
       // Only the approved identity has ambient motion. The film renders on scroll/pointer input.
       const ambient = p < 1.1;
@@ -163,7 +183,7 @@ export function createGenesis(section, wake) {
       if (p > 0.84) {
         ctx.save();
         ctx.globalAlpha = ease((p - 0.84) / 0.48);
-        drawStartingOver(ctx, {
+        drawOrigin(ctx, {
           width,
           height,
           p,

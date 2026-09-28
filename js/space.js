@@ -62,7 +62,11 @@ export function space(
       pts: q,
       depth: q.reduce((s, p) => s + p[2], 0) / q.length,
       fill: rgb(color, lit, alpha),
-      normal: n.map((v) => v / length),
+      normal: [
+        (n[0]*Math.cos(yaw)-n[1]*Math.sin(yaw))/length,
+        ((n[0]*Math.sin(yaw)+n[1]*Math.cos(yaw))*Math.cos(tilt)-n[2]*Math.sin(tilt))/length,
+        ((n[0]*Math.sin(yaw)+n[1]*Math.cos(yaw))*Math.sin(tilt)+n[2]*Math.cos(tilt))/length,
+      ],
       material: color,
       alpha,
       lit,
@@ -174,7 +178,7 @@ export function space(
     size = 12,
     color = light ? palette.ink : palette.metal,
     align = "left",
-  ) => labels.push({ s, p: project(p), size, color, align });
+  ) => labels.push({ s, p: project(p), size: w < 700 ? Math.max(size, 22) : size, color, align });
   const plot = (
     fn,
     {
@@ -252,7 +256,10 @@ export function space(
       ctx.fillStyle = rgb(l.color);
       ctx.font = `400 ${l.size}px Geist, Arial`;
       ctx.textAlign = l.align;
-      ctx.fillText(l.s, l.p[0], l.p[1]);
+      const width = ctx.measureText(l.s).width;
+      const left = l.p[0] - (l.align === 'center' ? width / 2 : l.align === 'right' ? width : 0);
+      if (left >= 10 && left + width <= w - 10 && l.p[1] >= l.size + 8 && l.p[1] <= h - 12)
+        ctx.fillText(l.s, l.p[0], l.p[1]);
     }
     ctx.textAlign = "left";
   };

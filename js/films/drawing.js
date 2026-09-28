@@ -1,3 +1,4 @@
+import { space } from "../space.js";
 export const clamp = (v) => Math.max(0, Math.min(1, v));
 export const mix = (a, b, t) => a + (b - a) * t;
 export const ease = (v) => {
@@ -11,6 +12,28 @@ export const settle = (v) => {
 };
 export const sample = (u, i = 0) =>
   0.48 + 0.11 * Math.sin(u * 13 + i) + 0.035 * Math.sin(u * 37 + i * 2);
+// A shared lens and materials; each film owns its geometry and sequence.
+export const colors = {
+  cyan: [71, 205, 216], cobalt: [74, 115, 230], coral: [240, 117, 91],
+  amber: [230, 178, 83], emerald: [58, 181, 137], violet: [155, 130, 224],
+  silver: [179, 199, 202], graphite: [30, 46, 53], paper: [195, 211, 211],
+};
+export const world = (d, W, H, mobile, options = {}) => space(d.c, {
+  w: W, h: H, cy: 0.55,
+  yaw: -0.13, tilt: 0.58, ...options, scale: mobile ? 1.12 : (options.scale ?? 1.32),
+});
+export function sheet(g, x, y, z, w, h, color = colors.graphite) {
+  return g.box(x, y, z, w, h, 3, color);
+}
+export function curve(g, x, y, z, w, h, seed, progress, color, excursion = false) {
+  const pts = [];
+  for (let i = 0; i <= 70 * clamp(progress); i++) {
+    const u = i / 70;
+    const v = sample(u, seed) + (excursion ? 0.35 * Math.exp(-(((u - 0.68) * 28) ** 2)) : 0);
+    pts.push([x + u * w, y + h * (0.5 - v), z]);
+  }
+  g.line(pts, color, 2);
+}
 // Drawing primitives share typography and strokes, never application choreography.
 export function drawing(c, paper, mobile) {
   const ink = paper ? "#24352e" : "#e3e7dd",

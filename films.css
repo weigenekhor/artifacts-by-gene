@@ -22,7 +22,7 @@
   min-height: 0;
   padding: 12px var(--gutter) 8px;
   display: grid;
-  grid-template-rows: 38px 70px minmax(0, 1fr) 58px 44px;
+  grid-template-rows: 38px clamp(72px, 6.7vw, 118px) minmax(0, 1fr) 64px 44px;
   gap: 6px;
   overflow: clip;
   background: var(--film-bg);
@@ -271,7 +271,7 @@
   .feature .film-stage,
   .feature .papyrus-stage {
     padding: 8px var(--gutter) 6px;
-    grid-template-rows: 36px 74px minmax(0, 1fr) 88px 44px;
+    grid-template-rows: 36px 92px minmax(0, 1fr) 108px 44px;
     gap: 4px;
   }
   .film-meta,
@@ -351,7 +351,7 @@
 @media (max-height: 600px) and (min-width: 701px) {
   .feature .film-stage,
   .feature .papyrus-stage {
-    grid-template-rows: 30px 44px minmax(0, 1fr) 42px 38px;
+    grid-template-rows: 30px 58px minmax(0, 1fr) 50px 38px;
     gap: 2px;
     padding-top: 4px;
   }
@@ -463,3 +463,21 @@ html:not(.enhanced) .papyrus-transport .study-play,
 html:not(.enhanced) .papyrus-transport .study-control {
   display: none;
 }
+
+.film-statement,.papyrus-statement{max-width:40ch;overflow-wrap:break-word;hyphens:none}
+.film-reading{max-width:58ch}.film-inspection label{flex-shrink:0}
+.tools-heading #tools-title{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}
+/* The final movement returns to a human reading pace. Approved copy is unchanged. */
+.creator{padding-top:clamp(60px,12vh,150px);padding-bottom:50px;background:#e9e8df}
+.creator-account{grid-template-columns:1fr 1.05fr;gap:12%;padding:clamp(70px,12vh,150px) 0;align-items:start}
+.creator-account #creator-title{position:sticky;top:calc(var(--header) + 60px);font-size:clamp(40px,4.4vw,78px);max-width:13ch;line-height:1.04}
+.creator-writing{max-width:600px;padding-top:5px}
+.creator-writing p{margin-bottom:clamp(54px,9vh,110px);font-size:clamp(20px,1.6vw,28px);line-height:1.55;color:#52615a;letter-spacing:-.025em}
+.creator-writing p:first-child{font-size:clamp(24px,2.1vw,36px);line-height:1.4;color:#253a33}
+.creator-writing p:last-child{font-size:clamp(24px,2.1vw,36px);line-height:1.4;margin-bottom:0;color:#253a33}
+.creator-top,.creator-contact{border-color:#849589}
+@media(max-width:700px){.creator-account{grid-template-columns:1fr;gap:50px;padding:60px 0}.creator-account #creator-title{position:static;font-size:42px;max-width:14ch}.creator-writing p{margin-bottom:50px}.creator{padding-top:55px}}
+@media(prefers-reduced-motion:no-preference){@supports(animation-timeline:view()){
+.creator-top{animation:account-rule linear both;animation-timeline:view();animation-range:entry 0% entry 100%;transform-origin:left}
+@keyframes account-rule{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+}}

@@ -1,31 +1,7 @@
 {
-  "phases": [
-    {
-      "id": "arrival",
-      "title": "The answer was only\npart of the work.",
-      "text": "",
-      "start": 1.12,
-      "end": 2.48,
-      "still": 2.18,
-      "description": "Separate observations find their references. Comparison, sequence and context are reconstructed into one understandable task."
-    },
-    {
-      "id": "again",
-      "title": "Again.",
-      "text": "",
-      "start": 2.96,
-      "end": 3.75,
-      "still": 3.43,
-      "description": "The completed task clears. Different evidence enters from another direction, but the same relationships have to be reconstructed."
-    },
-    {
-      "id": "retain",
-      "title": "Good reasoning should\noutlive the task.",
-      "text": "",
-      "start": 4.08,
-      "end": 5.36,
-      "still": 4.95,
-      "description": "Temporary evidence leaves while its relationships stay. The retained structure accepts new observations, gains repeatable states, and opens into the positions occupied by real ARTIFACTS interfaces."
-    }
-  ]
+ "phases":[
+  {"id":"pressure","title":"The work was difficult enough.","text":"","start":1.32,"end":2.17,"still":1.9,"description":"Engineering evidence is present, but fragmented: positions compete, records lose alignment, and comparisons require reconstruction."},
+  {"id":"intervention","title":"Friction was not a requirement.","text":"","start":2.55,"end":3.42,"still":3.2,"description":"A deliberate intervention separates useful structure from unnecessary reconstruction. Values regain their reference and measurement traces become readable."},
+  {"id":"structure","title":"","text":"","start":3.65,"end":5.48,"still":4.3,"description":"Different kinds of work are resolved: a spatial measurement, a comparison and a structured record. Their capabilities stay in one surface, which becomes the real ARTIFACTS homepage and opens into the applications."}
+ ]
 }

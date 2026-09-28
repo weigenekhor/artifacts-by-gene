@@ -230,7 +230,7 @@ export function createPapyrusStudy(el, wake) {
             r = comparison.rows[i];
           const t = reduced ? 1 : settle((p - r.matchStart) / r.matchDuration);
           const y = mix(r.raw[side], r.aligned, t) * rowHeight;
-          row.style.transform = `translate3d(0,${y}px,0)`;
+          row.style.transform = `translate3d(0,${y}px,${reduced ? 0 : Math.sin(Math.PI*t)*9}px)`;
           const changed = r.left !== r.right;
           const quiet = mix(1, changed ? 0.92 : 0.42, distinguish);
           row.style.opacity = mix(quiet, 1, weights[i]);

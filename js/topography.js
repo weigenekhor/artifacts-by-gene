@@ -81,11 +81,11 @@ export function createTopography(el, wake) {
   observer.observe(canvas);
   const color = (value, light) => {
     const stops = [
-        [39, 80, 88],
-        [74, 119, 108],
-        [158, 166, 109],
-        [207, 168, 93],
-        [173, 91, 53],
+        [29, 65, 133],
+        [42, 143, 155],
+        [78, 182, 160],
+        [229, 177, 81],
+        [223, 99,  63],
       ],
       t = clamp((value + 0.4) / 1.22) * 4,
       i = Math.min(3, Math.floor(t));
@@ -120,9 +120,9 @@ export function createTopography(el, wake) {
     const scale = Math.min(w / 7.3, h / 5.4),
       cx = w * 0.5,
       cy = h * 0.4,
-      yaw = mix(-0.12, -0.4, top) + (reduced ? 0 : px * 0.07),
+      yaw = mix(-0.08, -0.48, top) + (reduced ? 0 : px * 0.07),
       tilt = mix(0.28, 0.96, top) + (reduced ? 0 : py * 0.03),
-      lift = 0.96 * growth;
+      lift = 1.06 * growth;
     const project = ([x, y, z]) => {
       const xx = x * Math.cos(yaw) - y * Math.sin(yaw),
         yy = x * Math.sin(yaw) + y * Math.cos(yaw),

@@ -1,6 +1,6 @@
 # ARTIFACTS — software exhibition
 
-Personal engineering software at https://artifactsbygene.com. The current redesign lives on `experience/software-exhibition`. It does not change production until reviewed and merged into `main`.
+Personal engineering software at https://artifactsbygene.com. The current redesign lives on `experience/ee65f20-rebuild`. It does not change production until reviewed and merged into `main`.
 
 ## Preview and build
 
@@ -14,15 +14,15 @@ Open http://127.0.0.1:8001 while the server runs. GitHub Pages serves committed 
 
 ## Design
 
-The approved opening makes ARTIFACTS typography the spatial surface. It is preserved in this pass. Its field continues into the revised three-statement Starting Over origin: fragmented evidence, a reconstructed task, an archive, repeated reasoning, retained structure and software. Material surfaces advance through the light environment and construct sixteen positions before any application screenshots appear. Those positions receive the real interfaces in the collection. Diagrams are illustrative, not measured output.
+This branch begins directly at ee65f20d04458564dfe35c049de6df04469b6a19. Its approved monumental hero is preserved. The rebuilt origin uses a persistent evidence surface: complexity and friction resolve through deliberate reorganisation, different capabilities persist, and the genuine homepage takes their place. The same homepage DOM element passes into the original collection. All interpretation geometry and numeric examples are illustrative.
 
 The uncropped homepage begins in front of the sixteen applications and recedes as they advance. Hovering or focusing an interface brings that specific app forward, turns it toward the viewer and reduces ambient movement. On touch, one tap presents the app and the next enters it. Leaving restores the arrangement smoothly.
 
-All sixteen studies show input, operation and result through task-specific demonstrations. Timeline alignment, recipe comparison, report assembly and signal review use clear two-dimensional relationships; TopoTracer's height field and AIX's baseplate exchange retain three-dimensional materials. GaN Temp Diagnoser relates process/clean observations to possible checks without fabricating measured values or a confirmed diagnosis. Full captures, app order and Gene's approved closing remain intact.
+All sixteen studies use the original source-interface → interpretation → source-interface architecture. They now show wafer interpretation, ANKO due-check reasoning, wafer counts for maintenance, surface reconstruction, identity-aware comparison, direct chart access, workbook compilation, guided troubleshooting, two baseplate exchanges, measurement regions, reactor configuration matching, SPC overview, check status, context-preserving append and linked trace inspection. Full captures, app order and Gene's exact wording remain intact.
 
 Read `ARTIFACTS_CREATIVE_DIRECTION.md` and `ARTIFACTS_EXPERIENCE_STORYBOARD.md` for governing direction and factual boundaries. One shared clock pauses ambient scenes offscreen. Mobile uses reduced spatial depth; reduced motion retains the narrative without pinned sequences.
 
-Each application has an independently staged film, beginning and ending with its complete source interface. An outline highlights its relevant interface region using coordinates from the evidence audit; captures stay uncropped. Each signature operation is distinct: ordering, synchronization, event counting, interpolation, logical matching, search narrowing, compilation, diagnostic narrowing, physical exchange, spatial mapping, hierarchy collapse, review attention, normalization or temporal priority. Native scrolling controls the sequences; optional replay runs for 23.2–28.5 seconds. A second keyboard-accessible range changes a task-specific inspection region. Diagrams illustrate relationships, not measured results or cross-application integration.
+Each film retains native scroll, optional 23.2–28.5 second playback and keyboard/touch inspection. Its original source region defines the handoff. No capture is cropped in the displayed source states. No animation implies a live reactor connection or confirmed diagnosis.
 
 ## Source files
 
@@ -35,7 +35,7 @@ Each application has an independently staged film, beginning and ending with its
 - `js/hero.js`: later application assembly, direct hover/focus depth inspection, touch presentation and shared-element navigation.
 - `js/genesis.js`: opening/origin timing, pointer inertia and narrative controls.
 - `js/identity-field.js`: approved monumental typography and opening field; hands off after the opening.
-- `js/starting-over.js`: editorial evidence, reconstruction, recurrence, retention and collection handoff.
+- `js/origin-construction.js`: persistent evidence surface, intervention, retained capabilities and homepage handoff.
 - `js/collection-layout.js`: common spatial positions and lighting for the origin handoff and application collection.
 - `js/space.js` and `js/material-renderer.js`: shared projection, depth-tested materials and Canvas fallback.
 - `content/films.json`: film pacing, statements and inspection controls.
@@ -44,7 +44,7 @@ Each application has an independently staged film, beginning and ending with its
 - `js/papyrus-study.js` and `content/papyrus.json`: dedicated logical-comparison film and example correspondence.
 - `films.css` and `papyrus.css`: responsive film stages and reduced-motion composition.
 - `js/topography.js`: shaded circular height field, contours and matching interactive section profile.
-- `content/story.json`: Starting Over narrative, without application examples.
+- `content/story.json`: origin statements and accessible descriptions, without app examples.
 - `js/hero-interaction.js`: drag, keyboard, separation and reset controls.
 - `content/homepage.json`: the central homepage capture and its full-image viewer.
 - `entry.css`: application assembly, study typography and baseplate exchange.

@@ -3,36 +3,70 @@
     "duration": 24400,
     "length": 450,
     "layout": "timeline",
-    "pointer": "x",
-    "inspect": "Scrub lot history",
+    "pointer": "target",
+    "inspect": "Inspect wafer interpretation",
     "choices": [
-      "Arrival",
-      "Process start",
-      "Deposition",
-      "Process end",
-      "Transfer"
+      "Complete",
+      "Partial",
+      "Missing",
+      "Excess",
+      "Rerun"
     ],
     "beats": [
-      [0, ""],
-      [0.14, "A lot is more than its event list."],
-      [0.35, ""],
-      [0.66, "Every event keeps its context."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "Read the lot. Not a hundred events."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "Deposition, interpreted wafer by wafer."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "schedule": {
     "duration": 23200,
     "length": 440,
     "layout": "lanes",
-    "pointer": "x",
-    "inspect": "Move the shared date",
-    "choices": ["Earlier dates", "Shared date", "Upcoming schedules"],
+    "pointer": "target",
+    "inspect": "Inspect next-check reasoning",
+    "choices": [
+      "Reactor A",
+      "Reactor B",
+      "Reactor C"
+    ],
     "beats": [
-      [0, ""],
-      [0.14, "Individually correct. Difficult to compare."],
-      [0.35, ""],
-      [0.66, "One date. Every equipment lane."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "The next check should never be a guess."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "Equipment history becomes the next due check."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "usage": {
@@ -40,14 +74,33 @@
     "length": 460,
     "layout": "chambers",
     "pointer": "target",
-    "inspect": "Inspect chamber activity",
-    "choices": ["Reactor A", "Reactor B", "Reactor C"],
+    "inspect": "Inspect processed wafers",
+    "choices": [
+      "Reactor A",
+      "Reactor B",
+      "Reactor C"
+    ],
     "beats": [
-      [0, ""],
-      [0.14, "Every passage leaves a record."],
-      [0.35, ""],
-      [0.66, "Chamber usage, with its history."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "Every processed wafer counts."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "Maintenance begins with knowing the load."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "surface": {
@@ -56,13 +109,32 @@
     "layout": "surface",
     "pointer": "x",
     "inspect": "Move the wafer section",
-    "choices": ["Lower region", "Centre region", "Upper region"],
+    "choices": [
+      "Lower region",
+      "Centre region",
+      "Upper region"
+    ],
     "beats": [
-      [0, ""],
-      [0.14, "The samples are points."],
-      [0.35, ""],
-      [0.66, "Read the region in the whole."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "A point is not the whole surface."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "Variation, given its full dimension."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "pathfinder": {
@@ -71,13 +143,32 @@
     "layout": "topology",
     "pointer": "target",
     "inspect": "Select a parameter",
-    "choices": ["Parameter A", "Parameter M", "Parameter Y"],
+    "choices": [
+      "Parameter A",
+      "Parameter M",
+      "Parameter Y"
+    ],
     "beats": [
-      [0, ""],
-      [0.14, "The chart is somewhere in here."],
-      [0.35, ""],
-      [0.66, "The search becomes a path."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "The chart. Without the search."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "Go straight to the parameter that matters."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "compile": {
@@ -85,14 +176,34 @@
     "length": 470,
     "layout": "assembly",
     "pointer": "target",
-    "inspect": "Trace a report input",
-    "choices": ["LayTec", "PL / Plato", "XRR", "XRD"],
+    "inspect": "Trace workbook input",
+    "choices": [
+      "PL / Plato",
+      "LayTec",
+      "XRR",
+      "XRD"
+    ],
     "beats": [
-      [0, ""],
-      [0.14, "Separate sources. One reporting task."],
-      [0.35, ""],
-      [0.66, "A report with a traceable beginning."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "The analysis should not end in copy and paste."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "Every source. One consistent workbook."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "diagnose": {
@@ -101,13 +212,32 @@
     "layout": "diagnostic",
     "pointer": "target",
     "inspect": "Inspect a recommended check",
-    "choices": ["Ceiling condition", "Optris settings", "LayTec / viewport"],
+    "choices": [
+      "Ceiling condition",
+      "Optris settings",
+      "LayTec / viewport"
+    ],
     "beats": [
-      [0, ""],
-      [0.14, "The observation stays in view."],
-      [0.35, ""],
-      [0.66, "A check. Not a conclusion."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "A reactor gives clues."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "Turn observations into the next investigation."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "arrange": {
@@ -116,14 +246,35 @@
     "layout": "physical",
     "pointer": "target",
     "inspect": "Inspect a baseplate",
-    "choices": ["BP1", "BP2", "BP3", "BP4", "BP5"],
+    "choices": [
+      "BP1",
+      "BP2",
+      "BP3",
+      "BP4",
+      "BP5"
+    ],
     "alternate": "Before / after",
     "beats": [
-      [0, ""],
-      [0.14, "The inputs have a physical consequence."],
-      [0.35, ""],
-      [0.66, "BP3 and BP5. Exchanged."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "Temperature uniformity is an assignment problem."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "Two exchanges. One deliberate arrangement."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "zones": {
@@ -132,13 +283,34 @@
     "layout": "registration",
     "pointer": "target",
     "inspect": "Inspect corresponding zones",
-    "choices": ["S1", "S2", "S3", "S4", "S5"],
+    "choices": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5"
+    ],
     "beats": [
-      [0, ""],
-      [0.14, "Two references. One geometry to establish."],
-      [0.35, ""],
-      [0.66, "Every boundary has a counterpart."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "Where is the temperature actually measured?"
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "The measurement belongs to a region."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "configuration": {
@@ -147,13 +319,32 @@
     "layout": "hierarchy",
     "pointer": "target",
     "inspect": "Inspect a device property",
-    "choices": ["Popup", "EnableShow", "Number"],
+    "choices": [
+      "Popup",
+      "EnableShow",
+      "Number"
+    ],
     "beats": [
-      [0, ""],
-      [0.14, "A setting belongs to a structure."],
-      [0.35, ""],
-      [0.66, "The difference keeps its parent."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "A matching line is not a matching device."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "Match the node. Expose the difference."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "spc": {
@@ -162,13 +353,35 @@
     "layout": "review",
     "pointer": "target",
     "inspect": "Inspect a signal in context",
-    "choices": ["Parameter A", "Parameter B", "Parameter C"],
+    "choices": [
+      "Parameter A",
+      "Parameter B",
+      "Parameter C",
+      "Parameter D",
+      "Parameter E",
+      "Parameter F"
+    ],
     "beats": [
-      [0, ""],
-      [0.14, "The process is larger than one chart."],
-      [0.35, ""],
-      [0.66, "Attention without losing the picture."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "The process will not fit in one chart."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "Every parameter, in the same view."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "legacy": {
@@ -178,34 +391,68 @@
     "pointer": "target",
     "inspect": "Inspect a parameter record",
     "choices": [
-      "Parameter G",
-      "Parameter J",
+      "Parameter A",
       "Parameter B",
+      "Parameter C",
+      "Parameter D",
       "Parameter E",
-      "Parameter H"
+      "Parameter F"
     ],
-    "alternate": "Source / review",
     "beats": [
-      [0, ""],
-      [0.14, "The record comes in different forms."],
-      [0.35, ""],
-      [0.66, "Parameter. State. Chart. Together."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "Different processes. The same need to see."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "Every chart. Every pass. Every exception."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "planning": {
     "duration": 24200,
     "length": 450,
     "layout": "priority",
-    "pointer": "x",
-    "inspect": "Inspect the due window",
-    "choices": ["Past due", "Due soon", "Upcoming"],
+    "pointer": "target",
+    "inspect": "Inspect workcentre",
+    "choices": [
+      "ALTUS",
+      "AIXTRON",
+      "LAYTEC"
+    ],
     "beats": [
-      [0, ""],
-      [0.14, "Status needs a place in time."],
-      [0.35, ""],
-      [0.66, "The next action becomes visible."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "A check is only useful if it is not missed."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "Every workcentre. The next check in view."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "report": {
@@ -214,14 +461,33 @@
     "layout": "extraction",
     "pointer": "target",
     "inspect": "Trace the selected output rows",
-    "choices": ["Analysis file", "Extracted rows", "Base workbook"],
+    "choices": [
+      "Analysis file",
+      "Extracted rows",
+      "Base workbook"
+    ],
     "alternate": "Source / appended",
     "beats": [
-      [0, ""],
-      [0.14, "The analysis exists. The workbook needs it."],
-      [0.35, ""],
-      [0.66, "Append the result to the record."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "Keep the context when the numbers move."
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "Add the result. Preserve the record."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   },
   "signals": {
@@ -230,14 +496,33 @@
     "layout": "synchronized",
     "pointer": "x",
     "inspect": "Move the shared time window",
-    "choices": ["Early interval", "Middle interval", "Late interval"],
+    "choices": [
+      "Early interval",
+      "Middle interval",
+      "Late interval"
+    ],
     "alternate": "Narrow / wide",
     "beats": [
-      [0, ""],
-      [0.14, "Five signals. Five separate views."],
-      [0.35, ""],
-      [0.66, "Every trace. The same moment."],
-      [0.88, ""]
+      [
+        0,
+        ""
+      ],
+      [
+        0.135,
+        "A signal changes. What changed with it?"
+      ],
+      [
+        0.335,
+        ""
+      ],
+      [
+        0.67,
+        "Different traces. One shared moment."
+      ],
+      [
+        0.88,
+        ""
+      ]
     ]
   }
 }

@@ -162,7 +162,7 @@ export function createHero(stage, apps, wake) {
       const mobile = w < 700;
       const cx = w * 0.5,
         cy = h * mix(0.48, mobile ? 0.57 : 0.59, open);
-      if (home) {
+      if (home && home.parentElement === stage) {
         const retreat = ease(open);
         home.style.transform = `translate(-50%,-50%) translateZ(${-retreat * 520}px) rotateY(${reduced ? 0 : yaw * 12}deg) rotateX(${reduced ? 0 : pitch * 14 - retreat * 5}deg) scale(${mix(1, 0.72, retreat)})`;
         home.style.zIndex = String(Math.round(mix(850, 50, retreat)));
