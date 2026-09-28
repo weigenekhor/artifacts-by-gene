@@ -10,6 +10,7 @@ function fixture(reduce = false) {
   let sequence = 0, time = 0, measures = 0;
   const preference = { matches: reduce, addEventListener: (_, fn) => listeners.set("motion-change", fn) };
   const element = {
+    dataset: { chapter: "origin" },
     style: { setProperty: (key, value) => values.set(key, Number(value)), removeProperty: key => values.delete(key) },
     getBoundingClientRect: () => { measures++; return { top: 600 - context.scrollY, height: 700 }; }
   };
@@ -44,6 +45,11 @@ assert.equal(normal.frames.size, 1, "Scroll events share one pending frame");
 assert.ok(normal.settle() > 1, "Scroll response settles progressively");
 assert.equal(normal.measures(), measurements, "Scrolling must not remeasure layout");
 for (const value of normal.values.values()) assert.ok(value >= 0 && value <= 1);
+const forward = normal.values.get("--chapter-settle");
+normal.context.scrollY = 0;
+normal.listeners.get("scroll")();
+normal.settle();
+assert.ok(normal.values.get("--chapter-settle") < forward, "Scrolling back reverses the same chapter transition");
 normal.context.document.hidden = true;
 normal.listeners.get("visibilitychange")();
 normal.listeners.get("scroll")();

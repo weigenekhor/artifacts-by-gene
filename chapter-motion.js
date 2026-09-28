@@ -1,7 +1,8 @@
 // Progressive enhancement only. The HTML and CSS already contain the final composition.
 const reduced = matchMedia("(prefers-reduced-motion: reduce)");
-const chapters = [...document.querySelectorAll("[data-chapter]")].map(element => ({ element, top: 0, height: 0, progress: null, exit: null }));
+const chapters = [...document.querySelectorAll("[data-chapter]")].map(element => ({ element, kind: element.dataset.chapter, top: 0, enter: null, settle: null }));
 const clamp = value => Math.max(0, Math.min(1, value));
+const ease = value => value * value * (3 - 2 * value);
 let frame = 0;
 let previousTime = 0;
 let viewportHeight = innerHeight;
@@ -13,7 +14,6 @@ function measure() {
   for (const chapter of chapters) {
     const rect = chapter.element.getBoundingClientRect();
     chapter.top = rect.top + scrollY;
-    chapter.height = rect.height;
   }
   measureNeeded = false;
 }
@@ -22,15 +22,17 @@ function render(time) {
   frame = 0;
   if (reduced.matches || document.hidden) return;
   if (measureNeeded) measure();
-  const amount = 1 - Math.exp(-Math.min(64, time - (previousTime || time - 16)) / 65);
+  const amount = 1 - Math.exp(-Math.min(64, time - (previousTime || time - 16)) / 80);
   previousTime = time;
   const y = scrollY;
   let settling = false;
   for (const chapter of chapters) {
-    // All reads above, then only compositor-friendly CSS variables below.
-    const progress = clamp((y + viewportHeight * .88 - chapter.top) / Math.max(1, chapter.height * .65 + viewportHeight * .2));
-    const exit = clamp((y + viewportHeight - chapter.top - chapter.height * .58) / Math.max(1, chapter.height * .42));
-    for (const [key, target] of [["progress", progress], ["exit", exit]]) {
+    // A shared viewport rhythm links the surface handoff to the following text.
+    // It is independent of gallery length: sixteen apps do not stretch the transition.
+    const position = (chapter.top - y) / Math.max(1, viewportHeight);
+    const enter = ease(clamp((.98 - position) / .52));
+    const settle = ease(clamp(((chapter.kind === "hero" ? .5 : .78) - position) / .52));
+    for (const [key, target] of [["enter", enter], ["settle", settle]]) {
       const old = chapter[key];
       const next = old === null || Math.abs(target - old) < .001 ? target : old + (target - old) * amount;
       if (Math.abs(target - next) >= .001) settling = true;
@@ -52,9 +54,9 @@ function reset() {
   previousTime = 0;
   for (const animation of entranceAnimations) animation.cancel();
   for (const chapter of chapters) {
-    chapter.element.style.removeProperty("--chapter-progress");
-    chapter.element.style.removeProperty("--chapter-exit");
-    chapter.progress = chapter.exit = null;
+    chapter.element.style.removeProperty("--chapter-enter");
+    chapter.element.style.removeProperty("--chapter-settle");
+    chapter.enter = chapter.settle = null;
   }
   measureNeeded = true;
   schedule();

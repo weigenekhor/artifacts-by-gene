@@ -1,6 +1,6 @@
 # ARTIFACTS — Visual Design System
 
-Version 1.1 · 28 September 2026 · Cinematic refinement of the clean exhibition
+Version 1.2 · 28 September 2026 · Fluid chapters, software reserved for the exhibition
 
 ## 1. Authority and scope
 
@@ -15,7 +15,7 @@ Older creative direction, storyboards, CSS and animation code do not override th
 
 Structural reference: [VoltAgent's Apple design analysis](https://github.com/VoltAgent/awesome-design-md/blob/main/design-md/apple/DESIGN.md). Adopt its discipline of hierarchy, spacing, work-first presentation, restrained chrome and clear surface changes. The tokens, composition and identity below are specific to ARTIFACTS. Do not import Apple's branding, blue actions, proprietary fonts, retail layouts or component catalogue.
 
-**Current scope: a real-screenshot exhibition with restrained cinematic chapter transitions.** The sixteen-application gallery remains static. Hero entry, hero/Origin surface continuity, Origin evidence focus and a small Gene archive may move. No application movies, hover films, Canvas, WebGL, procedural engineering illustrations or animated terrain. TopoTracer remains an equal gallery member. Motion never gates content. No JavaScript and reduced motion show the complete final composition. Native scrolling is mandatory; the legacy film architecture and scroll-jacking remain prohibited.
+**Current scope: a real-screenshot exhibition with fluid chapter transitions.** Screenshots belong only in the homepage reveal and sixteen-application gallery. Origin and Gene contain no screenshots, software crops or archive imagery. Images are noninteractive: no image links, lightboxes, click-to-open behavior or hover cues suggesting an action. The gallery remains static. Hero framing, surface handoffs and the Origin composition may move. No application movies, Canvas, WebGL, procedural engineering illustrations or animated terrain. TopoTracer remains an equal gallery member. Motion never gates content. No JavaScript and reduced motion show the complete final composition. Native scrolling is mandatory; the legacy film architecture and scroll-jacking remain prohibited.
 
 ## 2. Identity and content
 
@@ -133,13 +133,13 @@ Number/name gap: 12px. Header/media gap: 16px. Media/value gap: 20px. Keep the v
 
 In the two-column layout, headers in a row share a minimum two-line title space so screenshots align; single-column headers use their natural height. All content aligns to the same left edge within its article. Text never straddles neighbouring units. The article has **no enclosing border, background panel, radius or shadow**; only its screenshot stage uses `surface.media`.
 
-### Screenshot stage and full view
+### Screenshot stage
 
 - Shared stage aspect ratio: **3:2** across breakpoints. Apply `media-inset` and preserve the image's source aspect ratio. Default to the complete capture with `object-fit: contain`.
 - Screenshots fill the available inner width or height; do not add a second mat, inset window or artificial desktop/browser frame. Wide captures may have modest vertical breathing room rather than forced cropping.
-- A deliberate crop is allowed only when it improves understanding of the actual function. Record crop bounds/focal position in content data; keep the complete source accessible. Never arbitrarily use `cover` across all sixteen images or cut essential labels, controls or results.
-- On mobile, prefer the complete capture unless an explicit mobile crop makes the function clearer. Do not require all small desktop UI text to be legible in a 350px stage: provide full-resolution inspection instead of dishonest upscaling.
-- A screenshot may be a standard link to its original full-resolution image. Give it an accessible name such as “View the full Altus LotViewer interface”. No nested links, autoplay or film dialog. This link must work without JavaScript.
+- Keep all captures complete. Never use `cover` or cut essential labels, controls or results. The former Origin and Gene crops are removed.
+- On mobile, preserve the complete image and allow normal browser zoom. Do not upscale beyond native resolution to pretend small UI text is HD.
+- Screenshots are noninteractive figures, never links or buttons. Clicking an image does nothing. No zoom cursor, hover emphasis, image dialog, full-capture link or keyboard stop on an image.
 - Use PNG or lossless/visually lossless WebP for UI. Preserve native colours and fine text. Never generate, redraw, blur, desaturate or apply colour grading to evidence.
 - Supply intrinsic width/height, appropriate `sizes`/`srcset` derivatives no larger than the source, lazy loading below the fold and asynchronous decoding. Preload only a genuine above-fold image when needed. Do not stretch a low-resolution source and call it HD; report insufficient sources.
 - Radius: 0 on the stage, at most 2px on the image. Optional image-only shadow: `0 6px 20px rgba(23,25,28,0.08)`. No shadow on the article, headings or controls.
@@ -152,23 +152,23 @@ Light canvas. The h1 is **ARTIFACTS**, dominant in scale. The exact supporting s
 
 At desktop the heading starts 64px below the header; mobile 48px. Supporting copy follows by 24px. Desktop places the anchor at the opposite end of the supporting row; mobile stacks it beneath. The existing title-to-content token separates this row from the software.
 
-The real homepage is a large composition anchor: 84% of the inner container, capped at 1080px on desktop; full inner width below 1024px. It retains its complete interface and native colours. The image crosses a warm-to-ink surface boundary so the software persists while its surroundings change. The light surface behind the upper part retracts gently with scroll, without covering any text. A quiet caption identifies the environment and sixteen applications. Do not add floating windows or another interface collage.
+The real homepage is a large composition anchor: 84% of the inner container, capped at 1080px on desktop; full inner width below 1024px. It retains its complete interface and native colours. It is not a link. The image crosses a warm-to-ink surface boundary so the software persists while its surroundings change. The light surface retracts through 85% of its starting depth as the image settles; the dark environment visibly takes over and continues into Origin. A quiet caption identifies the environment and sixteen applications. Do not add floating windows or another interface collage.
 
-Entry resolves in 600–1000ms through small translations (6–20px), never an opacity gate. On desktop the homepage settles from at most 3° X rotation and .97 scale to frontal native composition. Scroll travel is at most 24px. Mobile uses translation of at most 8px and no perspective. No cursor response, continuous drift or autoplay loop.
+Entry resolves in 600–1000ms through small translations (6–20px), never an opacity gate. On desktop the homepage grows from .90 to 1 scale with up to 40px of settling travel. This is a framing transition, with no perspective distortion or simulated 3D. Mobile uses .96 to 1 scale and at most 8px travel. No cursor response, continuous drift or autoplay loop.
 
 ### Origin — engineering friction, deliberately removed
 
 One ink chapter in natural flow. The heading is **Engineering is difficult enough.** The lead is **The tools around it should not make it harder.** One short paragraph grounds the claim in repeated comparisons and reporting, followed by software as Gene's response. No abstract reasoning-retention slogan or manifesto.
 
-At ≥1024px, text and evidence use 5:7 columns and a 48px gap; below that, stack with 32px. Use Papyrus Reader's actual comparison, not the hero homepage. Desktop shows both recipe panes; mobile shows the changed-parameter pane at a more useful scale. Exact source-pixel bounds and descriptions are recorded in content/composition.json. The full original stays linked. These are crops of one real comparison, never fabricated before/after states.
+Origin is entirely typographic. At ≥1024px, the premise and response use 7:5 columns with a 64px gap; below that they stack with 32px. A quiet “Why ARTIFACTS exists” caption precedes the heading. The response starts level with the heading on desktop. Keep the premise at most 17ch and the response at most 44ch. Separate the concrete friction from the response into short paragraphs. No application names, screenshots, crops, archive, illustrative diagram or fake evidence.
 
-The evidence shifts from a small focus crop toward a settled comparison: at most 1.12 image scale on desktop and 1.04 on mobile, confined to an imagery-only window. Desktop orientation settles from at most 3° Y rotation to zero. Text never moves. Caption identifies Papyrus Reader and the visible comparison.
+The premise settles first, then the response, along a shared viewport-based timeline. Travel is at most 40px on desktop/tablet and 16px on mobile, entirely inside the generous section spacing. No opacity gates, text masks, word-by-word reveals or disappearing copy. Both columns are always readable.
 
-The lower ink padding remains the section-pad token. A 48px (mobile 32px) warm surface at its foot widens from .94 to 1 as the gallery enters. The gallery's upper padding subtracts this surface height, preserving the shared spacing rhythm. No pinning, black-out, dramatic orbit, hidden gallery or replayed app reveal. The first gallery row is the payoff.
+The ink surface carries into a convex lower edge that flattens as Applications enters. This is a background-only SVG silhouette, scaled vertically; it is not a diagram and never clips text or media. The transition occupies the next chapter's top padding, not an extra viewport. Its depth is 128px on large desktop, 80px on laptop/tablet and 64px on mobile. The Applications heading settles after the edge starts flattening. Gallery articles remain still. No pinning, blackout, orbit or hidden gallery.
 
 ### Applications — the majority of the page
 
-Light canvas, one section heading and the continuous gallery defined above. No instructions about clicking captures. Each short value line describes a distinct practical role, grounded in the catalogue and source images. Retain complete screenshots, the existing stage scale, row rhythm and two-line desktop title minimum. Hover may deepen only the image shadow and apply copper to its owning title; no moving chart, image sequence or gallery parallax. No filtering, pagination, carousel, nested collection or hidden applications. Preserve this exact order:
+Light canvas, one section heading and the continuous gallery defined above. No instructions about clicking captures. Each short value line describes a distinct practical role, grounded in the catalogue and source images. Retain complete screenshots, the existing stage scale, row rhythm and two-line desktop title minimum. Screenshots, titles and captions have no hover effect or action; no moving chart, image sequence or gallery parallax. No filtering, pagination, carousel, nested collection or hidden applications. Preserve this exact order:
 
 | Number | Name |
 | --- | --- |
@@ -191,9 +191,9 @@ Light canvas, one section heading and the continuous gallery defined above. No i
 
 If a source image cannot be confidently identified, report the missing asset; never substitute a different app or fabricated screen. Keep the app's place in the content model.
 
-### Gene — exact copy beside an archive of work
+### Gene — a quiet reading section
 
-Ink surface. Use a 5:7 desktop composition with a 48px gap: three restrained real software fragments on the left, and the exact copy on the right, at most 54ch. The archive uses Altus LotViewer, Papyrus Reader and Metria SPC, with source crop bounds in content/composition.json. No fake dates, chronology labels, portrait, skills list or app demo. At tablet the archive and copy stack with 48px between them; on mobile omit the middle fragment and retain two substantial records. Do not make tiny decorative thumbnails.
+Ink surface. Use one centred reading column, at most 704px wide, with copy at most 54ch and natural full-width reflow on smaller screens. No screenshot, archive, illustration, portrait, skills list or app demo. The gallery's light surface flattens into the dark chapter using the same background-only edge as Origin → Applications. Keep the exact Gene copy entirely still.
 
 Preserve the following wording and punctuation exactly. Paragraph breaks are intentional; the paired action sentences may use separate lines. Use `type.lead` for the first paragraph and `type.body` for the rest, with 24px paragraph gaps. Do not enlarge every sentence into a separate scene.
 
@@ -206,7 +206,7 @@ Preserve the following wording and punctuation exactly. Paragraph breaks are int
 >
 > ARTIFACTS is the evidence that I never accepted the way things were as the way they had to stay.
 
-Keep every word visible and still in natural flow. No masks, text animation, staged swaps, clipping, pinning, decorative boxes, additional biography or closing slogan. The archive alone may settle by at most 16px per layer while entering; it never loops. Back records may use .7/.85 opacity for depth, without filtering or recolouring the source. Focus restores full opacity. Full originals remain linked. A quiet visible Gene heading follows the final sentence as the signature.
+Keep every word visible and still in natural flow. No masks, text animation, staged swaps, clipping, pinning, decorative boxes, additional biography or closing slogan. A quiet visible Gene heading follows the final sentence as the signature.
 
 ### End
 
@@ -217,29 +217,28 @@ Continue the Gene ink surface without a new visual scene. Place essential contac
 | Token | Value | Use |
 | --- | --- | --- |
 | `motion.micro` | 180ms | Link colour, underline and control feedback |
-| `motion.media` | 240ms | Optional restrained screenshot hover |
-| `motion.ui` | 320ms | An actual utility state transition, if needed |
-| `motion.chapter` | 900ms nominal; 600–1200ms maximum | Hero entry and restrained chapter settling |
+| `motion.entry` | 600–1000ms | Initial hero settling |
+| `motion.response` | 80ms time constant | Scroll response damping, no overshoot |
 | `ease.chapter` | `cubic-bezier(0.16, 1, 0.3, 1)` | Confident acceleration, soft settling, no overshoot |
 | `ease.standard` | `cubic-bezier(0.2, 0, 0, 1)` | Consistent settling without bounce |
 
 - The page renders fully visible immediately, including with JavaScript disabled. Do not add entry opacity gates or stagger sixteen cards.
-- Fine-pointer hover may scale an image to **at most 1.015** within its safe inset. Keep essential UI inside the stage. If scaling softens text, use link emphasis alone. Do not move the app name or value line.
-- Gallery hover never triggers a sequence, changes its image or runs a loop. Touch has no synthetic playback. Only the hero, Origin evidence and Gene archive may use the bounded chapter translations described above. No cursor-driven scene.
+- Screenshots have no hover, focus, click or playback interaction. Keep all sixteen app articles static.
+- Only hero framing, Origin composition, the Applications heading and chapter surfaces use scroll motion. No cursor-driven scene. Gene text never moves.
 - Focus styling is immediate and independent of hover. Restrained colour feedback is enough for pressed states; no spring or large shrink.
 - With `prefers-reduced-motion: reduce`, remove image transforms and transitions, use immediate state changes and native instant anchor scrolling. No information or composition may depend on motion.
-- Use native scroll. chapter-motion.js is a small progressive enhancement with no dependencies. Passive scroll events schedule a single frame; cached document positions avoid per-frame layout reads. A short 65ms damping response settles and stops. No frames run while idle, hidden or in reduced motion. Re-measure after viewport/font changes. No smooth-scroll dependency, observers that hide content, application-film runtime, scroll locking or long pinned sections.
+- Use native scroll; section links use native CSS smooth scrolling, instant with reduced motion. chapter-motion.js has no dependencies. Passive scroll events schedule a single frame; cached document positions avoid per-frame layout reads. Smoothstep progress and an 80ms damping response link edge movement to following content. The timeline depends on viewport position, never gallery height. Rendering stops when settled, hidden or in reduced motion. Re-measure after viewport/font changes. No smooth-scroll library, observers that hide content, application-film runtime, scroll locking or pinned sections.
 
 ## 9. Accessibility and text safety
 
 - Minimum contrast: 4.5:1 for normal text, 3:1 for large text and meaningful control graphics. Prefer 4.5:1 for all site text. Validate actual pairings, including hover and focus; never use opacity to make necessary text faint.
 - Focus: 2px solid surface-appropriate accent, 4px offset, visible around the whole interactive target. Do not clip the outline at media boundaries. If placed over a screenshot, add a canvas-colour separation ring so the indicator remains distinct.
-- The homepage crosses two surfaces: its focus state uses a 6px canvas separation ring beneath the on-light copper outline, keeping the indicator legible on both sides of the boundary.
+- Images are not focusable. Keyboard navigation visits only navigation and contact links; skipping into main shows focus around the hero heading rather than outlining the whole document.
 - One `h1`, chapter `h2`s and application `h3`s. Use header, nav, main, section/article and footer landmarks. Keep visual order and DOM reading order identical.
 - All interactive elements are native links/buttons with meaningful names, keyboard access and visible focus. Never use hover as the sole way to expose information.
 - Images have concise factual alt text describing the application and relevant view, not decorative claims. Logo text must not be announced twice when symbol and wordmark share a link.
 - Layout reflows at 200% zoom and at a 320 CSS-pixel viewport. Respect browser font sizing and text-spacing overrides. Allow longer headings and contacts to wrap without truncation.
-- No overflow-clipping on text or focus ancestors. A bounded image viewport may clip only the image for an explicitly approved crop, never captions, controls or outlines.
+- No overflow-clipping on text or focus ancestors. Surface SVGs contain only background geometry; they never contain or mask content.
 
 ## 10. Implementation and visual acceptance
 

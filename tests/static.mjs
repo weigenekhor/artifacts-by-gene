@@ -30,16 +30,13 @@ assert.ok(css.includes("prefers-reduced-motion: reduce"));
 assert.ok(css.includes("transition: none !important"));
 assert.ok(!/@keyframes|animation:|scroll-snap|position:\s*(fixed|sticky)/.test(css));
 assert.equal([...html.matchAll(/rel="stylesheet"/g)].length, 1);
-const composition = JSON.parse(await fs.readFile("content/composition.json", "utf8"));
-for (const item of [composition.origin, ...composition.archive]) {
-  const app = apps.find(a=>a.id===item.appId);
-  assert.ok(app, `Unknown evidence owner: ${item.appId}`);
-  for (const c of [item.crop, item.mobileCrop].filter(Boolean)) {
-    assert.ok(c.x >= 0 && c.y >= 0 && c.width > 0 && c.height > 0);
-    assert.ok(c.x+c.width <= app.capture.width && c.y+c.height <= app.capture.height);
-  }
+for (const id of ["origin", "gene"]) {
+  const section = html.match(new RegExp(`<section[^>]+id="${id}"[^>]*>([\\s\\S]*?)</section>`))[1];
+  assert.ok(!/<img|<picture/.test(section), `${id} must not contain screenshots`);
 }
-assert.equal(composition.archive.length, 3);
+assert.equal([...html.matchAll(/<img /g)].length, 17, "One homepage and sixteen app captures only");
+for (const [anchor] of html.matchAll(/<a\b[^>]*>[\s\S]*?<\/a>/g)) assert.ok(!/<img/.test(anchor), "Screenshot containers must not be links");
+assert.ok(!/<a[^>]+href="[^"]+\.(webp|png|jpe?g)"/.test(html), "Images must not open when clicked");
 const symbol = await fs.readFile("assets/brand/artifacts-symbol.svg", "utf8");
 for (const [, d] of symbol.matchAll(/<path d="([^"]+)"/g)) assert.ok(html.includes(`d="${d}"`));
 
@@ -53,7 +50,7 @@ for (const entry of [...apps, homepage]) {
     assert.ok(m.width <= c.width, `${entry.id}: upscaled derivative`);
     assert.ok(Math.abs(m.width / m.height - c.width / c.height) < .003);
   }
-  assert.ok(html.includes(`href="${c.src}"`));
+  assert.ok(html.includes(`src="${c.src}"`));
 }
 for (const [, url] of html.matchAll(/(?:src|href)="([^"]+)"/g)) {
   if (/^(https?:|mailto:|#)/.test(url)) continue;
@@ -62,4 +59,4 @@ for (const [, url] of html.matchAll(/(?:src|href)="([^"]+)"/g)) {
 }
 assert.equal((await fs.readFile("CNAME", "utf8")).trim(), "artifactsbygene.com");
 await fs.access(".nojekyll");
-console.log("PASS: 16 static applications, lossless captures, bounded evidence crops, real logo, approved copy and local assets.");
+console.log("PASS: 16 static applications, lossless captures, text-only Origin/Gene, noninteractive images, real logo and approved copy.");
