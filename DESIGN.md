@@ -1,6 +1,6 @@
 # ARTIFACTS — Visual Design System
 
-Version 1.3 · 28 September 2026 · Editorial Gene closing chapter
+Version 1.4 · 28 September 2026 · One shared typography system
 
 ## 1. Authority and scope
 
@@ -61,25 +61,27 @@ Fixed page rhythm: **light hero → ink origin → light applications → ink Ge
 
 ## 4. Typography tokens
 
-Use the existing licensed variable font `assets/fonts/Geist-Latin.woff2`, with its `assets/fonts/OFL.txt` retained. Family stack: `"Geist", system-ui, "Segoe UI", sans-serif`; load locally with `font-display: swap`. Do not download or require SF Pro. Use weights 400, 500 and 600 only.
+Use the existing licensed variable font `assets/fonts/Geist-Latin.woff2`, with its `assets/fonts/OFL.txt` retained. Family stack: `"Geist", system-ui, "Segoe UI", sans-serif`; load locally with `font-display: swap`. Do not download or require SF Pro. Use weights 400, 500 and 600 only, with font synthesis disabled. Define the family, weights, line heights, tracking and measures once as shared CSS tokens. Controls inherit the same family. Do not introduce section-specific font scales, rendering filters or synthetic bold.
 
 Sizes below are CSS pixels at a 16px browser default; implement them in rem. Breakpoints are defined in section 5. Do not add unrelated type scales.
 
 | Token | Large desktop | Laptop | Tablet | Mobile | Weight | Line height | Tracking |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | `type.hero` (ARTIFACTS) | clamp(184px, 14vw, 208px) | clamp(144px, 14.6vw, 184px) | clamp(112px, 15vw, 144px) | clamp(56px, 16.2vw, 112px) | 500 | 1.08 | -0.055em |
-| `type.section` | 56 | 48 | 40 | 32 | 500 | 1.15 | -0.025em |
+| `type.section` | 64 | 56 | 48 | clamp(36px, 9.8vw, 42px) | 500 | 1.12 | -0.03em |
 | `type.app` | 26 | 24 | 24 | 24 | 500 | 1.25 | -0.015em |
-| `type.lead` | 24 | 22 | 22 | 20 | 400 | 1.5 | -0.01em |
-| `type.body` | 18 | 18 | 18 | 17 | 400 | 1.6 | 0 |
+| `type.lead` | 24 | 22 | 20 | 20 | 400 | 1.55 | 0 |
+| `type.body` | 20 | 20 | 18 | 18 | 400 | 1.55 | 0 |
+| `type.ui` | 16 | 16 | 16 | 16 | 400 / 500 | 1.5 | 0 |
 | `type.caption` | 14 | 14 | 14 | 14 | 400 | 1.5 | 0 |
-| `type.meta` | 13 | 13 | 13 | 13 | 500 | 1.5 | 0.025em |
 | `type.brand` | 18 | 18 | 18 | 18 | 600 | 1.25 | 0 |
 
-- ARTIFACTS occupies one natural line at default sizing, without masks or fitting transforms; allow reflow under enlarged user fonts. Its supporting sentence uses `type.lead`, at most 28ch. Section headings: at most 24ch. Body maximum: 54ch. All measures shrink to available width.
+- ARTIFACTS occupies one natural line at default sizing, without masks or fitting transforms; allow reflow under enlarged user fonts. Its supporting sentence uses `type.lead`, at most 28ch. Section headings: at most 24ch. Body maximum: 50ch. All measures shrink to available width.
 - Hero, section and application titles are sentence case. ARTIFACTS retains uppercase. Avoid all-caps paragraphs and excessive tracking.
-- Navigation uses `type.caption` at weight 500. The quiet Gene attribution uses the 16px closing-strip size defined in section 7; it does not become a giant name treatment.
-- Application numbers use `type.meta` with tabular numerals. Monospace is unnecessary; if genuine technical metadata later requires it, use `ui-monospace` for that metadata alone.
+- All chapter headings, including the Gene opening, use `type.section` with identical weight, tracking and leading. The wordmark alone uses the display scale. Application names use the smaller shared title scale.
+- Origin prose, application descriptions and Gene prose use `type.body`. Hero and Origin supporting statements use `type.lead`. Do not make Gene body text a separate size.
+- Navigation, text links, chapter labels and the Gene closing strip use `type.ui`. Navigation and the Gene signature use weight 500; other utility text uses 400. The quiet attribution does not become a giant name treatment.
+- Application numbers use `type.caption` at weight 500 with tabular numerals. Image captions use the same size at weight 400. Monospace is unnecessary; if genuine technical metadata later requires it, use `ui-monospace` for that metadata alone.
 - Use `text-wrap: balance` on short headings as an enhancement, with natural wrapping as fallback. Body text stays left-aligned, never justified.
 - No manual line breaks that force desktop compositions onto mobile. The two approved Gene action sentences may retain their paragraph break.
 - Text is always live HTML, fully visible. No masks, clipping paths, fixed-height text boxes, line clamps, ellipses or transforms used to fit copy. A long app name wraps; it never shrinks to metadata size.
@@ -125,7 +127,7 @@ Content width: `min(1440px, 100% - 2 × page-gutter)`, centred. The 1440px maxim
 
 Use one semantic `article` per app in a row-major gallery. Each article contains, in this exact reading order:
 
-1. Number and application name together in one header (`type.meta` + `h3` / `type.app`).
+1. Number and application name together in one header (`type.caption` at weight 500 + `h3` / `type.app`).
 2. Real screenshot inside one media stage.
 3. One short verified value line in `type.body` / secondary colour.
 
@@ -195,15 +197,9 @@ If a source image cannot be confidently identified, report the missing asset; ne
 
 Flat ink surface. Use one primary editorial block, not a two-column composition or centred article. At desktop, begin 16% into the shared inner container, using its remaining 84% up to a maximum of 1040px. At tablet and mobile, use the full inner width with the existing gutters. Do not add a visual column, screenshot, archive, illustration, portrait, marker, hairline, logo or filler. The transition from Applications is a simple light-to-ink boundary; no curved edge, wipe or scroll-driven motion in Gene.
 
-Preserve the following wording and punctuation exactly. Paragraph breaks are intentional; the paired action sentences retain their line break. Gene has its own scoped editorial type scale, overriding the ordinary lead/body sizes only in this closing chapter:
+Preserve the following wording and punctuation exactly. Paragraph breaks are intentional; the paired action sentences retain their line break. Use the shared typography system from section 4: `type.section` for the opening, `type.body` for the prose, and `type.ui` for the closing strip. There is no separate Gene font scale.
 
-| Gene type | ≥1440px | 1024–1439px | 768–1023px | <768px |
-| --- | ---: | ---: | ---: | ---: |
-| Opening statement | 64px | 56px | 48px | clamp(36px, 9.8vw, 42px) |
-| Body | 24px | 22px | 20px | 18px |
-| Closing strip | 16px | 16px | 16px | 16px |
-
-Implement fixed sizes in rem. Opening: weight 500, line-height 1.1, tracking -.03em, maximum 18ch, balanced natural wrapping. It is the chapter heading, with no forced desktop line breaks. Body: weight 400, line-height 1.55, maximum 50ch, left aligned. The action pair uses weight 500 and warm white; the final paragraph also uses warm white. Other body text uses inverse-secondary. Do not mask or clip any copy.
+Opening: maximum 18ch, balanced natural wrapping, with no forced desktop line breaks. Body: maximum 50ch and left aligned. The action pair uses weight 500 and warm white; the final paragraph also uses warm white. Other body text uses inverse-secondary. Do not mask or clip any copy.
 
 Desktop spacing: opening-to-body 48px, normal paragraph gaps 32px, gap before conclusion 40px. Tablet uses 40px, 24px and 32px. Mobile uses 32px, 24px and 32px. Gene top padding: 112px large desktop, 96px laptop, 80px tablet and 64px mobile. Height is content-driven; no artificial minimum viewport or empty column.
 
