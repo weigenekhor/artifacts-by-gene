@@ -5,8 +5,7 @@ const hero = document.querySelector(".hero");
 const stage = document.querySelector(".hero-stage");
 const root = document.documentElement;
 const beats = [...document.querySelectorAll("[data-motion]")].map(element => ({
-  element, kind: element.dataset.motion, top: 0, value: null,
-  image: element.dataset.motion === "chapter" ? element.nextElementSibling?.querySelector(".application-image") : null
+  element, kind: element.dataset.motion, top: 0, value: null
 }));
 const clamp = n => Math.max(0, Math.min(1, n));
 const smooth = n => n * n * (3 - 2 * n);
@@ -25,7 +24,7 @@ function measure() {
     startWidth: Math.min(1425, container.width * .96), endWidth };
   for (const beat of beats) {
     // Remove the previous transform from the cached document position.
-    const travel = beat.kind === "line" && width >= 768 ? 0 : width < 768 ? (beat.kind === "line" ? 12 : 16) : beat.kind === "chapter" ? 32 : 24;
+    const travel = ["build", "another", "different", "refusal", "resolution"].includes(beat.kind) ? 0 : width < 768 ? 16 : beat.kind === "chapter" ? 32 : 24;
     beat.top = beat.element.getBoundingClientRect().top + scrollY - (1 - (beat.value ?? 1)) * travel;
   }
   dirty = false;
@@ -64,7 +63,6 @@ function render(time) {
     const value = approach(beat.value, target);
     if (value !== beat.value) {
       beat.element.style.setProperty("--progress", value.toFixed(4));
-      beat.image?.style.setProperty("--entry", value.toFixed(4));
       beat.value = value;
     }
   }
@@ -80,7 +78,6 @@ function reset() {
   stage.removeAttribute("style");
   for (const beat of beats) {
     beat.element.style.removeProperty("--progress");
-    beat.image?.style.removeProperty("--entry");
     beat.value = null;
   }
   dirty = true;

@@ -17,12 +17,14 @@ for (const entry of [...catalogue.apps, homepage]) {
   await fs.mkdir(dest, { recursive: true });
   await sharp(bytes).webp({ lossless: true, effort: 6 }).toFile(`${dest}/full.webp`);
   const sources = [];
-  for (const width of [768, 1120].filter(w => w < meta.width)) {
+  // Keep large originals for the viewer; the page only requests screen-sized derivatives.
+  const widths = entry.id === "homepage" ? [768, 1120, 1536, 2240, 2880] : [768, 1120, 1536, 2240];
+  for (const width of widths.filter(w => w < meta.width)) {
     const src = `${dest}/width-${width}.webp`;
     await sharp(bytes).resize({ width, withoutEnlargement: true }).webp({ lossless: true, effort: 6 }).toFile(src);
     sources.push({ src, width });
   }
-  sources.push({ src: `${dest}/full.webp`, width: meta.width });
+  if (meta.width <= widths.at(-1)) sources.push({ src: `${dest}/full.webp`, width: meta.width });
   entry.capture = { src: `${dest}/full.webp`, width: meta.width, height: meta.height, sources,
     sourceSha256: hash(bytes), pixelSha256: hash(await sharp(bytes).ensureAlpha().raw().toBuffer()) };
   // Delete only obsolete generated width variants, never source files.

@@ -53,7 +53,7 @@ assert.equal(normal.stage.style.values.get("--title-opacity"),"0.0000","Identity
 assert.equal(normal.measurements(),measured,"No layout reads during scroll");
 normal.context.scrollY=1800;normal.listeners.get("scroll")();normal.settle();
 assert.equal(normal.stage.style.values.get("--hero-surface"),"23 25 28");
-assert.equal(normal.image.style.values.get("--entry"),"1.0000");
+assert.equal(normal.image.style.values.size,0,"All application screenshots stay still during scroll");
 normal.context.scrollY=0;normal.listeners.get("scroll")();normal.settle();
 assert.equal(parseFloat(normal.stage.style.values.get("--image-x")),firstX,"Reverse scroll uses the same composition");
 normal.context.document.hidden=true;normal.listeners.get("visibilitychange")();normal.listeners.get("scroll")();

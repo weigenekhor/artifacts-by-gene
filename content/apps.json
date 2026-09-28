@@ -11,8 +11,8 @@
       "alt": "Altus LotViewer showing a lot history with reactor, wafer and deposition events",
       "capture": {
         "src": "assets/evidence/altus-lotviewer/full.webp",
-        "width": 1425,
-        "height": 950,
+        "width": 5700,
+        "height": 3800,
         "sources": [
           {
             "src": "assets/evidence/altus-lotviewer/width-768.webp",
@@ -23,17 +23,16 @@
             "width": 1120
           },
           {
-            "src": "assets/evidence/altus-lotviewer/full.webp",
-            "width": 1425
+            "src": "assets/evidence/altus-lotviewer/width-1536.webp",
+            "width": 1536
+          },
+          {
+            "src": "assets/evidence/altus-lotviewer/width-2240.webp",
+            "width": 2240
           }
         ],
-        "sourceSha256": "e5b495d24344034c7c66268eb41e05ea6898f72b36978e69a176688be73badba",
-        "pixelSha256": "5a5eff6a95dceb0af981160be483406afb24c55027298ebd7286f37fa14fd26c"
-      },
-      "presentation": {
-        "role": "anchor",
-        "maxWidth": 1120,
-        "crop": "none"
+        "sourceSha256": "80f8a5be8140f1ef53b7aef88589eefe25485a82c827737accd26735bb4a704c",
+        "pixelSha256": "1c36bda4efe400ceb2276dfab213bf8d1f5ba4b9fb396b90465a62b4a762d720"
       }
     },
     {
@@ -47,8 +46,8 @@
       "alt": "Altus ANKO Viewer showing equipment checks and their next due dates",
       "capture": {
         "src": "assets/evidence/altus-anko-viewer/full.webp",
-        "width": 1425,
-        "height": 950,
+        "width": 5700,
+        "height": 3800,
         "sources": [
           {
             "src": "assets/evidence/altus-anko-viewer/width-768.webp",
@@ -59,17 +58,16 @@
             "width": 1120
           },
           {
-            "src": "assets/evidence/altus-anko-viewer/full.webp",
-            "width": 1425
+            "src": "assets/evidence/altus-anko-viewer/width-1536.webp",
+            "width": 1536
+          },
+          {
+            "src": "assets/evidence/altus-anko-viewer/width-2240.webp",
+            "width": 2240
           }
         ],
-        "sourceSha256": "d888157c8c55d5b22f5045e02ff41c390550b8bf3d4e4d0e662b50bba5f87e68",
-        "pixelSha256": "a7eddbc56790b2bae8e06901a22eeac113124c525131d9b4cb75630e8b199985"
-      },
-      "presentation": {
-        "role": "support-left",
-        "maxWidth": 696,
-        "crop": "none"
+        "sourceSha256": "be381044287cc3f9b23bf3e1ddc10af59a4495b0c142da592edb27393685aa2a",
+        "pixelSha256": "546bf0e7af18c13d8b3ca24c91a93d8305324f594eddbdac7f41e1c9f6b16f16"
       }
     },
     {
@@ -83,8 +81,8 @@
       "alt": "Altus WaferCount displaying chamber wafer counts against maintenance limits",
       "capture": {
         "src": "assets/evidence/altus-wafercount/full.webp",
-        "width": 1425,
-        "height": 950,
+        "width": 5700,
+        "height": 3800,
         "sources": [
           {
             "src": "assets/evidence/altus-wafercount/width-768.webp",
@@ -95,17 +93,16 @@
             "width": 1120
           },
           {
-            "src": "assets/evidence/altus-wafercount/full.webp",
-            "width": 1425
+            "src": "assets/evidence/altus-wafercount/width-1536.webp",
+            "width": 1536
+          },
+          {
+            "src": "assets/evidence/altus-wafercount/width-2240.webp",
+            "width": 2240
           }
         ],
-        "sourceSha256": "72d116a7a3697ce34826a8cf92ba65613e8ea1bdfa3b9077679bf19e1581e85d",
-        "pixelSha256": "210f1e4327c7439489dd3a231f30a4067f4bf8d27916a109345995aeb9d7ad8e"
-      },
-      "presentation": {
-        "role": "support-right",
-        "maxWidth": 572,
-        "crop": "none"
+        "sourceSha256": "d49ca44670be83f78585c57ebf14019ad56a75f7a54ffa7ea8d6d82b0795ff96",
+        "pixelSha256": "2da24774189d8e4312efdd55f79ad8d4332ae36162e8d42668dc5d5c6ef83230"
       }
     },
     {
@@ -119,8 +116,8 @@
       "alt": "TopoTracer displaying an interpolated wafer surface and its measurement scale",
       "capture": {
         "src": "assets/evidence/topotracer/full.webp",
-        "width": 1425,
-        "height": 950,
+        "width": 5700,
+        "height": 3800,
         "sources": [
           {
             "src": "assets/evidence/topotracer/width-768.webp",
@@ -131,17 +128,16 @@
             "width": 1120
           },
           {
-            "src": "assets/evidence/topotracer/full.webp",
-            "width": 1425
+            "src": "assets/evidence/topotracer/width-1536.webp",
+            "width": 1536
+          },
+          {
+            "src": "assets/evidence/topotracer/width-2240.webp",
+            "width": 2240
           }
         ],
-        "sourceSha256": "05b807b23a33a5774767ccf31a5dff09f85bf78f9358a1ad80afc4c4c15c8091",
-        "pixelSha256": "632719f9c6b6f0f82dbc7f7de155e31a3a6188bf8704627d7b1a1df30c783cb1"
-      },
-      "presentation": {
-        "role": "spatial",
-        "maxWidth": 1056,
-        "crop": "none"
+        "sourceSha256": "66164d4622c0179b3721ac6d7e370aa91797fee56fd4d2f996410bf4e8fd55d5",
+        "pixelSha256": "e15d73dc66311fb267fe05e495a87e1bbbee2cec2e3781cf6800a12bd97f0bde"
       }
     },
     {
@@ -155,8 +151,8 @@
       "alt": "Papyrus Reader comparing two recipes with changed and added parameters highlighted",
       "capture": {
         "src": "assets/evidence/papyrus-reader/full.webp",
-        "width": 1425,
-        "height": 950,
+        "width": 5700,
+        "height": 3800,
         "sources": [
           {
             "src": "assets/evidence/papyrus-reader/width-768.webp",
@@ -167,17 +163,16 @@
             "width": 1120
           },
           {
-            "src": "assets/evidence/papyrus-reader/full.webp",
-            "width": 1425
+            "src": "assets/evidence/papyrus-reader/width-1536.webp",
+            "width": 1536
+          },
+          {
+            "src": "assets/evidence/papyrus-reader/width-2240.webp",
+            "width": 2240
           }
         ],
-        "sourceSha256": "7326857f8286b1a3a48d5d737aba771ba95cbcf0fed4683370ae18c5c5e92f20",
-        "pixelSha256": "abe083f1b42369d7cbacec880730c207a2ed65991cfb555c4b2f4b11881df47e"
-      },
-      "presentation": {
-        "role": "comparison",
-        "maxWidth": 1192,
-        "crop": "none"
+        "sourceSha256": "06e0f32c13c0e0255a8c931234b0628847c37305e76f3ab8206c432593a7b151",
+        "pixelSha256": "64b9c9d4a47a8990a3dfce9b946c14205159d549636ae35b485808bb2d435d0d"
       }
     },
     {
@@ -191,8 +186,8 @@
       "alt": "SPC Pathfinder grouping parameter chart links by workcentre",
       "capture": {
         "src": "assets/evidence/spc-pathfinder/full.webp",
-        "width": 1425,
-        "height": 950,
+        "width": 5700,
+        "height": 3800,
         "sources": [
           {
             "src": "assets/evidence/spc-pathfinder/width-768.webp",
@@ -203,32 +198,31 @@
             "width": 1120
           },
           {
-            "src": "assets/evidence/spc-pathfinder/full.webp",
-            "width": 1425
+            "src": "assets/evidence/spc-pathfinder/width-1536.webp",
+            "width": 1536
+          },
+          {
+            "src": "assets/evidence/spc-pathfinder/width-2240.webp",
+            "width": 2240
           }
         ],
-        "sourceSha256": "34af170dcbaad6870d81ff0ffee944657eea98b4c09ed8cba98159c369a9a390",
-        "pixelSha256": "9ec4d080cd9c6d2388ed8bc655303aee7b872a5e263bcfd80511b3c1a7957a2e"
-      },
-      "presentation": {
-        "role": "finder",
-        "maxWidth": 944,
-        "crop": "none"
+        "sourceSha256": "6e3f65ae2734aad55b0557082dd77c5d677e7ce63b9e9efab5ca8a69929ad7eb",
+        "pixelSha256": "914ba126dee5dce7413012e66ad14243267419481ca81eb437bfd12de7900ace"
       }
     },
     {
       "id": "gan-met-compiler",
       "index": 7,
-      "name": "GaN Met Compiler",
+      "name": "Met Compiler",
       "description": "Metrology report compiler.",
       "purpose": "Bring metrology data together. Apply predefined calculations. Produce a consistent report from scattered inputs.",
       "sourceFilename": "GaN Met Compiler.png",
       "valueLine": "Metrology inputs compiled into a consistent report.",
-      "alt": "GaN Met Compiler showing metrology input files, validation checks and compile controls",
+      "alt": "Met Compiler showing metrology input files, validation checks and compile controls",
       "capture": {
         "src": "assets/evidence/gan-met-compiler/full.webp",
-        "width": 1425,
-        "height": 950,
+        "width": 5700,
+        "height": 3800,
         "sources": [
           {
             "src": "assets/evidence/gan-met-compiler/width-768.webp",
@@ -239,17 +233,16 @@
             "width": 1120
           },
           {
-            "src": "assets/evidence/gan-met-compiler/full.webp",
-            "width": 1425
+            "src": "assets/evidence/gan-met-compiler/width-1536.webp",
+            "width": 1536
+          },
+          {
+            "src": "assets/evidence/gan-met-compiler/width-2240.webp",
+            "width": 2240
           }
         ],
-        "sourceSha256": "2823191bb6e71d7b6bc4d356a3592cce24d2a31ade65b2315a987bdeebd2af12",
-        "pixelSha256": "16e3358aba6459c1cb93213a9a78609b6d92a69dca097e431b818b14348efbba"
-      },
-      "presentation": {
-        "role": "anchor",
-        "maxWidth": 1120,
-        "crop": "none"
+        "sourceSha256": "941db6cbbcd6de50a51e22d659015ab057a8eba2a75c3d58691f3ec2027814b4",
+        "pixelSha256": "452e94355d1a5261493bd851fc82ae2d215fd7bef11c8c2f550c2e9b190229a8"
       }
     },
     {
@@ -263,8 +256,8 @@
       "alt": "GaN Temp Diagnoser showing observation controls and recommended diagnostic checks",
       "capture": {
         "src": "assets/evidence/gan-temp-diagnoser/full.webp",
-        "width": 1425,
-        "height": 950,
+        "width": 5700,
+        "height": 3800,
         "sources": [
           {
             "src": "assets/evidence/gan-temp-diagnoser/width-768.webp",
@@ -275,17 +268,16 @@
             "width": 1120
           },
           {
-            "src": "assets/evidence/gan-temp-diagnoser/full.webp",
-            "width": 1425
+            "src": "assets/evidence/gan-temp-diagnoser/width-1536.webp",
+            "width": 1536
+          },
+          {
+            "src": "assets/evidence/gan-temp-diagnoser/width-2240.webp",
+            "width": 2240
           }
         ],
-        "sourceSha256": "3653617d5dd9359a9657d585955fb685407fbfa1f7019e0ce20169ee061d895e",
-        "pixelSha256": "1dd9ed061b6a0d11d57648785d88900515c498e2b07521428599612c5e4e77ca"
-      },
-      "presentation": {
-        "role": "diagnosis",
-        "maxWidth": 820,
-        "crop": "none"
+        "sourceSha256": "9589e05bb5fce5b44ea757b10501b2b861c73e2a051a26a0f3bde5cf57d90072",
+        "pixelSha256": "fa61a4555ba995a5767b15d69c04a414c6c4ba5bab031ba6521c78ba90e2adf5"
       }
     },
     {
@@ -299,8 +291,8 @@
       "alt": "AIX ΔT Assistant showing baseplate weights and a five-position arrangement",
       "capture": {
         "src": "assets/evidence/aix-dt-assistant/full.webp",
-        "width": 1425,
-        "height": 950,
+        "width": 5700,
+        "height": 3800,
         "sources": [
           {
             "src": "assets/evidence/aix-dt-assistant/width-768.webp",
@@ -311,17 +303,16 @@
             "width": 1120
           },
           {
-            "src": "assets/evidence/aix-dt-assistant/full.webp",
-            "width": 1425
+            "src": "assets/evidence/aix-dt-assistant/width-1536.webp",
+            "width": 1536
+          },
+          {
+            "src": "assets/evidence/aix-dt-assistant/width-2240.webp",
+            "width": 2240
           }
         ],
-        "sourceSha256": "1f001fffe65d7ddac4aac900cf5b1b268617796561201ba435409df2f9ca8fe0",
-        "pixelSha256": "fdf25b6bfebb0ee9cadb51bcdf58661df1e22245274ba5257ee7ddd11f825a98"
-      },
-      "presentation": {
-        "role": "arrangement",
-        "maxWidth": 572,
-        "crop": "none"
+        "sourceSha256": "56169a1e7605f124ab690676e906a75380051747e00d9f60a95220caf6682738",
+        "pixelSha256": "255911a95ddfeaa4992a93a5a8bbf455a40d6a28d4aa8989cc8b613334fa0e41"
       }
     },
     {
@@ -335,8 +326,8 @@
       "alt": "LT Zone Assistant showing inner and outer zone geometry on a five-wafer layout",
       "capture": {
         "src": "assets/evidence/lt-zone-assistant/full.webp",
-        "width": 1425,
-        "height": 950,
+        "width": 5700,
+        "height": 3800,
         "sources": [
           {
             "src": "assets/evidence/lt-zone-assistant/width-768.webp",
@@ -347,17 +338,16 @@
             "width": 1120
           },
           {
-            "src": "assets/evidence/lt-zone-assistant/full.webp",
-            "width": 1425
+            "src": "assets/evidence/lt-zone-assistant/width-1536.webp",
+            "width": 1536
+          },
+          {
+            "src": "assets/evidence/lt-zone-assistant/width-2240.webp",
+            "width": 2240
           }
         ],
-        "sourceSha256": "307a45631ad9995bcc7133f00452a4a5945979e75cf5561dbc34a77cddfb4ebf",
-        "pixelSha256": "e8d3302efc797462620d6f676c471295693a692799ffd42a4b26ac0cc85061e0"
-      },
-      "presentation": {
-        "role": "mapping",
-        "maxWidth": 572,
-        "crop": "none"
+        "sourceSha256": "f42f817db01273a93e12b600028df16973c7f431beb7140bd7dfd03ff0c08762",
+        "pixelSha256": "deb146ff0647a4ee2be90dc1f6ee2028aeeffac1a97bcdac4c4a445a2318c49e"
       }
     },
     {
@@ -371,8 +361,8 @@
       "alt": "GaN XML Assistant showing changed, added and removed device configuration values",
       "capture": {
         "src": "assets/evidence/gan-xml-assistant/full.webp",
-        "width": 1425,
-        "height": 950,
+        "width": 5700,
+        "height": 3800,
         "sources": [
           {
             "src": "assets/evidence/gan-xml-assistant/width-768.webp",
@@ -383,17 +373,16 @@
             "width": 1120
           },
           {
-            "src": "assets/evidence/gan-xml-assistant/full.webp",
-            "width": 1425
+            "src": "assets/evidence/gan-xml-assistant/width-1536.webp",
+            "width": 1536
+          },
+          {
+            "src": "assets/evidence/gan-xml-assistant/width-2240.webp",
+            "width": 2240
           }
         ],
-        "sourceSha256": "bfdd68152fce460c5900148d495e1a35819505f8685c55a84e4873f07d5bd928",
-        "pixelSha256": "e23f8c72cd3aae9d501133fdb9e0cf738336f39437c9949e8f3082219408ac5b"
-      },
-      "presentation": {
-        "role": "configuration",
-        "maxWidth": 696,
-        "crop": "none"
+        "sourceSha256": "e5444813eceaa92a622c3f193f34e4d5839254f4a74aeec075da70aef8f7d199",
+        "pixelSha256": "6cd00e954fe437adf5fc7ca2731e22770b2ba226bc8a4a565a381e1d42c6e288"
       }
     },
     {
@@ -407,8 +396,8 @@
       "alt": "Magus SPC GaN showing parameter control charts and specification limits",
       "capture": {
         "src": "assets/evidence/magus-spc-gan/full.webp",
-        "width": 1425,
-        "height": 950,
+        "width": 5700,
+        "height": 3800,
         "sources": [
           {
             "src": "assets/evidence/magus-spc-gan/width-768.webp",
@@ -419,17 +408,16 @@
             "width": 1120
           },
           {
-            "src": "assets/evidence/magus-spc-gan/full.webp",
-            "width": 1425
+            "src": "assets/evidence/magus-spc-gan/width-1536.webp",
+            "width": 1536
+          },
+          {
+            "src": "assets/evidence/magus-spc-gan/width-2240.webp",
+            "width": 2240
           }
         ],
-        "sourceSha256": "ad90125f8e879926d692e524000b9d321e05199101546236f7bf2c6822aa7937",
-        "pixelSha256": "8ccd193644e9df0be8c423a65b68ea3df14ff07ac5fe46bb9fdbfd4599c6ffdb"
-      },
-      "presentation": {
-        "role": "spatial",
-        "maxWidth": 1056,
-        "crop": "none"
+        "sourceSha256": "aae471c931d956f9234c91c4bc40933eb5279cf3d9e0ead9dbcce156924ce70f",
+        "pixelSha256": "e7e8ed3976b97b0ebaeeb3fcda419a9d8073477315784a1b4a11aab07bf4c153"
       }
     },
     {
@@ -443,8 +431,8 @@
       "alt": "Magus SPC Legacy showing parameter review states and a control chart",
       "capture": {
         "src": "assets/evidence/magus-spc-legacy/full.webp",
-        "width": 1425,
-        "height": 950,
+        "width": 5700,
+        "height": 3800,
         "sources": [
           {
             "src": "assets/evidence/magus-spc-legacy/width-768.webp",
@@ -455,17 +443,16 @@
             "width": 1120
           },
           {
-            "src": "assets/evidence/magus-spc-legacy/full.webp",
-            "width": 1425
+            "src": "assets/evidence/magus-spc-legacy/width-1536.webp",
+            "width": 1536
+          },
+          {
+            "src": "assets/evidence/magus-spc-legacy/width-2240.webp",
+            "width": 2240
           }
         ],
-        "sourceSha256": "2ba8266f84fbf76ce9199fdfc49752b63f2f046a7cc3e8ece79a062ec696600c",
-        "pixelSha256": "77eb40686be3b09e297e5b56244daa965c4b718fd722e1b45e61ba2aed9519b4"
-      },
-      "presentation": {
-        "role": "legacy",
-        "maxWidth": 1192,
-        "crop": "none"
+        "sourceSha256": "478964954c8fb58159f832d9e0e53deb80030ef6a5f2ea86e479a54577858906",
+        "pixelSha256": "894e469a20ddbdba8fa493fe288d80ca36dddfdabb94b767f1af4e34bb50f147"
       }
     },
     {
@@ -479,8 +466,8 @@
       "alt": "ANKO Helper showing equipment status, last sample and next due dates",
       "capture": {
         "src": "assets/evidence/anko-helper/full.webp",
-        "width": 1425,
-        "height": 950,
+        "width": 5700,
+        "height": 3800,
         "sources": [
           {
             "src": "assets/evidence/anko-helper/width-768.webp",
@@ -491,17 +478,16 @@
             "width": 1120
           },
           {
-            "src": "assets/evidence/anko-helper/full.webp",
-            "width": 1425
+            "src": "assets/evidence/anko-helper/width-1536.webp",
+            "width": 1536
+          },
+          {
+            "src": "assets/evidence/anko-helper/width-2240.webp",
+            "width": 2240
           }
         ],
-        "sourceSha256": "1ed04816aa1c40edbdafdd91e160ca3281c956558d1af5967a1bfeee59cac438",
-        "pixelSha256": "f7fa7ce796cbf6f7742826544a0d3108c0ba7908b33c7c4b274cf9e389ca8746"
-      },
-      "presentation": {
-        "role": "schedule",
-        "maxWidth": 696,
-        "crop": "none"
+        "sourceSha256": "94d5a51121b7c217d2a7c4e11563362038373d6b3c30769c257538cff99c3668",
+        "pixelSha256": "0f17d90effab0a2da58f3acc619b59b47a72423315016bf60adefedf065c0fef"
       }
     },
     {
@@ -515,8 +501,8 @@
       "alt": "LT Report Compiler showing selected analysis files and a completed processing log",
       "capture": {
         "src": "assets/evidence/lt-report-compiler/full.webp",
-        "width": 1425,
-        "height": 950,
+        "width": 5700,
+        "height": 3800,
         "sources": [
           {
             "src": "assets/evidence/lt-report-compiler/width-768.webp",
@@ -527,17 +513,16 @@
             "width": 1120
           },
           {
-            "src": "assets/evidence/lt-report-compiler/full.webp",
-            "width": 1425
+            "src": "assets/evidence/lt-report-compiler/width-1536.webp",
+            "width": 1536
+          },
+          {
+            "src": "assets/evidence/lt-report-compiler/width-2240.webp",
+            "width": 2240
           }
         ],
-        "sourceSha256": "6f47550c20cc34da330f9cc4c6a6032bf8e0aba3b808648712f7aab0f373eb0e",
-        "pixelSha256": "baca29df56f753fcfcfc8d8f3f3cda7d9635cd81a7afafc5f928208e20261375"
-      },
-      "presentation": {
-        "role": "report",
-        "maxWidth": 572,
-        "crop": "none"
+        "sourceSha256": "4d91c40d5819463d32e0853d206d0e3a69d5fabccd30054f8cb73dfadc4d7bae",
+        "pixelSha256": "7b02df2a74241947e7ed7f11d588c220a35112cf9c4e71ee6a970a43a625ea0d"
       }
     },
     {
@@ -551,8 +536,8 @@
       "alt": "Metria SPC showing equipment parameter controls, a signal plot and a variation plot",
       "capture": {
         "src": "assets/evidence/metria-spc/full.webp",
-        "width": 1425,
-        "height": 950,
+        "width": 5700,
+        "height": 3800,
         "sources": [
           {
             "src": "assets/evidence/metria-spc/width-768.webp",
@@ -563,17 +548,16 @@
             "width": 1120
           },
           {
-            "src": "assets/evidence/metria-spc/full.webp",
-            "width": 1425
+            "src": "assets/evidence/metria-spc/width-1536.webp",
+            "width": 1536
+          },
+          {
+            "src": "assets/evidence/metria-spc/width-2240.webp",
+            "width": 2240
           }
         ],
-        "sourceSha256": "9b061dc27bb8fa7abf7499457082d75f3b11483576dff8407b46c058d5a5672d",
-        "pixelSha256": "3b4d4917420304b5c63d9dbfad191a49bca0e2fa7f7eefbaaf59f7eee16e4584"
-      },
-      "presentation": {
-        "role": "finale",
-        "maxWidth": 1200,
-        "crop": "none"
+        "sourceSha256": "62a82ad1ac8015b13ba5ef6cf8359796434ddf72a21780fac3ef3eceb7ca8b4f",
+        "pixelSha256": "9ffc3d17553d921db89d00fa3a48580874bf3697e2ee3d67f7f93effd1a6c58b"
       }
     }
   ]

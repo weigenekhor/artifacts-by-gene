@@ -3,8 +3,8 @@
   "sourceFilename": "Homepage.png",
   "capture": {
     "src": "assets/evidence/homepage/full.webp",
-    "width": 1425,
-    "height": 950,
+    "width": 11392,
+    "height": 7600,
     "sources": [
       {
         "src": "assets/evidence/homepage/width-768.webp",
@@ -15,11 +15,19 @@
         "width": 1120
       },
       {
-        "src": "assets/evidence/homepage/full.webp",
-        "width": 1425
+        "src": "assets/evidence/homepage/width-1536.webp",
+        "width": 1536
+      },
+      {
+        "src": "assets/evidence/homepage/width-2240.webp",
+        "width": 2240
+      },
+      {
+        "src": "assets/evidence/homepage/width-2880.webp",
+        "width": 2880
       }
     ],
-    "sourceSha256": "613880358786b476771a0b310fbd4c2076f817eb40fbec389d85f77107b5a9ce",
-    "pixelSha256": "4b2602bdd66fe86ab4cef972cda8949d6ada9337dc092de091347a318e6514bc"
+    "sourceSha256": "cc255f040bee2596f2350297ba2f0f984d8282d805a918d06e0367f8529090bb",
+    "pixelSha256": "110b924c478dc97f251ebba53c7119a4a5ff3a380bb5c19e0cd878a472d3a767"
   }
 }
