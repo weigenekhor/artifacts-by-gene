@@ -12,7 +12,7 @@ if (apps.length !== 16 || apps.some((a, i) => a.index !== i + 1)) throw Error("E
 if (expeditions.flatMap(e => e.apps).join() !== apps.map(a => a.id).join()) throw Error("Expedition order does not match the catalogue.");
 const article = app => `<article class="application" id="${app.id}" aria-labelledby="${app.id}-title">
           <header class="application-header"><span class="application-number">${String(app.index).padStart(2, "0")}</span><h3 id="${app.id}-title">${escape(app.name)}</h3>${arrow}</header>
-          <figure class="application-image"><button class="capture-button" type="button" disabled data-full="${escape(versioned(app.capture.src, app.capture))}" data-name="${escape(app.name)}" aria-haspopup="dialog" aria-label="Enlarge ${escape(app.name)} screenshot">${image(app.capture, app.alt, gallerySizes)}</button></figure>
+          <figure class="application-image" data-motion="capture"><button class="capture-button" type="button" disabled data-full="${escape(versioned(app.capture.src, app.capture))}" data-name="${escape(app.name)}" aria-haspopup="dialog" aria-label="Enlarge ${escape(app.name)} screenshot">${image(app.capture, app.alt, gallerySizes)}</button></figure>
           <p class="application-value">${escape(app.valueLine)}</p>
         </article>`;
 let html = await fs.readFile("content/page.html", "utf8");
@@ -27,6 +27,7 @@ html = html.replace("<!-- EXPEDITIONS -->", expeditions.map(e => `<section class
         <header class="expedition-heading" data-motion="chapter">
           <p class="chapter-label">${e.marker}</p>
           <h2 id="${e.id}-title">${escape(e.name)}</h2>
+          <p class="expedition-descriptor">${escape(e.descriptor)}</p>
         </header>
         <div class="expedition-works">${e.apps.map(id => article(apps.find(a => a.id === id))).join("\n        ")}</div>
       </div>

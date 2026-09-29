@@ -7,7 +7,8 @@
       "altus-lotviewer",
       "altus-anko-viewer",
       "altus-wafercount"
-    ]
+    ],
+    "descriptor": "Lot history, equipment checks and usage."
   },
   {
     "id": "interstice",
@@ -17,7 +18,8 @@
       "topotracer",
       "papyrus-reader",
       "spc-pathfinder"
-    ]
+    ],
+    "descriptor": "Wafer mapping, recipe comparison, chart access."
   },
   {
     "id": "gan",
@@ -29,7 +31,8 @@
       "aix-dt-assistant",
       "lt-zone-assistant",
       "gan-xml-assistant"
-    ]
+    ],
+    "descriptor": "Metrology, diagnosis, reactor geometry and configuration."
   },
   {
     "id": "planetfall",
@@ -41,6 +44,7 @@
       "anko-helper",
       "lt-report-compiler",
       "metria-spc"
-    ]
+    ],
+    "descriptor": "SPC, equipment scheduling and reporting."
   }
 ]

@@ -10,6 +10,7 @@ const beats = [...document.querySelectorAll("[data-motion]")].map(element => ({
 const clamp = n => Math.max(0, Math.min(1, n));
 const smooth = n => n * n * (3 - 2 * n);
 const mix = (a, b, p) => a + (b - a) * p;
+const phase = (p, start, end) => smooth(clamp((p - start) / (end - start)));
 let frame = 0, lastTime = 0, dirty = true, heroProgress = null;
 let geometry = { height: innerHeight, top: 0, range: 1, startX: 0, endX: 0, startWidth: 1, endWidth: 1 };
 function measure() {
@@ -22,9 +23,10 @@ function measure() {
   geometry = { height, top: heroRect.top + scrollY, range: Math.max(1, heroRect.height - stageRect.height),
     startX: container.left + container.width * .37, endX: (width - endWidth) / 2,
     startWidth: Math.min(1425, container.width * .96), endWidth };
+  if (desktop.matches) stage.style.setProperty("--image-width", geometry.startWidth.toFixed(2) + "px");
   for (const beat of beats) {
     // Remove the previous transform from the cached document position.
-    const travel = ["build", "another", "resolution"].includes(beat.kind) ? 0 : width < 768 ? 16 : beat.kind === "chapter" ? 32 : 24;
+    const travel = ["build", "another", "resolution"].includes(beat.kind) ? 0 : width < 768 ? 16 : beat.kind === "capture" ? 20 : 24;
     beat.top = beat.element.getBoundingClientRect().top + scrollY - (1 - (beat.value ?? 1)) * travel;
   }
   dirty = false;
@@ -32,6 +34,7 @@ function measure() {
 function render(time) {
   frame = 0;
   if (reduced.matches || document.hidden) return;
+  const layoutChanged = dirty;
   if (dirty) measure();
   const alpha = 1 - Math.exp(-Math.min(64, time - (lastTime || time - 16)) / 65);
   lastTime = time;
@@ -43,23 +46,30 @@ function render(time) {
     return value;
   };
   if (desktop.matches) {
-    heroProgress = approach(heroProgress, clamp((scrollY - geometry.top) / geometry.range));
-    const p = smooth(heroProgress);
-    const open = smooth(clamp(p / .88));
-    const surface = smooth(clamp((p - .5) / .5));
-    stage.style.setProperty("--image-x", mix(geometry.startX, geometry.endX, open).toFixed(2) + "px");
-    stage.style.setProperty("--image-y", mix(geometry.height * .32, 152, open).toFixed(2) + "px");
-    stage.style.setProperty("--image-width", mix(geometry.startWidth, geometry.endWidth, open).toFixed(2) + "px");
-    stage.style.setProperty("--fact-y", mix(geometry.height * .38, 40, smooth(clamp(p / .45))).toFixed(2) + "px");
-    stage.style.setProperty("--descriptor-opacity", (1 - smooth(clamp(p / .65))).toFixed(4));
-    stage.style.setProperty("--title-y", (-48 * p).toFixed(2) + "px");
-    stage.style.setProperty("--title-opacity", (1 - smooth(clamp(p / .18))).toFixed(4));
-    stage.style.setProperty("--hero-surface", [mix(247,23,surface),mix(246,25,surface),mix(242,28,surface)].map(Math.round).join(" "));
-    // Choose a contrasting text colour through the surface handoff.
-    stage.style.setProperty("--hero-ink", surface > .58 ? "#f7f6f2" : "#17191c");
+    const nextProgress = approach(heroProgress, clamp((scrollY - geometry.top) / geometry.range));
+    if (nextProgress !== heroProgress || layoutChanged) {
+      heroProgress = nextProgress;
+      const p = heroProgress;
+      const open = phase(p, .08, .78);
+      const retreat = phase(p, .35, .76);
+      const surface = phase(p, .64, 1);
+      const ink = phase(p, .78, 1);
+      stage.style.setProperty("--image-x", mix(geometry.startX, geometry.endX, open).toFixed(2) + "px");
+      stage.style.setProperty("--image-y", (mix(geometry.height * .32, 220, open) - 68 * phase(p, .62, .95)).toFixed(2) + "px");
+      stage.style.setProperty("--image-scale", mix(1, geometry.endWidth / geometry.startWidth, open).toFixed(5));
+      stage.style.setProperty("--fact-y", (geometry.height * .38 - 24 * phase(p, .12, .53)).toFixed(2) + "px");
+      stage.style.setProperty("--fact-opacity", (1 - phase(p, .27, .48)).toFixed(4));
+      stage.style.setProperty("--descriptor-opacity", (1 - phase(p, .2, .45)).toFixed(4));
+      stage.style.setProperty("--title-y", (-24 * retreat).toFixed(2) + "px");
+      stage.style.setProperty("--title-scale", mix(1, .76, retreat).toFixed(4));
+      stage.style.setProperty("--title-opacity", (1 - phase(p, .56, .76)).toFixed(4));
+      // Copy has receded before the intermediate surface tones cross its luminance.
+      stage.style.setProperty("--hero-surface", [mix(247,23,surface),mix(246,25,surface),mix(242,28,surface)].map(n => n.toFixed(2)).join(" "));
+      stage.style.setProperty("--hero-ink", [mix(23,247,ink),mix(25,246,ink),mix(28,242,ink)].map(n => n.toFixed(2)).join(" "));
+    }
   }
   for (const beat of beats) {
-    const target = smooth(clamp((scrollY + geometry.height * .96 - beat.top) / (geometry.height * .44)));
+    const target = phase(scrollY + geometry.height - beat.top, geometry.height * .04, geometry.height * (beat.kind === "capture" ? .3 : .48));
     const value = approach(beat.value, target);
     if (value !== beat.value) {
       beat.element.style.setProperty("--progress", value.toFixed(4));

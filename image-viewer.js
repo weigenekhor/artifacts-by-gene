@@ -18,7 +18,7 @@ function closeViewer() {
   cancelAnimationFrame(opening);
   viewer.classList.remove("is-visible");
   if (reduceViewerMotion.matches) finishClose();
-  else closing = setTimeout(finishClose, 360);
+  else closing = setTimeout(finishClose, 180);
 }
 
 async function openViewer(button) {

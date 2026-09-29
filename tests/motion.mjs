@@ -13,8 +13,8 @@ function fixture({reduce=false, wide=true}={}) {
   const stage = {style:style(),removeAttribute:()=>stage.style.values.clear(),getBoundingClientRect:()=>{measurements++;return {height:900};}};
   const container = {getBoundingClientRect:()=>{measurements++;return {left:64,width:1312};}};
   const hero = {getBoundingClientRect:()=>{measurements++;return {top:80-context.scrollY,height:1485};},querySelector:()=>container};
-  const image = {style:style()};
-  const beat = {dataset:{motion:"chapter"},style:style(),nextElementSibling:{querySelector:()=>image},
+  const capture = {dataset:{motion:"capture"},style:style(),getBoundingClientRect:()=>{measurements++;return {top:2200-context.scrollY};}};
+  const beat = {dataset:{motion:"chapter"},style:style(),
     getBoundingClientRect:()=>{measurements++;return {top:1900-context.scrollY};}};
   const reduced={matches:reduce,addEventListener:(_,fn)=>listeners.set("reduced",fn)};
   const desktop={matches:wide,addEventListener:(_,fn)=>listeners.set("desktop",fn)};
@@ -26,7 +26,7 @@ function fixture({reduce=false, wide=true}={}) {
     addEventListener:(k,fn)=>listeners.set(k,fn),
     document:{hidden:false,
       documentElement:{classList:{toggle:(k,on)=>on?classes.add(k):classes.delete(k)}},
-      querySelector:selector=>selector===".hero"?hero:stage,querySelectorAll:()=>[beat],
+      querySelector:selector=>selector===".hero"?hero:stage,querySelectorAll:()=>[beat,capture],
       fonts:{ready:{then:fn=>fn()}},addEventListener:(k,fn)=>listeners.set(k,fn)}
   });
   vm.runInContext(source,context);
@@ -38,7 +38,7 @@ function fixture({reduce=false, wide=true}={}) {
     }
     return count;
   }
-  return {context,listeners,frames,classes,stage,beat,image,reduced,desktop,settle,measurements:()=>measurements};
+  return {context,listeners,frames,classes,stage,beat,capture,reduced,desktop,settle,measurements:()=>measurements};
 }
 const normal=fixture();
 normal.settle();
@@ -49,11 +49,27 @@ normal.context.scrollY=400;normal.listeners.get("scroll")();normal.listeners.get
 assert.equal(normal.frames.size,1,"Scroll events share one frame");
 assert.ok(normal.settle()>1,"Scroll response is damped");
 assert.ok(parseFloat(normal.stage.style.values.get("--image-x"))<firstX);
-assert.equal(normal.stage.style.values.get("--title-opacity"),"0.0000","Identity clears before the fact enters its space");
+assert.equal(normal.stage.style.values.get("--title-opacity"),"1.0000","Identity remains fully present through the first half of the reveal");
+const imageWidth=normal.stage.style.values.get("--image-width");
 assert.equal(normal.measurements(),measured,"No layout reads during scroll");
+for(const progress of [.2,.4,.55]) {
+  normal.context.scrollY=80+585*progress;normal.listeners.get("scroll")();normal.settle();
+  assert.equal(normal.stage.style.values.get("--title-opacity"),"1.0000");
+  assert.equal(normal.stage.style.values.get("--image-width"),imageWidth,"Scroll changes image transform, not layout width");
+}
+normal.context.scrollY=80+585*.65;normal.listeners.get("scroll")();normal.settle();
+assert.ok(parseFloat(normal.stage.style.values.get("--title-opacity"))>.5,"Identity and software still coexist at the reveal peak");
+let previous=null;
+for(let p=.78;p<=1;p+=.01){
+  normal.context.scrollY=80+585*p;normal.listeners.get("scroll")();normal.settle();
+  const ink=normal.stage.style.values.get("--hero-ink").split(' ').map(Number);
+  if(previous) assert.ok(ink.every((v,i)=>v>=previous[i]&&v-previous[i]<17),"Text colour interpolates without a threshold flip");
+  previous=ink;
+}
 normal.context.scrollY=1800;normal.listeners.get("scroll")();normal.settle();
-assert.equal(normal.stage.style.values.get("--hero-surface"),"23 25 28");
-assert.equal(normal.image.style.values.size,0,"All application screenshots stay still during scroll");
+assert.equal(normal.stage.style.values.get("--hero-surface"),"23.00 25.00 28.00");
+assert.equal(normal.stage.style.values.get("--hero-ink"),"247.00 246.00 242.00");
+assert.equal(normal.capture.style.values.get("--progress"),"1.0000","Screenshots settle before entering the primary reading area");
 normal.context.scrollY=0;normal.listeners.get("scroll")();normal.settle();
 assert.equal(parseFloat(normal.stage.style.values.get("--image-x")),firstX,"Reverse scroll uses the same composition");
 normal.context.document.hidden=true;normal.listeners.get("visibilitychange")();normal.listeners.get("scroll")();
