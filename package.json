@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node tests/static.mjs && node tests/motion.mjs && node tests/viewer.mjs",
+    "test": "node tests/static.mjs && node tests/motion.mjs && node tests/viewer.mjs && node tests/gallery.mjs",
     "import:captures": "node scripts/import-captures.mjs",
     "serve": "node scripts/serve.mjs"
   },

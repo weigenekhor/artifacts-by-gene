@@ -3,8 +3,8 @@
   "sourceFilename": "Homepage.png",
   "capture": {
     "src": "assets/evidence/homepage/full.webp",
-    "width": 11392,
-    "height": 7600,
+    "width": 5700,
+    "height": 3800,
     "sources": [
       {
         "src": "assets/evidence/homepage/width-768.webp",
@@ -27,7 +27,7 @@
         "width": 2880
       }
     ],
-    "sourceSha256": "cc255f040bee2596f2350297ba2f0f984d8282d805a918d06e0367f8529090bb",
-    "pixelSha256": "110b924c478dc97f251ebba53c7119a4a5ff3a380bb5c19e0cd878a472d3a767"
+    "sourceSha256": "e4e8ac48604d80b94c49a9692bc8bd731ad9497d00742c83c4df6114a854cc0c",
+    "pixelSha256": "a5a36a70c42ab2874d75f2898cde6949cc2f5825ef19cb01b1c2f7cbebf54307"
   }
 }

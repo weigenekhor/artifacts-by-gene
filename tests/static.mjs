@@ -12,12 +12,12 @@ const manifest = JSON.parse(await fs.readFile("content/source-manifest.json", "u
 const hash = b => createHash("sha256").update(b).digest("hex");
 const norm = s => s.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
 
-assert.equal(apps.length, 16);
+assert.equal(apps.length, 17);
 const names = [...html.matchAll(/<h3 id="[^"]+-title">([^<]+)<\/h3>/g)].map(m => m[1]);
 assert.deepEqual(names, apps.map(a => a.name));
 assert.deepEqual(expeditions.map(e => e.name), ["ALTUS", "INTERSTICE", "GaN EPI", "PLANETFALL"]);
 assert.deepEqual(expeditions.flatMap(e => e.apps), apps.map(a => a.id));
-assert.equal(new Set(apps.map(a => a.id)).size, 16);
+assert.equal(new Set(apps.map(a => a.id)).size, 17);
 for (const app of apps) assert.ok(design.includes(`| ${String(app.index).padStart(2, "0")} | ${app.name} |`));
 assert.ok(html.includes("<title>Artifacts by Gene</title>"));
 assert.equal(norm(html.match(/<h1[^>]*>(.*?)<\/h1>/s)[1]), "ARTIFACTS");
@@ -30,7 +30,7 @@ assert.ok(!html.includes("Select an interface to view the full capture."));
 const gene = html.match(/<div class="gene-editorial gene-copy">([\s\S]*?)<\/div>/)[1];
 assert.equal(norm(gene), "I spent my entire life improving processes. ARTIFACTS began when I realised engineering itself was one of them. What repeated, I automated. What stood in the way, I rebuilt. ARTIFACTS is the evidence that I never accepted the way things were as the way they had to stay.");
 assert.ok(!/<canvas|<video|<iframe|data-film/i.test(html));
-assert.deepEqual([...html.matchAll(/<script[^>]+src="([^"]+)"/g)].map(m=>m[1].split("?")[0]), ["chapter-motion.js", "image-viewer.js"]);
+assert.deepEqual([...html.matchAll(/<script[^>]+src="([^"]+)"/g)].map(m=>m[1].split("?")[0]), ["chapter-motion.js", "image-viewer.js", "gallery.js"]);
 assert.ok(!/\son\w+=/i.test(html), "No script-dependent event handlers");
 const css = await fs.readFile("styles.css", "utf8");
 assert.match(css, /prefers-reduced-motion:\s*reduce/);
@@ -44,17 +44,21 @@ for (const id of ["origin", "gene"]) {
   const section = html.match(new RegExp(`<section[^>]+id="${id}"[^>]*>([\\s\\S]*?)</section>`))[1];
   assert.ok(!/<img|<picture/.test(section), `${id} must not contain screenshots`);
 }
-assert.equal([...html.matchAll(/<img /g)].length, 17, "One homepage and sixteen app captures only");
+const captures = apps.flatMap(app => app.images.map((image,i) => ({...image,id:app.id,slide:i+1})));
+assert.equal(captures.length, 35);
+assert.equal([...html.matchAll(/data-gallery role=/g)].length,9);
+assert.equal([...html.matchAll(/<img /g)].length, 36 + captures.length - apps.length, "All captures plus no-JavaScript alternate slides");
 const captureLinks = [...html.matchAll(/data-full="([^"]+)"/g)];
-assert.equal(captureLinks.length, 16, "Every application offers the in-page original");
-assert.deepEqual(captureLinks.map(m => m[1].split("?")[0]), apps.map(a => a.capture.src));
+assert.equal(captureLinks.length, 35, "Every slide offers its own in-page original");
+assert.deepEqual(captureLinks.map(m => m[1].split("?")[0]), captures.map(a => a.capture.src));
 assert.ok(!/target="_blank"/.test(html));
 const symbol = await fs.readFile("assets/brand/artifacts-symbol.svg", "utf8");
 for (const [, d] of symbol.matchAll(/<path d="([^"]+)"/g)) assert.ok(html.includes(`d="${d}"`));
 
-for (const entry of [...apps, homepage]) {
+assert.deepEqual(manifest.entries.map(e=>e.sourceFilename).sort(), [...captures,homepage].map(e=>e.sourceFilename).sort());
+for (const entry of [...captures, {...homepage,slide:1}]) {
   const c = entry.capture;
-  const record = manifest.entries.find(r => r.id === entry.id);
+  const record = manifest.entries.find(r => r.id === entry.id && r.slide === entry.slide);
   assert.ok(record, `${entry.id}: no source provenance`);
   assert.equal(record.sourceFilename, entry.sourceFilename);
   assert.equal(record.sourceSha256, c.sourceSha256);
@@ -76,4 +80,4 @@ for (const [, url] of html.matchAll(/(?:src|href)="([^"]+)"/g)) {
 }
 assert.equal((await fs.readFile("CNAME", "utf8")).trim(), "artifactsbygene.com");
 await fs.access(".nojekyll");
-console.log("PASS: four chapters, 16 complete captures and viewer triggers, source integrity, approved story/Gene copy, real logo and deployment paths.");
+console.log("PASS: 17 applications, 35 gallery captures, nine slideshows, source integrity, approved copy, logo and deployment paths.");

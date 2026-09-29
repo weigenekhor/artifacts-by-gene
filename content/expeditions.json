@@ -43,8 +43,9 @@
       "magus-spc-legacy",
       "anko-helper",
       "lt-report-compiler",
-      "metria-spc"
+      "metria-spc",
+      "data-lens"
     ],
-    "descriptor": "SPC, equipment scheduling and reporting."
+    "descriptor": "SPC, reporting and measurement data exploration."
   }
 ]

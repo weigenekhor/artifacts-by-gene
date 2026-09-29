@@ -1,6 +1,6 @@
 # ARTIFACTS — Visual Design System
 
-Version 2.2 · 29 September 2026 · A body of engineering software
+Version 2.3 · 29 September 2026 · A body of engineering software
 
 ## 1. Authority
 
@@ -14,9 +14,9 @@ The real application screenshots are the work. The website supplies narrative, c
 
 Hero → Why it exists → Expedition I / ALTUS → Expedition II / INTERSTICE → Expedition III / GaN EPI → Expedition IV / PLANETFALL → Gene → End.
 
-The hero introduces one real software environment. Origin establishes unnecessary engineering friction and the decision to build. Four chapters reveal different classes of work in the suite's actual order. Metria closes the software exhibition. Gene ends the page with personal context and no imagery.
+The hero introduces one real software environment. Origin establishes unnecessary engineering friction and the decision to build. Four chapters reveal different classes of work in the suite's actual order. Data Lens closes the software exhibition. Gene ends the page with personal context and no imagery.
 
-Keep the four chapters distinct; use two equal gallery columns inside each on desktop. No masonry, featured sizes or offsets. Do not put screenshots into Origin or Gene. There are seventeen persistent images: one homepage and sixteen applications. The viewer creates one selected full-resolution image on demand.
+Keep the four chapters distinct; use two equal gallery columns inside each on desktop. No masonry, featured sizes or offsets. Do not put screenshots into Origin or Gene. There are seventeen application galleries and one homepage. Nine galleries contain multiple real captures; the other eight have a single capture. The viewer creates one selected full-resolution image on demand.
 
 ## 3. Assets and content authority
 
@@ -34,7 +34,7 @@ Rescan the source folder before an imagery update. Match every image visually an
 
 scripts/import-captures.mjs reads originals without modifying them. It writes lossless full-size WebP and smaller 768/1120/1536/2240px responsive derivatives, plus a 2880px homepage derivative, records dimensions, modification times, byte sizes, source SHA-256 and decoded-pixel SHA-256, and removes only obsolete generated width variants. Run the build afterward.
 
-The 28 September refresh contains sixteen 5700 × 3800 application sources and one 11392 × 7600 homepage. These are the supplied file dimensions, not a claim about how they were captured. All originals remain untouched. Full-size lossless WebP preserves decoded pixels; normal browsing uses the smaller responsive set. Only opening a viewer requests the full original. Content hashes in image URLs invalidate stale browser caches. Met Compiler is the current name; its stable gan-met-compiler ID and original source filename are retained for compatibility.
+The 29 September refresh contains 35 application captures and one homepage. Application captures are 10240px wide with their supplied heights; the homepage is 5700 × 3800. These are supplied file dimensions, not a claim about capture resolution. Full-size WebP preserves decoded pixels; normal browsing uses smaller responsive derivatives. Keep historical stable IDs so old fragment links continue to work. Public app names follow the supplied software captures, as explicitly confirmed by Gene: GaN Temp Diagnoser, GaN XML Assistant, Magus SPC (GaN), GaN EPI, Met Compiler and Data Lens. Keep the images untouched.
 
 ## 4. Surface and type tokens
 
@@ -139,7 +139,7 @@ Every chapter opens with its precise marker, name and one factual 3–7-word des
 - ALTUS: Lot history, equipment checks and usage.
 - INTERSTICE: Wafer mapping, recipe comparison, chart access.
 - GaN EPI: Metrology, diagnosis, reactor geometry and configuration.
-- PLANETFALL: SPC, equipment scheduling and reporting.
+- PLANETFALL: SPC, reporting and measurement data exploration.
 
 Keep common typography and alignment while changing surface rhythm. Screenshot hierarchy stays equal.
 
@@ -161,12 +161,13 @@ Keep common typography and alignment while changing surface rhythm. Screenshot h
 | 14 | ANKO Helper | PLANETFALL |
 | 15 | LT Report Compiler | PLANETFALL |
 | 16 | Metria SPC | PLANETFALL |
+| 17 | Data Lens | PLANETFALL |
 
 Chapter markers are 03 / EXPEDITION I through 06 / EXPEDITION IV. The current brief explicitly restores these real suite group names.
 
 ALTUS uses warm mineral. INTERSTICE uses near-white. GaN EPI uses ink with warm-white headings and soft-grey captions; its image stages remain neutral. PLANETFALL uses deeper mineral. No app receives its own colour theme or special size.
 
-Each semantic article contains number + name, screenshot, one verified value line. No paragraphs, category pills, enclosing cards, fake chrome, heavy borders or labels telling users to view an image. Ownership must be unmistakable. Use a 3:2 outer stage and contain the entire real screenshot. Intrinsic image dimensions and responsive source sizes remain factual.
+Each semantic article contains number + name, a screenshot gallery, one verified value line. No paragraphs, category pills, enclosing cards, fake chrome, heavy borders or labels telling users to view an image. Ownership must be unmistakable. Use a 3:2 outer stage and contain the entire real screenshot. Intrinsic image dimensions and responsive source sizes remain factual.
 
 On a fine pointer with hover capability, only the screenshot stage grows to 1.03 scale over 480ms using cubic-bezier(.16,1,.3,1), returning with the same easing. App number, title and value line stay untransformed and sharp. A very soft image-stage shadow supplies depth, without a card shell or elevated article. No layout dimensions change; neighbouring units stay still. No rotation, cursor tracking, app movies or synthetic touch hover. Do not clip the enlarged unit or its focus outline. Reduced motion removes transforms and transitions.
 
@@ -178,16 +179,22 @@ Opening takes 320ms and closing 180ms with the shared easing; backdrop opacity c
 
 Canonical names, order, verified facts, source filenames and image provenance live in content/apps.json. Do not introduce per-app presentation roles or maximum widths. Keep Met Compiler’s stable ID to preserve old fragment links.
 
+### Multi-image galleries
+
+Keep the existing equal-sized, uncropped 3:2 stages. Each app's ordered images live in its images array, with filename, descriptive alternative and capture provenance. Import every image in the source folder; reject unmapped files. Base filename comes first, then numbered suffixes.
+
+Where more than one capture exists, play the images automatically every 5.5 seconds with a 700ms crossfade. No pan, zoom, crop or simulated application movement. Beneath the image show a compact pause/play control, current/total count, a fine time indicator, and previous/next buttons. Controls have 44px hit targets. Pointer hover, keyboard focus, an open viewer, a hidden document or an offscreen gallery suspends playback. Manual navigation pauses the slideshow. Arrow keys and horizontal touch swipes navigate without hijacking vertical scrolling. Reduced motion starts paused, with immediate transitions and no animated time indicator. Explicit Play can advance still images. No-JavaScript visitors get the first capture and an expandable list of the remaining captures. Clicking a capture opens that exact slide's original in the existing viewer.
+
 ## 9. Motion and performance
 
-Use native scroll and one small dependency-free chapter-motion.js enhancement.
+Use native scroll with dependency-free chapter-motion.js, image-viewer.js and gallery.js enhancements. Gallery playback uses bounded timers only while visible; it has no rendering loop.
 - Response damping: 65ms time constant, no overshoot.
 - Chapter easing: cubic-bezier(.16,1,.3,1).
 - Microinteraction colour: 180ms.
 - No mouse-follow effects.
 - Origin: restrained .94–1 scale, up to 48px horizontal movement and 24px context travel. Mobile travel is 12–16px. Each beat settles before it becomes the primary reading area.
 - Chapter heading travel: 24px desktop, 16px mobile.
-- Screenshot stages may settle upward by 20px desktop /16px mobile as they enter, completing by 70% of viewport height. They never fade, crop essential UI or animate internally. The same settle applies across all sixteen apps; no per-app movies.
+- Screenshot stages may settle upward by 20px desktop /16px mobile as they enter, completing by 70% of viewport height. They never fade, crop essential UI or animate internally. The same settle applies across all seventeen apps; no per-app movies.
 - Chapter surfaces change as real section boundaries pass through the viewport. Shorter chapter padding, the last centered work, the next heading and the next capture provide continuity without another pinned scene.
 - Gene never participates in motion.
 
@@ -232,9 +239,9 @@ Continue the same ink surface into Gene / email / LinkedIn / Back to top. Closin
 
 ## 12. Implementation and acceptance
 
-Edit content/page.html, content/apps.json, content/expeditions.json, styles.css, chapter-motion.js and image-viewer.js. Run pnpm build to regenerate index.html. pnpm test verifies app/chapter order, approved copy, lossless source integrity and the motion lifecycle.
+Edit content/page.html, content/apps.json, content/expeditions.json, styles.css, chapter-motion.js, image-viewer.js and gallery.js. Run pnpm build to regenerate index.html. pnpm test verifies app/chapter order, approved copy, lossless source integrity and the motion lifecycle.
 
-Review actual rendered captures at 1920, 1440, 1280, 834 and 390px. Include hero first/mid/final, Origin premise/response/resolution, every Expedition, final Metria, Gene and mobile compositions. Check equal stages, hover layout stability, all viewer close paths, image clicks, focus restoration, scroll preservation, mobile viewer fit, reduced/static fallback, keyboard and320px reflow. Do not approve composition from tests alone.
+Review actual rendered captures at 1920, 1440, 1280, 834 and 390px. Include hero first/mid/final, Origin premise/response/resolution, every Expedition, final Data Lens, Gene and mobile compositions. Check equal stages, hover layout stability, all viewer close paths, image clicks, focus restoration, scroll preservation, mobile viewer fit, reduced/static fallback, keyboard and320px reflow. Do not approve composition from tests alone.
 
 History remains recoverable in Git; the previous clean hero is commit3054923. The previous mosaic edition is preserved at b3b41b0. Do not restore rejected films, collection renderers, mosaic roles or competing direction documents. Do not delete original user screenshots.
 
