@@ -75,7 +75,7 @@ button,input{font:inherit}
 .application h3{font-size:var(--app);line-height:1.25;letter-spacing:-.02em}
 .open-mark{width:16px;height:16px;flex:none;margin-left:auto;color:var(--muted)}
 .application-image{width:100%;background:var(--media);transition:scale 480ms var(--ease),box-shadow 480ms var(--ease)}
-.capture-button{display:block;width:100%;padding:0;border:0;background:none;color:inherit;cursor:zoom-in;aspect-ratio:3/2}
+.capture-button{display:block;width:100%;padding:0;border:0;background:none;color:inherit;cursor:url("assets/cursors/open-image.svg") 19 5,pointer;aspect-ratio:3/2}
 .capture-button:disabled{cursor:default}
 .capture-button:focus-visible{outline-offset:6px}
 .application-image img{width:100%;height:100%;object-fit:contain}
