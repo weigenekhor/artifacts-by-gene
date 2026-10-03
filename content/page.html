@@ -4,85 +4,95 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Artifacts by Gene</title>
-  <meta name="description" content="ARTIFACTS. Built from the work itself. Software that moves engineering forward.">
+  <meta name="description" content="ARTIFACTS. Built from the work itself. Seventeen real engineering applications, explored through four Expeditions.">
   <link rel="canonical" href="https://artifactsbygene.com/">
-  <meta name="theme-color" content="#F7F6F2">
+  <meta name="theme-color" content="#101416">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Artifacts by Gene">
-  <meta property="og:description" content="ARTIFACTS. Built from the work itself. Software that moves engineering forward.">
+  <meta property="og:description" content="ARTIFACTS. Built from the work itself.">
   <meta property="og:url" content="https://artifactsbygene.com/">
   <meta property="og:image" content="https://artifactsbygene.com/assets/evidence/homepage/width-2240.webp">
-  <meta property="og:image:alt" content="The real ARTIFACTS application homepage">
+  <meta property="og:image:alt" content="The ARTIFACTS engineering software environment">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/Geist-Latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
-  <script src="chapter-motion.js" defer></script>
+  <script type="module" src="experience.js"></script>
   <script src="image-viewer.js" defer></script>
-  <script src="gallery.js" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="ARTIFACTS — back to top"><!-- BRAND --><span>ARTIFACTS</span></a>
-      <nav class="header-nav" aria-label="Main navigation"><a class="header-story" href="#origin">Story</a><a href="#applications">Applications</a><a class="header-gene" href="#gene">Gene</a></nav>
+      <span class="header-context" aria-live="off">Engineering software</span>
+      <nav aria-label="Main navigation"><a href="#origin">The story</a><a href="#app-index" class="index-open">Index <span aria-hidden="true">↗</span></a></nav>
     </div>
   </header>
   <main id="main" tabindex="-1">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-stage">
-        <div class="container hero-composition">
+        <div class="hero-copy container">
           <h1 id="hero-title">ARTIFACTS</h1>
           <p class="hero-fact">Built from<br>the work itself.</p>
-          <p class="hero-descriptor">Software that moves<br class="desktop-break"> engineering forward.</p>
         </div>
-        <div class="hero-aperture"><figure class="hero-interface"><!-- HOMEPAGE --></figure></div>
+        <div class="hero-planes"><!-- HERO_PLANES --></div>
+        <div class="hero-foot container"><span>Engineering / Software</span><a href="#app-index">Enter the system <span aria-hidden="true">↓</span></a></div>
+      </div>
+    </section>
+    <section class="system-index" id="app-index" aria-labelledby="index-title">
+      <div class="container">
+        <div class="index-heading"><h2 id="index-title">17 applications <span>·</span> 4 Expeditions</h2><p>The complete collection</p></div>
+        <div class="index-layout">
+          <nav class="app-index" aria-label="Application index"><!-- APP_INDEX --></nav>
+          <div class="index-preview">
+            <div class="index-preview-meta"><span data-preview-number>01 / 17</span><span data-preview-chapter>ALTUS</span></div>
+            <div class="index-preview-frame"><!-- INDEX_PREVIEWS --></div>
+            <p data-preview-name>Altus LotViewer</p>
+            <p class="index-preview-value" data-preview-value>Process events become a readable lot history.</p>
+          </div>
+        </div>
       </div>
     </section>
     <section class="origin" id="origin" aria-labelledby="origin-title">
-      <div class="container">
-        <div class="origin-premise" data-motion="premise">
-          <p class="chapter-label">02 / WHY ARTIFACTS EXISTS</p>
-          <h2 id="origin-title">Engineering is<br class="desktop-break"> difficult enough.</h2>
-          <div class="origin-distinction"><p>Some difficulty belongs to the work.</p><p>Some doesn’t.</p></div>
+      <div class="origin-stage">
+        <div class="origin-label container"><p class="eyebrow">Why ARTIFACTS exists</p><span class="origin-count" aria-hidden="true">01 / 04</span></div>
+        <div class="origin-copies container">
+          <div class="origin-copy"><h2 id="origin-title">Engineering is<br>difficult enough.</h2><p>Some difficulty belongs to the work.<br><span>Some doesn’t.</span></p></div>
+          <div class="origin-copy"><h3>One problem<br>became a tool.</h3></div>
+          <div class="origin-copy"><h3>Then another.</h3></div>
+          <div class="origin-copy origin-copy--last"><h3>ARTIFACTS<br>took shape.</h3></div>
         </div>
-        <div class="origin-build">
-          <h3 class="story-statement" data-motion="build">One problem<br>became a tool.</h3>
-          <p class="story-another" data-motion="another">Then another.</p>
-          <p class="story-context" data-motion="context">There was no masterplan.<br>Just work that kept revealing<br class="desktop-break"> where it could be better.</p>
-        </div>
-      </div>
-      <div class="origin-resolution" id="applications">
-        <div class="container"><p data-motion="resolution">Tool by tool,<br><span>ARTIFACTS took shape.</span></p></div>
+        <div class="origin-field"><!-- ORIGIN_PLANES --></div>
+        <a class="origin-exit" href="#applications">Explore what was built <span aria-hidden="true">↓</span></a>
       </div>
     </section>
-    <!-- EXPEDITIONS -->
+    <div class="applications" id="applications">
+      <!-- EXPEDITIONS -->
+    </div>
     <section class="gene" id="gene" aria-labelledby="gene-title">
-      <div class="container">
-        <div class="gene-editorial gene-copy">
+      <div class="container gene-layout">
+        <p class="eyebrow gene-attribution">by Gene</p>
+        <div class="gene-editorial">
           <h2 id="gene-title">I spent my entire life improving processes.</h2>
           <p>ARTIFACTS began when I realised engineering itself was one of them.</p>
           <p class="gene-actions">What repeated, I automated.<br>What stood in the way, I rebuilt.</p>
           <p class="gene-conclusion">ARTIFACTS is the evidence that I never accepted the way things were as the way they had to stay.</p>
+          <div class="gene-contact"><a href="mailto:weigenekhor@gmail.com">weigenekhor@gmail.com</a><a href="https://www.linkedin.com/in/weigenekhor/">LinkedIn ↗</a></div>
         </div>
       </div>
     </section>
   </main>
-  <footer class="site-footer">
-    <div class="container">
-      <div class="gene-editorial gene-closing">
-        <p class="gene-signature">Gene</p>
-        <a href="mailto:weigenekhor@gmail.com">weigenekhor@gmail.com</a>
-        <a href="https://www.linkedin.com/in/weigenekhor/">LinkedIn</a>
-        <a class="back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
-      </div>
-    </div>
-  </footer>
-  <dialog class="image-viewer" aria-modal="true" aria-label="Application screenshot">
-    <button class="viewer-close" type="button" aria-label="Close image viewer" autofocus><span>Close</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.5"/></svg></button>
-    <div class="viewer-image"></div>
-    <p class="viewer-status" role="status"></p>
+  <footer class="site-footer"><div class="container footer-inner"><span>ARTIFACTS</span><a href="#top">Back to top ↑</a></div></footer>
+  <dialog class="index-dialog" aria-modal="true" aria-labelledby="dialog-index-title">
+    <div class="dialog-heading"><h2 id="dialog-index-title">The collection</h2><button type="button" class="index-close" autofocus>Close ×</button></div>
+    <nav aria-label="Jump to an application"><!-- DIALOG_INDEX --></nav>
+    <a class="index-gene" href="#gene">The person behind it ↗</a>
   </dialog>
+  <dialog class="image-viewer" aria-modal="true" aria-label="Application screenshot">
+    <div class="viewer-toolbar"><span class="viewer-name"></span><div><button class="viewer-zoom" type="button" aria-pressed="false">Zoom in +</button><button class="viewer-close" type="button" autofocus>Close ×</button></div></div>
+    <div class="viewer-image"></div><p class="viewer-status" role="status"></p>
+  </dialog>
+  <!-- CAMERA_DATA -->
 </body>
 </html>

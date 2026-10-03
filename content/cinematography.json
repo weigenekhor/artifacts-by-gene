@@ -1,0 +1,901 @@
+{
+  "altus-lotviewer": {
+    "entry": "rise",
+    "duration": 1.75,
+    "beats": [
+      {
+        "image": 0,
+        "label": "The complete lot history",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 0,
+        "label": "Wafer and deposition events",
+        "focus": {
+          "x": 0.06,
+          "y": 0.27,
+          "width": 0.88,
+          "height": 0.53
+        }
+      },
+      {
+        "image": 0,
+        "label": "Reactor and wafer states",
+        "focus": {
+          "x": 0.24,
+          "y": 0.34,
+          "width": 0.57,
+          "height": 0.49
+        }
+      },
+      {
+        "image": 0,
+        "label": "The complete lot history",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  },
+  "altus-anko-viewer": {
+    "entry": "left",
+    "duration": 1.65,
+    "beats": [
+      {
+        "image": 0,
+        "label": "Equipment checks",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 0,
+        "label": "Check status and due dates",
+        "focus": {
+          "x": 0.37,
+          "y": 0.14,
+          "width": 0.61,
+          "height": 0.56
+        }
+      },
+      {
+        "image": 0,
+        "label": "Across the equipment",
+        "focus": {
+          "x": 0.06,
+          "y": 0.14,
+          "width": 0.58,
+          "height": 0.62
+        }
+      },
+      {
+        "image": 0,
+        "label": "Equipment checks",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  },
+  "altus-wafercount": {
+    "entry": "rise",
+    "duration": 1.7,
+    "beats": [
+      {
+        "image": 0,
+        "label": "Chamber usage",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 0,
+        "label": "Counts against maintenance limits",
+        "focus": {
+          "x": 0.05,
+          "y": 0.14,
+          "width": 0.47,
+          "height": 0.72
+        }
+      },
+      {
+        "image": 0,
+        "label": "The chamber comparison",
+        "focus": {
+          "x": 0.5,
+          "y": 0.14,
+          "width": 0.48,
+          "height": 0.72
+        }
+      },
+      {
+        "image": 0,
+        "label": "Chamber usage",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  },
+  "topotracer": {
+    "entry": "right",
+    "duration": 2.4,
+    "beats": [
+      {
+        "image": 2,
+        "label": "Measured points and contours",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 2,
+        "label": "The measured field",
+        "focus": {
+          "x": 0.08,
+          "y": 0.23,
+          "width": 0.42,
+          "height": 0.69
+        }
+      },
+      {
+        "image": 1,
+        "label": "Contours beside the surface",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 0,
+        "label": "The interpolated surface",
+        "focus": {
+          "x": 0.14,
+          "y": 0.2,
+          "width": 0.76,
+          "height": 0.56
+        }
+      },
+      {
+        "image": 0,
+        "label": "Surface and colour map",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  },
+  "papyrus-reader": {
+    "entry": "left",
+    "duration": 2.15,
+    "beats": [
+      {
+        "image": 0,
+        "label": "Equivalent steps, visible differences",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 0,
+        "label": "Reference and test recipes",
+        "focus": {
+          "x": 0.06,
+          "y": 0.14,
+          "width": 0.61,
+          "height": 0.76
+        }
+      },
+      {
+        "image": 1,
+        "label": "Changed parameters",
+        "focus": {
+          "x": 0.36,
+          "y": 0.21,
+          "width": 0.6,
+          "height": 0.7
+        }
+      },
+      {
+        "image": 1,
+        "label": "The full comparison",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  },
+  "spc-pathfinder": {
+    "entry": "right",
+    "duration": 1.65,
+    "beats": [
+      {
+        "image": 0,
+        "label": "SPC chart access",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 0,
+        "label": "Parameters grouped by workcentre",
+        "focus": {
+          "x": 0.05,
+          "y": 0.13,
+          "width": 0.51,
+          "height": 0.78
+        }
+      },
+      {
+        "image": 0,
+        "label": "Related chart groups",
+        "focus": {
+          "x": 0.52,
+          "y": 0.13,
+          "width": 0.46,
+          "height": 0.78
+        }
+      },
+      {
+        "image": 0,
+        "label": "SPC chart access",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  },
+  "gan-met-compiler": {
+    "entry": "rise",
+    "duration": 1.8,
+    "beats": [
+      {
+        "image": 0,
+        "label": "Metrology inputs and validation",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 0,
+        "label": "The input set",
+        "focus": {
+          "x": 0.04,
+          "y": 0.13,
+          "width": 0.53,
+          "height": 0.77
+        }
+      },
+      {
+        "image": 0,
+        "label": "Summary and checks",
+        "focus": {
+          "x": 0.58,
+          "y": 0.13,
+          "width": 0.4,
+          "height": 0.77
+        }
+      },
+      {
+        "image": 0,
+        "label": "Ready to compile",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  },
+  "gan-temp-diagnoser": {
+    "entry": "left",
+    "duration": 2.3,
+    "beats": [
+      {
+        "image": 0,
+        "label": "Temperature symptoms and checks",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 0,
+        "label": "The hot susceptor case",
+        "focus": {
+          "x": 0.06,
+          "y": 0.65,
+          "width": 0.9,
+          "height": 0.3
+        }
+      },
+      {
+        "image": 0,
+        "label": "Suggested diagnostic checks",
+        "focus": {
+          "x": 0.52,
+          "y": 0.13,
+          "width": 0.44,
+          "height": 0.52
+        }
+      },
+      {
+        "image": 1,
+        "label": "The cold susceptor case",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 1,
+        "label": "A direction for investigation",
+        "focus": {
+          "x": 0.06,
+          "y": 0.16,
+          "width": 0.9,
+          "height": 0.76
+        }
+      },
+      {
+        "image": 1,
+        "label": "The complete diagnostic view",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  },
+  "aix-dt-assistant": {
+    "entry": "right",
+    "duration": 2.2,
+    "beats": [
+      {
+        "image": 0,
+        "label": "Weight-based arrangement",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 0,
+        "label": "The baseplate positions",
+        "focus": {
+          "x": 0.44,
+          "y": 0.1,
+          "width": 0.54,
+          "height": 0.82
+        }
+      },
+      {
+        "image": 1,
+        "label": "Temperature-based rearrangement",
+        "focus": {
+          "x": 0.44,
+          "y": 0.1,
+          "width": 0.54,
+          "height": 0.82
+        }
+      },
+      {
+        "image": 1,
+        "label": "Inputs beside the arrangement",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  },
+  "lt-zone-assistant": {
+    "entry": "rise",
+    "duration": 1.9,
+    "beats": [
+      {
+        "image": 0,
+        "label": "Measurement zones in context",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 0,
+        "label": "Inner and outer zones",
+        "focus": {
+          "x": 0.24,
+          "y": 0.1,
+          "width": 0.74,
+          "height": 0.85
+        }
+      },
+      {
+        "image": 0,
+        "label": "Anchors and their geometry",
+        "focus": {
+          "x": 0.05,
+          "y": 0.23,
+          "width": 0.68,
+          "height": 0.68
+        }
+      },
+      {
+        "image": 0,
+        "label": "The complete layout",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  },
+  "gan-xml-assistant": {
+    "entry": "left",
+    "duration": 2.3,
+    "beats": [
+      {
+        "image": 0,
+        "label": "Configuration differences",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 0,
+        "label": "Reference and target values",
+        "focus": {
+          "x": 0.2,
+          "y": 0.2,
+          "width": 0.65,
+          "height": 0.61
+        }
+      },
+      {
+        "image": 1,
+        "label": "The comparison report",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 2,
+        "label": "The changed blocks",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 2,
+        "label": "Values kept beside their reference",
+        "focus": {
+          "x": 0.2,
+          "y": 0.17,
+          "width": 0.65,
+          "height": 0.65
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  },
+  "magus-spc-gan": {
+    "entry": "rise",
+    "duration": 3,
+    "beats": [
+      {
+        "image": 0,
+        "label": "Parameter review",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 1,
+        "label": "Control charts and limits",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 1,
+        "label": "A parameter in context",
+        "focus": {
+          "x": 0.1,
+          "y": 0.28,
+          "width": 0.85,
+          "height": 0.45
+        }
+      },
+      {
+        "image": 2,
+        "label": "The report summary",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 3,
+        "label": "A failed parameter",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 4,
+        "label": "Passed and failed charts",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  },
+  "magus-spc-legacy": {
+    "entry": "right",
+    "duration": 3,
+    "beats": [
+      {
+        "image": 0,
+        "label": "Legacy parameter review",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 1,
+        "label": "The control charts",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 2,
+        "label": "The report summary",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 3,
+        "label": "The chart directory",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 4,
+        "label": "Parameter detail",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 4,
+        "label": "Review against limits",
+        "focus": {
+          "x": 0.15,
+          "y": 0.15,
+          "width": 0.68,
+          "height": 0.7
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  },
+  "anko-helper": {
+    "entry": "left",
+    "duration": 1.7,
+    "beats": [
+      {
+        "image": 0,
+        "label": "Equipment status for planning",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 0,
+        "label": "Last sample and next due",
+        "focus": {
+          "x": 0.4,
+          "y": 0.23,
+          "width": 0.57,
+          "height": 0.6
+        }
+      },
+      {
+        "image": 0,
+        "label": "What needs attention",
+        "focus": {
+          "x": 0.05,
+          "y": 0.3,
+          "width": 0.9,
+          "height": 0.5
+        }
+      },
+      {
+        "image": 0,
+        "label": "The equipment overview",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  },
+  "lt-report-compiler": {
+    "entry": "rise",
+    "duration": 1.65,
+    "beats": [
+      {
+        "image": 0,
+        "label": "LayTec report compilation",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 0,
+        "label": "Selected files and processing",
+        "focus": {
+          "x": 0.07,
+          "y": 0.13,
+          "width": 0.88,
+          "height": 0.34
+        }
+      },
+      {
+        "image": 0,
+        "label": "The complete processing log",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  },
+  "metria-spc": {
+    "entry": "right",
+    "duration": 2.35,
+    "beats": [
+      {
+        "image": 0,
+        "label": "Related equipment signals",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 0,
+        "label": "Side-by-side equipment comparison",
+        "focus": {
+          "x": 0.06,
+          "y": 0.29,
+          "width": 0.91,
+          "height": 0.55
+        }
+      },
+      {
+        "image": 1,
+        "label": "Compare by parameter type",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 1,
+        "label": "The shared field of view",
+        "focus": {
+          "x": 0.06,
+          "y": 0.26,
+          "width": 0.91,
+          "height": 0.63
+        }
+      },
+      {
+        "image": 1,
+        "label": "Equipment, in context",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  },
+  "data-lens": {
+    "entry": "rise",
+    "duration": 3.2,
+    "beats": [
+      {
+        "image": 0,
+        "label": "Measurement distributions",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 0,
+        "label": "Groups in relation",
+        "focus": {
+          "x": 0.17,
+          "y": 0.28,
+          "width": 0.8,
+          "height": 0.66
+        }
+      },
+      {
+        "image": 1,
+        "label": "Wafer maps, side by side",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 1,
+        "label": "The spatial comparison",
+        "focus": {
+          "x": 0.16,
+          "y": 0.29,
+          "width": 0.81,
+          "height": 0.65
+        }
+      },
+      {
+        "image": 2,
+        "label": "Box plots and distributions",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      },
+      {
+        "image": 2,
+        "label": "The complete analytical view",
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        }
+      }
+    ],
+    "mobile": "native-sequence"
+  }
+}
