@@ -3,7 +3,7 @@ import {homeMarkup,panelPosition} from './native-home.js';
 import {createPanelCache} from './panel-cache.js';
 const stage=document.querySelector('.product-stage'),details=document.querySelector('.module-details'),picker=stage.querySelector('select');
 const layouts=JSON.parse(document.querySelector('#native-layout-data').textContent),panels=JSON.parse(document.querySelector('#native-panel-data').textContent);
-const reduced=matchMedia('(prefers-reduced-motion: reduce)'),coarse=matchMedia('(hover: none), (pointer: coarse)');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)'),coarse=matchMedia('(hover: none), (pointer: coarse), (max-width:1100px)');
 const appFor=id=>model.apps.find(app=>app.id===id);
 const cache=createPanelCache(async key=>{
  const image=new Image();image.className='native-panel';image.alt='';image.src=`assets/native/panels/${key}.webp`;
@@ -88,7 +88,7 @@ const controllers=products.map(product=>{
   for(const card of controller.reference().cards){const d=(x-card.x-card.width/2)**2+(y-card.y-card.height/2)**2;if(d<distance){distance=d;nearest=card;}}
   if(nearest&&nearest.key!==lastWarmed&&distance<85000){lastWarmed=nearest.key;cache.warm(`${controller.theme}-${controller.mode}-${nearest.key}`);}
  },{passive:true});
- product.addEventListener('pointerover',e=>{const target=e.target.closest('[data-inspect-app]');if(target&&e.pointerType!=='touch')showDetails(target,controller);});
+ product.addEventListener('pointerover',e=>{const target=e.target.closest('[data-inspect-app]');if(target&&e.pointerType!=='touch'){if(coarse.matches)setEdition(controller.mode);showDetails(target,controller);}});
  product.addEventListener('pointerout',e=>{if(e.target.closest('[data-inspect-app]')&&!e.relatedTarget?.closest('[data-inspect-app],.module-details'))scheduleClose();});
  product.addEventListener('focusin',e=>{setEdition(controller.mode);if(e.target.matches('[data-inspect-app]'))showDetails(e.target,controller);});
  product.addEventListener('focusout',e=>{if(!e.relatedTarget?.closest('[data-inspect-app],.module-details'))scheduleClose();});

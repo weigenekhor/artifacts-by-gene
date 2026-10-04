@@ -12,25 +12,27 @@ Exact supporting text: “A coherent system of tools for analysis, diagnosis, au
 
 ## Product geometry and fidelity
 
-The paired scene uses page gutters and a 1400px cap. Each native state occupies 67% of its width, with an 8cqw vertical offset. Continuous focus varies scale from .94 to 1, rotation by at most 1.1 degrees and translation by at most 20px. Below 760px windows occupy 86%; below 470px they occupy 92% with a larger vertical stagger so both remain visible.
+The paired native scene uses an 1800px cap and page gutters. At desktop, each state occupies 53% with a 5.5cqw vertical offset. Overlap falls on the wafer field rather than application tiles. Fixed stacking avoids a midpoint layer switch. A single continuous focus scalar controls both windows, labels, atmosphere and native light; the dominant edition selects matching public captures. Apparent scale ranges .94–1.04, perspective stays within 1.2 degrees, and translation stays within 30px. Focus is retained when the pointer leaves. Integrated Legacy / Origin and Pentimento / Current labels support keyboard and touch; there is no bottom selector.
+
+Below 1100px, windows become staggered full compositions at 86% width; below 760px, 96%. Pointer-driven depth gives way to explicit selection and readable native information. No desktop overlap is squeezed into a mobile screen.
 
 Every size preserves 1229:820. The complete window scales through ResizeObserver (container units without JS). Logical dimensions: 44px titlebar, full-height 60→240px sidebar, 40px navigation rows, 240px information drawer, 21px status bar. Panels push the application area by 180/240/420px and use source-rendered reflow without shrinking cards. Sidebar meets the bottom window border. No greeting; bottom-right status always says Pentimento. Mobile receives a 44px-high information selector.
 
-Sixteen native home variants cover both themes/modes and all panel layouts at 2× density. Background, full scrollable content, hotspot bounds and hover images come from the same HomeWidget. Preserve actual card titles, Expedition headings, icons, wafer and source geometry. The native wafer texture rotates once per 360 seconds beneath fixed native illumination. One active Legacy/Origin or Pentimento/Pentimento edition selects corresponding gallery captures. The surrounding website palette remains unchanged.
+Sixteen native home variants cover both themes/modes and all panel layouts at 2× density. Background, full scrollable content, hotspot bounds and hover images come from the same HomeWidget. Preserve actual card titles, Expedition headings, icons, wafer and source geometry. The native wafer texture rotates once per 120 seconds beneath fixed native illumination. One active Legacy/Origin or Pentimento/Pentimento edition selects corresponding gallery captures. The surrounding website palette remains unchanged.
 
 Hover/focus shows the native 372×565 ModuleDetailsPanel: title, Expedition, description, version, release, native animated strip and preview. Portal preserves readable source size, scales uniformly for narrow widths, and clamps inside the viewport. Short landscape screens scroll the panel internally rather than reducing text size. Escape, close control and pointer dismissal are available; touch uses the same information. Hero cards never launch screenshot pages. The separate public gallery retains its composition and original captures; edition selection chooses matching appearances.
 
 ## Thinking cycle
 
-Three original SVG diagrams share structural geometry and a return path. They describe the entire ARTIFACTS approach, not three selected applications.
+Three original SVG diagrams share one measured signal path and a quiet horizontal spine (vertical on mobile). The large return connector is removed. They describe the entire ARTIFACTS approach, not three selected applications.
 
 Framing: “Purpose-built from the work.” “ARTIFACTS does not begin with features. It begins with something in the work that should be better.” “Less repetition. More room for engineering judgment.” “Different problems, brought into one disciplined way of working.”
 
-1. Start with the friction. Every tool begins with something in the work that should be better: a repeated task, a difficult comparison, a hidden dependency, or a decision carrying too much manual effort. Turn recurring reasoning into a system.
+1. Start with the friction. Every tool begins with something that should work better: a repeated task, a difficult comparison, a hidden dependency, or a decision carrying too much manual effort. Turn recurring reasoning into a system.
 2. Make the repeatable explicit. Capture the checks that matter. Automate what does not need human attention. Preserve the context needed for the decisions that do. The work reveals what needs to improve next.
 3. Refine through the work. Put the evidence, context, and next action where they can be understood together. Use the tool. Challenge it. Improve it as the process, data, and requirements change.
 
-Do not restore numbered consulting-step labels or the rejected return caption. Diagrams are explanatory artwork, not fabricated application output.
+Use small identifiers: 01 / FRICTION, 02 / STRUCTURE, 03 / REFINEMENT. Do not enlarge them into decorative process numbers or restore the rejected return caption. “Less repetition” is subordinate to “More room for engineering judgment.” The sentence introducing the relationship sits immediately above the visual system. Diagrams are explanatory artwork, not fabricated application output.
 
 ## Collection and closing
 
@@ -40,9 +42,9 @@ All screenshots remain uncropped and high resolution. Captions describe the view
 
 ## Motion and accessibility
 
-Native scrolling; no locking. Product shifts at most 36px into center and briefly settles through sticky staging; intro recedes by at most 28px. Mobile/reduced motion stay in normal flow. Navigation 220ms OutCubic; information/content 240ms; source reflow resolves in 175ms. Hover reveal 160ms, dismissal delay 150ms. Native animated strip is loaded only for visible info and removed on dismissal/hidden tab.
+Native scrolling; no locking. Product shifts at most 18px into center and briefly settles through sticky staging; intro recedes by at most 22px. Its lower structural line continues along the margin into the thinking spine as product contrast softens. Entry resolves environment, native states, detail and labels over 1.37 seconds using separate transform owners. Mobile/reduced motion stay in normal flow. Navigation 220ms OutCubic; information/content 240ms; source reflow resolves in 175ms. Hover reveal 160ms, dismissal delay 150ms. Native animated strip is loaded only for visible info and removed on dismissal/hidden tab.
 
-A shared 18-second cycle aligns evidence, resolves checks, propagates a signal and revises a relationship. Continuous cursor proximity adds local path emphasis and at most 3px displacement; it never moves text. Closing credit: label 300ms; Gene 560ms/20px; identity 430ms/4px; rule 450ms; contacts 400ms/11px. Credit drifts up at most 10px and softens as footer enters. Arrows move 3px diagonally in 180ms. Gallery dwell 3.6 seconds, crossfade 300ms; existing pause rules remain. CSS handles meaningful idle motion; wafer and reasoning animations pause offscreen, in hidden tabs and under reduced motion. Damped pointer rAF stops after settling; geometry is not measured in its render pass.
+A shared 16-second cycle aligns evidence, consolidates repeated paths, resolves checks, carries one packet through all three stages, and revises a relationship before resting. Continuous cursor proximity adds local path emphasis and at most 2px displacement; it never moves text. Closing credit: label 300ms; Gene 560ms/20px; identity 430ms/4px; rule 450ms; contacts 400ms/11px. Credit drifts up at most 10px and softens as footer enters. Arrows move 3px diagonally in 180ms. Gallery dwell 3.6 seconds, crossfade 300ms; existing pause rules remain. CSS handles meaningful idle motion; wafer and reasoning animations pause offscreen, in hidden tabs and under reduced motion. Damped pointer rAF stops after settling; geometry is not measured in its render pass.
 
 The pointer is a small light arrow with dark edge and a restrained accent on actionable elements. Use native cursor URLs, no lagging overlay; text keeps its I-beam and system fallbacks remain available.
 

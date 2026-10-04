@@ -20,7 +20,7 @@ Committed WebPs live in `assets/native/layouts/` and `assets/native/panels/`. Su
 - `native-shell.js`: uniform scale, native panel push/reflow, hover/focus/touch information, prepared bounded-LRU panel loads, stale-request protection and dismissal. Hero cards do not launch screenshots. Mobile has an information selector.
 - `native-home.js`: source-coordinate markup and bounded panel placement.
 - `gallery.js`: one instance per canonical app, decoded crossfades, a single autoplay owner, touch intent and native-dialog viewer. Capture subsets follow the shared edition. Offscreen cards load the correct theme when reached; stale-theme imagery is hidden until the replacement has decoded.
-- `site-motion.js`: event-driven scroll handoffs and closing credits. `experience-motion.js`: damped proximity for the two windows and reasoning field, visibility/reduced-motion coordination. `panel-cache.js`: bounded decoded-image reuse and coalesced pending loads. No pointer movement rebuilds the native grid.
+- `site-motion.js`: event-driven scroll handoffs and closing credits. `experience-motion.js`: one retained continuous hero focus, damped reasoning proximity, a resize-measured SVG signal path, sequential graphic resolution and visibility/reduced-motion coordination. Pointer sampling stops once settled; callbacks never rebuild the native grid. Narrow screens use explicit state selection. Event/observer lifetimes are cleaned up on document disposal. `panel-cache.js`: bounded decoded-image reuse and coalesced pending loads. No pointer movement rebuilds the native grid.
 - `site.js`: entry module.
 
 `site.css` owns public design, `tokens.css` scopes product colors, `shell.css` owns native geometry/wafer rotation, and `thinking.css` owns the shared reasoning timeline. Sharp is build-only; animated information strips load only while requested.
@@ -31,4 +31,4 @@ The generated `content/shells/` fragments, `scripts/complex-shells.mjs`, `native
 
 Build, syntax and automated checks cover canonical order, screenshot dimensions, deployment paths, edition/capture coherence, swipe/autoplay, all native panel layouts, viewport-safe hover placement and requested copy. Browser review checks actual rendered composition, keyboard/touch behavior, reduced motion and no-JS.
 
-Current review branch: `rebuild/contained-product`. Safety baseline `cc2c3fc`; previous contained `a706a60`, older fullscreen `5e518a7`. Publishing the review branch does not promote production. Local `.qa/` and `versions/` are ignored.
+Current review branch: `rebuild/contained-product`. Safety baseline for this pass: `60b50b8`, tagged `review/two-states-60b50b8`; earlier native `51750c3`, capture `cc2c3fc` and contained `a706a60` remain in Git. Publishing the review branch does not promote production. Local `.qa/` and `versions/` are ignored.
