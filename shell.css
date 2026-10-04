@@ -1,6 +1,6 @@
 /* One contained native window. Source coordinates and uniform scale remain unchanged. */
 .product-stage{width:min(calc(100% - 2*var(--gutter)),1240px);margin-inline:auto;position:relative;container-type:inline-size;container-name:product;isolation:isolate}
-.product-environment{position:absolute;left:50%;top:0;width:calc(100vw - 16px);max-width:calc(100vw - 16px);height:calc(100% + 178px);z-index:0;pointer-events:none;transform:translateX(-50%);border:0;border-radius:0;background:radial-gradient(ellipse 96% 72% at 50% 56%,#a0a5aa 0%,#73797e 34%,#494f55 62%,#24282c 84%,transparent 100%),linear-gradient(180deg,#121416 0%,#444a50 57%,#1b1f22 91%,#111315 100%);-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 73%,rgba(0,0,0,.72) 88%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 73%,rgba(0,0,0,.72) 88%,transparent 100%)}
+.product-environment{position:absolute;left:50%;top:0;width:calc(100vw - clamp(32px,6vw,140px));max-width:none;height:calc(100% + 178px);z-index:0;pointer-events:none;transform:translateX(-50%);border:1px solid #ffffff0d;border-radius:14px;background:radial-gradient(ellipse 72% 70% at 50% 82%,#5b6168 0%,#41474d 36%,transparent 74%),linear-gradient(180deg,#111315 0%,#1c2126 28%,#343b42 64%,#171a1e 100%);box-shadow:0 56px 120px -54px #000,inset 0 1px #ffffff08;-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 73%,rgba(0,0,0,.72) 88%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 73%,rgba(0,0,0,.72) 88%,transparent 100%)}
 .product-environment i{position:absolute;inset:0;background:linear-gradient(180deg,#0f1113 0%,transparent 14%,rgba(15,17,19,.12) 68%,rgba(15,17,19,.62) 100%)}
 .product-environment .origin-atmosphere{display:none}
 .product-duet{position:relative;z-index:1;isolation:isolate;user-select:none;width:100%;margin-top:28px;perspective:2200px;transform:translate3d(var(--hero-shift-x,0px),var(--hero-shift-y,0px),0) rotateX(var(--hero-rotate-x,0deg)) rotateY(var(--hero-rotate-y,0deg));transition:none}
@@ -39,7 +39,7 @@
 @keyframes native-wafer-rotation{to{transform:rotate(360deg)}}
 @media(max-width:1100px),(hover:none){.module-details [data-close-details]{opacity:1}}
 @media(hover:hover) and (pointer:fine){.home-scroll{cursor:grab}}
-@media(max-width:760px){.product-duet{margin-top:26px}.product-environment{width:calc(100vw - 8px);max-width:calc(100vw - 8px)}.product-viewport{border-radius:4px}}
+@media(max-width:760px){.product-duet{margin-top:26px}.product-environment{width:calc(100vw - 24px);max-width:calc(100vw - 24px);border-radius:10px}.product-viewport{border-radius:4px}}
 @media(prefers-reduced-motion:reduce){.product-duet{transform:none!important}.home-wafer{animation:none}.app-sidebar,.settings-drawer,.app-content,.app-status>span:first-child{transition:none}.native-panel-motion{display:none}}
 .app-tile.is-located{outline:0;box-shadow:inset 0 0 0 1px #d6c7a2;z-index:4}.app-tile.is-located:before{opacity:0}
 .app-sidebar [data-locate-app]{transition:background 120ms var(--ease),color 120ms var(--ease)}
