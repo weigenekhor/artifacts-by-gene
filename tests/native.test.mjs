@@ -105,23 +105,63 @@ test('Autoplay pauses for visibility, interaction, loading, modal and reduced mo
  context.reduced.matches=true;assert.equal(eligible(),false);
 });
 
-test('Native source renders cover both themes and modes with accurately aligned application targets',async()=>{
- const references=JSON.parse(await fs.readFile('content/home-reference.json','utf8'));
- for(const [key,reference] of Object.entries(references)){
+test('Every native panel geometry keeps its source cards accessible and aligned',async()=>{
+ const references=JSON.parse(await fs.readFile('content/home-layouts.json','utf8'));
+ assert.equal(Object.keys(references).length,16);
+ for(const [key,ref] of Object.entries(references)){
   const [,mode]=key.split('-');
   const expected=model.expeditions.filter(e=>e.mode===mode).flatMap(e=>e.apps).map(id=>model.apps.find(a=>a.id===id).sourceKey);
-  assert.deepEqual(reference.cards.map(card=>card.key),expected);
-  const meta=await sharp(`assets/native/home/${key}.webp`).metadata();
-  assert.equal(meta.width,reference.width*2);assert.equal(meta.height,reference.height*2);
-  for(const card of reference.cards){
-   assert.ok(card.x>=0&&card.y>=0&&card.x+card.width<=reference.width&&card.y+card.height<=reference.height);
-   const hover=await sharp(`assets/native/home/${key}-${card.key}.webp`).metadata();
+  assert.deepEqual(ref.cards.map(card=>card.key),expected);
+  for(const [suffix,width,height] of [['background',ref.width,ref.height],['content',ref.contentWidth,ref.contentHeight]]){
+   const meta=await sharp(`assets/native/layouts/${key}-${suffix}.webp`).metadata();
+   assert.equal(meta.width,width*2);assert.equal(meta.height,height*2);
+  }
+  for(const card of ref.cards){
+   assert.ok(card.x>=0&&card.y>=0&&card.x+card.width<=ref.contentWidth&&card.y+card.height<=ref.contentHeight,key+' '+card.key);
+   const hover=await sharp(`assets/native/layouts/${key}-${card.key}.webp`).metadata();
    assert.equal(hover.width,card.width*2);assert.equal(hover.height,card.height*2);
   }
  }
  const body=html.slice(html.indexOf('<section class="principles'));
  assert.doesNotMatch(body,/data-select-mode|data-cycle-mode|data-theme-choice|gallery-expedition/);
- assert.match(html,/Built around real engineering work\./);
+});
+
+test('Native details assets match all available tools and retain readable, bounded motion areas',async()=>{
+ const references=JSON.parse(await fs.readFile('content/panel-reference.json','utf8'));
+ for(const theme of ['origin','pentimento'])for(const mode of model.modes){
+  for(const id of model.expeditions.filter(e=>e.mode===mode.id).flatMap(e=>e.apps)){
+   const key=`${theme}-${mode.id}-${model.apps.find(a=>a.id===id).sourceKey}`,ref=references[key];
+   assert.ok(ref,key);assert.equal(ref.width,372);assert.equal(ref.height,565);
+   const meta=await sharp(`assets/native/panels/${key}.webp`).metadata();
+   assert.equal(meta.width,744);assert.equal(meta.height,1130);
+   const motion=await sharp(`assets/native/panels/${key}-motion.webp`,{animated:true}).metadata();
+   assert.ok((motion.pages||1)<=32);
+   if(motion.delay)assert.equal(motion.delay.reduce((sum,time)=>sum+time,0),1792);
+   assert.equal(motion.width,ref.motion.width*2);
+   assert.ok(ref.motion.x>=0&&ref.motion.y>=0&&ref.motion.x+ref.motion.width<=372&&ref.motion.y+ref.motion.height<=565,key);
+  }
+ }
+});
+
+test('Hover positioning keeps full panels inside small, landscape and desktop viewports',async()=>{
+ const {panelPosition}=await import('../native-home.js');
+ for(const [vw,vh] of [[390,844],[844,390],[1280,900],[2560,1440]]){
+  const scale=Math.min(1,(vw-32)/372),w=372*scale,h=Math.min(565*scale,vh-32);
+  for(const [x,y] of [[0,0],[vw/2,vh/2],[vw-40,vh-40]]){
+   const point=panelPosition({left:x,right:x+40,top:y,height:40},{left:0,top:0,right:vw,bottom:vh},w,h);
+   assert.ok(point.x>=12&&point.y>=12&&point.x+w<=vw-12+.001&&point.y+h<=vh-12+.001);
+  }
+ }
+});
+
+test('Hero inspection cannot launch screenshot pages and closing credit contains only approved content',async()=>{
+ const shell=await fs.readFile('native-shell.js','utf8');
+ assert.doesNotMatch(shell,/openApp|showCapture|data-open-app|product-capture/);
+ assert.doesNotMatch(html,/Artifacts for Gene/);
+ assert.match(html,/data-product-status>Pentimento</);
+ const credit=html.slice(html.indexOf('<section class="authorship'),html.indexOf('<footer class="ending'));
+ const words=credit.replace(/<svg[\s\S]*?<\/svg>/g,'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+ assert.equal(words,'BUILT BY Gene Wei Gene Khor Email LinkedIn');
 });
 
 test('Requested gallery emphasis, exact supporting copy and theme-free captions survive the build',()=>{

@@ -1,16 +1,17 @@
 # Start here — ARTIFACTS public website
 
-This is the authoritative website direction. The preceding contained-product implementation is recoverable at `a706a60`; the older fullscreen exhibition at `5e518a7`. Do not restore generated app forms, global theme state or edition-based public galleries.
+This is the authoritative website direction. The preceding implementation is preserved at `cc2c3fc` and local tag `review/native-captures-cc2c3fc`. Older contained/fullscreen versions remain in Git. Do not restore generated app forms, global theme state or edition-based public galleries.
 
 ## Current experience
 
 - A restrained introduction leads into a contained ARTIFACTS product window. Linear informed page composition only; no copied branding or assets.
-- Home content is rendered offline from the actual desktop HomeWidget in four appearance/mode states. Browser controls retain semantic navigation over those exact source-rendered cards.
-- Opening an app fills the frame with its supplied real capture. The complete product scales uniformly at every window size; internal geometry does not reflow.
+- Home content is rendered offline from actual HomeWidget in 16 appearance/mode/panel states. Browser controls overlay exact source card positions.
+- Hero cards show native information on hover/focus; touch uses the same panel through an accessible selector. Cards never open screenshot pages. Sidebar and Application Info push content right and use the desktop's native reflow. The complete 1229:820 window scales uniformly.
+- Hero is another 10% smaller. Its page composition settles into a centered product scene through native scrolling. Bottom-right status always says Pentimento, independently of Legacy mode.
 - Only the product changes theme. The website, gallery and image viewer keep one graphite/warm-neutral identity.
-- A connected cycle explains the thinking behind the whole collection: understand the work, build a better response, refine through use.
+- The existing connected graphics explain the whole collection: actual problems, repeatable reasoning, and refinement through use.
 - Every canonical app appears once in the public gallery. Six receive wide emphasis; all retain names, purpose and complete capture sets in source order.
-- Authorship is a centered personal credit with direct contact links, followed by a quiet ending.
+- Authorship is only BUILT BY / Gene / Wei Gene Khor / Email / LinkedIn, about 40% shorter, with a restrained closing-credit reveal and footer handoff.
 - No WebGL, decorative 3D, generated engineering results or recreated default app pages. Cursor styling uses a small native arrow asset, never a trailing overlay.
 
 ## Read next

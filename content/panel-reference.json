@@ -1,0 +1,502 @@
+{
+  "origin-legacy-parser_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 139,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-legacy-altusanko_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-legacy-wafercount_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-legacy-topotracer_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-legacy-xml_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-legacy-path_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-legacy-metro_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-legacy-pyra_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-legacy-dt_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-legacy-laytec_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-legacy-xmlll_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-legacy-dnd_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-legacy-dnd2_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-legacy-ankohelper_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-legacy-sap_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-pentimento-topotracer_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-pentimento-xml_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-pentimento-pyra_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-pentimento-dt_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-pentimento-laytec_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-pentimento-xmlll_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-pentimento-sap_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-pentimento-metro_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-pentimento-plessey_spc_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "origin-pentimento-datalens_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-legacy-parser_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 139,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-legacy-altusanko_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-legacy-wafercount_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-legacy-topotracer_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-legacy-xml_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-legacy-path_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-legacy-metro_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-legacy-pyra_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-legacy-dt_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-legacy-laytec_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-legacy-xmlll_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-legacy-dnd_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-legacy-dnd2_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-legacy-ankohelper_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-legacy-sap_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-pentimento-topotracer_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-pentimento-xml_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-pentimento-pyra_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-pentimento-dt_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-pentimento-laytec_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-pentimento-xmlll_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-pentimento-sap_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 156,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-pentimento-metro_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-pentimento-plessey_spc_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  },
+  "pentimento-pentimento-datalens_tab": {
+    "width": 372,
+    "height": 565,
+    "motion": {
+      "x": 19,
+      "y": 173,
+      "width": 334,
+      "height": 104
+    }
+  }
+}

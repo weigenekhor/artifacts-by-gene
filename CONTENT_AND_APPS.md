@@ -19,7 +19,7 @@ New apps need source membership, manifest facts, screenshot mapping and refreshe
 
 58 explicitly mapped populated captures; each stores source filename, theme, caption, hash, dimensions and responsive paths. Theme metadata is used internally only, not added to visible captions/descriptions.
 
-`assets/screens/<app>/<capture>/` includes 768/1280/1920/2560px derivatives and original-dimension full.webp. Every view is complete. Responsive WebP quality 94; full WebP quality 100. These are optimized derivatives, not lossless archives; originals remain untouched. Viewer uses 2560px, full-size loads only through its explicit link. Hero app views choose 1280/2560 based on displayed size and density.
+`assets/screens/<app>/<capture>/` includes 768/1280/1920/2560px derivatives and original-dimension full.webp. Every view is complete. Responsive WebP quality 94; full WebP quality 100. These are optimized derivatives, not lossless archives; originals remain untouched. Viewer uses 2560px; full-size loads only through its explicit link. Hero information previews come from the actual desktop panel.
 
 ```sh
 pnpm import:captures "C:\Users\Gene\Desktop\Artifacts Images"
@@ -34,12 +34,12 @@ Importer checks hashes and encoding version. Verify ownership when adding captur
 Requires Windows Segoe UI and PySide6; normal site builds do not.
 
 ```sh
-python scripts/export-home-reference.py "C:\Users\Gene\Desktop\Artifacts\Artifacts\Genepy"
-node scripts/prepare-home-assets.mjs "C:\Users\Gene\Desktop\Artifacts Images"
+python scripts/export-home-layouts.py "C:\Users\Gene\Desktop\Artifacts\Artifacts\Genepy"
+python scripts/export-panel-reference.py "C:\Users\Gene\Desktop\Artifacts\Artifacts\Genepy"
 pnpm build
 ```
 
-Four 1161×750 logical views render at 2× (2322×1500). Source card coordinates live in `content/home-reference.json`; per-card hover renders use matching bounds. Committed assets are in `assets/native/home/`. Optional image-folder argument refreshes the complete no-JS fallback from Homepage 2.png. Real source text/wafer/card design remains intact.
+Sixteen layouts include complete scrollable contents and source card bounds for every panel state. Fifty information variants include the actual motion strip and preview. Assets live in `assets/native/layouts/` and `assets/native/panels/`; geometry in `content/home-layouts.json` and `content/panel-reference.json`. No screenshot substitutes for a processing app page. Native renderer and QSS supply the artwork.
 
 ## Other resources
 

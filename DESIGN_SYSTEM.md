@@ -12,36 +12,38 @@ Exact supporting text: “A coherent system of tools for analysis, diagnosis, au
 
 ## Product geometry and fidelity
 
-The product is 10% narrower than the preceding version: 73.8% capped at 1296px; below 1100px, calc(90% - 57.6px); below 760px, calc(90% - 21.6px).
+The product is another 10% narrower: 66.42% capped at 1166.4px; below 1100px, calc(81% - 51.84px); below 760px, calc(81% - 19.44px).
 
-Every size preserves the same 1229:820 window aspect. The complete logical window scales through ResizeObserver. Inside it: 44px title bar, 60px rail, source-rendered 1161×750 home and 21px status bar. No height cap, responsive card rearrangement, stretching or screenshot crop. Smaller mobile screens receive a separate 44px-high app selector.
+Every size preserves 1229:820. The complete window scales through ResizeObserver (container units without JS). Logical dimensions: 44px titlebar, full-height 60→240px sidebar, 40px navigation rows, 240px information drawer, 21px status bar. Panels push the application area by 180/240/420px and use source-rendered reflow without shrinking cards. Sidebar meets the bottom window border. No greeting; bottom-right status always says Pentimento. Mobile receives a 44px-high information selector.
 
-Four home images come from the actual desktop HomeWidget at 2× density, with 1× derivatives. Hotspot positions and hover images are exported from the same native render. Preserve the actual card titles, Expedition headings, icons, wafer and source geometry. Theme/mode controls affect only the product.
+Sixteen native home variants cover both themes/modes and all panel layouts at 2× density. Background, full scrollable content, hotspot bounds and hover images come from the same HomeWidget. Preserve actual card titles, Expedition headings, icons, wafer and source geometry. Theme/mode affects only the product.
 
-Selecting an app replaces the entire interior with its real supplied screenshot. A separate toolbar provides Home, capture count and previous/next controls. Screenshots use contain and may letterbox; never crop or add fake processing controls. Theme preference selects matching captures when available, with a fallback to the full set. User-facing captions never announce Origin or Pentimento.
+Hover/focus shows the native 372×565 ModuleDetailsPanel: title, Expedition, description, version, release, native animated strip and preview. Portal preserves readable source size, scales uniformly for narrow widths, and clamps inside the viewport. Short landscape screens scroll the panel internally rather than reducing text size. Escape, close control and pointer dismissal are available; touch uses the same information. Hero cards never launch screenshot pages. The separate public gallery remains unchanged.
 
 ## Thinking cycle
 
 Three original SVG diagrams share structural geometry and a return path. They describe the entire ARTIFACTS approach, not three selected applications.
 
-Heading: “Good tools begin with understanding. They improve through use.”
+Heading: “Less repetition. More room for engineering judgment.”
 
-1. Understand the work. Start with the problem, its context, and what a useful result needs to be.
-2. Build the better way. Turn that understanding into software that removes friction and keeps the reasoning clear.
-3. Refine through use. Put it to work. Keep what proves useful, improve what gets in the way, and bring that learning to the next problem.
+1. Start with the real problem. Every tool begins inside the work: a recurring task, an unclear comparison, or a process that asks too much of memory.
+2. Keep the useful reasoning. Make repeatable checks explicit. Automate the repeated steps. Leave more room for the work that needs judgment.
+3. Put clarity to work. Bring evidence, context, and the next action into view. Use the tool, question it, and refine it as the work changes.
 
-Return: “Use informs the next iteration.” Diagrams are explanatory artwork, not fabricated output.
+Return: “Real use sets the next brief.” Diagrams are explanatory artwork, not fabricated output.
 
 ## Collection and closing
 
 Public collection follows canonical manifest order, with no public Expedition/theme filters. Two columns for standard apps. TopoTracer, Met Compiler, AIX Temp Diagnoser, AIX ΔT Assistant, Metria SPC and Data Lens receive full rows. An odd standard item uses a compact full-row composition with text beside its screenshot, avoiding an empty orphan cell. All apps retain complete imagery, names, purposes and navigation. On mobile, one column with equal usable controls.
 
-All screenshots remain uncropped and high resolution. Captions describe the view rather than the theme. Authorship is a centered “The person behind ARTIFACTS” credit: Gene, Wei Gene Khor, Email and LinkedIn. Gene is 60px desktop/48px mobile. No biography, label wall or oversized billboard. Footer: real symbol and ARTIFACTS, “Built around real engineering work.”
+All screenshots remain uncropped and high resolution. Captions describe the view rather than the theme. Authorship contains only BUILT BY / Gene / Wei Gene Khor / Email / LinkedIn. Centered, approximately 246px high on desktop (40% shorter), with Gene 52px desktop/42px mobile and a 22px vertical rule. Footer: real symbol and ARTIFACTS, “Built around real engineering work.”
 
 ## Motion and accessibility
 
-Native scrolling; no locking. One-time page entries 640ms; diagram strokes 1100ms. Gallery dwell 3.6 seconds and decoded-image crossfade 300ms. Only the central visible gallery runs. Hover, focus, hidden tabs, modal, offscreen and reduced-motion pause it. No perpetual decoration/render loop.
+Native scrolling; no locking. Product shifts at most 36px into center and briefly settles through sticky staging; intro recedes by at most 28px. Mobile/reduced motion stay in normal flow. Navigation 220ms OutCubic; information/content 240ms; source reflow resolves in 175ms. Hover reveal 160ms, dismissal delay 150ms. Native animated strip is loaded only for visible info and removed on dismissal/hidden tab.
+
+Cycle strokes draw sequentially over 850ms with 220ms stagger. Closing credit: label 300ms; Gene 560ms/20px; identity 430ms/4px; rule 450ms; contacts 400ms/11px. Credit drifts up at most 10px and softens as footer enters. Arrows move 3px diagonally in 180ms. Gallery dwell 3.6 seconds, crossfade 300ms; existing pause rules remain. No perpetual decoration/render loop.
 
 The pointer is a small light arrow with dark edge and a restrained accent on actionable elements. Use native cursor URLs, no lagging overlay; text keeps its I-beam and system fallbacks remain available.
 
-Below 760px, galleries become one column and figures adapt. Below 470px, diagrams sit above captions. Label controls, preserve visible focus, Escape/arrow image-viewer navigation, swipe intent and vertical touch scroll. Reduced motion stops entrances/autoplay while retaining manual controls. No-JS shows the actual homepage fallback, gallery images/full-resolution links, cycle and closing.
+Below 760px galleries become one column; below 470px diagrams sit above captions. Preserve visible focus, labeled controls, Escape, swipe intent and vertical touch scroll. Reduced motion removes scroll translation, native animated strips and credits motion while retaining content/manual controls. No-JS shows the native homepage, gallery images/full-resolution links, cycle and closing.
