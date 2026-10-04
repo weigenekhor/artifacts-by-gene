@@ -11,7 +11,7 @@ This is the authoritative website direction. The preceding implementation is pre
 - One active edition selects matching application captures in the gallery and viewer. The website itself retains its graphite/warm-neutral identity; application ownership and order never change.
 - The connected graphics remain alive through a shared friction → retained checks → feedback cycle, with continuous proximity emphasis. Exact approved copy lives in `scripts/principles.mjs`.
 - Every canonical app appears once in the public gallery. Six receive wide emphasis; all retain names and purpose. The active theme selects its complete capture set in source order; no-JS offers links to every original view.
-- Authorship is only BUILT BY / Gene / Wei Gene Khor / Email / LinkedIn, about 40% shorter, with a restrained closing-credit reveal and footer handoff.
+- Authorship is a restrained closing credit: BUILT BY GENE, the two-line statement, Gene | artifactsbygene.com, Email and LinkedIn, with a masked ghosted ARTIFACTS interface behind it.
 - No WebGL, decorative 3D, generated engineering results or recreated default app pages. Cursor styling uses a small native arrow asset, never a trailing overlay.
 
 ## Read next

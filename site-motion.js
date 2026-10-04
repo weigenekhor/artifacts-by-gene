@@ -6,26 +6,27 @@ const lifetime=new AbortController(),options={signal:lifetime.signal};
 const clamp=n=>Math.max(0,Math.min(1,n));
 const smooth=n=>{n=clamp(n);return n*n*(3-2*n);};
 function animate(element,frames,options){
- if(reduced.matches)return;
+ if(!element||reduced.matches)return;
  const motion=element.animate(frames,{fill:'backwards',easing:ease,...options});running.add(motion);
  motion.finished.catch(()=>{}).finally(()=>running.delete(motion));
 }
 // A single event-driven scroll pass controls the two handoffs; nothing runs at rest.
 const hero=document.querySelector('.hero');
 const sequence=hero.querySelector('.hero-sequence'),stage=hero.querySelector('.product-stage');
-const credit=document.querySelector('.author-credit'),ending=document.querySelector('.ending');
+const credit=document.querySelector('.author-credit'),ending=document.querySelector('.ending'),authorSection=document.querySelector('.authorship'),ghost=document.querySelector('.author-ghost');
 const opening=document.querySelector('.experience-opening'),principles=document.querySelector('.principles'),cycle=document.querySelector('.principle-cycle');
-let frame=0,rest=90,originTop=0,thinkingTop=0,endingTop=0;
+let frame=0,rest=90,originTop=0,thinkingTop=0,endingTop=0,authorTop=0;
 function measure(){
  rest=Math.max(32,(innerHeight-stage.offsetHeight)/2);
  originTop=sequence.getBoundingClientRect().top+scrollY;
  thinkingTop=principles.getBoundingClientRect().top+scrollY;
  endingTop=ending.getBoundingClientRect().top+scrollY;
+ authorTop=authorSection?.getBoundingClientRect().top+scrollY||0;
  stage.style.setProperty('--product-rest',`${rest}px`);schedule();
 }
 function render(){
  frame=0;
- if(reduced.matches||narrow.matches){hero.style.removeProperty('--product-y');hero.style.removeProperty('--intro-y');hero.style.removeProperty('--intro-opacity');hero.style.removeProperty('--product-presence');credit.style.removeProperty('transform');credit.style.removeProperty('opacity');return;}
+ if(reduced.matches||narrow.matches){hero.style.removeProperty('--product-y');hero.style.removeProperty('--intro-y');hero.style.removeProperty('--intro-opacity');hero.style.removeProperty('--product-presence');credit.style.removeProperty('transform');credit.style.removeProperty('opacity');if(ghost){ghost.style.opacity='.14';ghost.style.setProperty('--ghost-rise','0px')}return;}
  const approach=smooth(scrollY/Math.max(1,originTop-rest));
  const handoff=smooth((scrollY+innerHeight*.85-thinkingTop)/Math.max(1,innerHeight*.85));
  hero.style.setProperty('--product-y',`${(1-approach)*10}px`);
@@ -34,6 +35,8 @@ function render(){
  hero.style.setProperty('--product-presence',`${1-.12*handoff}`);
  const finish=smooth((innerHeight*.96-endingTop+scrollY)/(innerHeight*.2));
  credit.style.transform=`translate3d(0,${-10*finish}px,0)`;credit.style.opacity=`${1-.12*finish}`;
+ const authorReveal=smooth((scrollY+innerHeight*.86-authorTop)/Math.max(1,innerHeight*.62));
+ if(ghost){ghost.style.opacity=`${(.14*authorReveal).toFixed(3)}`;ghost.style.setProperty('--ghost-rise',`${(1-authorReveal)*38}px`)}
 }
 function schedule(){if(!frame)frame=requestAnimationFrame(render);}
 window.addEventListener('scroll',schedule,{...options,passive:true});window.addEventListener('resize',measure,{...options,passive:true});
@@ -50,11 +53,24 @@ const creditsObserver=new IntersectionObserver(entries=>{
  if(!entries[0].isIntersecting)return;creditsObserver.disconnect();
  const part=name=>credit.querySelector(`[data-credit="${name}"]`);
  animate(part('label'),[{opacity:0},{opacity:1}],{duration:300});
- animate(part('name'),[{opacity:0,transform:'translateY(20px)'},{opacity:1,transform:'none'}],{duration:560,delay:180});
- animate(part('identity'),[{opacity:0,transform:'translateY(4px)'},{opacity:1,transform:'none'}],{duration:430,delay:310});
- animate(part('email'),[{opacity:0,transform:'translateX(-11px)'},{opacity:1,transform:'none'}],{duration:400,delay:620});
- animate(part('linkedin'),[{opacity:0,transform:'translateX(11px)'},{opacity:1,transform:'none'}],{duration:400,delay:650});
+ animate(part('statement'),[{opacity:0,transform:'translateY(24px)',filter:'blur(6px)'},{opacity:1,transform:'none',filter:'blur(0)'}],{duration:620,delay:360});
+ animate(part('name'),[{opacity:0,transform:'translateY(20px)'},{opacity:1,transform:'none'}],{duration:560,delay:500});
+ animate(part('domain'),[{opacity:0,transform:'translateY(4px)'},{opacity:1,transform:'none'}],{duration:430,delay:610});
+ animate(part('email'),[{opacity:0,transform:'translateX(-11px)'},{opacity:1,transform:'none'}],{duration:400,delay:790});
+ animate(part('linkedin'),[{opacity:0,transform:'translateX(11px)'},{opacity:1,transform:'none'}],{duration:400,delay:820});
 },{threshold:.4});creditsObserver.observe(credit);
+let ghostFrame=0,ghostX=0,ghostY=0,targetGhostX=0,targetGhostY=0;
+const pointerFine=matchMedia('(hover:hover) and (pointer:fine)');
+function renderGhost(){
+ ghostFrame=0;if(!ghost)return;
+ ghostX+=(targetGhostX-ghostX)*.12;ghostY+=(targetGhostY-ghostY)*.12;
+ ghost.style.setProperty('--ghost-x',`${ghostX.toFixed(2)}px`);ghost.style.setProperty('--ghost-y',`${ghostY.toFixed(2)}px`);
+ if(Math.abs(targetGhostX-ghostX)>.02||Math.abs(targetGhostY-ghostY)>.02)ghostFrame=requestAnimationFrame(renderGhost);
+}
+if(authorSection&&ghost&&pointerFine.matches&&!narrow.matches&&!reduced.matches){
+ authorSection.addEventListener('pointermove',event=>{const rect=authorSection.getBoundingClientRect();targetGhostX=((event.clientX-rect.left)/rect.width-.5)*10;targetGhostY=((event.clientY-rect.top)/rect.height-.5)*6;if(!ghostFrame)ghostFrame=requestAnimationFrame(renderGhost)},{passive:true,signal:lifetime.signal});
+ authorSection.addEventListener('pointerleave',()=>{targetGhostX=0;targetGhostY=0;if(!ghostFrame)ghostFrame=requestAnimationFrame(renderGhost)},{signal:lifetime.signal});
+}
 reduced.addEventListener('change',()=>{if(reduced.matches)for(const motion of running)motion.finish();measure();},options);
 narrow.addEventListener('change',measure,options);
-window.addEventListener('pagehide',event=>{if(!event.persisted){lifetime.abort();geometry.disconnect();creditsObserver.disconnect();cancelAnimationFrame(frame);for(const motion of running)motion.cancel();}},options);
+window.addEventListener('pagehide',event=>{if(!event.persisted){lifetime.abort();geometry.disconnect();creditsObserver.disconnect();cancelAnimationFrame(frame);cancelAnimationFrame(ghostFrame);for(const motion of running)motion.cancel();}},options);

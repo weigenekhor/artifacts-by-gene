@@ -16,7 +16,7 @@ The hero uses one native product window with Pentimento as the default. Origin/L
 
 Below 1100px, windows become staggered full compositions at 86% width; below 760px, 96%. Pointer-driven depth gives way to explicit selection and readable native information. No desktop overlap is squeezed into a mobile screen.
 
-Every size preserves 1229:820. The complete window scales through ResizeObserver (container units without JS). Logical dimensions: 44px titlebar, full-height 60→240px sidebar, 40px navigation rows, 240px information drawer, 21px status bar. Panels push the application area by 180/240/420px and use source-rendered reflow without shrinking cards. Sidebar meets the bottom window border. No greeting; bottom-right status always says Pentimento. Mobile receives a 44px-high information selector.
+Every size preserves 1229:820. The complete window scales through ResizeObserver (container units without JS). Logical dimensions: 44px titlebar, full-height 60→240px sidebar, 40px navigation rows, 240px information drawer, 21px status bar. Panels push the application area by 180/240/420px and use source-rendered reflow without shrinking cards. Sidebar meets the bottom window border. No greeting; bottom-right status always says Pentimento. The top state label reads Active; touch uses the same bounded native details panel without a separate selector.
 
 Sixteen native home variants cover both themes/modes and all panel layouts at 2× density. Background, full scrollable content, hotspot bounds and hover images come from the same HomeWidget. Preserve actual card titles, Expedition headings, icons, wafer and source geometry. The native wafer texture rotates once per 120 seconds beneath fixed native illumination. One active Legacy/Origin or Pentimento/Pentimento edition selects corresponding gallery captures. The surrounding website palette remains unchanged.
 
@@ -24,7 +24,7 @@ Hover/focus shows the native 372×565 ModuleDetailsPanel: title, Expedition, des
 
 ## Thinking cycle
 
-Three original SVG diagrams share one measured signal path and a quiet horizontal spine (vertical on mobile). The large return connector is removed. They describe the entire ARTIFACTS approach, not three selected applications.
+Three original SVG diagrams share one measured signal path with black instrument surfaces, restrained graphite strokes and one coordinated transfer. They describe the entire ARTIFACTS approach, not three selected applications.
 
 Framing: “Purpose-built from the work.” “ARTIFACTS does not begin with features. It begins with something in the work that should be better.” “Less repetition. More room for engineering judgment.” “Different problems, brought into one disciplined way of working.”
 
@@ -38,7 +38,7 @@ Use small identifiers: 01 / FRICTION, 02 / STRUCTURE, 03 / REFINEMENT. Do not en
 
 Public collection follows canonical manifest order, with no public Expedition/theme filters. Two columns for standard apps. TopoTracer, Met Compiler, AIX Temp Diagnoser, AIX ΔT Assistant, Metria SPC and Data Lens receive full rows. An odd standard item uses a compact full-row composition with text beside its screenshot, avoiding an empty orphan cell. All apps retain complete imagery, names, purposes and navigation. On mobile, one column with equal usable controls.
 
-All screenshots remain uncropped and high resolution. Captions describe the view rather than the theme. Authorship contains only BUILT BY / Gene / Wei Gene Khor / Email / LinkedIn. Centered, approximately 246px high on desktop (40% shorter), with Gene 52px desktop/42px mobile and a 22px vertical rule. Footer: real symbol and ARTIFACTS, “Built against inevitability.”
+All screenshots remain uncropped and high resolution. Captions describe the view rather than the theme. Authorship is a cinematic closing credit: BUILT BY GENE, the two-line statement, Gene | artifactsbygene.com, Email and LinkedIn, with a masked ghosted ARTIFACTS interface behind it. Footer: real symbol and ARTIFACTS, “Built against inefficiency.”
 
 ## Motion and accessibility
 

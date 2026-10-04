@@ -59,7 +59,7 @@ test('Built page links resolve under a Pages subpath as well as the custom domai
  const social=html.match(/property="og:image" content="https:\/\/artifactsbygene.com\/([^"]+)"/);
  assert.ok(social);await fs.access(social[1]);
  assert.doesNotMatch(html,/C:[\\/]|<canvas|<iframe|experience\.js|image-viewer\.js|three years|I built|WebGL/i);
- assert.match(html,/Built against inevitability\./);
+ assert.match(html,/Built against inefficiency\./);
  assert.match(html,/mailto:weigenekhor@gmail\.com/);
  assert.match(html,/https:\/\/www.linkedin.com\/in\/weigenekhor\//);
 });
@@ -179,7 +179,7 @@ test('Hero inspection cannot launch screenshot pages and closing credit contains
  assert.match(html,/data-product-status>Pentimento</);
  const credit=html.slice(html.indexOf('<section class="authorship'),html.indexOf('<footer class="ending'));
  const words=credit.replace(/<svg[\s\S]*?<\/svg>/g,'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
- assert.equal(words,'The work is personal. The standard isn’t. BUILT BY GENE Gene Wei Gene Khor Email LinkedIn');
+ assert.equal(words,'BUILT BY GENE The work is personal. The standard isn’t. Gene | artifactsbygene.com Email LinkedIn');
 });
 
 test('Gallery body clicks advance while the dedicated expand control remains separate',async()=>{
