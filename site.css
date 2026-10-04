@@ -45,10 +45,10 @@
 /* The product settles before an editorial chapter, without a literal connecting diagram. */
 .experience-opening{position:relative;isolation:isolate}
 .hero-sequence{position:relative;padding-bottom:32px}
-.hero-sequence:after{content:"";display:block;width:42px;height:1px;margin:42px auto 0;background:var(--border-hover)}
-.product-rig{transform:translate3d(0,var(--product-y,0px),0);opacity:var(--product-presence,1)}
+.product-rig{position:relative;transform:translate3d(0,var(--product-y,0px),0);opacity:var(--product-presence,1)}
+.product-rig:after{content:"";position:absolute;z-index:0;left:4%;right:4%;bottom:-116px;height:176px;pointer-events:none;background:radial-gradient(ellipse at 50% 8%,rgba(0,0,0,.72) 0%,rgba(0,0,0,.38) 34%,rgba(0,0,0,.1) 58%,transparent 78%);filter:blur(18px);opacity:.94}
 @media(max-width:1100px),(max-height:520px){.product-rig,.hero-intro{transform:none;opacity:1}}
-@media(max-width:760px){.hero-intro{padding-block:38px 22px}.hero h1{font-size:clamp(54px,14vw,76px);letter-spacing:-.048em}.hero-sequence{padding-bottom:0}.hero-sequence:after{margin-top:32px}.authorship{margin-top:78px;padding:78px 0 72px}.author-credit>.eyebrow{margin-bottom:24px}.author-statement{font-size:clamp(35px,9.8vw,54px);letter-spacing:-.035em;line-height:1.1}.author-identity{margin-top:40px;gap:12px}.author-name{font-size:20px}.author-fullname{font-size:13px;padding-left:12px}.author-links{margin-top:24px}.author-links a{padding-inline:17px;gap:20px}.ending{padding-block:28px 34px}}
+@media(max-width:760px){.hero-intro{padding-block:38px 22px}.hero h1{font-size:clamp(54px,14vw,76px);letter-spacing:-.048em}.hero-sequence{padding-bottom:18px}.product-rig:after{left:0;right:0;bottom:-92px;height:140px;filter:blur(15px);opacity:.8}.authorship{margin-top:78px;padding:78px 0 72px}.author-credit>.eyebrow{margin-bottom:24px}.author-statement{font-size:clamp(35px,9.8vw,54px);letter-spacing:-.035em;line-height:1.1}.author-identity{margin-top:40px;gap:12px}.author-name{font-size:20px}.author-fullname{font-size:13px;padding-left:12px}.author-links{margin-top:24px}.author-links a{padding-inline:17px;gap:20px}.ending{padding-block:28px 34px}}
 @media(prefers-reduced-motion:reduce){.product-rig,.hero-intro{transform:none;opacity:1}}
 
 /* Image navigation and enlargement are deliberately separate controls. */
