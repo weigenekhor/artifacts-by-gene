@@ -1,23 +1,30 @@
-// One score, one playhead. Each figure resolves in sequence, then the system rests.
+// One score, one playhead. Physical layers settle, connections resolve, evidence is ordered.
 export function animateThinking(cycle){
- const duration=11300,reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ const duration=12000,reduced=matchMedia('(prefers-reduced-motion: reduce)');
  const animations=[];let playing=false,wasReduced=reduced.matches;
  const ease='cubic-bezier(.22,.61,.36,1)';
- const frames=(base,steps)=>[{offset:0,...base},...steps.map(([time,value])=>({offset:time/duration,...value})),{offset:10800/duration,...steps.at(-1)[1]},{offset:1,...base}].map(frame=>({...frame,easing:ease}));
- function track(selector,base,steps){const target=cycle.querySelector(selector);if(!target)return null;const animation=target.animate(frames(base,steps),{duration,iterations:Infinity,fill:'both'});animation.pause();animation.currentTime=0;animations.push(animation);return animation;}
- function draw(selector,start,end){const target=cycle.querySelector(selector);if(!target)return null;target.style.strokeDasharray='1';return track(selector,{strokeDashoffset:1},[[start,{strokeDashoffset:1}],[end,{strokeDashoffset:0}]]);}
- // FIG. 01 — fragments relate, comparison resolves.
- track('.evidence-a',{transform:'translate(-12px,-7px)',opacity:.42},[[350,{transform:'translate(-12px,-7px)',opacity:.42}],[800,{transform:'none',opacity:1}]]);
- draw('.route-a',700,1280);track('.evidence-b',{transform:'translate(-15px,11px)',opacity:.38},[[900,{transform:'translate(-15px,11px)',opacity:.38}],[1420,{transform:'none',opacity:1}]]);draw('.route-b',1260,1810);
- track('.friction-mark',{opacity:.2},[[500,{opacity:1}],[1650,{opacity:1}],[2180,{opacity:.25}]]);draw('.comparison-match',1750,2230);track('.comparison-match',{transform:'translateY(8px)'},[[1750,{transform:'translateY(8px)'}],[2250,{transform:'none'}]]);
- track('.signal-compare',{transform:'translate(294px,140px)',opacity:0},[[2210,{transform:'translate(294px,140px)',opacity:0}],[2280,{transform:'translate(310px,140px)',opacity:1}],[2920,{transform:'translate(350px,140px)',opacity:1}],[3000,{transform:'translate(350px,140px)',opacity:0}]]);
- // FIG. 02 — repeated paths consolidate through explicit checks.
- track('.repeat-upper',{transform:'none',opacity:.82},[[3050,{transform:'none',opacity:.82}],[3670,{transform:'translateY(20px)',opacity:.16}]]);track('.repeat-lower',{transform:'none',opacity:.82},[[3200,{transform:'none',opacity:.82}],[3820,{transform:'translateY(-18px)',opacity:.16}]]);
- draw('.route-structure',3220,4300);draw('.check-mark-a',3580,3970);draw('.check-mark-b',4050,4470);track('.structure-packet',{transform:'translate(51px,141px)',opacity:0},[[3280,{transform:'translate(51px,141px)',opacity:1}],[3660,{transform:'translate(126px,141px)',opacity:1}],[4140,{transform:'translate(215px,141px)',opacity:1}],[4750,{transform:'translate(286px,141px)',opacity:1}],[4880,{transform:'translate(286px,141px)',opacity:0}]]);track('.normalised-output',{transform:'translateY(9px)',opacity:.2},[[4380,{transform:'translateY(9px)',opacity:.2}],[4920,{transform:'none',opacity:1}]]);
- // FIG. 03 — evidence changes a condition, then feedback returns.
- track('.clarity-focus',{fill:'#1d3028',stroke:'#91ad9c'},[[5660,{fill:'#1d3028',stroke:'#91ad9c'}],[6170,{fill:'#3a4438',stroke:'#dfc6a0'}],[7530,{fill:'#22372b',stroke:'#c6d6cb'}]]);draw('.evidence-response',5700,6450);track('.adjustment circle',{transform:'translateX(-11px)',fill:'#1d3028'},[[6170,{transform:'translateX(-11px)',fill:'#dfc6a0'}],[6940,{transform:'translateX(18px)',fill:'#dfc6a0'}],[7530,{transform:'translateX(12px)',fill:'#c6d6cb'}]]);draw('.resolved-check',6990,7470);track('.working-structure',{transform:'none'},[[6700,{transform:'none'}],[7530,{transform:'translate(-4px,-4px)'}],[8250,{transform:'none'}]]);draw('.feedback-route',7370,8200);track('.signal-feedback',{offsetPath:'path(\"M296 183C347 183 345 33 229 33H182\")',offsetDistance:'0%',opacity:0},[[7420,{offsetDistance:'0%',opacity:1}],[8200,{offsetDistance:'100%',opacity:1}],[8330,{offsetDistance:'100%',opacity:0}]])
- const transfer=cycle.querySelector('.figure-transfer');let transferAnimation=null;
- function measure(){if(!transfer)return;const root=cycle.getBoundingClientRect(),drawings=[...cycle.querySelectorAll('.principle-drawing')];if(drawings.length<3)return;const first=drawings[0].getBoundingClientRect(),second=drawings[1].getBoundingClientRect(),third=drawings[2].getBoundingClientRect();const y=first.top-root.top+first.height*.52,y2=second.top-root.top+second.height*.52,y3=third.top-root.top+third.height*.52;transfer.style.top=`${y}px`;transferAnimation?.cancel();transferAnimation=transfer.animate([{left:`${first.right-root.left-8}px`,top:`${y}px`,opacity:0},{left:`${first.right-root.left}px`,top:`${y}px`,opacity:1},{left:`${second.left-root.left+4}px`,top:`${y2}px`,opacity:0},{left:`${second.right-root.left-8}px`,top:`${y2}px`,opacity:1},{left:`${third.left-root.left+4}px`,top:`${y3}px`,opacity:0}],{duration,iterations:Infinity,fill:'both',easing:ease});transferAnimation.pause();transferAnimation.currentTime=0;}
- function sync(){const run=cycle.dataset.motion==='running'&&cycle.dataset.revealed==='true'&&!reduced.matches;if(reduced.matches){animations.forEach(a=>{a.pause();a.currentTime=8200});transferAnimation?.pause();playing=false;wasReduced=true;return;}if(run===playing)return;const time=wasReduced?0:(animations[0]?.currentTime||0);wasReduced=false;animations.forEach(a=>{a.pause();a.currentTime=time});if(transferAnimation){transferAnimation.pause();transferAnimation.currentTime=time}if(run){const start=(document.timeline.currentTime||0)-time;animations.forEach(a=>{a.play();a.startTime=start});if(transferAnimation){transferAnimation.play();transferAnimation.startTime=start}}playing=run;}
- const observer=new MutationObserver(sync);observer.observe(cycle,{attributes:true,attributeFilter:['data-motion','data-revealed']});const resize=new ResizeObserver(measure);resize.observe(cycle);measure();reduced.addEventListener('change',sync);sync();return()=>{observer.disconnect();resize.disconnect();reduced.removeEventListener('change',sync);animations.forEach(a=>a.cancel());transferAnimation?.cancel()};
+ function track(selector,frames){
+  const target=cycle.querySelector(selector);if(!target)return;
+  const animation=target.animate(frames.map(([time,frame])=>({offset:time/duration,...frame,easing:ease})),{duration,iterations:Infinity,fill:'both'});
+  animation.pause();animation.currentTime=0;animations.push(animation);
+ }
+ for(let i=0;i<6;i++)track(`.layer-${i}`,[[0,{transform:'none'}],[500,{transform:'none'}],[1800,{transform:`translateY(${-i*1.3}px)`}],[2900,{transform:`translateY(${-i*1.3}px)`}],[3900,{transform:'none'}],[duration,{transform:'none'}]]);
+ track('.retained-reference',[[0,{transform:'none'}],[500,{transform:'none'}],[1800,{transform:'translateY(-6.5px)'}],[2900,{transform:'translateY(-6.5px)'}],[3900,{transform:'none'}],[duration,{transform:'none'}]]);
+ function signal(selector,start,end){track(selector,[[0,{opacity:0,strokeDasharray:1,strokeDashoffset:1}],[start,{opacity:0,strokeDashoffset:1}],[start+300,{opacity:.8,strokeDashoffset:1}],[end,{opacity:.8,strokeDashoffset:0}],[end+1000,{opacity:0,strokeDashoffset:0}],[duration,{opacity:0,strokeDashoffset:0}]]);}
+ signal('.reference-signal',900,2000);signal('.plate-edge',1900,3000);
+ ['back','left','right','front'].forEach((name,i)=>{const start=3800+i*160;track(`.block-${name}`,[[0,{transform:'none'}],[start,{transform:'none'}],[start+650,{transform:'translateY(-5px)'}],[start+1200,{transform:'translateY(-5px)'}],[start+2050,{transform:'none'}],[duration,{transform:'none'}]]);});
+ signal('.structure-link',4300,5400);track('.block-check',[[0,{opacity:0}],[5100,{opacity:0}],[5700,{opacity:1}],[6900,{opacity:0}],[duration,{opacity:0}]]);
+ for(let i=0;i<10;i++){const start=7300+i*95;track(`.sheet-${i}`,[[0,{transform:'none'}],[start,{transform:'none'}],[start+540,{transform:'translateY(-5px)'}],[start+1250,{transform:'none'}],[duration,{transform:'none'}]]);}
+ function sync(){
+  const run=cycle.dataset.motion==='running'&&cycle.dataset.revealed==='true'&&!reduced.matches;
+  if(reduced.matches){animations.forEach(a=>{a.pause();a.currentTime=11200});playing=false;wasReduced=true;return;}
+  if(run===playing)return;
+  const time=wasReduced?0:(animations[0]?.currentTime||0);wasReduced=false;
+  animations.forEach(a=>{a.pause();a.currentTime=time});
+  if(run){const start=(document.timeline.currentTime||0)-time;animations.forEach(a=>{a.play();a.startTime=start});}
+  playing=run;
+ }
+ const observer=new MutationObserver(sync);observer.observe(cycle,{attributes:true,attributeFilter:['data-motion','data-revealed']});
+ reduced.addEventListener('change',sync);sync();
+ return()=>{observer.disconnect();reduced.removeEventListener('change',sync);animations.forEach(a=>a.cancel())};
 }

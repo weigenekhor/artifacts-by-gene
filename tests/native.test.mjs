@@ -64,19 +64,22 @@ test('Built page links resolve under a Pages subpath as well as the custom domai
  assert.match(html,/https:\/\/www.linkedin.com\/in\/weigenekhor\//);
 });
 
-test('One edition keeps every capture and native theme coherent; blocked storage is safe',async()=>{
+test('Mode and theme switch independently; captures follow theme and blocked storage is safe',async()=>{
  const events=[];
  const context={JSON,CustomEvent:class{constructor(name,options){this.detail=options.detail;}},localStorage:{getItem(){throw Error('Disabled');},setItem(){throw Error('Disabled');}},document:{querySelector(){return {textContent:JSON.stringify(model)};},querySelectorAll(){return [];},dispatchEvent(e){events.push(e);}}};
  vm.createContext(context);
  vm.runInContext((await fs.readFile('state.js','utf8')).replaceAll('export ',''),context);
- for(const [edition,theme] of [['legacy','origin'],['pentimento','pentimento']]){
-  vm.runInContext(`setEdition('${edition}');setTheme('unknown');setEdition('unknown');`,context);
+ for(const [mode,theme] of [['legacy','pentimento'],['legacy','origin'],['pentimento','origin'],['pentimento','pentimento']]){
+  const priorTheme=vm.runInContext('state.theme',context);
+  vm.runInContext(`setEdition('${mode}');`,context);
+  assert.equal(vm.runInContext('state.theme',context),priorTheme,'Mode must preserve theme');
+  vm.runInContext(`setTheme('${theme}');setTheme('unknown');setEdition('unknown');`,context);
   assert.equal(vm.runInContext('state.theme',context),theme);
-  assert.equal(vm.runInContext('state.mode',context),edition);
+  assert.equal(vm.runInContext('state.mode',context),mode,'Theme must preserve mode');
   assert.ok(vm.runInContext('model.apps.every(app=>themedCaptures(app).length>0&&themedCaptures(app).every(c=>c.theme===state.theme))',context));
  }
- assert.equal(events.length,2);
- const count=events.length;vm.runInContext("setEdition('pentimento')",context);assert.equal(events.length,count);
+ assert.equal(events.length,4);
+ const count=events.length;vm.runInContext("setEdition('pentimento');setTheme('pentimento')",context);assert.equal(events.length,count);
  assert.equal(html.split('class="product-state"').length-1,1);
  assert.match(html,/data-theme="pentimento" data-mode="pentimento"/);
 });
@@ -199,9 +202,11 @@ test('Thinking graphics use one coordinated motion controller and native windows
  const shell=await fs.readFile('shell.css','utf8');
  assert.match(source,/animateThinking\(cycle\)/);
  assert.match(motion,/One score, one playhead/);
- assert.match(motion,/draw\('\.route-a'/);
- assert.match(motion,/draw\('\.check-mark-b'/);
- assert.match(motion,/draw\('\.feedback-route'/);
+ assert.match(motion,/signal\('\.reference-signal'/);
+ assert.match(motion,/signal\('\.structure-link'/);
+ assert.match(motion,/\.sheet-\$\{i\}/);
+ assert.match(source,/productVisibility\.observe\(product\)/);
+ assert.match(source,/setPointerCapture/);
  assert.doesNotMatch(shell,/\.app-shell\{pointer-events:none\}/);
 });
 

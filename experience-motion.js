@@ -1,4 +1,3 @@
-import {state,setEdition} from './state.js';
 import {animateThinking} from './thinking-motion.js';
 
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
@@ -64,7 +63,29 @@ if(fine.matches){
  disposals.push(()=>heroResize.disconnect());
 }
 product.style.setProperty('--hero-rotate-y','0deg');product.style.setProperty('--hero-rotate-x','0deg');
-const motionObserver=new MutationObserver(()=>{product.dataset.motion=heroElement.dataset.motion;});motionObserver.observe(heroElement,{attributes:true,attributeFilter:['data-motion']});disposals.push(()=>{motionObserver.disconnect();cancelAnimationFrame(raf);});
+// The native texture rotates on the compositor, only while the product is visible.
+let productVisible=false;
+function syncProductMotion(){product.dataset.motion=productVisible&&!document.hidden&&!reduced.matches?'running':'paused';}
+const productVisibility=new IntersectionObserver(entries=>{productVisible=entries[0].isIntersecting;syncProductMotion();});
+productVisibility.observe(product);
+document.addEventListener('visibilitychange',syncProductMotion,options);
+reduced.addEventListener('change',()=>{syncProductMotion();if(reduced.matches){targetX=heroX=.5;targetY=heroY=.5;cancelAnimationFrame(raf);raf=0;product.style.setProperty('--wafer-look-x','0px');product.style.setProperty('--wafer-look-y','0px');}},options);
+// Dragging the unoccupied wafer field changes the same rotation playhead; releasing resumes it.
+const home=product.querySelector('.app-home');let waferDrag=null;
+home.addEventListener('pointerdown',event=>{
+ if(event.pointerType==='touch'||event.button!==0||reduced.matches||event.target.closest('button,a'))return;
+ const rotation=home.querySelector('.home-wafer')?.getAnimations().find(a=>a.animationName==='native-wafer-rotation');
+ if(!rotation)return;
+ waferDrag={pointer:event.pointerId,x:event.clientX,time:rotation.currentTime||0,rotation};
+ product.dataset.waferDragging='true';home.setPointerCapture(event.pointerId);event.preventDefault();
+},options);
+home.addEventListener('pointermove',event=>{
+ if(!waferDrag||event.pointerId!==waferDrag.pointer)return;
+ waferDrag.rotation.currentTime=((waferDrag.time+(event.clientX-waferDrag.x)*260)%120000+120000)%120000;
+},{...options,passive:true});
+function releaseWafer(){waferDrag=null;delete product.dataset.waferDragging;}
+home.addEventListener('pointerup',releaseWafer,options);home.addEventListener('pointercancel',releaseWafer,options);home.addEventListener('lostpointercapture',releaseWafer,options);
+disposals.push(()=>{productVisibility.disconnect();cancelAnimationFrame(raf);});
 
 const cycle=document.querySelector('.principle-cycle'),figures=[...cycle.querySelectorAll('.principle-figure')];
 proximity(cycle,(x,y,inside)=>{

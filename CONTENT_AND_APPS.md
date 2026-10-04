@@ -17,7 +17,7 @@ New apps need source membership, manifest facts, screenshot mapping and refreshe
 
 ## Capture pipeline
 
-58 explicitly mapped populated captures; each stores source filename, theme, caption, hash, dimensions and responsive paths. Theme metadata selects the active edition’s capture subset. It is not added to visible captions/descriptions. Each app has both Origin and Pentimento imagery; the gallery never alternates between themes during autoplay.
+58 explicitly mapped populated captures; each stores source filename, theme, caption, hash, dimensions and responsive paths. Theme metadata selects the independent theme capture subset. It is not added to visible captions/descriptions. Each app has both Origin and Pentimento imagery; the gallery never alternates between themes during autoplay.
 
 `assets/screens/<app>/<capture>/` includes 768/1280/1920/2560px derivatives and original-dimension full.webp. Every view is complete. Responsive WebP quality 94; full WebP quality 100. These are optimized derivatives, not lossless archives; originals remain untouched. Viewer uses 2560px; full-size loads only through its explicit link. Hero information previews come from the actual desktop panel.
 

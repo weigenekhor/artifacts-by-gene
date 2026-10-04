@@ -16,7 +16,7 @@ Committed WebPs live in `assets/native/layouts/` and `assets/native/panels/`. Su
 
 ## Runtime
 
-- `state.js`: one validated persisted edition pairs Legacy/Origin and Pentimento/Pentimento; it selects matching gallery captures without changing the public palette or membership.
+- `state.js`: validated persisted mode and theme controls remain independent; the selected theme chooses matching gallery captures without changing the public palette or membership.
 - `native-shell.js`: uniform scale, native panel push/reflow, hover/focus/touch information, prepared bounded-LRU panel loads, decoded motion-strip caching, stale-request protection and dismissal. Hero cards do not launch screenshots. The separate mobile information selector has been removed; touch uses the same bounded native panel.
 - `native-home.js`: source-coordinate markup and bounded panel placement.
 - `gallery.js`: one instance per canonical app, decoded crossfades, a single autoplay owner, image-body next-view navigation, per-app gallery positions, touch intent and native-dialog viewer; only the dedicated expand control opens the dialog. Capture subsets follow the shared edition. Offscreen cards load the correct theme when reached; stale-theme imagery is hidden until the replacement has decoded.

@@ -67,7 +67,20 @@ function warmActiveAssets(){
  });
 }
 function updatePanels(){closeDetails();clearTimeout(layoutTimer);bounds=null;controller.product.style.setProperty('--nav-shift',`${expanded?180:0}px`);controller.product.style.setProperty('--panel-shift',`${(expanded?180:0)+(info?240:0)}px`);controller.product.style.setProperty('--info-width',`${info?240:0}px`);controller.product.classList.toggle('nav-expanded',expanded);controller.product.classList.toggle('info-expanded',info);const expand=controller.product.querySelector('[data-expand-nav]');expand.setAttribute('aria-expanded',String(expanded));expand.setAttribute('aria-label',expanded?'Collapse application navigation':'Expand application navigation');controller.product.querySelector('[data-settings]').setAttribute('aria-expanded',String(info));drawer.inert=!info;drawer.setAttribute('aria-hidden',String(!info));if(reduced.matches)renderHome();else layoutTimer=setTimeout(renderHome,240);}
-function applyEdition(){controller.theme=state.theme;controller.mode=state.mode;shell.dataset.theme=controller.theme;shell.dataset.mode=controller.mode;shell.setAttribute('aria-label',`${state.edition==='legacy'?'Legacy / Origin':'Pentimento / Active'} ARTIFACTS application`);stateBox.dataset.edition=state.edition;stateBox.querySelector('[data-select-edition]')?.setAttribute('aria-pressed',String(state.edition==='pentimento'));stateBox.querySelector('[data-select-edition] span').textContent=state.edition==='legacy'?'Legacy':'Pentimento';stateBox.querySelector('[data-select-edition] small').textContent=state.edition==='legacy'?'Origin':'Active';shell.querySelector('[data-mode-range]').textContent=state.mode==='legacy'?'I–IV':'V–VI';shell.querySelector('[data-mode-name]').textContent=state.edition==='legacy'?'Legacy':'Pentimento';shell.querySelector('[data-mode-name]').closest('button').setAttribute('aria-label',`Focus ${state.edition==='legacy'?'Pentimento':'Legacy'}`);shell.querySelector('[data-info-image]').src=`assets/native/panels/${controller.theme}-info.webp`;shell.querySelectorAll('[data-theme-choice]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.themeChoice===controller.theme)));renderHome();warmActiveAssets();}
+function applyEdition(){
+ closeDetails();controller.theme=state.theme;controller.mode=state.mode;
+ const modeName=state.mode==='legacy'?'Legacy':'Pentimento',themeName=state.theme==='origin'?'Origin':'Pentimento';
+ shell.dataset.theme=state.theme;shell.dataset.mode=state.mode;
+ shell.setAttribute('aria-label',`${modeName}, ${themeName} theme, ARTIFACTS application`);
+ stateBox.dataset.edition=state.mode;
+ stateBox.querySelector('[data-mode-label]').textContent=modeName;
+ shell.querySelector('[data-mode-range]').textContent=state.mode==='legacy'?'I–IV':'V–VI';
+ shell.querySelector('[data-mode-name]').textContent=modeName;
+ shell.querySelector('[data-cycle-mode]').setAttribute('aria-label',`Switch to ${state.mode==='legacy'?'Pentimento':'Legacy'} mode`);
+ shell.querySelector('[data-info-image]').src=`assets/native/panels/${state.theme}-info.webp`;
+ shell.querySelectorAll('[data-theme-choice]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.themeChoice===state.theme)));
+ renderHome();warmActiveAssets();
+}
 new ResizeObserver(()=>{const value=stage.querySelector('.product-viewport').clientWidth/1229;if(lastScale&&Math.abs(value-lastScale)>.0001)closeDetails();shell.style.transform=`translateZ(0) scale(${value})`;lastScale=value;bounds=null;}).observe(stage.querySelector('.product-viewport'));
 bindHomeScroll();
 shell.addEventListener('pointerenter',()=>{bounds=stage.querySelector('.product-viewport').getBoundingClientRect();});
