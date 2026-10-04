@@ -1,5 +1,5 @@
 /* One monochrome art direction, independent of the product's theme. */
-.principles{padding-block:112px 116px;position:relative}
+.principles{padding-block:112px 116px;position:relative;z-index:2;background:var(--surface)}
 .thinking-preface{margin-top:30px}
 .thinking-preface h2{max-width:1120px;font-size:clamp(38px,4.35vw,68px);line-height:1.1;letter-spacing:-.042em;font-weight:470;text-wrap:pretty}
 .thesis-primary{display:block;color:var(--text)}
