@@ -12,7 +12,7 @@ Exact supporting text: “A coherent system of tools for analysis, diagnosis, au
 
 ## Product geometry and fidelity
 
-The paired native scene uses an 1800px cap and page gutters. At desktop, each state occupies 53% with a 5.5cqw vertical offset. Overlap falls on the wafer field rather than application tiles. Fixed stacking avoids a midpoint layer switch. A single continuous focus scalar controls both windows, labels, atmosphere and native light; the dominant edition selects matching public captures. Apparent scale ranges .94–1.04, perspective stays within 1.2 degrees, and translation stays within 30px. Focus is retained when the pointer leaves. Integrated Legacy / Origin and Pentimento / Current labels support keyboard and touch; there is no bottom selector.
+The hero uses one native product window with Pentimento as the default. Origin/Legacy switches in place through the single active edition; no second competing window is rendered. The product remains contained within page gutters, with a tiny pointer response (sub-degree perspective and a few pixels of translation) and a slowly rotating wafer. The integrated state control supports keyboard and touch.
 
 Below 1100px, windows become staggered full compositions at 86% width; below 760px, 96%. Pointer-driven depth gives way to explicit selection and readable native information. No desktop overlap is squeezed into a mobile screen.
 
@@ -38,7 +38,7 @@ Use small identifiers: 01 / FRICTION, 02 / STRUCTURE, 03 / REFINEMENT. Do not en
 
 Public collection follows canonical manifest order, with no public Expedition/theme filters. Two columns for standard apps. TopoTracer, Met Compiler, AIX Temp Diagnoser, AIX ΔT Assistant, Metria SPC and Data Lens receive full rows. An odd standard item uses a compact full-row composition with text beside its screenshot, avoiding an empty orphan cell. All apps retain complete imagery, names, purposes and navigation. On mobile, one column with equal usable controls.
 
-All screenshots remain uncropped and high resolution. Captions describe the view rather than the theme. Authorship contains only BUILT BY / Gene / Wei Gene Khor / Email / LinkedIn. Centered, approximately 246px high on desktop (40% shorter), with Gene 52px desktop/42px mobile and a 22px vertical rule. Footer: real symbol and ARTIFACTS, “Built around real engineering work.”
+All screenshots remain uncropped and high resolution. Captions describe the view rather than the theme. Authorship contains only BUILT BY / Gene / Wei Gene Khor / Email / LinkedIn. Centered, approximately 246px high on desktop (40% shorter), with Gene 52px desktop/42px mobile and a 22px vertical rule. Footer: real symbol and ARTIFACTS, “Built against inevitability.”
 
 ## Motion and accessibility
 

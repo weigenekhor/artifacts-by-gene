@@ -45,34 +45,13 @@ function proximity(surface,update,{initial=.5,retain=false,geometry=surface,allo
  return {settle(value){tx=value;ty=.5;if(reduced.matches){x=tx;update(x,y,false);}else schedule();},get inside(){return inside;}};
 }
 
-const heroElement=document.querySelector('.hero'),duet=heroElement.querySelector('.product-duet');
-const states=[...duet.querySelectorAll('.product-state')];
-const labels=states.map(element=>element.querySelector('.state-identifier'));
-let fromField=false;
-const hero=proximity(heroElement,(position,_y,inside)=>{
- const focus=smooth((position-.08)/.84),weights=[1-focus,focus];
- heroElement.style.setProperty('--focus',focus.toFixed(4));
- heroElement.style.setProperty('--legacy-weight',weights[0].toFixed(4));
- heroElement.style.setProperty('--pentimento-weight',weights[1].toFixed(4));
- states.forEach((element,index)=>{
-  const weight=weights[index],direction=index?1:-1;
-  // Fixed stacking avoids a visual pop when focus crosses the centre.
-  element.style.transform=`translate3d(${direction*(18-30*weight)}px,${12-18*weight}px,0) rotateY(${direction*(1-weight)*1.2}deg) scale(${.94+.1*weight})`;
-  element.style.opacity=String(.92+.08*weight);
- });
- if(inside){fromField=true;setEdition(focus<.5?'legacy':'pentimento');fromField=false;}
-},{initial:state.edition==='legacy'?.42:.58,retain:true,geometry:duet,allowPointer:event=>!compact.matches&&!event.target.closest('.module-details')});
-function editionChanged(){
- labels.forEach(label=>label.setAttribute('aria-pressed',String(label.dataset.selectEdition===state.edition)));
- duet.dataset.active=state.edition;
- if(!fromField)hero.settle(state.edition==='legacy'?0:1);
-}
-labels.forEach(label=>{label.disabled=false;label.addEventListener('click',()=>{setEdition(label.dataset.selectEdition);hero.settle(label.dataset.selectEdition==='legacy'?0:1);},options);});
-document.addEventListener('experience-change',editionChanged,options);
-labels.forEach(label=>label.setAttribute('aria-pressed',String(label.dataset.selectEdition===state.edition)));duet.dataset.active=state.edition;
-// The scene owns visibility; the native texture alone owns its continuous rotation.
-const motionObserver=new MutationObserver(()=>{duet.dataset.motion=heroElement.dataset.motion;});
-motionObserver.observe(heroElement,{attributes:true,attributeFilter:['data-motion']});disposals.push(()=>motionObserver.disconnect());
+const heroElement=document.querySelector('.hero'),product=heroElement.querySelector('.product-duet');
+let heroX=.5,heroY=.5,targetX=.5,targetY=.5,raf=0;
+function heroFrame(now){raf=0;const dt=Math.min(40,now-(heroFrame.last||now));heroFrame.last=now;const ease=1-Math.exp(-dt/48);heroX+=(targetX-heroX)*ease;heroY+=(targetY-heroY)*ease;product.style.setProperty('--hero-rotate-y',`${(heroX-.5)*.8}deg`);product.style.setProperty('--hero-rotate-x',`${(.5-heroY)*.45}deg`);product.style.setProperty('--hero-shift-x',`${(heroX-.5)*3}px`);product.style.setProperty('--hero-shift-y',`${(heroY-.5)*2}px`);if(Math.abs(targetX-heroX)+Math.abs(targetY-heroY)>.0005&&!reduced.matches&&!document.hidden)raf=requestAnimationFrame(heroFrame);}
+function scheduleHero(){if(!raf&&!reduced.matches&&!document.hidden)raf=requestAnimationFrame(heroFrame);}
+if(fine.matches){heroElement.addEventListener('pointermove',e=>{const r=product.getBoundingClientRect();targetX=clamp((e.clientX-r.left)/r.width);targetY=clamp((e.clientY-r.top)/r.height);scheduleHero();},{passive:true,signal:options.signal});heroElement.addEventListener('pointerleave',()=>{targetX=.5;targetY=.5;scheduleHero();},{signal:options.signal});}
+product.style.setProperty('--hero-rotate-y','0deg');product.style.setProperty('--hero-rotate-x','0deg');
+const motionObserver=new MutationObserver(()=>{product.dataset.motion=heroElement.dataset.motion;});motionObserver.observe(heroElement,{attributes:true,attributeFilter:['data-motion']});disposals.push(()=>{motionObserver.disconnect();cancelAnimationFrame(raf);});
 
 const cycle=document.querySelector('.principle-cycle'),figures=[...cycle.querySelectorAll('.principle-figure')];
 proximity(cycle,(x,y,inside)=>{

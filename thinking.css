@@ -43,3 +43,6 @@ html:not(.js) .system-spine{background:linear-gradient(#718377,#718377) 0 125px/
 
 .route-observe,.route-structure,.comparison-match,.check-mark-a,.check-mark-b,.resolved-check,.feedback-route,.evidence-response{stroke-width:1.5}
 .structure-packet{transform:translate(89px,131px);opacity:0}
+/* Figures read as a single editorial system: identifier, large drawing, then interpretation. */
+.principle-figure{display:flex;flex-direction:column}.principle-figure .reasoning-identifier{order:0;margin-bottom:18px;font-size:11px;color:#b5c0b7}.principle-figure .principle-drawing{order:1}.principle-figure figcaption{order:2}.principle-figure h3{font-size:22px}.principle-figure p{font-size:15px;line-height:1.72}.thinking-preface{grid-template-columns:1.35fr .85fr;gap:15%}.thinking-preface p{font-size:16px;line-height:1.7}.thinking-lead{margin-top:52px}.thinking-lead p{font-size:14px}
+@media(max-width:760px){.thinking-preface{grid-template-columns:1fr}.principle-figure p{font-size:14px}.principle-figure .reasoning-identifier{margin-bottom:10px}}

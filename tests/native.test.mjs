@@ -59,7 +59,7 @@ test('Built page links resolve under a Pages subpath as well as the custom domai
  const social=html.match(/property="og:image" content="https:\/\/artifactsbygene.com\/([^"]+)"/);
  assert.ok(social);await fs.access(social[1]);
  assert.doesNotMatch(html,/C:[\\/]|<canvas|<iframe|experience\.js|image-viewer\.js|three years|I built|WebGL/i);
- assert.match(html,/Built around real engineering work\./);
+ assert.match(html,/Built against inevitability\./);
  assert.match(html,/mailto:weigenekhor@gmail\.com/);
  assert.match(html,/https:\/\/www.linkedin.com\/in\/weigenekhor\//);
 });
@@ -77,8 +77,7 @@ test('One edition keeps every capture and native theme coherent; blocked storage
  }
  assert.equal(events.length,2);
  const count=events.length;vm.runInContext("setEdition('pentimento')",context);assert.equal(events.length,count);
- assert.equal(html.split('class="product-state"').length-1,2);
- assert.match(html,/data-theme="origin" data-mode="legacy"/);
+ assert.equal(html.split('class="product-state"').length-1,1);
  assert.match(html,/data-theme="pentimento" data-mode="pentimento"/);
 });
 
@@ -180,7 +179,7 @@ test('Hero inspection cannot launch screenshot pages and closing credit contains
  assert.match(html,/data-product-status>Pentimento</);
  const credit=html.slice(html.indexOf('<section class="authorship'),html.indexOf('<footer class="ending'));
  const words=credit.replace(/<svg[\s\S]*?<\/svg>/g,'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
- assert.equal(words,'BUILT BY Gene Wei Gene Khor Email LinkedIn');
+ assert.equal(words,'The work is personal. The standard isn’t. BUILT BY Gene Wei Gene Khor Email LinkedIn');
 });
 
 test('Gallery body clicks advance while the dedicated expand control remains separate',async()=>{
