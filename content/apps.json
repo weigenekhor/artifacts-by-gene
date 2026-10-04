@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 4,
+  "schemaVersion": 5,
   "source": "Genepy/widgets/home_page.py",
   "defaultMode": "pentimento",
   "defaultTheme": "pentimento",
@@ -198,8 +198,7 @@
       ],
       "navigationIcon": "assets/native/navigation/cil-notes.png",
       "order": 1,
-      "featured": false,
-      "shellPath": "content/shells/altus-lotviewer.html"
+      "featured": false
     },
     {
       "id": "altus-anko-viewer",
@@ -282,8 +281,7 @@
       ],
       "navigationIcon": "assets/native/navigation/cil-view-quilt.png",
       "order": 2,
-      "featured": false,
-      "shellPath": "content/shells/altus-anko-viewer.html"
+      "featured": false
     },
     {
       "id": "altus-wafercount",
@@ -366,8 +364,7 @@
       ],
       "navigationIcon": "assets/native/navigation/cil-wrap-text.png",
       "order": 3,
-      "featured": false,
-      "shellPath": "content/shells/altus-wafercount.html"
+      "featured": false
     },
     {
       "id": "topotracer",
@@ -507,8 +504,7 @@
       ],
       "navigationIcon": "assets/native/navigation/cil-chart-pie.png",
       "order": 4,
-      "featured": false,
-      "shellPath": "content/shells/topotracer.html"
+      "featured": true
     },
     {
       "id": "papyrus-reader",
@@ -648,8 +644,7 @@
       ],
       "navigationIcon": "assets/native/navigation/cil-find-in-page.png",
       "order": 5,
-      "featured": false,
-      "shellPath": "content/shells/papyrus-reader.html"
+      "featured": false
     },
     {
       "id": "spc-pathfinder",
@@ -732,8 +727,7 @@
       ],
       "navigationIcon": "assets/native/navigation/cil-external-link.png",
       "order": 6,
-      "featured": false,
-      "shellPath": "content/shells/spc-pathfinder.html"
+      "featured": false
     },
     {
       "id": "gan-met-compiler",
@@ -817,8 +811,7 @@
       ],
       "navigationIcon": "assets/native/navigation/cil-view-module.png",
       "order": 7,
-      "featured": true,
-      "shellPath": "content/shells/gan-met-compiler.html"
+      "featured": true
     },
     {
       "id": "gan-temp-diagnoser",
@@ -902,8 +895,7 @@
       ],
       "navigationIcon": "assets/native/navigation/cil-exposure.png",
       "order": 8,
-      "featured": false,
-      "shellPath": "content/shells/gan-temp-diagnoser.html"
+      "featured": true
     },
     {
       "id": "aix-dt-assistant",
@@ -987,8 +979,7 @@
       ],
       "navigationIcon": "assets/native/navigation/cil-loop.png",
       "order": 9,
-      "featured": false,
-      "shellPath": "content/shells/aix-dt-assistant.html"
+      "featured": true
     },
     {
       "id": "lt-zone-assistant",
@@ -1072,8 +1063,7 @@
       ],
       "navigationIcon": "assets/native/navigation/cil-rss.png",
       "order": 10,
-      "featured": false,
-      "shellPath": "content/shells/lt-zone-assistant.html"
+      "featured": false
     },
     {
       "id": "gan-xml-assistant",
@@ -1213,8 +1203,7 @@
       ],
       "navigationIcon": "assets/native/navigation/cil-justify-left.png",
       "order": 11,
-      "featured": false,
-      "shellPath": "content/shells/gan-xml-assistant.html"
+      "featured": false
     },
     {
       "id": "magus-spc-gan",
@@ -1437,8 +1426,7 @@
       ],
       "navigationIcon": "assets/native/navigation/cil-chart-line.png",
       "order": 12,
-      "featured": false,
-      "shellPath": "content/shells/magus-spc-gan.html"
+      "featured": false
     },
     {
       "id": "magus-spc-legacy",
@@ -1661,8 +1649,7 @@
       ],
       "navigationIcon": "assets/native/navigation/cil-chart.png",
       "order": 13,
-      "featured": false,
-      "shellPath": "content/shells/magus-spc-legacy.html"
+      "featured": false
     },
     {
       "id": "anko-helper",
@@ -1745,8 +1732,7 @@
       ],
       "navigationIcon": "assets/native/navigation/cil-calendar-check.png",
       "order": 14,
-      "featured": false,
-      "shellPath": "content/shells/anko-helper.html"
+      "featured": false
     },
     {
       "id": "lt-report-compiler",
@@ -1830,8 +1816,7 @@
       ],
       "navigationIcon": "assets/native/navigation/cil-clipboard.png",
       "order": 15,
-      "featured": false,
-      "shellPath": "content/shells/lt-report-compiler.html"
+      "featured": false
     },
     {
       "id": "metria-spc",
@@ -2026,8 +2011,7 @@
       ],
       "navigationIcon": "assets/native/navigation/metria-spc.svg",
       "order": 16,
-      "featured": true,
-      "shellPath": "content/shells/metria-spc.html"
+      "featured": true
     },
     {
       "id": "data-lens",
@@ -2222,8 +2206,7 @@
       ],
       "navigationIcon": "assets/native/navigation/cil-equalizer.png",
       "order": 17,
-      "featured": true,
-      "shellPath": "content/shells/data-lens.html"
+      "featured": true
     }
   ],
   "softwareInfo": {

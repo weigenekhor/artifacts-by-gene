@@ -1,37 +1,47 @@
 # Design system — contained ARTIFACTS
 
-## Sequence
+## Sequence and identity
 
-Minimal navigation → introduction and contained interactive product → three principles → unique application collection → compact authorship → quiet ending.
+Minimal navigation → introduction and contained product → connected thinking cycle → canonical application collection → centered authorship → quiet ending.
 
-Navigation is the real mark and ARTIFACTS, with Applications and About links. No public mode or theme control. Hero copy describes applications built around real problems, workflows and decisions. The product sits below it, with a separate Continue to explore cue.
+Website palette: surface `#101113`, frame `#0b0d0f`, primary `#efede8`, secondary `#a5a6a4`, champagne `#c5b79e`, border `#2a2d2f`, focus `#b3cfc5`. Product palettes are scoped separately in `tokens.css`.
 
-## Website identity
+Website type is local Geist with Segoe UI fallback. Product home text is rendered by Qt with Segoe UI; browser chrome uses Segoe UI. Hero 39–68px, thinking heading 32–48px, collection heading 36–54px, gallery headings 19px/26px, body 13–17px. Editorial width caps at 1280px; gutters are 24–100px, 22px on mobile.
 
-Fixed near-black `#101113`, frame `#0b0d0f`, primary `#efede8`, secondary `#a5a6a4`, champagne `#c5b79e`, border `#2a2d2f`, focus `#b3cfc5`. Teal is restricted to explanatory linework/focus. These variables live in `site.css`; real product palettes live in `tokens.css` under `.app-shell[data-theme]`.
+Exact supporting text: “A coherent system of tools for analysis, diagnosis, automation, and engineering workflows.”
 
-Website type uses the locally licensed Geist variable face, with Segoe UI fallback. Product type remains Segoe UI. Hero type is 39–68px, principle statement 32–48px, collection heading 36–54px, gallery headings 19px/26px, body 13–17px. Avoid a new billboard at the end.
+## Product geometry and fidelity
 
-The editorial container caps at 1280px. Product width is 82% capped at 1440px, aspect 8:5, height capped at 900px. Its controls do not scale with viewport pixels. At intermediate widths the product gets 32px side margins. At mobile it gets 12px side margins and a deliberately reflowed 640px interface. The surrounding page always remains visible as a webpage.
+The product is 10% narrower than the preceding version: 73.8% capped at 1296px; below 1100px, calc(90% - 57.6px); below 760px, calc(90% - 21.6px).
 
-## Product fidelity
+Every size preserves the same 1229:820 window aspect. The complete logical window scales through ResizeObserver. Inside it: 44px title bar, 60px rail, source-rendered 1161×750 home and 21px status bar. No height cap, responsive card rearrangement, stretching or screenshot crop. Smaller mobile screens receive a separate 44px-high app selector.
 
-Source: desktop `widgets/home_page.py`, `Artifacts.py`, `widgets/artifacts_style.py`, `edition_theme.py`, navigation assets and individual widgets. Default-state references are in `Artifacts Images/Empty` (the brief's older `Empty Apps` path is obsolete).
+Four home images come from the actual desktop HomeWidget at 2× density, with 1× derivatives. Hotspot positions and hover images are exported from the same native render. Preserve the actual card titles, Expedition headings, icons, wafer and source geometry. Theme/mode controls affect only the product.
 
-Source metrics: 44px titlebar, 60px collapsed rail, 40px nav rows, 21px status bar, 12px card gaps, 27px category label + 10px gap and 16px category separation. Card dimensions and column fitting use the source's reserve-space calculation and 148px minimum normal width, with height in the source 132:168 proportion. Pentimento allows four columns; Legacy six, constrained by available product width. Mobile uses two compact cards. Both source themes retain their own palette.
+Selecting an app replaces the entire interior with its real supplied screenshot. A separate toolbar provides Home, capture count and previous/next controls. Screenshots use contain and may letterbox; never crop or add fake processing controls. Theme preference selects matching captures when available, with a fallback to the full set. User-facing captions never announce Origin or Pentimento.
 
-The wafer uses the actual desktop contour/material and geometry. It drifts at the source's 1°/second, pausing offscreen, when an app is open, in a hidden tab or for reduced motion. No rendering loop is needed. Mouse dragging is optional; touch scrolling is preserved.
+## Thinking cycle
 
-## Principles and collection
+Three original SVG diagrams share structural geometry and a return path. They describe the entire ARTIFACTS approach, not three selected applications.
 
-Three original SVG figures show a dedicated operation, compressed repeated handoffs, and evidence aligned for comparison. These are explanatory diagrams, never fake engineering results. One statement and three concise descriptions; no biography or origin film.
+Heading: “Good tools begin with understanding. They improve through use.”
 
-The collection follows canonical manifest order with no headings/filters for Expeditions. Base layout is two columns. `featured` gives a small selected subset a full row: currently Met Compiler, Metria SPC and Data Lens, whose multi-input or analytical workspaces warrant more space. Screenshots remain whole with contain; all capture variants belong to the same app. Do not style apps by filename.
+1. Understand the work. Start with the problem, its context, and what a useful result needs to be.
+2. Build the better way. Turn that understanding into software that removes friction and keeps the reasoning clear.
+3. Refine through use. Put it to work. Keep what proves useful, improve what gets in the way, and bring that learning to the next problem.
 
-Authorship contains Developed by, Gene (Wei Gene Khor), email and LinkedIn in one compact composition. End with small ARTIFACTS and the exact line: “Built around real engineering work.” No campaign follows it.
+Return: “Use informs the next iteration.” Diagrams are explanatory artwork, not fabricated output.
 
-## Motion and access
+## Collection and closing
 
-Native scrolling; no locking. Product/page entries settle once in 640ms, original diagram paths resolve in 1100ms, app opening uses 220ms, internal theme changes 220ms, gallery images crossfade in 420ms. Gallery dwell is 6.5s; only the central visible image advances. Hover, focus, hidden tabs, modal, offscreen and reduced-motion pause it. No perpetual website decoration.
+Public collection follows canonical manifest order, with no public Expedition/theme filters. Two columns for standard apps. TopoTracer, Met Compiler, AIX Temp Diagnoser, AIX ΔT Assistant, Metria SPC and Data Lens receive full rows. An odd standard item uses a compact full-row composition with text beside its screenshot, avoiding an empty orphan cell. All apps retain complete imagery, names, purposes and navigation. On mobile, one column with equal usable controls.
 
-Below 760px, one-column galleries and adapted principle figures; below 470px, diagrams sit above their captions. Product breakpoints use its container width, not the outer viewport. Maintain labelled controls, keyboard focus, Escape/arrow viewer navigation, touch swipe intent and unobstructed vertical scrolling. Reduced motion removes entrances/autoplay without removing functionality. No-JS retains the collection, full-resolution links, principles and closing.
+All screenshots remain uncropped and high resolution. Captions describe the view rather than the theme. Authorship is a centered “The person behind ARTIFACTS” credit: Gene, Wei Gene Khor, Email and LinkedIn. Gene is 60px desktop/48px mobile. No biography, label wall or oversized billboard. Footer: real symbol and ARTIFACTS, “Built around real engineering work.”
+
+## Motion and accessibility
+
+Native scrolling; no locking. One-time page entries 640ms; diagram strokes 1100ms. Gallery dwell 3.6 seconds and decoded-image crossfade 300ms. Only the central visible gallery runs. Hover, focus, hidden tabs, modal, offscreen and reduced-motion pause it. No perpetual decoration/render loop.
+
+The pointer is a small light arrow with dark edge and a restrained accent on actionable elements. Use native cursor URLs, no lagging overlay; text keeps its I-beam and system fallbacks remain available.
+
+Below 760px, galleries become one column and figures adapt. Below 470px, diagrams sit above captions. Label controls, preserve visible focus, Escape/arrow image-viewer navigation, swipe intent and vertical touch scroll. Reduced motion stops entrances/autoplay while retaining manual controls. No-JS shows the actual homepage fallback, gallery images/full-resolution links, cycle and closing.

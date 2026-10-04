@@ -7,7 +7,7 @@ import sharp from 'sharp';
 const model=JSON.parse(await fs.readFile('content/apps.json','utf8'));
 const html=await fs.readFile('index.html','utf8');
 
-test('Canonical collection is unique, ordered and complete; application shells load separately',()=>{
+test('Canonical collection is unique, ordered and complete; no fabricated app pages ship',()=>{
  const ids=new Set(model.apps.map(a=>a.id));
  assert.equal(ids.size,model.apps.length);
  assert.equal(html.split('data-gallery-app="').length-1,ids.size);
@@ -105,9 +105,28 @@ test('Autoplay pauses for visibility, interaction, loading, modal and reduced mo
  context.reduced.matches=true;assert.equal(eligible(),false);
 });
 
-test('Every on-demand interface is a valid local fragment, with no scripts or generated data',async()=>{
- for(const app of model.apps){const fragment=await fs.readFile(app.shellPath,'utf8');assert.ok(fragment.includes('data-page="'+app.id+'"'));assert.doesNotMatch(fragment,/<script|<iframe|C:[\\/]/);}
+test('Native source renders cover both themes and modes with accurately aligned application targets',async()=>{
+ const references=JSON.parse(await fs.readFile('content/home-reference.json','utf8'));
+ for(const [key,reference] of Object.entries(references)){
+  const [,mode]=key.split('-');
+  const expected=model.expeditions.filter(e=>e.mode===mode).flatMap(e=>e.apps).map(id=>model.apps.find(a=>a.id===id).sourceKey);
+  assert.deepEqual(reference.cards.map(card=>card.key),expected);
+  const meta=await sharp(`assets/native/home/${key}.webp`).metadata();
+  assert.equal(meta.width,reference.width*2);assert.equal(meta.height,reference.height*2);
+  for(const card of reference.cards){
+   assert.ok(card.x>=0&&card.y>=0&&card.x+card.width<=reference.width&&card.y+card.height<=reference.height);
+   const hover=await sharp(`assets/native/home/${key}-${card.key}.webp`).metadata();
+   assert.equal(hover.width,card.width*2);assert.equal(hover.height,card.height*2);
+  }
+ }
  const body=html.slice(html.indexOf('<section class="principles'));
  assert.doesNotMatch(body,/data-select-mode|data-cycle-mode|data-theme-choice|gallery-expedition/);
  assert.match(html,/Built around real engineering work\./);
+});
+
+test('Requested gallery emphasis, exact supporting copy and theme-free captions survive the build',()=>{
+ assert.deepEqual(model.apps.filter(app=>app.featured).map(app=>app.id),['topotracer','gan-met-compiler','gan-temp-diagnoser','aix-dt-assistant','metria-spc','data-lens']);
+ assert.match(html,/A coherent system of tools for analysis, diagnosis, automation, and engineering workflows\./);
+ for(const caption of html.matchAll(/<span data-slide-caption>(.*?)<\/span>/g))assert.doesNotMatch(caption[1],/Origin|Pentimento/);
+ assert.doesNotMatch(html,/data-shell=|app-workspace|shellPath/);
 });

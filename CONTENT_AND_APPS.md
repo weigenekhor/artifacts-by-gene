@@ -3,28 +3,23 @@
 ## Authority
 
 Desktop source: `C:\Users\Gene\Desktop\Artifacts\Artifacts\Genepy`.
-Gallery originals: `C:\Users\Gene\Desktop\Artifacts Images`.
-Empty references: its `Empty` folder, 34 supplied default-state views.
+Capture originals: `C:\Users\Gene\Desktop\Artifacts Images`.
 
-Originals and desktop files are read only. They are development references, never runtime dependencies. Empty and Homepage captures are explicitly excluded from the gallery.
+Both are read only and used for development reference. Empty captures remain available in the supplied `Empty` folder but are no longer reconstructed into app pages. Empty and Homepage captures are excluded from the gallery.
 
-## One canonical model
+## Canonical content
 
-`content/apps.json` contains unique application ids, canonical names/order, concise factual purpose, source widget key, native icons, metadata, default-screen references, `shellPath`, `featured`, and ordered screenshot records. Current source has 17 unique apps. The gallery count and numbering derive from the model and do not assume that number permanently.
+`content/apps.json` contains 17 unique apps with names, source keys, order, factual purpose, native icons/metadata, featured status and ordered captures. Count/numbering derive from the model. Source order follows first occurrence: Altus, Interstice, Epitaxy, Monolith, then additional Moonstone apps. Shared tools appear once publicly; internal native mode/Expedition membership is independent.
 
-Canonical order follows the first occurrence in ARTIFACTS: original Altus, Interstice, Epitaxy and Monolith membership, followed by the additional Moonstone applications. Shared tools appear once in the public collection. Internal mode/Expedition membership remains separate in the same model and is used only by the product UI.
+Current names follow desktop source: Met Compiler, AIX Temp Diagnoser, AIX XML Assistant, Magus SPC (GaN). Historical gan-* identifiers do not determine visible names. Requested wide features: TopoTracer, Met Compiler, AIX Temp Diagnoser, AIX ΔT Assistant, Metria SPC, Data Lens. Other tools keep equal access and source order.
 
-Use the current names from source: Met Compiler, AIX Temp Diagnoser, AIX XML Assistant and Magus SPC (GaN). Stable historical `gan-*` ids do not determine visible names.
+New apps need source membership, manifest facts, screenshot mapping and refreshed native home renders. They do not need a generated default-interface fragment.
 
-Featured status is editorial metadata, not a filename rule. Met Compiler, Metria SPC and Data Lens are currently selected for wide treatment. New applications need manifest/content, screenshots and a corresponding empty-interface generator; the gallery architecture does not need changing.
+## Capture pipeline
 
-## Screenshot pipeline
+58 explicitly mapped populated captures; each stores source filename, theme, caption, hash, dimensions and responsive paths. Theme metadata is used internally only, not added to visible captions/descriptions.
 
-There are currently 58 explicitly mapped populated captures. Each record includes original filename, theme, caption, SHA-256, native dimensions and responsive paths. Different modes/reports remain attached to their canonical app. No runtime discovery or filename parsing.
-
-`assets/screens/<app>/<capture>/` contains 768/1280/1920/2560px derivatives and original-dimension `full.webp`. They preserve the whole composition. Responsive files use quality 94, full-size WebP quality 100; these are not bit-for-bit lossless archives. Original PNGs are untouched. Large full-size files load only through the full-resolution link. The viewer normally uses 2560px.
-
-To update an explicitly mapped source set:
+`assets/screens/<app>/<capture>/` includes 768/1280/1920/2560px derivatives and original-dimension full.webp. Every view is complete. Responsive WebP quality 94; full WebP quality 100. These are optimized derivatives, not lossless archives; originals remain untouched. Viewer uses 2560px, full-size loads only through its explicit link. Hero app views choose 1280/2560 based on displayed size and density.
 
 ```sh
 pnpm import:captures "C:\Users\Gene\Desktop\Artifacts Images"
@@ -32,12 +27,20 @@ pnpm build
 pnpm test
 ```
 
-A normal build uses committed assets and needs no source folder. The importer checks hashes and encoding version before skipping unchanged files. Visually verify ownership/order when adding captures.
+Importer checks hashes and encoding version. Verify ownership when adding captures.
+
+## Native home export (optional developer step)
+
+Requires Windows Segoe UI and PySide6; normal site builds do not.
+
+```sh
+python scripts/export-home-reference.py "C:\Users\Gene\Desktop\Artifacts\Artifacts\Genepy"
+node scripts/prepare-home-assets.mjs "C:\Users\Gene\Desktop\Artifacts Images"
+pnpm build
+```
+
+Four 1161×750 logical views render at 2× (2322×1500). Source card coordinates live in `content/home-reference.json`; per-card hover renders use matching bounds. Committed assets are in `assets/native/home/`. Optional image-folder argument refreshes the complete no-JS fallback from Homepage 2.png. Real source text/wafer/card design remains intact.
 
 ## Other resources
 
-The real symbol is `assets/brand/artifacts-symbol.svg`. Source-exported glyphs, navigation resources and wafer materials are in `assets/native/`. The website uses the local Geist font with its OFL license; the product uses Segoe UI. Current social artwork has SVG source and PNG output in `assets/`.
-
-## Documentation reset
-
-All seven root Markdown files from the preceding rebuild were reviewed. DESIGN and ASSETS were replaced by DESIGN_SYSTEM and this document; START_HERE, ARCHITECTURE, STATUS, AGENTS and the short README were rewritten. No old fullscreen, global-theme or public-edition specification remains active. Historical previews stay recoverable in Git, not competing documentation.
+Real symbol: `assets/brand/artifacts-symbol.svg`. Native glyphs/navigation and home assets: `assets/native/`. Website font: local Geist with OFL license. Product chrome: Segoe UI. Tiny native pointer assets: `assets/brand/cursor*.svg`. Social artwork remains under assets. No desktop source path is a runtime dependency.

@@ -1,0 +1,376 @@
+{
+  "origin-legacy": {
+    "width": 1161,
+    "height": 750,
+    "cards": [
+      {
+        "key": "parser_tab",
+        "x": 18,
+        "y": 51,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "altusanko_tab",
+        "x": 178,
+        "y": 51,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "wafercount_tab",
+        "x": 338,
+        "y": 51,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "topotracer_tab",
+        "x": 18,
+        "y": 220,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xml_tab",
+        "x": 178,
+        "y": 220,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "path_tab",
+        "x": 338,
+        "y": 220,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "metro_tab",
+        "x": 18,
+        "y": 389,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "pyra_tab",
+        "x": 178,
+        "y": 389,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dt_tab",
+        "x": 338,
+        "y": 389,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "laytec_tab",
+        "x": 498,
+        "y": 389,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xmlll_tab",
+        "x": 658,
+        "y": 389,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dnd_tab",
+        "x": 18,
+        "y": 558,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dnd2_tab",
+        "x": 178,
+        "y": 558,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "ankohelper_tab",
+        "x": 338,
+        "y": 558,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sap_tab",
+        "x": 498,
+        "y": 558,
+        "width": 148,
+        "height": 116
+      }
+    ]
+  },
+  "origin-pentimento": {
+    "width": 1161,
+    "height": 750,
+    "cards": [
+      {
+        "key": "topotracer_tab",
+        "x": 18,
+        "y": 51,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xml_tab",
+        "x": 178,
+        "y": 51,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "pyra_tab",
+        "x": 338,
+        "y": 51,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dt_tab",
+        "x": 498,
+        "y": 51,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "laytec_tab",
+        "x": 18,
+        "y": 179,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xmlll_tab",
+        "x": 178,
+        "y": 179,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sap_tab",
+        "x": 338,
+        "y": 179,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "metro_tab",
+        "x": 18,
+        "y": 348,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "plessey_spc_tab",
+        "x": 178,
+        "y": 348,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "datalens_tab",
+        "x": 338,
+        "y": 348,
+        "width": 148,
+        "height": 116
+      }
+    ]
+  },
+  "pentimento-legacy": {
+    "width": 1161,
+    "height": 750,
+    "cards": [
+      {
+        "key": "parser_tab",
+        "x": 18,
+        "y": 51,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "altusanko_tab",
+        "x": 178,
+        "y": 51,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "wafercount_tab",
+        "x": 338,
+        "y": 51,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "topotracer_tab",
+        "x": 18,
+        "y": 220,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xml_tab",
+        "x": 178,
+        "y": 220,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "path_tab",
+        "x": 338,
+        "y": 220,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "metro_tab",
+        "x": 18,
+        "y": 389,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "pyra_tab",
+        "x": 178,
+        "y": 389,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dt_tab",
+        "x": 338,
+        "y": 389,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "laytec_tab",
+        "x": 498,
+        "y": 389,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xmlll_tab",
+        "x": 658,
+        "y": 389,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dnd_tab",
+        "x": 18,
+        "y": 558,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dnd2_tab",
+        "x": 178,
+        "y": 558,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "ankohelper_tab",
+        "x": 338,
+        "y": 558,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sap_tab",
+        "x": 498,
+        "y": 558,
+        "width": 148,
+        "height": 116
+      }
+    ]
+  },
+  "pentimento-pentimento": {
+    "width": 1161,
+    "height": 750,
+    "cards": [
+      {
+        "key": "topotracer_tab",
+        "x": 18,
+        "y": 51,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xml_tab",
+        "x": 178,
+        "y": 51,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "pyra_tab",
+        "x": 338,
+        "y": 51,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dt_tab",
+        "x": 498,
+        "y": 51,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "laytec_tab",
+        "x": 18,
+        "y": 179,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xmlll_tab",
+        "x": 178,
+        "y": 179,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sap_tab",
+        "x": 338,
+        "y": 179,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "metro_tab",
+        "x": 18,
+        "y": 348,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "plessey_spc_tab",
+        "x": 178,
+        "y": 348,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "datalens_tab",
+        "x": 338,
+        "y": 348,
+        "width": 148,
+        "height": 116
+      }
+    ]
+  }
+}

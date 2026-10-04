@@ -5,8 +5,8 @@ const viewer=document.querySelector('#capture-viewer');
 const num=n=>String(n).padStart(2,'0');
 const cards=[];
 let central=null,timer=null,progressAnimation=null,selectionFrame=0,viewerCard=null,viewerIndex=0,viewerRequest=0,returnFocus=null;
-const INTERVAL=6500;
-const caption=c=>`${c.caption}${c.theme==='shared'?'':` · ${c.theme==='origin'?'Origin':'Pentimento'}`}`;
+const INTERVAL=3600;
+const caption=c=>c.caption;
 const srcset=c=>c.sources.map(s=>`${s.src} ${s.width}w`).join(', ');
 function makeImage(c,app,large=false){
  const img=new Image();img.alt=`${app.name} — ${c.caption}`;img.decoding='async';
@@ -60,7 +60,7 @@ async function changeSlide(card,index){
  const old=card.imageButton.querySelector('img');
  card.imageButton.append(image);
  image.style.background='var(--frame)';
- if(!reduced.matches){const fade=image.animate([{opacity:0},{opacity:1}],{duration:420,easing:'cubic-bezier(.22,.61,.36,1)'});await fade.finished.catch(()=>{});}
+ if(!reduced.matches){const fade=image.animate([{opacity:0},{opacity:1}],{duration:300,easing:'cubic-bezier(.22,.61,.36,1)'});await fade.finished.catch(()=>{});}
  if(request!==card.request){old?.remove();return;}
  card.imageButton.querySelectorAll('img').forEach(img=>{if(img!==image)img.remove();});
  card.index=next;card.loading=false;updateCaption(card);
