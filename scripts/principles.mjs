@@ -1,37 +1,27 @@
-// The same evidence, checks and retained structure advance through one shared timeline.
-const frame=(title,body)=>`<svg viewBox="0 0 360 250" role="img" aria-label="${title}"><g class="reasoning-field" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">${body}</g></svg>`;
+// Original technical figures: one shared score, three independently composed fields.
+const frame=(title,body)=>`<svg viewBox="0 0 360 280" role="img" aria-label="${title}"><g class="reasoning-field" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">${body}</g></svg>`;
 export const principles=[
- {identifier:'01 / FRICTION',name:'Start with the friction.',description:'Every tool begins with something that should work better: a repeated task, a difficult comparison, a hidden dependency, or a decision carrying too much manual effort.',handoff:'Turn recurring reasoning into a system.',figure:frame('Fragments are compared; a recurring discrepancy is located and brought into context',`
- <path class="diagram-faint" d="M0 125H45M300 125H360"/>
- <g class="evidence evidence-a"><rect x="52" y="51" width="66" height="45" rx="3"/><path d="M65 66h38m-38 12h24"/><path class="friction-mark" d="M65 81h18l5-7 7 12 8-8"/></g>
- <g class="evidence evidence-b"><rect x="49" y="148" width="76" height="54" rx="3"/><path d="M63 162h44m-44 12h28m-28 12h36"/></g>
- <path class="diagram-route route-observe route-a" pathLength="1" d="M119 75C148 75 149 109 183 109"/><path class="diagram-route route-observe route-b" pathLength="1" d="M126 172C153 172 148 139 183 139"/>
- <g class="retained-context"><path class="diagram-edge" d="M173 84V70h15m86 0h15v14m0 81v14h-15m-86 0h-15v-14"/><rect class="diagram-panel" x="184" y="87" width="94" height="77" rx="4"/><path class="diagram-edge" d="M199 108h62m-62 16h39m-39 16h48"/></g>
- <rect class="signal signal-compare" x="0" y="0" width="7" height="3" rx="1"/><path class="comparison-match" pathLength="1" d="M201 124h37"/>
- `)
+ {identifier:'FRICTION',name:'Start with the friction.',description:'Every tool begins with something that should work better: a repeated task, a difficult comparison, a hidden dependency, or a decision carrying too much manual effort.',handoff:'Turn recurring reasoning into a system.',figure:frame('Two fragments align against a common reference. A recurring discrepancy resolves into one understood relationship.',`
+ <g class="evidence evidence-a"><path class="diagram-shadow" d="m30 58 94-12 14 8-94 12Z"/><path class="diagram-panel" d="m30 58 108-4v62l-108 4Z"/><path class="diagram-faint" d="m43 73 81-3m-81 13 81-3m-81 13 81-3"/><path class="friction-mark" d="m43 99 16-1 10-13 12 23 14-20 13 7 16-1"/></g>
+ <g class="evidence evidence-b"><path class="diagram-shadow" d="m22 164 98-12 14 8-98 12Z"/><path class="diagram-panel" d="m22 164 112-4v67l-112 4Z"/><path d="m37 180 81-3m-81 15 51-2m-51 15 70-2"/><path class="friction-mark" d="m91 189 11-1 7 8 10-17"/></g>
+ <path class="diagram-route route-a" pathLength="1" d="M139 85C174 85 166 118 207 118"/><path class="diagram-route route-b" pathLength="1" d="M135 195C177 195 163 161 207 161"/>
+ <g class="retained-context"><path class="diagram-shadow" d="m196 81 115-14 17 11-115 14Z M311 67v134l17 11V78"/><path class="diagram-panel" d="m196 81 115-3v123l-115 3Z"/><path class="diagram-edge" d="M183 96V68h22m115-8h20v28M183 192v25h23m114-10h20v-26"/><path class="diagram-faint" d="M208 103h89m-89 17h89m-89 17h89m-89 17h89m-89 17h89m-89 17h89"/><path class="evidence-response" d="m209 136 18-1 11-20 15 43 13-26 13 7h18"/><path class="comparison-match" pathLength="1" d="m209 146 18-1 11-20 15 33 13-26 13 7h18"/></g>
+ <rect class="signal signal-compare" width="10" height="3" rx="1"/>
+ `)},
+ {identifier:'STRUCTURE',name:'Make the repeatable explicit.',description:'Capture the checks that matter. Automate what does not need human attention. Preserve the context needed for the decisions that do.',handoff:'The work reveals what needs to improve next.',figure:frame('Repeated paths converge into retained checks. A single packet passes through them and produces an ordered output.',`
+ <path class="diagram-shadow" d="m37 74 270-23 19 14-270 23Z M307 51v137l19 15V65"/><path class="diagram-panel" d="m37 74 270-9v123l-270 9Z"/><path class="diagram-faint" d="M37 101 307 92M121 99v95M215 96v95"/><path class="diagram-edge" d="M51 88h46m170-6h8m7 0h8m7 0h7"/>
+ <g class="repeat-upper"><path d="M51 120h57m28 0h65m28 0h61"/><circle cx="121" cy="120" r="4"/><circle cx="215" cy="120" r="4"/></g>
+ <g class="repeat-lower"><path d="M51 168h57m28 0h65m28 0h61"/><circle cx="121" cy="168" r="4"/><circle cx="215" cy="168" r="4"/></g>
+ <path class="diagram-route route-structure" pathLength="1" d="M51 143H109M134 143H203M227 143H290"/>
+ <g class="check"><circle class="cycle-operation" cx="121" cy="143" r="11"/><path class="check-mark-a" pathLength="1" d="m115 143 4 4 8-9"/><circle class="cycle-operation" cx="215" cy="143" r="11"/><path class="check-mark-b" pathLength="1" d="m209 143 4 4 8-9"/></g>
+ <rect class="signal structure-packet" width="10" height="3" rx="1"/>
+ <g class="normalised-output"><path class="diagram-edge" d="m238 209 66-2v30l-66 2Z"/><path d="M247 218h48m-48 9h48"/><path class="diagram-faint" d="M270 187v19"/></g>`)
  },
- {identifier:'02 / STRUCTURE',name:'Make the repeatable explicit.',description:'Capture the checks that matter. Automate what does not need human attention. Preserve the context needed for the decisions that do.',handoff:'The work reveals what needs to improve next.',figure:frame('Recurring evidence moves through retained checks and emerges as a consistent structure',`
- <path class="diagram-faint" d="M0 125H66M295 125H360"/>
- <rect class="diagram-shadow" x="82" y="79" width="206" height="116" rx="5"/>
- <rect class="diagram-panel" x="72" y="61" width="206" height="116" rx="5"/>
- <path class="diagram-faint" d="M72 90H278M145 90V177M213 90V177"/>
- <path class="diagram-edge" d="M87 76h36m88 0h10m10 0h10m10 0h10"/>
- <g class="repeated-paths"><path class="repeat-upper" d="M89 114h38m30 0h39m29 0h38"/><path class="repeat-lower" d="M89 150h38m30 0h39m29 0h38"/></g>
- <path class="diagram-route route-structure" pathLength="1" d="M89 133H127M157 133H196M225 133H263"/>
- <g class="check check-a"><circle class="cycle-operation" cx="141" cy="133" r="9"/><path class="check-mark-a" pathLength="1" d="m137 133 3 3 5-6"/></g>
- <g class="check check-b"><circle class="cycle-operation" cx="210" cy="133" r="9"/><path class="check-mark-b" pathLength="1" d="m206 133 3 3 5-6"/></g>
-
- <rect class="signal structure-packet" width="9" height="3" rx="1"/><g class="normalised-output"><path d="M245 146h17m-17 6h17m-17 6h17"/></g>`)
- },
- {identifier:'03 / REFINEMENT',name:'Refine through the work.',description:'Put the evidence, context, and next action where they can be understood together. Use the tool. Challenge it. Improve it as the process, data, and requirements change.',figure:frame('Use creates evidence, one relationship adjusts, and the improved structure returns to use',`
- <path class="diagram-faint" d="M0 125H65M295 125H360"/>
- <rect class="diagram-shadow" x="79" y="65" width="176" height="114" rx="4"/><path class="diagram-faint" d="M92 84h48m-48 14h78m-78 14h57"/>
- <g class="working-structure"><rect class="diagram-panel" x="104" y="90" width="176" height="114" rx="4"/><path class="diagram-edge" d="M120 108h67M120 139h97m-97 17h77m-77 17h90"/><rect class="clarity-focus" x="235" y="128" width="29" height="56" rx="3"/><path class="resolved-check" pathLength="1" d="m242 150 6 6 9-13"/></g>
- <path class="diagram-route feedback-route" pathLength="1" d="M237 108C290 80 246 34 187 40"/><path class="diagram-route" d="m194 33-8 7 10 4"/>
- <g class="adjustment"><path d="M120 122h60"/><circle cx="156" cy="122" r="3"/></g>
-
- <circle class="signal signal-feedback" r="2.5"/>
- <path class="evidence-response" pathLength="1" d="M120 173h90"/>`)
+ {identifier:'REFINEMENT',name:'Refine through the work.',description:'Put the evidence, context, and next action where they can be understood together. Use the tool. Challenge it. Improve it as the process, data, and requirements change.',figure:frame('Evidence changes a retained condition. A relationship adjusts, the result resolves, and feedback returns to the working structure.',`
+ <path class="diagram-shadow" d="m43 65 229-19 19 12-229 20Z"/><path class="diagram-panel" d="m43 65 229-7v93l-229 7Z"/><path class="diagram-faint" d="M58 87h193M58 106h193M58 125h193"/><path class="evidence-response" pathLength="1" d="m58 122 21-9 20 5 23-23 24 10 28-13 27 5 24-18 24 5"/>
+ <g class="working-structure"><path class="diagram-shadow" d="m68 134 229-16 16 10-229 16Z M297 118v113l16 12V128"/><path class="diagram-panel" d="m68 134 229-6v103l-229 6Z"/><path class="diagram-edge" d="M83 150h86m-86 34h103m-103 15h79m-79 15h97"/><rect class="clarity-focus" x="247" y="162" width="33" height="52" rx="2"/><path class="resolved-check" pathLength="1" d="m254 185 6 6 13-15"/>
+ <g class="adjustment"><path d="M83 168h107"/><path class="diagram-faint" d="M84 164v8m26-8v8m26-8v8m26-8v8m26-8v8"/><circle cx="120" cy="168" r="4"/></g></g>
+ <path class="diagram-route feedback-route" pathLength="1" d="M296 183C347 183 345 33 229 33H182"/><circle class="signal signal-feedback" r="3"/>`)
  }
 ];
-export const principleSection=()=>`<section class="principles page-width" id="principle" aria-labelledby="principle-heading"><p class="eyebrow">The thinking behind the tools</p><header class="thinking-preface"><div><h2 id="principle-heading">Purpose-built<br>from the work.</h2><p>ARTIFACTS does not begin with features.<br>It begins with something in the work that should be better.</p></div><div class="thinking-intent"><h3><span>Less repetition.</span><br>More room for<br class="intent-break"> engineering judgment.</h3></div></header><div class="thinking-lead"><p>Different problems, brought into one<br>disciplined way of working.</p></div><div class="principle-cycle" data-motion="paused"><svg class="system-spine" aria-hidden="true"><path/></svg><span class="spine-packet" aria-hidden="true"></span><div class="principle-grid">${principles.map((p,i)=>`<figure class="principle-figure" data-reasoning="${i+1}"><p class="reasoning-identifier">${p.identifier}</p><div class="principle-drawing">${p.figure}</div><figcaption><h3>${p.name}</h3><p>${p.description}</p>${p.handoff?`<p class="reasoning-handoff">${p.handoff}</p>`:''}</figcaption></figure>`).join('')}</div></div></section>`;
+export const principleSection=()=>`<section class="principles page-width" id="principle" aria-labelledby="principle-heading"><p class="eyebrow">The thinking behind the tools</p><header class="thinking-preface"><h2 id="principle-heading"><span class="thesis-primary">Purpose-built from the work.</span> <span class="thesis-continuation">Less repetition. More room for engineering judgment.</span></h2><p class="thinking-context">ARTIFACTS does not begin with features.<br>It begins with something in the work that should be better.<span>Different problems, brought into one disciplined way of working.</span></p></header><div class="principle-cycle" data-motion="paused"><span class="figure-transfer" aria-hidden="true"></span><div class="principle-grid">${principles.map((p,i)=>`<figure class="principle-figure" data-reasoning="${i+1}"><p class="reasoning-identifier"><span>FIG. 0${i+1}</span><span>${p.identifier}</span></p><div class="principle-drawing">${p.figure}</div><figcaption><h3>${p.name}</h3><p>${p.description}</p>${p.handoff?`<p class="reasoning-handoff">${p.handoff}</p>`:''}</figcaption></figure>`).join('')}</div></div></section>`;

@@ -23,14 +23,14 @@ function proximity(surface,update,{initial=.5,retain=false,geometry=surface,allo
  function measure(){bounds=geometry.getBoundingClientRect();}
  function pointer(event){
   if(!allowPointer(event)||!fine.matches||reduced.matches||event.pointerType==='touch')return;
-  inside=true;if(!bounds)measure();
+  inside=true;if(!bounds)return;
   tx=clamp((event.clientX-bounds.left)/bounds.width);ty=clamp((event.clientY-bounds.top)/bounds.height);schedule();
  }
  surface.addEventListener('pointerenter',event=>{measure();pointer(event);},options);
  surface.addEventListener('pointermove',pointer,{...options,passive:true});
  surface.addEventListener('pointerleave',()=>{inside=false;if(!retain){tx=.5;ty=.5;}schedule();},options);
  const resize=new ResizeObserver(()=>{bounds=null;});resize.observe(geometry);
- window.addEventListener('scroll',()=>{bounds=null;},{...options,passive:true});
+ window.addEventListener('scroll',()=>{bounds=null;requestAnimationFrame(()=>{if(!bounds)measure();});},{...options,passive:true});
  function sync(){
   const running=visible&&!document.hidden&&!reduced.matches;
   surface.dataset.motion=running?'running':'paused';
@@ -60,7 +60,7 @@ if(fine.matches){
  heroElement.addEventListener('pointerleave',()=>{targetX=.5;targetY=.5;scheduleHero();},{signal:options.signal});
  const heroResize=new ResizeObserver(()=>{heroBounds=null;});heroResize.observe(product);
  window.addEventListener('resize',()=>{heroBounds=null;},{...options,passive:true});
- window.addEventListener('scroll',()=>{heroBounds=null;},{...options,passive:true});
+ window.addEventListener('scroll',()=>{heroBounds=null;requestAnimationFrame(()=>{if(!heroBounds)measureHero();});},{...options,passive:true});
  disposals.push(()=>heroResize.disconnect());
 }
 product.style.setProperty('--hero-rotate-y','0deg');product.style.setProperty('--hero-rotate-x','0deg');
