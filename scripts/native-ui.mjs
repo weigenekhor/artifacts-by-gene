@@ -21,7 +21,7 @@ function nativeWindow(model,layouts,mode,theme='pentimento'){
 }
 export function nativeShell(model,layouts){
  const markup=`<div class="hero-sequence"><div class="product-stage"><div class="product-environment" aria-hidden="true"><i class="pentimento-atmosphere"></i><i class="origin-atmosphere"></i></div><div class="product-rig"><div class="product-duet" role="group" aria-label="ARTIFACTS application">${nativeWindow(model,layouts,'pentimento','pentimento')}
- <div class="product-toolbar"><span class="interaction-cue"><svg width="14" height="17" viewBox="0 0 14 17" fill="none" aria-hidden="true"><path d="m2 1 10 9-5 .4-2.5 4.8Z" stroke="currentColor" stroke-linejoin="round"/></svg><span class="pointer-cue">Hover to explore · drag the wafer</span><span class="touch-cue">Tap an application to explore</span></span><span class="system-seam" aria-hidden="true"><i></i></span><a href="#principle">The thinking behind the tools <span aria-hidden="true">↓</span></a></div></div></div></div>
+ </div></div></div>
  <aside class="module-details" id="module-details" role="region" aria-label="Application details" hidden><div class="module-details-scroll" tabindex="0" aria-label="Application information and preview"><div class="module-details-body"><img class="native-panel" alt=""><img class="native-panel-motion" alt="" decoding="async" fetchpriority="low" hidden><div class="sr-only" data-panel-text></div></div></div><button type="button" data-close-details aria-label="Close application details">${icon('close',16)}</button></aside>`;
  return markup.replace(/<button(?![^>]*disabled)/g,'<button disabled');
 }
