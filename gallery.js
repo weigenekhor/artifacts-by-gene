@@ -1,4 +1,4 @@
-import {model} from './state.js';
+import {model,state,themedCaptures} from './state.js';
 
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const viewer=document.querySelector('#capture-viewer');
@@ -47,23 +47,25 @@ function updateCaption(card){
  card.element.querySelector('.gallery-count').innerHTML=`${num(card.index+1)} <span>/ ${num(card.app.images.length)}</span>`;
  card.element.querySelector('[data-slide-caption]').textContent=caption(card.app.images[card.index]);
  card.imageButton.setAttribute('aria-label',`Enlarge ${card.app.name}, capture ${card.index+1} of ${card.app.images.length}`);
+ card.element.querySelectorAll('[data-previous],[data-next]').forEach(button=>button.disabled=card.app.images.length<2);
+ card.element.querySelector('.gallery-play').disabled=reduced.matches||card.app.images.length<2;
 }
 async function changeSlide(card,index){
- const request=++card.request;
  const next=(index+card.app.images.length)%card.app.images.length;
  if(next===card.index)return;
+ const request=++card.request;
  card.loading=true;
  const capture=card.app.images[next],image=makeImage(capture,card.app,card.element.classList.contains('gallery-feature'));
- try{await image.decode();}catch{card.loading=false;return;}
+ try{await image.decode();}catch{if(request===card.request)card.loading=false;return;}
  if(request!==card.request)return;
  card.imageButton.querySelectorAll('img').forEach(img=>img.getAnimations().forEach(a=>a.cancel()));
- const old=card.imageButton.querySelector('img');
- card.imageButton.append(image);
+ if(card.pendingTheme)card.imageButton.replaceChildren(image);else card.imageButton.append(image);
  image.style.background='var(--frame)';
+ card.element.removeAttribute('data-theme-loading');
  if(!reduced.matches){const fade=image.animate([{opacity:0},{opacity:1}],{duration:300,easing:'cubic-bezier(.22,.61,.36,1)'});await fade.finished.catch(()=>{});}
- if(request!==card.request){old?.remove();return;}
+ if(request!==card.request){image.remove();return;}
  card.imageButton.querySelectorAll('img').forEach(img=>{if(img!==image)img.remove();});
- card.index=next;card.loading=false;updateCaption(card);
+ card.index=next;card.loading=false;card.pendingTheme=false;updateCaption(card);
 }
 function manual(card,direction){stopTimer();central=card;changeSlide(card,card.index+direction).then(schedule);}
 function swipe(element,callback){
@@ -76,6 +78,7 @@ const observer=new IntersectionObserver(entries=>{
  for(const entry of entries){
   const card=cards.find(c=>c.element===entry.target);if(!card)continue;
   card.visible=entry.isIntersecting;
+  if(card.visible&&card.pendingTheme&&!card.loading)changeSlide(card,0).then(schedule);
   if(entry.isIntersecting&&!card.entered){
    card.entered=true;
    if(!reduced.matches)card.element.animate([{opacity:.65,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:500,easing:'cubic-bezier(.22,.61,.36,1)'});
@@ -85,10 +88,11 @@ const observer=new IntersectionObserver(entries=>{
 },{threshold:[0,.2,.5,.8,1]});
 
 for(const element of document.querySelectorAll('[data-gallery-app]')){
- const app=model.apps.find(a=>a.id===element.dataset.galleryApp);
- const card={element,app,index:Number(element.dataset.initialSlide),request:0,loading:false,visible:false,paused:false,hovered:false,focused:false,imageButton:element.querySelector('.gallery-image'),progress:element.querySelector('.gallery-progress>span')};
+ const original=model.apps.find(a=>a.id===element.dataset.galleryApp),app={...original,images:themedCaptures(original)};
+ const card={element,original,app,index:0,request:0,loading:false,pendingTheme:false,visible:false,paused:false,hovered:false,focused:false,imageButton:element.querySelector('.gallery-image'),progress:element.querySelector('.gallery-progress>span')};
  cards.push(card);
  element.querySelectorAll('button').forEach(b=>b.disabled=false);
+ updateCaption(card);
  element.querySelector('[data-previous]').addEventListener('click',()=>manual(card,-1));
  element.querySelector('[data-next]').addEventListener('click',()=>manual(card,1));
  element.querySelector('.gallery-play').addEventListener('click',e=>{
@@ -99,15 +103,27 @@ for(const element of document.querySelectorAll('[data-gallery-app]')){
  element.addEventListener('focusin',()=>{card.focused=true;if(central===card)stopTimer();});
  element.addEventListener('focusout',e=>{if(!element.contains(e.relatedTarget)){card.focused=false;schedule();}});
  element.addEventListener('keydown',e=>{if(viewer.open)return;if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();manual(card,e.key==='ArrowRight'?1:-1);}});
- element.querySelectorAll('[data-lightbox]').forEach(button=>button.addEventListener('click',()=>{if(!card.imageButton.dataset.swiped)openViewer(card,button);}));
+ element.querySelectorAll('[data-lightbox]').forEach(button=>button.addEventListener('click',()=>{if(!card.imageButton.dataset.swiped&&!card.pendingTheme)openViewer(card,button);}));
  swipe(card.imageButton,direction=>manual(card,direction));
  observer.observe(element);
 }
+function editionChanged(){
+ stopTimer();
+ for(const card of cards){
+  card.request++;card.app.images=themedCaptures(card.original);card.index=-1;card.loading=false;card.pendingTheme=true;
+  card.element.dataset.themeLoading='true';card.element.dataset.theme=state.theme;
+  card.element.querySelector('.gallery-count').innerHTML=`01 <span>/ ${num(card.app.images.length)}</span>`;
+  if(card.visible)changeSlide(card,0).then(schedule);
+ }
+ if(viewer.open)showViewerSlide(0);
+}
+document.addEventListener('experience-change',editionChanged);
+if(state.theme!=='pentimento')editionChanged();
 window.addEventListener('scroll',requestSelection,{passive:true});
 window.addEventListener('resize',requestSelection,{passive:true});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stopTimer();else{requestSelection();schedule();}});
 function reducedChanged(){
- stopTimer();document.querySelectorAll('.gallery-play').forEach(button=>{button.disabled=reduced.matches;button.title=reduced.matches?'Automatic slideshow disabled for reduced motion':'';});schedule();
+ stopTimer();for(const card of cards){const button=card.element.querySelector('.gallery-play');button.disabled=reduced.matches||card.app.images.length<2;button.title=reduced.matches?'Automatic slideshow disabled for reduced motion':'';}schedule();
 }
 reduced.addEventListener('change',reducedChanged);reducedChanged();
 

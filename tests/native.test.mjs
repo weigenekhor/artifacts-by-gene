@@ -64,17 +64,34 @@ test('Built page links resolve under a Pages subpath as well as the custom domai
  assert.match(html,/https:\/\/www.linkedin.com\/in\/weigenekhor\//);
 });
 
-test('Internal theme and mode cannot mutate the outer website; storage failure is safe',async()=>{
- const buttons=['origin','pentimento'].map(theme=>({dataset:{themeChoice:theme},setAttribute(k,v){this[k]=v;}}));
- const root={dataset:{theme:'pentimento',mode:'pentimento'},querySelectorAll(){return buttons;},addEventListener(){}};
- const website={dataset:{}};
- const context={JSON,CustomEvent:class{},localStorage:{getItem(){throw Error('Disabled');},setItem(){throw Error('Disabled');}},document:{documentElement:website,querySelector(s){return s==='#artifacts-data'?{textContent:JSON.stringify(model)}:root;},dispatchEvent(){}}};
+test('One edition keeps every capture and native theme coherent; blocked storage is safe',async()=>{
+ const events=[];
+ const context={JSON,CustomEvent:class{constructor(name,options){this.detail=options.detail;}},localStorage:{getItem(){throw Error('Disabled');},setItem(){throw Error('Disabled');}},document:{querySelector(){return {textContent:JSON.stringify(model)};},querySelectorAll(){return [];},dispatchEvent(e){events.push(e);}}};
  vm.createContext(context);
  vm.runInContext((await fs.readFile('state.js','utf8')).replaceAll('export ',''),context);
- vm.runInContext("setTheme('origin');setMode('legacy');setTheme('unknown');setMode('unknown');",context);
- assert.equal(root.dataset.theme,'origin');assert.equal(root.dataset.mode,'legacy');
- assert.deepEqual(website.dataset,{});
- buttons.forEach(b=>assert.equal(b['aria-pressed'],String(b.dataset.themeChoice==='origin')));
+ for(const [edition,theme] of [['legacy','origin'],['pentimento','pentimento']]){
+  vm.runInContext(`setEdition('${edition}');setTheme('unknown');setEdition('unknown');`,context);
+  assert.equal(vm.runInContext('state.theme',context),theme);
+  assert.equal(vm.runInContext('state.mode',context),edition);
+  assert.ok(vm.runInContext('model.apps.every(app=>themedCaptures(app).length>0&&themedCaptures(app).every(c=>c.theme===state.theme))',context));
+ }
+ assert.equal(events.length,2);
+ const count=events.length;vm.runInContext("setEdition('pentimento')",context);assert.equal(events.length,count);
+ assert.equal(html.split('class="product-state"').length-1,2);
+ assert.match(html,/data-theme="origin" data-mode="legacy"/);
+ assert.match(html,/data-theme="pentimento" data-mode="pentimento"/);
+});
+
+test('Native panel cache coalesces first decode, reuses ready imagery and evicts old entries',async()=>{
+ const {createPanelCache}=await import('../panel-cache.js');
+ const calls=[];const cache=createPanelCache(async key=>{calls.push(key);if(key==='bad')throw Error('missing');return {key};},2);
+ const first=cache.get('a');assert.equal(cache.get('a'),first);await first.promise;
+ assert.equal(first.ready,true);assert.equal(cache.get('a').image,first.image);
+ await cache.get('b').promise;cache.get('a');await cache.get('c').promise;
+ assert.equal(cache.size,2);assert.deepEqual(calls,['a','b','c']);
+ await cache.get('b').promise;assert.deepEqual(calls,['a','b','c','b']);
+ await assert.rejects(cache.get('bad').promise);await assert.rejects(cache.get('bad').promise);
+ assert.equal(calls.filter(x=>x==='bad').length,2);
 });
 
 test('Carousel touch intent preserves vertical scroll and ignores mouse/cancelled gestures',async()=>{
@@ -112,10 +129,12 @@ test('Every native panel geometry keeps its source cards accessible and aligned'
   const [,mode]=key.split('-');
   const expected=model.expeditions.filter(e=>e.mode===mode).flatMap(e=>e.apps).map(id=>model.apps.find(a=>a.id===id).sourceKey);
   assert.deepEqual(ref.cards.map(card=>card.key),expected);
-  for(const [suffix,width,height] of [['background',ref.width,ref.height],['content',ref.contentWidth,ref.contentHeight]]){
+  for(const [suffix,width,height,density] of [['field',ref.width,ref.height,1],['light',ref.width,ref.height,1],['content',ref.contentWidth,ref.contentHeight,2]]){
    const meta=await sharp(`assets/native/layouts/${key}-${suffix}.webp`).metadata();
-   assert.equal(meta.width,width*2);assert.equal(meta.height,height*2);
+   assert.equal(meta.width,width*density);assert.equal(meta.height,height*density);
   }
+  assert.ok(ref.wafer.size>0&&Number.isFinite(ref.wafer.x)&&Number.isFinite(ref.wafer.y),key);
+  assert.ok(ref.wafer.originX>0&&ref.wafer.originX<100&&ref.wafer.originY>0&&ref.wafer.originY<100);
   for(const card of ref.cards){
    assert.ok(card.x>=0&&card.y>=0&&card.x+card.width<=ref.contentWidth&&card.y+card.height<=ref.contentHeight,key+' '+card.key);
    const hover=await sharp(`assets/native/layouts/${key}-${card.key}.webp`).metadata();

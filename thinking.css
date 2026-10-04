@@ -1,0 +1,55 @@
+/* One eighteen-second cycle: notice, retain a check, use it, revise it. */
+.principles{padding-block:122px 96px}
+.thinking-preface{display:grid;grid-template-columns:1.2fr 1fr;gap:12%;align-items:end;margin-top:26px}
+.thinking-preface h2{font-size:clamp(36px,3.5vw,54px);line-height:1.12;font-weight:450;letter-spacing:-.04em}
+.thinking-preface p{font-size:15px;line-height:1.75;color:var(--muted);max-width:440px;margin-top:24px;text-wrap:pretty}
+.thinking-intent h3{font-size:clamp(23px,2.2vw,31px);line-height:1.3;letter-spacing:-.028em;font-weight:450;max-width:370px}
+.thinking-intent h3 span{color:#b8beb8}.thinking-intent p{font-size:13px;max-width:320px;margin-top:18px}
+.principle-cycle{position:relative;--cycle:18s}.principle-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:68px}
+.principle-figure{padding-inline:24px;--attention:.24}.principle-figure:first-child{padding-left:0}.principle-figure:last-child{padding-right:0}
+.principle-drawing{height:250px;display:grid;place-items:center;color:#82928b;position:relative}
+.principle-drawing svg{width:100%;height:100%;max-height:100%;overflow:visible}
+.reasoning-field{opacity:calc(.8 + var(--attention)*.2)}.principle-drawing{user-select:none}
+.principle-drawing:after{content:"";position:absolute;top:50%;left:100%;width:48px;height:1px;background:#424c48}
+.principle-figure:last-child .principle-drawing:after{display:none}
+.principle-figure figcaption{border-top:1px solid var(--border);padding-top:23px}
+.principle-figure h3{font-size:21px;line-height:1.35;letter-spacing:-.025em;font-weight:500;margin-bottom:14px}
+.principle-figure p{font-size:14px;color:var(--muted);line-height:1.8;text-wrap:pretty;max-width:350px}
+.principle-figure .reasoning-handoff{color:#c3c5bb;font-size:12px;line-height:1.65;margin-top:23px;max-width:290px}
+.diagram-faint{color:#414b47}.diagram-panel{fill:#171c1b;stroke:#7a8b81}.diagram-edge{color:#b7c3ba}
+.diagram-shadow{stroke:#36443d;fill:#141917}.diagram-route{color:#cab591;opacity:calc(.52 + var(--attention)*.48)}
+.cycle-operation{stroke:#90b19f;fill:#182a22}.signal{fill:#e1cbb0;stroke:none}
+.clarity-focus{stroke:#7d9a8c;fill:#192c23}.evidence-response,.comparison-match,.friction-mark{stroke:#dbc3a0}
+.check,.resolved-check{stroke:#b9d0bf}.normalised-output{stroke:#b9c7bc}
+.cycle-return{height:56px;margin-top:38px;color:#77837b}.cycle-return svg{height:100%;width:100%;fill:none;stroke:#34423a;stroke-width:1}
+.signal-compare{transform:translate(215px,122px)}.signal-forward{transform:translate(302px,124px);opacity:.4}
+.signal-process{transform:translate(176px,132px)}.signal-use{transform:translate(202px,172px)}.signal-feedback{transform:translate(245px,78px)}
+.principle-cycle :is(.evidence,.friction-mark,.route-observe,.comparison-match,.signal,.repeated-paths,.check,.normalised-output,.resolved-check,.adjustment circle,.evidence-response,.clarity-focus){animation-duration:var(--cycle);animation-timing-function:cubic-bezier(.4,0,.25,1);animation-iteration-count:infinite;animation-play-state:paused}
+.principle-cycle[data-motion=running] :is(.evidence,.friction-mark,.route-observe,.comparison-match,.signal,.repeated-paths,.check,.normalised-output,.resolved-check,.adjustment circle,.evidence-response,.clarity-focus){animation-play-state:running}
+.evidence-a{animation-name:consider-first}.evidence-b{animation-name:consider-second}.friction-mark{animation-name:notice-friction}
+.route-observe{animation-name:relate-evidence}.comparison-match{animation-name:resolve-comparison}.signal-compare{animation-name:compare-flow}.signal-forward{animation-name:retain-flow}
+.repeated-paths{animation-name:collapse-repetition}.check-a{animation-name:check-first}.check-b{animation-name:check-second}.signal-process{animation-name:process-flow}.normalised-output{animation-name:output-resolves}
+.signal-use{animation-name:use-flow}.signal-feedback{animation-name:feedback-flow}.resolved-check{animation-name:confirm-revision}.adjustment circle{animation-name:adjust-relation}.evidence-response{animation-name:evidence-return}.clarity-focus{animation-name:focus-response}
+@keyframes consider-first{0%,100%{transform:translate(-5px,-7px);opacity:.5}12%,72%{transform:translate(0,0);opacity:1}86%{transform:translate(-2px,-3px);opacity:.8}}
+@keyframes consider-second{0%,100%{transform:translate(-9px,6px);opacity:.45}18%,78%{transform:translate(0,0);opacity:1}88%{transform:translate(-4px,2px);opacity:.8}}
+@keyframes notice-friction{0%,5%,35%,100%{opacity:.16}12%,22%{opacity:1}}
+@keyframes relate-evidence{0%,100%{opacity:.2}20%,75%{opacity:.9}85%{opacity:.5}}
+@keyframes resolve-comparison{0%,13%,100%{opacity:.1}23%,84%{opacity:1}}
+@keyframes compare-flow{0%,7%{transform:translate(119px,74px);opacity:0}9%{opacity:1}15%{transform:translate(154px,91px)}24%{transform:translate(216px,123px);opacity:1}28%,100%{transform:translate(233px,123px);opacity:0}}
+@keyframes retain-flow{0%,25%{transform:translate(278px,124px);opacity:0}28%{opacity:1}36%{transform:translate(360px,124px);opacity:1}38%,100%{transform:translate(360px,124px);opacity:0}}
+@keyframes collapse-repetition{0%,31%,100%{opacity:.5;transform:scaleY(1)}48%,90%{opacity:.1;transform:scaleY(.98)}}
+@keyframes check-first{0%,40%,100%{opacity:.3}47%,91%{opacity:1}}
+@keyframes check-second{0%,48%,100%{opacity:.3}56%,91%{opacity:1}}
+@keyframes process-flow{0%,34%{transform:translate(0,124px);opacity:0}36%{opacity:1}41%{transform:translate(89px,132px)}46%{transform:translate(134px,132px)}53%{transform:translate(203px,132px)}60%{transform:translate(270px,124px);opacity:1}66%{transform:translate(360px,124px);opacity:1}68%,100%{transform:translate(360px,124px);opacity:0}}
+@keyframes output-resolves{0%,53%,100%{opacity:.15}61%,91%{opacity:1}}
+@keyframes use-flow{0%,64%{transform:translate(0,124px);opacity:0}66%{opacity:1}73%{transform:translate(120px,138px)}79%{transform:translate(230px,155px);opacity:1}82%,100%{transform:translate(249px,155px);opacity:0}}
+@keyframes feedback-flow{0%,78%{transform:translate(237px,108px);opacity:0}80%{opacity:1}84%{transform:translate(261px,78px)}89%{transform:translate(235px,47px)}94%{transform:translate(189px,40px);opacity:1}97%,100%{transform:translate(184px,40px);opacity:0}}
+@keyframes confirm-revision{0%,78%{opacity:.3}87%,100%{opacity:1}}
+@keyframes adjust-relation{0%,100%{transform:translateX(12px)}8%,85%{transform:translateX(0)}94%{transform:translateX(12px)}}
+@keyframes evidence-return{0%,74%,99%,100%{opacity:.1}82%,93%{opacity:1}}
+@keyframes focus-response{0%,72%,100%{opacity:.4}80%,96%{opacity:1}}
+@media(max-width:1100px){.principles{padding-block:100px 75px}.thinking-preface{gap:8%}.principle-figure{padding-inline:16px}.principle-drawing{height:210px}.principle-drawing:after{width:32px}.principle-figure h3{font-size:18px}}
+@media(max-width:760px){.principles{padding-block:82px 66px}.thinking-preface{grid-template-columns:1fr;gap:38px}.thinking-preface h2{font-size:37px}.thinking-intent h3{font-size:25px;max-width:400px}.thinking-preface p{font-size:14px}.thinking-intent p{font-size:13px;max-width:340px}.principle-grid{grid-template-columns:1fr;gap:34px;margin-top:36px}.principle-figure,.principle-figure:first-child,.principle-figure:last-child{padding:0;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}.principle-drawing{height:220px}.principle-drawing:after,.cycle-return{display:none}.principle-figure figcaption{border-top:0;padding-top:0}.principle-figure p{font-size:13px}.principle-figure .reasoning-handoff{margin-top:15px}}
+@media(max-width:470px){.principle-figure,.principle-figure:first-child,.principle-figure:last-child{grid-template-columns:1fr;gap:8px}.principle-figure figcaption{border-top:1px solid var(--border);padding-top:20px}.principle-figure h3{font-size:21px}.principle-drawing{height:230px}.principle-grid{gap:24px}}
+@media(prefers-reduced-motion:reduce){.principle-cycle *{animation:none!important}.reasoning-field{transform:none!important}}
+html:not(.js) .principle-cycle *{animation:none!important}

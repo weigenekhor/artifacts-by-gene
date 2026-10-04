@@ -8,7 +8,7 @@ All URLs are relative for custom-domain and project-path GitHub Pages. Preserve 
 
 ## Native reference pipeline
 
-`scripts/export-home-layouts.py` imports actual HomeWidget read-only. Sixteen variants cover both themes/modes × closed/navigation/information/both panel states. Background, complete scrollable content and hover cards render at 2×, with source bounds in `content/home-layouts.json`.
+`scripts/export-home-layouts.py` imports actual HomeWidget read-only. Sixteen variants cover both themes/modes × closed/navigation/information/both panel states. Complete scrollable content and hover cards render at 2×, with source bounds in `content/home-layouts.json`. The renderer exports its native tonal field, fixed lighting and prepared wafer texture separately. CSS rotates only the wafer using the native pivot and geometry. Old baked-wafer background images are removed.
 
 `scripts/export-panel-reference.py` renders ModuleDetailsPanel under its actual pagesContainer QSS scope. Fifty theme/mode/tool variants include native motion strips and preview images. Geometry lives in `content/panel-reference.json`. Application Info uses the exact bounded construction block from Artifacts.py. Neither exporter runs processing widgets or changes source files.
 
@@ -16,19 +16,19 @@ Committed WebPs live in `assets/native/layouts/` and `assets/native/panels/`. Su
 
 ## Runtime
 
-- `state.js`: validated persisted product appearance/mode; only product attributes/controls change.
-- `native-shell.js`: uniform scale, native panel push/reflow, hover/focus/touch information, decoded panel loads, stale-request protection and dismissal. Hero cards do not launch screenshots. Mobile has an information selector.
+- `state.js`: one validated persisted edition pairs Legacy/Origin and Pentimento/Pentimento; it selects matching gallery captures without changing the public palette or membership.
+- `native-shell.js`: uniform scale, native panel push/reflow, hover/focus/touch information, prepared bounded-LRU panel loads, stale-request protection and dismissal. Hero cards do not launch screenshots. Mobile has an information selector.
 - `native-home.js`: source-coordinate markup and bounded panel placement.
-- `gallery.js`: one instance per canonical app, decoded crossfades, a single autoplay owner, touch intent and native-dialog viewer. Independent of product mode/theme.
-- `site-motion.js`: event-driven scroll handoffs and one-time cycle/closing-credit choreography. At most one queued scroll frame; nothing runs at rest.
+- `gallery.js`: one instance per canonical app, decoded crossfades, a single autoplay owner, touch intent and native-dialog viewer. Capture subsets follow the shared edition. Offscreen cards load the correct theme when reached; stale-theme imagery is hidden until the replacement has decoded.
+- `site-motion.js`: event-driven scroll handoffs and closing credits. `experience-motion.js`: damped proximity for the two windows and reasoning field, visibility/reduced-motion coordination. `panel-cache.js`: bounded decoded-image reuse and coalesced pending loads. No pointer movement rebuilds the native grid.
 - `site.js`: entry module.
 
-`site.css` owns public design, `tokens.css` scopes product colors, and `shell.css` owns native panel geometry. Sharp is build-only; animated information strips load only while requested.
+`site.css` owns public design, `tokens.css` scopes product colors, `shell.css` owns native geometry/wafer rotation, and `thinking.css` owns the shared reasoning timeline. Sharp is build-only; animated information strips load only while requested.
 
 The generated `content/shells/` fragments, `scripts/complex-shells.mjs`, `native-layout.js`, `native-wafer.js` and `native-motion.js` have been removed. Do not bring back fabricated/default app interfaces or redundant geometry/motion runtimes.
 
 ## Verification and deployment
 
-Build, syntax and eleven automated checks cover canonical order, screenshot dimensions, deployment paths, scoped state, swipe/autoplay, all native panel layouts, viewport-safe hover placement and requested copy. Browser review checks actual rendered composition, keyboard/touch behavior, reduced motion and no-JS.
+Build, syntax and automated checks cover canonical order, screenshot dimensions, deployment paths, edition/capture coherence, swipe/autoplay, all native panel layouts, viewport-safe hover placement and requested copy. Browser review checks actual rendered composition, keyboard/touch behavior, reduced motion and no-JS.
 
 Current review branch: `rebuild/contained-product`. Safety baseline `cc2c3fc`; previous contained `a706a60`, older fullscreen `5e518a7`. Publishing the review branch does not promote production. Local `.qa/` and `versions/` are ignored.

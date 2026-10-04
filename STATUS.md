@@ -1,28 +1,34 @@
 # Implementation status
 
-## Current pass
+## Two connected states
 
-Hero is another 10% smaller at the same 1229:820 aspect. Native geometry replaces the previous sidebar: full-height 60→240px navigation and 240px Application Info push the application content right. Sixteen source-rendered home layouts preserve card size and desktop reflow. The greeting is removed; bottom-right status remains Pentimento in both modes.
+The hero presents the actual native Legacy/Origin and Pentimento/Pentimento home surfaces together. Damped cursor proximity transfers emphasis through restrained scale, position and orientation. Explicit state controls support touch and keyboard. Both windows preserve 1229:820 geometry and the existing source-matched navigation/information panels. Mobile uses a deeper vertical stagger so both remain visible.
 
-Hero application screenshot launches are removed. Hover/focus/touch selection shows the actual native information panel, with native metadata, preview and motion strip. Fifty theme/mode/tool variants are exported read-only from the desktop. Panel placement is viewport-bounded; short landscape screens scroll the panel internally instead of shrinking its text.
+One active edition controls matching gallery captures. All 17 applications remain in canonical order. There are 58 source captures: 29 per theme. Multi-view slideshows stay within the selected theme. The public palette, gallery layout, closing credit and footer are preserved.
 
-Native scroll hands the introduction into a centered product scene. Current thinking graphics remain, with rewritten copy grounded in actual problems, repeatable checks, automation and refinement through use. The creator is a roughly 246px closing credit (about 40% shorter), containing only BUILT BY, Gene, Wei Gene Khor, Email and LinkedIn, with staged motion and footer handoff.
+The real desktop wafer texture rotates at the source rate of one degree per second. Its pivot, material, native tonal field and fixed lighting are exported from WaferRotationSurface. No full-frame image rotates. Rotation phase survives panel reflow. Old baked-wafer backgrounds have been removed.
 
-The public gallery remains independent: 17 apps, 58 captures, six wider features, 3.6-second dwell and 300ms crossfade. Its existing controls and image viewer remain functional.
+Thinking now uses the exact approved framing and three statements. One shared 18-second SVG cycle aligns evidence, retains checks, passes a signal into use, and feeds a revision back into the structure. Continuous proximity adds focus and small depth response without moving the copy. The numbered process treatment and rejected return caption are absent.
+
+## Performance and interaction
+
+Native information previously decoded a new full panel on every entry. The new bounded cache coalesces loads, prepares nearby panels and reuses decoded elements. Pointer movement does not rebuild the home grid. Source geometry drives predictive preparation; layout reads are outside the proximity interpolation pass.
+
+In the local browser sample, the first uncached panel update took approximately 21 ms; subsequent prepared updates took 0.4-0.6 ms. The same handler serves focus and pointer inspection. Instrumentation observed zero home-grid mutations during these changes. A 240-frame sample had approximately 16.7 ms frame intervals and no recorded long tasks. These are measurements on this development machine, not a physical-device or GPU guarantee. Profiling fixtures remain ignored under `.qa/`.
+
+Meaningful CSS animation pauses offscreen, when the tab is hidden, and for reduced motion. Pointer interpolation stops after settling. There is no continuously redrawn canvas, WebGL scene, React runtime or image-based application launch in the hero.
 
 ## Verification
 
-- Build and syntax checks pass. Eleven tests cover canonical ownership/order, all screenshot derivatives, relative deployment paths, state isolation, gallery gesture/autoplay rules, sixteen native layouts, fifty native information variants, viewport placement and exact creator content.
-- Sidebar/navigation/information combinations, theme/mode switching, fixed Pentimento status, native card inspection, keyboard focus/Escape and touch selection were exercised in the browser. Initial resize/focus timing and a native-export background artifact were corrected during review.
-- Rendered output reviewed at 1280×900, 1024×768, 390×844 and 844×390; 2560×1440 reviewed using a central capture because the browser screenshot surface truncates the full outer viewport. Native aspect and no document overflow were measured. 1440px no-script/reduced-motion fixtures were also inspected.
-- No-script fixture has zero scripts and retains the native home plus all 58 full-resolution links. Reduced-motion fixture disables autoplay and native animated strips and removes scroll transforms; content/manual controls remain.
-- No console errors/warnings observed. 673 asset/module URLs returned HTTP 200. Runtime modules total approximately 26 KB; initial HTML approximately 134 KB. All native layout/panel variants total approximately 17.8 MB on disk; only selected state/panel assets are requested. This is not a physical-device, GPU or sustained FPS benchmark.
-- Review captures and fixtures are under ignored `.qa/native-review/`.
+- Build and syntax checks pass. Twelve tests cover ordered app ownership, all capture derivatives, relative Pages paths, shared edition coherence, decoded-cache reuse/eviction, swipe/autoplay, native geometry, information assets, viewport placement and unchanged creator content.
+- Native focus/inspection, Escape, sidebar expansion, direct pointer transfer between editions, reasoning proximity, touch selection and gallery theme propagation were exercised in the browser.
+- Rendered review: 1440px, 1280px, 1024px tablet, 390px portrait and 844px landscape. The 2560x1440 composition was inspected with a central capture. Measured layouts have no document overflow; short information panels scroll internally.
+- Reduced-motion fixture retains static relationships and manual controls, with autoplay and continuous motion disabled. No-JavaScript fixture retains both native states and all 58 full-resolution capture links.
+- 694 local asset/module URLs returned HTTP 200. No console errors or warnings were observed. Runtime modules total approximately 33.4 KB; generated HTML approximately 153 KB. No external runtime dependency is added.
+- Review captures are in ignored `.qa/native-review/`, with filenames prefixed `two-states-`.
 
 ## Preservation and boundaries
 
-Review branch: `rebuild/contained-product`. Prior state is recoverable at `cc2c3fc` and local tag `review/native-captures-cc2c3fc`. Production is not promoted by this pass.
+Review branch: `rebuild/contained-product`. The immediately preceding implementation is recoverable at `51750c3` and tag `review/native-handoff-51750c3`. Earlier work remains in Git. This pass does not promote production.
 
-The old home export pipeline/assets and hero screenshot runtime were removed. No desktop source or original capture was modified; no source asset is missing. Normal builds need only committed assets/content and Node. GitHub Pages remains static with unchanged CNAME.
-
-Native artwork is rendered by the actual Qt widgets. Browser window decorations follow source geometry/styles, but are not claimed pixel-identical to OS-native decorations on every platform. Hover information uses browser-safe viewport placement, and touch/short-height adaptations preserve readability. This exhibition does not execute engineering processing.
+No desktop code or original screenshot was changed. No required source asset was missing. The exports use the desktop renderer; browser chrome and viewport-safe placement remain deliberate web adaptations. The website does not execute engineering processing. GitHub Pages stays static, with CNAME unchanged.

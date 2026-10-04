@@ -1,4 +1,17 @@
 /* Logical desktop geometry; the complete window scales as a single unit. */
+.product-stage{width:min(calc(100% - 2*var(--gutter)),1400px);margin-inline:auto;container-type:inline-size;container-name:product}
+.product-duet{position:relative;aspect-ratio:1.80;isolation:isolate;user-select:none}
+.product-state{position:absolute;width:67%;transform-origin:50% 50%;backface-visibility:hidden}
+.product-state[data-edition=legacy]{left:0;top:0;z-index:1}
+.product-state[data-edition=pentimento]{right:0;top:8cqw;z-index:2}
+.edition-controls{display:flex;gap:30px;align-items:center}
+.edition-controls button{position:relative;display:grid;gap:2px;text-align:left;min-height:56px;padding:6px 0 6px 15px;background:none;border:0;color:var(--muted);font-size:12px;line-height:1.4;transition:color 200ms}
+.edition-controls button:before{content:"";position:absolute;left:0;top:14px;width:2px;height:29px;background:var(--border-hover);transition:background 200ms}
+.edition-controls button span{font-size:10px;color:#868d88}
+.edition-controls button[aria-pressed=true]{color:var(--text)}.edition-controls button[aria-pressed=true]:before{background:#bbd0c0}
+.edition-controls [data-select-edition=pentimento][aria-pressed=true]:before{background:#ba9bcc}
+.product-duet[data-motion=running] .home-wafer{animation-play-state:running}
+.product-duet[data-active=legacy] .product-state[data-edition=pentimento] .app-shell,.product-duet[data-active=pentimento] .product-state[data-edition=legacy] .app-shell{pointer-events:none}
 .product-viewport{position:relative;width:100%;aspect-ratio:1229/820;container-type:inline-size;overflow:hidden;border:1px solid #39343d;border-radius:7px;background:#090a0d;box-shadow:0 22px 70px #0005}
 .app-shell{--font:"Segoe UI",sans-serif;--nav-shift:0px;--panel-shift:0px;--info-width:0px;position:absolute;left:0;top:0;width:1229px;height:820px;transform-origin:0 0;transform:scale(calc(100cqw / 1229px));overflow:hidden;background:var(--frame);color:var(--text);font:12px/1.4 var(--font);isolation:isolate}
 .app-sidebar{position:absolute;inset:0 auto 0 0;width:240px;background:var(--nav);clip-path:inset(0 calc(180px - var(--nav-shift)) 0 0);transition:clip-path 220ms cubic-bezier(.215,.61,.355,1);z-index:3}
@@ -24,6 +37,13 @@
 .product-toolbar{min-height:54px;display:flex;justify-content:space-between;align-items:center;gap:24px;color:var(--muted);font-size:11px}.product-toolbar>a{display:flex;align-items:center;gap:20px;white-space:nowrap}.product-toolbar a:hover{color:var(--text)}
 .module-details{position:fixed;z-index:40;width:372px;height:565px;border-radius:14px;overflow:hidden;box-shadow:0 14px 28px #0007;color:#e5e8ec;font:13px "Segoe UI",sans-serif;isolation:isolate}.module-details-scroll{height:100%;overflow:auto;scrollbar-width:none;overscroll-behavior:contain}.module-details-body{position:relative;width:100%;height:565px}.native-panel{width:100%;height:100%;max-width:none}.native-panel-motion{border-radius:12px;position:absolute;max-width:none;pointer-events:none}.module-details [data-close-details]{position:absolute;right:8px;top:8px;display:grid;place-items:center;width:28px;height:28px;padding:0;background:#17151cee;border:1px solid #81746988;border-radius:5px;color:#e5e8ec;opacity:0;transition:opacity 120ms}.module-details:hover [data-close-details],.module-details:focus-within [data-close-details]{opacity:1}
 .mobile-app-picker{display:none}
+.home-material{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.home-wafer{position:absolute;max-width:none;opacity:.94;animation:native-wafer-rotation 360s linear infinite paused}
+.home-light{position:absolute;inset:0;width:100%;height:100%;max-width:none;pointer-events:none}
+@keyframes native-wafer-rotation{to{transform:rotate(360deg)}}
+@media(max-width:760px){.product-stage{width:calc(100% - 44px)}.product-duet{aspect-ratio:1.32}.product-state{width:86%}.product-state[data-edition=pentimento]{top:19cqw}.product-toolbar{flex-wrap:wrap;gap:6px}.edition-controls{gap:26px}.product-toolbar>a{font-size:11px;min-height:40px}.product-state .product-viewport{border-radius:4px}}
+@media(max-width:470px){.product-toolbar>a{margin-left:0}.product-duet{aspect-ratio:.9}.product-state{width:92%}.product-state[data-edition=pentimento]{top:42cqw}}
+@media(prefers-reduced-motion:reduce){.product-state{transform:none!important}.home-wafer{animation:none}}
 @media(max-width:760px),(hover:none){.mobile-app-picker{display:grid;gap:8px;font-size:11px;color:var(--muted);margin-top:10px}.mobile-app-picker select{min-height:44px;width:100%;color:var(--text);background:var(--panel);border:1px solid var(--border-hover);padding:0 12px;border-radius:4px;font-size:13px}.module-details [data-close-details]{opacity:1}}
 @media(max-width:760px){.product-toolbar{gap:12px;font-size:10px}.product-toolbar>span{display:none}.product-toolbar>a{margin-left:auto}}
 @media(prefers-reduced-motion:reduce){.app-sidebar,.settings-drawer,.app-content,.app-status>span:first-child{transition:none}.native-panel-motion{display:none}}

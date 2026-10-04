@@ -1,119 +1,118 @@
-import {model,state,product,setMode} from './state.js';
+import {model,state,products,setEdition,setTheme} from './state.js';
 import {homeMarkup,panelPosition} from './native-home.js';
-const stage=product.closest('.product-stage'),viewport=stage.querySelector('.product-viewport');
-const home=product.querySelector('.app-home'),drawer=product.querySelector('.settings-drawer');
-const details=document.querySelector('.module-details'),picker=stage.querySelector('select');
-const layouts=JSON.parse(document.querySelector('#native-layout-data').textContent);
-const panels=JSON.parse(document.querySelector('#native-panel-data').textContent);
-const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-const coarse=matchMedia('(hover: none), (pointer: coarse)');
-let expanded=false,info=false,timer,layoutTimer,trigger=null,activeApp=null,request=0,lastScale=0;
+import {createPanelCache} from './panel-cache.js';
+const stage=document.querySelector('.product-stage'),details=document.querySelector('.module-details'),picker=stage.querySelector('select');
+const layouts=JSON.parse(document.querySelector('#native-layout-data').textContent),panels=JSON.parse(document.querySelector('#native-panel-data').textContent);
+const reduced=matchMedia('(prefers-reduced-motion: reduce)'),coarse=matchMedia('(hover: none), (pointer: coarse)');
 const appFor=id=>model.apps.find(app=>app.id===id);
-const layoutKey=()=>`${state.theme}-${state.mode}-${expanded?(info?'both':'navigation'):(info?'information':'closed')}`;
-function closeDetails(){clearTimeout(timer);request++;details.hidden=true;details.querySelector('.native-panel-motion').removeAttribute('src');trigger?.removeAttribute('aria-describedby');trigger=null;activeApp=null;picker.value='';}
-function scale(){
- const value=viewport.clientWidth/1229;
- if(lastScale&&Math.abs(value-lastScale)>.0001)closeDetails();
- product.style.transform=`scale(${value})`;lastScale=value;
-}
-new ResizeObserver(scale).observe(viewport);scale();
-function renderHome(){
- const restore=home.contains(document.activeElement)?document.activeElement.dataset.inspectApp:null;
- home.innerHTML=homeMarkup(model,layouts,layoutKey());
- const sheet=home.querySelector('.home-sheet');
- if(!reduced.matches)sheet.animate([{opacity:.5},{opacity:1}],{duration:175,easing:'cubic-bezier(.215,.61,.355,1)'});
- home.querySelector('.home-scroll').addEventListener('scroll',()=>{
-  if(trigger===document.activeElement)placeDetails(trigger);else closeDetails();
- },{passive:true});
- if(restore)home.querySelector(`[data-inspect-app="${restore}"]`)?.focus({preventScroll:true});
-}
-function updatePanels(){
- closeDetails();clearTimeout(layoutTimer);
- const shift=(expanded?180:0)+(info?240:0);
- product.style.setProperty('--nav-shift',`${expanded?180:0}px`);
- product.style.setProperty('--panel-shift',`${shift}px`);
- product.style.setProperty('--info-width',`${info?240:0}px`);
- product.classList.toggle('nav-expanded',expanded);product.classList.toggle('info-expanded',info);
- product.querySelector('[data-expand-nav]').setAttribute('aria-expanded',String(expanded));
- product.querySelector('[data-expand-nav]').setAttribute('aria-label',expanded?'Collapse application navigation':'Expand application navigation');
- product.querySelector('[data-settings]').setAttribute('aria-expanded',String(info));drawer.inert=!info;drawer.setAttribute('aria-hidden',String(!info));
- // Freeze the old native layout while the panels move, then use the native reflow.
- if(reduced.matches)renderHome();else layoutTimer=setTimeout(renderHome,240);
-}
+const cache=createPanelCache(async key=>{
+ const image=new Image();image.className='native-panel';image.alt='';image.src=`assets/native/panels/${key}.webp`;
+ await image.decode();return image;
+});
+let trigger=null,owner=null,activeKey='',request=0,timer,placementFrame=0;
+function closeDetails(){clearTimeout(timer);request++;details.hidden=true;details.querySelector('.native-panel-motion').removeAttribute('src');trigger?.removeAttribute('aria-describedby');trigger=null;activeKey='';picker.value='';}
 function placeDetails(target){
- const rect=(target||viewport).getBoundingClientRect();
- const viewWidth=document.documentElement.clientWidth;
- const scale=Math.min(1,(viewWidth-32)/372);
+ const rect=target.getBoundingClientRect(),viewWidth=document.documentElement.clientWidth,scale=Math.min(1,(viewWidth-32)/372);
  const width=372*scale,height=Math.min(565*scale,innerHeight-32);
- details.querySelector(".module-details-body").style.height=`${565*scale}px`;
  const position=panelPosition(rect,{left:0,top:0,right:viewWidth,bottom:innerHeight},width,height);
- details.style.width=`${width}px`;details.style.height=`${height}px`;details.style.left=`${position.x}px`;details.style.top=`${position.y}px`;
+ details.querySelector('.module-details-body').style.height=`${565*scale}px`;
+ Object.assign(details.style,{width:`${width}px`,height:`${height}px`,left:`${position.x}px`,top:`${position.y}px`});
 }
-async function showDetails(target,id){
- const app=appFor(id||target?.dataset.inspectApp);if(!app)return;
- clearTimeout(timer);if(trigger===target&&activeApp===app)return;
- trigger?.removeAttribute('aria-describedby');trigger=target;activeApp=app;
- const mode=model.expeditions.some(e=>e.mode===state.mode&&e.apps.includes(app.id))?state.mode:model.expeditions.find(e=>e.apps.includes(app.id)).mode;
- const key=`${state.theme}-${mode}-${app.sourceKey}`,ref=panels[key],token=++request;
- const image=new Image();image.src=`assets/native/panels/${key}.webp`;
- try{await image.decode();}catch{return;}
+function panelKey(controller,app){
+ const mode=model.expeditions.some(e=>e.mode===controller.mode&&e.apps.includes(app.id))?controller.mode:model.expeditions.find(e=>e.apps.includes(app.id)).mode;
+ return `${controller.theme}-${mode}-${app.sourceKey}`;
+}
+async function showDetails(target,controller,id){
+ const app=appFor(id||target.dataset.inspectApp);if(!app)return;
+ const key=panelKey(controller,app);clearTimeout(timer);
+ if(trigger===target&&activeKey===key)return;
+ const started=performance.now(),entry=cache.get(key),token=++request;
+ trigger?.removeAttribute('aria-describedby');trigger=target;owner=controller;activeKey=key;
+ // First visits are warmed near the hero; subsequent visits perform no image decode or grid render.
+ try{if(!entry.ready)await entry.promise;}catch{if(token===request)closeDetails();return;}
  if(token!==request)return;
- const panel=details.querySelector('.native-panel'),motion=details.querySelector('.native-panel-motion');
- panel.src=image.src;panel.alt='';details.querySelector('.module-details-scroll').scrollTop=0;
- const group=model.expeditions.find(e=>e.mode===mode&&e.apps.includes(app.id));
- details.querySelector('[data-panel-text]').textContent=`${group.label}. ${app.name}. ${app.description} Version ${app.metadata.version}. Release ${app.metadata.release}.`;
- details.setAttribute('aria-label',`${app.name} information`);trigger?.setAttribute('aria-describedby','module-details');
+ const current=details.querySelector('.native-panel');if(current!==entry.image)current.replaceWith(entry.image);
+ const ref=panels[key],motion=details.querySelector('.native-panel-motion');
+ details.querySelector('.module-details-scroll').scrollTop=0;
+ details.querySelector('[data-panel-text]').textContent=`${app.name}. ${app.description} Version ${app.metadata.version}. Release ${app.metadata.release}.`;
+ details.setAttribute('aria-label',`${app.name} information`);trigger.setAttribute('aria-describedby','module-details');
  motion.hidden=reduced.matches;
  if(!reduced.matches){motion.src=`assets/native/panels/${key}-motion.webp`;Object.assign(motion.style,{left:`${ref.motion.x/372*100}%`,top:`${ref.motion.y/565*100}%`,width:`${ref.motion.width/372*100}%`,height:`${ref.motion.height/565*100}%`});}
- placeDetails(target);const entering=details.hidden;details.hidden=false;
- if(entering&&!reduced.matches)details.animate([{opacity:0,transform:'translateY(4px)'},{opacity:1,transform:'none'}],{duration:160,easing:'cubic-bezier(.215,.61,.355,1)'});
+ const entering=details.hidden;placeDetails(target);details.hidden=false;
+ if(entering&&!reduced.matches)details.animate([{opacity:0},{opacity:1}],{duration:140,easing:'cubic-bezier(.215,.61,.355,1)'});
+ if(performance.getEntriesByName('ARTIFACTS / panel ready').length>=32)performance.clearMeasures('ARTIFACTS / panel ready');
+ performance.measure('ARTIFACTS / panel ready',{start:started,end:performance.now()});
+ const members=controller.reference().cards,index=members.findIndex(card=>card.key===app.sourceKey);
+ for(const adjacent of [members[index-1],members[index+1]])if(adjacent)cache.warm(`${controller.theme}-${controller.mode}-${adjacent.key}`);
 }
-function scheduleClose(){
- clearTimeout(timer);
- timer=setTimeout(()=>{
-  if(trigger===document.activeElement||details.contains(document.activeElement))return;
-  closeDetails();
- },150);
-}
-product.addEventListener('pointerover',e=>{const target=e.target.closest('[data-inspect-app]');if(target&&e.pointerType!=='touch')showDetails(target);});
-product.addEventListener('pointerout',e=>{if(e.target.closest('[data-inspect-app]')&&!e.relatedTarget?.closest('[data-inspect-app],.module-details'))scheduleClose();});
-product.addEventListener('focusin',e=>{if(e.target.matches('[data-inspect-app]'))showDetails(e.target);});
-product.addEventListener('focusout',e=>{if(!e.relatedTarget?.closest('[data-inspect-app],.module-details'))scheduleClose();});
-details.addEventListener('pointerenter',()=>clearTimeout(timer));details.addEventListener('pointerleave',scheduleClose);
-details.addEventListener('focusout',e=>{if(!details.contains(e.relatedTarget))scheduleClose();});
-details.querySelector('[data-close-details]').addEventListener('click',()=>{const previous=trigger;closeDetails();previous?.focus({preventScroll:true});closeDetails();});
-product.addEventListener('click',e=>{
- const button=e.target.closest('button');if(!button)return;
- if(button.hasAttribute('data-expand-nav')){expanded=!expanded;updatePanels();}
- if(button.hasAttribute('data-settings')){info=!info;updatePanels();}
- if(button.hasAttribute('data-home')){closeDetails();home.querySelector('.home-scroll').scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'});}
- if(button.hasAttribute('data-cycle-mode'))setMode(state.mode==='legacy'?'pentimento':'legacy');
- // Touch has no hover: tapping reveals only the same native information panel.
- if(button.hasAttribute('data-inspect-app')&&coarse.matches)showDetails(button);
-});
-picker.addEventListener('change',()=>picker.value?showDetails(picker,picker.value):closeDetails());
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDetails();if(info){info=false;updatePanels();}}});
-document.addEventListener('pointerdown',e=>{if(!e.target.closest('.app-shell,.module-details,.mobile-app-picker'))closeDetails();});
-document.addEventListener('visibilitychange',()=>{if(document.hidden)closeDetails();});
-let placementFrame=0;
-window.addEventListener('scroll',()=>{
+function scheduleClose(){clearTimeout(timer);timer=setTimeout(()=>{if(trigger===document.activeElement||details.contains(document.activeElement))return;closeDetails();},150);}
+function trackPanel(){
  if(!trigger||placementFrame)return;
- placementFrame=requestAnimationFrame(()=>{
-  placementFrame=0;if(!trigger)return;
+ placementFrame=requestAnimationFrame(()=>{placementFrame=0;if(!trigger)return;
   const box=trigger.getBoundingClientRect();
   if((box.bottom<0||box.top>innerHeight)&&trigger!==document.activeElement)closeDetails();else placeDetails(trigger);
  });
-},{passive:true});
-reduced.addEventListener('change',closeDetails);
-document.addEventListener('theme-change',()=>{closeDetails();clearTimeout(layoutTimer);drawer.querySelector('img').src=`assets/native/panels/${state.theme}-info.webp`;renderHome();});
-document.addEventListener('mode-change',()=>{
- closeDetails();clearTimeout(layoutTimer);
- product.querySelector('[data-mode-name]').textContent=model.modes.find(m=>m.id===state.mode).name;
- product.querySelector('[data-mode-range]').textContent=model.modes.find(m=>m.id===state.mode).range;
- product.querySelector('[data-cycle-mode]').setAttribute('aria-label',`Switch to ${state.mode==='legacy'?'Pentimento':'Legacy'} mode`);
- renderHome();
+}
+const controllers=products.map(product=>{
+ const viewport=product.closest('.product-viewport'),home=product.querySelector('.app-home'),drawer=product.querySelector('.settings-drawer');
+ const controller={product,theme:product.dataset.theme,mode:product.dataset.mode};
+ let expanded=false,info=false,layoutTimer,lastScale=0,bounds=null,lastWarmed='';
+ const key=()=>`${controller.theme}-${controller.mode}-${expanded?(info?'both':'navigation'):(info?'information':'closed')}`;
+ controller.reference=()=>layouts[key()];
+ function measure(){const value=viewport.clientWidth/1229;if(lastScale&&Math.abs(value-lastScale)>.0001&&owner===controller)closeDetails();product.style.transform=`scale(${value})`;lastScale=value;bounds=null;}
+ new ResizeObserver(measure).observe(viewport);measure();
+ function bindHomeScroll(){home.querySelector('.home-scroll').addEventListener('scroll',()=>{if(owner===controller){if(trigger===document.activeElement)trackPanel();else closeDetails();}},{passive:true});}
+ bindHomeScroll();
+ function renderHome(){
+  const focus=home.contains(document.activeElement)?document.activeElement.dataset.inspectApp:null;
+  const waferTime=home.querySelector('.home-wafer').getAnimations()[0]?.currentTime;
+  home.innerHTML=homeMarkup(model,layouts,key());bounds=null;
+  const rotation=home.querySelector('.home-wafer').getAnimations()[0];if(rotation&&waferTime!=null)rotation.currentTime=waferTime;
+  bindHomeScroll();
+  if(focus)home.querySelector(`[data-inspect-app="${focus}"]`)?.focus({preventScroll:true});
+ }
+ function updatePanels(){
+  closeDetails();clearTimeout(layoutTimer);bounds=null;
+  product.style.setProperty('--nav-shift',`${expanded?180:0}px`);product.style.setProperty('--panel-shift',`${(expanded?180:0)+(info?240:0)}px`);product.style.setProperty('--info-width',`${info?240:0}px`);
+  product.classList.toggle('nav-expanded',expanded);product.classList.toggle('info-expanded',info);
+  const expand=product.querySelector('[data-expand-nav]');expand.setAttribute('aria-expanded',String(expanded));expand.setAttribute('aria-label',expanded?'Collapse application navigation':'Expand application navigation');
+  product.querySelector('[data-settings]').setAttribute('aria-expanded',String(info));drawer.inert=!info;drawer.setAttribute('aria-hidden',String(!info));
+  if(reduced.matches)renderHome();else layoutTimer=setTimeout(renderHome,240);
+ }
+ product.addEventListener('pointerenter',()=>{bounds=viewport.getBoundingClientRect();});
+ // Cache likely next panels from source coordinates, without measuring DOM on pointer movement.
+ product.addEventListener('pointermove',e=>{
+  if(!bounds||e.pointerType==='touch')return;
+  const x=(e.clientX-bounds.left)/lastScale-84-(expanded?180:0)-(info?240:0),y=(e.clientY-bounds.top)/lastScale-63+home.querySelector('.home-scroll').scrollTop;
+  let nearest=null,distance=Infinity;
+  for(const card of controller.reference().cards){const d=(x-card.x-card.width/2)**2+(y-card.y-card.height/2)**2;if(d<distance){distance=d;nearest=card;}}
+  if(nearest&&nearest.key!==lastWarmed&&distance<85000){lastWarmed=nearest.key;cache.warm(`${controller.theme}-${controller.mode}-${nearest.key}`);}
+ },{passive:true});
+ product.addEventListener('pointerover',e=>{const target=e.target.closest('[data-inspect-app]');if(target&&e.pointerType!=='touch')showDetails(target,controller);});
+ product.addEventListener('pointerout',e=>{if(e.target.closest('[data-inspect-app]')&&!e.relatedTarget?.closest('[data-inspect-app],.module-details'))scheduleClose();});
+ product.addEventListener('focusin',e=>{setEdition(controller.mode);if(e.target.matches('[data-inspect-app]'))showDetails(e.target,controller);});
+ product.addEventListener('focusout',e=>{if(!e.relatedTarget?.closest('[data-inspect-app],.module-details'))scheduleClose();});
+ product.addEventListener('click',e=>{
+  const button=e.target.closest('button');if(!button)return;
+  if(button.hasAttribute('data-expand-nav')){expanded=!expanded;updatePanels();}
+  if(button.hasAttribute('data-settings')){info=!info;updatePanels();}
+  if(button.hasAttribute('data-home')){closeDetails();home.querySelector('.home-scroll').scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'});}
+  if(button.hasAttribute('data-theme-choice'))setTheme(button.dataset.themeChoice);
+  if(button.hasAttribute('data-cycle-mode'))setEdition(controller.mode==='legacy'?'pentimento':'legacy');
+  if(button.hasAttribute('data-inspect-app')&&coarse.matches){setEdition(controller.mode);showDetails(button,controller);}
+ });
+ product.querySelectorAll('button:not(.desktop-only)').forEach(button=>button.disabled=false);
+ controller.warm=()=>controller.reference().cards.slice(0,4).forEach(card=>cache.warm(`${controller.theme}-${controller.mode}-${card.key}`));
+ controller.closeDrawer=()=>{if(info){info=false;updatePanels();}};
+ return controller;
 });
-product.querySelectorAll('button:not(.desktop-only)').forEach(button=>button.disabled=false);
-details.querySelector('[data-close-details]').disabled=false;
-drawer.querySelector('img').src=`assets/native/panels/${state.theme}-info.webp`;
-document.dispatchEvent(new Event('mode-change'));
+const preloadObserver=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){controllers.forEach(c=>c.warm());preloadObserver.disconnect();}},{rootMargin:'350px'});preloadObserver.observe(stage);
+details.addEventListener('pointerenter',()=>clearTimeout(timer));details.addEventListener('pointerleave',scheduleClose);
+details.addEventListener('focusout',e=>{if(!details.contains(e.relatedTarget))scheduleClose();});
+const close=details.querySelector('[data-close-details]');close.disabled=false;close.addEventListener('click',()=>{const previous=trigger;closeDetails();previous?.focus({preventScroll:true});closeDetails();});
+picker.addEventListener('change',()=>{if(picker.value)showDetails(picker,controllers.find(c=>c.mode===state.mode),picker.value);else closeDetails();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDetails();controllers.forEach(c=>c.closeDrawer());}});
+document.addEventListener('pointerdown',e=>{if(!e.target.closest('.app-shell,.module-details,.mobile-app-picker'))closeDetails();});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)closeDetails();});
+document.addEventListener('experience-change',()=>{if(trigger&&owner.mode!==state.mode)closeDetails();});
+window.addEventListener('scroll',trackPanel,{passive:true});reduced.addEventListener('change',closeDetails);

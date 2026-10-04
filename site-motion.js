@@ -35,19 +35,6 @@ window.addEventListener('scroll',schedule,{passive:true});window.addEventListene
 new ResizeObserver(measure).observe(stage);measure();
 // The product arrives as one composed object. Scroll takes over its horizontal position.
 animate(stage.querySelector('.product-rig'),[{opacity:0},{opacity:1}],{duration:650});
-// Draw the connected path in order; the text remains still and readable.
-const cycle=document.querySelector('.principle-cycle');
-const cycleObserver=new IntersectionObserver(entries=>{
- if(!entries[0].isIntersecting)return;cycleObserver.disconnect();
- [...cycle.querySelectorAll('.principle-figure')].forEach((figure,index)=>{
-  animate(figure.querySelector('.diagram-panel'),[{opacity:.3},{opacity:1}],{duration:700,delay:index*180});
-  for(const path of figure.querySelectorAll('.diagram-route')){
-   const length=path.getTotalLength();animate(path,[{strokeDasharray:`${length}`,strokeDashoffset:length},{strokeDasharray:`${length}`,strokeDashoffset:0}],{duration:850,delay:index*220});
-  }
- });
- const path=cycle.querySelector('.cycle-return path');const length=path.getTotalLength();
- animate(path,[{strokeDasharray:`${length}`,strokeDashoffset:length},{strokeDasharray:`${length}`,strokeDashoffset:0}],{duration:850,delay:800});
-},{threshold:.3});cycleObserver.observe(cycle);
 const creditsObserver=new IntersectionObserver(entries=>{
  if(!entries[0].isIntersecting)return;creditsObserver.disconnect();
  const part=name=>credit.querySelector(`[data-credit="${name}"]`);
