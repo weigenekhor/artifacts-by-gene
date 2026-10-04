@@ -182,7 +182,7 @@ test('Hero inspection cannot launch screenshot pages and closing credit contains
  assert.match(html,/data-product-status>Pentimento</);
  const credit=html.slice(html.indexOf('<section class="authorship'),html.indexOf('<footer class="ending'));
  const words=credit.replace(/<svg[\s\S]*?<\/svg>/g,'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
- assert.equal(words,'BUILT BY GENE The work is personal. The standard isn’t. Gene | artifactsbygene.com Email LinkedIn');
+ assert.equal(words,'BUILT BY GENE The work is personal. The standard isn’t. Wei Gene Khor | artifactsbygene.com Email LinkedIn');
 });
 
 test('Gallery body clicks advance while the dedicated expand control remains separate',async()=>{
