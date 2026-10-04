@@ -6,16 +6,35 @@ const home=document.querySelector('.app-home');
 const details=document.querySelector('.module-details');
 const drawer=document.querySelector('.settings-drawer');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+let openRequest=0;
+const shellCache=new Map();
+const shellStatus=document.querySelector('[data-shell-status]');
 let activeApp=null, returnCard=null, detailTimer, previewTimer, detailTrigger=null,restoringFocus=false;
 const escapeHTML=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const appFor=id=>model.apps.find(a=>a.id===id);
 const allowed=id=>model.expeditions.some(e=>e.mode===state.mode&&e.apps.includes(id));
 function closeDetails(){clearTimeout(detailTimer);clearInterval(previewTimer);details.hidden=true;detailTrigger=null;}
-function openApp(id,trigger){
+async function openApp(id,trigger){
  if(!allowed(id))return;
  closeDetails();
- const page=shell.querySelector(`[data-page="${id}"]`);
- if(!page)return;
+ const request=++openRequest,app=appFor(id);
+ shellStatus.textContent=`Opening ${app.name}…`;
+ let page=shell.querySelector(`[data-page="${id}"]`);
+ if(!page){
+  if(!shellCache.has(id))shellCache.set(id,fetch(app.shellPath).then(response=>{if(!response.ok)throw Error('Shell unavailable');return response.text();}).catch(error=>{shellCache.delete(id);throw error;}));
+  try{
+   const markup=await shellCache.get(id);
+   if(request!==openRequest)return;
+   const template=document.createElement('template');template.innerHTML=markup;
+   page=template.content.querySelector('.app-page');
+   if(!page)throw Error('Shell unavailable');
+   shell.querySelector('.app-content').append(page);
+   if(app.sourceKey==='dt_tab')updateSlots();
+   if(app.sourceKey==='laytec_tab')updateZones();
+  }catch{if(request===openRequest)shellStatus.textContent='Interface could not load. Select the application to try again.';return;}
+ }
+ if(request!==openRequest)return;
+ shellStatus.textContent='Interactive preview · processing runs in the desktop application';
  returnCard=trigger?.classList.contains('app-tile')?trigger:returnCard;
  shell.querySelectorAll('.app-page').forEach(p=>p.hidden=p!==page);
  activeApp=id;home.hidden=true;shell.dataset.view='app';
@@ -28,8 +47,10 @@ function openApp(id,trigger){
  shell.dispatchEvent(new CustomEvent('app-opened',{detail:{id}}));
 }
 function goHome(restore=true){
+ openRequest++;shellStatus.textContent='Explore the interactive application';
  closeDetails();shell.querySelectorAll('.app-page').forEach(p=>p.hidden=true);
  activeApp=null;home.hidden=false;shell.dataset.view='home';drawer.hidden=true;setCurrent();
+ shell.dispatchEvent(new Event('home-opened'));
  if(restore){const candidate=returnCard?.checkVisibility()?returnCard:home.querySelector(`[data-mode="${state.mode}"] .app-tile`);restoringFocus=true;candidate?.focus({preventScroll:true});restoringFocus=false;}
 }
 function setCurrent(){
@@ -41,7 +62,7 @@ function setCurrent(){
 }
 function showDetails(trigger){
  clearTimeout(detailTimer);clearInterval(previewTimer);
- if(!trigger||home.hidden)return;
+ if(!trigger||home.hidden||shell.clientWidth<=700)return;
  detailTrigger=trigger;
  const app=appFor(trigger.dataset.openApp),expedition=model.expeditions.find(e=>e.id===trigger.dataset.expedition);
  const capture=app.images.find(i=>i.theme===state.theme)||app.images[0];
@@ -80,9 +101,6 @@ shell.addEventListener('click',async e=>{
  if(button.hasAttribute('data-cycle-mode'))setMode(state.mode==='legacy'?'pentimento':'legacy');
  if(button.hasAttribute('data-expand-nav')){closeDetails();shell.classList.toggle('nav-expanded');button.setAttribute('aria-expanded',String(shell.classList.contains('nav-expanded')));}
  if(button.hasAttribute('data-settings'))settings();
- if(button.hasAttribute('data-fullscreen')){
-  try{if(document.fullscreenElement)await document.exitFullscreen();else await shell.requestFullscreen();}catch{document.querySelector('#preview-help').showModal();}
- }
  if(button.hasAttribute('data-help'))document.querySelector('#preview-help').showModal();
  if(button.hasAttribute('data-toggle-region')){
   const region=button.closest('.app-workspace').querySelector(`[data-region="${button.dataset.toggleRegion}"]`);
@@ -119,12 +137,12 @@ shell.addEventListener('input',e=>{
 });
 document.addEventListener('theme-change',()=>{if(detailTrigger)showDetails(detailTrigger);});
 document.addEventListener('mode-change',()=>{
+ openRequest++;shellStatus.textContent=activeApp?'Interactive preview · processing runs in the desktop application':'Explore the interactive application';
  closeDetails();if(activeApp&&!allowed(activeApp))goHome(false);
  document.querySelectorAll('[data-mode-name]').forEach(el=>el.textContent=model.modes.find(m=>m.id===state.mode).name);
  document.querySelectorAll('[data-mode-range]').forEach(el=>el.textContent=model.modes.find(m=>m.id===state.mode).range);
  document.querySelector('[data-cycle-mode]').setAttribute('aria-label',`Switch to ${state.mode==='legacy'?'Pentimento':'Legacy'} mode`);
 });
-document.addEventListener('fullscreenchange',()=>{document.querySelector('[data-fullscreen]').setAttribute('aria-label',document.fullscreenElement?'Exit fullscreen':'Enter fullscreen');});
 
 function updateTabs(button){
  const group=button.parentElement.dataset.tabs,index=Number(button.dataset.tab),form=button.closest('form');
@@ -167,7 +185,6 @@ function updateZones(){
  }
  svg.innerHTML=content.join('');
 }
-updateSlots();updateZones();
 document.dispatchEvent(new Event('mode-change'));
 
 export {openApp,goHome};

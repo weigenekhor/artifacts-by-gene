@@ -1,4 +1,4 @@
-import {model,state} from './state.js';
+import {model} from './state.js';
 
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const viewer=document.querySelector('#capture-viewer');
@@ -16,7 +16,7 @@ function makeImage(c,app,large=false){
  return img;
 }
 function stopTimer(){clearTimeout(timer);timer=null;progressAnimation?.cancel();progressAnimation=null;if(central)central.element.dataset.autoplay='false';}
-function eligible(card){return card&&card.visible&&!card.paused&&!card.hovered&&!card.focused&&!card.loading&&!document.hidden&&!viewer.open&&!reduced.matches;}
+function eligible(card){return card&&card.app.images.length>1&&card.visible&&!card.paused&&!card.hovered&&!card.focused&&!card.loading&&!document.hidden&&!viewer.open&&!reduced.matches;}
 function schedule(){
  stopTimer();if(!eligible(central))return;
  const card=central;
@@ -29,7 +29,7 @@ function selectCentral(){
  selectionFrame=0;
  let next=null,distance=Infinity;
  for(const card of cards){
-  if(!card.visible||card.element.closest('[data-mode]').dataset.mode!==state.mode)continue;
+  if(!card.visible)continue;
   const box=card.imageButton.getBoundingClientRect();
   const visibleHeight=Math.max(0,Math.min(box.bottom,innerHeight)-Math.max(box.top,62));
   if(visibleHeight<Math.min(box.height*.4,220))continue;
@@ -65,7 +65,7 @@ async function changeSlide(card,index){
  card.imageButton.querySelectorAll('img').forEach(img=>{if(img!==image)img.remove();});
  card.index=next;card.loading=false;updateCaption(card);
 }
-function manual(card,direction){stopTimer();changeSlide(card,card.index+direction).then(schedule);}
+function manual(card,direction){stopTimer();central=card;changeSlide(card,card.index+direction).then(schedule);}
 function swipe(element,callback){
  let start=null;
  element.addEventListener('pointerdown',e=>{if(e.pointerType==='touch')start={x:e.clientX,y:e.clientY};});
@@ -102,24 +102,10 @@ for(const element of document.querySelectorAll('[data-gallery-app]')){
  element.querySelectorAll('[data-lightbox]').forEach(button=>button.addEventListener('click',()=>{if(!card.imageButton.dataset.swiped)openViewer(card,button);}));
  swipe(card.imageButton,direction=>manual(card,direction));
  observer.observe(element);
- if(state.theme!=='pentimento'){
-  const first=app.images.findIndex(c=>c.theme===state.theme);
-  if(first>=0){
-   card.index=first;
-   const image=makeImage(app.images[first],app,element.classList.contains('gallery-feature'));
-   image.loading='lazy';card.imageButton.replaceChildren(image);updateCaption(card);
-  }
- }
 }
 window.addEventListener('scroll',requestSelection,{passive:true});
 window.addEventListener('resize',requestSelection,{passive:true});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stopTimer();else{requestSelection();schedule();}});
-document.addEventListener('mode-change',()=>{stopTimer();central=null;requestSelection();});
-document.addEventListener('theme-change',()=>{
- // Theme changes affect site materials; original screenshots retain their real pixels.
- // Only align an untouched card with the corresponding theme on initial inspection.
- requestSelection();
-});
 function reducedChanged(){
  stopTimer();document.querySelectorAll('.gallery-play').forEach(button=>{button.disabled=reduced.matches;button.title=reduced.matches?'Automatic slideshow disabled for reduced motion':'';});schedule();
 }

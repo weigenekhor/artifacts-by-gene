@@ -1,33 +1,26 @@
 # Architecture
 
-## Build and deployment
+## Static build
 
-The site is static HTML/CSS/ES modules. `scripts/build-native.mjs` reads `content/apps.json` and generates `index.html`. `scripts/native-ui.mjs` and `scripts/complex-shells.mjs` generate native components/default workspaces. Edit generators, not generated HTML.
+`scripts/build-native.mjs` reads `content/apps.json`, writes `index.html` and one `content/shells/<id>.html` fragment per app. Fragment URLs include content hashes. The initial page contains the home UI and no app workspaces. Edit generators, not generated files.
 
-`pnpm build` is deterministic and needs only committed assets. `pnpm lint` syntax-checks active JS modules. `pnpm test` checks source membership, all image dimensions/paths, generated links/content, and central state behavior with blocked storage. `pnpm serve` binds localhost:8001.
+`scripts/native-ui.mjs` and `scripts/complex-shells.mjs` generate default interfaces. `scripts/principles.mjs` owns original principle figures/copy. All generated URLs are relative for custom-domain and project-path GitHub Pages hosting. Keep `CNAME`, `.nojekyll`, robots and sitemap.
 
-GitHub Pages can serve the committed repository root. All asset URLs are relative. `CNAME`, `.nojekyll`, robots and sitemap are retained. No SPA fallback or rewrite is necessary. Publishing a new branch does not change production; production promotion is separate.
+## Runtime boundaries
 
-## Active runtime
+- `state.js`: validated, persisted product theme/mode. Only `.app-shell` attributes and internal controls change. Never mutate root theme, public collection or viewer.
+- `native-shell.js`: source navigation, hover details, app loading, local interface controls and focus. Fetch a fragment only when chosen, cache its promise/DOM, ignore superseded requests and permit retries after errors. Apps remain inside the same frame.
+- `native-layout.js`: source-derived card sizing and columns, observed against actual product dimensions.
+- `native-wafer.js`: source background with compositor rotation; pause by visibility/state/media query.
+- `native-motion.js`: source-derived preview motifs inside the metadata panel, not app films.
+- `gallery.js`: one instance per canonical app, decoded-image transitions, one autoplay owner, swipe intent and native dialog viewer. It has no product mode/theme dependency.
+- `site-motion.js`: one-time page/diagram entries through IntersectionObserver and Web Animations. No persistent animation loop.
+- `site.js`: small ES-module entry point.
 
-- `state.js`: authoritative theme/mode, validated choices, local persistence and synchronized controls.
-- `native-shell.js`: active application, home/focus, metadata panel lifecycle, navigation/info drawer, tabs, default ranges and geometric shell controls.
-- `native-motion.js`: small source-derived metadata-preview motifs, not application films or data results.
-- `native-wafer.js`: source background geometry, compositor rotation and direct drag; visibility/reduced-motion pausing.
-- `gallery.js`: per-app slide state, one active autoplay owner, responsive image decoding, touch intent, keyboard controls, native dialog viewer and focus restoration.
-- `site.js`: module entry point.
-- `tokens.css`: source palette, type and timing variables.
-- `shell.css`: native application layout and responsive adaptation.
-- `site.css`: the four lower acts, gallery and viewer.
+Website tokens and layout are in `site.css`. Product colors are scoped in `tokens.css`, product structure in `shell.css`. Responsive product rules use container queries. No runtime package, backend, Python or plotting engine; Sharp is an asset-build dependency only.
 
-There is no third-party runtime package. Sharp is a build-time image dependency only. Desktop source is inspected/extracted during development, never imported into browser code.
+## Verification and deployment
 
-## Content and image state
+`pnpm build`, `pnpm lint` and `pnpm test` build output, syntax-check modules and verify canonical membership, screenshot dimensions, paths, scoped state and gallery interaction rules. Browser checks additionally exercise lazy loading, focus, modes, themes, resizing and composition.
 
-The single model stores canonical ids, source keys, current/Legacy names, factual purpose, source descriptions, metadata, navigation/card icons, default-screen references, ordered image records, modes, themes and Expedition membership. Shared tools appear in the correct place in both editions while reusing one image set.
-
-Slide state belongs to each rendered gallery instance. The lightbox references the opening instance and returns its final slide and focus. Edition changes stop old autoplay and choose a newly visible card. Full-size files are not preloaded. Initial gallery images are lazy; only the likely next active image is preloaded.
-
-## History
-
-Checkpoint `5126a14` preserves the rejected visual system. Old `experience.js`, `image-viewer.js`, `motion-math.js`, `styles.css`, cinematography/page manifests and their tests/build scripts are removed from the active frontend. Old evidence/artifact/cursor assets are untracked and ignored, retained locally for frozen previews. They are not deployment dependencies.
+The repository root is deployable static output. Publishing this review branch does not promote production. The previous fullscreen implementation is preserved at `5e518a7`; earlier exhibition code at `5126a14`. Local `.qa/` and `versions/` are ignored and are not current specifications.

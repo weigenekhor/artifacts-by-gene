@@ -1,19 +1,25 @@
 # Start here — ARTIFACTS public website
 
-This is the authoritative entry point for the native ARTIFACTS rebuild. It replaces the previous exhibition, film, origin-story and 3D directions. Do not restore them from historical previews.
+This is the current authoritative website direction. The previous fullscreen native exhibition is superseded and recoverable at commit `5e518a7`. Do not restore its global theme state or edition-based public galleries.
 
-## Current specification
+## Current experience
 
-1. [DESIGN.md](DESIGN.md): five acts, source fidelity, themes, composition and interaction.
-2. [ARCHITECTURE.md](ARCHITECTURE.md): components, state, build and deployment.
-3. [ASSETS.md](ASSETS.md): source audit, screenshot ownership and import procedure.
-4. [STATUS.md](STATUS.md): verification and intentional web boundaries.
+- Linear informs PAGE COMPOSITION only: restrained introduction, whitespace and a contained product presentation. No copied branding, illustrations or interactions.
+- The ARTIFACTS window itself follows the real desktop source. It is contained, never a fullscreen website. Its homepage retains real Expeditions, modes, controls and identity.
+- Only the product changes theme. The outer website has one fixed graphite/warm-neutral identity, including the gallery and viewer.
+- There is no public theme switch and no public Legacy/Pentimento switch.
+- The public 2D collection shows every canonical app exactly once. Its count and numbering derive from the manifest; there is no permanent count assumption.
+- Three original principle diagrams precede the collection. Authorship is compact; the ending is a quiet signature.
+- No WebGL gallery, 3D world, custom cursor, personal narrative or simulated engineering processing.
 
-The user's latest explicit request takes precedence. The desktop source is the authority for application names, grouping, geometry and default interfaces. `content/apps.json` is the single normalized model.
+## Read next
 
-## Important source finding
+1. [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md): composition, type, palette, responsive behavior and motion.
+2. [ARCHITECTURE.md](ARCHITECTURE.md): scoped product state, lazy app shells, gallery and deployment.
+3. [CONTENT_AND_APPS.md](CONTENT_AND_APPS.md): authoritative source, canonical order, screenshot ownership and updating assets.
+4. [STATUS.md](STATUS.md): checks and intentional limitations.
 
-The inspected desktop source contains **17 distinct applications**, not 16. Legacy exposes 15 in Expeditions I–IV. Pentimento exposes 10 in V–VI, including shared applications. Preserve this real membership; do not invent or remove a tool to force a count.
+The latest explicit user request overrides these documents. Desktop source governs product fidelity; `content/apps.json` is the normalized application model.
 
 ## Run
 
@@ -25,6 +31,4 @@ pnpm test
 pnpm serve
 ```
 
-Preview: http://127.0.0.1:8001/ . Generated `index.html` and committed assets deploy directly to GitHub Pages. An image import is NOT needed for a normal build.
-
-The previous working implementation is recoverable at Git commit `5126a14`. Current development branch: `rebuild/native-artifacts`. Local frozen versions and historical images remain local; they are not part of the active deployment.
+Preview: http://127.0.0.1:8001/ . The generated HTML, app fragments and assets deploy directly to GitHub Pages. Source desktop files are not needed for normal builds. Current branch: `rebuild/contained-product`.

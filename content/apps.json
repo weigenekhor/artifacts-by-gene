@@ -196,7 +196,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/cil-notes.png"
+      "navigationIcon": "assets/native/navigation/cil-notes.png",
+      "order": 1,
+      "featured": false,
+      "shellPath": "content/shells/altus-lotviewer.html"
     },
     {
       "id": "altus-anko-viewer",
@@ -277,7 +280,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/cil-view-quilt.png"
+      "navigationIcon": "assets/native/navigation/cil-view-quilt.png",
+      "order": 2,
+      "featured": false,
+      "shellPath": "content/shells/altus-anko-viewer.html"
     },
     {
       "id": "altus-wafercount",
@@ -358,7 +364,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/cil-wrap-text.png"
+      "navigationIcon": "assets/native/navigation/cil-wrap-text.png",
+      "order": 3,
+      "featured": false,
+      "shellPath": "content/shells/altus-wafercount.html"
     },
     {
       "id": "topotracer",
@@ -496,7 +505,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/cil-chart-pie.png"
+      "navigationIcon": "assets/native/navigation/cil-chart-pie.png",
+      "order": 4,
+      "featured": false,
+      "shellPath": "content/shells/topotracer.html"
     },
     {
       "id": "papyrus-reader",
@@ -634,7 +646,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/cil-find-in-page.png"
+      "navigationIcon": "assets/native/navigation/cil-find-in-page.png",
+      "order": 5,
+      "featured": false,
+      "shellPath": "content/shells/papyrus-reader.html"
     },
     {
       "id": "spc-pathfinder",
@@ -715,7 +730,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/cil-external-link.png"
+      "navigationIcon": "assets/native/navigation/cil-external-link.png",
+      "order": 6,
+      "featured": false,
+      "shellPath": "content/shells/spc-pathfinder.html"
     },
     {
       "id": "gan-met-compiler",
@@ -797,7 +815,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/cil-view-module.png"
+      "navigationIcon": "assets/native/navigation/cil-view-module.png",
+      "order": 7,
+      "featured": true,
+      "shellPath": "content/shells/gan-met-compiler.html"
     },
     {
       "id": "gan-temp-diagnoser",
@@ -879,7 +900,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/cil-exposure.png"
+      "navigationIcon": "assets/native/navigation/cil-exposure.png",
+      "order": 8,
+      "featured": false,
+      "shellPath": "content/shells/gan-temp-diagnoser.html"
     },
     {
       "id": "aix-dt-assistant",
@@ -961,7 +985,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/cil-loop.png"
+      "navigationIcon": "assets/native/navigation/cil-loop.png",
+      "order": 9,
+      "featured": false,
+      "shellPath": "content/shells/aix-dt-assistant.html"
     },
     {
       "id": "lt-zone-assistant",
@@ -1043,7 +1070,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/cil-rss.png"
+      "navigationIcon": "assets/native/navigation/cil-rss.png",
+      "order": 10,
+      "featured": false,
+      "shellPath": "content/shells/lt-zone-assistant.html"
     },
     {
       "id": "gan-xml-assistant",
@@ -1181,7 +1211,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/cil-justify-left.png"
+      "navigationIcon": "assets/native/navigation/cil-justify-left.png",
+      "order": 11,
+      "featured": false,
+      "shellPath": "content/shells/gan-xml-assistant.html"
     },
     {
       "id": "magus-spc-gan",
@@ -1402,7 +1435,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/cil-chart-line.png"
+      "navigationIcon": "assets/native/navigation/cil-chart-line.png",
+      "order": 12,
+      "featured": false,
+      "shellPath": "content/shells/magus-spc-gan.html"
     },
     {
       "id": "magus-spc-legacy",
@@ -1623,7 +1659,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/cil-chart.png"
+      "navigationIcon": "assets/native/navigation/cil-chart.png",
+      "order": 13,
+      "featured": false,
+      "shellPath": "content/shells/magus-spc-legacy.html"
     },
     {
       "id": "anko-helper",
@@ -1704,7 +1743,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/cil-calendar-check.png"
+      "navigationIcon": "assets/native/navigation/cil-calendar-check.png",
+      "order": 14,
+      "featured": false,
+      "shellPath": "content/shells/anko-helper.html"
     },
     {
       "id": "lt-report-compiler",
@@ -1786,7 +1828,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/cil-clipboard.png"
+      "navigationIcon": "assets/native/navigation/cil-clipboard.png",
+      "order": 15,
+      "featured": false,
+      "shellPath": "content/shells/lt-report-compiler.html"
     },
     {
       "id": "metria-spc",
@@ -1979,7 +2024,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/metria-spc.svg"
+      "navigationIcon": "assets/native/navigation/metria-spc.svg",
+      "order": 16,
+      "featured": true,
+      "shellPath": "content/shells/metria-spc.html"
     },
     {
       "id": "data-lens",
@@ -2172,7 +2220,10 @@
           "encoding": "webp-q100-v1"
         }
       ],
-      "navigationIcon": "assets/native/navigation/cil-equalizer.png"
+      "navigationIcon": "assets/native/navigation/cil-equalizer.png",
+      "order": 17,
+      "featured": true,
+      "shellPath": "content/shells/data-lens.html"
     }
   ],
   "softwareInfo": {
