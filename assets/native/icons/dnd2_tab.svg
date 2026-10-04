@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28.2222mm" height="28.2222mm"
+ viewBox="0 0 80 80"
+ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" baseProfile="tiny">
+<title>Magus SPC (Legacy)</title>
+<desc>Vector glyph exported from the ARTIFACTS source painter; no application UI raster.</desc>
+<defs>
+</defs>
+<g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
+
+<g fill="none" stroke="#b9c7d8" stroke-opacity="0.533333" stroke-width="1.79758" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<path vector-effect="none" fill-rule="evenodd" d="M14.84,26.6389 C14.84,23.8008 17.1408,21.5 19.9789,21.5 L60.0211,21.5 C62.8592,21.5 65.16,23.8008 65.16,26.6389 L65.16,53.3611 C65.16,56.1992 62.8592,58.5 60.0211,58.5 L19.9789,58.5 C17.1408,58.5 14.84,56.1992 14.84,53.3611 L14.84,26.6389"/>
+</g>
+
+<g fill="none" stroke="#b9c7d8" stroke-opacity="0.258824" stroke-width="1.36181" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<polyline fill="none" vector-effect="none" points="18.54,31.86 61.46,31.86 " />
+<polyline fill="none" vector-effect="none" points="18.54,48.14 61.46,48.14 " />
+</g>
+
+<g fill="none" stroke="#ad96ca" stroke-opacity="0.596078" stroke-width="2.77808" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<path vector-effect="none" fill-rule="evenodd" d="M18.54,48.88 L28.9,42.96 L38.52,45.18 L48.14,37.78 L60.72,34.82"/>
+</g>
+
+<g fill="#080c12" fill-opacity="0.933333" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<circle cx="59.24" cy="54.8" r="7.77"/>
+</g>
+
+<g fill="none" stroke="#ecf2f9" stroke-opacity="0.94902" stroke-width="2.01547" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<circle cx="59.24" cy="54.8" r="7.77"/>
+<polyline fill="none" vector-effect="none" points="59.24,54.8 59.24,49.99 " />
+<polyline fill="none" vector-effect="none" points="59.24,54.8 63.68,54.8 " />
+</g>
+
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+</g>
+</g>
+</svg>

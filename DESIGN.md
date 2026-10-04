@@ -1,110 +1,44 @@
-# ARTIFACTS — Software exhibition
-Version 3 · 30 September 2026
+# Design specification — native ARTIFACTS
 
 ## Authority
-This is the governing visual specification. The explicit 30 September rebuild brief supersedes the static two-column gallery system. Original screenshots and verified facts remain authoritative. Historical versions are recoverable in Git; do not restore old film simulations or static-gallery constraints.
 
-## Content
-17 applications, 35 real application captures, one real homepage, four canonical Expeditions.
-Source: C:\Users\Gene\Desktop\Artifacts Images.
-Identity: assets/brand/artifacts-symbol.svg. Font: local Geist, with its licence.
-Browser title: Artifacts by Gene. Canonical URL: https://artifactsbygene.com/.
-Keep the GaN names used by the supplied captures; preserve historic fragment IDs.
-Never generate or redraw application interfaces. Never imply a screenshot transition is an actual interaction.
+Source: `C:\Users\Gene\Desktop\Artifacts\Artifacts\Genepy`.
+References: `C:\Users\Gene\Desktop\Artifacts Images`, including the user-supplied `Empty` folder (34 default-state references). The previous `Empty Apps` path is obsolete. These paths are development inputs, never runtime dependencies.
 
-| Number | Name | Expedition |
-| --- | --- | --- |
-| 01 | Altus LotViewer | ALTUS |
-| 02 | Altus ANKO Viewer | ALTUS |
-| 03 | Altus WaferCount | ALTUS |
-| 04 | TopoTracer | INTERSTICE |
-| 05 | Papyrus Reader | INTERSTICE |
-| 06 | SPC Pathfinder | INTERSTICE |
-| 07 | Met Compiler | GaN EPI |
-| 08 | GaN Temp Diagnoser | GaN EPI |
-| 09 | AIX ΔT Assistant | GaN EPI |
-| 10 | LT Zone Assistant | GaN EPI |
-| 11 | GaN XML Assistant | GaN EPI |
-| 12 | Magus SPC (GaN) | PLANETFALL |
-| 13 | Magus SPC (Legacy) | PLANETFALL |
-| 14 | ANKO Helper | PLANETFALL |
-| 15 | LT Report Compiler | PLANETFALL |
-| 16 | Metria SPC | PLANETFALL |
-| 17 | Data Lens | PLANETFALL |
+`widgets/home_page.py`, `artifacts_style.py`, `edition_theme.py`, `Artifacts.py`, navigation resources and individual widgets govern the native interface. Existing screenshots establish visual evidence; they never replace interactive UI.
 
-## Sequence and hierarchy
-Hero → Interactive index → Why ARTIFACTS exists → Four application Expeditions → Gene → End.
-Software is the visual material. The site directs the camera. No fabricated dashboards, hardware frames, particles, circuit backgrounds, invented metrics, decorative WebGL or simulated application actions.
+## Five acts
 
-### Hero
-Monumental live ARTIFACTS typography. Exact statement: “Built from the work itself.”
-The real homepage is the primary plane. LotViewer and Data Lens are subordinate planes, not equally sized cards.
-On desktop native scroll brings the homepage toward a frontal view, opens the spatial arrangement, withdraws the identity, and shifts the surface into the warm index.
-Pointer response is limited, inertial and event-driven. No idle orbit or continuous animation.
+1. **Interactive ARTIFACTS.** The real home composition, actual Expedition cards, metadata panel, native titlebar, sidebar and corresponding default app workspaces. Opening tools stays within one shell. A separate edge cue leads into the website. The hero is not a screenshot, video, canvas or image map.
+2. **Principle.** “What repeated was automated. What stood in the way was rebuilt.” One impersonal supporting sentence about engineering friction and the actual tools.
+3. **Expedition galleries.** Real membership and order, selected by Legacy/Pentimento. Calm two-column editorial layout, with full-width TopoTracer and Data Lens features. One complete image per app at a time. Every screenshot has clear application ownership.
+4. **Authorship.** “Developed by / Gene (Wei Gene Khor)”, email and LinkedIn only.
+5. **Ending.** “ARTIFACTS / Built for engineering that has to be right.” No following campaign or CTA.
 
-### Index
-“17 applications · 4 Expeditions.” Canonical grouped list at left and real preview at right.
-Pointer/focus previews the interface with its number, name, group and factual value line. Links jump to that tool.
-A fixed, opaque header supplies context and a native-dialog index from anywhere in the journey. No custom cursor.
+No personal history, duration framing, first-person origin narrative, film sequences, decorative 3D, custom cursor or WebGL.
 
-### Origin
-Engineering is difficult enough. Some difficulty belongs to the work. Some doesn’t.
-One problem became a tool. Then another. ARTIFACTS took shape.
-Desktop: a shared sticky stage. First one real interface enters, then others; the environment resolves into the actual homepage. Compose clean silhouettes and preserve readable copy; no text clipping.
-The final dark-to-mineral surface transition hands into ALTUS.
-Small screens and reduced motion use an interleaved sequence of statements and complete images. No tall empty pinned mobile story.
-The approved September brief explicitly permits real software in Origin.
+## Source geometry and materials
 
-### Applications
-One camera renderer, driven by content/cinematography.json.
-Each Expedition has one sticky stage on desktop. Its applications advance through native scroll; they share space briefly during handoffs.
-Single-capture apps receive full view → meaningful detail → broader context. Multiple captures are sequenced from real imagery.
-Metadata supplies entry direction, duration, image index, short factual caption, and normalized focus bounds.
-Focus scale is bounded at 1.75. Full image proportions are native; no forced 3:2 letterboxes. Different report aspect ratios retain their native dimensions.
-ALTUS: ordered lateral/rising entry, mineral surface, operational detail.
-INTERSTICE: comparative focus and changing viewpoints, light paper surface.
-GaN EPI: darker, tightly framed diagnostic and configuration evidence.
-PLANETFALL: review → report → equipment comparison → Data Lens. Data Lens is the longer, larger final stage using all three captures.
-Desktop shot controls permit direct inspection of a beat. All image buttons open the selected full-resolution source.
-Mobile/tablet: natural vertical progression, uncropped interfaces, native horizontal capture sequences with swipe and next/previous controls. No forced page scrolling.
-Reduced motion uses the same readable natural-flow alternative.
+`tokens.css` contains the two actual palettes: Origin and Pentimento. Pentimento is the default; mode and theme are independent. Use one theme state for the application, website, galleries, authorship and viewer. Screenshots retain their original colors.
 
-### Gene
-Quiet, image-free and unanimated. Preserve exact copy:
-“I spent my entire life improving processes.”
-“ARTIFACTS began when I realised engineering itself was one of them.”
-“What repeated, I automated.”
-“What stood in the way, I rebuilt.”
-“ARTIFACTS is the evidence that I never accepted the way things were as the way they had to stay.”
-The action pair remains normal weight. Quiet “by Gene”, email, LinkedIn. No generic biography, title-card labels or invented personal history.
+Native typography: Segoe UI with platform fallbacks; 14px shell, 12px cards, 13px Expedition labels. Source card footprint is 148×116px with 12px gaps. Pentimento uses four columns; Legacy uses six on wide desktop. Titlebar 44px, collapsed sidebar 60px, nav rows 40px, status bar 21px. Do not magnify controls merely because the viewport is larger.
 
-## Design system
-- Ink #101416; deep diagnostic #090c0e; warm index #eeeae3.
-- ALTUS #e6e7de; INTERSTICE #f5f3ed; PLANETFALL #171e20.
-- Light text #f0ede7; supporting dark-surface text #b0b7b7; warm accent #d9a780.
-- Local Geist 400/500/600, no font synthesis. Live text throughout.
-- Max content width 1600px; fluid 4.45vw gutters bounded 24–80px. Tablet 32px; phone 20px; below 360px 16px.
-- Monumental identity only at the opening. Chapter names are larger than app names; application descriptions stay quieter than imagery.
-- 44px controls. Copper focus, preserved outlines. No full-page overflow suppression to disguise layout problems.
-- Native scroll, no wheel interception. Easing cubic-bezier(.22,.68,.15,1), 72ms bounded damping.
+The wafer comes from the actual desktop material and contour. Its geometry follows the source. The slow 1°/s drift uses a compositor animation, paused offscreen, while a tool is open, in a hidden tab and under reduced motion. Mouse dragging rotates that background; touch remains available for scrolling.
 
-## Engineering
-- content/page.html, content/apps.json, content/expeditions.json, content/homepage.json produce complete static HTML.
-- content/cinematography.json controls the camera; motion-math.js supplies tested normalized interpolation.
-- experience.js owns native-scroll enhancement, responsive lifecycle, index and touch capture navigation.
-- image-viewer.js owns on-demand original decoding, stale request protection, fit/zoom, native modal focus and restoration.
-- No runtime framework or WebGL. Old chapter-motion.js and gallery.js are removed.
-- Cache geometry on layout changes; no per-frame layout reads. Render only near active scenes. Stop RAF at rest, on hidden documents and for reduced motion.
-- Use responsive sources for normal viewing, originals only on explicit inspection.
-- Native image dimensions, loading priorities and provenance remain factual.
-- Capture source names, hashes, dimensions and order are maintained in the existing manifest and importer.
-- Never edit source PNGs. Never upscale derivatives or generate substitute interfaces.
-- No JavaScript: all 17 articles, captures, copy and anchor links remain in natural flow; optional viewer buttons are disabled.
-- Static relative paths, CNAME and .nojekyll preserve GitHub Pages compatibility.
+Website surfaces remain within the same theme palette. Editorial type scales deliberately; page width caps at 1720px. Use fine borders, ordinary focus rings and whitespace. No ornamental gradients or invented branding.
 
-## Review
-Inspect first/middle/final hero, Origin construction/handoff, all app handoffs, full framing and detail framing, Data Lens, Gene, index and zoom.
-Widths: 1920, 1440, 1280, 1024, 834, 768, 430, 390, 375, 320.
-Check native touch, keyboard navigation, reduced motion, no JavaScript, source ownership and runtime errors.
-Do not claim untested browser engines or a measured frame rate.
+## Interaction
 
+- App activation: source-like 220ms transition; no engineering calculations, file access or fake results. Desktop-only actions are visibly disabled.
+- Home hover: real icon, title, source description/version/release, small source-derived motion strip and interface preview. Keyboard focus also exposes the panel. Returning home restores focus without unexpectedly reopening it.
+- Gallery: 6.5s dwell; 420ms decoded-image crossfade. Only the most central meaningfully visible card advances. Pause for hover/focus, explicit pause, hidden document, offscreen, modal or reduced motion. Manual actions restart the dwell.
+- Focused viewer: contain the whole image, current app/count, previous/next, arrows, Escape, native dialog focus containment and restoration, full-resolution link. No image crop or perspective distortion.
+- Entrance motion is a short 8px settling movement; never hide content waiting for JavaScript. Browser scrolling remains native.
+
+## Responsive/accessibility
+
+Desktop fidelity checks: 1920×1080, 2560×1440, 2560×1600. Native controls retain their source scale.
+
+Below 1100/900px, reduce native card columns. At 700px use two 132px cards, a 46px rail and overlay expanded panels. Complex tool controls reflow and workspaces scroll internally. Below 760px galleries become one column and the viewer places arrows below the image. Horizontal swipe must not intercept vertical page scrolling.
+
+Use semantic buttons/forms/dialogs, labelled controls, visible focus, keyboard navigation, source defaults and reasonable contrast. Respect `prefers-reduced-motion`: no wafer drift, preview cycling, entry motion or gallery autoplay. Without JS, preserve the complete galleries, screenshot links, narrative, authorship and ending.

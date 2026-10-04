@@ -3,9 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.mjs",
-    "test": "node tests/static.mjs && node tests/motion.mjs && node tests/viewer.mjs",
-    "import:captures": "node scripts/import-captures.mjs",
+    "build": "node scripts/build-native.mjs",
+    "lint": "node scripts/check-syntax.mjs",
+    "test": "node --test tests/native.test.mjs",
+    "import:captures": "node scripts/import-native-captures.mjs",
     "serve": "node scripts/serve.mjs"
   },
   "devDependencies": {

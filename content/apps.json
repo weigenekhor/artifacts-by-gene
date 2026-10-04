@@ -1,1189 +1,2189 @@
 {
+  "schemaVersion": 4,
+  "source": "Genepy/widgets/home_page.py",
+  "defaultMode": "pentimento",
+  "defaultTheme": "pentimento",
+  "modes": [
+    {
+      "id": "legacy",
+      "name": "Legacy",
+      "range": "I–IV"
+    },
+    {
+      "id": "pentimento",
+      "name": "Pentimento",
+      "range": "V–VI"
+    }
+  ],
+  "themes": [
+    {
+      "id": "origin",
+      "name": "Origin"
+    },
+    {
+      "id": "pentimento",
+      "name": "Pentimento"
+    }
+  ],
+  "homepageReferences": [
+    "Homepage 1.png",
+    "Homepage 2.png"
+  ],
+  "expeditions": [
+    {
+      "id": "altus",
+      "number": 1,
+      "numeral": "I",
+      "name": "Altus",
+      "label": "Expedition I - Altus",
+      "mode": "legacy",
+      "apps": [
+        "altus-lotviewer",
+        "altus-anko-viewer",
+        "altus-wafercount"
+      ]
+    },
+    {
+      "id": "interstice",
+      "number": 2,
+      "numeral": "II",
+      "name": "Interstice",
+      "label": "Expedition II - Interstice",
+      "mode": "legacy",
+      "apps": [
+        "topotracer",
+        "papyrus-reader",
+        "spc-pathfinder"
+      ]
+    },
+    {
+      "id": "epitaxy",
+      "number": 3,
+      "numeral": "III",
+      "name": "Epitaxy",
+      "label": "Expedition III - Epitaxy",
+      "mode": "legacy",
+      "apps": [
+        "gan-met-compiler",
+        "gan-temp-diagnoser",
+        "aix-dt-assistant",
+        "lt-zone-assistant",
+        "gan-xml-assistant"
+      ]
+    },
+    {
+      "id": "monolith",
+      "number": 4,
+      "numeral": "IV",
+      "name": "Monolith",
+      "label": "Expedition IV - Monolith",
+      "mode": "legacy",
+      "apps": [
+        "magus-spc-gan",
+        "magus-spc-legacy",
+        "anko-helper",
+        "lt-report-compiler"
+      ]
+    },
+    {
+      "id": "planetfall",
+      "number": 5,
+      "numeral": "V",
+      "name": "Planetfall",
+      "label": "Expedition V - Planetfall",
+      "mode": "pentimento",
+      "apps": [
+        "topotracer",
+        "papyrus-reader",
+        "gan-temp-diagnoser",
+        "aix-dt-assistant",
+        "lt-zone-assistant",
+        "gan-xml-assistant",
+        "lt-report-compiler"
+      ]
+    },
+    {
+      "id": "moonstone",
+      "number": 6,
+      "numeral": "VI",
+      "name": "Moonstone",
+      "label": "Expedition VI - Moonstone",
+      "mode": "pentimento",
+      "apps": [
+        "gan-met-compiler",
+        "metria-spc",
+        "data-lens"
+      ]
+    }
+  ],
   "apps": [
     {
       "id": "altus-lotviewer",
+      "sourceKey": "parser_tab",
       "index": 1,
-      "name": "Altus LotViewer",
-      "description": "Lot history analysis.",
-      "purpose": "Bring process events into one readable history. Align timestamps. Review wafer states. Follow the lot through the work.",
-      "valueLine": "Process events become a readable lot history.",
+      "name": "Altus Lot Viewer",
+      "legacyName": "Altus Lot Viewer",
+      "purpose": "Lot history analysis.",
+      "description": "Demo lot-history view with generated Reactor results.",
+      "metadata": {
+        "version": "v6.0.3",
+        "release": "2023-08-02",
+        "status": "Demo mode - fake data only"
+      },
+      "icon": "assets/native/icons/parser_tab.svg",
+      "memberships": [
+        "altus"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/1.png",
+        "pentimento": "Empty/2.png"
+      },
       "images": [
         {
-          "sourceFilename": "Altus LotViewer.png",
-          "alt": "Altus LotViewer showing a lot history with reactor, wafer and deposition events",
-          "capture": {
-            "src": "assets/evidence/altus-lotviewer/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/altus-lotviewer/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/altus-lotviewer/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/altus-lotviewer/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/altus-lotviewer/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "04f40caf0c3fb6fc2e4b77704179c4370b14fc39cd63759d8b1e23a32c983f65",
-            "pixelSha256": "1079fc937f733d921dc24abc81e696fec1778e58adf1a369958ef26f6658a5a3"
-          }
+          "sourceFilename": "Altus LotViewer 1.png",
+          "theme": "origin",
+          "caption": "Lot history analysis",
+          "base": "assets/screens/altus-lotviewer/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "6e48a7109b85623f84f7be85ea19ef3c25f5d88f7c5706c652ed6905c2b09314",
+          "sources": [
+            {
+              "src": "assets/screens/altus-lotviewer/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/altus-lotviewer/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/altus-lotviewer/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/altus-lotviewer/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Altus LotViewer 2.png",
+          "theme": "pentimento",
+          "caption": "Lot history analysis",
+          "base": "assets/screens/altus-lotviewer/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "2ffac03bd6a904a55ccfbc6c10db770bf1d1491d3aced49185527971cc2c378d",
+          "sources": [
+            {
+              "src": "assets/screens/altus-lotviewer/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/altus-lotviewer/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/altus-lotviewer/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/altus-lotviewer/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/cil-notes.png"
     },
     {
       "id": "altus-anko-viewer",
+      "sourceKey": "altusanko_tab",
       "index": 2,
       "name": "Altus ANKO Viewer",
-      "description": "ANKO schedule retrieval.",
-      "purpose": "Bring ANKO schedules into view across the Altus workflow. The next task starts with knowing what is due.",
-      "valueLine": "Equipment checks, with their next due dates.",
+      "legacyName": "Altus ANKO Viewer",
+      "purpose": "ANKO schedule retrieval.",
+      "description": "Demo ANKO schedule view with generated Reactor due dates.",
+      "metadata": {
+        "version": "v2.0.1",
+        "release": "2023-09-20",
+        "status": "Demo mode - fake data only"
+      },
+      "icon": "assets/native/icons/altusanko_tab.svg",
+      "memberships": [
+        "altus"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/3.png",
+        "pentimento": "Empty/4.png"
+      },
       "images": [
         {
-          "sourceFilename": "Altus Anko Viewer.png",
-          "alt": "Altus ANKO Viewer showing equipment checks and their next due dates",
-          "capture": {
-            "src": "assets/evidence/altus-anko-viewer/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/altus-anko-viewer/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/altus-anko-viewer/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/altus-anko-viewer/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/altus-anko-viewer/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "4319e8604e63a9047127db212b7b5f5c0e4dac29adb2afd292e2edb707caff7a",
-            "pixelSha256": "9edd1f3578d0710630c796f4a8b8110fdb1697ed04c32ab6e53a2cc24b957b1c"
-          }
+          "sourceFilename": "Altus Anko Viewer 1.png",
+          "theme": "origin",
+          "caption": "ANKO schedule retrieval",
+          "base": "assets/screens/altus-anko-viewer/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "ea7f05d72b5c2b1cdd1c07799ad6aafbac4563c83841a5a494c37ded79b2c6b6",
+          "sources": [
+            {
+              "src": "assets/screens/altus-anko-viewer/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/altus-anko-viewer/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/altus-anko-viewer/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/altus-anko-viewer/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Altus Anko Viewer 2.png",
+          "theme": "pentimento",
+          "caption": "ANKO schedule retrieval",
+          "base": "assets/screens/altus-anko-viewer/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "ed73e45b1f28c8bcba83bc6ae5fd085a0c77a286e75b22cceb8874bdff3f414e",
+          "sources": [
+            {
+              "src": "assets/screens/altus-anko-viewer/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/altus-anko-viewer/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/altus-anko-viewer/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/altus-anko-viewer/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/cil-view-quilt.png"
     },
     {
       "id": "altus-wafercount",
+      "sourceKey": "wafercount_tab",
       "index": 3,
-      "name": "Altus WaferCount",
-      "description": "Chamber usage and wafer counts.",
-      "purpose": "Turn wafer counts from equipment logs into a clearer basis for maintenance planning.",
-      "valueLine": "Chamber usage measured against maintenance limits.",
+      "name": "Altus Wafer Counter",
+      "legacyName": "Altus Wafer Counter",
+      "purpose": "Reactor wafer counts against loading limits.",
+      "description": "Demo wafer-count view with generated Reactor loading values.",
+      "metadata": {
+        "version": "v1.0.3",
+        "release": "2023-09-28",
+        "status": "Demo mode - fake data only"
+      },
+      "icon": "assets/native/icons/wafercount_tab.svg",
+      "memberships": [
+        "altus"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/5.png",
+        "pentimento": "Empty/6.png"
+      },
       "images": [
         {
-          "sourceFilename": "Altus WaferCounter.png",
-          "alt": "Altus WaferCount displaying chamber wafer counts against maintenance limits",
-          "capture": {
-            "src": "assets/evidence/altus-wafercount/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/altus-wafercount/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/altus-wafercount/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/altus-wafercount/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/altus-wafercount/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "19b02221907196d87aa8348e74f1aca0d356926887c0f14e11521cc6707c4a6b",
-            "pixelSha256": "19b9aa78a796d8f20bb685762d61039e126ad07f97c6bac4ee00187f8f612165"
-          }
+          "sourceFilename": "Altus WaferCounter 1.png",
+          "theme": "origin",
+          "caption": "Reactor wafer counts",
+          "base": "assets/screens/altus-wafercount/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "bbd33aea03ab409b99875545406d2a4ce8d6743fbe4d684ede452b8df69ff474",
+          "sources": [
+            {
+              "src": "assets/screens/altus-wafercount/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/altus-wafercount/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/altus-wafercount/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/altus-wafercount/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Altus WaferCounter 2.png",
+          "theme": "pentimento",
+          "caption": "Reactor wafer counts",
+          "base": "assets/screens/altus-wafercount/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "87450dd205463e422cb9df53ab9bc6fb1eddb616b7b51967492be184820a5be6",
+          "sources": [
+            {
+              "src": "assets/screens/altus-wafercount/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/altus-wafercount/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/altus-wafercount/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/altus-wafercount/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/cil-wrap-text.png"
     },
     {
       "id": "topotracer",
+      "sourceKey": "topotracer_tab",
       "index": 4,
       "name": "TopoTracer",
-      "description": "Contour and topography plots.",
-      "purpose": "Turn wafer measurements into contours. Spatial patterns become visible in a way a column of numbers cannot offer.",
-      "valueLine": "Wafer measurements reveal their spatial patterns.",
+      "legacyName": "Topo Tracer",
+      "purpose": "Contour and topography plots.",
+      "description": "Enable effortless topography and contour plotting with precision.",
+      "metadata": {
+        "version": "v7.0.0",
+        "release": "2023-11-15",
+        "status": "Production"
+      },
+      "icon": "assets/native/icons/topotracer_tab.svg",
+      "memberships": [
+        "interstice",
+        "planetfall"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/7.png",
+        "pentimento": "Empty/8.png"
+      },
       "images": [
         {
-          "sourceFilename": "TopoTracer.png",
-          "alt": "TopoTracer: interpolated wafer surface and colour map",
-          "capture": {
-            "src": "assets/evidence/topotracer/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/topotracer/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/topotracer/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/topotracer/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/topotracer/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "fa880b83ece8eacbf139764e025101cc4f15656b0cb39d7d55696ff17c008b91",
-            "pixelSha256": "b4a3610e193dab2a162828d9b7ffd79f0ab844d0a06f2d4e2678b001449c3058"
-          }
+          "sourceFilename": "TopoTracer 1.png",
+          "theme": "origin",
+          "caption": "Topography surface",
+          "base": "assets/screens/topotracer/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "9c5eb1c01f6651087a40fbcfee1d91bfa9b5f5591e6aa9ba160bcd3bb0104c12",
+          "sources": [
+            {
+              "src": "assets/screens/topotracer/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/topotracer/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/topotracer/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/topotracer/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
           "sourceFilename": "TopoTracer 2.png",
-          "alt": "TopoTracer: wafer contours beside a three-dimensional surface",
-          "capture": {
-            "src": "assets/evidence/topotracer/slide-2/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/topotracer/slide-2/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/topotracer/slide-2/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/topotracer/slide-2/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/topotracer/slide-2/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "c56a34997e671a8c84f5ec1208632be05f6f53387bc7735921c101e9fb6460de",
-            "pixelSha256": "5301445fa1c997de6cd5d8fb21073c3efe7bb8c9c613556eb3f847d775f19619"
-          }
+          "theme": "origin",
+          "caption": "Contour plots",
+          "base": "assets/screens/topotracer/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "96a9052996d6c29a646bd238080a5b16bf859c051f9b1a22b16100b7f51bbc29",
+          "sources": [
+            {
+              "src": "assets/screens/topotracer/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/topotracer/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/topotracer/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/topotracer/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
           "sourceFilename": "TopoTracer 3.png",
-          "alt": "TopoTracer: measured wafer points beside contour lines",
-          "capture": {
-            "src": "assets/evidence/topotracer/slide-3/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/topotracer/slide-3/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/topotracer/slide-3/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/topotracer/slide-3/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/topotracer/slide-3/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "710d15d03cfac0657717cb89def7207a8cafff0917c6d2e7b50054762812b678",
-            "pixelSha256": "b04ba6da919bad7122207eafd7d7a748989c39264d7719c6021e15ac17bf8276"
-          }
+          "theme": "pentimento",
+          "caption": "Topography surface",
+          "base": "assets/screens/topotracer/3",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "d4946b02ccd9a51904a89d468850feaf19cb9df98dbafc2a7c40c1fba49ac5c9",
+          "sources": [
+            {
+              "src": "assets/screens/topotracer/3/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/topotracer/3/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/topotracer/3/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/topotracer/3/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "TopoTracer 4.png",
+          "theme": "pentimento",
+          "caption": "Contour plots",
+          "base": "assets/screens/topotracer/4",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "3107c00f6212ae5b4e9217824d50eec03a8bdd421f29019d3f6804f3605e868a",
+          "sources": [
+            {
+              "src": "assets/screens/topotracer/4/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/topotracer/4/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/topotracer/4/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/topotracer/4/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/cil-chart-pie.png"
     },
     {
       "id": "papyrus-reader",
+      "sourceKey": "xml_tab",
       "index": 5,
       "name": "Papyrus Reader",
-      "description": "Logical recipe and text comparison.",
-      "purpose": "Match equivalent recipe steps, even when their order changes. Keep attention on the parameters that differ.",
-      "valueLine": "Equivalent recipe steps. The differences that matter.",
+      "legacyName": "Papyrus Reader",
+      "purpose": "XML, EPI, and text reader.",
+      "description": "Purpose-built for Aixtron tools, it deciphers XML and EPI recipe files with precision while supporting standard documents.",
+      "metadata": {
+        "version": "v6.0.3",
+        "release": "2024-06-06",
+        "status": "Production"
+      },
+      "icon": "assets/native/icons/xml_tab.svg",
+      "memberships": [
+        "interstice",
+        "planetfall"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/9.png",
+        "pentimento": "Empty/10.png"
+      },
       "images": [
         {
-          "sourceFilename": "Papyrus Reader.png",
-          "alt": "Papyrus Reader: recipe comparison with changed parameters highlighted",
-          "capture": {
-            "src": "assets/evidence/papyrus-reader/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/papyrus-reader/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/papyrus-reader/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/papyrus-reader/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/papyrus-reader/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "525df4f4626117e14d075c7d33b40d93c38a450a9d0f83ae59ebe1ef9de9ca20",
-            "pixelSha256": "33bd914dc35e6a2fbb4f02dc1bbe6d700bc5489dbb6737c32e2998240ce9fe6a"
-          }
+          "sourceFilename": "Papyrus Reader 1.png",
+          "theme": "origin",
+          "caption": "Recipe comparison",
+          "base": "assets/screens/papyrus-reader/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "682e989a60d3480a6ba5c9ba720098c0b414beabe0ddd2b5dd0f043c7318a6f3",
+          "sources": [
+            {
+              "src": "assets/screens/papyrus-reader/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/papyrus-reader/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/papyrus-reader/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/papyrus-reader/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
           "sourceFilename": "Papyrus Reader 2.png",
-          "alt": "Papyrus Reader: reference and test recipes with comparison results",
-          "capture": {
-            "src": "assets/evidence/papyrus-reader/slide-2/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/papyrus-reader/slide-2/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/papyrus-reader/slide-2/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/papyrus-reader/slide-2/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/papyrus-reader/slide-2/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "ff0790cfe89de963d9b8ba35b8bed2d0950506f179d9141132c2a3146a9c5ace",
-            "pixelSha256": "416ca5f4bfdf97e1a6d5f2318a4e1acf1b3ba0c3b95b9fd5b1153fbc531e7c1a"
-          }
+          "theme": "origin",
+          "caption": "XML comparison",
+          "base": "assets/screens/papyrus-reader/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "17a5efbbd585fd72061acc8421d31f596ee4f2646099470792fd34cd875b3d76",
+          "sources": [
+            {
+              "src": "assets/screens/papyrus-reader/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/papyrus-reader/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/papyrus-reader/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/papyrus-reader/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Papyrus Reader 3.png",
+          "theme": "pentimento",
+          "caption": "Recipe comparison",
+          "base": "assets/screens/papyrus-reader/3",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "ae3991fafa76d598b369b9499a633885bbc2ebc937e142de7b859338c23a9827",
+          "sources": [
+            {
+              "src": "assets/screens/papyrus-reader/3/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/papyrus-reader/3/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/papyrus-reader/3/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/papyrus-reader/3/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Papyrus Reader 4.png",
+          "theme": "pentimento",
+          "caption": "XML comparison",
+          "base": "assets/screens/papyrus-reader/4",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "5f69c1bae1d4289dc811459ca94dd5bdbb531e7532f87c6a23d0256f8d6fc2a8",
+          "sources": [
+            {
+              "src": "assets/screens/papyrus-reader/4/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/papyrus-reader/4/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/papyrus-reader/4/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/papyrus-reader/4/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/cil-find-in-page.png"
     },
     {
       "id": "spc-pathfinder",
+      "sourceKey": "path_tab",
       "index": 6,
       "name": "SPC Pathfinder",
-      "description": "SPC chart finder.",
-      "purpose": "Reach the SPC charts you need together, without repeating the same navigation for every parameter.",
-      "valueLine": "The right SPC charts, without the repeated search.",
+      "legacyName": "SPC Pathfinder",
+      "purpose": "SPC chart finder.",
+      "description": "Index and navigate SPC charts with one-click shortcuts for direct chart access.",
+      "metadata": {
+        "version": "v1.0.2",
+        "release": "2024-10-28",
+        "status": "Production"
+      },
+      "icon": "assets/native/icons/path_tab.svg",
+      "memberships": [
+        "interstice"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/11.png",
+        "pentimento": "Empty/12.png"
+      },
       "images": [
         {
-          "sourceFilename": "SPC Pathfinder.png",
-          "alt": "SPC Pathfinder grouping parameter chart links by workcentre",
-          "capture": {
-            "src": "assets/evidence/spc-pathfinder/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/spc-pathfinder/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/spc-pathfinder/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/spc-pathfinder/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/spc-pathfinder/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "8c39d039052ea35bdce9fc889a0984b7600400fdf956535777e6ae080ba569db",
-            "pixelSha256": "a4807f07c4dfcb180a57ece0fc8f3ae47b40dc37f2c3b7169a788dfe369fff46"
-          }
+          "sourceFilename": "SPC Pathfinder 1.png",
+          "theme": "origin",
+          "caption": "SPC chart finder",
+          "base": "assets/screens/spc-pathfinder/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "dfcdfa59c71cb9e96ff9073f517e492761aeb278b05d2a2487aedffd8f2d564d",
+          "sources": [
+            {
+              "src": "assets/screens/spc-pathfinder/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/spc-pathfinder/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/spc-pathfinder/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/spc-pathfinder/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "SPC Pathfinder 2.png",
+          "theme": "pentimento",
+          "caption": "SPC chart finder",
+          "base": "assets/screens/spc-pathfinder/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "986243d0e9803264934509f072ae69c9a9cde9e511e6e5a547324af2bfcc930a",
+          "sources": [
+            {
+              "src": "assets/screens/spc-pathfinder/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/spc-pathfinder/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/spc-pathfinder/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/spc-pathfinder/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/cil-external-link.png"
     },
     {
       "id": "gan-met-compiler",
+      "sourceKey": "metro_tab",
       "index": 7,
       "name": "Met Compiler",
-      "description": "Metrology report compiler.",
-      "purpose": "Bring metrology data together. Apply predefined calculations. Produce a consistent report from scattered inputs.",
-      "valueLine": "Metrology inputs compiled into a consistent report.",
+      "legacyName": "Met Compiler",
+      "purpose": "Metrology report compiler.",
+      "description": "Compiles metrology and Growth Plan inputs into a structured master workbook, with validation, safe append and conflict checking.",
+      "metadata": {
+        "version": "v8.0.2",
+        "release": "2025-03-15",
+        "status": "Production"
+      },
+      "icon": "assets/native/icons/metro_tab.svg",
+      "memberships": [
+        "epitaxy",
+        "moonstone"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/13.png",
+        "pentimento": "Empty/14.png"
+      },
       "images": [
         {
-          "sourceFilename": "Met Compiler.png",
-          "alt": "Met Compiler showing metrology input files, validation checks and compile controls",
-          "capture": {
-            "src": "assets/evidence/gan-met-compiler/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/gan-met-compiler/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/gan-met-compiler/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/gan-met-compiler/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/gan-met-compiler/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "9325aad134128935776b36ad6a1b39443daddc2a7f2e297d8ceaa9c307401aa4",
-            "pixelSha256": "3dbda4299e27a0d1420eca5fb6d9f7161513924f0547579e7354d27e502295db"
-          }
+          "sourceFilename": "Met Compiler 1.png",
+          "theme": "origin",
+          "caption": "Metrology report compiler",
+          "base": "assets/screens/gan-met-compiler/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "b819706717086ac06283714cd8e1baf5b9aebb78a79417c0ee2ee8e53fce820a",
+          "sources": [
+            {
+              "src": "assets/screens/gan-met-compiler/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/gan-met-compiler/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/gan-met-compiler/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/gan-met-compiler/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Met Compiler 2.png",
+          "theme": "pentimento",
+          "caption": "Metrology report compiler",
+          "base": "assets/screens/gan-met-compiler/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "3276aa9418cfb9c546367a9314b9f473d8efbdfe09032ec33c16ba10972f67f7",
+          "sources": [
+            {
+              "src": "assets/screens/gan-met-compiler/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/gan-met-compiler/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/gan-met-compiler/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/gan-met-compiler/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/cil-view-module.png"
     },
     {
       "id": "gan-temp-diagnoser",
+      "sourceKey": "pyra_tab",
       "index": 8,
-      "name": "GaN Temp Diagnoser",
-      "description": "Temperature drift diagnosis.",
-      "purpose": "Use temperature behavior to guide diagnosis and identify the next checks. Give troubleshooting a starting point.",
-      "valueLine": "Temperature symptoms become a direction for investigation.",
+      "name": "AIX Temp Diagnoser",
+      "legacyName": "AIX Temp Diagnoser",
+      "purpose": "Temperature drift diagnosis.",
+      "description": "Simplifies troubleshooting temperature drifting issues by analyzing user-provided inputs to deliver actionable insights.",
+      "metadata": {
+        "version": "v5.0.2",
+        "release": "2025-07-07",
+        "status": "Production"
+      },
+      "icon": "assets/native/icons/pyra_tab.svg",
+      "memberships": [
+        "epitaxy",
+        "planetfall"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/15.png",
+        "pentimento": "Empty/16.png"
+      },
       "images": [
         {
-          "sourceFilename": "GaN Temp Diagnoser.png",
-          "alt": "GaN Temp Diagnoser: temperature symptoms and diagnostic checks for a hot susceptor",
-          "capture": {
-            "src": "assets/evidence/gan-temp-diagnoser/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/gan-temp-diagnoser/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/gan-temp-diagnoser/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/gan-temp-diagnoser/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/gan-temp-diagnoser/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "98fd80a830dcd86c1500fc14afdd977f39d3a7fd63464b7c4bcaed2b19aca517",
-            "pixelSha256": "f64adcd38f90db48c3ebe902dfb6479e3aadfb0a3287b705b7c81146d24621da"
-          }
+          "sourceFilename": "AIX Temp Diagnoser 1.png",
+          "theme": "origin",
+          "caption": "Temperature drift diagnosis",
+          "base": "assets/screens/gan-temp-diagnoser/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "aa68be490a5274e22e96f4080b5516cc3a5e03f2e2885a34b8bcccada94d464a",
+          "sources": [
+            {
+              "src": "assets/screens/gan-temp-diagnoser/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/gan-temp-diagnoser/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/gan-temp-diagnoser/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/gan-temp-diagnoser/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
-          "sourceFilename": "GaN Temp Diagnoser 2.png",
-          "alt": "GaN Temp Diagnoser: temperature symptoms and diagnostic checks for a cold susceptor",
-          "capture": {
-            "src": "assets/evidence/gan-temp-diagnoser/slide-2/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/gan-temp-diagnoser/slide-2/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/gan-temp-diagnoser/slide-2/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/gan-temp-diagnoser/slide-2/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/gan-temp-diagnoser/slide-2/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "82f84a53838feed5cdb5f557ff275ac11aa2a29a0d8d65aca31fd267f346ef10",
-            "pixelSha256": "fd9a8944d0acce6a2122b4769788ae43ab1d57327caec790ef8da98b2cc33fba"
-          }
+          "sourceFilename": "AIX Temp Diagnoser 2.png",
+          "theme": "pentimento",
+          "caption": "Temperature drift diagnosis",
+          "base": "assets/screens/gan-temp-diagnoser/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "a360ee213247ca6e48059ddf8c0a8a0a08d0f698590e4c14a404d906ba6b81e5",
+          "sources": [
+            {
+              "src": "assets/screens/gan-temp-diagnoser/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/gan-temp-diagnoser/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/gan-temp-diagnoser/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/gan-temp-diagnoser/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/cil-exposure.png"
     },
     {
       "id": "aix-dt-assistant",
+      "sourceKey": "dt_tab",
       "index": 9,
       "name": "AIX ΔT Assistant",
-      "description": "Baseplate arrangement guidance.",
-      "purpose": "Use weight and temperature inputs to guide baseplate arrangements. Put the basis for a decision in view.",
-      "valueLine": "Baseplate arrangements grounded in weight and temperature.",
+      "legacyName": "AIX ΔT Assistant",
+      "purpose": "Baseplate assignment from weights and temperature differences.",
+      "description": "Simplifies troubleshooting wafer-to-wafer temperature issues by analyzing user-provided inputs to deliver actionable insights.",
+      "metadata": {
+        "version": "v2.0.1",
+        "release": "2025-08-28",
+        "status": "Production"
+      },
+      "icon": "assets/native/icons/dt_tab.svg",
+      "memberships": [
+        "epitaxy",
+        "planetfall"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/17.png",
+        "pentimento": "Empty/18.png"
+      },
       "images": [
         {
-          "sourceFilename": "AIX dT Assistant.png",
-          "alt": "AIX ΔT Assistant: weight-based baseplate arrangement",
-          "capture": {
-            "src": "assets/evidence/aix-dt-assistant/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/aix-dt-assistant/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/aix-dt-assistant/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/aix-dt-assistant/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/aix-dt-assistant/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "900d86197280a4f92fd2ebadc92e15b65615ba6f860f978df3420175dbe27a33",
-            "pixelSha256": "66e48505cf57a486170fc97132a28a8f7e1bf69659efc60d19c17de230a44c3c"
-          }
+          "sourceFilename": "AIX dT Assistant 1.png",
+          "theme": "origin",
+          "caption": "Baseplate weight mapping",
+          "base": "assets/screens/aix-dt-assistant/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "ff7d306dc1a8ad266db961ff3808ca8916b1c9b94b8399d1b2dbc5bc4b669b70",
+          "sources": [
+            {
+              "src": "assets/screens/aix-dt-assistant/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/aix-dt-assistant/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/aix-dt-assistant/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/aix-dt-assistant/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
           "sourceFilename": "AIX dT Assistant 2.png",
-          "alt": "AIX ΔT Assistant: temperature-based baseplate rearrangement",
-          "capture": {
-            "src": "assets/evidence/aix-dt-assistant/slide-2/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/aix-dt-assistant/slide-2/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/aix-dt-assistant/slide-2/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/aix-dt-assistant/slide-2/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/aix-dt-assistant/slide-2/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "d3066474f09d104c28925e036c8dd22eb761082daf66e1692e1eb929b99aee1d",
-            "pixelSha256": "946fcb00f4c73d5ea6739de41df4bb0f16c6c94f7a2aa8df139e368be1349d9b"
-          }
+          "theme": "pentimento",
+          "caption": "Temperature mapping",
+          "base": "assets/screens/aix-dt-assistant/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "541e49e2636e376c98e1a83cbfec73006968c5931dd6a64d038b0abdaca2a77a",
+          "sources": [
+            {
+              "src": "assets/screens/aix-dt-assistant/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/aix-dt-assistant/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/aix-dt-assistant/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/aix-dt-assistant/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/cil-loop.png"
     },
     {
       "id": "lt-zone-assistant",
+      "sourceKey": "laytec_tab",
       "index": 10,
       "name": "LT Zone Assistant",
-      "description": "LayTec zone mapping.",
-      "purpose": "Map LayTec zones in one spatial view. Understand where each region sits in relation to the whole.",
-      "valueLine": "LayTec measurement zones in their physical context.",
+      "legacyName": "LT Zone Assistant",
+      "purpose": "LayTec zone mapping.",
+      "description": "Helps users imagine where LayTec measures temperatures on wafers.",
+      "metadata": {
+        "version": "v1.0.2",
+        "release": "2025-12-25",
+        "status": "Production"
+      },
+      "icon": "assets/native/icons/laytec_tab.svg",
+      "memberships": [
+        "epitaxy",
+        "planetfall"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/19.png",
+        "pentimento": "Empty/20.png"
+      },
       "images": [
         {
-          "sourceFilename": "LT Zone Assistant.png",
-          "alt": "LT Zone Assistant showing inner and outer zone geometry on a five-wafer layout",
-          "capture": {
-            "src": "assets/evidence/lt-zone-assistant/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/lt-zone-assistant/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/lt-zone-assistant/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/lt-zone-assistant/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/lt-zone-assistant/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "59c88526c30568603447c652053d62beac5ecdf3bcc3c9f753de6e6341b99965",
-            "pixelSha256": "d9dedf12e5b592635baa7ace5106659d9cb0b1edaae6649da16aeeca008f4043"
-          }
+          "sourceFilename": "LT Zone Assistant 1.png",
+          "theme": "origin",
+          "caption": "LayTec zone mapping",
+          "base": "assets/screens/lt-zone-assistant/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "884fde3c8f798d122f74a567deca42cc1bc65115466e10281ec936c5a3f08c18",
+          "sources": [
+            {
+              "src": "assets/screens/lt-zone-assistant/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/lt-zone-assistant/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/lt-zone-assistant/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/lt-zone-assistant/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "LT Zone Assistant 2.png",
+          "theme": "pentimento",
+          "caption": "LayTec zone mapping",
+          "base": "assets/screens/lt-zone-assistant/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "fb85bb7243d59ec9329d6d7437dfef805c013119df04924b83c4b7ad12c5e874",
+          "sources": [
+            {
+              "src": "assets/screens/lt-zone-assistant/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/lt-zone-assistant/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/lt-zone-assistant/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/lt-zone-assistant/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/cil-rss.png"
     },
     {
       "id": "gan-xml-assistant",
+      "sourceKey": "xmlll_tab",
       "index": 11,
-      "name": "GaN XML Assistant",
-      "description": "Devices.XML comparison.",
-      "purpose": "Compare configurations, settings and constants. Bring differences forward, without losing their context.",
-      "valueLine": "Configuration differences kept beside their reference.",
+      "name": "AIX XML Assistant",
+      "legacyName": "AIX XML Assistant",
+      "purpose": "Devices.XML comparison.",
+      "description": "Automates node-level comparison of Devices.XML for device constants and settings.",
+      "metadata": {
+        "version": "v2.0.2",
+        "release": "2026-01-03",
+        "status": "Production"
+      },
+      "icon": "assets/native/icons/xmlll_tab.svg",
+      "memberships": [
+        "epitaxy",
+        "planetfall"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/21.png",
+        "pentimento": "Empty/22.png"
+      },
       "images": [
         {
-          "sourceFilename": "GaN XML Assistant.png",
-          "alt": "GaN XML Assistant: configuration comparison with changed values",
-          "capture": {
-            "src": "assets/evidence/gan-xml-assistant/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/gan-xml-assistant/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/gan-xml-assistant/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/gan-xml-assistant/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/gan-xml-assistant/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "5ea59d1dcd3f9844366d42a6fbf48da42adefebb428283b093e68dbc0b4f7ec7",
-            "pixelSha256": "cf51521911ee117a66f6e347cd40dae88640fb2181b132e908d2e352509d857a"
-          }
+          "sourceFilename": "AIX XML Assistant 1.png",
+          "theme": "origin",
+          "caption": "Devices.XML comparison",
+          "base": "assets/screens/gan-xml-assistant/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "373d6c620b532579384aa0c103aadb8b9628e9ecd38f5409262a27dc3407285d",
+          "sources": [
+            {
+              "src": "assets/screens/gan-xml-assistant/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/gan-xml-assistant/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/gan-xml-assistant/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/gan-xml-assistant/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
-          "sourceFilename": "GaN XML Assistant 2.png",
-          "alt": "GaN XML Assistant: comparison report with a directory of changed blocks",
-          "capture": {
-            "src": "assets/evidence/gan-xml-assistant/slide-2/full.webp",
-            "width": 10240,
-            "height": 4880,
-            "sources": [
-              {
-                "src": "assets/evidence/gan-xml-assistant/slide-2/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/gan-xml-assistant/slide-2/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/gan-xml-assistant/slide-2/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/gan-xml-assistant/slide-2/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "e25ad419d6d54729fd3ba4e5935257e86be46def30aab5af54647d7c0248f4c1",
-            "pixelSha256": "727e1712f4516a5aa62907b2bd69203dd9eb01c12977e2cf1fc5f3beb327ff1a"
-          }
+          "sourceFilename": "AIX XML Assistant 2.png",
+          "theme": "pentimento",
+          "caption": "Devices.XML comparison",
+          "base": "assets/screens/gan-xml-assistant/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "03e0632c30d74e6d2427860bba12de5b7e9a071f56f8ac44833ac379a240f867",
+          "sources": [
+            {
+              "src": "assets/screens/gan-xml-assistant/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/gan-xml-assistant/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/gan-xml-assistant/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/gan-xml-assistant/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
-          "sourceFilename": "GaN XML Assistant 3.png",
-          "alt": "GaN XML Assistant: report detail showing reference and target values",
-          "capture": {
-            "src": "assets/evidence/gan-xml-assistant/slide-3/full.webp",
-            "width": 10240,
-            "height": 4896,
-            "sources": [
-              {
-                "src": "assets/evidence/gan-xml-assistant/slide-3/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/gan-xml-assistant/slide-3/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/gan-xml-assistant/slide-3/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/gan-xml-assistant/slide-3/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "d9a3c30371448ed6dd507477d97631618cfc430c0c8a114eb2b0b3371fe70d41",
-            "pixelSha256": "4808bc292addebe496a4ecd7f41c08c7611714195b48f7be48df12c82fc1ecd5"
-          }
+          "sourceFilename": "AIX XML Assistant 3.png",
+          "theme": "shared",
+          "caption": "Comparison report",
+          "base": "assets/screens/gan-xml-assistant/3",
+          "width": 10240,
+          "height": 4880,
+          "sha256": "323677f6ad5045f4d6349c5768bdc2bb3d4b5fdbb836dfe5db1fac5c62657455",
+          "sources": [
+            {
+              "src": "assets/screens/gan-xml-assistant/3/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/gan-xml-assistant/3/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/gan-xml-assistant/3/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/gan-xml-assistant/3/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "AIX XML Assistant 4.png",
+          "theme": "shared",
+          "caption": "Report detail",
+          "base": "assets/screens/gan-xml-assistant/4",
+          "width": 10240,
+          "height": 4880,
+          "sha256": "672eb2fe0a091344100e8cd945852063e5ac6217aeebc754bcb1aa5168a6c026",
+          "sources": [
+            {
+              "src": "assets/screens/gan-xml-assistant/4/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/gan-xml-assistant/4/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/gan-xml-assistant/4/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/gan-xml-assistant/4/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/cil-justify-left.png"
     },
     {
       "id": "magus-spc-gan",
+      "sourceKey": "dnd_tab",
       "index": 12,
       "name": "Magus SPC (GaN)",
-      "description": "GaN SPC release review.",
-      "purpose": "Review configured GaN SPC charts and parameter states together. Move from a signal to the context around it.",
-      "valueLine": "GaN control charts with their specification limits.",
+      "legacyName": "Magus SPC (GaN)",
+      "purpose": "GaN SPC release review.",
+      "description": "Displays SPC data with clear pass/fail status and translates them into production-release recommendations for GaN processes.",
+      "metadata": {
+        "version": "v4.0.1",
+        "release": "2026-01-22",
+        "status": "Production"
+      },
+      "icon": "assets/native/icons/dnd_tab.svg",
+      "memberships": [
+        "monolith"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/23.png",
+        "pentimento": "Empty/24.png"
+      },
       "images": [
         {
-          "sourceFilename": "Magus SPC - GaN.png",
-          "alt": "Magus SPC (GaN): parameter review states and control charts",
-          "capture": {
-            "src": "assets/evidence/magus-spc-gan/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/magus-spc-gan/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/magus-spc-gan/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/magus-spc-gan/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/magus-spc-gan/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "9854627b9045c4e318a24b4aeb2e62333c2d04e0f504543c74bb00a2f52fe864",
-            "pixelSha256": "582f906fca2874156985859093addf101f2be8d3fadd77b81d5dcd8d81d77f19"
-          }
+          "sourceFilename": "Magus SPC - GaN 1.png",
+          "theme": "origin",
+          "caption": "Release review",
+          "base": "assets/screens/magus-spc-gan/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "6d983125b29f248be3bda85e28681118a44003aac0363de8464c1857c9e39ad1",
+          "sources": [
+            {
+              "src": "assets/screens/magus-spc-gan/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
           "sourceFilename": "Magus SPC - GaN 2.png",
-          "alt": "Magus SPC (GaN): parameter control charts with specification limits",
-          "capture": {
-            "src": "assets/evidence/magus-spc-gan/slide-2/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/magus-spc-gan/slide-2/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/magus-spc-gan/slide-2/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/magus-spc-gan/slide-2/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/magus-spc-gan/slide-2/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "0a0a96c6f0c8cd2bc7903361d3165a88c14763240cfc1a6b086607f625c64cf0",
-            "pixelSha256": "0c4cf9599175d184aa55abe8a5acd8b10354a92631c2eb21a3c59da80996c5bb"
-          }
+          "theme": "origin",
+          "caption": "SPC review",
+          "base": "assets/screens/magus-spc-gan/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "e2f45e8960f9fad9a7e71688089bb32f9977b9be738c7122b25cda8a60d0c3d4",
+          "sources": [
+            {
+              "src": "assets/screens/magus-spc-gan/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Magus SPC - GaN 1(2).png",
+          "theme": "pentimento",
+          "caption": "Release review",
+          "base": "assets/screens/magus-spc-gan/3",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "fd70a284a24a9e0696734e3f47b5fbabd7b0352bb7327ca41baf2ffc8f67994a",
+          "sources": [
+            {
+              "src": "assets/screens/magus-spc-gan/3/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/3/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/3/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/3/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Magus SPC - GaN 2(2).png",
+          "theme": "pentimento",
+          "caption": "SPC review",
+          "base": "assets/screens/magus-spc-gan/4",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "76c979305441201d3ab4b3f0f0ca4ae9835d2df7ced707c935c220db4040e65f",
+          "sources": [
+            {
+              "src": "assets/screens/magus-spc-gan/4/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/4/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/4/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/4/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
           "sourceFilename": "Magus SPC - GaN 3.png",
-          "alt": "Magus SPC (GaN): exported report and results summary",
-          "capture": {
-            "src": "assets/evidence/magus-spc-gan/slide-3/full.webp",
-            "width": 10240,
-            "height": 4888,
-            "sources": [
-              {
-                "src": "assets/evidence/magus-spc-gan/slide-3/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/magus-spc-gan/slide-3/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/magus-spc-gan/slide-3/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/magus-spc-gan/slide-3/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "5c5af75b11d040bd87768aca7ae6020e4bfa77ee1568d0e50039bc243fd11443",
-            "pixelSha256": "75042aecd0e6c513688aa0b426d8b78a1c0115fa29764cfa645e2e3c61e9b603"
-          }
+          "theme": "shared",
+          "caption": "Release report",
+          "base": "assets/screens/magus-spc-gan/5",
+          "width": 10240,
+          "height": 4888,
+          "sha256": "5c5af75b11d040bd87768aca7ae6020e4bfa77ee1568d0e50039bc243fd11443",
+          "sources": [
+            {
+              "src": "assets/screens/magus-spc-gan/5/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/5/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/5/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/5/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
           "sourceFilename": "Magus SPC - GaN 4.png",
-          "alt": "Magus SPC (GaN): report detail with a failed parameter chart",
-          "capture": {
-            "src": "assets/evidence/magus-spc-gan/slide-4/full.webp",
-            "width": 10240,
-            "height": 4892,
-            "sources": [
-              {
-                "src": "assets/evidence/magus-spc-gan/slide-4/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/magus-spc-gan/slide-4/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/magus-spc-gan/slide-4/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/magus-spc-gan/slide-4/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "88295a5a032d52ca5759686c421911403b18bf052612817b880372ab4fd9dabc",
-            "pixelSha256": "dd80b8c763bc983562ea2791e67def99ad5ed2787ab3b566e0c03c98959289de"
-          }
+          "theme": "shared",
+          "caption": "Report detail",
+          "base": "assets/screens/magus-spc-gan/6",
+          "width": 10240,
+          "height": 4892,
+          "sha256": "88295a5a032d52ca5759686c421911403b18bf052612817b880372ab4fd9dabc",
+          "sources": [
+            {
+              "src": "assets/screens/magus-spc-gan/6/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/6/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/6/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/6/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
           "sourceFilename": "Magus SPC - GaN 5.png",
-          "alt": "Magus SPC (GaN): report detail with passed and failed parameter charts",
-          "capture": {
-            "src": "assets/evidence/magus-spc-gan/slide-5/full.webp",
-            "width": 10240,
-            "height": 4872,
-            "sources": [
-              {
-                "src": "assets/evidence/magus-spc-gan/slide-5/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/magus-spc-gan/slide-5/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/magus-spc-gan/slide-5/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/magus-spc-gan/slide-5/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "717674f2e2f1c7127b7b8cd6324814909ff3149960ac66e096eeefc5c4cef22a",
-            "pixelSha256": "f5bbb04ad3999d5ec5d85797ef19009d1f4518f902746fa2eb9b9e93b6bb583d"
-          }
+          "theme": "shared",
+          "caption": "Equipment report",
+          "base": "assets/screens/magus-spc-gan/7",
+          "width": 10240,
+          "height": 4872,
+          "sha256": "717674f2e2f1c7127b7b8cd6324814909ff3149960ac66e096eeefc5c4cef22a",
+          "sources": [
+            {
+              "src": "assets/screens/magus-spc-gan/7/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/7/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/7/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/magus-spc-gan/7/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/cil-chart-line.png"
     },
     {
       "id": "magus-spc-legacy",
+      "sourceKey": "dnd2_tab",
       "index": 13,
       "name": "Magus SPC (Legacy)",
-      "description": "Legacy SPC release review.",
-      "purpose": "Bring legacy SPC charts and parameter states into one review environment. Keep established workflows within reach.",
-      "valueLine": "Legacy parameters and charts in one review.",
+      "legacyName": "Magus SPC (Legacy)",
+      "purpose": "Legacy SPC release review.",
+      "description": "Displays SPC data with clear pass/fail status and translates them into production-release recommendations for non-GaN processes.",
+      "metadata": {
+        "version": "v4.0.1",
+        "release": "2026-01-24",
+        "status": "Production"
+      },
+      "icon": "assets/native/icons/dnd2_tab.svg",
+      "memberships": [
+        "monolith"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/25.png",
+        "pentimento": "Empty/26.png"
+      },
       "images": [
         {
-          "sourceFilename": "Magus SPC - Legacy.png",
-          "alt": "Magus SPC (Legacy): legacy parameter review and control charts",
-          "capture": {
-            "src": "assets/evidence/magus-spc-legacy/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/magus-spc-legacy/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/magus-spc-legacy/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/magus-spc-legacy/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/magus-spc-legacy/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "8387ae808ecd8c783a92c6cbc80d7aed39e81456486a5bb7dca07b958138bc3f",
-            "pixelSha256": "bb8b51a1afb52fb6dae735b2b603d8f4df63c14bb65c779087c0eb94a44f3bad"
-          }
+          "sourceFilename": "Magus SPC - Legacy 1.png",
+          "theme": "origin",
+          "caption": "Release review",
+          "base": "assets/screens/magus-spc-legacy/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "b0c6b3c43cdaa7fe2d76ffd1b744a84f8efa7dfc2b91821242c8e474e95ee271",
+          "sources": [
+            {
+              "src": "assets/screens/magus-spc-legacy/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
           "sourceFilename": "Magus SPC - Legacy 2.png",
-          "alt": "Magus SPC (Legacy): legacy control charts with specification limits",
-          "capture": {
-            "src": "assets/evidence/magus-spc-legacy/slide-2/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/magus-spc-legacy/slide-2/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/magus-spc-legacy/slide-2/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/magus-spc-legacy/slide-2/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/magus-spc-legacy/slide-2/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "0c5615f204bca5a234c15816dac21339703dca340af78e35f5c9cb8df035bacc",
-            "pixelSha256": "6f64b74ec0354624520a2a596479bcf2b25dcecfabfc324dbcc0dd7e881e7bde"
-          }
+          "theme": "origin",
+          "caption": "SPC review",
+          "base": "assets/screens/magus-spc-legacy/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "7124878f3b4193cc55a985debe53f65d5cba1f8a01af78808a7d69ca91fb17cd",
+          "sources": [
+            {
+              "src": "assets/screens/magus-spc-legacy/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Magus SPC - Legacy 1(2).png",
+          "theme": "pentimento",
+          "caption": "Release review",
+          "base": "assets/screens/magus-spc-legacy/3",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "c65eb8ed7cc450a747d423d9e4690cbecd9e661cff42c0d911633d6c3cf57d38",
+          "sources": [
+            {
+              "src": "assets/screens/magus-spc-legacy/3/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/3/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/3/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/3/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Magus SPC - Legacy 2(2).png",
+          "theme": "pentimento",
+          "caption": "SPC review",
+          "base": "assets/screens/magus-spc-legacy/4",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "89f21f446102c165d8dc5b0f8cb21d222d3bfe32954421be71a12eb067c16941",
+          "sources": [
+            {
+              "src": "assets/screens/magus-spc-legacy/4/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/4/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/4/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/4/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
           "sourceFilename": "Magus SPC - Legacy 3.png",
-          "alt": "Magus SPC (Legacy): exported report and results summary",
-          "capture": {
-            "src": "assets/evidence/magus-spc-legacy/slide-3/full.webp",
-            "width": 10240,
-            "height": 4880,
-            "sources": [
-              {
-                "src": "assets/evidence/magus-spc-legacy/slide-3/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/magus-spc-legacy/slide-3/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/magus-spc-legacy/slide-3/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/magus-spc-legacy/slide-3/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "dfbaf10334f1f6ee96c6850452b659382742184c976437b7f093c7766d443471",
-            "pixelSha256": "8eaa8b7fbae77bf1f7217fd09a0968346cb0ffff602402b40558db97df1d767e"
-          }
+          "theme": "shared",
+          "caption": "Release report",
+          "base": "assets/screens/magus-spc-legacy/5",
+          "width": 10240,
+          "height": 4880,
+          "sha256": "dfbaf10334f1f6ee96c6850452b659382742184c976437b7f093c7766d443471",
+          "sources": [
+            {
+              "src": "assets/screens/magus-spc-legacy/5/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/5/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/5/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/5/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
           "sourceFilename": "Magus SPC - Legacy 4.png",
-          "alt": "Magus SPC (Legacy): report chart directory and review states",
-          "capture": {
-            "src": "assets/evidence/magus-spc-legacy/slide-4/full.webp",
-            "width": 10240,
-            "height": 4888,
-            "sources": [
-              {
-                "src": "assets/evidence/magus-spc-legacy/slide-4/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/magus-spc-legacy/slide-4/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/magus-spc-legacy/slide-4/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/magus-spc-legacy/slide-4/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "6a12c918a26f85906597c47fa1c348b5b612731d9a92899d013f0efd0d1f71cc",
-            "pixelSha256": "33f0244adc7f364dcfde8f5c10343f688b46f29d50a072a6de1796b2be42439a"
-          }
+          "theme": "shared",
+          "caption": "Report detail",
+          "base": "assets/screens/magus-spc-legacy/6",
+          "width": 10240,
+          "height": 4888,
+          "sha256": "6a12c918a26f85906597c47fa1c348b5b612731d9a92899d013f0efd0d1f71cc",
+          "sources": [
+            {
+              "src": "assets/screens/magus-spc-legacy/6/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/6/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/6/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/6/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
           "sourceFilename": "Magus SPC - Legacy 5.png",
-          "alt": "Magus SPC (Legacy): report detail with parameter control charts",
-          "capture": {
-            "src": "assets/evidence/magus-spc-legacy/slide-5/full.webp",
-            "width": 10240,
-            "height": 4868,
-            "sources": [
-              {
-                "src": "assets/evidence/magus-spc-legacy/slide-5/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/magus-spc-legacy/slide-5/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/magus-spc-legacy/slide-5/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/magus-spc-legacy/slide-5/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "32a2c772e50a0fc852c2384587dae9bd9c6f6a6b78bcbb9c751ce8f17696aa21",
-            "pixelSha256": "03055be9cb30884dc2f7013acdc7c2bd21a4405220201901f550996813bd3d44"
-          }
+          "theme": "shared",
+          "caption": "Equipment report",
+          "base": "assets/screens/magus-spc-legacy/7",
+          "width": 10240,
+          "height": 4868,
+          "sha256": "32a2c772e50a0fc852c2384587dae9bd9c6f6a6b78bcbb9c751ce8f17696aa21",
+          "sources": [
+            {
+              "src": "assets/screens/magus-spc-legacy/7/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/7/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/7/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/magus-spc-legacy/7/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/cil-chart.png"
     },
     {
       "id": "anko-helper",
+      "sourceKey": "ankohelper_tab",
       "index": 14,
       "name": "ANKO Helper",
-      "description": "ANKO status and due dates.",
-      "purpose": "Put ANKO status and due dates together. See what needs attention before planning what comes next.",
-      "valueLine": "Equipment status and due dates, ready for planning.",
+      "legacyName": "ANKO Helper",
+      "purpose": "ANKO status and due dates.",
+      "description": "Computes the latest ANKO status and indicates when each process reactor is due for its next ANKO.",
+      "metadata": {
+        "version": "v1.0.1",
+        "release": "2026-02-01",
+        "status": "Production"
+      },
+      "icon": "assets/native/icons/ankohelper_tab.svg",
+      "memberships": [
+        "monolith"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/27.png",
+        "pentimento": "Empty/28.png"
+      },
       "images": [
         {
-          "sourceFilename": "ANKO Helper.png",
-          "alt": "ANKO Helper showing equipment status, last sample and next due dates",
-          "capture": {
-            "src": "assets/evidence/anko-helper/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/anko-helper/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/anko-helper/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/anko-helper/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/anko-helper/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "ac02a81f3061c26a4ae763a4e82d70a5e3778a6ee76d9bd0ca8594bc41d66cbf",
-            "pixelSha256": "127f9e3c4f110faf8f92ec8083b05bbfdec4f8f0aaafcad32002df039e75c0ca"
-          }
+          "sourceFilename": "ANKO Helper 1.png",
+          "theme": "origin",
+          "caption": "ANKO status and due dates",
+          "base": "assets/screens/anko-helper/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "2ef79dfbe7340495296a94798a30d7d8b2e6400c650787c0adc41b49bef3659f",
+          "sources": [
+            {
+              "src": "assets/screens/anko-helper/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/anko-helper/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/anko-helper/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/anko-helper/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "ANKO Helper 2.png",
+          "theme": "pentimento",
+          "caption": "ANKO status and due dates",
+          "base": "assets/screens/anko-helper/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "87e7beafa1ac6e72752662f415822a59857775671f29fd514e520d67220841d9",
+          "sources": [
+            {
+              "src": "assets/screens/anko-helper/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/anko-helper/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/anko-helper/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/anko-helper/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/cil-calendar-check.png"
     },
     {
       "id": "lt-report-compiler",
+      "sourceKey": "sap_tab",
       "index": 15,
       "name": "LT Report Compiler",
-      "description": "LayTec report compilation.",
-      "purpose": "Assemble LayTec information into an engineering report. Give repeated reporting work a consistent structure.",
-      "valueLine": "LayTec analysis files become a repeatable report.",
+      "legacyName": "LT Report Compiler",
+      "purpose": "LayTec report compilation.",
+      "description": "Convert LayTec analysis reports to configurable, schema-based Excel compilation.",
+      "metadata": {
+        "version": "v1.0.0",
+        "release": "2026-03-06",
+        "status": "Production"
+      },
+      "icon": "assets/native/icons/sap_tab.svg",
+      "memberships": [
+        "monolith",
+        "planetfall"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/29.png",
+        "pentimento": "Empty/30.png"
+      },
       "images": [
         {
-          "sourceFilename": "LT Report Compiler.png",
-          "alt": "LT Report Compiler showing selected analysis files and a completed processing log",
-          "capture": {
-            "src": "assets/evidence/lt-report-compiler/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/lt-report-compiler/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/lt-report-compiler/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/lt-report-compiler/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/lt-report-compiler/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "5ed66c1606a5b100eb07b662b00d75a1040fab1775899db784b2cb74f669afd0",
-            "pixelSha256": "755ef297620288832bac7079a7157bc73697f547454c76e1fdc241cfcdf146ac"
-          }
+          "sourceFilename": "LT Report Compiler 1.png",
+          "theme": "origin",
+          "caption": "LayTec report compilation",
+          "base": "assets/screens/lt-report-compiler/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "ed7f0aab9ca5e5f57fc29c45f345c80e66ac648b76c426562c13875c07c4d508",
+          "sources": [
+            {
+              "src": "assets/screens/lt-report-compiler/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/lt-report-compiler/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/lt-report-compiler/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/lt-report-compiler/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "LT Report Compiler 2.png",
+          "theme": "pentimento",
+          "caption": "LayTec report compilation",
+          "base": "assets/screens/lt-report-compiler/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "6b7f4be95d50028278428e4902f6ea0aafbad99dd2e4e86eeeb68b56ae984fc5",
+          "sources": [
+            {
+              "src": "assets/screens/lt-report-compiler/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/lt-report-compiler/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/lt-report-compiler/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/lt-report-compiler/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/cil-clipboard.png"
     },
     {
       "id": "metria-spc",
+      "sourceKey": "plessey_spc_tab",
       "index": 16,
       "name": "Metria SPC",
-      "description": "Interactive multi-parameter equipment SPC.",
-      "purpose": "Explore equipment parameters through interactive SPC analysis. Bring related signals into the same field of view.",
-      "valueLine": "Related equipment signals in the same investigation.",
+      "legacyName": "Metria SPC",
+      "purpose": "Interactive multi-parameter equipment SPC.",
+      "description": "Plots multi-parameter SPC across reactors and Run Type families on one aligned canvas for fast process review and troubleshooting.",
+      "metadata": {
+        "version": "v1.0.0",
+        "release": "2026-09-10",
+        "status": "Mock Data"
+      },
+      "icon": "assets/native/icons/plessey_spc_tab.svg",
+      "memberships": [
+        "moonstone"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/31.png",
+        "pentimento": "Empty/32.png"
+      },
       "images": [
         {
-          "sourceFilename": "Metria SPC.png",
-          "alt": "Metria SPC: equipment signals compared side by side",
-          "capture": {
-            "src": "assets/evidence/metria-spc/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/metria-spc/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/metria-spc/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/metria-spc/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/metria-spc/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "fe29c7b60b232422123b9619f7acb3fc6964ec525296608c21ac7d979bd0dfdc",
-            "pixelSha256": "88038110c8ac834f6db911255952ee91439c1af20b2209ba9d6f28a877739d54"
-          }
+          "sourceFilename": "Metria SPC 1.png",
+          "theme": "origin",
+          "caption": "Single reactor review",
+          "base": "assets/screens/metria-spc/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "9551f648810b76e8cd0ca2cfb5fe7f2ec0acc901cf998a6a74cb123e0bcb8a48",
+          "sources": [
+            {
+              "src": "assets/screens/metria-spc/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/metria-spc/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/metria-spc/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/metria-spc/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
           "sourceFilename": "Metria SPC 2.png",
-          "alt": "Metria SPC: equipment parameters compared by type",
-          "capture": {
-            "src": "assets/evidence/metria-spc/slide-2/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/metria-spc/slide-2/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/metria-spc/slide-2/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/metria-spc/slide-2/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/metria-spc/slide-2/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "13887a2769e999d76247d05410508da4a055792ebc17c73c891ae84a53f75dc4",
-            "pixelSha256": "e78adb7d40eea76532748047eefedb57bec29307146b91121d93b7c57b2e578f"
-          }
+          "theme": "origin",
+          "caption": "Reactor comparison",
+          "base": "assets/screens/metria-spc/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "ed7f97e7393b283eca893216d63e1dc18164356d45f2592d2b4c6e3b1d689db8",
+          "sources": [
+            {
+              "src": "assets/screens/metria-spc/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/metria-spc/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/metria-spc/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/metria-spc/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Metria SPC 3.png",
+          "theme": "origin",
+          "caption": "Run type comparison",
+          "base": "assets/screens/metria-spc/3",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "26a2c8de53ff179d4b14704c2ef07281d93c8ab96b4e896f712af06a389e9ec5",
+          "sources": [
+            {
+              "src": "assets/screens/metria-spc/3/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/metria-spc/3/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/metria-spc/3/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/metria-spc/3/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Metria SPC 4.png",
+          "theme": "pentimento",
+          "caption": "Single reactor review",
+          "base": "assets/screens/metria-spc/4",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "849af44d45353f3f4f7db606be8a486ef217139bfb83b533507a5c9bf6d2a344",
+          "sources": [
+            {
+              "src": "assets/screens/metria-spc/4/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/metria-spc/4/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/metria-spc/4/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/metria-spc/4/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Metria SPC 5.png",
+          "theme": "pentimento",
+          "caption": "Reactor comparison",
+          "base": "assets/screens/metria-spc/5",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "889706902e7c799e54884717c5f5f31661183d0bcdf8a5c17813122e8c744f25",
+          "sources": [
+            {
+              "src": "assets/screens/metria-spc/5/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/metria-spc/5/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/metria-spc/5/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/metria-spc/5/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Metria SPC 6.png",
+          "theme": "pentimento",
+          "caption": "Run type comparison",
+          "base": "assets/screens/metria-spc/6",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "08173ee811b7c38abc26f76bf54f753cc959d82d219d17d3fcb6d7c0bc0744fc",
+          "sources": [
+            {
+              "src": "assets/screens/metria-spc/6/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/metria-spc/6/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/metria-spc/6/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/metria-spc/6/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/metria-spc.svg"
     },
     {
       "id": "data-lens",
+      "sourceKey": "datalens_tab",
       "index": 17,
       "name": "Data Lens",
-      "description": "Measurement data exploration.",
-      "purpose": "Compare measurement distributions, wafer maps and statistical views.",
-      "valueLine": "Measurement distributions and wafer maps, explored together.",
+      "legacyName": "Data Lens",
+      "purpose": "Engineering data exploration and wafer maps.",
+      "description": "Explores engineering data through Smart Plot, wafer maps, run comparisons, distributions and wafer-level correlations.",
+      "metadata": {
+        "version": "v1.0.0",
+        "release": "2026-09-28",
+        "status": "Local Data"
+      },
+      "icon": "assets/native/icons/datalens_tab.svg",
+      "memberships": [
+        "moonstone"
+      ],
+      "emptyReferences": {
+        "origin": "Empty/33.png",
+        "pentimento": "Empty/34.png"
+      },
       "images": [
         {
-          "sourceFilename": "Data Lens.png",
-          "alt": "Data Lens: measurement distributions compared across groups",
-          "capture": {
-            "src": "assets/evidence/data-lens/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/data-lens/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/data-lens/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/data-lens/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/data-lens/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "6699db17c8ab5e33c218a4ee69bc9b0697e7a46095b6b74610ff6e7cbbc3c3b4",
-            "pixelSha256": "c711324ca50d8c11794c9778bbbaae38d25d6c40d78853ae40485c73e40b6f8e"
-          }
+          "sourceFilename": "Data Lens 1.png",
+          "theme": "origin",
+          "caption": "Wavelength relationship",
+          "base": "assets/screens/data-lens/1",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "704ef34aa2f5a8cdb36d2aef3f04e5ca62febad76b691555801012fc6f3aca4f",
+          "sources": [
+            {
+              "src": "assets/screens/data-lens/1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/data-lens/1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/data-lens/1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/data-lens/1/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
           "sourceFilename": "Data Lens 2.png",
-          "alt": "Data Lens: wafer maps compared side by side",
-          "capture": {
-            "src": "assets/evidence/data-lens/slide-2/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/data-lens/slide-2/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/data-lens/slide-2/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/data-lens/slide-2/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/data-lens/slide-2/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "0f5bc8ed58074a8ec85a7db8e64c6609b128539a96d6719c9eecfc37a819c2f5",
-            "pixelSha256": "daebf079d9f1d8829bf108e2771a229c4ae54f46fb331d2f337fa111fec42e56"
-          }
+          "theme": "origin",
+          "caption": "Wafer maps",
+          "base": "assets/screens/data-lens/2",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "aa5461a5739c340c029c862e4947ecceffbc9c25738cdce35f4d502a0b2f7fcb",
+          "sources": [
+            {
+              "src": "assets/screens/data-lens/2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/data-lens/2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/data-lens/2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/data-lens/2/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         },
         {
           "sourceFilename": "Data Lens 3.png",
-          "alt": "Data Lens: distribution analysis with box plots and a histogram",
-          "capture": {
-            "src": "assets/evidence/data-lens/slide-3/full.webp",
-            "width": 10240,
-            "height": 5520,
-            "sources": [
-              {
-                "src": "assets/evidence/data-lens/slide-3/width-768.webp",
-                "width": 768
-              },
-              {
-                "src": "assets/evidence/data-lens/slide-3/width-1120.webp",
-                "width": 1120
-              },
-              {
-                "src": "assets/evidence/data-lens/slide-3/width-1536.webp",
-                "width": 1536
-              },
-              {
-                "src": "assets/evidence/data-lens/slide-3/width-2240.webp",
-                "width": 2240
-              }
-            ],
-            "sourceSha256": "127df7200edd91724c8070f931b94f21c1d76ab6d25401a92c76230f15990f76",
-            "pixelSha256": "5743db15bfc7977af63f905e27347c60b649e47b667a88ae91fc7fac3b01275e"
-          }
+          "theme": "origin",
+          "caption": "Measurement distributions",
+          "base": "assets/screens/data-lens/3",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "bb236a419d4920199bde83c37c5197b88ea125a9b4fe0bfe538ae4688e5b4e88",
+          "sources": [
+            {
+              "src": "assets/screens/data-lens/3/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/data-lens/3/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/data-lens/3/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/data-lens/3/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Data Lens 4.png",
+          "theme": "pentimento",
+          "caption": "Wavelength relationship",
+          "base": "assets/screens/data-lens/4",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "3c0eb262cb1506cf4b175f582d1819917395a038282ec1690029ca6336b618bd",
+          "sources": [
+            {
+              "src": "assets/screens/data-lens/4/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/data-lens/4/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/data-lens/4/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/data-lens/4/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Data Lens 5.png",
+          "theme": "pentimento",
+          "caption": "Wafer maps",
+          "base": "assets/screens/data-lens/5",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "198b8c9810ee33f6c7b253c5cfff1a4fab28a3db26593b0c725a965532b02597",
+          "sources": [
+            {
+              "src": "assets/screens/data-lens/5/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/data-lens/5/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/data-lens/5/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/data-lens/5/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
+        },
+        {
+          "sourceFilename": "Data Lens 6.png",
+          "theme": "pentimento",
+          "caption": "Measurement distributions",
+          "base": "assets/screens/data-lens/6",
+          "width": 10240,
+          "height": 5520,
+          "sha256": "45a2cde096aa0926b231fe9f9cbc6cbb0697c8e33d96189a8477f400feddb8ee",
+          "sources": [
+            {
+              "src": "assets/screens/data-lens/6/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/data-lens/6/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/data-lens/6/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/data-lens/6/2560.webp",
+              "width": 2560
+            }
+          ],
+          "encoding": "webp-q100-v1"
         }
-      ]
+      ],
+      "navigationIcon": "assets/native/navigation/cil-equalizer.png"
     }
-  ]
+  ],
+  "softwareInfo": {
+    "description": "ARTIFACTS is a collection of engineering applications built around real workflows, real data, and real decisions. Each application is designed to reduce repetition, remove friction, and make complex engineering work clearer, faster, and more reliable.",
+    "details": {
+      "Version": "Pentimento",
+      "Since": "2023",
+      "Updated": "October 2026",
+      "By": "weigenekhor",
+      "Web": "artifactsbygene.com",
+      "Support": "weigenekhor@gmail.com"
+    }
+  }
 }

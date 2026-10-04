@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28.2222mm" height="28.2222mm"
+ viewBox="0 0 80 80"
+ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" baseProfile="tiny">
+<title>Met Compiler</title>
+<desc>Vector glyph exported from the ARTIFACTS source painter; no application UI raster.</desc>
+<defs>
+</defs>
+<g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
+
+<g fill="#7cb479" fill-opacity="0.698039" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<circle cx="23.72" cy="21.5" r="2.67222"/>
+</g>
+
+<g fill="none" stroke="#b9c7d8" stroke-opacity="0.258824" stroke-width="1.3875" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<polyline fill="none" vector-effect="none" points="23.72,25.94 23.72,31.86 " />
+</g>
+
+<g fill="#7cb479" fill-opacity="0.698039" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<circle cx="40" cy="19.28" r="2.67222"/>
+</g>
+
+<g fill="none" stroke="#b9c7d8" stroke-opacity="0.258824" stroke-width="1.3875" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<polyline fill="none" vector-effect="none" points="40,23.72 40,31.86 " />
+</g>
+
+<g fill="#7cb479" fill-opacity="0.698039" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<circle cx="56.28" cy="21.5" r="2.67222"/>
+</g>
+
+<g fill="none" stroke="#b9c7d8" stroke-opacity="0.258824" stroke-width="1.3875" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<polyline fill="none" vector-effect="none" points="56.28,25.94 56.28,31.86 " />
+</g>
+
+<g fill="none" stroke="#ecf2f9" stroke-opacity="0.94902" stroke-width="2.87778" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<path vector-effect="none" fill-rule="evenodd" d="M23.72,40.2467 C23.72,36.8409 26.4809,34.08 29.8867,34.08 L50.1133,34.08 C53.5191,34.08 56.28,36.8409 56.28,40.2467 L56.28,46.4133 C56.28,49.8191 53.5191,52.58 50.1133,52.58 L29.8867,52.58 C26.4809,52.58 23.72,49.8191 23.72,46.4133 L23.72,40.2467"/>
+</g>
+
+<g fill="none" stroke="#b9c7d8" stroke-opacity="0.258824" stroke-width="1.49028" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<polyline fill="none" vector-effect="none" points="29.64,40.74 50.36,40.74 " />
+<polyline fill="none" vector-effect="none" points="29.64,46.66 50.36,46.66 " />
+</g>
+
+<g fill="none" stroke="#7cb479" stroke-opacity="0.698039" stroke-width="2.6085" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<polyline fill="none" vector-effect="none" points="40,52.58 40,61.46 " />
+<polyline fill="none" vector-effect="none" points="28.9,63.68 51.1,63.68 " />
+</g>
+
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+</g>
+</g>
+</svg>

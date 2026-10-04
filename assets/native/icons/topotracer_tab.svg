@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28.2222mm" height="28.2222mm"
+ viewBox="0 0 80 80"
+ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" baseProfile="tiny">
+<title>TopoTracer</title>
+<desc>Vector glyph exported from the ARTIFACTS source painter; no application UI raster.</desc>
+<defs>
+</defs>
+<g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
+
+<g fill="none" stroke="#6bafa4" stroke-opacity="0.501961" stroke-width="2.43069" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<ellipse cx="40" cy="43.7" rx="13.32" ry="5.8608"/>
+</g>
+
+<g fill="none" stroke="#6bafa4" stroke-opacity="0.588235" stroke-width="2.43069" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<ellipse cx="40" cy="43.7" rx="21.46" ry="9.4424"/>
+</g>
+
+<g fill="none" stroke="#6bafa4" stroke-opacity="0.67451" stroke-width="2.43069" stroke-linecap="round" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<ellipse cx="40" cy="43.7" rx="29.6" ry="13.024"/>
+</g>
+
+<g fill="#ecf2f9" fill-opacity="0.94902" stroke="none" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+<circle cx="48.88" cy="26.68" r="3.39167"/>
+</g>
+
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="Sans Serif" font-size="9" font-weight="400" font-style="normal"
+>
+</g>
+</g>
+</svg>

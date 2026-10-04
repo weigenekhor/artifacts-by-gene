@@ -1,0 +1,29 @@
+/* Exact desktop colours: widgets/artifacts_style.py, edition_theme.py and Artifacts.py. */
+:root,[data-theme="pentimento"] {
+ color-scheme:dark;
+ --surface:#0d0e12; --frame:#090a0d; --title:#101116; --panel:#17151c;
+ --raised:#211d25; --hover:#19171e; --selected:#211d25; --border:#28252e;
+ --border-hover:#817469; --accent:#c1af96; --heading:#d2cbc4; --text:#e5e8ec;
+ --muted:#a79fa9; --disabled:#736c78; --selection:#3c303b;
+ --control:#201d24; --control-hover:#2a2530; --control-border:#685c70;
+ --focus:#b9a2c8; --chip:#563e68; --chip-text:#f4ecf8; --divider:#72647b;
+ --card-top:#1b181f; --card-mid:#111116; --card-bottom:#0d0e12; --card-edge:#35313b;
+ --card-text:#ece7e1; --geometry:#3c333e; --geometry-edge:#62566a;
+ --nav:#17161c; --nav-active:#29232e; --wafer-filter:grayscale(.45) sepia(.08) hue-rotate(205deg);
+ --font:"Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+ --ease:cubic-bezier(.22,.61,.36,1); --quick:150ms; --change:250ms; --gallery:420ms;
+ --gutter:clamp(22px,5vw,100px);
+}
+[data-theme="origin"] {
+ --surface:#14181e; --frame:#101216; --title:#101216; --panel:#181c22;
+ --raised:#242b34; --hover:#20272f; --selected:#192423; --border:#343b48;
+ --border-hover:#3d4656; --accent:#a6c2b7; --heading:#d4c6a8; --text:#d7dbe0;
+ --muted:#9faab6; --disabled:#76818c; --selection:#253c37;
+ --control:#161e1c; --control-hover:#202c29; --control-border:#40504a;
+ --focus:#a6c2b7; --chip:#2f544a; --chip-text:#e6f0eb; --divider:#56736a;
+ --card-top:#151d1e; --card-mid:#111819; --card-bottom:#0e1415; --card-edge:#28332f;
+ --card-text:#d4c6a8; --geometry:#333d48; --geometry-edge:#5b657c;
+ --nav:#1b2024; --nav-active:#2a3834; --wafer-filter:none;
+}
+:root,[data-theme="pentimento"]{--zone-inner:#c1af96;--zone-outer:#ADA3BC}
+[data-theme="origin"]{--zone-inner:#A8BCCE;--zone-outer:#C7AD8D}
