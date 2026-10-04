@@ -1,4 +1,5 @@
 import {state,setEdition} from './state.js';
+import {animateThinking} from './thinking-motion.js';
 
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const fine=matchMedia('(hover: hover) and (pointer: fine)');
@@ -83,22 +84,7 @@ proximity(cycle,(x,y,inside)=>{
  });
 });
 
-// One measured path carries the same packet through all three graphic coordinate systems.
-function measureSpine(){
- const root=cycle.getBoundingClientRect(),drawings=figures.map(figure=>figure.querySelector('.principle-drawing').getBoundingClientRect());
- const point=(index,x,y)=>{
-  const r=drawings[index],scale=Math.min(r.width/360,r.height/250);
-  return [r.left-root.left+(r.width-360*scale)/2+x*scale,r.top-root.top+(r.height-250*scale)/2+y*scale];
- };
- let points;
- if(narrow.matches){points=[[0,0],...drawings.map(r=>[0,r.top-root.top+r.height/2]),[0,root.height]];}
- else points=[point(0,0,125),point(0,215,124),point(0,360,125),point(1,0,125),point(1,141,133),point(1,210,133),point(1,360,125),point(2,0,125),point(2,249,155),point(2,360,125)];
- const path=points.map((p,i)=>`${i?'L':'M'}${p.map(n=>n.toFixed(2)).join(' ')}`).join(' ');
- cycle.querySelector('.system-spine path').setAttribute('d',narrow.matches?path:`M0 ${point(0,0,125)[1].toFixed(2)} H${root.width.toFixed(2)}`);
- cycle.querySelector('.spine-packet').style.offsetPath=`path('${path}')`;
-}
-const spineResize=new ResizeObserver(measureSpine);spineResize.observe(cycle);measureSpine();
-disposals.push(()=>spineResize.disconnect());
+disposals.push(animateThinking(cycle));
 // Sequential resolution begins once, while subsequent reasoning cycles remain synchronized.
 const revealObserver=new IntersectionObserver(entries=>{
  if(entries.some(entry=>entry.isIntersecting)){cycle.dataset.revealed='true';revealObserver.disconnect();}

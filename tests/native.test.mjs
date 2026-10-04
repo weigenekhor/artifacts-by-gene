@@ -183,6 +183,29 @@ test('Hero inspection cannot launch screenshot pages and closing credit contains
  assert.equal(words,'BUILT BY Gene Wei Gene Khor Email LinkedIn');
 });
 
+test('Gallery body clicks advance while the dedicated expand control remains separate',async()=>{
+ const card=html.slice(html.indexOf('<article class=\"gallery-app'),html.indexOf('</article>')+10);
+ assert.match(card,/class=\"open-capture\" data-lightbox/);
+ assert.match(card,/class=\"gallery-image\" data-advance/);
+ assert.doesNotMatch(card,/class=\"gallery-image\" data-lightbox/);
+ const source=await fs.readFile('gallery.js','utf8');
+ assert.match(source,/card\.imageButton\.addEventListener\('click',\(\)=>[^;]*manual\(card,1\)/s);
+ assert.match(source,/event\.stopPropagation\(\)/);
+ assert.match(source,/positions:\{\}/);
+});
+
+test('Thinking graphics use one coordinated motion controller and native windows remain pointer-active',async()=>{
+ const source=await fs.readFile('experience-motion.js','utf8');
+ const motion=await fs.readFile('thinking-motion.js','utf8');
+ const shell=await fs.readFile('shell.css','utf8');
+ assert.match(source,/animateThinking\(cycle\)/);
+ assert.match(motion,/One score, one playhead/);
+ assert.match(motion,/draw\('\.route-a'/);
+ assert.match(motion,/draw\('\.check-mark-b'/);
+ assert.match(motion,/draw\('\.feedback-route'/);
+ assert.doesNotMatch(shell,/\.app-shell\{pointer-events:none\}/);
+});
+
 test('Requested gallery emphasis, exact supporting copy and theme-free captions survive the build',()=>{
  assert.deepEqual(model.apps.filter(app=>app.featured).map(app=>app.id),['topotracer','gan-met-compiler','gan-temp-diagnoser','aix-dt-assistant','metria-spc','data-lens']);
  assert.match(html,/A coherent system of tools for analysis, diagnosis, automation, and engineering workflows\./);

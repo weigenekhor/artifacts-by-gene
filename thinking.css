@@ -1,4 +1,4 @@
-/* A single sixteen-second score: compare, retain, test, adjust, then rest. */
+/* Internal operations are coordinated by thinking-motion.js; proximity remains local. */
 .principles{padding-block:104px 96px;position:relative}
 .thinking-preface{display:grid;grid-template-columns:1.2fr 1fr;gap:12%;align-items:end;margin-top:26px}
 .thinking-preface h2{font-size:clamp(36px,3.5vw,54px);line-height:1.12;font-weight:450;letter-spacing:-.04em}
@@ -7,7 +7,7 @@
 .thinking-intent h3 span{color:#a5aaa5;font-size:.82em;font-weight:400;line-height:1.8}
 .thinking-lead{display:flex;justify-content:flex-end;margin-top:60px;margin-bottom:12px}
 .thinking-lead p{width:40%;font-size:13px;color:var(--muted);line-height:1.7}
-.principle-cycle{position:relative;--cycle:16s;--attention:.2}
+.principle-cycle{position:relative;--attention:.2}
 .principle-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
 .principle-figure{padding-inline:24px;min-width:0;--attention:.2}.principle-figure:first-child{padding-left:0}.principle-figure:last-child{padding-right:0}
 .principle-drawing{height:250px;display:grid;grid-template: minmax(0,1fr) / minmax(0,1fr);place-items:center;color:#82928b;position:relative;user-select:none}
@@ -24,32 +24,8 @@
 .clarity-focus{stroke:#7d9a8c;fill:#192c23}.evidence-response,.comparison-match,.friction-mark{stroke:#dbc3a0}
 .check,.resolved-check{stroke:#b9d0bf}.normalised-output{stroke:#b9c7bc}
 .system-spine{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;fill:none;stroke:#718377;stroke-width:1;opacity:.2}
-.spine-packet{position:absolute;top:0;left:0;width:7px;height:2px;background:#e1cbb0;pointer-events:none;offset-distance:0%;offset-rotate:auto;opacity:0;z-index:1}
+.spine-packet{position:absolute;top:0;left:0;width:18px;height:3px;background:#e1cbb0;pointer-events:none;opacity:0;z-index:1}
 .signal-compare{transform:translate(215px,122px)}.signal-feedback{transform:translate(245px,78px)}
-.principle-cycle :is(.evidence,.friction-mark,.route-observe,.comparison-match,.signal,.repeat-upper,.repeat-lower,.check,.normalised-output,.resolved-check,.adjustment circle,.evidence-response,.clarity-focus,.spine-packet,.working-structure){animation-duration:var(--cycle);animation-timing-function:cubic-bezier(.4,0,.25,1);animation-iteration-count:infinite;animation-play-state:paused}
-.principle-cycle[data-motion=running][data-revealed=true] :is(.evidence,.friction-mark,.route-observe,.comparison-match,.signal,.repeat-upper,.repeat-lower,.check,.normalised-output,.resolved-check,.adjustment circle,.evidence-response,.clarity-focus,.spine-packet,.working-structure){animation-play-state:running}
-.evidence-a{animation-name:consider-first}.evidence-b{animation-name:consider-second}.friction-mark{animation-name:notice-friction}
-.route-observe{animation-name:relate-evidence}.comparison-match{animation-name:resolve-comparison}.signal-compare{animation-name:compare-flow}
-.repeat-upper{animation-name:retain-upper}.repeat-lower{animation-name:retain-lower}.check-a{animation-name:check-first}.check-b{animation-name:check-second}.normalised-output{animation-name:output-resolves}
-.signal-feedback{animation-name:feedback-flow}.resolved-check{animation-name:confirm-revision}.adjustment circle{animation-name:adjust-relation}.evidence-response{animation-name:evidence-return}.clarity-focus{animation-name:focus-response}.working-structure{animation-name:working-revision}.spine-packet{animation-name:system-flow}
-@keyframes consider-first{0%,100%{transform:translate(-8px,-6px);opacity:.5}8%{transform:translate(1px,-3px);opacity:.85}18%,83%{transform:translate(0,0);opacity:1}93%{transform:translate(-5px,-3px);opacity:.65}}
-@keyframes consider-second{0%,100%{transform:translate(-11px,9px);opacity:.45}12%{transform:translate(-3px,4px);opacity:.7}24%,83%{transform:translate(0,0);opacity:1}93%{transform:translate(-7px,5px);opacity:.65}}
-@keyframes notice-friction{0%,3%,30%,100%{opacity:.16}9%,18%{opacity:1}}
-@keyframes relate-evidence{0%,100%{opacity:.2}17%,83%{opacity:1}94%{opacity:.4}}
-@keyframes resolve-comparison{0%,13%,100%{opacity:.1}23%,85%{opacity:1}}
-@keyframes compare-flow{0%,5%{transform:translate(119px,74px);opacity:0}7%{opacity:1}12%{transform:translate(154px,91px)}20%{transform:translate(216px,123px);opacity:1}24%,100%{transform:translate(233px,123px);opacity:0}}
-@keyframes retain-upper{0%,30%,100%{transform:translateY(0);opacity:.6}43%,87%{transform:translateY(19px);opacity:.1}95%{opacity:.4;transform:translateY(0)}}
-@keyframes retain-lower{0%,33%,100%{transform:translateY(0);opacity:.6}48%,87%{transform:translateY(-17px);opacity:.1}95%{opacity:.4;transform:translateY(0)}}
-@keyframes check-first{0%,35%,100%{opacity:.22}41%,87%{opacity:1}}
-@keyframes check-second{0%,43%,100%{opacity:.22}49%,87%{opacity:1}}
-@keyframes output-resolves{0%,46%,100%{opacity:.15}54%,87%{opacity:1}}
-@keyframes feedback-flow{0%,65%{transform:translate(237px,108px);opacity:0}67%{opacity:1}71%{transform:translate(261px,78px)}76%{transform:translate(235px,47px)}80%{transform:translate(189px,40px);opacity:1}83%,100%{transform:translate(184px,40px);opacity:0}}
-@keyframes confirm-revision{0%,70%,100%{opacity:.3}79%,92%{opacity:1}}
-@keyframes adjust-relation{0%,70%{transform:translateX(0)}80%,92%{transform:translateX(12px)}100%{transform:translateX(0)}}
-@keyframes evidence-return{0%,59%,97%,100%{opacity:.12}67%,88%{opacity:1}}
-@keyframes focus-response{0%,57%,100%{opacity:.4}66%,91%{opacity:1}}
-@keyframes working-revision{0%,68%,100%{transform:translate(0,0)}80%,92%{transform:translate(-3px,-3px)}}
-@keyframes system-flow{0%,19%{offset-distance:19%;opacity:0}22%{offset-distance:21%;opacity:1}30%{offset-distance:33%}39%{offset-distance:45%}47%{offset-distance:51%}55%{offset-distance:66%}63%{offset-distance:81%}68%,77%{offset-distance:87%;opacity:1}85%{offset-distance:100%;opacity:0}100%{offset-distance:100%;opacity:0}}
 /* Entrance resolves along the same spine, not a repeated text reveal. */
 .js .principle-cycle:not([data-revealed]) .principle-drawing{opacity:.22}
 .principle-drawing{transition:opacity 800ms var(--ease)}
@@ -64,3 +40,6 @@ html:not(.js) .principle-cycle *{animation:none!important}
 html:not(.js) .system-spine{background:linear-gradient(#718377,#718377) 0 125px/100% 1px no-repeat}
 @media(max-width:1100px){html:not(.js) .system-spine{background-position:0 105px}}
 @media(max-width:760px){html:not(.js) .system-spine{background-position:0 0;background-size:1px 100%}}
+
+.route-observe,.route-structure,.comparison-match,.check-mark-a,.check-mark-b,.resolved-check,.feedback-route,.evidence-response{stroke-width:1.5}
+.structure-packet{transform:translate(89px,131px);opacity:0}

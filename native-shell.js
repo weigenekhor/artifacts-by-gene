@@ -114,5 +114,7 @@ picker.addEventListener('change',()=>{if(picker.value)showDetails(picker,control
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDetails();controllers.forEach(c=>c.closeDrawer());}});
 document.addEventListener('pointerdown',e=>{if(!e.target.closest('.app-shell,.module-details,.mobile-app-picker'))closeDetails();});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)closeDetails();});
-document.addEventListener('experience-change',()=>{if(trigger&&owner.mode!==state.mode)closeDetails();});
+// Scene emphasis can cross the midpoint while the pointer still inspects a native card.
+// The card owns its panel; changing gallery edition must not dismiss that interaction.
+document.addEventListener('experience-change',()=>{if(trigger&&owner.mode!==state.mode&&!trigger.matches(':hover,:focus')&&!details.matches(':hover,:focus-within'))closeDetails();});
 window.addEventListener('scroll',trackPanel,{passive:true});reduced.addEventListener('change',closeDetails);

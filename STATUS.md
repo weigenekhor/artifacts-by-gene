@@ -12,7 +12,7 @@ The native wafer makes one revolution per 120 seconds beneath its fixed source i
 
 The hero's lower structural line continues down the margin into the thinking spine as product presence recedes. The opening remains calm. The outcome has greater emphasis than “Less repetition”; the relationship sentence sits beside the beginning of the visual system.
 
-Three retained line-art drawings now share one 16-second score and one measured travelling packet. Evidence aligns, repeated paths consolidate, checks resolve, the output responds, a relationship adjusts, and the system rests before another pass. The large U-shaped return path is removed. Identifiers are small: 01 / FRICTION, 02 / STRUCTURE, 03 / REFINEMENT. Approved copy is retained, including the revised first description. A grid sizing correction keeps all three SVGs exactly aligned with the spine.
+Three retained line-art drawings now share one 11.3-second score and one measured travelling packet. Evidence aligns, repeated paths consolidate, checks resolve, the output responds, a relationship adjusts, and the system rests before another pass. The large U-shaped return path is removed. Identifiers are small: 01 / FRICTION, 02 / STRUCTURE, 03 / REFINEMENT. Approved copy is retained, including the revised first description. A grid sizing correction keeps all three SVGs exactly aligned with the spine.
 
 Pointer proximity subtly emphasizes local relationships without moving text. Meaningful motion pauses offscreen and in hidden documents. Reduced motion presents stable native states and resolved diagrams. Mobile uses a vertical relationship and stacked captions.
 
@@ -30,4 +30,4 @@ Pointer proximity subtly emphasizes local relationships without moving text. Mea
 
 Review branch: `rebuild/contained-product`. The previous version is preserved at `60b50b8` and tag `review/two-states-60b50b8`. Older versions remain in Git. Production is not promoted by this pass.
 
-Unrelated gallery, creator copy, footer and source metadata are preserved. Desktop source and original screenshots were not changed. No source asset was missing. GitHub Pages remains a static deployment with unchanged CNAME and relative asset paths.
+Gallery image navigation is now separate from expansion: clicking a multi-image capture advances and wraps per app; only the explicit expand control opens the viewer, and each app retains its own position. Unrelated creator copy, footer and source metadata are preserved. Desktop source and original screenshots were not changed. No source asset was missing. GitHub Pages remains a static deployment with unchanged CNAME and relative asset paths.

@@ -46,7 +46,11 @@ function preloadNext(card){
 function updateCaption(card){
  card.element.querySelector('.gallery-count').innerHTML=`${num(card.index+1)} <span>/ ${num(card.app.images.length)}</span>`;
  card.element.querySelector('[data-slide-caption]').textContent=caption(card.app.images[card.index]);
- card.imageButton.setAttribute('aria-label',`Enlarge ${card.app.name}, capture ${card.index+1} of ${card.app.images.length}`);
+ card.imageButton.setAttribute('aria-label',`${card.app.images.length>1?'Next screenshot':'Screenshot'} of ${card.app.name}; current ${card.index+1} of ${card.app.images.length}`);
+ card.imageButton.disabled=card.app.images.length<2;
+ card.imageButton.setAttribute('aria-busy',String(card.loading));
+ card.element.querySelector('[data-lightbox]').disabled=card.loading||card.pendingTheme;
+ card.element.dataset.multiple=String(card.app.images.length>1);
  card.element.querySelectorAll('[data-previous],[data-next]').forEach(button=>button.disabled=card.app.images.length<2);
  card.element.querySelector('.gallery-play').disabled=reduced.matches||card.app.images.length<2;
 }
@@ -54,9 +58,9 @@ async function changeSlide(card,index){
  const next=(index+card.app.images.length)%card.app.images.length;
  if(next===card.index)return;
  const request=++card.request;
- card.loading=true;
+ card.loading=true;card.imageButton.setAttribute('aria-busy','true');card.element.querySelector('[data-lightbox]').disabled=true;
  const capture=card.app.images[next],image=makeImage(capture,card.app,card.element.classList.contains('gallery-feature'));
- try{await image.decode();}catch{if(request===card.request)card.loading=false;return;}
+ try{await image.decode();}catch{if(request===card.request){card.loading=false;updateCaption(card);}return;}
  if(request!==card.request)return;
  card.imageButton.querySelectorAll('img').forEach(img=>img.getAnimations().forEach(a=>a.cancel()));
  if(card.pendingTheme)card.imageButton.replaceChildren(image);else card.imageButton.append(image);
@@ -65,9 +69,9 @@ async function changeSlide(card,index){
  if(!reduced.matches){const fade=image.animate([{opacity:0},{opacity:1}],{duration:300,easing:'cubic-bezier(.22,.61,.36,1)'});await fade.finished.catch(()=>{});}
  if(request!==card.request){image.remove();return;}
  card.imageButton.querySelectorAll('img').forEach(img=>{if(img!==image)img.remove();});
- card.index=next;card.loading=false;card.pendingTheme=false;updateCaption(card);
+ card.index=next;card.positions[card.theme]=next;card.loading=false;card.pendingTheme=false;updateCaption(card);
 }
-function manual(card,direction){stopTimer();central=card;changeSlide(card,card.index+direction).then(schedule);}
+function manual(card,direction){if(card.loading||card.pendingTheme||card.app.images.length<2)return;stopTimer();central=card;changeSlide(card,card.index+direction).then(schedule);}
 function swipe(element,callback){
  let start=null;
  element.addEventListener('pointerdown',e=>{if(e.pointerType==='touch')start={x:e.clientX,y:e.clientY};});
@@ -78,7 +82,7 @@ const observer=new IntersectionObserver(entries=>{
  for(const entry of entries){
   const card=cards.find(c=>c.element===entry.target);if(!card)continue;
   card.visible=entry.isIntersecting;
-  if(card.visible&&card.pendingTheme&&!card.loading)changeSlide(card,0).then(schedule);
+  if(card.visible&&card.pendingTheme&&!card.loading)changeSlide(card,card.positions[card.theme]||0).then(schedule);
   if(entry.isIntersecting&&!card.entered){
    card.entered=true;
    if(!reduced.matches)card.element.animate([{opacity:.65,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:500,easing:'cubic-bezier(.22,.61,.36,1)'});
@@ -89,7 +93,7 @@ const observer=new IntersectionObserver(entries=>{
 
 for(const element of document.querySelectorAll('[data-gallery-app]')){
  const original=model.apps.find(a=>a.id===element.dataset.galleryApp),app={...original,images:themedCaptures(original)};
- const card={element,original,app,index:0,request:0,loading:false,pendingTheme:false,visible:false,paused:false,hovered:false,focused:false,imageButton:element.querySelector('.gallery-image'),progress:element.querySelector('.gallery-progress>span')};
+ const card={element,original,app,index:0,theme:state.theme,positions:{},request:0,loading:false,pendingTheme:false,visible:false,paused:false,hovered:false,focused:false,imageButton:element.querySelector('.gallery-image'),progress:element.querySelector('.gallery-progress>span')};
  cards.push(card);
  element.querySelectorAll('button').forEach(b=>b.disabled=false);
  updateCaption(card);
@@ -103,17 +107,22 @@ for(const element of document.querySelectorAll('[data-gallery-app]')){
  element.addEventListener('focusin',()=>{card.focused=true;if(central===card)stopTimer();});
  element.addEventListener('focusout',e=>{if(!element.contains(e.relatedTarget)){card.focused=false;schedule();}});
  element.addEventListener('keydown',e=>{if(viewer.open)return;if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();manual(card,e.key==='ArrowRight'?1:-1);}});
- element.querySelectorAll('[data-lightbox]').forEach(button=>button.addEventListener('click',()=>{if(!card.imageButton.dataset.swiped&&!card.pendingTheme)openViewer(card,button);}));
+ card.imageButton.addEventListener('click',()=>{if(!card.imageButton.dataset.swiped)manual(card,1);});
+ element.querySelector('[data-lightbox]').addEventListener('click',event=>{
+  event.stopPropagation();
+  if(!card.loading&&!card.pendingTheme)openViewer(card,event.currentTarget);
+ });
  swipe(card.imageButton,direction=>manual(card,direction));
  observer.observe(element);
 }
 function editionChanged(){
  stopTimer();
  for(const card of cards){
-  card.request++;card.app.images=themedCaptures(card.original);card.index=-1;card.loading=false;card.pendingTheme=true;
+  card.request++;card.theme=state.theme;card.app.images=themedCaptures(card.original);card.index=-1;card.loading=false;card.pendingTheme=true;
   card.element.dataset.themeLoading='true';card.element.dataset.theme=state.theme;
-  card.element.querySelector('.gallery-count').innerHTML=`01 <span>/ ${num(card.app.images.length)}</span>`;
-  if(card.visible)changeSlide(card,0).then(schedule);
+  card.element.querySelector('.gallery-count').innerHTML=`${num((card.positions[card.theme]||0)+1)} <span>/ ${num(card.app.images.length)}</span>`;
+  card.imageButton.disabled=true;card.element.querySelector('[data-lightbox]').disabled=true;
+  if(card.visible)changeSlide(card,card.positions[card.theme]||0).then(schedule);
  }
  if(viewer.open)showViewerSlide(0);
 }
