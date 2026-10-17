@@ -24,7 +24,9 @@ test('Thinking timelines are bounded, visible, synchronized and honor reduced mo
  assert.ok(tracks.length>=25);
  for(const t of tracks){assert.equal(t.options.duration,6000);assert.equal(t.playing,true);assert.equal(t.startTime,100);let last=-1;for(const f of t.frames){assert.ok(f.offset>=last&&f.offset<=1,t.selector);last=f.offset;}}
  for(const selector of ['.layer-5','.block-left','.sheet-9'])assert.ok(tracks.find(t=>t.selector===selector).frames.some(f=>f.transform&&f.transform!=='none'));
- assert.ok(tracks.find(t=>t.selector==='.evidence-signal').frames.some(f=>f.opacity===1));
+ assert.ok(tracks.every(t=>!/(signal|edge|link|check|retained-reference)/.test(t.selector)));
+ assert.ok(tracks.find(t=>t.selector==='.sheet-9 .instrument-face').frames.some(f=>f.stroke==='#becbd6'));
+ for(const t of tracks){assert.deepEqual(t.frames[0].transform,t.frames.at(-1).transform);assert.equal(t.frames[0].stroke,t.frames.at(-1).stroke);}
  cycle.dataset.motion='paused';sync();assert.ok(tracks.every(t=>!t.playing));
  reduced.matches=true;change();assert.ok(tracks.every(t=>!t.playing&&t.currentTime===5900));
  reduced.matches=false;cycle.dataset.motion='running';change();assert.ok(tracks.every(t=>t.playing&&t.currentTime===0));
@@ -42,4 +44,14 @@ test('Information panel uses the current desktop width and separated titlebar',a
   const expected=key.endsWith('-information')?943:key.endsWith('-both')?763:key.endsWith('-navigation')?981:1161;
   assert.equal(ref.width,expected,key);
  }
+});
+
+
+test('Illustrations have no detached decoration and the wafer belongs to the top slab',async()=>{
+ const source=await fs.readFile('scripts/principles.mjs','utf8');
+ assert.doesNotMatch(source,/class="(?:plate-edge|reference-signal|structure-link|block-check|evidence-signal)"/);
+ assert.match(source,/i===5\?wafer:''/);
+ const css=await fs.readFile('thinking.css','utf8');
+ assert.match(css,/max-width:none;white-space:nowrap/);
+ for(const p of principles)assert.ok(p.handoff.length<=35);
 });

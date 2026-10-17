@@ -1,5 +1,16 @@
 # Start here — ARTIFACTS public website
 
+## Glyph motion and consistent opening — 18 October 2026
+
+Every new website load starts in Tenebrismo, regardless of previously saved website appearance. Theme switching still works during the current visit and remains independent of edition selection. Desktop preference persistence is unchanged.
+
+The closing lines are shorter, single-line and bottom-aligned: “Turn repetition into a system.”, “Let the work guide what comes next.”, and “Keep improving through the work.” Their type scales within narrow cards without truncation.
+
+Thinking motion is confined to existing glyph geometry. The wafer is nested inside the top slab, complete blocks separate and reassemble at their original anchors, and whole sheets lift and return in sequence. Face highlights follow the existing polygons. Detached signal paths, extra edges and check marks have been removed. Every loop returns to the original geometry; visibility pausing and reduced motion remain.
+
+Validation: 30 tests pass, including fresh-load theme behavior, all gallery assets, animation timing/cleanup, original-shape restoration, and absence of detached decorations. All 24 JavaScript modules pass syntax checks. Browser verification remains unavailable: the supported browser reports local access disabled even after the user enabled it. Final rendered visual quality is not claimed as verified.
+
+
 ## Panel fidelity and motion refinement — 17 October 2026
 
 The current desktop Application Info drawer is 218 logical pixels wide, with a 44-pixel header. The website now uses that width, a visible Application Info header and close button, and a title/status bar that begins after the expanded navigation and information columns. Native home and application layouts were re-exported for the 218/398-pixel information/combined offsets. Existing desktop code and user preferences remain unchanged.

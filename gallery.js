@@ -1,4 +1,4 @@
-import {model,state,themedCaptures} from './state.js?v=20261017';
+import {model,state,themedCaptures} from './state.js?v=20261017-tenebrismo-load';
 
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const viewer=document.querySelector('#capture-viewer');

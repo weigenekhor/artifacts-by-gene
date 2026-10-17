@@ -205,8 +205,8 @@ test('Thinking graphics use one coordinated motion controller and native windows
  const shell=await fs.readFile('shell.css','utf8');
  assert.match(source,/animateThinking\(cycle\)/);
  assert.match(motion,/One score, one playhead/);
- assert.match(motion,/signal\('\.reference-signal'/);
- assert.match(motion,/signal\('\.structure-link'/);
+ assert.match(motion,/\.layer-\$\{i\}/);
+ assert.match(motion,/\.block-\$\{name\}/);
  assert.match(motion,/\.sheet-\$\{i\}/);
  assert.match(source,/productVisibility\.observe\(product\)/);
  assert.match(source,/setPointerCapture/);
@@ -234,15 +234,16 @@ test('All nineteen apps have complete, separate sequences for all three appearan
  assert.ok(model.apps.find(a=>a.id==='telemetry'));
 });
 
-test('Old saved appearances migrate and a valid last-used appearance survives reload',async()=>{
+test('Every new page load starts in Tenebrismo regardless of old saved appearance',async()=>{
  const source=(await fs.readFile('state.js','utf8')).replaceAll('export ','');
- for(const [stored,expected] of [['origin','imprimatura'],['original','imprimatura'],['void','tenebrismo'],['pentimento','pentimento'],['imprimatura','imprimatura'],['tenebrismo','tenebrismo'],['invalid','tenebrismo'],['constructor','tenebrismo'],[null,'tenebrismo']]){
+ for(const stored of ['origin','original','void','pentimento','imprimatura','tenebrismo','invalid','constructor',null]){
   const values={'artifacts-theme':stored,'artifacts-mode':'legacy'};
   const context={JSON,CustomEvent:class{constructor(name,options){this.detail=options.detail;}},localStorage:{getItem:key=>values[key],setItem:(key,value)=>values[key]=value},document:{querySelector:()=>({textContent:JSON.stringify(model)}),querySelectorAll:()=>[],dispatchEvent(){}}};
   vm.createContext(context);vm.runInContext(source,context);
-  assert.equal(vm.runInContext('state.theme',context),expected,stored);
+  assert.equal(vm.runInContext('state.theme',context),'tenebrismo',stored);
   assert.equal(vm.runInContext('state.mode',context),'legacy');
-  vm.runInContext("setTheme('pentimento')",context);assert.equal(values['artifacts-theme'],'pentimento');
+  vm.runInContext("setTheme('pentimento')",context);assert.equal(vm.runInContext('state.theme',context),'pentimento');assert.equal(values['artifacts-theme'],stored);
+  const reload={...context};vm.createContext(reload);vm.runInContext(source,reload);assert.equal(vm.runInContext('state.theme',reload),'tenebrismo');
  }
 });
 

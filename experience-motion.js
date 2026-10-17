@@ -1,4 +1,4 @@
-import {animateThinking} from './thinking-motion.js?v=20261018';
+import {animateThinking} from './thinking-motion.js?v=20261017-glyph-motion';
 
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const fine=matchMedia('(hover: hover) and (pointer: fine)');

@@ -15,20 +15,19 @@
 .principle-drawing svg{width:100%;height:100%;overflow:visible;min-width:0;filter:drop-shadow(0 18px 13px #0008)}
 .reasoning-field{opacity:calc(.85 + var(--attention)*.15)}
 .instrument-face{fill:#08090b;stroke:#5b6069}.instrument-side{fill:#07080a;stroke:#34383f}.instrument-front{fill:#090a0c;stroke:#444951}.instrument-detail{stroke:#383d44;fill:none}.sheet-return{stroke:#343840;fill:#090a0c}
-.reference-signal,.plate-edge,.structure-link,.block-check,.evidence-signal{stroke:#a3a8b1;fill:none;opacity:0}
 .principle-figure figcaption{padding-top:12px}
 .principle-figure h3{font-size:clamp(18px,1.6vw,22px);line-height:1.3;font-weight:500;letter-spacing:-.024em;margin-bottom:14px;color:#e6e7ea}
 .principle-figure figcaption p{font-size:14px;line-height:1.72;color:#a2a5ad;max-width:35ch;text-wrap:pretty}
-.principle-figure figcaption .reasoning-handoff{font-size:12px;line-height:1.65;color:#c2c4ca;margin-top:20px;max-width:30ch}
+.principle-figure figcaption .reasoning-handoff{font-size:12px;line-height:1.65;color:#c2c4ca;margin-top:20px;max-width:none;white-space:nowrap}
 @media(max-width:1100px){.principles{padding-block:88px 90px}.principle-figure{padding:20px;grid-template-rows:auto 225px 1fr}.thinking-preface h2{font-size:clamp(38px,4.6vw,54px)}.principle-cycle{margin-top:54px}.principle-figure figcaption p{font-size:13px}.principle-figure h3{font-size:19px;min-height:50px}}
 @media(max-width:760px){.principles{padding-block:76px 74px}.thinking-preface{margin-top:24px}.thinking-preface h2{font-size:clamp(36px,6vw,45px);line-height:1.13;letter-spacing:-.036em}.thinking-context{font-size:15px;line-height:1.7;margin-top:28px}.thinking-context br{display:none}.thinking-context span{margin-top:14px}.principle-cycle{margin-top:40px}.principle-grid{grid-template-columns:1fr;gap:16px}.principle-figure{padding:22px 24px 28px;grid-template-rows:auto 260px auto}.principle-drawing{max-width:360px;width:100%;margin-inline:auto}.principle-figure figcaption{padding-top:4px}.principle-figure h3{font-size:22px;min-height:0;margin-bottom:14px}.principle-figure figcaption p{font-size:14px;max-width:46ch}.principle-figure figcaption .reasoning-handoff{margin-top:16px}}
 @media(prefers-reduced-motion:reduce){.principle-cycle *{animation:none!important;transition:none!important}.reasoning-field{transform:none!important}}
 
-/* Clearer material separation and moving silver edges, without neon accents. */
+/* Clearer material separation and silver material, without neon accents. */
 .instrument-face{fill:#101317;stroke:#88919c}
 .instrument-side{fill:#090c0f;stroke:#56606c}
 .instrument-front{fill:#0c1014;stroke:#6b7682}
 .instrument-detail{stroke:#64707d}.sheet-return{stroke:#63707d;fill:#0b1015}
-.reference-signal,.plate-edge,.structure-link,.block-check,.evidence-signal{stroke:#d6dfe6;stroke-width:1.65}
 .principle-figure figcaption{display:flex;flex-direction:column;align-items:flex-start}
-.principle-figure figcaption .reasoning-handoff{margin-top:auto;padding-top:20px}
+.principle-figure{container-type:inline-size}
+.principle-figure figcaption .reasoning-handoff{margin-top:auto;padding-top:20px;font-size:clamp(10px,5.6cqi,12px);max-width:none;white-space:nowrap}

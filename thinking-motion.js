@@ -8,17 +8,21 @@ export function animateThinking(cycle){
   const animation=target.animate(frames.map(([time,frame])=>({offset:time/duration,...frame,easing:ease})),{duration,iterations:Infinity,fill:'both'});
   animation.pause();animation.currentTime=0;animations.push(animation);
  }
- // A shared six-second cadence keeps all three studies visibly alive.
- for(let i=0;i<6;i++)track(`.layer-${i}`,[[0,{transform:'none'}],[400,{transform:'none'}],[1800,{transform:`translateY(${(2.5-i)*7}px)`}],[3000,{transform:`translateY(${(2.5-i)*7}px)`}],[4700,{transform:'none'}],[duration,{transform:'none'}]]);
- track('.retained-reference',[[0,{transform:'none'}],[400,{transform:'none'}],[1800,{transform:'translateY(-17.5px)'}],[3000,{transform:'translateY(-17.5px)'}],[4700,{transform:'none'}],[duration,{transform:'none'}]]);
- track('.plate-edge',[[0,{transform:'none'}],[400,{transform:'none'}],[1800,{transform:'translateY(-17.5px)'}],[3000,{transform:'translateY(-17.5px)'}],[4700,{transform:'none'}],[duration,{transform:'none'}]]);
- function signal(selector,start,end){track(selector,[[0,{opacity:0,strokeDasharray:1,strokeDashoffset:1}],[start,{opacity:0,strokeDashoffset:1}],[start+200,{opacity:1,strokeDashoffset:1}],[end,{opacity:1,strokeDashoffset:0}],[end+1000,{opacity:0,strokeDashoffset:0}],[duration,{opacity:0,strokeDashoffset:0}]]);}
- signal('.reference-signal',700,1800);signal('.plate-edge',1700,2900);
- const travel={back:'translate(0px,-16px)',left:'translate(-14px,4px)',right:'translate(14px,4px)',front:'translate(0px,16px)'};
- ['back','left','right','front'].forEach((name,i)=>{const start=250+i*140;track(`.block-${name}`,[[0,{transform:'none'}],[start,{transform:'none'}],[start+950,{transform:travel[name]}],[2600,{transform:travel[name]}],[4100,{transform:'none'}],[duration,{transform:'none'}]]);});
- signal('.structure-link',2700,3800);track('.block-check',[[0,{opacity:0}],[3500,{opacity:0}],[4000,{opacity:1}],[4900,{opacity:1}],[5500,{opacity:0}],[duration,{opacity:0}]]);
- for(let i=0;i<10;i++){const start=350+i*100;track(`.sheet-${i}`,[[0,{transform:'none'}],[start,{transform:'none'}],[start+800,{transform:`translate(${(4.5-i)*2}px,${-18-i*1.4}px)`}],[2900+i*70,{transform:`translate(${(4.5-i)*2}px,${-18-i*1.4}px)`}],[4400+i*70,{transform:'none'}],[duration,{transform:'none'}]]);}
- signal('.evidence-signal',3300,4500);
+ // Friction: reveal the existing layers, then bring them back into one stack.
+ // The top layer owns its wafer; no independently animated outline can drift.
+ for(let i=0;i<6;i++)track(`.layer-${i}`,[[0,{transform:'none'}],[350,{transform:'none'}],[1500,{transform:`translateY(${(2.5-i)*6}px)`}],[2400,{transform:`translateY(${(2.5-i)*6}px)`}],[4100,{transform:'none'}],[duration,{transform:'none'}]]);
+ // Structure: whole solids separate, then each returns to its exact anchor.
+ const travel={back:'translate(0px,-14px)',left:'translate(-16px,8px)',right:'translate(16px,8px)',front:'translate(0px,16px)'};
+ ['back','left','right','front'].forEach((name,i)=>{
+  track(`.block-${name}`,[[0,{transform:'none'}],[350,{transform:'none'}],[1450,{transform:travel[name]}],[2100+i*220,{transform:travel[name]}],[3000+i*220,{transform:'none'}],[duration,{transform:'none'}]]);
+  track(`.block-${name} .instrument-face`,[[0,{fill:'#101317',stroke:'#88919c'}],[2100+i*220,{fill:'#101317',stroke:'#88919c'}],[2750+i*220,{fill:'#1b232b',stroke:'#becbd6'}],[3800+i*220,{fill:'#101317',stroke:'#88919c'}],[duration,{fill:'#101317',stroke:'#88919c'}]]);
+ });
+ // Refinement: a review advances through the existing planes, one at a time.
+ for(let i=0;i<10;i++){
+  const start=450+i*320;
+  track(`.sheet-${i}`,[[0,{transform:'none'}],[start,{transform:'none'}],[start+350,{transform:'translateY(-16px)'}],[start+650,{transform:'translateY(-16px)'}],[start+1000,{transform:'none'}],[duration,{transform:'none'}]]);
+  track(`.sheet-${i} .instrument-face`,[[0,{fill:'#101317',stroke:'#88919c'}],[start,{fill:'#101317',stroke:'#88919c'}],[start+350,{fill:'#1b232b',stroke:'#becbd6'}],[start+1000,{fill:'#101317',stroke:'#88919c'}],[duration,{fill:'#101317',stroke:'#88919c'}]]);
+ }
  function sync(){
   const run=cycle.dataset.motion==='running'&&cycle.dataset.revealed==='true'&&!reduced.matches;
   if(reduced.matches){animations.forEach(a=>{a.pause();a.currentTime=5900});playing=false;wasReduced=true;return;}
