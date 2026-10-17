@@ -1,5 +1,16 @@
 # Implementation status
 
+## Release refinement — 17 October 2026
+
+Updated the hero introduction exactly as requested; increased the three thinking studies' motion and graphite/silver contrast, shortened the synchronized cycle to six seconds, and added the third closing sentence. Kept reduced-motion, visibility pausing and animation cleanup.
+
+Matched the actual desktop sidebar structure: 218-pixel Application Info width, visible 44-pixel header, close action, live typography and bottom metadata/links. Title bar and status bar now start after the expanded columns. Re-exported homepage and unpopulated application layouts for the corrected widths, retaining all apps and themes. Asset/runtime URLs invalidate the old geometry. No desktop source or existing screenshot gallery was changed.
+
+Validation: all 29 tests pass, all 24 JavaScript modules pass syntax checks, and all 19 applications export with no unsupported controls. Regression checks cover the complete catalogue and screenshot assets, theme persistence, navigation, native layout widths, notifications, dropdown stability, timeline bounds/synchronization, reduced motion, copy and header structure. Publication is to the existing GitHub Pages main branch and artifactsbygene.com, as explicitly requested by the user.
+
+Visual verification limit: the preview opened successfully before edits, but the supported browser subsequently reported local access disabled even after the user re-enabled it. Final composed browser appearance and animation have not been visually verified. No alternate browser or rendering workaround was used, and pixel identity is not claimed.
+
+
 ## Current instruction — desktop layouts only (17 October 2026)
 
 Application demos are removed. Clicking an app opens its actual unpopulated desktop widget layout, exported directly from the current ARTIFACTS MainWindow and rendered as HTML with native vector control details. All 19 apps have three themes and four sidebar widths. There are no application screenshots, invented sample results or processing actions. Existing native buttons such as Load Example are visible but presentation-only. See [DESKTOP_LAYOUTS.md](DESKTOP_LAYOUTS.md).

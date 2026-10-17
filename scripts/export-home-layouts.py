@@ -28,7 +28,7 @@ for theme,appearance in (('imprimatura','original'),('tenebrismo','void'),('pent
  app.setProperty('artifacts_pentimento',theme=='pentimento')
  app.setStyleSheet(application_stylesheet())
  for mode in ('legacy','pentimento'):
-  for state,offset in [('closed',0),('navigation',180),('information',240),('both',420)]:
+  for state,offset in [('closed',0),('navigation',180),('information',218),('both',398)]:
    parent=QWidget();parent._load_legacy_mode_preference=lambda:mode=='legacy'
    parent.setObjectName('pagesContainer');parent.setProperty('artifactsEdition',edition_name())
    parent.resize(1161-offset,750);home=HomeWidget(parent);home.setParent(parent);home.resize(1161-offset,750);parent.show();home.show();app.processEvents();home._layout_module_cards(force=True);app.processEvents();home.setPanelAnimationPaused(True)

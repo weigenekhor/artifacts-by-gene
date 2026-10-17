@@ -207,7 +207,7 @@ def run(window,app,root,out):
             target.load_excel_from_path(str(ROOT/'widgets/Resources/Pyra Master.xlsx'))
             target.case_combo.setCurrentIndex(-1);app.processEvents()
         sizes={}
-        for size,delta in [('closed',0),('navigation',180),('information',240),('both',420)]:
+        for size,delta in [('closed',0),('navigation',180),('information',218),('both',398)]:
             window.setFixedSize(1229-delta,820);QTest.qWait(80);app.processEvents()
             variants={}
             for appearance,theme in [('original','imprimatura'),('void','tenebrismo'),('pentimento','pentimento')]:

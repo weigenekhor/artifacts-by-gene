@@ -158,3 +158,20 @@
 .app-shell[data-theme=imprimatura]{--home-heading:#c6d1d0}
 .app-tile .home-label{position:absolute;display:flex;align-items:center;justify-content:center;font:400 12px/1 "Segoe UI",sans-serif;white-space:nowrap;padding:0;pointer-events:none;z-index:1}
 .mode-control{flex-shrink:0}.mode-control [data-mode-name],.mode-control [data-mode-range]{white-space:nowrap;line-height:1}
+
+/* The desktop owns three adjacent columns, each with its own title-bar segment. */
+.app-titlebar{left:calc(60px + var(--panel-shift));transition:left 240ms cubic-bezier(.215,.61,.355,1)}
+.app-sidebar{z-index:6}
+.sidebar-brand{border-bottom:1px solid var(--border)}
+.sidebar-scroll{border-top:0}
+.settings-drawer{width:218px;clip-path:inset(0 calc(218px - var(--info-width)) 0 0);z-index:6}
+.info-header{height:44px;display:flex;align-items:center;padding:0 14px 0 24px;gap:4px;color:var(--text);background:var(--info-top);font:600 12px "Segoe UI",sans-serif}
+.settings-drawer .info-header [data-close-info]{position:static;margin-left:auto;flex:none}
+.info-scroll{height:calc(100% - 44px);overflow:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.info-live{height:100%;min-height:760px;padding-top:22px}
+.app-status{left:calc(60px + var(--panel-shift));transition:left 240ms cubic-bezier(.215,.61,.355,1)}
+.app-status>span:first-child{transform:none}
+@media(prefers-reduced-motion:reduce){.app-titlebar,.app-status{transition:none}}
+
+.info-wordmark svg{display:block;width:170px;height:36px;overflow:visible;flex:none}
+.info-wordmark text{font:300 23px "Segoe UI Light","Segoe UI",sans-serif;letter-spacing:5.7px;fill:currentColor}

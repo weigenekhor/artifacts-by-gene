@@ -14,7 +14,7 @@ test('Every registered app has source-provenanced layouts for all themes and sid
   for(const [size,variants] of Object.entries(data.states.initial)){
    assert.deepEqual(Object.keys(variants).sort(),['imprimatura','pentimento','tenebrismo']);
    for(const [theme,variant] of Object.entries(variants)){
-    assert.equal(variant.availableWidth,{closed:1159,navigation:979,information:919,both:739}[size]);assert.ok(variant.width>=variant.availableWidth);assert.ok(variant.height>=700&&variant.height<=743);assert.equal(variant.tree.width,variant.width);assert.equal(variant.tree.height,variant.height);
+    assert.equal(variant.availableWidth,{closed:1159,navigation:979,information:941,both:761}[size]);assert.ok(variant.width>=variant.availableWidth);assert.ok(variant.height>=700&&variant.height<=743);assert.equal(variant.tree.width,variant.width);assert.equal(variant.tree.height,variant.height);
     assert.deepEqual(variant.unsupported,[],`${app.id}/${size}/${theme}`);
     const nodes=flatten(variant.tree);assert.equal(new Set(nodes.map(n=>n.id)).size,nodes.length);
     for(const node of nodes){for(const key of ['x','y','width','height'])assert.ok(Number.isFinite(node[key]));assert.ok(node.width>0&&node.height>0);}
@@ -47,8 +47,8 @@ test('Starting layouts contain actual desktop prompts and no loaded engineering 
 
 test('Theme selection uses the matching native colours and drawer geometry without scaling controls',()=>{
  const data=layouts.topotracer;
- for(const theme of ['imprimatura','tenebrismo','pentimento'])for(const width of [1161,981,921,741]){
-  const expected={1161:'closed',981:'navigation',921:'information',741:'both'}[width];
+ for(const theme of ['imprimatura','tenebrismo','pentimento'])for(const width of [1161,981,943,763]){
+  const expected={1161:'closed',981:'navigation',943:'information',763:'both'}[width];
   assert.equal(layoutVariant(data,theme,width),data.states.initial[expected][theme]);
  }
  const colors=Object.values(data.states.initial.closed).map(v=>flatten(v.tree).find(n=>n.kind==='button').style.color);
@@ -76,7 +76,7 @@ test('Application navigation, theme refresh and stale fetches preserve the selec
  try{
   const controller=desktopWorkspace(shell,model);await controller.open('topotracer');assert.match(container.innerHTML,/Measurement Values/);assert.equal(container.hidden,false);
   shell.dataset.theme='pentimento';controller.refresh();assert.match(container.innerHTML,/#736c78|#736C78/);
-  parent.clientWidth=741;controller.refresh();assert.ok(container.innerHTML.includes('width:739px;height:743px'));
+  parent.clientWidth=763;controller.refresh();assert.ok(container.innerHTML.includes('width:761px;height:743px'));
   wait=true;const a=controller.open('data-lens'),b=controller.open('aix-dt-assistant');pending.find(p=>p.id==='aix-dt-assistant').resolve();await b;pending.find(p=>p.id==='data-lens').resolve();await a;
   assert.equal(controller.active,'aix-dt-assistant');assert.match(container.innerHTML,/Weight Mapping/);
   controller.close();assert.equal(container.hidden,true);assert.equal(controller.active,null);assert.equal(homeButton.attrs['aria-current'],'page');

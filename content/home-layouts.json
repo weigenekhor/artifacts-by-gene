@@ -542,9 +542,9 @@
     }
   },
   "imprimatura-legacy-information": {
-    "width": 921,
+    "width": 943,
     "height": 750,
-    "contentWidth": 877,
+    "contentWidth": 899,
     "contentHeight": 804,
     "renderDensity": 4,
     "cards": [
@@ -805,7 +805,7 @@
       }
     ],
     "wafer": {
-      "x": 283.50306547862334,
+      "x": 305.50306547862334,
       "y": -73.75541567890133,
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
@@ -813,9 +813,9 @@
     }
   },
   "imprimatura-legacy-both": {
-    "width": 741,
+    "width": 763,
     "height": 750,
-    "contentWidth": 697,
+    "contentWidth": 719,
     "contentHeight": 896,
     "renderDensity": 4,
     "cards": [
@@ -1076,7 +1076,7 @@
       }
     ],
     "wafer": {
-      "x": 103.50306547862334,
+      "x": 125.50306547862334,
       "y": -73.75541567890133,
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
@@ -1508,9 +1508,9 @@
     }
   },
   "imprimatura-pentimento-information": {
-    "width": 921,
+    "width": 943,
     "height": 750,
-    "contentWidth": 877,
+    "contentWidth": 899,
     "contentHeight": 722,
     "renderDensity": 4,
     "cards": [
@@ -1712,7 +1712,7 @@
       }
     ],
     "wafer": {
-      "x": 283.50306547862334,
+      "x": 305.50306547862334,
       "y": -73.75541567890133,
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
@@ -1720,9 +1720,9 @@
     }
   },
   "imprimatura-pentimento-both": {
-    "width": 741,
+    "width": 763,
     "height": 750,
-    "contentWidth": 697,
+    "contentWidth": 719,
     "contentHeight": 722,
     "renderDensity": 4,
     "cards": [
@@ -1924,7 +1924,7 @@
       }
     ],
     "wafer": {
-      "x": 103.50306547862334,
+      "x": 125.50306547862334,
       "y": -73.75541567890133,
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
@@ -2474,9 +2474,9 @@
     }
   },
   "tenebrismo-legacy-information": {
-    "width": 921,
+    "width": 943,
     "height": 750,
-    "contentWidth": 877,
+    "contentWidth": 899,
     "contentHeight": 804,
     "renderDensity": 4,
     "cards": [
@@ -2737,7 +2737,7 @@
       }
     ],
     "wafer": {
-      "x": 283.50306547862334,
+      "x": 305.50306547862334,
       "y": -73.75541567890133,
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
@@ -2745,9 +2745,9 @@
     }
   },
   "tenebrismo-legacy-both": {
-    "width": 741,
+    "width": 763,
     "height": 750,
-    "contentWidth": 697,
+    "contentWidth": 719,
     "contentHeight": 896,
     "renderDensity": 4,
     "cards": [
@@ -3008,7 +3008,7 @@
       }
     ],
     "wafer": {
-      "x": 103.50306547862334,
+      "x": 125.50306547862334,
       "y": -73.75541567890133,
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
@@ -3440,9 +3440,9 @@
     }
   },
   "tenebrismo-pentimento-information": {
-    "width": 921,
+    "width": 943,
     "height": 750,
-    "contentWidth": 877,
+    "contentWidth": 899,
     "contentHeight": 722,
     "renderDensity": 4,
     "cards": [
@@ -3644,7 +3644,7 @@
       }
     ],
     "wafer": {
-      "x": 283.50306547862334,
+      "x": 305.50306547862334,
       "y": -73.75541567890133,
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
@@ -3652,9 +3652,9 @@
     }
   },
   "tenebrismo-pentimento-both": {
-    "width": 741,
+    "width": 763,
     "height": 750,
-    "contentWidth": 697,
+    "contentWidth": 719,
     "contentHeight": 722,
     "renderDensity": 4,
     "cards": [
@@ -3856,7 +3856,7 @@
       }
     ],
     "wafer": {
-      "x": 103.50306547862334,
+      "x": 125.50306547862334,
       "y": -73.75541567890133,
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
@@ -4406,9 +4406,9 @@
     }
   },
   "pentimento-legacy-information": {
-    "width": 921,
+    "width": 943,
     "height": 750,
-    "contentWidth": 877,
+    "contentWidth": 899,
     "contentHeight": 804,
     "renderDensity": 4,
     "cards": [
@@ -4669,7 +4669,7 @@
       }
     ],
     "wafer": {
-      "x": 283.50306547862334,
+      "x": 305.50306547862334,
       "y": -73.75541567890133,
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
@@ -4677,9 +4677,9 @@
     }
   },
   "pentimento-legacy-both": {
-    "width": 741,
+    "width": 763,
     "height": 750,
-    "contentWidth": 697,
+    "contentWidth": 719,
     "contentHeight": 896,
     "renderDensity": 4,
     "cards": [
@@ -4940,7 +4940,7 @@
       }
     ],
     "wafer": {
-      "x": 103.50306547862334,
+      "x": 125.50306547862334,
       "y": -73.75541567890133,
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
@@ -5372,9 +5372,9 @@
     }
   },
   "pentimento-pentimento-information": {
-    "width": 921,
+    "width": 943,
     "height": 750,
-    "contentWidth": 877,
+    "contentWidth": 899,
     "contentHeight": 722,
     "renderDensity": 4,
     "cards": [
@@ -5576,7 +5576,7 @@
       }
     ],
     "wafer": {
-      "x": 283.50306547862334,
+      "x": 305.50306547862334,
       "y": -73.75541567890133,
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
@@ -5584,9 +5584,9 @@
     }
   },
   "pentimento-pentimento-both": {
-    "width": 741,
+    "width": 763,
     "height": 750,
-    "contentWidth": 697,
+    "contentWidth": 719,
     "contentHeight": 722,
     "renderDensity": 4,
     "cards": [
@@ -5788,7 +5788,7 @@
       }
     ],
     "wafer": {
-      "x": 103.50306547862334,
+      "x": 125.50306547862334,
       "y": -73.75541567890133,
       "size": 922.5864464971797,
       "originX": 49.920255183413076,

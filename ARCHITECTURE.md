@@ -1,5 +1,14 @@
 # Architecture
 
+## Panel fidelity and motion refinement — 17 October 2026
+
+The current desktop Application Info drawer is 218 logical pixels wide, with a 44-pixel header. The website now uses that width, a visible Application Info header and close button, and a title/status bar that begins after the expanded navigation and information columns. Native home and application layouts were re-exported for the 218/398-pixel information/combined offsets. Existing desktop code and user preferences remain unchanged.
+
+The hero introduction now reads “ARTIFACTS / 19 APPLICATIONS BUILT AGAINST INEFFICIENCY”. The three thinking studies use a coordinated six-second cycle with stronger layer separation, outward block travel, staggered sheet movement and brighter silver strokes. Figure 3 ends with “Make each iteration earn its place in the work.” Reduced-motion and offscreen pausing remain supported.
+
+Browser access initially opened the local page but subsequently reported disabled, including after the user re-enabled it. Updated composed browser rendering has not yet been visually verified; automated validation and publishing status are recorded in STATUS.md.
+
+
 ## Current instruction — desktop layouts only (17 October 2026)
 
 Application demos are removed. Clicking an app opens its actual unpopulated desktop widget layout, exported directly from the current ARTIFACTS MainWindow and rendered as HTML with native vector control details. All 19 apps have three themes and four sidebar widths. There are no application screenshots, invented sample results or processing actions. Existing native buttons such as Load Example are visible but presentation-only. See [DESKTOP_LAYOUTS.md](DESKTOP_LAYOUTS.md).
