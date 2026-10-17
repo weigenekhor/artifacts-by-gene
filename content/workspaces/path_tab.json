@@ -1,0 +1,1322 @@
+[
+  {
+    "key": "path_tab",
+    "scene": "ready",
+    "description": "Ready for sample input",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 0
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Chart Group 1",
+          "Chart Group 2",
+          "Chart Group 3",
+          "Chart Group 4"
+        ],
+        "value": 0
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/path_tab-ready-imprimatura.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "ready",
+    "description": "Ready for sample input",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 0
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Chart Group 1",
+          "Chart Group 2",
+          "Chart Group 3",
+          "Chart Group 4"
+        ],
+        "value": 0
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/path_tab-ready-tenebrismo.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "ready",
+    "description": "Ready for sample input",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 0
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Chart Group 1",
+          "Chart Group 2",
+          "Chart Group 3",
+          "Chart Group 4"
+        ],
+        "value": 0
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/path_tab-ready-pentimento.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "1",
+    "description": "Built-in anonymous chart index",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 0
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Chart Group 1",
+          "Chart Group 2",
+          "Chart Group 3",
+          "Chart Group 4"
+        ],
+        "value": 0
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/path_tab-1-imprimatura.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "1",
+    "description": "Built-in anonymous chart index",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 0
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Chart Group 1",
+          "Chart Group 2",
+          "Chart Group 3",
+          "Chart Group 4"
+        ],
+        "value": 0
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/path_tab-1-tenebrismo.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "1",
+    "description": "Built-in anonymous chart index",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 0
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Chart Group 1",
+          "Chart Group 2",
+          "Chart Group 3",
+          "Chart Group 4"
+        ],
+        "value": 0
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/path_tab-1-pentimento.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "1-select-0-1",
+    "description": "Workcenter A",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Workcenter A",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 1
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Chart Group 1",
+          "Chart Group 4",
+          "Chart Group 3",
+          "Chart Group 2"
+        ],
+        "value": 0
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "MainframeCombo",
+      "text": "All",
+      "option": 1,
+      "optionText": "Workcenter A",
+      "number": 0
+    },
+    "image": "assets/native/workspaces/path_tab-1-select-0-1-imprimatura.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "1-select-0-1",
+    "description": "Workcenter A",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Workcenter A",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 1
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Chart Group 1",
+          "Chart Group 4",
+          "Chart Group 3",
+          "Chart Group 2"
+        ],
+        "value": 0
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "MainframeCombo",
+      "text": "All",
+      "option": 1,
+      "optionText": "Workcenter A",
+      "number": 0
+    },
+    "image": "assets/native/workspaces/path_tab-1-select-0-1-tenebrismo.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "1-select-0-1",
+    "description": "Workcenter A",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Workcenter A",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 1
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Chart Group 1",
+          "Chart Group 4",
+          "Chart Group 3",
+          "Chart Group 2"
+        ],
+        "value": 0
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "MainframeCombo",
+      "text": "All",
+      "option": 1,
+      "optionText": "Workcenter A",
+      "number": 0
+    },
+    "image": "assets/native/workspaces/path_tab-1-select-0-1-pentimento.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "1-select-0-2",
+    "description": "Workcenter B",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Workcenter B",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 2
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Chart Group 2",
+          "Chart Group 1",
+          "Chart Group 4",
+          "Chart Group 3"
+        ],
+        "value": 0
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "MainframeCombo",
+      "text": "All",
+      "option": 2,
+      "optionText": "Workcenter B",
+      "number": 0
+    },
+    "image": "assets/native/workspaces/path_tab-1-select-0-2-imprimatura.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "1-select-0-2",
+    "description": "Workcenter B",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Workcenter B",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 2
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Chart Group 2",
+          "Chart Group 1",
+          "Chart Group 4",
+          "Chart Group 3"
+        ],
+        "value": 0
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "MainframeCombo",
+      "text": "All",
+      "option": 2,
+      "optionText": "Workcenter B",
+      "number": 0
+    },
+    "image": "assets/native/workspaces/path_tab-1-select-0-2-tenebrismo.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "1-select-0-2",
+    "description": "Workcenter B",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Workcenter B",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 2
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Chart Group 2",
+          "Chart Group 1",
+          "Chart Group 4",
+          "Chart Group 3"
+        ],
+        "value": 0
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "MainframeCombo",
+      "text": "All",
+      "option": 2,
+      "optionText": "Workcenter B",
+      "number": 0
+    },
+    "image": "assets/native/workspaces/path_tab-1-select-0-2-pentimento.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "1-select-1-1",
+    "description": "Chart Group 1",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 0
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Chart Group 1",
+        "options": [
+          "All",
+          "Chart Group 1",
+          "Chart Group 2",
+          "Chart Group 3",
+          "Chart Group 4"
+        ],
+        "value": 1
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "TypeCombo",
+      "text": "All",
+      "option": 1,
+      "optionText": "Chart Group 1",
+      "number": 1
+    },
+    "image": "assets/native/workspaces/path_tab-1-select-1-1-imprimatura.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "1-select-1-1",
+    "description": "Chart Group 1",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 0
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Chart Group 1",
+        "options": [
+          "All",
+          "Chart Group 1",
+          "Chart Group 2",
+          "Chart Group 3",
+          "Chart Group 4"
+        ],
+        "value": 1
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "TypeCombo",
+      "text": "All",
+      "option": 1,
+      "optionText": "Chart Group 1",
+      "number": 1
+    },
+    "image": "assets/native/workspaces/path_tab-1-select-1-1-tenebrismo.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "1-select-1-1",
+    "description": "Chart Group 1",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 0
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Chart Group 1",
+        "options": [
+          "All",
+          "Chart Group 1",
+          "Chart Group 2",
+          "Chart Group 3",
+          "Chart Group 4"
+        ],
+        "value": 1
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "TypeCombo",
+      "text": "All",
+      "option": 1,
+      "optionText": "Chart Group 1",
+      "number": 1
+    },
+    "image": "assets/native/workspaces/path_tab-1-select-1-1-pentimento.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "1-select-1-2",
+    "description": "Chart Group 2",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 0
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Chart Group 2",
+        "options": [
+          "All",
+          "Chart Group 1",
+          "Chart Group 2",
+          "Chart Group 3",
+          "Chart Group 4"
+        ],
+        "value": 2
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "TypeCombo",
+      "text": "All",
+      "option": 2,
+      "optionText": "Chart Group 2",
+      "number": 1
+    },
+    "image": "assets/native/workspaces/path_tab-1-select-1-2-imprimatura.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "1-select-1-2",
+    "description": "Chart Group 2",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 0
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Chart Group 2",
+        "options": [
+          "All",
+          "Chart Group 1",
+          "Chart Group 2",
+          "Chart Group 3",
+          "Chart Group 4"
+        ],
+        "value": 2
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "TypeCombo",
+      "text": "All",
+      "option": 2,
+      "optionText": "Chart Group 2",
+      "number": 1
+    },
+    "image": "assets/native/workspaces/path_tab-1-select-1-2-tenebrismo.webp"
+  },
+  {
+    "key": "path_tab",
+    "scene": "1-select-1-2",
+    "description": "Chart Group 2",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 10,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "MainframeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Workcenter A",
+          "Workcenter B",
+          "Workcenter C"
+        ],
+        "value": 0
+      },
+      {
+        "x": 338,
+        "y": 59,
+        "width": 320,
+        "height": 31,
+        "name": "TypeCombo",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Chart Group 2",
+        "options": [
+          "All",
+          "Chart Group 1",
+          "Chart Group 2",
+          "Chart Group 3",
+          "Chart Group 4"
+        ],
+        "value": 2
+      },
+      {
+        "x": 1282,
+        "y": 57,
+        "width": 174,
+        "height": 35,
+        "name": "",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Open Selected",
+        "checked": false
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "TypeCombo",
+      "text": "All",
+      "option": 2,
+      "optionText": "Chart Group 2",
+      "number": 1
+    },
+    "image": "assets/native/workspaces/path_tab-1-select-1-2-pentimento.webp"
+  }
+]

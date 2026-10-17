@@ -1,5 +1,12 @@
 # Start here — ARTIFACTS public website
 
+## Native sample correction — 17 October 2026
+
+The user rejected the earlier generic app simulations. Those generated forms, arbitrary measurements and SVG results have been removed. Each of the 19 applications now opens a recorded native walkthrough rendered by the real ARTIFACTS widget with built-in examples or approved Desktop test files. Measured hotspots replay supported native states, including actual charts, assignments, diagnosis cases and reports. These are finite recorded walkthroughs, not browser ports of the desktop applications. Unrecorded controls do not process data. See NATIVE_WALKTHROUGHS.md for coverage and limitations.
+
+The original grey atmospheric backdrop and shadow from 0a692cc are restored. The ARTIFACTS heading is larger and more prominent. Live homepage, Application Info and panel typography remain. These decisions supersede the generic-demo and plain-graphite notes below.
+
+
 ## Live typography and interactive samples — 17 October 2026
 
 The latest user request supersedes the older inspection-only hero rule. Every home card and application navigation item now opens a local sample workspace. All 19 registered apps have mode-specific demonstrations, working filters/actions, data/statistics, reset/clear and sample CSV export. Desktop processing algorithms are not ported: the visible “Interactive demo · Sample data” label identifies these illustrative workflows.

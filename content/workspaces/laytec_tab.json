@@ -1,0 +1,3032 @@
+[
+  {
+    "key": "laytec_tab",
+    "scene": "ready",
+    "description": "Ready for sample input",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/laytec_tab-ready-imprimatura.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "ready",
+    "description": "Ready for sample input",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/laytec_tab-ready-tenebrismo.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "ready",
+    "description": "Ready for sample input",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/laytec_tab-ready-pentimento.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1",
+    "description": "Inner and outer measurement zones",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/laytec_tab-1-imprimatura.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1",
+    "description": "Inner and outer measurement zones",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/laytec_tab-1-tenebrismo.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1",
+    "description": "Inner and outer measurement zones",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/laytec_tab-1-pentimento.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_slider-0",
+    "description": "Inner Slider: 10",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_slider",
+      "label": "10"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_slider-0-imprimatura.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_slider-0",
+    "description": "Inner Slider: 10",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_slider",
+      "label": "10"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_slider-0-tenebrismo.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_slider-0",
+    "description": "Inner Slider: 10",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_slider",
+      "label": "10"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_slider-0-pentimento.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_slider-1",
+    "description": "Inner Slider: 20",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_slider",
+      "label": "20"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_slider-1-imprimatura.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_slider-1",
+    "description": "Inner Slider: 20",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_slider",
+      "label": "20"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_slider-1-tenebrismo.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_slider-1",
+    "description": "Inner Slider: 20",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_slider",
+      "label": "20"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_slider-1-pentimento.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_slider-2",
+    "description": "Inner Slider: 30",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_slider",
+      "label": "30"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_slider-2-imprimatura.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_slider-2",
+    "description": "Inner Slider: 30",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_slider",
+      "label": "30"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_slider-2-tenebrismo.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_slider-2",
+    "description": "Inner Slider: 30",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_slider",
+      "label": "30"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_slider-2-pentimento.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_range-0",
+    "description": "Outer Range: (5, 20)",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_range",
+      "label": "(5, 20)"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_range-0-imprimatura.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_range-0",
+    "description": "Outer Range: (5, 20)",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_range",
+      "label": "(5, 20)"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_range-0-tenebrismo.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_range-0",
+    "description": "Outer Range: (5, 20)",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_range",
+      "label": "(5, 20)"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_range-0-pentimento.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_range-1",
+    "description": "Outer Range: (15, 35)",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_range",
+      "label": "(15, 35)"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_range-1-imprimatura.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_range-1",
+    "description": "Outer Range: (15, 35)",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_range",
+      "label": "(15, 35)"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_range-1-tenebrismo.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_range-1",
+    "description": "Outer Range: (15, 35)",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_range",
+      "label": "(15, 35)"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_range-1-pentimento.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_plate-0",
+    "description": "Inner Plate: 1",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_plate",
+      "label": "1"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_plate-0-imprimatura.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_plate-0",
+    "description": "Inner Plate: 1",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_plate",
+      "label": "1"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_plate-0-tenebrismo.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_plate-0",
+    "description": "Inner Plate: 1",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_plate",
+      "label": "1"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_plate-0-pentimento.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_plate-1",
+    "description": "Inner Plate: 2",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_plate",
+      "label": "2"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_plate-1-imprimatura.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_plate-1",
+    "description": "Inner Plate: 2",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_plate",
+      "label": "2"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_plate-1-tenebrismo.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_plate-1",
+    "description": "Inner Plate: 2",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_plate",
+      "label": "2"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_plate-1-pentimento.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_plate-2",
+    "description": "Inner Plate: 3",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_plate",
+      "label": "3"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_plate-2-imprimatura.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_plate-2",
+    "description": "Inner Plate: 3",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_plate",
+      "label": "3"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_plate-2-tenebrismo.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_plate-2",
+    "description": "Inner Plate: 3",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_plate",
+      "label": "3"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_plate-2-pentimento.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_plate-3",
+    "description": "Inner Plate: 4",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_plate",
+      "label": "4"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_plate-3-imprimatura.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_plate-3",
+    "description": "Inner Plate: 4",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_plate",
+      "label": "4"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_plate-3-tenebrismo.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-inner_plate-3",
+    "description": "Inner Plate: 4",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "inner_plate",
+      "label": "4"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-inner_plate-3-pentimento.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_plate-0",
+    "description": "Outer Plate: 0",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_plate",
+      "label": "0"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_plate-0-imprimatura.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_plate-0",
+    "description": "Outer Plate: 0",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_plate",
+      "label": "0"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_plate-0-tenebrismo.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_plate-0",
+    "description": "Outer Plate: 0",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_plate",
+      "label": "0"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_plate-0-pentimento.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_plate-1",
+    "description": "Outer Plate: 1",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_plate",
+      "label": "1"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_plate-1-imprimatura.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_plate-1",
+    "description": "Outer Plate: 1",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_plate",
+      "label": "1"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_plate-1-tenebrismo.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_plate-1",
+    "description": "Outer Plate: 1",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_plate",
+      "label": "1"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_plate-1-pentimento.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_plate-2",
+    "description": "Outer Plate: 2",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_plate",
+      "label": "2"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_plate-2-imprimatura.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_plate-2",
+    "description": "Outer Plate: 2",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_plate",
+      "label": "2"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_plate-2-tenebrismo.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_plate-2",
+    "description": "Outer Plate: 2",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_plate",
+      "label": "2"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_plate-2-pentimento.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_plate-3",
+    "description": "Outer Plate: 4",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_plate",
+      "label": "4"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_plate-3-imprimatura.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_plate-3",
+    "description": "Outer Plate: 4",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_plate",
+      "label": "4"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_plate-3-tenebrismo.webp"
+  },
+  {
+    "key": "laytec_tab",
+    "scene": "1-outer_plate-3",
+    "description": "Outer Plate: 4",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 26,
+        "y": 117,
+        "width": 300,
+        "height": 44,
+        "name": "inner_slider",
+        "className": "SingleSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Area"
+      },
+      {
+        "x": 26,
+        "y": 226,
+        "width": 300,
+        "height": 44,
+        "name": "outer_range",
+        "className": "RangeSlider",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Area"
+      },
+      {
+        "x": 26,
+        "y": 335,
+        "width": 300,
+        "height": 261,
+        "name": "inner_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Inner Anchor"
+      },
+      {
+        "x": 26,
+        "y": 661,
+        "width": 300,
+        "height": 260,
+        "name": "outer_plate",
+        "className": "PlateSelector",
+        "enabled": true,
+        "kind": "sample-control",
+        "text": "Outer Anchor"
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "native-control",
+      "name": "outer_plate",
+      "label": "4"
+    },
+    "image": "assets/native/workspaces/laytec_tab-1-outer_plate-3-pentimento.webp"
+  }
+]

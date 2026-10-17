@@ -1,5 +1,14 @@
 # Architecture
 
+## Native walkthrough correction — 17 October 2026
+
+The former generated sample model is removed. scripts/export-demo-scenes.py runs the real desktop widgets inside the existing offline fixture harness and exports 2× lossless views plus native control bounds into assets/native/workspaces/ and content/workspaces/. scripts/import-topopro-scene.mjs crops the verified GPU-rendered TopoPro capture because software Qt cannot render WebGL. Original captures and desktop source remain untouched.
+
+The normal build first runs scripts/build-demo-manifest.mjs, which publishes only supported source-measured controls and validated scene links. demo-model.js selects recorded states; demo-view.js layers accessible controls over their native geometry; demo-workspace.js manages independent app state, menus, asynchronous image loading, theme changes, history and Home. Actual compiler outputs are in assets/samples/. Runtime loads only the active view. The homepage and gallery pipeline remain separate.
+
+This supersedes previous generic-demo claims. It does not implement live desktop calculations, file uploads, database access, equipment connections, arbitrary chart gestures or every desktop control.
+
+
 ## Current three-theme integration
 
 Hero clarity refinement: homepage content/hover exports now use 4× lossless rendering and 4× native glyph pixmaps. Only one 2D uniform scale applies to the UI; perspective and nested GPU promotion no longer resample it. The independent wafer animation remains. `notification-centre.js` owns an isolated, resettable sample feed and accessible title-bar popover; there is no notification network or persistence integration.

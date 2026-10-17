@@ -1,4 +1,4 @@
-import {demoWorkspace} from './demo-workspace.js?v=20261017-live';
+import {demoWorkspace} from './demo-workspace.js?v=20261017-native';
 import {model,state,themes,setEdition,setTheme} from './state.js?v=20261017';
 import {appearanceMenu} from './appearance-menu.js';
 import {maintainApplicationAge} from './application-age.js';
@@ -92,7 +92,7 @@ function applyEdition(){
  shell.querySelectorAll('[data-theme-choice]').forEach(button=>button.setAttribute('aria-checked',String(button.dataset.themeChoice===state.theme)));
  shell.querySelector('[data-toggle-theme]').setAttribute('aria-label',`Global appearance: ${themeName}`);
  shell.querySelector('[data-theme-icon]').src=`assets/native/navigation/${state.theme}-suture.png`;
- renderHome();warmActiveAssets();
+ renderHome();warmActiveAssets();demos.refresh();
 }
 new ResizeObserver(()=>{const value=stage.querySelector('.product-viewport').clientWidth/1229;if(lastScale&&Math.abs(value-lastScale)>.0001)closeDetails();shell.style.setProperty('--shell-scale',value);shell.style.transform=`scale(${value})`;lastScale=value;bounds=null;}).observe(stage.querySelector('.product-viewport'));
 bindHomeScroll();

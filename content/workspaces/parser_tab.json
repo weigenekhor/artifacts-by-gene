@@ -1,0 +1,638 @@
+[
+  {
+    "key": "parser_tab",
+    "scene": "ready",
+    "description": "Ready for sample input",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 9,
+        "y": 57,
+        "width": 1448,
+        "height": 35,
+        "name": "parsebut",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Lot History: Select from Tool or Drag Here",
+        "checked": false
+      },
+      {
+        "x": 814,
+        "y": 300,
+        "width": 635,
+        "height": 31,
+        "name": "",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Reactor A",
+          "Reactor B",
+          "Reactor C"
+        ],
+        "value": 0
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/parser_tab-ready-imprimatura.webp"
+  },
+  {
+    "key": "parser_tab",
+    "scene": "ready",
+    "description": "Ready for sample input",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 9,
+        "y": 57,
+        "width": 1448,
+        "height": 35,
+        "name": "parsebut",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Lot History: Select from Tool or Drag Here",
+        "checked": false
+      },
+      {
+        "x": 814,
+        "y": 300,
+        "width": 635,
+        "height": 31,
+        "name": "",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Reactor A",
+          "Reactor B",
+          "Reactor C"
+        ],
+        "value": 0
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/parser_tab-ready-tenebrismo.webp"
+  },
+  {
+    "key": "parser_tab",
+    "scene": "ready",
+    "description": "Ready for sample input",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 9,
+        "y": 57,
+        "width": 1448,
+        "height": 35,
+        "name": "parsebut",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Lot History: Select from Tool or Drag Here",
+        "checked": false
+      },
+      {
+        "x": 814,
+        "y": 300,
+        "width": 635,
+        "height": 31,
+        "name": "",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Reactor A",
+          "Reactor B",
+          "Reactor C"
+        ],
+        "value": 0
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/parser_tab-ready-pentimento.webp"
+  },
+  {
+    "key": "parser_tab",
+    "scene": "1",
+    "description": "Built-in demonstration",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 9,
+        "y": 57,
+        "width": 1448,
+        "height": 35,
+        "name": "parsebut",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Lot History: Select from Tool or Drag Here",
+        "checked": false
+      },
+      {
+        "x": 814,
+        "y": 300,
+        "width": 635,
+        "height": 31,
+        "name": "",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Reactor A",
+          "Reactor B",
+          "Reactor C"
+        ],
+        "value": 0
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/parser_tab-1-imprimatura.webp"
+  },
+  {
+    "key": "parser_tab",
+    "scene": "1",
+    "description": "Built-in demonstration",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 9,
+        "y": 57,
+        "width": 1448,
+        "height": 35,
+        "name": "parsebut",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Lot History: Select from Tool or Drag Here",
+        "checked": false
+      },
+      {
+        "x": 814,
+        "y": 300,
+        "width": 635,
+        "height": 31,
+        "name": "",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Reactor A",
+          "Reactor B",
+          "Reactor C"
+        ],
+        "value": 0
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/parser_tab-1-tenebrismo.webp"
+  },
+  {
+    "key": "parser_tab",
+    "scene": "1",
+    "description": "Built-in demonstration",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 9,
+        "y": 57,
+        "width": 1448,
+        "height": 35,
+        "name": "parsebut",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Lot History: Select from Tool or Drag Here",
+        "checked": false
+      },
+      {
+        "x": 814,
+        "y": 300,
+        "width": 635,
+        "height": 31,
+        "name": "",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "All",
+        "options": [
+          "All",
+          "Reactor A",
+          "Reactor B",
+          "Reactor C"
+        ],
+        "value": 0
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": null,
+    "image": "assets/native/workspaces/parser_tab-1-pentimento.webp"
+  },
+  {
+    "key": "parser_tab",
+    "scene": "1-select-0-1",
+    "description": "Reactor A",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 9,
+        "y": 57,
+        "width": 1448,
+        "height": 35,
+        "name": "parsebut",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Lot History: Select from Tool or Drag Here",
+        "checked": false
+      },
+      {
+        "x": 814,
+        "y": 300,
+        "width": 635,
+        "height": 31,
+        "name": "",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Reactor A",
+        "options": [
+          "All",
+          "Reactor A",
+          "Reactor B",
+          "Reactor C"
+        ],
+        "value": 1
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "",
+      "text": "All",
+      "option": 1,
+      "optionText": "Reactor A",
+      "number": 0
+    },
+    "image": "assets/native/workspaces/parser_tab-1-select-0-1-imprimatura.webp"
+  },
+  {
+    "key": "parser_tab",
+    "scene": "1-select-0-1",
+    "description": "Reactor A",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 9,
+        "y": 57,
+        "width": 1448,
+        "height": 35,
+        "name": "parsebut",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Lot History: Select from Tool or Drag Here",
+        "checked": false
+      },
+      {
+        "x": 814,
+        "y": 300,
+        "width": 635,
+        "height": 31,
+        "name": "",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Reactor A",
+        "options": [
+          "All",
+          "Reactor A",
+          "Reactor B",
+          "Reactor C"
+        ],
+        "value": 1
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "",
+      "text": "All",
+      "option": 1,
+      "optionText": "Reactor A",
+      "number": 0
+    },
+    "image": "assets/native/workspaces/parser_tab-1-select-0-1-tenebrismo.webp"
+  },
+  {
+    "key": "parser_tab",
+    "scene": "1-select-0-1",
+    "description": "Reactor A",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 9,
+        "y": 57,
+        "width": 1448,
+        "height": 35,
+        "name": "parsebut",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Lot History: Select from Tool or Drag Here",
+        "checked": false
+      },
+      {
+        "x": 814,
+        "y": 300,
+        "width": 635,
+        "height": 31,
+        "name": "",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Reactor A",
+        "options": [
+          "All",
+          "Reactor A",
+          "Reactor B",
+          "Reactor C"
+        ],
+        "value": 1
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "",
+      "text": "All",
+      "option": 1,
+      "optionText": "Reactor A",
+      "number": 0
+    },
+    "image": "assets/native/workspaces/parser_tab-1-select-0-1-pentimento.webp"
+  },
+  {
+    "key": "parser_tab",
+    "scene": "1-select-0-2",
+    "description": "Reactor B",
+    "theme": "imprimatura",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 9,
+        "y": 57,
+        "width": 1448,
+        "height": 35,
+        "name": "parsebut",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Lot History: Select from Tool or Drag Here",
+        "checked": false
+      },
+      {
+        "x": 814,
+        "y": 300,
+        "width": 635,
+        "height": 31,
+        "name": "",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Reactor B",
+        "options": [
+          "All",
+          "Reactor A",
+          "Reactor B",
+          "Reactor C"
+        ],
+        "value": 2
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "",
+      "text": "All",
+      "option": 2,
+      "optionText": "Reactor B",
+      "number": 0
+    },
+    "image": "assets/native/workspaces/parser_tab-1-select-0-2-imprimatura.webp"
+  },
+  {
+    "key": "parser_tab",
+    "scene": "1-select-0-2",
+    "description": "Reactor B",
+    "theme": "tenebrismo",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 9,
+        "y": 57,
+        "width": 1448,
+        "height": 35,
+        "name": "parsebut",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Lot History: Select from Tool or Drag Here",
+        "checked": false
+      },
+      {
+        "x": 814,
+        "y": 300,
+        "width": 635,
+        "height": 31,
+        "name": "",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Reactor B",
+        "options": [
+          "All",
+          "Reactor A",
+          "Reactor B",
+          "Reactor C"
+        ],
+        "value": 2
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "",
+      "text": "All",
+      "option": 2,
+      "optionText": "Reactor B",
+      "number": 0
+    },
+    "image": "assets/native/workspaces/parser_tab-1-select-0-2-tenebrismo.webp"
+  },
+  {
+    "key": "parser_tab",
+    "scene": "1-select-0-2",
+    "description": "Reactor B",
+    "theme": "pentimento",
+    "width": 1466,
+    "height": 947,
+    "controls": [
+      {
+        "x": 9,
+        "y": 57,
+        "width": 1448,
+        "height": 35,
+        "name": "parsebut",
+        "className": "QPushButton",
+        "enabled": true,
+        "kind": "button",
+        "text": "Lot History: Select from Tool or Drag Here",
+        "checked": false
+      },
+      {
+        "x": 814,
+        "y": 300,
+        "width": 635,
+        "height": 31,
+        "name": "",
+        "className": "QComboBox",
+        "enabled": true,
+        "kind": "select",
+        "text": "Reactor B",
+        "options": [
+          "All",
+          "Reactor A",
+          "Reactor B",
+          "Reactor C"
+        ],
+        "value": 2
+      }
+    ],
+    "report": false,
+    "windowBounds": {
+      "x": 65,
+      "y": 50,
+      "width": 1466,
+      "height": 947
+    },
+    "transition": {
+      "parent": "1",
+      "kind": "select",
+      "name": "",
+      "text": "All",
+      "option": 2,
+      "optionText": "Reactor B",
+      "number": 0
+    },
+    "image": "assets/native/workspaces/parser_tab-1-select-0-2-pentimento.webp"
+  }
+]

@@ -1,5 +1,10 @@
 # Design system — contained ARTIFACTS
 
+## Current correction — 17 October 2026
+
+The original grey atmospheric field and shadow beneath the hero are restored from 0a692cc. The public ARTIFACTS heading uses 72–152px at desktop and 48–98px on mobile, with stronger weight. Home and information typography remain live. Native sample workspaces preserve the real widget rendering, palettes and measured control geometry; they do not introduce a new app visual system.
+
+
 ## Current desktop alignment
 
 The hero UI now stays on a flat plane for crisp text and controls. Its source-rendered home layers and icons use 4× density with lossless encoding. Wafer motion remains independent. The bell opens a notification centre styled from the desktop surface, with clearly labelled demonstration alerts and local read/delete/reset controls. These refinements supersede the older pointer-perspective and 2× export notes below.

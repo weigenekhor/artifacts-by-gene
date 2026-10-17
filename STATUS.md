@@ -1,5 +1,18 @@
 # Implementation status
 
+## Native walkthrough correction and restored hero — 17 October 2026
+
+The rejected generic demo engine is removed. All 19 apps now open source-rendered native walkthroughs using ARTIFACTS built-in examples and approved test files: 134 recorded views per appearance, 402 themed views total. Actual native controls select recorded app modes, filters, chart parameters, assignment slot counts, measurement zones and report views. Actual compiled Met and LayTec sample workbooks can be downloaded. This is a bounded recorded walkthrough, not a browser port: arbitrary file processing, text editing, plot gestures and unrecorded desktop controls are not implemented. See NATIVE_WALKTHROUGHS.md for per-app coverage.
+
+Restored the original grey atmospheric background and shadow from 0a692cc. Increased the ARTIFACTS hero heading's size and weight, with separate responsive sizing. Homepage and Application Info text remain live, and the existing 138-image gallery remains intact.
+
+Validation: build and syntax checks pass; all 28 tests pass. New checks cover all themed native views, 2× image density, source-measured control bounds and destinations, meaningful app-specific transitions, independent app state, stale image races, Home navigation and exact restoration of the background CSS. Inspected all 19 initial native views across all three appearances, plus report and chart samples. TopoPro uses the verified GPU-rendered desktop master because the offscreen exporter cannot render WebGL. Some Qt exporter processes encountered a Windows teardown fault after writing their complete output; every published image and metadata record was subsequently decoded and validated.
+
+Restarted the hidden local preview on port 8001. HTTP checks passed for the page, demo modules/styles, all 402 view assets and the two output workbooks (411 requests). Browser automation still reports local browser use disabled in Work settings; final composed desktop/mobile browser review remains unverified. No production deployment was made. Desktop application source and original capture masters were not changed.
+
+Changed files: demo-model.js, demo-view.js, demo-workspace.js, demo.css, native-shell.js, site.js, site.css, shell.css, scripts/build-native.mjs, scripts/build-demo-manifest.mjs, scripts/export-demo-scenes.py, scripts/import-topopro-scene.mjs, tests/demos.test.mjs, generated index.html, content/native-demos.json, content/workspaces/*, assets/native/workspaces/*, assets/samples/*, START_HERE.md, ARCHITECTURE.md, DESIGN_SYSTEM.md, NATIVE_WALKTHROUGHS.md and this status record. Earlier generic-demo claims below are historical and superseded.
+
+
 ## Live text and 19 interactive sample workspaces — 17 October 2026
 
 Implemented the user's approved interactive-sample scope on the review branch. Home cards and sidebar entries open all 19 apps. Each workspace has source-informed views, selectable sample inputs, actions, reset/clear, data/statistics and CSV export. Data and visualizations are deterministic local examples, clearly marked as samples; these are not production engineering calculations. Theme changes preserve the current workspace. Edition changes return Home, and each app's sample state is retained for the current page session.
