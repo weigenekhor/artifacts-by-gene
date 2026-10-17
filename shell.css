@@ -26,7 +26,7 @@
 .settings-drawer>img{width:240px;height:820px;max-width:none}
 .app-titlebar{position:absolute;inset:0 0 auto 60px;height:44px;display:flex;align-items:center;padding-right:10px;background:var(--surface);border-bottom:1px solid var(--border);z-index:1}
 .window-controls{margin-left:auto;display:flex;align-items:center;gap:7px}.window-control{display:grid;place-items:center;width:30px;height:30px;border:1px solid transparent;border-radius:7px;padding:0;background:none;color:#e2e1e5}.window-control:disabled{opacity:1;cursor:default}.website-control{border-color:var(--control-border);background:var(--control)}.window-control:not(:disabled):hover{background:var(--control-hover);border-color:var(--border-hover)}
-.control-divider{height:15px;width:1px;background:var(--divider);margin:0 4px}.theme-control{display:flex;width:56px;height:30px;flex:none;background:var(--control);border:1px solid var(--control-border);border-radius:7px;padding:0}.theme-control button{border:0;width:27px;height:28px;display:grid;place-items:center;background:none;padding:0}.swatch{width:12px;height:12px;border:1px solid #aab1ae;border-radius:50%;display:block;box-shadow:inset 0 0 0 2px var(--control)}.origin-swatch{background:#668c7c}.pentimento-swatch{background:#704d8e}.theme-control [aria-pressed=true] .swatch{background:#f4ecf8;box-shadow:0 0 0 4px #704d8e,inset 0 0 0 2px var(--control)}.theme-control [data-theme-choice=origin][aria-pressed=true] .swatch{box-shadow:0 0 0 4px #466c5b,inset 0 0 0 2px var(--control)}
+.control-divider{height:15px;width:1px;background:var(--divider);margin:0 4px}.theme-control{display:flex;flex:none}
 .mode-control{height:30px;display:flex;align-items:center;gap:9px;border:1px solid var(--control-border);border-radius:6px;background:var(--control);color:#e8e1e8;padding:0 8px 0 4px;font:600 11px "Segoe UI",sans-serif}.mode-control [data-mode-range]{background:var(--chip);padding:3px 7px;border-radius:4px}
 .app-content{position:absolute;left:66px;top:49px;width:calc(1161px - var(--panel-shift));height:750px;transform:translateX(var(--panel-shift));transition:transform 240ms cubic-bezier(.215,.61,.355,1);overflow:hidden}
 .app-home{position:absolute;inset:0}.home-background{position:absolute;inset:0;width:100%;height:750px;max-width:none;object-fit:cover;object-position:left top}.home-scroll{position:absolute;inset:14px 26px 14px 18px;overflow:auto;scrollbar-width:thin;scrollbar-color:var(--border-hover) transparent}.home-sheet{position:relative}.home-render{position:absolute;inset:0;max-width:none;pointer-events:none}.home-hotspots{position:absolute;inset:0}.app-tile{position:absolute;background:none;border:0;padding:0;border-radius:6px}.app-tile:before{content:"";position:absolute;inset:0;background:var(--hover-render) center/100% 100%;opacity:0;transition:opacity 130ms}.app-tile:hover:before,.app-tile:focus-visible:before{opacity:1}.app-tile:focus-visible{outline-offset:1px}
@@ -51,3 +51,41 @@
 .product-duet{will-change:transform}.product-viewport{contain:paint}.app-shell{transform:translateZ(0) scale(calc(100cqw / 1229px));-webkit-font-smoothing:antialiased}
 .native-panel-motion{will-change:opacity;image-rendering:auto}
 .app-tile:before{inset:2px;clip-path:inset(0 round 5px)}
+
+/* Current desktop chrome: edition and Suture picker share the same material. */
+.app-titlebar{z-index:5}
+.window-controls{gap:0}
+.mode-control,.theme-trigger{height:32px;border:.85px solid var(--control-border);border-radius:7px;background:linear-gradient(var(--switch-top),var(--switch-bottom));color:var(--text);transition:background 120ms}
+.mode-control{width:132px;gap:11px;margin-right:10px;padding:0 5px 0 4px;justify-content:flex-start}
+.mode-control [data-mode-range]{display:grid;place-items:center;width:42px;height:23px;padding:0;flex:none;border:.65px solid var(--chip-edge);background:var(--chip);color:var(--chip-text);border-radius:5px;font-size:11px}
+.mode-control [data-mode-name]{flex:1;text-align:center;font-size:11px}
+.mode-control:hover [data-mode-range],.mode-control:active [data-mode-range]{background:var(--chip-hover);color:var(--chip-text)}
+.app-shell[data-theme=imprimatura]{--chip:#293834;--chip-text:#e5f0ea;--control-border:#263234}
+.app-shell[data-theme=pentimento]{--chip:#332b34;--chip-text:#f3eaf2;--control-border:#24222a}
+.theme-control{position:relative;width:64px;height:32px;padding:0;border:0;background:none;border-radius:7px}
+.theme-control .theme-trigger{display:flex;width:64px;align-items:center;justify-content:flex-start;padding:0 10px 0 12px;gap:6px}
+.theme-trigger img{width:22px;height:22px;flex:none}.theme-trigger svg{flex:none}
+.mode-control:hover,.mode-control:focus-visible,.theme-trigger:hover,.theme-trigger:focus-visible{background:linear-gradient(var(--switch-hover),var(--switch-bottom))}
+.mode-control:active,.theme-trigger[aria-expanded=true]{background:linear-gradient(var(--switch-bottom),var(--switch-hover))}
+.theme-trigger:focus-visible{outline:0}.theme-trigger:focus-visible svg{stroke-width:2;color:var(--focus)}
+.theme-menu{position:absolute;left:0;top:calc(100% + 5px);width:144px;padding:5px;border:.9px solid #2a2e33;border-radius:7px;background:linear-gradient(#111518,#101316);box-shadow:0 5px 14px #0006;z-index:10}
+.theme-menu:before{content:"";position:absolute;top:-4px;left:18px;width:6px;height:6px;background:#111518;border-top:.9px solid #2a2e33;border-left:.9px solid #2a2e33;transform:rotate(45deg)}
+.theme-control .theme-menu button{display:flex;align-items:center;gap:7px;width:132px;height:26px;padding:0 6px;border:0;border-radius:5px;background:none;color:#bac2cc;font:11px "Segoe UI",sans-serif;text-align:left}
+.theme-menu button span{flex:1;white-space:nowrap}.theme-menu img{width:20px;height:20px;flex:none}
+.theme-check{visibility:hidden;flex:none}.theme-menu [aria-checked=true] .theme-check{visibility:visible}
+.theme-control .theme-menu button:hover,.theme-control .theme-menu button:focus-visible{background:#d2dce40e;outline:0}
+.theme-control .theme-menu [data-theme-choice=imprimatura][aria-checked=true]{background:linear-gradient(90deg,#20383b,#172b2f);color:#b7ebeb}
+.theme-control .theme-menu [data-theme-choice=tenebrismo][aria-checked=true]{background:linear-gradient(90deg,#2a353e,#202a33);color:#d6e7f2}
+.theme-control .theme-menu [data-theme-choice=pentimento][aria-checked=true]{background:linear-gradient(90deg,#332c35,#2c252f);color:#ecc7ec}
+.window-control{width:48px;height:32px;color:#bac2cc;border:0;background:none}.window-control svg{width:22px;height:22px}
+.website-control{background:none;border:0}.window-control:not(:disabled):hover{background:#ffffff0c;border:0}
+.control-divider{height:20px;margin:0;width:1px;background:#23272c}
+.app-sidebar button{padding-left:21px;gap:27px;color:var(--muted)}
+.app-sidebar button>span:not(.native-nav-icon){opacity:0}.nav-expanded .app-sidebar button>span:not(.native-nav-icon){opacity:1}
+.app-sidebar button .native-nav-icon{display:block;opacity:1;width:18px;height:18px;flex:none;background:currentColor;mask:var(--nav-icon) center/contain no-repeat;-webkit-mask:var(--nav-icon) center/contain no-repeat}
+.app-sidebar button:hover,.app-sidebar button:focus-visible,.app-sidebar button[aria-current=page]{color:var(--text)}
+.home-wafer{opacity:var(--wafer-opacity,.94)}
+.info-age{position:absolute;display:flex;align-items:center;font:11.5px "Segoe UI",sans-serif}
+.info-link{position:absolute;border-radius:3px}.info-link:focus-visible{outline:1px solid var(--focus);outline-offset:2px}
+.settings-drawer [data-close-info]{position:absolute;right:14px;top:11px;width:21px;height:22px;padding:0;border:0;background:none;color:var(--text);display:grid;place-items:center;border-radius:3px}
+.settings-drawer [data-close-info]:hover{background:var(--raised)}

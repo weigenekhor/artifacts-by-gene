@@ -1,4 +1,6 @@
-import {model,state,setEdition,setTheme} from './state.js';
+import {model,state,themes,setEdition,setTheme} from './state.js?v=20261017';
+import {appearanceMenu} from './appearance-menu.js';
+import {maintainApplicationAge} from './application-age.js';
 import {homeMarkup,panelPosition} from './native-home.js';
 import {createPanelCache} from './panel-cache.js';
 
@@ -10,6 +12,10 @@ const drawer=shell.querySelector('.settings-drawer');
 const details=document.querySelector('.module-details');
 const layouts=JSON.parse(document.querySelector('#native-layout-data').textContent);
 const panels=JSON.parse(document.querySelector('#native-panel-data').textContent);
+const infoReferences=JSON.parse(document.querySelector('#native-info-data').textContent);
+appearanceMenu(shell,setTheme);
+maintainApplicationAge(drawer.querySelector('[data-info-age]'));
+drawer.querySelector('[data-close-info]').addEventListener('click',()=>{info=false;updatePanels();shell.querySelector('[data-settings]').focus({preventScroll:true});});
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const coarse=matchMedia('(hover: none), (pointer: coarse), (max-width:1100px)');
 const appFor=id=>model.apps.find(app=>app.id===id);
@@ -69,7 +75,7 @@ function warmActiveAssets(){
 function updatePanels(){closeDetails();clearTimeout(layoutTimer);bounds=null;controller.product.style.setProperty('--nav-shift',`${expanded?180:0}px`);controller.product.style.setProperty('--panel-shift',`${(expanded?180:0)+(info?240:0)}px`);controller.product.style.setProperty('--info-width',`${info?240:0}px`);controller.product.classList.toggle('nav-expanded',expanded);controller.product.classList.toggle('info-expanded',info);const expand=controller.product.querySelector('[data-expand-nav]');expand.setAttribute('aria-expanded',String(expanded));expand.setAttribute('aria-label',expanded?'Collapse application navigation':'Expand application navigation');controller.product.querySelector('[data-settings]').setAttribute('aria-expanded',String(info));drawer.inert=!info;drawer.setAttribute('aria-hidden',String(!info));if(reduced.matches)renderHome();else layoutTimer=setTimeout(renderHome,240);}
 function applyEdition(){
  closeDetails();controller.theme=state.theme;controller.mode=state.mode;
- const modeName=state.mode==='legacy'?'Legacy':'Pentimento',themeName=state.theme==='origin'?'Origin':'Pentimento';
+ const modeName=state.mode==='legacy'?'Legacy':'Pentimento',themeName=themes[state.theme];
  shell.dataset.theme=state.theme;shell.dataset.mode=state.mode;
  shell.setAttribute('aria-label',`${modeName}, ${themeName} theme, ARTIFACTS application`);
  stateBox.dataset.edition=state.mode;
@@ -78,7 +84,14 @@ function applyEdition(){
  shell.querySelector('[data-mode-name]').textContent=modeName;
  shell.querySelector('[data-cycle-mode]').setAttribute('aria-label',`Switch to ${state.mode==='legacy'?'Pentimento':'Legacy'} mode`);
  shell.querySelector('[data-info-image]').src=`assets/native/panels/${state.theme}-info.webp`;
- shell.querySelectorAll('[data-theme-choice]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.themeChoice===state.theme)));
+ shell.querySelectorAll('[data-theme-choice]').forEach(button=>button.setAttribute('aria-checked',String(button.dataset.themeChoice===state.theme)));
+ shell.querySelector('[data-toggle-theme]').setAttribute('aria-label',`Global appearance: ${themeName}`);
+ shell.querySelector('[data-theme-icon]').src=`assets/native/navigation/${state.theme}-suture.png`;
+ const ref=infoReferences[state.theme];
+ for(const [selector,key] of [['[data-info-age]','age'],['.info-website','website'],['.info-support','support']]){
+  const box=ref[key];Object.assign(drawer.querySelector(selector).style,{left:`${box.x}px`,top:`${box.y}px`,width:`${box.width}px`,height:`${box.height}px`});
+ }
+ drawer.querySelector('[data-info-age]').style.color=ref.ageColor;
  renderHome();warmActiveAssets();
 }
 new ResizeObserver(()=>{const value=stage.querySelector('.product-viewport').clientWidth/1229;if(lastScale&&Math.abs(value-lastScale)>.0001)closeDetails();shell.style.transform=`translateZ(0) scale(${value})`;lastScale=value;bounds=null;}).observe(stage.querySelector('.product-viewport'));
@@ -89,7 +102,7 @@ shell.addEventListener('pointerover',e=>{const locateButton=e.target.closest('[d
 shell.addEventListener('pointerout',e=>{if(e.target.closest('[data-locate-app]')){clearLocate();return;}if(e.target.closest('[data-inspect-app]')&&!e.relatedTarget?.closest('[data-inspect-app],.module-details'))scheduleClose();});
 shell.addEventListener('focusin',e=>{if(e.target.matches('[data-locate-app]'))locate(e.target.dataset.locateApp);if(e.target.matches('[data-inspect-app]'))showDetails(e.target);});
 shell.addEventListener('focusout',e=>{if(e.target.matches('[data-locate-app]'))clearLocate();if(!e.relatedTarget?.closest('[data-inspect-app],.module-details'))scheduleClose();});
-shell.addEventListener('click',e=>{const button=e.target.closest('button');if(!button)return;if(button.hasAttribute('data-expand-nav')){expanded=!expanded;updatePanels();}if(button.hasAttribute('data-settings')){info=!info;updatePanels();}if(button.hasAttribute('data-home')){closeDetails();home.querySelector('.home-scroll')?.scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'});}if(button.hasAttribute('data-theme-choice'))setTheme(button.dataset.themeChoice);if(button.hasAttribute('data-cycle-mode'))setEdition(controller.mode==='legacy'?'pentimento':'legacy');if(button.hasAttribute('data-inspect-app')&&coarse.matches)showDetails(button);});
+shell.addEventListener('click',e=>{const button=e.target.closest('button');if(!button)return;if(button.hasAttribute('data-expand-nav')){expanded=!expanded;updatePanels();}if(button.hasAttribute('data-settings')){info=!info;updatePanels();}if(button.hasAttribute('data-home')){closeDetails();home.querySelector('.home-scroll')?.scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'});}if(button.hasAttribute('data-cycle-mode'))setEdition(controller.mode==='legacy'?'pentimento':'legacy');if(button.hasAttribute('data-inspect-app')&&coarse.matches)showDetails(button);});
 shell.querySelectorAll('button:not(.desktop-only)').forEach(button=>button.disabled=false);
 controller.warm=warmActiveAssets;
 const preloadObserver=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){controller.warm();preloadObserver.disconnect();}},{rootMargin:'350px'});preloadObserver.observe(stage);

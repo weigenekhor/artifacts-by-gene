@@ -3,7 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import sharp from 'sharp';
 
-// Explicit ownership is in the manifest. Never scan subdirectories or infer apps.
+// Explicit ownership (including theme-relative paths) is in the manifest.
 const source = process.argv[2];
 if (!source) throw new Error('Usage: node scripts/import-native-captures.mjs <source-image-folder>');
 const model = JSON.parse(await fs.readFile('content/apps.json','utf8'));
@@ -12,13 +12,15 @@ sharp.cache(false);
 sharp.concurrency(2);
 for (const app of model.apps) {
  for (const capture of app.images) {
-  const input = await fs.readFile(path.join(source,capture.sourceFilename));
+  const sourceRoot=path.resolve(source),inputPath=path.resolve(sourceRoot,capture.sourceFilename);
+  if(!inputPath.startsWith(sourceRoot+path.sep))throw new Error('Capture path must stay inside the approved source folder');
+  const input = await fs.readFile(inputPath);
   const hash = crypto.createHash('sha256').update(input).digest('hex');
   if (capture.sha256===hash && capture.encoding===encoding && await fs.access(`${capture.base}/full.webp`).then(()=>true,()=>false)) continue;
   const meta = await sharp(input).metadata();
   await fs.mkdir(capture.base,{recursive:true});
-  // Full native dimensions; highest-quality WebP, not a lossless archival copy.
-  // The untouched PNG remains in the source folder; never upscale or crop.
+  // Preserve the supplied Upscayl 4x dimensions. Web-optimized full image;
+  // the untouched lossless master remains in the Desktop archive.
   await sharp(input).webp({quality:100,smartSubsample:true,effort:3}).toFile(`${capture.base}/full.webp`);
   capture.width=meta.width; capture.height=meta.height; capture.sha256=hash; capture.encoding=encoding;
   capture.sources=[];
@@ -32,4 +34,4 @@ for (const app of model.apps) {
  }
  await fs.writeFile('content/apps.json',JSON.stringify(model,null,2)+'\n');
 }
-console.log('Capture import complete. Source PNGs unchanged.');
+console.log('Capture import complete. Source masters unchanged.');

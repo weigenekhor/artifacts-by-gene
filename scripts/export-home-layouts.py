@@ -2,17 +2,19 @@
 import os,sys,json,types
 from pathlib import Path
 os.environ['QT_QPA_PLATFORM']='offscreen';sys.dont_write_bytecode=True
-source=Path(sys.argv[1]).resolve();sys.path.insert(0,str(source))
+site=Path.cwd();source=Path(sys.argv[1]).resolve();sys.path.insert(0,str(source));os.chdir(source)
 package=types.ModuleType('widgets');package.__path__=[str(source/'widgets')];sys.modules['widgets']=package
 from PySide6.QtCore import Qt,QPoint
 from PySide6.QtGui import QFont,QFontDatabase,QImage
 from PySide6.QtWidgets import QApplication,QWidget
 from PIL import Image
-from widgets.home_page import HomeWidget
+from widgets.home_widget import HomeWidget
+from widgets.edition_theme import application_stylesheet,edition_name
+exec((site/'scripts/desktop-export-style.py').read_text(),globals())
 app=QApplication([])
 for font in ('segoeui.ttf','seguisb.ttf','segoeuib.ttf','seguisym.ttf'):QFontDatabase.addApplicationFont('C:/Windows/Fonts/'+font)
 app.setFont(QFont('Segoe UI',9))
-out=Path('assets/native/layouts');out.mkdir(parents=True,exist_ok=True)
+out=site/'assets/native/layouts';out.mkdir(parents=True,exist_ok=True)
 refs={}
 def save(widget,path):
  image=QImage(widget.width()*2,widget.height()*2,QImage.Format_RGBA8888);image.setDevicePixelRatio(2);image.fill(Qt.transparent);widget.render(image)
@@ -20,12 +22,15 @@ def save(widget,path):
 def save_pixmap(pixmap,path):
  image=pixmap.toImage().convertToFormat(QImage.Format_RGBA8888)
  Image.frombytes('RGBA',(image.width(),image.height()),bytes(image.bits())).save(path,quality=96)
-for theme in ('origin','pentimento'):
+for theme,appearance in (('imprimatura','original'),('tenebrismo','void'),('pentimento','pentimento')):
+ app.setProperty('artifacts_appearance',appearance)
  app.setProperty('artifacts_pentimento',theme=='pentimento')
+ app.setStyleSheet(application_stylesheet())
  for mode in ('legacy','pentimento'):
   for state,offset in [('closed',0),('navigation',180),('information',240),('both',420)]:
    parent=QWidget();parent._load_legacy_mode_preference=lambda:mode=='legacy'
-   home=HomeWidget(parent);home.resize(1161-offset,750);home.show();app.processEvents();home._layout_module_cards(force=True);app.processEvents();home.setPanelAnimationPaused(True)
+   parent.setObjectName('pagesContainer');parent.setProperty('artifactsEdition',edition_name())
+   parent.resize(1161-offset,750);home=HomeWidget(parent);home.setParent(parent);home.resize(1161-offset,750);parent.show();home.show();app.processEvents();home._layout_module_cards(force=True);app.processEvents();home.setPanelAnimationPaused(True)
    key=f'{theme}-{mode}-{state}';area=home.module_area;scroll=home.module_scroll
    save(area,out/f'{key}-content.webp')
    refs[key]={'width':home.width(),'height':750,'contentWidth':area.width(),'contentHeight':area.height(),'cards':[]}
@@ -47,5 +52,5 @@ for theme in ('origin','pentimento'):
    save_pixmap(layer._field,out/f'{key}-field.webp')
    save_pixmap(layer._overlay,out/f'{key}-light.webp')
    home.hide();home.deleteLater();parent.deleteLater();app.processEvents()
-Path('content/home-layouts.json').write_text(json.dumps(refs,indent=2)+'\n',encoding='utf-8')
-print('Exported 16 native home layouts and complete scrollable contents.')
+(site/'content/home-layouts.json').write_text(json.dumps(refs,indent=2)+'\n',encoding='utf-8')
+print('Exported 24 native home layouts and complete scrollable contents.')

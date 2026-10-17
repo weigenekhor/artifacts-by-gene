@@ -1,4 +1,4 @@
-import {model,state,themedCaptures} from './state.js';
+import {model,state,themedCaptures} from './state.js?v=20261017';
 
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const viewer=document.querySelector('#capture-viewer');
@@ -127,7 +127,7 @@ function editionChanged(){
  if(viewer.open)showViewerSlide(0);
 }
 document.addEventListener('experience-change',editionChanged);
-if(state.theme!=='pentimento')editionChanged();
+if(state.theme!==model.defaultTheme)editionChanged();
 window.addEventListener('scroll',requestSelection,{passive:true});
 window.addEventListener('resize',requestSelection,{passive:true});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stopTimer();else{requestSelection();schedule();}});

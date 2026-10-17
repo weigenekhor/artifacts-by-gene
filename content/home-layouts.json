@@ -1,5 +1,5 @@
 {
-  "origin-legacy-closed": {
+  "imprimatura-legacy-closed": {
     "width": 1161,
     "height": 750,
     "contentWidth": 1117,
@@ -119,10 +119,10 @@
       "originY": 49.20255183413078
     }
   },
-  "origin-legacy-navigation": {
+  "imprimatura-legacy-navigation": {
     "width": 981,
     "height": 750,
-    "contentWidth": 923,
+    "contentWidth": 937,
     "contentHeight": 804,
     "cards": [
       {
@@ -239,10 +239,10 @@
       "originY": 49.20255183413078
     }
   },
-  "origin-legacy-information": {
+  "imprimatura-legacy-information": {
     "width": 921,
     "height": 750,
-    "contentWidth": 863,
+    "contentWidth": 877,
     "contentHeight": 804,
     "cards": [
       {
@@ -359,10 +359,10 @@
       "originY": 49.20255183413078
     }
   },
-  "origin-legacy-both": {
+  "imprimatura-legacy-both": {
     "width": 741,
     "height": 750,
-    "contentWidth": 683,
+    "contentWidth": 697,
     "contentHeight": 896,
     "cards": [
       {
@@ -479,7 +479,7 @@
       "originY": 49.20255183413078
     }
   },
-  "origin-pentimento-closed": {
+  "imprimatura-pentimento-closed": {
     "width": 1161,
     "height": 750,
     "contentWidth": 1117,
@@ -549,9 +549,23 @@
         "height": 116
       },
       {
-        "key": "datalens_tab",
+        "key": "aperture_spc_tab",
         "x": 320,
         "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "datalens_tab",
+        "x": 480,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sentry_tab",
+        "x": 0,
+        "y": 462,
         "width": 148,
         "height": 116
       }
@@ -564,7 +578,7 @@
       "originY": 49.20255183413078
     }
   },
-  "origin-pentimento-navigation": {
+  "imprimatura-pentimento-navigation": {
     "width": 981,
     "height": 750,
     "contentWidth": 937,
@@ -634,9 +648,23 @@
         "height": 116
       },
       {
-        "key": "datalens_tab",
+        "key": "aperture_spc_tab",
         "x": 320,
         "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "datalens_tab",
+        "x": 480,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sentry_tab",
+        "x": 0,
+        "y": 462,
         "width": 148,
         "height": 116
       }
@@ -649,7 +677,7 @@
       "originY": 49.20255183413078
     }
   },
-  "origin-pentimento-information": {
+  "imprimatura-pentimento-information": {
     "width": 921,
     "height": 750,
     "contentWidth": 877,
@@ -719,9 +747,23 @@
         "height": 116
       },
       {
-        "key": "datalens_tab",
+        "key": "aperture_spc_tab",
         "x": 320,
         "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "datalens_tab",
+        "x": 480,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sentry_tab",
+        "x": 0,
+        "y": 462,
         "width": 148,
         "height": 116
       }
@@ -734,7 +776,7 @@
       "originY": 49.20255183413078
     }
   },
-  "origin-pentimento-both": {
+  "imprimatura-pentimento-both": {
     "width": 741,
     "height": 750,
     "contentWidth": 697,
@@ -804,9 +846,899 @@
         "height": 110
       },
       {
-        "key": "datalens_tab",
+        "key": "aperture_spc_tab",
         "x": 304,
         "y": 444,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "datalens_tab",
+        "x": 0,
+        "y": 566,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "sentry_tab",
+        "x": 152,
+        "y": 566,
+        "width": 140,
+        "height": 110
+      }
+    ],
+    "wafer": {
+      "x": 103.50306547862334,
+      "y": -73.75541567890133,
+      "size": 922.5864464971797,
+      "originX": 49.920255183413076,
+      "originY": 49.20255183413078
+    }
+  },
+  "tenebrismo-legacy-closed": {
+    "width": 1161,
+    "height": 750,
+    "contentWidth": 1117,
+    "contentHeight": 722,
+    "cards": [
+      {
+        "key": "parser_tab",
+        "x": 0,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "altusanko_tab",
+        "x": 160,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "wafercount_tab",
+        "x": 320,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "topotracer_tab",
+        "x": 0,
+        "y": 206,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xml_tab",
+        "x": 160,
+        "y": 206,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "path_tab",
+        "x": 320,
+        "y": 206,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "metro_tab",
+        "x": 0,
+        "y": 375,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "pyra_tab",
+        "x": 160,
+        "y": 375,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dt_tab",
+        "x": 320,
+        "y": 375,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "laytec_tab",
+        "x": 480,
+        "y": 375,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xmlll_tab",
+        "x": 640,
+        "y": 375,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dnd_tab",
+        "x": 0,
+        "y": 544,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dnd2_tab",
+        "x": 160,
+        "y": 544,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "ankohelper_tab",
+        "x": 320,
+        "y": 544,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sap_tab",
+        "x": 480,
+        "y": 544,
+        "width": 148,
+        "height": 116
+      }
+    ],
+    "wafer": {
+      "x": 523.5030654786233,
+      "y": -73.75541567890133,
+      "size": 922.5864464971797,
+      "originX": 49.920255183413076,
+      "originY": 49.20255183413078
+    }
+  },
+  "tenebrismo-legacy-navigation": {
+    "width": 981,
+    "height": 750,
+    "contentWidth": 937,
+    "contentHeight": 804,
+    "cards": [
+      {
+        "key": "parser_tab",
+        "x": 0,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "altusanko_tab",
+        "x": 160,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "wafercount_tab",
+        "x": 320,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "topotracer_tab",
+        "x": 0,
+        "y": 206,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xml_tab",
+        "x": 160,
+        "y": 206,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "path_tab",
+        "x": 320,
+        "y": 206,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "metro_tab",
+        "x": 0,
+        "y": 375,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "pyra_tab",
+        "x": 160,
+        "y": 375,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dt_tab",
+        "x": 320,
+        "y": 375,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "laytec_tab",
+        "x": 480,
+        "y": 375,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xmlll_tab",
+        "x": 0,
+        "y": 503,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dnd_tab",
+        "x": 0,
+        "y": 672,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dnd2_tab",
+        "x": 160,
+        "y": 672,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "ankohelper_tab",
+        "x": 320,
+        "y": 672,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sap_tab",
+        "x": 480,
+        "y": 672,
+        "width": 148,
+        "height": 116
+      }
+    ],
+    "wafer": {
+      "x": 343.50306547862334,
+      "y": -73.75541567890133,
+      "size": 922.5864464971797,
+      "originX": 49.920255183413076,
+      "originY": 49.20255183413078
+    }
+  },
+  "tenebrismo-legacy-information": {
+    "width": 921,
+    "height": 750,
+    "contentWidth": 877,
+    "contentHeight": 804,
+    "cards": [
+      {
+        "key": "parser_tab",
+        "x": 0,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "altusanko_tab",
+        "x": 160,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "wafercount_tab",
+        "x": 320,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "topotracer_tab",
+        "x": 0,
+        "y": 206,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xml_tab",
+        "x": 160,
+        "y": 206,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "path_tab",
+        "x": 320,
+        "y": 206,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "metro_tab",
+        "x": 0,
+        "y": 375,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "pyra_tab",
+        "x": 160,
+        "y": 375,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dt_tab",
+        "x": 320,
+        "y": 375,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "laytec_tab",
+        "x": 480,
+        "y": 375,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xmlll_tab",
+        "x": 0,
+        "y": 503,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dnd_tab",
+        "x": 0,
+        "y": 672,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dnd2_tab",
+        "x": 160,
+        "y": 672,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "ankohelper_tab",
+        "x": 320,
+        "y": 672,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sap_tab",
+        "x": 480,
+        "y": 672,
+        "width": 148,
+        "height": 116
+      }
+    ],
+    "wafer": {
+      "x": 283.50306547862334,
+      "y": -73.75541567890133,
+      "size": 922.5864464971797,
+      "originX": 49.920255183413076,
+      "originY": 49.20255183413078
+    }
+  },
+  "tenebrismo-legacy-both": {
+    "width": 741,
+    "height": 750,
+    "contentWidth": 697,
+    "contentHeight": 896,
+    "cards": [
+      {
+        "key": "parser_tab",
+        "x": 0,
+        "y": 37,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "altusanko_tab",
+        "x": 152,
+        "y": 37,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "wafercount_tab",
+        "x": 304,
+        "y": 37,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "topotracer_tab",
+        "x": 0,
+        "y": 200,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "xml_tab",
+        "x": 152,
+        "y": 200,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "path_tab",
+        "x": 304,
+        "y": 200,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "metro_tab",
+        "x": 0,
+        "y": 363,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "pyra_tab",
+        "x": 152,
+        "y": 363,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "dt_tab",
+        "x": 304,
+        "y": 363,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "laytec_tab",
+        "x": 0,
+        "y": 485,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "xmlll_tab",
+        "x": 152,
+        "y": 485,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "dnd_tab",
+        "x": 0,
+        "y": 648,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "dnd2_tab",
+        "x": 152,
+        "y": 648,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "ankohelper_tab",
+        "x": 304,
+        "y": 648,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "sap_tab",
+        "x": 0,
+        "y": 770,
+        "width": 140,
+        "height": 110
+      }
+    ],
+    "wafer": {
+      "x": 103.50306547862334,
+      "y": -73.75541567890133,
+      "size": 922.5864464971797,
+      "originX": 49.920255183413076,
+      "originY": 49.20255183413078
+    }
+  },
+  "tenebrismo-pentimento-closed": {
+    "width": 1161,
+    "height": 750,
+    "contentWidth": 1117,
+    "contentHeight": 722,
+    "cards": [
+      {
+        "key": "topotracer_tab",
+        "x": 0,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xml_tab",
+        "x": 160,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "pyra_tab",
+        "x": 320,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dt_tab",
+        "x": 480,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "laytec_tab",
+        "x": 0,
+        "y": 165,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xmlll_tab",
+        "x": 160,
+        "y": 165,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sap_tab",
+        "x": 320,
+        "y": 165,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "metro_tab",
+        "x": 0,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "plessey_spc_tab",
+        "x": 160,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "aperture_spc_tab",
+        "x": 320,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "datalens_tab",
+        "x": 480,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sentry_tab",
+        "x": 0,
+        "y": 462,
+        "width": 148,
+        "height": 116
+      }
+    ],
+    "wafer": {
+      "x": 523.5030654786233,
+      "y": -73.75541567890133,
+      "size": 922.5864464971797,
+      "originX": 49.920255183413076,
+      "originY": 49.20255183413078
+    }
+  },
+  "tenebrismo-pentimento-navigation": {
+    "width": 981,
+    "height": 750,
+    "contentWidth": 937,
+    "contentHeight": 722,
+    "cards": [
+      {
+        "key": "topotracer_tab",
+        "x": 0,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xml_tab",
+        "x": 160,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "pyra_tab",
+        "x": 320,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dt_tab",
+        "x": 480,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "laytec_tab",
+        "x": 0,
+        "y": 165,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xmlll_tab",
+        "x": 160,
+        "y": 165,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sap_tab",
+        "x": 320,
+        "y": 165,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "metro_tab",
+        "x": 0,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "plessey_spc_tab",
+        "x": 160,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "aperture_spc_tab",
+        "x": 320,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "datalens_tab",
+        "x": 480,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sentry_tab",
+        "x": 0,
+        "y": 462,
+        "width": 148,
+        "height": 116
+      }
+    ],
+    "wafer": {
+      "x": 343.50306547862334,
+      "y": -73.75541567890133,
+      "size": 922.5864464971797,
+      "originX": 49.920255183413076,
+      "originY": 49.20255183413078
+    }
+  },
+  "tenebrismo-pentimento-information": {
+    "width": 921,
+    "height": 750,
+    "contentWidth": 877,
+    "contentHeight": 722,
+    "cards": [
+      {
+        "key": "topotracer_tab",
+        "x": 0,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xml_tab",
+        "x": 160,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "pyra_tab",
+        "x": 320,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "dt_tab",
+        "x": 480,
+        "y": 37,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "laytec_tab",
+        "x": 0,
+        "y": 165,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "xmlll_tab",
+        "x": 160,
+        "y": 165,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sap_tab",
+        "x": 320,
+        "y": 165,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "metro_tab",
+        "x": 0,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "plessey_spc_tab",
+        "x": 160,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "aperture_spc_tab",
+        "x": 320,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "datalens_tab",
+        "x": 480,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sentry_tab",
+        "x": 0,
+        "y": 462,
+        "width": 148,
+        "height": 116
+      }
+    ],
+    "wafer": {
+      "x": 283.50306547862334,
+      "y": -73.75541567890133,
+      "size": 922.5864464971797,
+      "originX": 49.920255183413076,
+      "originY": 49.20255183413078
+    }
+  },
+  "tenebrismo-pentimento-both": {
+    "width": 741,
+    "height": 750,
+    "contentWidth": 697,
+    "contentHeight": 722,
+    "cards": [
+      {
+        "key": "topotracer_tab",
+        "x": 0,
+        "y": 37,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "xml_tab",
+        "x": 152,
+        "y": 37,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "pyra_tab",
+        "x": 304,
+        "y": 37,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "dt_tab",
+        "x": 0,
+        "y": 159,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "laytec_tab",
+        "x": 152,
+        "y": 159,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "xmlll_tab",
+        "x": 304,
+        "y": 159,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "sap_tab",
+        "x": 0,
+        "y": 281,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "metro_tab",
+        "x": 0,
+        "y": 444,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "plessey_spc_tab",
+        "x": 152,
+        "y": 444,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "aperture_spc_tab",
+        "x": 304,
+        "y": 444,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "datalens_tab",
+        "x": 0,
+        "y": 566,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "sentry_tab",
+        "x": 152,
+        "y": 566,
         "width": 140,
         "height": 110
       }
@@ -942,7 +1874,7 @@
   "pentimento-legacy-navigation": {
     "width": 981,
     "height": 750,
-    "contentWidth": 923,
+    "contentWidth": 937,
     "contentHeight": 804,
     "cards": [
       {
@@ -1062,7 +1994,7 @@
   "pentimento-legacy-information": {
     "width": 921,
     "height": 750,
-    "contentWidth": 863,
+    "contentWidth": 877,
     "contentHeight": 804,
     "cards": [
       {
@@ -1182,7 +2114,7 @@
   "pentimento-legacy-both": {
     "width": 741,
     "height": 750,
-    "contentWidth": 683,
+    "contentWidth": 697,
     "contentHeight": 896,
     "cards": [
       {
@@ -1369,9 +2301,23 @@
         "height": 116
       },
       {
-        "key": "datalens_tab",
+        "key": "aperture_spc_tab",
         "x": 320,
         "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "datalens_tab",
+        "x": 480,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sentry_tab",
+        "x": 0,
+        "y": 462,
         "width": 148,
         "height": 116
       }
@@ -1454,9 +2400,23 @@
         "height": 116
       },
       {
-        "key": "datalens_tab",
+        "key": "aperture_spc_tab",
         "x": 320,
         "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "datalens_tab",
+        "x": 480,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sentry_tab",
+        "x": 0,
+        "y": 462,
         "width": 148,
         "height": 116
       }
@@ -1539,9 +2499,23 @@
         "height": 116
       },
       {
-        "key": "datalens_tab",
+        "key": "aperture_spc_tab",
         "x": 320,
         "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "datalens_tab",
+        "x": 480,
+        "y": 334,
+        "width": 148,
+        "height": 116
+      },
+      {
+        "key": "sentry_tab",
+        "x": 0,
+        "y": 462,
         "width": 148,
         "height": 116
       }
@@ -1624,9 +2598,23 @@
         "height": 110
       },
       {
-        "key": "datalens_tab",
+        "key": "aperture_spc_tab",
         "x": 304,
         "y": 444,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "datalens_tab",
+        "x": 0,
+        "y": 566,
+        "width": 140,
+        "height": 110
+      },
+      {
+        "key": "sentry_tab",
+        "x": 152,
+        "y": 566,
         "width": 140,
         "height": 110
       }

@@ -1,5 +1,17 @@
 # Content, applications and assets
 
+## Current capture refresh — 17 October 2026
+
+The authoritative capture folder is now `C:\Users\Gene\Desktop\ARTIFACTS Preview Refresh\4x`, read only. The desktop registry is `Genepy/widgets/home_widget.py`. There are 19 unique apps and 138 populated captures, covering 46 views per appearance. Source folders map `original` to Imprimatura, `void` to Tenebrismo, and `pentimento` to Pentimento.
+
+The supplied masters have already been upscaled exactly 4× using Upscayl. Do not upscale them again or change them. The website preserves their full dimensions in quality-100 WebP, with quality-94 responsive copies at 768/1280/1920/2560 px. The lossless masters remain in the Desktop archive. Images are never cropped; the largest version loads only through its explicit full-resolution link.
+
+Run `scripts/sync-desktop-catalog.py` with the desktop source and master folder to refresh explicit ownership, then `pnpm import:captures` with the master folder. Run `node scripts/audit-showcase.mjs` with the master folder to verify provenance and generate `content/capture-source-manifest.json`. Syncing intentionally resets import metadata, so import afterwards.
+
+Current exports use actual HomeWidget, ModuleDetailsPanel and ApplicationInfoPanel classes: 24 home layouts, 81 native application panels with motion strips, and three Application Info drawers. Exported coordinates in `content/info-reference.json` anchor live AGE and contact links. Navigation SVGs and Suture icons come from the current desktop icon infrastructure. No processing applications run during export, and desktop source stays unchanged.
+
+This section supersedes the historical capture counts and source folders below.
+
 ## Authority
 
 Desktop source: `C:\Users\Gene\Desktop\Artifacts\Artifacts\Genepy`.

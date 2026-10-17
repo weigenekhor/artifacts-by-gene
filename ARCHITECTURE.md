@@ -1,5 +1,13 @@
 # Architecture
 
+## Current three-theme integration
+
+The current catalogue contains 19 applications, 138 captures, 24 native home layouts and 81 native information panels. The default is Tenebrismo appearance with Pentimento edition. `state.js` migrates old appearance keys and keeps edition and appearance independent.
+
+`appearance-menu.js` owns the Suture picker, its below-button menu, keyboard movement and dismissal. `application-age.js` computes local calendar years/months and schedules bounded refreshes across midnight, clock changes and resumed pages. `content/info-reference.json` supplies the actual desktop panel geometry for the live age value and contact links. Both exporters use `desktop-export-style.py` to reproduce desktop stylesheet routing without changing desktop files.
+
+The pre-refresh baseline is preserved at tag `review/before-three-themes-20261017`. Older two-theme counts below describe the earlier implementation.
+
 ## Build
 
 `scripts/build-native.mjs` reads `content/apps.json`, `content/home-layouts.json` and `content/panel-reference.json`, then writes `index.html`. Edit generators, not output. `scripts/native-ui.mjs` assembles source-rendered layers and chrome; `scripts/principles.mjs` owns the thinking cycle. `native-home.js` shares markup and viewport-safe panel positioning between build/runtime.

@@ -1,0 +1,65 @@
+{
+  "imprimatura": {
+    "age": {
+      "x": 95,
+      "y": 669,
+      "width": 121,
+      "height": 17
+    },
+    "ageColor": "#D7E1DB",
+    "website": {
+      "x": 24,
+      "y": 731,
+      "width": 192,
+      "height": 27
+    },
+    "support": {
+      "x": 24,
+      "y": 763,
+      "width": 192,
+      "height": 27
+    }
+  },
+  "tenebrismo": {
+    "age": {
+      "x": 95,
+      "y": 669,
+      "width": 121,
+      "height": 17
+    },
+    "ageColor": "#D8DEE2",
+    "website": {
+      "x": 24,
+      "y": 731,
+      "width": 192,
+      "height": 27
+    },
+    "support": {
+      "x": 24,
+      "y": 763,
+      "width": 192,
+      "height": 27
+    }
+  },
+  "pentimento": {
+    "age": {
+      "x": 95,
+      "y": 669,
+      "width": 121,
+      "height": 17
+    },
+    "ageColor": "#DDD7E0",
+    "website": {
+      "x": 24,
+      "y": 731,
+      "width": 192,
+      "height": 27
+    },
+    "support": {
+      "x": 24,
+      "y": 763,
+      "width": 192,
+      "height": 27
+    }
+  }
+}

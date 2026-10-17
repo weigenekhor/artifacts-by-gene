@@ -32,7 +32,8 @@ test('All explicitly mapped captures decode, preserve composition and have no mi
   for(const capture of app.images){
    assert.ok(!names.has(capture.sourceFilename),capture.sourceFilename);
    names.add(capture.sourceFilename);
-   assert.ok(!/empty|homepage|[\\/]/i.test(capture.sourceFilename));
+   assert.match(capture.sourceFilename,/^(original|void|pentimento)\/[a-z0-9_]+\.webp$/);
+   assert.ok(!/empty|homepage/i.test(capture.sourceFilename));
    assert.match(capture.sha256,/^[a-f0-9]{64}$/);
    for(const {src,width} of [...capture.sources,{src:`${capture.base}/full.webp`,width:capture.width}]){
     const meta=await sharp(src).metadata();
@@ -69,7 +70,7 @@ test('Mode and theme switch independently; captures follow theme and blocked sto
  const context={JSON,CustomEvent:class{constructor(name,options){this.detail=options.detail;}},localStorage:{getItem(){throw Error('Disabled');},setItem(){throw Error('Disabled');}},document:{querySelector(){return {textContent:JSON.stringify(model)};},querySelectorAll(){return [];},dispatchEvent(e){events.push(e);}}};
  vm.createContext(context);
  vm.runInContext((await fs.readFile('state.js','utf8')).replaceAll('export ',''),context);
- for(const [mode,theme] of [['legacy','pentimento'],['legacy','origin'],['pentimento','origin'],['pentimento','pentimento']]){
+ for(const [mode,theme] of [['legacy','tenebrismo'],['legacy','imprimatura'],['pentimento','imprimatura'],['pentimento','pentimento']]){
   const priorTheme=vm.runInContext('state.theme',context);
   vm.runInContext(`setEdition('${mode}');`,context);
   assert.equal(vm.runInContext('state.theme',context),priorTheme,'Mode must preserve theme');
@@ -81,7 +82,7 @@ test('Mode and theme switch independently; captures follow theme and blocked sto
  assert.equal(events.length,4);
  const count=events.length;vm.runInContext("setEdition('pentimento');setTheme('pentimento')",context);assert.equal(events.length,count);
  assert.equal(html.split('class="product-state"').length-1,1);
- assert.match(html,/data-theme="pentimento" data-mode="pentimento"/);
+ assert.match(html,/data-theme="tenebrismo" data-mode="pentimento"/);
 });
 
 test('Native panel cache coalesces first decode, reuses ready imagery and evicts old entries',async()=>{
@@ -126,7 +127,7 @@ test('Autoplay pauses for visibility, interaction, loading, modal and reduced mo
 
 test('Every native panel geometry keeps its source cards accessible and aligned',async()=>{
  const references=JSON.parse(await fs.readFile('content/home-layouts.json','utf8'));
- assert.equal(Object.keys(references).length,16);
+ assert.equal(Object.keys(references).length,24);
  for(const [key,ref] of Object.entries(references)){
   const [,mode]=key.split('-');
   const expected=model.expeditions.filter(e=>e.mode===mode).flatMap(e=>e.apps).map(id=>model.apps.find(a=>a.id===id).sourceKey);
@@ -149,7 +150,7 @@ test('Every native panel geometry keeps its source cards accessible and aligned'
 
 test('Native details assets match all available tools and retain readable, bounded motion areas',async()=>{
  const references=JSON.parse(await fs.readFile('content/panel-reference.json','utf8'));
- for(const theme of ['origin','pentimento'])for(const mode of model.modes){
+ for(const {id:theme} of model.themes)for(const mode of model.modes){
   for(const id of model.expeditions.filter(e=>e.mode===mode.id).flatMap(e=>e.apps)){
    const key=`${theme}-${mode.id}-${model.apps.find(a=>a.id===id).sourceKey}`,ref=references[key];
    assert.ok(ref,key);assert.equal(ref.width,372);assert.equal(ref.height,565);
@@ -215,4 +216,57 @@ test('Requested gallery emphasis, exact supporting copy and theme-free captions 
  assert.match(html,/A coherent system of tools for analysis, diagnosis, automation, and engineering workflows\./);
  for(const caption of html.matchAll(/<span data-slide-caption>(.*?)<\/span>/g))assert.doesNotMatch(caption[1],/Origin|Pentimento/);
  assert.doesNotMatch(html,/data-shell=|app-workspace|shellPath/);
+});
+
+test('All nineteen apps have complete, separate sequences for all three appearances',()=>{
+ assert.equal(model.apps.length,19);
+ assert.deepEqual(model.themes.map(t=>t.name),['Imprimatura','Tenebrismo','Pentimento']);
+ assert.equal(model.defaultTheme,'tenebrismo');
+ assert.equal(model.apps.reduce((n,a)=>n+a.images.length,0),138);
+ for(const app of model.apps){
+  const counts=model.themes.map(t=>app.images.filter(image=>image.theme===t.id).length);
+  assert.ok(counts[0]>0,app.name);assert.ok(counts.every(n=>n===counts[0]),app.name);
+  assert.deepEqual(app.images.filter(i=>i.theme==='imprimatura').map(i=>i.caption),app.images.filter(i=>i.theme==='tenebrismo').map(i=>i.caption));
+ }
+ assert.ok(model.apps.find(a=>a.id==='aperture-spc'));
+ assert.ok(model.apps.find(a=>a.id==='telemetry'));
+});
+
+test('Old saved appearances migrate and a valid last-used appearance survives reload',async()=>{
+ const source=(await fs.readFile('state.js','utf8')).replaceAll('export ','');
+ for(const [stored,expected] of [['origin','imprimatura'],['original','imprimatura'],['void','tenebrismo'],['pentimento','pentimento'],['imprimatura','imprimatura'],['tenebrismo','tenebrismo'],['invalid','tenebrismo'],['constructor','tenebrismo'],[null,'tenebrismo']]){
+  const values={'artifacts-theme':stored,'artifacts-mode':'legacy'};
+  const context={JSON,CustomEvent:class{constructor(name,options){this.detail=options.detail;}},localStorage:{getItem:key=>values[key],setItem:(key,value)=>values[key]=value},document:{querySelector:()=>({textContent:JSON.stringify(model)}),querySelectorAll:()=>[],dispatchEvent(){}}};
+  vm.createContext(context);vm.runInContext(source,context);
+  assert.equal(vm.runInContext('state.theme',context),expected,stored);
+  assert.equal(vm.runInContext('state.mode',context),'legacy');
+  vm.runInContext("setTheme('pentimento')",context);assert.equal(values['artifacts-theme'],'pentimento');
+ }
+});
+
+test('Age uses local calendar anniversaries, leap years and years/months only',async()=>{
+ const {calendarAge}=await import('../application-age.js');
+ for(const [date,expected] of [[[2026,9,16],'4y 1m'],[[2026,9,17],'4y 1m'],[[2026,9,27],'4y 1m'],[[2026,9,28],'4y 2m'],[[2024,1,29],'1y 6m'],[[2023,1,28],'0y 6m'],[[2022,7,27],'0y 0m'],[[2023,7,28],'1y 0m']])assert.equal(calendarAge(new Date(...date)),expected);
+});
+
+test('Appearance menu stays open after click, supports arrows/Escape, and closes after selection',async()=>{
+ const {appearanceMenu}=await import('../appearance-menu.js');
+ const listeners={};const choices=[];let focused;
+ const node=()=>({hidden:true,attrs:{},handlers:{},setAttribute(k,v){this.attrs[k]=v;},getAttribute(k){return this.attrs[k];},addEventListener(k,v){this.handlers[k]=v;},focus(){focused=this;document.activeElement=this;}});
+ const trigger=node(),menu=node(),items=model.themes.map(t=>Object.assign(node(),{dataset:{themeChoice:t.id},closest:()=>items.find(i=>i.dataset.themeChoice===t.id)}));
+ items[1].attrs['aria-checked']='true';menu.querySelectorAll=()=>items;
+ const shell=Object.assign(node(),{querySelector:selector=>selector==='[data-toggle-theme]'?trigger:menu});
+ const prior=globalThis.document;
+ globalThis.document={addEventListener:(name,fn)=>listeners[name]=fn};
+ try{
+  appearanceMenu(shell,value=>choices.push(value));
+  trigger.handlers.click();assert.equal(menu.hidden,false);assert.equal(focused,items[1]);assert.equal(trigger.attrs['aria-expanded'],'true');
+  const key=value=>menu.handlers.keydown({key:value,preventDefault(){},stopPropagation(){}});
+  key('ArrowDown');assert.equal(focused,items[2]);key('ArrowDown');assert.equal(focused,items[0]);
+  key('End');assert.equal(focused,items[2]);key('Home');assert.equal(focused,items[0]);
+  key('Escape');assert.equal(menu.hidden,true);assert.equal(focused,trigger);
+  trigger.handlers.click();menu.handlers.click({target:items[0]});assert.deepEqual(choices,['imprimatura']);assert.equal(menu.hidden,true);
+  trigger.handlers.click();listeners.pointerdown({target:{closest:()=>null}});assert.equal(menu.hidden,true);
+  trigger.handlers.click();key('Tab');assert.equal(menu.hidden,true);
+ }finally{globalThis.document=prior;}
 });

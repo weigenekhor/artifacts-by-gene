@@ -1,5 +1,9 @@
 # Design system — contained ARTIFACTS
 
+## Current desktop alignment
+
+The product now has Imprimatura, Tenebrismo and Pentimento appearances. Tenebrismo is the fresh-visit default. The current desktop Suture dropdown and 32px edition switch share an invariant quiet border and theme-aware materials. The latest normalized sidebar glyphs, refined Application Info and all 19 applications come from desktop source. Twenty-four native layouts cover the three appearances, two editions and four panel states. The surrounding website composition and palette remain as specified below; old two-theme counts are historical.
+
 ## Sequence and identity
 
 Minimal navigation → introduction and contained product → connected thinking cycle → canonical application collection → centered authorship → quiet ending.

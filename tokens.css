@@ -1,4 +1,17 @@
 /* Exact desktop colours: widgets/artifacts_style.py, edition_theme.py and Artifacts.py. */
+.app-shell{color-scheme:dark;--ease:cubic-bezier(.22,.61,.36,1)}
+.app-shell[data-theme="tenebrismo"]{
+ --surface:#101213;--frame:#090b0c;--title:#101213;--panel:#171a1c;
+ --raised:#202426;--hover:#292f32;--selected:#252d30;--border:#303638;
+ --border-hover:#7e929a;--accent:#bcc9cd;--heading:#e1e6e7;--text:#e1e6e7;
+ --muted:#a3adb1;--disabled:#778185;--selection:#343c40;
+ --control:#101213;--control-hover:#171a1c;--control-border:#2b3032;
+ --focus:#a5b6bc;--chip:#2a3337;--chip-text:#eef3f5;--divider:#23272c;
+ --nav:#101213;--nav-active:#343c40;--switch-top:#1d2224;--switch-bottom:#101213;--switch-hover:#171a1c;
+ --chip-edge:#485960;--chip-hover:#344047;--wafer-opacity:.64;
+}
+.app-shell[data-theme="imprimatura"]{--switch-top:#1e2829;--switch-bottom:#171f20;--switch-hover:#263234;--chip-edge:#42564d;--chip-hover:#31413c;--wafer-opacity:.94}
+.app-shell[data-theme="pentimento"]{--switch-top:#1b181f;--switch-bottom:#0d0e12;--switch-hover:#19171e;--chip-edge:#5c4c5d;--chip-hover:#403541;--wafer-opacity:.94}
 .app-shell[data-theme="pentimento"] {
  color-scheme:dark;
  --surface:#0d0e12; --frame:#090a0d; --title:#101116; --panel:#17151c;
@@ -14,7 +27,7 @@
  --ease:cubic-bezier(.22,.61,.36,1); --quick:150ms; --change:250ms; --gallery:420ms;
  --gutter:clamp(22px,5vw,100px);
 }
-.app-shell[data-theme="origin"] {
+.app-shell[data-theme="imprimatura"] {
  --surface:#14181e; --frame:#101216; --title:#101216; --panel:#181c22;
  --raised:#242b34; --hover:#20272f; --selected:#192423; --border:#343b48;
  --border-hover:#3d4656; --accent:#a6c2b7; --heading:#d4c6a8; --text:#d7dbe0;
@@ -26,4 +39,4 @@
  --nav:#1b2024; --nav-active:#2a3834; --wafer-filter:none;
 }
 .app-shell[data-theme="pentimento"]{--zone-inner:#c1af96;--zone-outer:#ADA3BC}
-.app-shell[data-theme="origin"]{--zone-inner:#A8BCCE;--zone-outer:#C7AD8D}
+.app-shell[data-theme="imprimatura"]{--zone-inner:#A8BCCE;--zone-outer:#C7AD8D}

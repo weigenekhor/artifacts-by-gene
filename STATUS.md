@@ -1,5 +1,26 @@
 # Implementation status
 
+## Current refresh — 17 October 2026
+
+Implemented locally against the current desktop source and the completed Upscayl capture archive:
+
+- 19 applications, including Aperture SPC and Telemetry; current registry names, metadata and Expedition membership.
+- Imprimatura, Tenebrismo and Pentimento, independent of Legacy/Pentimento edition. Tenebrismo is the default; saved preferences and old Origin/void keys are handled.
+- Current Suture dropdown, theme-aware edition switch, notification glyph and normalized native sidebar icons.
+- 24 source-rendered home layouts, 81 native application panels and three refined Application Info drawers. AGE updates from the local date in years/months with no days.
+- 138 ordered screenshots, with four responsive sizes and full 4× dimensions per view. All source hashes match the untouched lossless Desktop masters. Active screenshot assets total approximately 294.6 MB; only responsive images load during normal browsing.
+- Existing public design, thinking chapter, authorship, gallery controls, motion and no-JavaScript fallbacks retained.
+
+Validation: build and JavaScript syntax checks pass; all 18 tests pass. Tests cover all capture assets and dimensions, local links, all theme/edition memberships, panel geometry, saved-theme migration, local calendar age, stable dropdown interaction, keyboard dismissal, gallery navigation, reduced motion and cache behavior. Native exported panel images were inspected directly.
+
+Browser review and publication are pending. The browser tool reports “Local browser use is disabled in Work settings.” No tool is exposed to change that setting. The local preview runs at http://127.0.0.1:8001/. Do not interpret earlier visual-review results below as verification of this new revision. The live website has not been changed by this refresh.
+
+The previous website is preserved at `0a692cc`, tag `review/before-three-themes-20261017`. Desktop source and capture masters were not modified. Older assets remain recoverable and have not been removed.
+
+Changed implementation files: `state.js`, `native-shell.js`, `appearance-menu.js`, `application-age.js`, `gallery.js`, `site.js`, `tokens.css`, `shell.css`, the catalogue and reference JSON files in `content/`, generated `index.html`, native and screenshot assets, build/import/export/audit scripts, and `tests/native.test.mjs`. Project documentation records the new workflow.
+
+The sections below describe historical validation of the previous published website.
+
 ## Continuous native system
 
 The hero has been recomposed around two readable native states. At desktop the windows occupy 53% of a shared 1800px field, with limited overlap over the wafer. The Pentimento identifier sits on the clear outer edge. The previous bottom edition selector is gone.

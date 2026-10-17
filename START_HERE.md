@@ -1,5 +1,15 @@
 # Start here — ARTIFACTS public website
 
+## Current refresh — 17 October 2026
+
+The product showcase now follows the latest desktop registry: 19 unique applications, including Aperture SPC and Telemetry, and three appearances: Imprimatura, Tenebrismo and Pentimento. Tenebrismo is the first-visit default; valid saved appearances take precedence, with old Origin preferences migrated to Imprimatura.
+
+The native Suture picker replaces the old two-swatch selector. Twenty-four homepage layouts cover all theme/edition/panel combinations, and 81 application panels use the current desktop renderer. Application Info uses the refined graphite panel, with AGE updated from the local calendar in years and months.
+
+The gallery contains 138 populated captures: 46 views per theme. Masters are the completed Upscayl 4× files in the Desktop ARTIFACTS Preview Refresh folder. The public palette, thinking chapter, authorship, navigation and gallery behavior retain their approved design. The pre-refresh version is preserved at `0a692cc`, tagged `review/before-three-themes-20261017`.
+
+This section supersedes older two-theme and 17-app counts below. See STATUS.md for current verification and publication status.
+
 This is the authoritative website direction. The preceding implementation is preserved at `cc2c3fc` and local tag `review/native-captures-cc2c3fc`. Older contained/fullscreen versions remain in Git. The immediate prior native handoff is preserved at `51750c3` and tag `review/native-handoff-51750c3`. The latest two-state brief supersedes the former independent product/gallery theme rule. Do not restore generated app forms.
 
 ## Current experience
