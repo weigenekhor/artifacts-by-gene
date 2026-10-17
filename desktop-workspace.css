@@ -1,0 +1,29 @@
+/* Dimensions, fonts, colours and borders belong to the exported Qt widgets. */
+.desktop-workspace{position:absolute;inset:0;overflow:auto;background:transparent;color:var(--text);scrollbar-width:thin}
+.desktop-workspace[hidden]{display:none}
+.app-home.workspace-open .home-scroll{visibility:hidden;pointer-events:none}
+.desktop-node{position:absolute;box-sizing:border-box;margin:0;min-width:0;min-height:0;max-width:none;max-height:none;line-height:normal;letter-spacing:normal;box-shadow:none;outline:0;text-transform:none;transition:none;background:transparent;border:0;border-radius:0;padding:0;overflow:hidden;font-family:"Segoe UI",sans-serif;font-size:14px;font-weight:400;color:inherit}
+.desktop-node button,.desktop-node input,.desktop-node textarea{font:inherit;color:inherit;box-sizing:border-box}
+.desktop-node.desktop-label{display:flex;white-space:pre;align-items:center}
+.desktop-label-content{display:block;width:100%;min-width:0}
+.desktop-label p{margin:0}.desktop-label br{display:block}
+.desktop-button{display:flex;align-items:center;justify-content:center;gap:4px;white-space:nowrap;cursor:default}
+.desktop-button-label,.desktop-select>span:not(.desktop-chrome){position:relative;z-index:1}
+.desktop-icon{display:inline-flex;flex:none;position:relative;z-index:1}
+.desktop-node svg{display:block;width:100%;height:100%;max-width:none;max-height:none}
+.desktop-chrome{position:absolute;inset:0;pointer-events:none;z-index:0}
+.desktop-container-surface{position:absolute;box-sizing:border-box;pointer-events:none}
+.desktop-select{display:flex;align-items:center;white-space:nowrap;padding-right:23px}
+.desktop-chevron{position:absolute;right:10px;top:calc(50% - 4px);width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg)}
+.desktop-check{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.desktop-check input{appearance:none;flex:none;width:14px;height:14px;margin:0;border:1px solid var(--border-hover);border-radius:3px;background:var(--panel);opacity:1}
+.desktop-check input[type=radio]{border-radius:50%}.desktop-check input:checked{box-shadow:inset 0 0 0 3px var(--panel);background:var(--accent)}
+.desktop-input{white-space:nowrap;cursor:default}.desktop-input::placeholder,.desktop-textarea::placeholder{color:var(--muted);opacity:1}
+.desktop-textarea{resize:none;white-space:pre-wrap;overflow:auto;scrollbar-width:thin;cursor:default}
+.desktop-scroll{overflow:auto;scrollbar-width:thin}.desktop-scroll>.desktop-node{overflow:visible}
+.desktop-slider{display:flex;align-items:center}.desktop-slider input{width:100%;margin:0;accent-color:var(--accent);opacity:1}
+.desktop-progress{display:flex;align-items:center;justify-content:center}.desktop-progress progress{position:absolute;inset:0;width:100%;height:100%;accent-color:var(--accent)}.desktop-progress span{z-index:1}
+.desktop-tabs{overflow:hidden}.desktop-tabs button{position:absolute;border:1px solid var(--border);background:var(--panel);border-radius:4px 4px 0 0;padding:0}.desktop-tabs button[aria-selected=true]{background:var(--raised)}
+.desktop-table{overflow:auto;scrollbar-width:thin}.desktop-table table{border-collapse:collapse;table-layout:fixed;width:100%;font:inherit;color:inherit}.desktop-table th{font-weight:inherit;text-align:left;background:var(--raised);border:1px solid var(--border);padding:4px 6px;white-space:nowrap}.desktop-table td{padding:4px 6px;border:1px solid var(--border);white-space:nowrap}
+.desktop-list{overflow:auto;scrollbar-width:thin}.desktop-list-item{display:flex;align-items:center;padding:4px 8px;white-space:pre-wrap}.desktop-list-item[aria-current=true]{background:var(--selection)}
+.desktop-group-title{position:absolute;left:10px;top:0}.desktop-load-error{margin:30px;color:var(--muted)}

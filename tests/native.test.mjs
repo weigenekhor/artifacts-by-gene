@@ -177,9 +177,9 @@ test('Hover positioning keeps full panels inside small, landscape and desktop vi
  }
 });
 
-test('Hero opens local samples without replacing the screenshot gallery or approved closing credit',async()=>{
+test('Hero opens desktop layouts without replacing the screenshot gallery or approved closing credit',async()=>{
  const shell=await fs.readFile('native-shell.js','utf8');
- assert.match(shell,/demos\.open\(appId\)/);
+ assert.match(shell,/workspaces\.open\(appId\)/);
  assert.doesNotMatch(shell,/showCapture|product-capture/);
  assert.doesNotMatch(html,/Artifacts for Gene/);
  assert.match(html,/data-product-status>Pentimento</);

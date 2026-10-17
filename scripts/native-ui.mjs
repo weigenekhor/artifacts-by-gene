@@ -14,7 +14,7 @@ function nativeWindow(model,layouts,mode,theme='pentimento'){
  const range=mode==='legacy'?'I–IV':'V–VI',label=mode==='legacy'?'Legacy':'Pentimento';
  const sidebar=model.expeditions.map(e=>e.apps.map(id=>{
   const a=model.apps.find(a=>a.id===id);
-  return `<button type="button" data-locate-app="${id}" data-mode="${e.mode}" aria-label="Open ${esc(a.name)} sample demo">${navIcon(a.sourceKey)}<span>${esc(a.name)}</span></button>`;
+  return `<button type="button" data-locate-app="${id}" data-mode="${e.mode}" aria-label="Open ${esc(a.name)} desktop layout">${navIcon(a.sourceKey)}<span>${esc(a.name)}</span></button>`;
  }).join('')).join('');
  return `<div class="product-state" data-edition="${mode}"><div class="state-arrival"><p class="state-identifier"><span data-mode-label>${label}</span><small>Edition</small></p><div class="product-viewport"><div class="app-shell" role="group" data-theme="${theme}" data-mode="${mode}" aria-label="${label} ARTIFACTS application">
  <nav class="app-sidebar" aria-label="Application navigation"><div class="sidebar-brand"><a href="#top" class="title-logo" aria-label="ARTIFACTS"><img src="assets/brand/artifacts-symbol.svg" alt="" width="28" height="28"></a><span>ARTIFACTS</span></div><div class="sidebar-scroll"><button type="button" data-expand-nav aria-label="Expand application navigation" aria-expanded="false">${navIcon('menu')}<span>Hide</span></button><button type="button" data-home aria-label="Home" aria-current="page">${navIcon('home')}<span>Home</span></button><div class="sidebar-apps">${sidebar}</div><button class="sidebar-settings" type="button" data-settings aria-label="Application Info" aria-expanded="false"> ${navIcon('application-info')}<span>Application Info</span></button></div></nav>

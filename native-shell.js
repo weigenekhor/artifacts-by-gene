@@ -1,4 +1,4 @@
-import {demoWorkspace} from './demo-workspace.js?v=20261017-live-data';
+import {desktopWorkspace} from './desktop-workspace.js?v=20261017-native-layout';
 import {model,state,themes,setEdition,setTheme} from './state.js?v=20261017';
 import {appearanceMenu} from './appearance-menu.js';
 import {maintainApplicationAge} from './application-age.js';
@@ -14,7 +14,7 @@ const drawer=shell.querySelector('.settings-drawer');
 const details=document.querySelector('.module-details');
 const layouts=JSON.parse(document.querySelector('#native-layout-data').textContent);
 const panels=JSON.parse(document.querySelector('#native-panel-data').textContent);
-const demos=demoWorkspace(shell,model,()=>shell.querySelector('[data-home]').focus({preventScroll:true}));
+const workspaces=desktopWorkspace(shell,model);
 appearanceMenu(shell,setTheme);
 notificationCentre(shell);
 maintainApplicationAge(drawer.querySelector('[data-info-age]'));
@@ -78,7 +78,7 @@ function warmActiveAssets(){
 }
 function updatePanels(){closeDetails();clearTimeout(layoutTimer);bounds=null;controller.product.style.setProperty('--nav-shift',`${expanded?180:0}px`);controller.product.style.setProperty('--panel-shift',`${(expanded?180:0)+(info?240:0)}px`);controller.product.style.setProperty('--info-width',`${info?240:0}px`);controller.product.classList.toggle('nav-expanded',expanded);controller.product.classList.toggle('info-expanded',info);const expand=controller.product.querySelector('[data-expand-nav]');expand.setAttribute('aria-expanded',String(expanded));expand.setAttribute('aria-label',expanded?'Collapse application navigation':'Expand application navigation');controller.product.querySelector('[data-settings]').setAttribute('aria-expanded',String(info));drawer.inert=!info;drawer.setAttribute('aria-hidden',String(!info));if(reduced.matches)renderHome();else layoutTimer=setTimeout(renderHome,240);}
 function applyEdition(){
- if(controller.mode!==state.mode)demos.close();
+ if(controller.mode!==state.mode)workspaces.close();
  closeDetails();controller.theme=state.theme;controller.mode=state.mode;
  const modeName=state.mode==='legacy'?'Legacy':'Pentimento',themeName=themes[state.theme];
  shell.dataset.theme=state.theme;shell.dataset.mode=state.mode;
@@ -92,17 +92,17 @@ function applyEdition(){
  shell.querySelectorAll('[data-theme-choice]').forEach(button=>button.setAttribute('aria-checked',String(button.dataset.themeChoice===state.theme)));
  shell.querySelector('[data-toggle-theme]').setAttribute('aria-label',`Global appearance: ${themeName}`);
  shell.querySelector('[data-theme-icon]').src=`assets/native/navigation/${state.theme}-suture.png`;
- renderHome();warmActiveAssets();demos.refresh();
+ renderHome();warmActiveAssets();workspaces.refresh();
 }
 new ResizeObserver(()=>{const value=stage.querySelector('.product-viewport').clientWidth/1229;if(lastScale&&Math.abs(value-lastScale)>.0001)closeDetails();shell.style.setProperty('--shell-scale',value);shell.style.transform=`scale(${value})`;lastScale=value;bounds=null;}).observe(stage.querySelector('.product-viewport'));
 bindHomeScroll();
 shell.addEventListener('pointerenter',()=>{bounds=stage.querySelector('.product-viewport').getBoundingClientRect();});
-shell.addEventListener('pointermove',e=>{if(!bounds||e.pointerType==='touch'||demos.active)return;const x=(e.clientX-bounds.left)/lastScale-84-(expanded?180:0)-(info?240:0),y=(e.clientY-bounds.top)/lastScale-63+home.querySelector('.home-scroll').scrollTop;let nearest=null,distance=Infinity;for(const card of controller.reference().cards||[]){const d=(x-card.x-card.width/2)**2+(y-card.y-card.height/2)**2;if(d<distance){distance=d;nearest=card;}}if(nearest&&nearest.key!==lastWarmed&&distance<85000){lastWarmed=nearest.key;cache.warm(`${controller.theme}-${controller.mode}-${nearest.key}`);}}, {passive:true});
+shell.addEventListener('pointermove',e=>{if(!bounds||e.pointerType==='touch'||workspaces.active)return;const x=(e.clientX-bounds.left)/lastScale-84-(expanded?180:0)-(info?240:0),y=(e.clientY-bounds.top)/lastScale-63+home.querySelector('.home-scroll').scrollTop;let nearest=null,distance=Infinity;for(const card of controller.reference().cards||[]){const d=(x-card.x-card.width/2)**2+(y-card.y-card.height/2)**2;if(d<distance){distance=d;nearest=card;}}if(nearest&&nearest.key!==lastWarmed&&distance<85000){lastWarmed=nearest.key;cache.warm(`${controller.theme}-${controller.mode}-${nearest.key}`);}}, {passive:true});
 shell.addEventListener('pointerover',e=>{const locateButton=e.target.closest('[data-locate-app]');if(locateButton){locate(locateButton.dataset.locateApp);return;}const target=e.target.closest('[data-inspect-app]');if(target&&e.pointerType!=='touch')showDetails(target);});
 shell.addEventListener('pointerout',e=>{if(e.target.closest('[data-locate-app]')){clearLocate();return;}if(e.target.closest('[data-inspect-app]')&&!e.relatedTarget?.closest('[data-inspect-app],.module-details'))scheduleClose();});
 shell.addEventListener('focusin',e=>{if(e.target.matches('[data-locate-app]'))locate(e.target.dataset.locateApp);if(e.target.matches('[data-inspect-app]'))showDetails(e.target);});
 shell.addEventListener('focusout',e=>{if(e.target.matches('[data-locate-app]'))clearLocate();if(!e.relatedTarget?.closest('[data-inspect-app],.module-details'))scheduleClose();});
-shell.addEventListener('click',e=>{const button=e.target.closest('button');if(!button)return;if(button.hasAttribute('data-expand-nav')){expanded=!expanded;updatePanels();}if(button.hasAttribute('data-settings')){info=!info;updatePanels();}if(button.hasAttribute('data-home')){demos.close();closeDetails();home.querySelector('.home-scroll')?.scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'});}if(button.hasAttribute('data-cycle-mode'))setEdition(controller.mode==='legacy'?'pentimento':'legacy');const appId=button.dataset.inspectApp||button.dataset.locateApp;if(appId){closeDetails();demos.open(appId);}});
+shell.addEventListener('click',e=>{const button=e.target.closest('button');if(!button)return;if(button.hasAttribute('data-expand-nav')){expanded=!expanded;updatePanels();}if(button.hasAttribute('data-settings')){info=!info;updatePanels();}if(button.hasAttribute('data-home')){workspaces.close();closeDetails();home.querySelector('.home-scroll')?.scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'});}if(button.hasAttribute('data-cycle-mode'))setEdition(controller.mode==='legacy'?'pentimento':'legacy');const appId=button.dataset.inspectApp||button.dataset.locateApp;if(appId){closeDetails();workspaces.open(appId);}});
 shell.querySelectorAll('button:not(.desktop-only)').forEach(button=>button.disabled=false);
 controller.warm=warmActiveAssets;
 const preloadObserver=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){controller.warm();preloadObserver.disconnect();}},{rootMargin:'350px'});preloadObserver.observe(stage);
