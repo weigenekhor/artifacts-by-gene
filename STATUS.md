@@ -13,7 +13,9 @@ Implemented locally against the current desktop source and the completed Upscayl
 
 Validation: build and JavaScript syntax checks pass; all 18 tests pass. Tests cover all capture assets and dimensions, local links, all theme/edition memberships, panel geometry, saved-theme migration, local calendar age, stable dropdown interaction, keyboard dismissal, gallery navigation, reduced motion and cache behavior. Native exported panel images were inspected directly.
 
-Browser review and publication are pending. The browser tool reports “Local browser use is disabled in Work settings.” No tool is exposed to change that setting. The local preview runs at http://127.0.0.1:8001/. Do not interpret earlier visual-review results below as verification of this new revision. The live website has not been changed by this refresh.
+Browser review is partially complete: the current desktop render was inspected in Imprimatura and Tenebrismo; edition switching, the stable appearance dropdown, and Application Info opening with the correct local AGE were exercised. Browser console inspection returned no warnings or errors during those checks. Full gallery, Pentimento appearance, persistence and mobile visual checks remain pending.
+
+Browser access then became unavailable again, including after the user re-enabled access and the browser connection was reset. The tool reports “Local browser use is disabled in Work settings.” The local preview is reachable at http://127.0.0.1:8001/ (HTTP 200). Implementation commit `afed694` has been pushed to `rebuild/contained-product`; production `main` remains at `0a692cc`. Do not interpret earlier visual-review results below as verification of this new revision. The live website has not been changed by this refresh.
 
 The previous website is preserved at `0a692cc`, tag `review/before-three-themes-20261017`. Desktop source and capture masters were not modified. Older assets remain recoverable and have not been removed.
 
