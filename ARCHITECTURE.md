@@ -1,5 +1,12 @@
 # Architecture
 
+## Current correction — live app demos (17 October 2026)
+
+The latest user request rejects static app screenshots and supersedes the recorded-walkthrough approach below. All 19 hero apps now use local HTML controls, actual sample records and SVG results. See [LIVE_DEMOS.md](LIVE_DEMOS.md) for implementation, coverage, tests and explicit limitations. Homepage labels use regular single-line native typography; expedition headings and title-bar labels cannot wrap. The original website atmosphere and enlarged heading remain.
+
+The recorded workspace images are archived, not loaded by the interactive runtime. Final browser rendering is pending because the browser security policy rejected local-URL access. Do not describe this as pixel-verified or publish it as fully reviewed.
+
+
 ## Native walkthrough correction — 17 October 2026
 
 The former generated sample model is removed. scripts/export-demo-scenes.py runs the real desktop widgets inside the existing offline fixture harness and exports 2× lossless views plus native control bounds into assets/native/workspaces/ and content/workspaces/. scripts/import-topopro-scene.mjs crops the verified GPU-rendered TopoPro capture because software Qt cannot render WebGL. Original captures and desktop source remain untouched.

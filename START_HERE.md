@@ -1,5 +1,12 @@
 # Start here — ARTIFACTS public website
 
+## Current correction — live app demos (17 October 2026)
+
+The latest user request rejects static app screenshots and supersedes the recorded-walkthrough approach below. All 19 hero apps now use local HTML controls, actual sample records and SVG results. See [LIVE_DEMOS.md](LIVE_DEMOS.md) for implementation, coverage, tests and explicit limitations. Homepage labels use regular single-line native typography; expedition headings and title-bar labels cannot wrap. The original website atmosphere and enlarged heading remain.
+
+The recorded workspace images are archived, not loaded by the interactive runtime. Final browser rendering is pending because the browser security policy rejected local-URL access. Do not describe this as pixel-verified or publish it as fully reviewed.
+
+
 ## Native sample correction — 17 October 2026
 
 The user rejected the earlier generic app simulations. Those generated forms, arbitrary measurements and SVG results have been removed. Each of the 19 applications now opens a recorded native walkthrough rendered by the real ARTIFACTS widget with built-in examples or approved Desktop test files. Measured hotspots replay supported native states, including actual charts, assignments, diagnosis cases and reports. These are finite recorded walkthroughs, not browser ports of the desktop applications. Unrecorded controls do not process data. See NATIVE_WALKTHROUGHS.md for coverage and limitations.

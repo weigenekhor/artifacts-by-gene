@@ -1,4 +1,4 @@
-import {demoWorkspace} from './demo-workspace.js?v=20261017-native';
+import {demoWorkspace} from './demo-workspace.js?v=20261017-live-data';
 import {model,state,themes,setEdition,setTheme} from './state.js?v=20261017';
 import {appearanceMenu} from './appearance-menu.js';
 import {maintainApplicationAge} from './application-age.js';

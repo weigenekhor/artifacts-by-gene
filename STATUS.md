@@ -1,5 +1,12 @@
 # Implementation status
 
+## Current correction — live app demos (17 October 2026)
+
+The latest user request rejects static app screenshots and supersedes the recorded-walkthrough approach below. All 19 hero apps now use local HTML controls, actual sample records and SVG results. See [LIVE_DEMOS.md](LIVE_DEMOS.md) for implementation, coverage, tests and explicit limitations. Homepage labels use regular single-line native typography; expedition headings and title-bar labels cannot wrap. The original website atmosphere and enlarged heading remain.
+
+The recorded workspace images are archived, not loaded by the interactive runtime. Final browser rendering is pending because the browser security policy rejected local-URL access. Do not describe this as pixel-verified or publish it as fully reviewed.
+
+
 ## Native walkthrough correction and restored hero — 17 October 2026
 
 The rejected generic demo engine is removed. All 19 apps now open source-rendered native walkthroughs using ARTIFACTS built-in examples and approved test files: 134 recorded views per appearance, 402 themed views total. Actual native controls select recorded app modes, filters, chart parameters, assignment slot counts, measurement zones and report views. Actual compiled Met and LayTec sample workbooks can be downloaded. This is a bounded recorded walkthrough, not a browser port: arbitrary file processing, text editing, plot gestures and unrecorded desktop controls are not implemented. See NATIVE_WALKTHROUGHS.md for per-app coverage.

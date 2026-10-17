@@ -1,6 +1,5 @@
 import fs from 'node:fs/promises';
 import {createHash} from 'node:crypto';
-await import('./build-demo-manifest.mjs');
 import {esc,icon,nativeShell} from './native-ui.mjs';
 const model=JSON.parse(await fs.readFile('content/apps.json','utf8'));
 import {principleSection} from './principles.mjs';
@@ -9,7 +8,6 @@ model.apps.sort((a,b)=>a.order-b.order);
 const homeLayouts=JSON.parse(await fs.readFile('content/home-layouts.json','utf8'));
 const panelReferences=JSON.parse(await fs.readFile('content/panel-reference.json','utf8'));
 const infoReferences=JSON.parse(await fs.readFile('content/info-reference.json','utf8'));
-const nativeDemos=JSON.parse(await fs.readFile('content/native-demos.json','utf8'));
 const image=(capture,name,feature=false)=>`<img src="${capture.base}/1280.webp" srcset="${(capture.sources||[]).map(s=>`${s.src} ${s.width}w`).join(',')}" sizes="${feature?'90vw':'(max-width:760px) 94vw, (max-width:1300px) 46vw, 840px'}" width="${capture.width||10240}" height="${capture.height||5520}" loading="lazy" decoding="async" alt="${esc(name)} — ${esc(capture.caption)}">`;
 function gallery(app,index){
  const captures=app.images.filter(c=>c.theme===model.defaultTheme),first=0,capture=captures[0];
@@ -33,7 +31,7 @@ ${principleSection()}</div>
 <footer class="ending page-width"><a href="#top" class="closing-identity"><img src="assets/brand/artifacts-symbol.svg" width="25" height="25" alt=""><span>ARTIFACTS</span></a><p>Built against inefficiency.</p></footer></main>
 <dialog class="lightbox" id="capture-viewer" aria-labelledby="viewer-title"><div class="lightbox-bar"><div><h2 id="viewer-title"></h2><p id="viewer-caption"></p></div><div><span id="viewer-count"></span><button type="button" data-viewer-close aria-label="Close image viewer">${icon('close')}</button></div></div><div class="lightbox-stage"><button type="button" data-viewer-prev aria-label="Previous screenshot">${icon('back')}</button><div class="lightbox-image-wrap"><img id="viewer-image" alt=""><span class="image-loading" role="status" hidden>Loading capture…</span></div><button type="button" data-viewer-next aria-label="Next screenshot">${icon('next')}</button></div><div class="lightbox-footer"><span>Original application capture</span><a id="viewer-original" target="_blank" rel="noopener">Full resolution ${icon('external',16)}</a></div></dialog>
 <noscript><style>.app-shell{pointer-events:none}.hero-sequence:after{display:none!important}.gallery-navigation button,.open-capture{display:none}.gallery-image{cursor:default}</style><p class="noscript-note page-width">Enable JavaScript to explore the product. All application captures remain available below.</p></noscript>
-<script type="application/json" id="native-demo-data">${JSON.stringify(nativeDemos).replaceAll('<','\\u003c')}</script><script type="application/json" id="artifacts-data">${JSON.stringify(model).replaceAll('<','\\u003c')}</script><script type="application/json" id="native-layout-data">${JSON.stringify(homeLayouts)}</script><script type="application/json" id="native-panel-data">${JSON.stringify(panelReferences)}</script><script type="module" src="site.js"></script></body></html>`;
+<script type="application/json" id="artifacts-data">${JSON.stringify(model).replaceAll('<','\\u003c')}</script><script type="application/json" id="native-layout-data">${JSON.stringify(homeLayouts)}</script><script type="application/json" id="native-panel-data">${JSON.stringify(panelReferences)}</script><script type="module" src="site.js"></script></body></html>`;
 let output=html.replace('<script type="module" src="site.js">',`<script type="application/json" id="native-info-data">${JSON.stringify(infoReferences)}</script><script type="module" src="site.js">`);
 for(const file of ['tokens.css','site.css','shell.css','thinking.css','demo.css','site.js']){
  const hash=createHash('sha256').update(await fs.readFile(file)).digest('hex').slice(0,10);
