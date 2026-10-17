@@ -132,7 +132,8 @@ test('Every native panel geometry keeps its source cards accessible and aligned'
   const [,mode]=key.split('-');
   const expected=model.expeditions.filter(e=>e.mode===mode).flatMap(e=>e.apps).map(id=>model.apps.find(a=>a.id===id).sourceKey);
   assert.deepEqual(ref.cards.map(card=>card.key),expected);
-  for(const [suffix,width,height,density] of [['field',ref.width,ref.height,1],['light',ref.width,ref.height,1],['content',ref.contentWidth,ref.contentHeight,2]]){
+  assert.equal(ref.renderDensity,4);
+  for(const [suffix,width,height,density] of [['field',ref.width,ref.height,1],['light',ref.width,ref.height,1],['content',ref.contentWidth,ref.contentHeight,ref.renderDensity]]){
    const meta=await sharp(`assets/native/layouts/${key}-${suffix}.webp`).metadata();
    assert.equal(meta.width,width*density);assert.equal(meta.height,height*density);
   }
@@ -141,7 +142,7 @@ test('Every native panel geometry keeps its source cards accessible and aligned'
   for(const card of ref.cards){
    assert.ok(card.x>=0&&card.y>=0&&card.x+card.width<=ref.contentWidth&&card.y+card.height<=ref.contentHeight,key+' '+card.key);
    const hover=await sharp(`assets/native/layouts/${key}-${card.key}.webp`).metadata();
-   assert.equal(hover.width,card.width*2);assert.equal(hover.height,card.height*2);
+   assert.equal(hover.width,card.width*ref.renderDensity);assert.equal(hover.height,card.height*ref.renderDensity);
   }
  }
  const body=html.slice(html.indexOf('<section class="principles'));
@@ -247,6 +248,48 @@ test('Old saved appearances migrate and a valid last-used appearance survives re
 test('Age uses local calendar anniversaries, leap years and years/months only',async()=>{
  const {calendarAge}=await import('../application-age.js');
  for(const [date,expected] of [[[2026,9,16],'4y 1m'],[[2026,9,17],'4y 1m'],[[2026,9,27],'4y 1m'],[[2026,9,28],'4y 2m'],[[2024,1,29],'1y 6m'],[[2023,1,28],'0y 6m'],[[2022,7,27],'0y 0m'],[[2023,7,28],'1y 0m']])assert.equal(calendarAge(new Date(...date)),expected);
+});
+
+test('Notification samples filter, read, delete and reset without mutating the source',async()=>{
+ const {createNotificationState,sampleNotifications}=await import('../notification-centre.js');
+ const notifications=createNotificationState();
+ assert.equal(notifications.items.length,3);assert.equal(notifications.unread,2);
+ notifications.select('unread');assert.equal(notifications.visible.length,2);
+ notifications.read('pressure');assert.deepEqual(notifications.visible.map(item=>item.id),['temperature']);
+ notifications.remove('temperature');assert.equal(notifications.unread,0);assert.equal(notifications.visible.length,0);
+ notifications.select('invalid');assert.equal(notifications.filter,'unread');
+ notifications.select('all');assert.equal(notifications.visible.length,2);
+ notifications.remove();assert.equal(notifications.items.length,0);
+ notifications.reset();assert.equal(notifications.items.length,3);assert.equal(notifications.unread,2);assert.equal(notifications.filter,'all');
+ notifications.read();assert.equal(notifications.unread,0);
+ assert.equal(sampleNotifications.filter(item=>item.unread).length,2);
+ assert.equal(createNotificationState().unread,2);
+});
+
+test('Notification centre opens, stays open internally, dismisses outside and restores keyboard focus',async()=>{
+ const {notificationCentre}=await import('../notification-centre.js');
+ const listeners={};let focused;
+ const node=()=>({hidden:true,attrs:{},handlers:{},dataset:{},setAttribute(k,v){this.attrs[k]=v;},addEventListener(k,v){this.handlers[k]=v;},contains(target){return this===target;},focus(){focused=this;}});
+ const trigger=node(),panel=node(),list=node(),close=node(),clear=node(),read=node(),reset=node(),badge=node(),count=node(),status=node();
+ const tabs=['all','unread'].map(filter=>Object.assign(node(),{dataset:{notificationFilter:filter}}));
+ const nodes={'[data-notification-list]':list,'[data-close-notifications]':close,'[data-delete-notifications]':clear,'[data-read-notifications]':read,'[data-reset-notifications]':reset,'[data-notification-count]':count,'[data-notification-status]':status};
+ panel.querySelector=selector=>nodes[selector];panel.querySelectorAll=()=>tabs;trigger.querySelector=()=>badge;
+ const shell={querySelector:selector=>selector==='[data-notifications]'?trigger:panel};
+ const previous=globalThis.document;globalThis.document={addEventListener:(key,fn)=>listeners[key]=fn};
+ try{
+  notificationCentre(shell);assert.equal(badge.textContent,2);
+  trigger.handlers.click();assert.equal(panel.hidden,false);assert.equal(focused,close);assert.equal(trigger.attrs['aria-expanded'],'true');
+  listeners.pointerdown({target:panel});assert.equal(panel.hidden,false);
+  panel.handlers.keydown({key:'Escape',preventDefault(){},stopPropagation(){}});assert.equal(panel.hidden,true);assert.equal(focused,trigger);
+  trigger.handlers.click();listeners.pointerdown({target:{}});assert.equal(panel.hidden,true);
+  trigger.handlers.click();listeners.focusin({target:{}});assert.equal(panel.hidden,true);
+  trigger.handlers.click();clear.handlers.click();assert.equal(badge.hidden,true);assert.match(list.innerHTML,/All caught up/);
+  reset.handlers.click();assert.equal(badge.textContent,2);assert.equal(badge.hidden,false);
+  read.handlers.click();assert.equal(read.disabled,true);assert.equal(badge.hidden,true);
+ }finally{globalThis.document=previous;}
+ assert.match(html,/data-notification-panel role="dialog"/);
+ assert.match(html,/Sample notifications/);
+ assert.doesNotMatch(html,/Notifications \(desktop only\)/);
 });
 
 test('Appearance menu stays open after click, supports arrows/Escape, and closes after selection',async()=>{

@@ -2,6 +2,8 @@
 
 ## Current desktop alignment
 
+The hero UI now stays on a flat plane for crisp text and controls. Its source-rendered home layers and icons use 4× density with lossless encoding. Wafer motion remains independent. The bell opens a notification centre styled from the desktop surface, with clearly labelled demonstration alerts and local read/delete/reset controls. These refinements supersede the older pointer-perspective and 2× export notes below.
+
 The product now has Imprimatura, Tenebrismo and Pentimento appearances. Tenebrismo is the fresh-visit default. The current desktop Suture dropdown and 32px edition switch share an invariant quiet border and theme-aware materials. The latest normalized sidebar glyphs, refined Application Info and all 19 applications come from desktop source. Twenty-four native layouts cover the three appearances, two editions and four panel states. The surrounding website composition and palette remain as specified below; old two-theme counts are historical.
 
 ## Sequence and identity

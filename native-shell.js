@@ -1,7 +1,8 @@
 import {model,state,themes,setEdition,setTheme} from './state.js?v=20261017';
 import {appearanceMenu} from './appearance-menu.js';
 import {maintainApplicationAge} from './application-age.js';
-import {homeMarkup,panelPosition} from './native-home.js';
+import {notificationCentre} from './notification-centre.js';
+import {homeMarkup,panelPosition} from './native-home.js?v=20261017-hd';
 import {createPanelCache} from './panel-cache.js';
 
 const stage=document.querySelector('.product-stage');
@@ -14,6 +15,7 @@ const layouts=JSON.parse(document.querySelector('#native-layout-data').textConte
 const panels=JSON.parse(document.querySelector('#native-panel-data').textContent);
 const infoReferences=JSON.parse(document.querySelector('#native-info-data').textContent);
 appearanceMenu(shell,setTheme);
+notificationCentre(shell);
 maintainApplicationAge(drawer.querySelector('[data-info-age]'));
 drawer.querySelector('[data-close-info]').addEventListener('click',()=>{info=false;updatePanels();shell.querySelector('[data-settings]').focus({preventScroll:true});});
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
@@ -94,7 +96,7 @@ function applyEdition(){
  drawer.querySelector('[data-info-age]').style.color=ref.ageColor;
  renderHome();warmActiveAssets();
 }
-new ResizeObserver(()=>{const value=stage.querySelector('.product-viewport').clientWidth/1229;if(lastScale&&Math.abs(value-lastScale)>.0001)closeDetails();shell.style.transform=`translateZ(0) scale(${value})`;lastScale=value;bounds=null;}).observe(stage.querySelector('.product-viewport'));
+new ResizeObserver(()=>{const value=stage.querySelector('.product-viewport').clientWidth/1229;if(lastScale&&Math.abs(value-lastScale)>.0001)closeDetails();shell.style.transform=`scale(${value})`;lastScale=value;bounds=null;}).observe(stage.querySelector('.product-viewport'));
 bindHomeScroll();
 shell.addEventListener('pointerenter',()=>{bounds=stage.querySelector('.product-viewport').getBoundingClientRect();});
 shell.addEventListener('pointermove',e=>{if(!bounds||e.pointerType==='touch')return;const x=(e.clientX-bounds.left)/lastScale-84-(expanded?180:0)-(info?240:0),y=(e.clientY-bounds.top)/lastScale-63+home.querySelector('.home-scroll').scrollTop;let nearest=null,distance=Infinity;for(const card of controller.reference().cards||[]){const d=(x-card.x-card.width/2)**2+(y-card.y-card.height/2)**2;if(d<distance){distance=d;nearest=card;}}if(nearest&&nearest.key!==lastWarmed&&distance<85000){lastWarmed=nearest.key;cache.warm(`${controller.theme}-${controller.mode}-${nearest.key}`);}}, {passive:true});

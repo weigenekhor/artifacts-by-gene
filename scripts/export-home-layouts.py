@@ -8,7 +8,7 @@ from PySide6.QtCore import Qt,QPoint
 from PySide6.QtGui import QFont,QFontDatabase,QImage
 from PySide6.QtWidgets import QApplication,QWidget
 from PIL import Image
-from widgets.home_widget import HomeWidget
+from widgets.home_widget import HomeWidget,make_suite_icon
 from widgets.edition_theme import application_stylesheet,edition_name
 exec((site/'scripts/desktop-export-style.py').read_text(),globals())
 app=QApplication([])
@@ -16,9 +16,10 @@ for font in ('segoeui.ttf','seguisb.ttf','segoeuib.ttf','seguisym.ttf'):QFontDat
 app.setFont(QFont('Segoe UI',9))
 out=site/'assets/native/layouts';out.mkdir(parents=True,exist_ok=True)
 refs={}
+RENDER_DENSITY=4
 def save(widget,path):
- image=QImage(widget.width()*2,widget.height()*2,QImage.Format_RGBA8888);image.setDevicePixelRatio(2);image.fill(Qt.transparent);widget.render(image)
- Image.frombytes('RGBA',(image.width(),image.height()),bytes(image.bits())).save(path,quality=96)
+ image=QImage(widget.width()*RENDER_DENSITY,widget.height()*RENDER_DENSITY,QImage.Format_RGBA8888);image.setDevicePixelRatio(RENDER_DENSITY);image.fill(Qt.transparent);widget.render(image)
+ Image.frombytes('RGBA',(image.width(),image.height()),bytes(image.bits())).save(path,lossless=True,method=4)
 def save_pixmap(pixmap,path):
  image=pixmap.toImage().convertToFormat(QImage.Format_RGBA8888)
  Image.frombytes('RGBA',(image.width(),image.height()),bytes(image.bits())).save(path,quality=96)
@@ -32,8 +33,13 @@ for theme,appearance in (('imprimatura','original'),('tenebrismo','void'),('pent
    parent.setObjectName('pagesContainer');parent.setProperty('artifactsEdition',edition_name())
    parent.resize(1161-offset,750);home=HomeWidget(parent);home.setParent(parent);home.resize(1161-offset,750);parent.show();home.show();app.processEvents();home._layout_module_cards(force=True);app.processEvents();home.setPanelAnimationPaused(True)
    key=f'{theme}-{mode}-{state}';area=home.module_area;scroll=home.module_scroll
+   # The offscreen screen reports DPR 1. Rebuild the source vector glyphs at
+   # export density after layout, without changing any native widget bounds.
+   for card in home._cards:
+    icon=make_suite_icon(card._icon_letters,card._icon_size,radius=12,dpr=RENDER_DENSITY,tab_key=card.tab_key,optical_normalization=True)
+    card.abbrev_label.setPixmap(icon.pixmap(card._icon_size,RENDER_DENSITY))
    save(area,out/f'{key}-content.webp')
-   refs[key]={'width':home.width(),'height':750,'contentWidth':area.width(),'contentHeight':area.height(),'cards':[]}
+   refs[key]={'width':home.width(),'height':750,'contentWidth':area.width(),'contentHeight':area.height(),'renderDensity':RENDER_DENSITY,'cards':[]}
    for card in home._cards:
     pos=card.mapTo(area,QPoint(0,0))
     refs[key]['cards'].append({'key':card.tab_key,'x':pos.x(),'y':pos.y(),'width':card.width(),'height':card.height()})

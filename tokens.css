@@ -40,3 +40,6 @@
 }
 .app-shell[data-theme="pentimento"]{--zone-inner:#c1af96;--zone-outer:#ADA3BC}
 .app-shell[data-theme="imprimatura"]{--zone-inner:#A8BCCE;--zone-outer:#C7AD8D}
+.app-shell[data-theme="imprimatura"]{--notice-accent:#A1C4C2;--notice-critical:#D19A9F;--notice-success:#98BBA8;--notice-alert-bg:#252126;--notice-alert-edge:#4D3D45}
+.app-shell[data-theme="pentimento"]{--notice-accent:#C3A7C7;--notice-critical:#D39A9E;--notice-success:#9BB8A6;--notice-alert-bg:#221D24;--notice-alert-edge:#493845}
+.app-shell[data-theme="tenebrismo"]{--notice-accent:var(--accent);--notice-critical:#DE9598;--notice-success:#92B6A1;--notice-alert-bg:var(--panel);--notice-alert-edge:#444D51}

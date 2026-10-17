@@ -46,9 +46,11 @@
 .app-sidebar [data-locate-app]{transition:background 120ms var(--ease),color 120ms var(--ease)}
 .app-sidebar [data-locate-app]:hover,.app-sidebar [data-locate-app]:focus-visible{background:var(--raised);color:#f1eadf}
 
-/* Keep the native product plane crisp while it receives pointer/scroll transforms. */
-.product-duet,.product-viewport,.app-shell,.home-render,.home-background,.home-light,.home-wafer{backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-style:preserve-3d}
-.product-duet{will-change:transform}.product-viewport{contain:paint}.app-shell{transform:translateZ(0) scale(calc(100cqw / 1229px));-webkit-font-smoothing:antialiased}
+/* Keep high-density native imagery at its final 2D scale. Nested promoted 3D
+   textures soften both captured lettering and the live browser controls. */
+.product-duet{perspective:none;transform:none}
+.product-viewport{contain:paint}
+.app-shell{transform:scale(calc(100cqw / 1229px))}
 .native-panel-motion{will-change:opacity;image-rendering:auto}
 .app-tile:before{inset:2px;clip-path:inset(0 round 5px)}
 
@@ -89,3 +91,42 @@
 .info-link{position:absolute;border-radius:3px}.info-link:focus-visible{outline:1px solid var(--focus);outline-offset:2px}
 .settings-drawer [data-close-info]{position:absolute;right:14px;top:11px;width:21px;height:22px;padding:0;border:0;background:none;color:var(--text);display:grid;place-items:center;border-radius:3px}
 .settings-drawer [data-close-info]:hover{background:var(--raised)}
+
+/* Native notification centre, populated with a resettable local demonstration. */
+.notification-control-wrap{position:relative;flex:none}
+.notification-control{position:relative}
+[data-notification-badge]{position:absolute;right:10px;top:1px;min-width:11px;height:11px;border-radius:6px;padding:0 3px;background:var(--notice-accent);color:var(--panel);font:700 8px/11px "Segoe UI",sans-serif}
+.notification-centre{position:absolute;right:0;top:calc(100% + 12px);width:512px;max-height:720px;padding:18px 16px 14px;border:1px solid var(--border);border-radius:14px;background:var(--panel);color:var(--text);box-shadow:0 12px 30px #0006;display:flex;flex-direction:column;gap:16px;text-align:left}
+.notification-centre header{display:flex;align-items:center;gap:8px}
+.notification-centre h3{font:600 18px/1.4 "Segoe UI",sans-serif;margin:0}
+.notification-centre [data-notification-count]{padding:2px 9px;border-radius:9px;background:var(--selection);font-size:11px;white-space:nowrap;margin-right:auto}
+.notification-centre button{color:var(--muted);background:none;border:0;padding:5px;border-radius:4px;font:13px/1.4 "Segoe UI",sans-serif}
+.notification-centre button:hover{background:var(--raised);color:var(--text)}
+.notification-centre button:focus-visible{outline:1px solid var(--focus);outline-offset:2px}
+.notification-centre button:disabled{opacity:.45;cursor:default}
+.notification-centre header button,.notification-entry-heading>button{width:28px;height:28px;display:grid;place-items:center;padding:0;flex:none}
+.notification-demo{margin:0;padding-bottom:16px;border-bottom:1px solid var(--border);font-size:14px;color:var(--text)}
+.notification-demo span{float:right;color:var(--muted);font-size:12px;padding-top:2px}
+.notification-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.notification-toolbar>div{display:flex;gap:5px}
+.notification-toolbar [data-notification-filter]{padding:7px 5px 9px;border-bottom:2px solid transparent;border-radius:0;font-size:14px}
+.notification-toolbar [aria-pressed=true]{border-bottom-color:var(--notice-accent);color:var(--text);font-weight:600}
+.notification-centre ul{list-style:none;margin:0;padding:1px 2px;display:flex;flex-direction:column;gap:10px;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--border-hover) transparent}
+.notification-entry{flex:none;border:1px solid var(--border);border-radius:10px;padding:14px 16px;background:var(--raised)}
+.notification-entry[data-tone=alert]{background:var(--notice-alert-bg);border-color:var(--notice-alert-edge)}
+.notification-entry[data-unread=false]{background:var(--panel);border-color:var(--border)}
+.notification-entry-heading{display:flex;align-items:center;gap:7px;margin-bottom:10px}
+.notification-category{display:flex;align-items:center;gap:7px;color:var(--notice-success);font-weight:600;font-size:14px}
+[data-tone=alert] .notification-category{color:var(--notice-critical)}
+.notification-category i{width:5px;height:5px;border-radius:50%;background:var(--notice-accent)}
+.notification-time{margin-left:auto;font-size:12px;color:var(--muted);white-space:nowrap}
+.notification-entry h4{font:600 16px/1.4 "Segoe UI",sans-serif;margin:0 0 7px}
+.notification-entry p{margin:0;font-size:14px;line-height:1.5}
+.notification-entry dl{display:flex;gap:32px;margin:12px 0 0}
+.notification-entry dt{font-size:11px;color:var(--muted);margin-bottom:3px}
+.notification-entry dd{margin:0;font-size:14px;font-variant-numeric:tabular-nums}
+.notification-centre .notification-read{margin-top:9px;padding-left:0;color:var(--notice-accent)}
+.notification-empty{text-align:center;padding:32px 12px;color:var(--muted);font-size:14px}
+.notification-empty strong{color:var(--text);font-weight:600}.notification-empty p{margin:5px 0 0}
+.notification-centre footer{display:flex;align-items:center;justify-content:flex-end;gap:10px;font-size:11px;color:var(--muted)}
+.notification-centre [data-reset-notifications]{color:var(--notice-accent);font-size:12px}

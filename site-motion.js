@@ -29,7 +29,8 @@ function render(){
  if(reduced.matches||narrow.matches){hero.style.removeProperty('--product-y');hero.style.removeProperty('--intro-y');hero.style.removeProperty('--intro-opacity');hero.style.removeProperty('--product-presence');credit.style.removeProperty('transform');credit.style.removeProperty('opacity');if(ghost){ghost.style.opacity='.14';ghost.style.setProperty('--ghost-rise','0px')}return;}
  const approach=smooth(scrollY/Math.max(1,originTop-rest));
  const handoff=smooth((scrollY+innerHeight*.85-thinkingTop)/Math.max(1,innerHeight*.85));
- hero.style.setProperty('--product-y',`${(1-approach)*10}px`);
+ const pixelRatio=window.devicePixelRatio||1;
+ hero.style.setProperty('--product-y',`${Math.round((1-approach)*10*pixelRatio)/pixelRatio}px`);
  hero.style.setProperty('--intro-y',`${-18*approach}px`);
  hero.style.setProperty('--intro-opacity',`${1-.34*approach}`);
  hero.style.setProperty('--product-presence',`${1-.12*handoff}`);

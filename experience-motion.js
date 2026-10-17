@@ -45,31 +45,15 @@ function proximity(surface,update,{initial=.5,retain=false,geometry=surface,allo
 }
 
 const heroElement=document.querySelector('.hero'),product=heroElement.querySelector('.product-duet');
-let heroX=.5,heroY=.5,targetX=.5,targetY=.5,raf=0,heroBounds=null;
-function heroFrame(now){raf=0;const dt=Math.min(40,now-(heroFrame.last||now));heroFrame.last=now;const ease=1-Math.exp(-dt/48);heroX+=(targetX-heroX)*ease;heroY+=(targetY-heroY)*ease;product.style.setProperty('--hero-rotate-y',`${(heroX-.5)*.8}deg`);product.style.setProperty('--hero-rotate-x',`${(.5-heroY)*.45}deg`);product.style.setProperty('--hero-shift-x',`${(heroX-.5)*3}px`);product.style.setProperty('--hero-shift-y',`${(heroY-.5)*2}px`);if(Math.abs(targetX-heroX)+Math.abs(targetY-heroY)>.0005&&!reduced.matches&&!document.hidden)raf=requestAnimationFrame(heroFrame);}
-function scheduleHero(){if(!raf&&!reduced.matches&&!document.hidden)raf=requestAnimationFrame(heroFrame);}
-function measureHero(){heroBounds=product.getBoundingClientRect();}
-if(fine.matches){
- heroElement.addEventListener('pointerenter',measureHero,{signal:options.signal});
- heroElement.addEventListener('pointermove',e=>{
-  // The pointer path is hot. Bounds are sampled only on entry and invalidated by layout changes.
-  if(!heroBounds)return;
-  targetX=clamp((e.clientX-heroBounds.left)/heroBounds.width);targetY=clamp((e.clientY-heroBounds.top)/heroBounds.height);scheduleHero();
- },{passive:true,signal:options.signal});
- heroElement.addEventListener('pointerleave',()=>{targetX=.5;targetY=.5;scheduleHero();},{signal:options.signal});
- const heroResize=new ResizeObserver(()=>{heroBounds=null;});heroResize.observe(product);
- window.addEventListener('resize',()=>{heroBounds=null;},{...options,passive:true});
- window.addEventListener('scroll',()=>{heroBounds=null;requestAnimationFrame(()=>{if(!heroBounds)measureHero();});},{...options,passive:true});
- disposals.push(()=>heroResize.disconnect());
-}
-product.style.setProperty('--hero-rotate-y','0deg');product.style.setProperty('--hero-rotate-x','0deg');
+// Keep the UI plane flat: perspective resamples every label while the pointer
+// moves. The native wafer retains its independent rotation and drag behavior.
 // The native texture rotates on the compositor, only while the product is visible.
 let productVisible=false;
 function syncProductMotion(){product.dataset.motion=productVisible&&!document.hidden&&!reduced.matches?'running':'paused';}
 const productVisibility=new IntersectionObserver(entries=>{productVisible=entries[0].isIntersecting;syncProductMotion();});
 productVisibility.observe(product);
 document.addEventListener('visibilitychange',syncProductMotion,options);
-reduced.addEventListener('change',()=>{syncProductMotion();if(reduced.matches){targetX=heroX=.5;targetY=heroY=.5;cancelAnimationFrame(raf);raf=0;product.style.setProperty('--wafer-look-x','0px');product.style.setProperty('--wafer-look-y','0px');}},options);
+reduced.addEventListener('change',syncProductMotion,options);
 // Dragging the unoccupied wafer field changes the same rotation playhead; releasing resumes it.
 const home=product.querySelector('.app-home');let waferDrag=null;
 home.addEventListener('pointerdown',event=>{
@@ -85,7 +69,7 @@ home.addEventListener('pointermove',event=>{
 },{...options,passive:true});
 function releaseWafer(){waferDrag=null;delete product.dataset.waferDragging;}
 home.addEventListener('pointerup',releaseWafer,options);home.addEventListener('pointercancel',releaseWafer,options);home.addEventListener('lostpointercapture',releaseWafer,options);
-disposals.push(()=>{productVisibility.disconnect();cancelAnimationFrame(raf);});
+disposals.push(()=>productVisibility.disconnect());
 
 const cycle=document.querySelector('.principle-cycle'),figures=[...cycle.querySelectorAll('.principle-figure')];
 proximity(cycle,(x,y,inside)=>{

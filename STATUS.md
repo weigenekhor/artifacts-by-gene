@@ -1,5 +1,13 @@
 # Implementation status
 
+## Hero clarity and notification demonstration — 17 October 2026
+
+The native homepage content and hover layers are rendered at 4× density with lossless WebP, including high-density glyphs drawn from the desktop vector code. The export keeps the existing logical card bounds. Nested 3D texture promotion and pointer perspective were removed from the UI plane; wafer rotation, dragging, navigation, theme changes and page transitions remain. Scroll translation is aligned to device pixels. Updated URLs invalidate the older low-density hero assets.
+
+The title-bar bell now opens a theme-aware notification centre with three explicitly labelled samples. All/unread filters, mark-as-read, mark-all-read, individual deletion, delete-all, reset, Escape, outside dismissal and keyboard focus restoration are supported locally. It does not access desktop monitoring data, send notifications, or persist fake alerts.
+
+Build, syntax and 20 tests pass for this change, including native output density and notification state/interaction tests. Rendered homepage layers were inspected over an opaque background. Browser visual verification remains blocked by the Work browser-access setting; the notification panel and final composited hero have not yet been visually reviewed in-browser. Production remains unchanged.
+
 ## Current refresh — 17 October 2026
 
 Implemented locally against the current desktop source and the completed Upscayl capture archive:

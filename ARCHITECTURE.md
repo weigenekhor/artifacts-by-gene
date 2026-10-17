@@ -2,6 +2,8 @@
 
 ## Current three-theme integration
 
+Hero clarity refinement: homepage content/hover exports now use 4× lossless rendering and 4× native glyph pixmaps. Only one 2D uniform scale applies to the UI; perspective and nested GPU promotion no longer resample it. The independent wafer animation remains. `notification-centre.js` owns an isolated, resettable sample feed and accessible title-bar popover; there is no notification network or persistence integration.
+
 The current catalogue contains 19 applications, 138 captures, 24 native home layouts and 81 native information panels. The default is Tenebrismo appearance with Pentimento edition. `state.js` migrates old appearance keys and keeps edition and appearance independent.
 
 `appearance-menu.js` owns the Suture picker, its below-button menu, keyboard movement and dismissal. `application-age.js` computes local calendar years/months and schedules bounded refreshes across midnight, clock changes and resumed pages. `content/info-reference.json` supplies the actual desktop panel geometry for the live age value and contact links. Both exporters use `desktop-export-style.py` to reproduce desktop stylesheet routing without changing desktop files.
