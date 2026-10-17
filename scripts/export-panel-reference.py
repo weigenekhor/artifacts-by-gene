@@ -5,7 +5,7 @@ os.environ['QT_QPA_PLATFORM']='offscreen';sys.dont_write_bytecode=True
 site=Path.cwd();source=Path(sys.argv[1]).resolve();sys.path.insert(0,str(source));os.chdir(source)
 package=types.ModuleType('widgets');package.__path__=[str(source/'widgets')];sys.modules['widgets']=package
 from PySide6.QtCore import Qt,QPoint,QSize
-from PySide6.QtGui import QFont,QFontDatabase,QImage,QRegion
+from PySide6.QtGui import QFont,QFontDatabase,QImage,QRegion,QFontInfo,QPalette
 from PySide6.QtWidgets import QApplication,QWidget,QVBoxLayout,QLabel
 from PySide6.QtSvg import QSvgRenderer
 from PIL import Image
@@ -63,8 +63,22 @@ for theme,appearance in (('imprimatura','original'),('tenebrismo','void'),('pent
             key=f'{theme}-{mode}-{card.tab_key}'
             panel.set_module(card.tab_key,card.letters);panel.show();panel.ensurePolished();app.processEvents()
             panel.motion.setPaused(True);panel.preview_frame._timer.stop();panel.motion._phase=.45
+            motion=panel.motion;refs[key]={'width':panel.width(),'height':panel.height(),'motion':bounds(motion,panel),'text':[]}
+            styles=[]
+            for label in panel.findChildren(QLabel):
+                if not label.text() or not label.isVisible():continue
+                box=bounds(label,panel);font=QFontInfo(label.font());alignment=label.alignment()
+                refs[key]['text'].append({**box,'text':label.text(),'size':font.pixelSize(),'weight':int(label.font().weight()),'color':label.palette().color(QPalette.WindowText).name(),'align':'right' if alignment&Qt.AlignRight else 'center' if alignment&Qt.AlignHCenter else 'left','top':bool(alignment&Qt.AlignTop)})
+                css=label.styleSheet();styles.append((label,css))
+                original_style(label,css+(f'\nQLabel#{label.objectName()} {{color:transparent;}}' if '{' in css else ';color:transparent;'))
+            # The category's stylesheet is reapplied by native polish. Blank
+            # only its text while pinning the measured pill size for this render.
+            category=panel.category_label;category_text=category.text()
+            category_min,category_max=category.minimumSize(),category.maximumSize()
+            category.setFixedSize(category.size());category.setText('')
             raster(panel).save(out/f'{key}.webp',quality=96)
-            motion=panel.motion;refs[key]={'width':panel.width(),'height':panel.height(),'motion':bounds(motion,panel)}
+            category.setText(category_text);category.setMinimumSize(category_min);category.setMaximumSize(category_max)
+            for label,css in styles:original_style(label,css)
             frames=[]
             for frame in range(32):
                 motion._phase=frame/32;frames.append(raster(motion))

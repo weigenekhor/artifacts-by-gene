@@ -7,7 +7,7 @@ import sharp from 'sharp';
 const model=JSON.parse(await fs.readFile('content/apps.json','utf8'));
 const html=await fs.readFile('index.html','utf8');
 
-test('Canonical collection is unique, ordered and complete; no fabricated app pages ship',()=>{
+test('Canonical collection is unique, ordered and complete within one product window',()=>{
  const ids=new Set(model.apps.map(a=>a.id));
  assert.equal(ids.size,model.apps.length);
  assert.equal(html.split('data-gallery-app="').length-1,ids.size);
@@ -177,9 +177,10 @@ test('Hover positioning keeps full panels inside small, landscape and desktop vi
  }
 });
 
-test('Hero inspection cannot launch screenshot pages and closing credit contains only approved content',async()=>{
+test('Hero opens local samples without replacing the screenshot gallery or approved closing credit',async()=>{
  const shell=await fs.readFile('native-shell.js','utf8');
- assert.doesNotMatch(shell,/openApp|showCapture|data-open-app|product-capture/);
+ assert.match(shell,/demos\.open\(appId\)/);
+ assert.doesNotMatch(shell,/showCapture|product-capture/);
  assert.doesNotMatch(html,/Artifacts for Gene/);
  assert.match(html,/data-product-status>Pentimento</);
  const credit=html.slice(html.indexOf('<section class="authorship'),html.indexOf('<footer class="ending'));

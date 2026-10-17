@@ -1,5 +1,11 @@
 # Start here — ARTIFACTS public website
 
+## Live typography and interactive samples — 17 October 2026
+
+The latest user request supersedes the older inspection-only hero rule. Every home card and application navigation item now opens a local sample workspace. All 19 registered apps have mode-specific demonstrations, working filters/actions, data/statistics, reset/clear and sample CSV export. Desktop processing algorithms are not ported: the visible “Interactive demo · Sample data” label identifies these illustrative workflows.
+
+Home labels, expedition headings, Application Info and hover-panel copy now use live browser text. Native card surfaces and glyphs retain the measured desktop geometry. The outer website background is quiet graphite. Native 2D browser zoom is preferred over texture-scaled text where supported; the fallback preserves the original window proportions. See STATUS.md for verification limits.
+
 ## Current refresh — 17 October 2026
 
 The product showcase now follows the latest desktop registry: 19 unique applications, including Aperture SPC and Telemetry, and three appearances: Imprimatura, Tenebrismo and Pentimento. Tenebrismo is the first-visit default; valid saved appearances take precedence, with old Origin preferences migrated to Imprimatura.

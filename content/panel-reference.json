@@ -7,7 +7,93 @@
       "y": 139,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 137,
+        "height": 28,
+        "text": "Expedition I - Altus",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Altus Lot Viewer",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 17,
+        "text": "Demo lot-history view with generated Reactor results.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 258,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 258,
+        "width": 283,
+        "height": 17,
+        "text": "v6.0.3",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 277,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 277,
+        "width": 281,
+        "height": 17,
+        "text": "2023-08-02",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-legacy-altusanko_tab": {
     "width": 372,
@@ -17,7 +103,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 137,
+        "height": 28,
+        "text": "Expedition I - Altus",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Altus ANKO Viewer",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Demo ANKO schedule view with generated Reactor due dates.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v2.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2023-09-20",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-legacy-wafercount_tab": {
     "width": 372,
@@ -27,7 +199,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 137,
+        "height": 28,
+        "text": "Expedition I - Altus",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Altus WaferCount",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Demo wafer-count view with generated Reactor loading values.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.3",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2023-09-28",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-legacy-topotracer_tab": {
     "width": 372,
@@ -37,7 +295,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 166,
+        "height": 28,
+        "text": "Expedition II - Interstice",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Topo Tracer",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Enable effortless topography and contour plotting with precision.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v7.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2023-11-15",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-legacy-xml_tab": {
     "width": 372,
@@ -47,7 +391,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 166,
+        "height": 28,
+        "text": "Expedition II - Interstice",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Papyrus Reader",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Purpose-built for Aixtron tools, it deciphers XML and EPI recipe files with precision while supporting standard documents.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v6.0.3",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2024-06-06",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-legacy-path_tab": {
     "width": 372,
@@ -57,7 +487,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 166,
+        "height": 28,
+        "text": "Expedition II - Interstice",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "SPC Pathfinder",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Index and navigate SPC charts with one-click shortcuts for direct chart access.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2024-10-28",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-legacy-metro_tab": {
     "width": 372,
@@ -67,7 +583,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 158,
+        "height": 28,
+        "text": "Expedition III - Epitaxy",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Met Compiler",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Compiles metrology and Growth Plan inputs into a structured master workbook, with validation, safe append and conflict checking.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v8.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-03-15",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-legacy-pyra_tab": {
     "width": 372,
@@ -77,7 +679,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 158,
+        "height": 28,
+        "text": "Expedition III - Epitaxy",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX Temp Diagnoser",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Simplifies troubleshooting temperature drifting issues by analyzing user-provided inputs to deliver actionable insights.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v5.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-07-07",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-legacy-dt_tab": {
     "width": 372,
@@ -87,7 +775,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 158,
+        "height": 28,
+        "text": "Expedition III - Epitaxy",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX \u0394T Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Simplifies troubleshooting wafer-to-wafer temperature issues by analyzing user-provided inputs to deliver actionable insights.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v2.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-08-28",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-legacy-laytec_tab": {
     "width": 372,
@@ -97,7 +871,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 158,
+        "height": 28,
+        "text": "Expedition III - Epitaxy",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "LT Zone Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Helps users imagine where LayTec measures temperatures on wafers.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2025-12-25",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-legacy-xmlll_tab": {
     "width": 372,
@@ -107,7 +967,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 158,
+        "height": 28,
+        "text": "Expedition III - Epitaxy",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX XML Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Automates node-level comparison of Devices.XML for device constants and settings.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v2.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-01-03",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-legacy-dnd_tab": {
     "width": 372,
@@ -117,7 +1063,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 169,
+        "height": 28,
+        "text": "Expedition IV - Monolith",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Magus SPC (GaN)",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Displays SPC data with clear pass/fail status and translates them into production-release recommendations for GaN processes.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v4.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2026-01-22",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-legacy-dnd2_tab": {
     "width": 372,
@@ -127,7 +1159,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 169,
+        "height": 28,
+        "text": "Expedition IV - Monolith",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Magus SPC (Legacy)",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Displays SPC data with clear pass/fail status and translates them into production-release recommendations for non-GaN processes.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v4.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2026-01-24",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-legacy-ankohelper_tab": {
     "width": 372,
@@ -137,7 +1255,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 169,
+        "height": 28,
+        "text": "Expedition IV - Monolith",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "ANKO Helper",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Computes the latest ANKO status and indicates when each process reactor is due for its next ANKO.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-02-01",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-legacy-sap_tab": {
     "width": 372,
@@ -147,7 +1351,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 169,
+        "height": 28,
+        "text": "Expedition IV - Monolith",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "LT Report Compiler",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Convert LayTec analysis reports to configurable, schema-based Excel compilation.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-03-06",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-pentimento-topotracer_tab": {
     "width": 372,
@@ -157,7 +1447,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "TopoTracer",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Enable effortless topography and contour plotting with precision.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v7.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2023-11-15",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-pentimento-xml_tab": {
     "width": 372,
@@ -167,7 +1543,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Papyrus Reader",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Purpose-built for Aixtron tools, it deciphers XML and EPI recipe files with precision while supporting standard documents.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v6.0.3",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2024-06-06",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-pentimento-pyra_tab": {
     "width": 372,
@@ -177,7 +1639,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX Temp Diagnoser",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Simplifies troubleshooting temperature drifting issues by analyzing user-provided inputs to deliver actionable insights.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v5.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-07-07",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-pentimento-dt_tab": {
     "width": 372,
@@ -187,7 +1735,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX \u0394T Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Simplifies troubleshooting wafer-to-wafer temperature issues by analyzing user-provided inputs to deliver actionable insights.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v2.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-08-28",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-pentimento-laytec_tab": {
     "width": 372,
@@ -197,7 +1831,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "LT Zone Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Helps users imagine where LayTec measures temperatures on wafers.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2025-12-25",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-pentimento-xmlll_tab": {
     "width": 372,
@@ -207,7 +1927,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX XML Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Automates node-level comparison of Devices.XML for device constants and settings.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v2.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-01-03",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-pentimento-sap_tab": {
     "width": 372,
@@ -217,7 +2023,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "LT Report Compiler",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Convert LayTec analysis reports to configurable, schema-based Excel compilation.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-03-06",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-pentimento-metro_tab": {
     "width": 372,
@@ -227,7 +2119,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 184,
+        "height": 28,
+        "text": "Expedition VI - Moonstone",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Met Compiler",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Compiles metrology and Growth Plan inputs into a structured master workbook, with validation, safe append and conflict checking.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v8.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-03-15",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-pentimento-plessey_spc_tab": {
     "width": 372,
@@ -237,7 +2215,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 184,
+        "height": 28,
+        "text": "Expedition VI - Moonstone",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Metria SPC",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Plots multi-parameter SPC across reactors and Run Type families on one aligned canvas for fast process review and troubleshooting.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2026-09-10",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-pentimento-aperture_spc_tab": {
     "width": 372,
@@ -247,7 +2311,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 184,
+        "height": 28,
+        "text": "Expedition VI - Moonstone",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Aperture SPC",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Connects to fab metrology data, applies context-aware limits, and plots one parameter per SPC chart by time or lot/run.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2026-10-05",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-pentimento-datalens_tab": {
     "width": 372,
@@ -257,7 +2407,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 184,
+        "height": 28,
+        "text": "Expedition VI - Moonstone",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Data Lens",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Explores engineering data through Smart Plot, wafer maps, run comparisons, distributions and wafer-level correlations.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2026-09-28",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "imprimatura-pentimento-sentry_tab": {
     "width": 372,
@@ -267,7 +2503,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 184,
+        "height": 28,
+        "text": "Expedition VI - Moonstone",
+        "size": 13,
+        "weight": 600,
+        "color": "#b9d6ce",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Telemetry",
+        "size": 17,
+        "weight": 600,
+        "color": "#d4c6a8",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Traces production-tool signals over time, examines sensor behaviour and supports equipment planning.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e3e4e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.2.6",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#aeb2bc",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-10-06",
+        "size": 13,
+        "weight": 600,
+        "color": "#f1f2f4",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-legacy-parser_tab": {
     "width": 372,
@@ -277,7 +2599,93 @@
       "y": 139,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 137,
+        "height": 28,
+        "text": "Expedition I - Altus",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Altus Lot Viewer",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 17,
+        "text": "Demo lot-history view with generated Reactor results.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 258,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 258,
+        "width": 283,
+        "height": 17,
+        "text": "v6.0.3",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 277,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 277,
+        "width": 281,
+        "height": 17,
+        "text": "2023-08-02",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-legacy-altusanko_tab": {
     "width": 372,
@@ -287,7 +2695,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 137,
+        "height": 28,
+        "text": "Expedition I - Altus",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Altus ANKO Viewer",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Demo ANKO schedule view with generated Reactor due dates.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v2.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2023-09-20",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-legacy-wafercount_tab": {
     "width": 372,
@@ -297,7 +2791,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 137,
+        "height": 28,
+        "text": "Expedition I - Altus",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Altus WaferCount",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Demo wafer-count view with generated Reactor loading values.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.3",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2023-09-28",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-legacy-topotracer_tab": {
     "width": 372,
@@ -307,7 +2887,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 166,
+        "height": 28,
+        "text": "Expedition II - Interstice",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Topo Tracer",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Enable effortless topography and contour plotting with precision.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v7.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2023-11-15",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-legacy-xml_tab": {
     "width": 372,
@@ -317,7 +2983,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 166,
+        "height": 28,
+        "text": "Expedition II - Interstice",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Papyrus Reader",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Purpose-built for Aixtron tools, it deciphers XML and EPI recipe files with precision while supporting standard documents.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v6.0.3",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2024-06-06",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-legacy-path_tab": {
     "width": 372,
@@ -327,7 +3079,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 166,
+        "height": 28,
+        "text": "Expedition II - Interstice",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "SPC Pathfinder",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Index and navigate SPC charts with one-click shortcuts for direct chart access.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2024-10-28",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-legacy-metro_tab": {
     "width": 372,
@@ -337,7 +3175,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 158,
+        "height": 28,
+        "text": "Expedition III - Epitaxy",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Met Compiler",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Compiles metrology and Growth Plan inputs into a structured master workbook, with validation, safe append and conflict checking.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v8.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-03-15",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-legacy-pyra_tab": {
     "width": 372,
@@ -347,7 +3271,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 158,
+        "height": 28,
+        "text": "Expedition III - Epitaxy",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX Temp Diagnoser",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Simplifies troubleshooting temperature drifting issues by analyzing user-provided inputs to deliver actionable insights.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v5.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-07-07",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-legacy-dt_tab": {
     "width": 372,
@@ -357,7 +3367,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 158,
+        "height": 28,
+        "text": "Expedition III - Epitaxy",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX \u0394T Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Simplifies troubleshooting wafer-to-wafer temperature issues by analyzing user-provided inputs to deliver actionable insights.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v2.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-08-28",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-legacy-laytec_tab": {
     "width": 372,
@@ -367,7 +3463,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 158,
+        "height": 28,
+        "text": "Expedition III - Epitaxy",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "LT Zone Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Helps users imagine where LayTec measures temperatures on wafers.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2025-12-25",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-legacy-xmlll_tab": {
     "width": 372,
@@ -377,7 +3559,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 158,
+        "height": 28,
+        "text": "Expedition III - Epitaxy",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX XML Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Automates node-level comparison of Devices.XML for device constants and settings.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v2.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-01-03",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-legacy-dnd_tab": {
     "width": 372,
@@ -387,7 +3655,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 169,
+        "height": 28,
+        "text": "Expedition IV - Monolith",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Magus SPC (GaN)",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Displays SPC data with clear pass/fail status and translates them into production-release recommendations for GaN processes.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v4.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2026-01-22",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-legacy-dnd2_tab": {
     "width": 372,
@@ -397,7 +3751,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 169,
+        "height": 28,
+        "text": "Expedition IV - Monolith",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Magus SPC (Legacy)",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Displays SPC data with clear pass/fail status and translates them into production-release recommendations for non-GaN processes.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v4.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2026-01-24",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-legacy-ankohelper_tab": {
     "width": 372,
@@ -407,7 +3847,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 169,
+        "height": 28,
+        "text": "Expedition IV - Monolith",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "ANKO Helper",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Computes the latest ANKO status and indicates when each process reactor is due for its next ANKO.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-02-01",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-legacy-sap_tab": {
     "width": 372,
@@ -417,7 +3943,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 169,
+        "height": 28,
+        "text": "Expedition IV - Monolith",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "LT Report Compiler",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Convert LayTec analysis reports to configurable, schema-based Excel compilation.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-03-06",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-pentimento-topotracer_tab": {
     "width": 372,
@@ -427,7 +4039,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "TopoTracer",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Enable effortless topography and contour plotting with precision.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v7.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2023-11-15",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-pentimento-xml_tab": {
     "width": 372,
@@ -437,7 +4135,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Papyrus Reader",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Purpose-built for Aixtron tools, it deciphers XML and EPI recipe files with precision while supporting standard documents.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v6.0.3",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2024-06-06",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-pentimento-pyra_tab": {
     "width": 372,
@@ -447,7 +4231,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX Temp Diagnoser",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Simplifies troubleshooting temperature drifting issues by analyzing user-provided inputs to deliver actionable insights.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v5.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-07-07",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-pentimento-dt_tab": {
     "width": 372,
@@ -457,7 +4327,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX \u0394T Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Simplifies troubleshooting wafer-to-wafer temperature issues by analyzing user-provided inputs to deliver actionable insights.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v2.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-08-28",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-pentimento-laytec_tab": {
     "width": 372,
@@ -467,7 +4423,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "LT Zone Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Helps users imagine where LayTec measures temperatures on wafers.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2025-12-25",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-pentimento-xmlll_tab": {
     "width": 372,
@@ -477,7 +4519,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX XML Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Automates node-level comparison of Devices.XML for device constants and settings.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v2.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-01-03",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-pentimento-sap_tab": {
     "width": 372,
@@ -487,7 +4615,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "LT Report Compiler",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Convert LayTec analysis reports to configurable, schema-based Excel compilation.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-03-06",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-pentimento-metro_tab": {
     "width": 372,
@@ -497,7 +4711,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 184,
+        "height": 28,
+        "text": "Expedition VI - Moonstone",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Met Compiler",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Compiles metrology and Growth Plan inputs into a structured master workbook, with validation, safe append and conflict checking.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v8.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-03-15",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-pentimento-plessey_spc_tab": {
     "width": 372,
@@ -507,7 +4807,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 184,
+        "height": 28,
+        "text": "Expedition VI - Moonstone",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Metria SPC",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Plots multi-parameter SPC across reactors and Run Type families on one aligned canvas for fast process review and troubleshooting.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2026-09-10",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-pentimento-aperture_spc_tab": {
     "width": 372,
@@ -517,7 +4903,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 184,
+        "height": 28,
+        "text": "Expedition VI - Moonstone",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Aperture SPC",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Connects to fab metrology data, applies context-aware limits, and plots one parameter per SPC chart by time or lot/run.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2026-10-05",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-pentimento-datalens_tab": {
     "width": 372,
@@ -527,7 +4999,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 184,
+        "height": 28,
+        "text": "Expedition VI - Moonstone",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Data Lens",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Explores engineering data through Smart Plot, wafer maps, run comparisons, distributions and wafer-level correlations.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2026-09-28",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "tenebrismo-pentimento-sentry_tab": {
     "width": 372,
@@ -537,7 +5095,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 184,
+        "height": 28,
+        "text": "Expedition VI - Moonstone",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Telemetry",
+        "size": 17,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Traces production-tool signals over time, examines sensor behaviour and supports equipment planning.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.2.6",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e1e6e7",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-10-06",
+        "size": 13,
+        "weight": 600,
+        "color": "#e1e6e7",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-legacy-parser_tab": {
     "width": 372,
@@ -547,7 +5191,93 @@
       "y": 139,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 137,
+        "height": 28,
+        "text": "Expedition I - Altus",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Altus Lot Viewer",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 17,
+        "text": "Demo lot-history view with generated Reactor results.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 258,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 258,
+        "width": 283,
+        "height": 17,
+        "text": "v6.0.3",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 277,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 277,
+        "width": 281,
+        "height": 17,
+        "text": "2023-08-02",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-legacy-altusanko_tab": {
     "width": 372,
@@ -557,7 +5287,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 137,
+        "height": 28,
+        "text": "Expedition I - Altus",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Altus ANKO Viewer",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Demo ANKO schedule view with generated Reactor due dates.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v2.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2023-09-20",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-legacy-wafercount_tab": {
     "width": 372,
@@ -567,7 +5383,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 137,
+        "height": 28,
+        "text": "Expedition I - Altus",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Altus WaferCount",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Demo wafer-count view with generated Reactor loading values.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.3",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2023-09-28",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-legacy-topotracer_tab": {
     "width": 372,
@@ -577,7 +5479,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 166,
+        "height": 28,
+        "text": "Expedition II - Interstice",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Topo Tracer",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Enable effortless topography and contour plotting with precision.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v7.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2023-11-15",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-legacy-xml_tab": {
     "width": 372,
@@ -587,7 +5575,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 166,
+        "height": 28,
+        "text": "Expedition II - Interstice",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Papyrus Reader",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Purpose-built for Aixtron tools, it deciphers XML and EPI recipe files with precision while supporting standard documents.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v6.0.3",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2024-06-06",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-legacy-path_tab": {
     "width": 372,
@@ -597,7 +5671,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 166,
+        "height": 28,
+        "text": "Expedition II - Interstice",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "SPC Pathfinder",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Index and navigate SPC charts with one-click shortcuts for direct chart access.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2024-10-28",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-legacy-metro_tab": {
     "width": 372,
@@ -607,7 +5767,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 158,
+        "height": 28,
+        "text": "Expedition III - Epitaxy",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Met Compiler",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Compiles metrology and Growth Plan inputs into a structured master workbook, with validation, safe append and conflict checking.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v8.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-03-15",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-legacy-pyra_tab": {
     "width": 372,
@@ -617,7 +5863,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 158,
+        "height": 28,
+        "text": "Expedition III - Epitaxy",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX Temp Diagnoser",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Simplifies troubleshooting temperature drifting issues by analyzing user-provided inputs to deliver actionable insights.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v5.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-07-07",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-legacy-dt_tab": {
     "width": 372,
@@ -627,7 +5959,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 158,
+        "height": 28,
+        "text": "Expedition III - Epitaxy",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX \u0394T Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Simplifies troubleshooting wafer-to-wafer temperature issues by analyzing user-provided inputs to deliver actionable insights.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v2.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-08-28",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-legacy-laytec_tab": {
     "width": 372,
@@ -637,7 +6055,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 158,
+        "height": 28,
+        "text": "Expedition III - Epitaxy",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "LT Zone Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Helps users imagine where LayTec measures temperatures on wafers.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2025-12-25",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-legacy-xmlll_tab": {
     "width": 372,
@@ -647,7 +6151,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 158,
+        "height": 28,
+        "text": "Expedition III - Epitaxy",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX XML Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Automates node-level comparison of Devices.XML for device constants and settings.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v2.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-01-03",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-legacy-dnd_tab": {
     "width": 372,
@@ -657,7 +6247,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 169,
+        "height": 28,
+        "text": "Expedition IV - Monolith",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Magus SPC (GaN)",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Displays SPC data with clear pass/fail status and translates them into production-release recommendations for GaN processes.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v4.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2026-01-22",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-legacy-dnd2_tab": {
     "width": 372,
@@ -667,7 +6343,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 169,
+        "height": 28,
+        "text": "Expedition IV - Monolith",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Magus SPC (Legacy)",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Displays SPC data with clear pass/fail status and translates them into production-release recommendations for non-GaN processes.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v4.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2026-01-24",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-legacy-ankohelper_tab": {
     "width": 372,
@@ -677,7 +6439,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 169,
+        "height": 28,
+        "text": "Expedition IV - Monolith",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "ANKO Helper",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Computes the latest ANKO status and indicates when each process reactor is due for its next ANKO.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-02-01",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-legacy-sap_tab": {
     "width": 372,
@@ -687,7 +6535,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 169,
+        "height": 28,
+        "text": "Expedition IV - Monolith",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "LT Report Compiler",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Convert LayTec analysis reports to configurable, schema-based Excel compilation.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-03-06",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-pentimento-topotracer_tab": {
     "width": 372,
@@ -697,7 +6631,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "TopoTracer",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Enable effortless topography and contour plotting with precision.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v7.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2023-11-15",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-pentimento-xml_tab": {
     "width": 372,
@@ -707,7 +6727,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Papyrus Reader",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Purpose-built for Aixtron tools, it deciphers XML and EPI recipe files with precision while supporting standard documents.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v6.0.3",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2024-06-06",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-pentimento-pyra_tab": {
     "width": 372,
@@ -717,7 +6823,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX Temp Diagnoser",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Simplifies troubleshooting temperature drifting issues by analyzing user-provided inputs to deliver actionable insights.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v5.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-07-07",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-pentimento-dt_tab": {
     "width": 372,
@@ -727,7 +6919,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX \u0394T Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Simplifies troubleshooting wafer-to-wafer temperature issues by analyzing user-provided inputs to deliver actionable insights.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v2.0.1",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-08-28",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-pentimento-laytec_tab": {
     "width": 372,
@@ -737,7 +7015,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "LT Zone Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Helps users imagine where LayTec measures temperatures on wafers.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2025-12-25",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-pentimento-xmlll_tab": {
     "width": 372,
@@ -747,7 +7111,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "AIX XML Assistant",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Automates node-level comparison of Devices.XML for device constants and settings.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v2.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-01-03",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-pentimento-sap_tab": {
     "width": 372,
@@ -757,7 +7207,93 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 165,
+        "height": 28,
+        "text": "Expedition V - Planetfall",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "LT Report Compiler",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Convert LayTec analysis reports to configurable, schema-based Excel compilation.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-03-06",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-pentimento-metro_tab": {
     "width": 372,
@@ -767,7 +7303,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 184,
+        "height": 28,
+        "text": "Expedition VI - Moonstone",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Met Compiler",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Compiles metrology and Growth Plan inputs into a structured master workbook, with validation, safe append and conflict checking.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v8.0.2",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2025-03-15",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-pentimento-plessey_spc_tab": {
     "width": 372,
@@ -777,7 +7399,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 184,
+        "height": 28,
+        "text": "Expedition VI - Moonstone",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Metria SPC",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Plots multi-parameter SPC across reactors and Run Type families on one aligned canvas for fast process review and troubleshooting.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2026-09-10",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-pentimento-aperture_spc_tab": {
     "width": 372,
@@ -787,7 +7495,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 184,
+        "height": 28,
+        "text": "Expedition VI - Moonstone",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Aperture SPC",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Connects to fab metrology data, applies context-aware limits, and plots one parameter per SPC chart by time or lot/run.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2026-10-05",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-pentimento-datalens_tab": {
     "width": 372,
@@ -797,7 +7591,93 @@
       "y": 173,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 184,
+        "height": 28,
+        "text": "Expedition VI - Moonstone",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Data Lens",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 51,
+        "text": "Explores engineering data through Smart Plot, wafer maps, run comparisons, distributions and wafer-level correlations.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 292,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 292,
+        "width": 283,
+        "height": 17,
+        "text": "v1.0.0",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 311,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 311,
+        "width": 281,
+        "height": 17,
+        "text": "2026-09-28",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   },
   "pentimento-pentimento-sentry_tab": {
     "width": 372,
@@ -807,6 +7687,92 @@
       "y": 156,
       "width": 334,
       "height": 104
-    }
+    },
+    "text": [
+      {
+        "x": 19,
+        "y": 15,
+        "width": 184,
+        "height": 28,
+        "text": "Expedition VI - Moonstone",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "center",
+        "top": false
+      },
+      {
+        "x": 91,
+        "y": 68,
+        "width": 262,
+        "height": 22,
+        "text": "Telemetry",
+        "size": 17,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 115,
+        "width": 334,
+        "height": 34,
+        "text": "Traces production-tool signals over time, examines sensor behaviour and supports equipment planning.",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": true
+      },
+      {
+        "x": 19,
+        "y": 275,
+        "width": 43,
+        "height": 17,
+        "text": "Version",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 70,
+        "y": 275,
+        "width": 283,
+        "height": 17,
+        "text": "v1.2.6",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      },
+      {
+        "x": 19,
+        "y": 294,
+        "width": 45,
+        "height": 17,
+        "text": "Release",
+        "size": 13,
+        "weight": 400,
+        "color": "#e5e8ec",
+        "align": "left",
+        "top": false
+      },
+      {
+        "x": 72,
+        "y": 294,
+        "width": 281,
+        "height": 17,
+        "text": "2026-10-06",
+        "size": 13,
+        "weight": 600,
+        "color": "#e5e8ec",
+        "align": "right",
+        "top": false
+      }
+    ]
   }
 }

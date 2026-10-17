@@ -5,10 +5,10 @@ os.environ['QT_QPA_PLATFORM']='offscreen';sys.dont_write_bytecode=True
 site=Path.cwd();source=Path(sys.argv[1]).resolve();sys.path.insert(0,str(source));os.chdir(source)
 package=types.ModuleType('widgets');package.__path__=[str(source/'widgets')];sys.modules['widgets']=package
 from PySide6.QtCore import Qt,QPoint
-from PySide6.QtGui import QFont,QFontDatabase,QImage
+from PySide6.QtGui import QFont,QFontDatabase,QImage,QPalette
 from PySide6.QtWidgets import QApplication,QWidget
 from PIL import Image
-from widgets.home_widget import HomeWidget,make_suite_icon
+from widgets.home_widget import HomeWidget,make_suite_icon,ModuleCategoryTitle
 from widgets.edition_theme import application_stylesheet,edition_name
 exec((site/'scripts/desktop-export-style.py').read_text(),globals())
 app=QApplication([])
@@ -38,12 +38,22 @@ for theme,appearance in (('imprimatura','original'),('tenebrismo','void'),('pent
    for card in home._cards:
     icon=make_suite_icon(card._icon_letters,card._icon_size,radius=12,dpr=RENDER_DENSITY,tab_key=card.tab_key,optical_normalization=True)
     card.abbrev_label.setPixmap(icon.pixmap(card._icon_size,RENDER_DENSITY))
-   save(area,out/f'{key}-content.webp')
-   refs[key]={'width':home.width(),'height':750,'contentWidth':area.width(),'contentHeight':area.height(),'renderDensity':RENDER_DENSITY,'cards':[]}
+   refs[key]={'width':home.width(),'height':750,'contentWidth':area.width(),'contentHeight':area.height(),'renderDensity':RENDER_DENSITY,'cards':[],'headings':[]}
+   # Text is drawn by the browser at the actual display density. Preserve all
+   # measured Qt geometry and rasterize only the native card surfaces/glyphs.
+   labels=[]
+   for label in area.findChildren(ModuleCategoryTitle):
+    pos=label.mapTo(area,QPoint(0,0))
+    refs[key]['headings'].append({'text':label.text(),'x':pos.x()+14,'y':pos.y(),'width':label.width()-28,'height':label.height()})
+    labels.append((label,label.text()));label.setText('')
    for card in home._cards:
     pos=card.mapTo(area,QPoint(0,0))
-    refs[key]['cards'].append({'key':card.tab_key,'x':pos.x(),'y':pos.y(),'width':card.width(),'height':card.height()})
+    label=card.title_label;lp=label.mapTo(card,QPoint(0,0))
+    refs[key]['cards'].append({'key':card.tab_key,'x':pos.x(),'y':pos.y(),'width':card.width(),'height':card.height(),'label':{'text':label.text(),'x':lp.x(),'y':lp.y(),'width':label.width(),'height':label.height(),'color':label.palette().color(QPalette.WindowText).name()}})
+    labels.append((label,label.text()));label.setText('')
     card.setHoverAmount(1);save(card,out/f'{key}-{card.tab_key}.webp');card.setHoverAmount(0)
+   save(area,out/f'{key}-content.webp')
+   for label,text in labels:label.setText(text)
    scroll.hide();app.processEvents()
    layer=home._wafer_layer
    if not layer._compatible:raise RuntimeError('Native rotating wafer source is unavailable')

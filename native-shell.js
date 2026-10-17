@@ -1,8 +1,9 @@
+import {demoWorkspace} from './demo-workspace.js?v=20261017-live';
 import {model,state,themes,setEdition,setTheme} from './state.js?v=20261017';
 import {appearanceMenu} from './appearance-menu.js';
 import {maintainApplicationAge} from './application-age.js';
 import {notificationCentre} from './notification-centre.js';
-import {homeMarkup,panelPosition} from './native-home.js?v=20261017-hd';
+import {homeMarkup,panelPosition} from './native-home.js?v=20261017-live';
 import {createPanelCache} from './panel-cache.js';
 
 const stage=document.querySelector('.product-stage');
@@ -13,7 +14,7 @@ const drawer=shell.querySelector('.settings-drawer');
 const details=document.querySelector('.module-details');
 const layouts=JSON.parse(document.querySelector('#native-layout-data').textContent);
 const panels=JSON.parse(document.querySelector('#native-panel-data').textContent);
-const infoReferences=JSON.parse(document.querySelector('#native-info-data').textContent);
+const demos=demoWorkspace(shell,model,()=>shell.querySelector('[data-home]').focus({preventScroll:true}));
 appearanceMenu(shell,setTheme);
 notificationCentre(shell);
 maintainApplicationAge(drawer.querySelector('[data-info-age]'));
@@ -21,7 +22,7 @@ drawer.querySelector('[data-close-info]').addEventListener('click',()=>{info=fal
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const coarse=matchMedia('(hover: none), (pointer: coarse), (max-width:1100px)');
 const appFor=id=>model.apps.find(app=>app.id===id);
-const cache=createPanelCache(async key=>{const image=new Image();image.className='native-panel';image.alt='';image.src=`assets/native/panels/${key}.webp`;await image.decode();return image;});
+const cache=createPanelCache(async key=>{const image=new Image();image.className='native-panel';image.alt='';image.src=`assets/native/panels/${key}.webp?v=20261017-live`;await image.decode();return image;});
 const motionCache=new Map();
 function warmMotion(source){
  if(!source)return Promise.resolve();
@@ -54,6 +55,7 @@ async function showDetails(target,id){
  if(token!==request)return;
  const current=details.querySelector('.native-panel');if(current!==entry.image)current.replaceWith(entry.image);
  const motion=details.querySelector('.native-panel-motion');details.querySelector('.module-details-scroll').scrollTop=0;details.querySelector('[data-panel-text]').textContent=`${app.name}. ${app.description} Version ${app.metadata.version}. Release ${app.metadata.release}.`;details.setAttribute('aria-label',`${app.name} information`);trigger.setAttribute('aria-describedby','module-details');
+ const live=details.querySelector('[data-panel-live]');live.replaceChildren(...(ref?.text||[]).map(t=>{const span=document.createElement('span');span.textContent=t.text;Object.assign(span.style,{left:`${t.x/372*100}%`,top:`${t.y/565*100}%`,width:`${t.width/372*100}%`,height:`${t.height/565*100}%`,fontSize:`${t.size/372*100}cqw`,fontWeight:t.weight,color:t.color,textAlign:t.align,justifyContent:t.align==='right'?'flex-end':t.align==='center'?'center':'flex-start',alignItems:t.top?'flex-start':'center'});return span;}));
  const entering=details.hidden;placeDetails(target);details.hidden=false;if(entering&&!reduced.matches)details.animate([{opacity:0},{opacity:1}],{duration:140,easing:'cubic-bezier(.215,.61,.355,1)'});
  motion.hidden=true;motion.removeAttribute('src');
  if(motionSource){Object.assign(motion.style,{left:`${ref.motion.x/372*100}%`,top:`${ref.motion.y/565*100}%`,width:`${ref.motion.width/372*100}%`,height:`${ref.motion.height/565*100}%`});motionReady.then(()=>{if(token!==request||details.hidden||activeKey!==key)return;motion.src=motionSource;motion.hidden=false;});}
@@ -76,6 +78,7 @@ function warmActiveAssets(){
 }
 function updatePanels(){closeDetails();clearTimeout(layoutTimer);bounds=null;controller.product.style.setProperty('--nav-shift',`${expanded?180:0}px`);controller.product.style.setProperty('--panel-shift',`${(expanded?180:0)+(info?240:0)}px`);controller.product.style.setProperty('--info-width',`${info?240:0}px`);controller.product.classList.toggle('nav-expanded',expanded);controller.product.classList.toggle('info-expanded',info);const expand=controller.product.querySelector('[data-expand-nav]');expand.setAttribute('aria-expanded',String(expanded));expand.setAttribute('aria-label',expanded?'Collapse application navigation':'Expand application navigation');controller.product.querySelector('[data-settings]').setAttribute('aria-expanded',String(info));drawer.inert=!info;drawer.setAttribute('aria-hidden',String(!info));if(reduced.matches)renderHome();else layoutTimer=setTimeout(renderHome,240);}
 function applyEdition(){
+ if(controller.mode!==state.mode)demos.close();
  closeDetails();controller.theme=state.theme;controller.mode=state.mode;
  const modeName=state.mode==='legacy'?'Legacy':'Pentimento',themeName=themes[state.theme];
  shell.dataset.theme=state.theme;shell.dataset.mode=state.mode;
@@ -85,26 +88,21 @@ function applyEdition(){
  shell.querySelector('[data-mode-range]').textContent=state.mode==='legacy'?'I–IV':'V–VI';
  shell.querySelector('[data-mode-name]').textContent=modeName;
  shell.querySelector('[data-cycle-mode]').setAttribute('aria-label',`Switch to ${state.mode==='legacy'?'Pentimento':'Legacy'} mode`);
- shell.querySelector('[data-info-image]').src=`assets/native/panels/${state.theme}-info.webp`;
+
  shell.querySelectorAll('[data-theme-choice]').forEach(button=>button.setAttribute('aria-checked',String(button.dataset.themeChoice===state.theme)));
  shell.querySelector('[data-toggle-theme]').setAttribute('aria-label',`Global appearance: ${themeName}`);
  shell.querySelector('[data-theme-icon]').src=`assets/native/navigation/${state.theme}-suture.png`;
- const ref=infoReferences[state.theme];
- for(const [selector,key] of [['[data-info-age]','age'],['.info-website','website'],['.info-support','support']]){
-  const box=ref[key];Object.assign(drawer.querySelector(selector).style,{left:`${box.x}px`,top:`${box.y}px`,width:`${box.width}px`,height:`${box.height}px`});
- }
- drawer.querySelector('[data-info-age]').style.color=ref.ageColor;
  renderHome();warmActiveAssets();
 }
-new ResizeObserver(()=>{const value=stage.querySelector('.product-viewport').clientWidth/1229;if(lastScale&&Math.abs(value-lastScale)>.0001)closeDetails();shell.style.transform=`scale(${value})`;lastScale=value;bounds=null;}).observe(stage.querySelector('.product-viewport'));
+new ResizeObserver(()=>{const value=stage.querySelector('.product-viewport').clientWidth/1229;if(lastScale&&Math.abs(value-lastScale)>.0001)closeDetails();shell.style.setProperty('--shell-scale',value);shell.style.transform=`scale(${value})`;lastScale=value;bounds=null;}).observe(stage.querySelector('.product-viewport'));
 bindHomeScroll();
 shell.addEventListener('pointerenter',()=>{bounds=stage.querySelector('.product-viewport').getBoundingClientRect();});
-shell.addEventListener('pointermove',e=>{if(!bounds||e.pointerType==='touch')return;const x=(e.clientX-bounds.left)/lastScale-84-(expanded?180:0)-(info?240:0),y=(e.clientY-bounds.top)/lastScale-63+home.querySelector('.home-scroll').scrollTop;let nearest=null,distance=Infinity;for(const card of controller.reference().cards||[]){const d=(x-card.x-card.width/2)**2+(y-card.y-card.height/2)**2;if(d<distance){distance=d;nearest=card;}}if(nearest&&nearest.key!==lastWarmed&&distance<85000){lastWarmed=nearest.key;cache.warm(`${controller.theme}-${controller.mode}-${nearest.key}`);}}, {passive:true});
+shell.addEventListener('pointermove',e=>{if(!bounds||e.pointerType==='touch'||demos.active)return;const x=(e.clientX-bounds.left)/lastScale-84-(expanded?180:0)-(info?240:0),y=(e.clientY-bounds.top)/lastScale-63+home.querySelector('.home-scroll').scrollTop;let nearest=null,distance=Infinity;for(const card of controller.reference().cards||[]){const d=(x-card.x-card.width/2)**2+(y-card.y-card.height/2)**2;if(d<distance){distance=d;nearest=card;}}if(nearest&&nearest.key!==lastWarmed&&distance<85000){lastWarmed=nearest.key;cache.warm(`${controller.theme}-${controller.mode}-${nearest.key}`);}}, {passive:true});
 shell.addEventListener('pointerover',e=>{const locateButton=e.target.closest('[data-locate-app]');if(locateButton){locate(locateButton.dataset.locateApp);return;}const target=e.target.closest('[data-inspect-app]');if(target&&e.pointerType!=='touch')showDetails(target);});
 shell.addEventListener('pointerout',e=>{if(e.target.closest('[data-locate-app]')){clearLocate();return;}if(e.target.closest('[data-inspect-app]')&&!e.relatedTarget?.closest('[data-inspect-app],.module-details'))scheduleClose();});
 shell.addEventListener('focusin',e=>{if(e.target.matches('[data-locate-app]'))locate(e.target.dataset.locateApp);if(e.target.matches('[data-inspect-app]'))showDetails(e.target);});
 shell.addEventListener('focusout',e=>{if(e.target.matches('[data-locate-app]'))clearLocate();if(!e.relatedTarget?.closest('[data-inspect-app],.module-details'))scheduleClose();});
-shell.addEventListener('click',e=>{const button=e.target.closest('button');if(!button)return;if(button.hasAttribute('data-expand-nav')){expanded=!expanded;updatePanels();}if(button.hasAttribute('data-settings')){info=!info;updatePanels();}if(button.hasAttribute('data-home')){closeDetails();home.querySelector('.home-scroll')?.scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'});}if(button.hasAttribute('data-cycle-mode'))setEdition(controller.mode==='legacy'?'pentimento':'legacy');if(button.hasAttribute('data-inspect-app')&&coarse.matches)showDetails(button);});
+shell.addEventListener('click',e=>{const button=e.target.closest('button');if(!button)return;if(button.hasAttribute('data-expand-nav')){expanded=!expanded;updatePanels();}if(button.hasAttribute('data-settings')){info=!info;updatePanels();}if(button.hasAttribute('data-home')){demos.close();closeDetails();home.querySelector('.home-scroll')?.scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'});}if(button.hasAttribute('data-cycle-mode'))setEdition(controller.mode==='legacy'?'pentimento':'legacy');const appId=button.dataset.inspectApp||button.dataset.locateApp;if(appId){closeDetails();demos.open(appId);}});
 shell.querySelectorAll('button:not(.desktop-only)').forEach(button=>button.disabled=false);
 controller.warm=warmActiveAssets;
 const preloadObserver=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){controller.warm();preloadObserver.disconnect();}},{rootMargin:'350px'});preloadObserver.observe(stage);

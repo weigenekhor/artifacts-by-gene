@@ -1,5 +1,17 @@
 # Implementation status
 
+## Live text and 19 interactive sample workspaces — 17 October 2026
+
+Implemented the user's approved interactive-sample scope on the review branch. Home cards and sidebar entries open all 19 apps. Each workspace has source-informed views, selectable sample inputs, actions, reset/clear, data/statistics and CSV export. Data and visualizations are deterministic local examples, clearly marked as samples; these are not production engineering calculations. Theme changes preserve the current workspace. Edition changes return Home, and each app's sample state is retained for the current page session.
+
+Application Info, home card labels, expedition headings and hover-panel text are now live DOM typography. The desktop exporter records exact label bounds and removes text from the underlying raster surfaces. All 24 home layouts and 81 detail-panel geometries remain unchanged. Native card art remains high density. Browser zoom replaces compositor scaling where supported, and the main UI plane no longer uses a 3D scroll translation. The bright grey hero surround is replaced with a restrained graphite field.
+
+Validation: build, syntax and 26 tests pass. New tests cover all app/view/filter combinations, finite chart coordinates, deterministic samples, isolated state, run/clear/reset, statistics, export content and workspace event wiring. Native layer images were inspected separately, and existing screenshot, theme, dropdown, notification and age regressions still pass. Local HTTP preview is running on port 8001.
+
+Remaining limitation: browser access reports “Local browser use is disabled in Work settings.” The new DOM composition and demos have not been visually exercised in a browser; final desktop/mobile/DPI inspection remains pending. No production deployment has been made. The existing gallery and all 138 screenshot captures remain intact.
+
+Changed file groups: `demo-model.js`, `demo-view.js`, `demo-workspace.js`, `demo.css`, `native-home.js`, `native-shell.js`, `shell.css`, `site.js`; native build/export scripts; generated home/panel reference JSON and raster layers; `index.html`; tests, package test command and project documentation. Desktop application code and capture masters were not modified.
+
 ## Hero clarity and notification demonstration — 17 October 2026
 
 The native homepage content and hover layers are rendered at 4× density with lossless WebP, including high-density glyphs drawn from the desktop vector code. The export keeps the existing logical card bounds. Nested 3D texture promotion and pointer perspective were removed from the UI plane; wafer rotation, dragging, navigation, theme changes and page transitions remain. Scroll translation is aligned to device pixels. Updated URLs invalidate the older low-density hero assets.
