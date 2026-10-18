@@ -1,5 +1,10 @@
 # Implementation status
 
+## Browser icon — 18 October 2026
+
+Browser favicon now uses an exact copy of the desktop ARTIFACTS icon.ico. The 32px, 48px and 256px PNGs are extracted directly from that ICO; the 180px Apple touch icon is resized from its 256px entry. The generated page declares all formats with content hashes for cache updates. Root favicon.ico supports clients that request the conventional location. Existing in-page branding and UI remain unchanged. Authoritative source: C:/Users/Gene/Desktop/Artifacts/icon.ico (used by Artifacts.py contrast_safe_window_icon).
+
+
 ## Mobile window viewer — 18 October 2026
 
 The rejected compact card-grid redesign has been removed. Phones and tablets (1100 CSS pixels and below) show the complete original ARTIFACTS window in its native proportions. Explore ARTIFACTS opens the same live DOM window in a full-screen dialog, with Fit, 100%, zoom controls, drag/pinch navigation and separate Move view / Use app modes. Closing restores the original page, focus, scroll behavior, theme and application state. Rotation refits the view; returning to desktop width closes the viewer. Desktop styling and geometry remain unchanged.
