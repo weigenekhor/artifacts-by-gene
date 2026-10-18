@@ -1,5 +1,14 @@
 # Start here — ARTIFACTS public website
 
+## Responsive hero — 18 October 2026
+
+The desktop hero above 1100 CSS pixels retains its existing measured sheet, scaling, chrome and artwork. At 1100px and below, the same shell renders at readable CSS-pixel size. Homepage cards reuse crops of the existing native card sheet and reflow by Expedition. No replacement icons, application screenshots, sample data or desktop source changes are introduced.
+
+Navigation and Application Info become mutually exclusive overlay drawers on compact screens. Native app layouts retain their exported geometry inside a scrollable workspace. Phone title-bar controls and appearance/notification menus fit the contained product window; browser pinch zoom remains available. The gallery and surrounding website remain unchanged.
+
+Implementation: responsive-hero.css, native-home.js, native-shell.js and the normal HTML build. Focused regression coverage verifies app ownership, order, artwork crops and preserved desktop coordinates across every exported home variant. Verified in the browser at 320px and 390px phone widths, 768px tablet portrait and 1024px tablet landscape. Checked both editions, all three appearances, theme dropdown, notifications, mutually exclusive compact drawers and opening a native app layout. No horizontal page overflow was found. Fixed the notification header at 320px so the close button remains visible. Desktop native geometry, fonts, colours, materials and radii match the pre-change production version for the ten measured shell/card/control selectors, both closed and with both panels expanded. Browser console had no warnings or errors. All 32 tests pass. Evidence: outputs/hero-responsive-20261018 in the parent workspace. Actual iOS Safari hardware was not available; browser viewport checks do not replace device testing.
+
+
 ## Glyph motion and consistent opening — 18 October 2026
 
 Every new website load starts in Tenebrismo, regardless of previously saved website appearance. Theme switching still works during the current visit and remains independent of edition selection. Desktop preference persistence is unchanged.

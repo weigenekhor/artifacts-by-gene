@@ -1,0 +1,90 @@
+/* Desktop retains the measured Qt sheet. Compact screens use its same cards
+   and materials at readable sizes, with drawers instead of squeezed columns. */
+.home-group,.home-card-grid{display:contents}
+.compact-card-art{display:none}
+@media(max-width:1100px){
+ .product-stage{width:calc(100% - 48px)}
+ .product-viewport{aspect-ratio:auto;height:740px;height:clamp(560px,78svh,800px)}
+ .app-shell{width:100%;height:100%;zoom:1!important;transform:none!important}
+ .app-titlebar{left:60px;transition:none}
+ .app-sidebar{height:100%}
+ .sidebar-scroll{height:calc(100% - 44px)}
+ .app-sidebar button{min-height:44px;height:44px}
+ .app-content{left:66px;top:49px;bottom:21px;width:calc(100% - 68px);height:auto;transform:none;transition:none}
+ .app-status{left:60px;transition:none}
+ .home-scroll{inset:16px 18px;scrollbar-width:thin}
+ .home-sheet{width:100%!important;height:auto!important}
+ .home-render{display:none}
+ .home-hotspots{position:relative}
+ .home-group{display:block;margin-bottom:26px}
+ .home-heading{position:relative;inset:auto!important;width:auto!important;height:auto!important;min-height:27px;margin-bottom:12px;padding-left:12px;font-size:13px;white-space:normal;line-height:1.4;border-left:2px solid var(--accent)}
+ .home-card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,148px));gap:12px}
+ .app-shell[data-mode=pentimento] .home-card-grid{max-width:628px}
+ .app-tile{position:relative;inset:auto!important;width:100%!important;height:auto!important;aspect-ratio:var(--card-ratio);overflow:hidden}
+ .compact-card-art{display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+ .app-tile .home-label{left:5%!important;top:auto!important;bottom:10%;width:90%!important;height:36%!important;white-space:normal;font-size:12px;line-height:1.25}
+ .app-tile:before{z-index:1}
+ .home-wafer{left:35%!important;top:-40px!important;width:900px!important;height:900px!important}
+ .home-background{height:100%}
+ .settings-drawer{left:60px;width:278px;height:100%;transform:none;clip-path:inset(0 calc(278px - var(--compact-info-width,0px)) 0 0);transition:clip-path 180ms var(--ease);border-right:1px solid var(--border)}
+ .info-expanded{--compact-info-width:278px}
+ .info-live{min-height:650px;padding:22px 24px 24px;font-size:13px}
+ .info-footer dd{font-size:12px}.info-footer dt{font-size:10px}
+ .info-footer dl>div{grid-template-columns:87px 1fr;height:20px}
+ .info-footer .info-link{font-size:12px;min-height:36px}
+ .info-header{font-size:13px}
+ .settings-drawer [data-close-info]{width:36px;height:36px}
+ .nav-expanded .app-sidebar,.info-expanded .settings-drawer{box-shadow:12px 0 24px #0005}
+ .desktop-workspace{overscroll-behavior-x:contain}
+ .notification-centre{width:min(512px,calc(100vw - 104px));max-height:min(620px,65svh);overflow:auto}
+ .window-control,.theme-trigger,.mode-control{min-height:36px}
+ .theme-control,.theme-control .theme-trigger{height:36px}
+ .theme-control .theme-menu button{min-height:40px;height:auto;font-size:12px}
+ .theme-menu{left:auto;right:0;width:164px}
+ .theme-menu:before{left:auto;right:24px}
+ .theme-control .theme-menu button{width:152px}
+ .app-shell .desktop-only,.window-controls>.control-divider:last-of-type{display:none}
+}
+@media(max-width:760px){
+ .product-stage{width:calc(100% - 24px)}
+ .product-viewport{height:660px;height:clamp(520px,78svh,720px);border-radius:6px}
+ .app-titlebar{left:44px;padding-right:4px}
+ .app-sidebar{width:224px}
+ .title-logo{width:44px}
+ .app-sidebar button{width:calc(44px + var(--nav-shift));padding-left:13px;gap:22px}
+ .app-content{left:48px;width:calc(100% - 52px)}
+ .app-status{left:44px;font-size:10px}
+ .home-scroll{inset:14px 8px}
+ .home-card-grid{grid-template-columns:repeat(2,minmax(0,148px));gap:10px}
+ .home-heading{font-size:12px;padding-left:8px}
+ .app-tile .home-label{font-size:11px}
+ .settings-drawer{left:44px;width:min(278px,calc(100% - 44px));clip-path:inset(0 100% 0 0)}
+ .info-expanded .settings-drawer{clip-path:inset(0)}
+ .mode-control{width:112px;gap:5px;margin-right:6px}
+ .mode-control [data-mode-range]{width:34px;font-size:10px}
+ .mode-control [data-mode-name]{font-size:10px}
+ .theme-control,.theme-control .theme-trigger{width:56px}
+ .theme-control .theme-trigger{padding:0 6px;gap:4px}
+ .window-control{width:40px;height:40px}
+ .notification-centre{position:fixed;top:48px;left:48px;right:6px;width:auto;max-height:calc(100% - 76px);padding:14px 12px;gap:12px;border-radius:8px}
+ .notification-centre header{gap:4px}.notification-centre header h3{font-size:16px}
+ .notification-centre header button{width:32px;min-width:32px}
+ .notification-entry{padding:12px}.notification-entry dl{gap:16px}
+ .notification-demo{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px}
+ .notification-demo span{float:none;padding:0}
+ .notification-category{font-size:12px;gap:4px}
+ .notification-time{font-size:11px}
+ .notification-entry-heading{gap:4px}
+ .notification-entry-heading>button{width:24px}
+}
+@media(max-width:360px){
+ .mode-control{width:47px;padding:0 5px}
+ .mode-control [data-mode-name]{display:none}
+ .home-scroll{inset-inline:6px}
+ .home-card-grid{gap:8px}
+ .info-live{padding-inline:18px}
+ .notification-centre header{display:grid;grid-template-columns:minmax(0,1fr) 32px 32px}
+ .notification-centre [data-notification-count]{grid-area:2/1;width:max-content;margin-right:0}
+ .notification-centre [data-read-notifications]{grid-area:1/2}
+ .notification-centre [data-close-notifications]{grid-area:1/3}
+}
