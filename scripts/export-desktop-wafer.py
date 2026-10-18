@@ -1,11 +1,13 @@
-"""Build-time export of the desktop's own wafer material. No app runtime imported."""
+"""Build-time wafer export using the desktop geometry and shared color helper."""
 import ast, os, sys
 from pathlib import Path
 os.environ['QT_QPA_PLATFORM']='offscreen'
 from PySide6.QtCore import Qt, QRectF, QPointF
 from PySide6.QtGui import QGuiApplication, QPixmap, QImage, QPainter, QPainterPath, QColor, QPen
 root=Path(sys.argv[1])
-tree=ast.parse((root/'widgets/home_page.py').read_text(encoding='utf-8'))
+sys.path.insert(0,str(root.resolve()))
+from widgets.void_theme import decorative_color
+tree=ast.parse((root/'widgets/shell/home_page.py').read_text(encoding='utf-8'))
 source_class=next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name=='WaferRotationSurface')
 methods=[n for n in source_class.body if isinstance(n,ast.FunctionDef) and n.name in ('_wafer_contour','_prepare_wafer')]
 minimal=ast.ClassDef(name='WaferRotationSurface',bases=[],keywords=[],body=[ast.parse('_TEXTURE_CANVAS_SIZE=1254.0').body[0]]+methods,decorator_list=[])

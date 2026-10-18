@@ -4,7 +4,7 @@ from pathlib import Path
 
 source=Path(sys.argv[1]); archive=Path(sys.argv[2]); path=Path('content/apps.json')
 model=json.loads(path.read_text(encoding='utf-8'))
-tree=ast.parse((source/'widgets/home_widget.py').read_text(encoding='utf-8'))
+tree=ast.parse((source/'widgets/shell/home_widget.py').read_text(encoding='utf-8'))
 names=('TITLES','BASE_DESCRIPTIONS','APP_METADATA','PREVIEW_IMAGES','LEGACY_HOME_GROUPS','DEFAULT_HOME_GROUPS')
 registry={}
 for node in tree.body:
@@ -37,7 +37,7 @@ captions={
  'sentry_tab':['Equipment overview','Bubbler weight history','Twelve-hour analysis overview','Twelve-hour sensor trends'],
 }
 themes=[('imprimatura','Imprimatura','original'),('tenebrismo','Tenebrismo','void'),('pentimento','Pentimento','pentimento')]
-model.update(schemaVersion=6,source='Genepy/widgets/home_widget.py',defaultTheme='tenebrismo',themes=[dict(id=i,name=n) for i,n,_ in themes])
+model.update(schemaVersion=6,source='widgets/shell/home_widget.py',defaultTheme='tenebrismo',themes=[dict(id=i,name=n) for i,n,_ in themes])
 keys=[]
 for mode,group_name in [('legacy','LEGACY_HOME_GROUPS'),('pentimento','DEFAULT_HOME_GROUPS')]:
     groups=registry[group_name]

@@ -1,9 +1,10 @@
 """Render current desktop panels and glyphs without opening processing apps."""
-import os,sys,json,types
+import os,sys,json
 from pathlib import Path
 os.environ['QT_QPA_PLATFORM']='offscreen';sys.dont_write_bytecode=True
 site=Path.cwd();source=Path(sys.argv[1]).resolve();sys.path.insert(0,str(source));os.chdir(source)
-package=types.ModuleType('widgets');package.__path__=[str(source/'widgets')];sys.modules['widgets']=package
+# Use the lightweight package initializer so grouped source paths are registered.
+import widgets
 from PySide6.QtCore import Qt,QPoint,QSize
 from PySide6.QtGui import QFont,QFontDatabase,QImage,QRegion,QFontInfo,QPalette
 from PySide6.QtWidgets import QApplication,QWidget,QVBoxLayout,QLabel

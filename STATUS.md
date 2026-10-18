@@ -1,5 +1,18 @@
 # Implementation status
 
+## Housekeeping compatibility publication — 18 October 2026
+
+Updated desktop export and catalogue scripts for the reorganized ARTIFACTS source
+folders. The native exporters use the lightweight widgets initializer; the wafer
+exporter imports its required shared color helper. Source documentation now points
+to the current desktop folder. Existing public layouts, assets and appearance are
+unchanged. A fresh native build still produces 19 applications, six Expeditions
+and 138 screenshots; all 30 website tests pass. Exporter startup and temporary
+wafer rendering were verified during the preceding housekeeping audit.
+
+Publication targets the existing GitHub Pages `main` branch and custom domain,
+as requested. The visual version already published at `edb2f8a` is preserved.
+
 ## Glyph motion and consistent opening — 18 October 2026
 
 Every new website load starts in Tenebrismo, regardless of previously saved website appearance. Theme switching still works during the current visit and remains independent of edition selection. Desktop preference persistence is unchanged.

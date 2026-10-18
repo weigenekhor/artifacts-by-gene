@@ -2,7 +2,7 @@
 
 ## Current capture refresh — 17 October 2026
 
-The authoritative capture folder is now `C:\Users\Gene\Desktop\ARTIFACTS Preview Refresh\4x`, read only. The desktop registry is `Genepy/widgets/home_widget.py`. There are 19 unique apps and 138 populated captures, covering 46 views per appearance. Source folders map `original` to Imprimatura, `void` to Tenebrismo, and `pentimento` to Pentimento.
+The authoritative capture folder is now `C:\Users\Gene\Desktop\ARTIFACTS Preview Refresh\4x`, read only. The desktop registry is `widgets/shell/home_widget.py`. There are 19 unique apps and 138 populated captures, covering 46 views per appearance. Source folders map `original` to Imprimatura, `void` to Tenebrismo, and `pentimento` to Pentimento.
 
 The supplied masters have already been upscaled exactly 4× using Upscayl. Do not upscale them again or change them. The website preserves their full dimensions in quality-100 WebP, with quality-94 responsive copies at 768/1280/1920/2560 px. The lossless masters remain in the Desktop archive. Images are never cropped; the largest version loads only through its explicit full-resolution link.
 
@@ -14,7 +14,7 @@ This section supersedes the historical capture counts and source folders below.
 
 ## Authority
 
-Desktop source: `C:\Users\Gene\Desktop\Artifacts\Artifacts\Genepy`.
+Desktop source: `C:\Users\Gene\Desktop\Artifacts`.
 Capture originals: `C:\Users\Gene\Desktop\Artifacts Images`.
 
 Both are read only and used for development reference. Empty captures remain available in the supplied `Empty` folder but are no longer reconstructed into app pages. Empty and Homepage captures are excluded from the gallery.
@@ -46,8 +46,8 @@ Importer checks hashes and encoding version. Verify ownership when adding captur
 Requires Windows Segoe UI and PySide6; normal site builds do not.
 
 ```sh
-python scripts/export-home-layouts.py "C:\Users\Gene\Desktop\Artifacts\Artifacts\Genepy"
-python scripts/export-panel-reference.py "C:\Users\Gene\Desktop\Artifacts\Artifacts\Genepy"
+python scripts/export-home-layouts.py "C:\Users\Gene\Desktop\Artifacts"
+python scripts/export-panel-reference.py "C:\Users\Gene\Desktop\Artifacts"
 pnpm build
 ```
 
