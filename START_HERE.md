@@ -1,13 +1,12 @@
 # Start here — ARTIFACTS public website
 
-## Responsive hero — 18 October 2026
+## Mobile window viewer — 18 October 2026
 
-The desktop hero above 1100 CSS pixels retains its existing measured sheet, scaling, chrome and artwork. At 1100px and below, the same shell renders at readable CSS-pixel size. Homepage cards reuse crops of the existing native card sheet and reflow by Expedition. No replacement icons, application screenshots, sample data or desktop source changes are introduced.
+The rejected compact card-grid redesign has been removed. Phones and tablets (1100 CSS pixels and below) show the complete original ARTIFACTS window in its native proportions. Explore ARTIFACTS opens the same live DOM window in a full-screen dialog, with Fit, 100%, zoom controls, drag/pinch navigation and separate Move view / Use app modes. Closing restores the original page, focus, scroll behavior, theme and application state. Rotation refits the view; returning to desktop width closes the viewer. Desktop styling and geometry remain unchanged.
 
-Navigation and Application Info become mutually exclusive overlay drawers on compact screens. Native app layouts retain their exported geometry inside a scrollable workspace. Phone title-bar controls and appearance/notification menus fit the contained product window; browser pinch zoom remains available. The gallery and surrounding website remain unchanged.
+Implementation: product-viewer.js, viewer-geometry.js and responsive-hero.css. Original native-home.js composition and native-shell.js panel behavior are restored; fullscreen hover popovers are suppressed. Existing gallery assets and actual source-exported application layouts remain intact. No desktop application files are changed.
 
-Implementation: responsive-hero.css, native-home.js, native-shell.js and the normal HTML build. Focused regression coverage verifies app ownership, order, artwork crops and preserved desktop coordinates across every exported home variant. Verified in the browser at 320px and 390px phone widths, 768px tablet portrait and 1024px tablet landscape. Checked both editions, all three appearances, theme dropdown, notifications, mutually exclusive compact drawers and opening a native app layout. No horizontal page overflow was found. Fixed the notification header at 320px so the close button remains visible. Desktop native geometry, fonts, colours, materials and radii match the pre-change production version for the ten measured shell/card/control selectors, both closed and with both panels expanded. Browser console had no warnings or errors. All 32 tests pass. Evidence: outputs/hero-responsive-20261018 in the parent workspace. Actual iOS Safari hardware was not available; browser viewport checks do not replace device testing.
-
+Validation: all 35 tests pass and 27 JavaScript modules pass syntax checks. Browser checks covered 320/390px phones, 768px tablet portrait, 844x390 landscape and 1440px desktop; both editions, all three themes, application navigation, notifications, both expanded side panels, zoom, actual drag-to-pan, close/reopen state retention and Escape. Eight desktop selectors have identical computed geometry, fonts, colours and radii to the published desktop design at matching viewport sizes. No browser warnings/errors were observed. Pinch logic is regression-tested; actual iOS/Android hardware was not available. Screenshots: ../outputs/hero-responsive-20261018/phone-window-viewer-page.png.
 
 ## Glyph motion and consistent opening — 18 October 2026
 
