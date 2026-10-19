@@ -1,5 +1,11 @@
 # Implementation status
 
+## Gene entrance correction — 19 October 2026
+
+The credit previously appeared before the observer reached its 40% threshold, then vanished into its entrance animation. The JavaScript-enabled initial state is now hidden until the entrance is prepared. An early entry observer reveals it once and disconnects; revisiting never replays. Reduced-motion CSS and runtime show the credit immediately. Typography, content, layout and existing animation keyframes remain unchanged.
+
+Validation: 34 tests and 26 module syntax checks pass. Browser verified initial hidden state, entry, repeated navigation and phone rendering at 390px, plus desktop rendering. No desktop application files changed.
+
 ## Static mobile hero and responsive spacing — 19 October 2026
 
 Phones and tablets at 1100 CSS pixels and below now show a noninteractive image of the actual Tenebrismo/Pentimento desktop homepage. The 1229x820 and 2458x1640 WebP files in assets/hero preserve the exact desktop window aspect ratio, including title bar, navigation and footer. The fullscreen viewer and its controls are removed. The desktop hero remains interactive and its styling is unchanged. No desktop application files were modified.

@@ -66,3 +66,7 @@ html.js:not(.native-ready) .product-rig{opacity:0!important}
 .author-credit{position:relative;z-index:1}.author-identity{gap:12px}.author-divider{color:var(--border-hover);font-size:13px}.author-domain{font-size:14px;color:var(--muted);line-height:1.5}.author-links a,.author-links a:first-child{width:132px;min-width:132px;padding-inline:14px;gap:20px}.ending{position:relative;z-index:1}
 @media(max-width:760px){.authorship{min-height:610px;padding-block:92px 82px}.author-ghost-window{width:122vw;opacity:.8}.author-ghost{transform:none}.author-statement{font-size:clamp(35px,9.8vw,54px)}.author-identity{gap:9px}.author-name{font-size:19px}.author-domain{font-size:12px}.author-links{width:100%;gap:10px}.author-links a{flex:1;width:auto;min-width:0}}
 @media(prefers-reduced-motion:reduce){.author-ghost{opacity:.1;transform:none}.author-activation{animation:none;opacity:0}}
+
+/* Keep credits hidden until their one-time entrance is ready, preventing visible-hide-visible flashes. */
+.js .author-credit:not([data-revealed="true"]){visibility:hidden}
+@media(prefers-reduced-motion:reduce){.js .author-credit:not([data-revealed="true"]){visibility:visible}}

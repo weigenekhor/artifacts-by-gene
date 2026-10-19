@@ -50,8 +50,8 @@ stage.querySelectorAll('.state-arrival').forEach((element,index)=>{
  animate(element.querySelector('.home-render'),[{opacity:.3},{opacity:1}],{duration:430,delay:710+index*60});
  animate(element.querySelector('.state-identifier'),[{opacity:0},{opacity:1}],{duration:350,delay:900+index*120});
 });
-const creditsObserver=new IntersectionObserver(entries=>{
- if(!entries[0].isIntersecting)return;creditsObserver.disconnect();
+function revealCredits(){
+ if(credit.dataset.revealed==='true')return;
  const part=name=>credit.querySelector(`[data-credit="${name}"]`);
  animate(part('label'),[{opacity:0},{opacity:1}],{duration:300});
  animate(part('statement'),[{opacity:0,transform:'translateY(24px)',filter:'blur(6px)'},{opacity:1,transform:'none',filter:'blur(0)'}],{duration:620,delay:360});
@@ -59,7 +59,14 @@ const creditsObserver=new IntersectionObserver(entries=>{
  animate(part('domain'),[{opacity:0,transform:'translateY(4px)'},{opacity:1,transform:'none'}],{duration:430,delay:610});
  animate(part('email'),[{opacity:0,transform:'translateX(-11px)'},{opacity:1,transform:'none'}],{duration:400,delay:790});
  animate(part('linkedin'),[{opacity:0,transform:'translateX(11px)'},{opacity:1,transform:'none'}],{duration:400,delay:820});
-},{threshold:.4});creditsObserver.observe(credit);
+ credit.dataset.revealed='true';
+ creditsObserver.disconnect();
+}
+const creditsObserver=new IntersectionObserver(entries=>{
+ if(entries.some(entry=>entry.isIntersecting))revealCredits();
+},{threshold:0,rootMargin:'0px 0px -8% 0px'});
+creditsObserver.observe(credit);
+if(reduced.matches)revealCredits();
 let ghostFrame=0,ghostX=0,ghostY=0,targetGhostX=0,targetGhostY=0;
 const pointerFine=matchMedia('(hover:hover) and (pointer:fine)');
 function renderGhost(){
@@ -72,6 +79,6 @@ if(authorSection&&ghost&&pointerFine.matches&&!narrow.matches&&!reduced.matches)
  authorSection.addEventListener('pointermove',event=>{const rect=authorSection.getBoundingClientRect();targetGhostX=((event.clientX-rect.left)/rect.width-.5)*10;targetGhostY=((event.clientY-rect.top)/rect.height-.5)*6;if(!ghostFrame)ghostFrame=requestAnimationFrame(renderGhost)},{passive:true,signal:lifetime.signal});
  authorSection.addEventListener('pointerleave',()=>{targetGhostX=0;targetGhostY=0;if(!ghostFrame)ghostFrame=requestAnimationFrame(renderGhost)},{signal:lifetime.signal});
 }
-reduced.addEventListener('change',()=>{if(reduced.matches)for(const motion of running)motion.finish();measure();},options);
+reduced.addEventListener('change',()=>{if(reduced.matches){revealCredits();for(const motion of running)motion.finish();}measure();},options);
 narrow.addEventListener('change',measure,options);
 window.addEventListener('pagehide',event=>{if(!event.persisted){lifetime.abort();geometry.disconnect();creditsObserver.disconnect();cancelAnimationFrame(frame);cancelAnimationFrame(ghostFrame);for(const motion of running)motion.cancel();}},options);
