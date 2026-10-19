@@ -35,7 +35,7 @@ function render(){
  hero.style.setProperty('--intro-opacity',`${1-.34*approach}`);
  hero.style.setProperty('--product-presence',`${1-.12*handoff}`);
  const finish=smooth((innerHeight*.96-endingTop+scrollY)/(innerHeight*.2));
- credit.style.transform=`translate3d(0,${-10*finish}px,0)`;credit.style.opacity=`${1-.12*finish}`;
+ credit.style.opacity=`${1-.12*finish}`;
  const authorReveal=smooth((scrollY+innerHeight*.86-authorTop)/Math.max(1,innerHeight*.62));
  if(ghost){ghost.style.opacity=`${(.14*authorReveal).toFixed(3)}`;ghost.style.setProperty('--ghost-rise',`${(1-authorReveal)*38}px`)}
 }
