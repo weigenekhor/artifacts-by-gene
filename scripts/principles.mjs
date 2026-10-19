@@ -9,7 +9,8 @@ const layers=Array.from({length:6},(_,i)=>`<g class="instrument-layer layer-${i}
 const plates=frame('Working layers separate to expose repetition, then settle into one ordered stack.',layers);
 const blocks=frame('Four complete working blocks separate, then assemble into a repeatable structure.',`${cube(184,51,45,65,'block block-back')}${cube(93,112,47,70,'block block-left')}${cube(267,124,42,45,'block block-right')}${cube(181,184,48,48,'block block-front')}`);
 const sheets=Array.from({length:10},(_,i)=>{const x=167-i*12,y=199+i*4,h=142-i*12,w=104,dy=48;return `<g class="evidence-sheet sheet-${i}">${face(`${x},${y-h} ${x+w},${y-h+dy} ${x+w},${y+dy} ${x},${y}`)}<path class="sheet-return" d="m${x} ${y-h} 3-2 ${w} ${dy}v${h}l-3 2"/></g>`}).join('');
-const evidence=frame('Each working plane is reviewed in sequence and returned to the ordered set.',sheets);
+// Optical alignment with the slab and block studies; sheet motion remains local.
+const evidence=frame('Each working plane is reviewed in sequence and returned to the ordered set.',`<g transform="translate(0 -28)">${sheets}</g>`);
 export const principles=[
  {identifier:'FRICTION',name:'Start with the friction.',description:'Every tool begins with something that should work better: a repeated task, a difficult comparison, a hidden dependency, or a decision carrying too much manual effort.',handoff:'Turn repetition into a system.',figure:plates},
  {identifier:'STRUCTURE',name:'Make the repeatable explicit.',description:'Capture the checks that matter. Automate what does not need human attention. Preserve the context needed for the decisions that do.',handoff:'Let the work guide what comes next.',figure:blocks},
