@@ -1,5 +1,17 @@
 # Implementation status
 
+## Static mobile hero and responsive spacing — 19 October 2026
+
+Phones and tablets at 1100 CSS pixels and below now show a noninteractive image of the actual Tenebrismo/Pentimento desktop homepage. The 1229x820 and 2458x1640 WebP files in assets/hero preserve the exact desktop window aspect ratio, including title bar, navigation and footer. The fullscreen viewer and its controls are removed. The desktop hero remains interactive and its styling is unchanged. No desktop application files were modified.
+
+The thinking figures and galleries use one spacious column at these widths. Each SVG is bounded inside its drawing area, with a 40 CSS pixel gap from its viewport bottom to the caption heading. This prevents Figure 03 from overlapping text. Mobile heading, paragraph and author spacing adapt without horizontal page overflow.
+
+All favicon routes, including legacy assets/favicon.svg, now use the actual desktop ARTIFACTS icon. Favicon URLs are stable for crawler discovery. Google search can retain its previously indexed icon until it recrawls; deployment cannot force that cache to refresh.
+
+Validation: 32 tests passed and 25 JavaScript modules passed syntax checks. Browser rendering checked at 320, 390, 768, 1024 and 1440 CSS pixels. Phone/tablet hero proportions and all three figure gaps were measured; desktop navigation/info expansion and theme switching were exercised. Physical iOS/Android devices were not available. Evidence: ../outputs/hero-responsive-20261018/phone-static-hero.png and phone-figure-spacing.png.
+
+This supersedes the historical mobile viewer notes below.
+
 ## Browser icon — 18 October 2026
 
 Browser favicon now uses an exact copy of the desktop ARTIFACTS icon.ico. The 32px, 48px and 256px PNGs are extracted directly from that ICO; the 180px Apple touch icon is resized from its 256px entry. The generated page declares all formats with content hashes for cache updates. Root favicon.ico supports clients that request the conventional location. Existing in-page branding and UI remain unchanged. Authoritative source: C:/Users/Gene/Desktop/Artifacts/icon.ico (used by Artifacts.py contrast_safe_window_icon).

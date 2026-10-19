@@ -1,5 +1,17 @@
 # Start here — ARTIFACTS public website
 
+## Static mobile hero and responsive spacing — 19 October 2026
+
+Phones and tablets at 1100 CSS pixels and below now show a noninteractive image of the actual Tenebrismo/Pentimento desktop homepage. The 1229x820 and 2458x1640 WebP files in assets/hero preserve the exact desktop window aspect ratio, including title bar, navigation and footer. The fullscreen viewer and its controls are removed. The desktop hero remains interactive and its styling is unchanged. No desktop application files were modified.
+
+The thinking figures and galleries use one spacious column at these widths. Each SVG is bounded inside its drawing area, with a 40 CSS pixel gap from its viewport bottom to the caption heading. This prevents Figure 03 from overlapping text. Mobile heading, paragraph and author spacing adapt without horizontal page overflow.
+
+All favicon routes, including legacy assets/favicon.svg, now use the actual desktop ARTIFACTS icon. Favicon URLs are stable for crawler discovery. Google search can retain its previously indexed icon until it recrawls; deployment cannot force that cache to refresh.
+
+Validation: 32 tests passed and 25 JavaScript modules passed syntax checks. Browser rendering checked at 320, 390, 768, 1024 and 1440 CSS pixels. Phone/tablet hero proportions and all three figure gaps were measured; desktop navigation/info expansion and theme switching were exercised. Physical iOS/Android devices were not available. Evidence: ../outputs/hero-responsive-20261018/phone-static-hero.png and phone-figure-spacing.png.
+
+This supersedes the historical mobile viewer notes below.
+
 ## Mobile window viewer — 18 October 2026
 
 The rejected compact card-grid redesign has been removed. Phones and tablets (1100 CSS pixels and below) show the complete original ARTIFACTS window in its native proportions. Explore ARTIFACTS opens the same live DOM window in a full-screen dialog, with Fit, 100%, zoom controls, drag/pinch navigation and separate Move view / Use app modes. Closing restores the original page, focus, scroll behavior, theme and application state. Rotation refits the view; returning to desktop width closes the viewer. Desktop styling and geometry remain unchanged.

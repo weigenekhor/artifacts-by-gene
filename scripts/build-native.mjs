@@ -33,7 +33,7 @@ ${principleSection()}</div>
 <noscript><style>.app-shell{pointer-events:none}.hero-sequence:after{display:none!important}.gallery-navigation button,.open-capture{display:none}.gallery-image{cursor:default}</style><p class="noscript-note page-width">Enable JavaScript to explore the product. All application captures remain available below.</p></noscript>
 <script type="application/json" id="artifacts-data">${JSON.stringify(model).replaceAll('<','\\u003c')}</script><script type="application/json" id="native-layout-data">${JSON.stringify(homeLayouts)}</script><script type="application/json" id="native-panel-data">${JSON.stringify(panelReferences)}</script><script type="module" src="site.js"></script></body></html>`;
 let output=html.replace('<script type="module" src="site.js">',`<script type="application/json" id="native-info-data">${JSON.stringify(infoReferences)}</script><script type="module" src="site.js">`);
-for(const file of ['tokens.css','site.css','shell.css','thinking.css','desktop-workspace.css','responsive-hero.css','site.js','favicon.ico','assets/brand/favicon-32.png','assets/brand/favicon-48.png','assets/brand/artifacts-app-icon.png','apple-touch-icon.png']){
+for(const file of ['tokens.css','site.css','shell.css','thinking.css','desktop-workspace.css','responsive-hero.css','site.js']){
  const hash=createHash('sha256').update(await fs.readFile(file)).digest('hex').slice(0,10);
  output=output.replaceAll(`"${file}"`,`"${file}?v=${hash}"`);
 }
