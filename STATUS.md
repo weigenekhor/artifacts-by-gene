@@ -1,5 +1,11 @@
 # Implementation status
 
+## Current application screenshots — 20 October 2026
+
+Refreshed all 138 gallery captures (19 applications, three appearances) from the current Desktop/Artifacts application. The scenes and capture types match the previous gallery. Images were enlarged with the installed Upscayl 2.15.0 engine and upscayl-lite-4x model, then encoded as full-resolution and responsive WebP assets. Canonical screenshot hashes and provenance are recorded in content/apps.json and content/capture-source-manifest.json. The desktop preview assets were updated separately; desktop application code remains unchanged.
+
+Validation: all 690 website images decoded, 34 tests passed, and 26 JavaScript modules passed syntax checks. Native captures and installed desktop previews were visually inspected. A fresh composed browser check was unavailable because browser control was disabled in Work settings. The website runtime, layout, hero and styles are unchanged by this refresh.
+
 ## Gene entrance correction — 19 October 2026
 
 The credit previously appeared before the observer reached its 40% threshold, then vanished into its entrance animation. The JavaScript-enabled initial state is now hidden until the entrance is prepared. An early entry observer reveals it once and disconnects; revisiting never replays. Reduced-motion CSS and runtime show the credit immediately. Typography, content, layout and existing animation keyframes remain unchanged.
