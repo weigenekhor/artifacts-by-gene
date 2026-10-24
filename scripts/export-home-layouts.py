@@ -34,11 +34,9 @@ for theme,appearance in (('imprimatura','original'),('tenebrismo','void'),('pent
    parent.setObjectName('pagesContainer');parent.setProperty('artifactsEdition',edition_name())
    parent.resize(1161-offset,750);home=HomeWidget(parent);home.setParent(parent);home.resize(1161-offset,750);parent.show();home.show();app.processEvents();home._layout_module_cards(force=True);app.processEvents();home.setPanelAnimationPaused(True)
    key=f'{theme}-{mode}-{state}';area=home.module_area;scroll=home.module_scroll
-   # The offscreen screen reports DPR 1. Rebuild the source vector glyphs at
-   # export density after layout, without changing any native widget bounds.
-   for card in home._cards:
-    icon=make_suite_icon(card._icon_letters,card._icon_size,radius=12,dpr=RENDER_DENSITY,tab_key=card.tab_key,optical_normalization=True)
-    card.abbrev_label.setPixmap(icon.pixmap(card._icon_size,RENDER_DENSITY))
+   # Current AnimatedIconLabel paints native paths at the target device scale.
+   # Preserve its logical optical-reference pixmap; replacing it with a 4x
+   # bitmap changes the reference used for glyph bounds and hover alignment.
    refs[key]={'width':home.width(),'height':750,'contentWidth':area.width(),'contentHeight':area.height(),'renderDensity':RENDER_DENSITY,'cards':[],'headings':[]}
    # Text is drawn by the browser at the actual display density. Preserve all
    # measured Qt geometry and rasterize only the native card surfaces/glyphs.

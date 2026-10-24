@@ -224,7 +224,7 @@ test('All nineteen apps have complete, separate sequences for all three appearan
  assert.equal(model.apps.length,19);
  assert.deepEqual(model.themes.map(t=>t.name),['Imprimatura','Tenebrismo','Pentimento']);
  assert.equal(model.defaultTheme,'tenebrismo');
- assert.equal(model.apps.reduce((n,a)=>n+a.images.length,0),138);
+ assert.equal(model.apps.reduce((n,a)=>n+a.images.length,0),147);
  for(const app of model.apps){
   const counts=model.themes.map(t=>app.images.filter(image=>image.theme===t.id).length);
   assert.ok(counts[0]>0,app.name);assert.ok(counts.every(n=>n===counts[0]),app.name);

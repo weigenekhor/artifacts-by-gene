@@ -175,3 +175,9 @@
 
 .info-wordmark svg{display:block;width:170px;height:36px;overflow:visible;flex:none}
 .info-wordmark text{font:300 23px "Segoe UI Light","Segoe UI",sans-serif;letter-spacing:5.7px;fill:currentColor}
+
+.notification-global{display:flex;align-items:center;gap:10px;padding:10px 16px;font-size:13px;color:var(--text)}
+.notification-global input{accent-color:var(--notice-accent)}
+.notification-snooze{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.notification-snooze button{padding:6px 9px;border:1px solid var(--border);border-radius:4px;font-size:12px}
+.notification-snooze span{width:100%;font-size:12px;color:var(--muted)}

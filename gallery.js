@@ -7,12 +7,13 @@ const cards=[];
 let central=null,timer=null,progressAnimation=null,selectionFrame=0,viewerCard=null,viewerIndex=0,viewerRequest=0,returnFocus=null;
 const INTERVAL=3600;
 const caption=c=>c.caption;
-const srcset=c=>c.sources.map(s=>`${s.src} ${s.width}w`).join(', ');
+const asset=(c,path)=>`${path}?v=${c.sha256.slice(0,12)}`;
+const srcset=c=>c.sources.map(s=>`${asset(c,s.src)} ${s.width}w`).join(', ');
 function makeImage(c,app,large=false){
  const img=new Image();img.alt=`${app.name} — ${c.caption}`;img.decoding='async';
  img.width=c.width;img.height=c.height;
  img.sizes=large?'90vw':'(max-width:760px) 94vw, (max-width:1300px) 46vw, 800px';
- img.srcset=srcset(c);img.src=`${c.base}/1280.webp`;
+ img.srcset=srcset(c);img.src=asset(c,`${c.base}/1280.webp`);
  return img;
 }
 function stopTimer(){clearTimeout(timer);timer=null;progressAnimation?.cancel();progressAnimation=null;if(central)central.element.dataset.autoplay='false';}
@@ -41,7 +42,7 @@ function selectCentral(){
 function requestSelection(){if(!selectionFrame)selectionFrame=requestAnimationFrame(selectCentral);}
 function preloadNext(card){
  const capture=card.app.images[(card.index+1)%card.app.images.length];
- const img=new Image();img.src=`${capture.base}/1280.webp`;card.preload=img;
+ const img=new Image();img.src=asset(capture,`${capture.base}/1280.webp`);card.preload=img;
 }
 function updateCaption(card){
  card.element.querySelector('.gallery-count').innerHTML=`${num(card.index+1)} <span>/ ${num(card.app.images.length)}</span>`;
@@ -150,10 +151,10 @@ async function showViewerSlide(index){
  document.querySelector('#viewer-title').textContent=app.name;
  document.querySelector('#viewer-caption').textContent=caption(capture);
  document.querySelector('#viewer-count').textContent=`${num(viewerIndex+1)} / ${num(app.images.length)}`;
- document.querySelector('#viewer-original').href=`${capture.base}/full.webp`;
+ document.querySelector('#viewer-original').href=asset(capture,`${capture.base}/full.webp`);
  loading.hidden=false;
  const next=makeImage(capture,app,true);
- next.srcset='';next.src=`${capture.base}/2560.webp`;
+ next.srcset='';next.src=asset(capture,capture.sources.at(-1)?.src||`${capture.base}/full.webp`);
  try{await next.decode();}catch{if(request===viewerRequest){loading.textContent='Capture could not load. Try the full-resolution link.';}return;}
  if(request!==viewerRequest||!viewer.open)return;
  current.srcset='';current.src=next.src;current.alt=next.alt;current.width=capture.width;current.height=capture.height;

@@ -1,5 +1,13 @@
 # Start here — ARTIFACTS public website
 
+## Current preview refresh — 24 October 2026
+
+The local gallery now has 147 captures: 114 refreshed existing views, nine additional MET Compiler views across the three themes, and 24 retained report-only images audited as reusable. Current Plessey inputs, completed compilation and populated XRD search results precede the supported HV example. All 19 apps retain complete theme sequences.
+
+Current native high-DPI Qt captures and lossless masters replace the stale screenshot sources. Homepage card/glyph layers, all 81 hover panels, both mobile hero sizes and all 228 source-exported empty-state layouts have been refreshed. The hover exporter now matches its screenshot cache to its 2× output density. The local notification showcase reflects the global preference and bubbler mute controls without unread title dots. Actual application pages remain presentation-only empty-state HTML layouts.
+
+Validation: 37 website tests, 27 module syntax checks and full decoding/hash checks for all 732 gallery files pass. Desktop preview/glyph tests pass; 438 desktop code files are hash-unchanged. Fresh composed browser review remains unavailable because local browser control is disabled in Work settings. This refresh is local and has not been deployed. Source provenance: `content/capture-source-manifest.json`; detailed evidence: `C:/Users/Gene/Desktop/ARTIFACTS Preview Refresh 2026-10-24/REFRESH_REPORT.md`.
+
 ## Gene entrance correction — 19 October 2026
 
 The credit previously appeared before the observer reached its 40% threshold, then vanished into its entrance animation. The JavaScript-enabled initial state is now hidden until the entrance is prepared. An early entry observer reveals it once and disconnects; revisiting never replays. Reduced-motion CSS and runtime show the credit immediately. Typography, content, layout and existing animation keyframes remain unchanged.

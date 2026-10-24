@@ -1,5 +1,11 @@
 # Implementation status
 
+## Current preview refresh — 24 October 2026
+
+Completed locally: all 114 identified stale captures replaced, nine additional MET Compiler frames added, 24 reusable report captures preserved; total 147 captures in all three themes. The 732 mapped gallery files decode successfully and match current provenance. Native high-DPI lossless masters are archived on Desktop. All 24 home layouts, 324 card images, 81 hover panels, two mobile hero sizes and 228 empty-state HTML layouts were refreshed. The notification showcase includes persistent global enable and bubbler mute controls; title dots are removed.
+
+Verification: 37 website tests pass, 27 modules pass syntax checks, build succeeds, four desktop home/preview/glyph test modules pass, and all 438 snapshotted desktop code files remain unchanged. Native contact-sheet review covers all installed frames. Browser visual verification is blocked by disabled local browser access in Work settings. Not deployed. Full report: `C:/Users/Gene/Desktop/ARTIFACTS Preview Refresh 2026-10-24/REFRESH_REPORT.md`.
+
 ## Current application screenshots — 20 October 2026
 
 Refreshed all 138 gallery captures (19 applications, three appearances) from the current Desktop/Artifacts application. The scenes and capture types match the previous gallery. Images were enlarged with the installed Upscayl 2.15.0 engine and upscayl-lite-4x model, then encoded as full-resolution and responsive WebP assets. Canonical screenshot hashes and provenance are recorded in content/apps.json and content/capture-source-manifest.json. The desktop preview assets were updated separately; desktop application code remains unchanged.

@@ -19,8 +19,8 @@ for (const app of model.apps) {
   if (capture.sha256===hash && capture.encoding===encoding && await fs.access(`${capture.base}/full.webp`).then(()=>true,()=>false)) continue;
   const meta = await sharp(input).metadata();
   await fs.mkdir(capture.base,{recursive:true});
-  // Preserve the supplied Upscayl 4x dimensions. Web-optimized full image;
-  // the untouched lossless master remains in the Desktop archive.
+  // Preserve source dimensions: current native high-DPI captures and retained
+  // report masters. The lossless source remains in the Desktop archive.
   await sharp(input).webp({quality:100,smartSubsample:true,effort:3}).toFile(`${capture.base}/full.webp`);
   capture.width=meta.width; capture.height=meta.height; capture.sha256=hash; capture.encoding=encoding;
   capture.sources=[];

@@ -60,6 +60,9 @@ for theme,appearance in (('imprimatura','original'),('tenebrismo','void'),('pent
         parent._load_legacy_mode_preference=lambda:mode=='legacy'
         home=HomeWidget(parent);home.setParent(parent);home.resize(1161,750);parent.show();home.show();app.processEvents();home.setPanelAnimationPaused(True)
         panel=home.details_panel;panel.setGraphicsEffect(None)
+        # Match the export surface density for the preview's internal pixmap
+        # cache too; otherwise Qt first downsamples it for a 1x hidden screen.
+        panel.preview_frame.devicePixelRatioF=lambda:2.0
         for card in home._cards:
             key=f'{theme}-{mode}-{card.tab_key}'
             panel.set_module(card.tab_key,card.letters);panel.show();panel.ensurePolished();app.processEvents()
@@ -80,10 +83,13 @@ for theme,appearance in (('imprimatura','original'),('tenebrismo','void'),('pent
             raster(panel).save(out/f'{key}.webp',quality=96)
             category.setText(category_text);category.setMinimumSize(category_min);category.setMaximumSize(category_max)
             for label,css in styles:original_style(label,css)
-            frames=[]
-            for frame in range(32):
-                motion._phase=frame/32;frames.append(raster(motion))
-            frames[0].save(out/f'{key}-motion.webp',save_all=True,append_images=frames[1:],duration=56,loop=0,quality=88)
+            # The audited schematic animations are unchanged. Preserve their
+            # approved frames while refreshing screenshot/glyph panel surfaces.
+            if not (out/f'{key}-motion.webp').exists():
+                frames=[]
+                for frame in range(32):
+                    motion._phase=frame/32;frames.append(raster(motion))
+                frames[0].save(out/f'{key}-motion.webp',save_all=True,append_images=frames[1:],duration=56,loop=0,quality=88)
             panel.hide()
         home.hide();home.deleteLater();parent.deleteLater();app.processEvents()
     host.deleteLater();app.processEvents()

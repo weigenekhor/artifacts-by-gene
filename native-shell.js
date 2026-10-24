@@ -1,9 +1,9 @@
-import {desktopWorkspace} from './desktop-workspace.js?v=20261018-panels';
+import {desktopWorkspace} from './desktop-workspace.js?v=20261024-preview';
 import {model,state,themes,setEdition,setTheme} from './state.js?v=20261017-tenebrismo-load';
 import {appearanceMenu} from './appearance-menu.js';
 import {maintainApplicationAge} from './application-age.js';
-import {notificationCentre} from './notification-centre.js';
-import {homeMarkup,panelPosition} from './native-home.js?v=20261018-viewer';
+import {notificationCentre} from './notification-centre.js?v=20261024-preview';
+import {homeMarkup,panelPosition} from './native-home.js?v=20261024-preview';
 import {createPanelCache} from './panel-cache.js';
 
 const stage=document.querySelector('.product-stage');
@@ -22,7 +22,7 @@ drawer.querySelector('[data-close-info]').addEventListener('click',()=>{info=fal
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const coarse=matchMedia('(hover: none), (pointer: coarse), (max-width:1100px)');
 const appFor=id=>model.apps.find(app=>app.id===id);
-const cache=createPanelCache(async key=>{const image=new Image();image.className='native-panel';image.alt='';image.src=`assets/native/panels/${key}.webp?v=20261017-live`;await image.decode();return image;});
+const cache=createPanelCache(async key=>{const image=new Image();image.className='native-panel';image.alt='';image.src=`assets/native/panels/${key}.webp?v=20261024-preview`;await image.decode();return image;});
 const motionCache=new Map();
 function warmMotion(source){
  if(!source)return Promise.resolve();

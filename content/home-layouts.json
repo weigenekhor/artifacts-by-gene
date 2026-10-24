@@ -873,7 +873,7 @@
         "label": {
           "text": "Topo Tracer",
           "x": 10,
-          "y": 53,
+          "y": 52,
           "width": 120,
           "height": 42,
           "color": "#d4c6a8"
@@ -1735,7 +1735,7 @@
         "label": {
           "text": "TopoTracer",
           "x": 10,
-          "y": 53,
+          "y": 52,
           "width": 120,
           "height": 42,
           "color": "#d4c6a8"
@@ -4737,7 +4737,7 @@
         "label": {
           "text": "Topo Tracer",
           "x": 10,
-          "y": 53,
+          "y": 52,
           "width": 120,
           "height": 42,
           "color": "#e5e8ec"
@@ -5599,7 +5599,7 @@
         "label": {
           "text": "TopoTracer",
           "x": 10,
-          "y": 53,
+          "y": 52,
           "width": 120,
           "height": 42,
           "color": "#e5e8ec"
