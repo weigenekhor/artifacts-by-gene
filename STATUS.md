@@ -1,5 +1,13 @@
 # Implementation status
 
+## Desktop control fidelity — 25 October 2026
+
+Refreshed all native layouts from the current desktop in the isolated export harness. Retained rounded button clipping, native frames for icon/arrow buttons, left/right caption alignment and escaped ampersands. All 1,656 button instances retain native artwork; geometry comparison across all 228 variants found no changes to widget bounds, class or hierarchy.
+
+MET Compiler and Telemetry renamed viewports are now identified by Qt ownership. 180 scroll areas use a single browser scroller; MET's footer is outside the scroll area. Browser rails use the desktop theme's 22px allocation, 10px handle, 6px side insets, 5px track ends, 1px thumb ends and theme-specific normal/hover/pressed colours. Overflowing home sheets reserve the rail without moving the existing content.
+
+Validation: 44 tests pass, 27 modules pass syntax checks, native build succeeds. Source Qt Metria Plot button captures were inspected in all three themes. Browser control is disabled in Work settings; final rendered browser fidelity, wheel, drag and keyboard interaction still need a browser check. Existing desktop source and gallery images remain unchanged. Evidence: `../outputs/website-fidelity-20261025/`.
+
 ## Single functional scrollbar — 25 October 2026
 
 The renderer assigns scrolling to each Qt scroll area, makes its inner viewport transparent to overflow and hides only that area's exported static rails. A desktop-sized browser rail occupies the existing gutter. The surface layer fits the client box so it cannot manufacture horizontal overflow. Genuine horizontal overflow remains accessible.

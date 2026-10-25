@@ -11,15 +11,20 @@ sys.dont_write_bytecode=True
 SITE=Path(__file__).resolve().parents[1]
 ROOT=Path(sys.argv[1]).resolve()
 HARNESS=Path('C:/Users/Gene/Desktop/ARTIFACTS Preview Refresh/capture-tools')
-OUT=SITE/'content/desktop-layouts'
+OUT=Path(os.environ.get('ARTIFACTS_LAYOUT_OUTPUT',SITE/'content/desktop-layouts'))
 OUT.mkdir(parents=True,exist_ok=True)
 from PySide6.QtWidgets import (QWidget,QLabel,QAbstractButton,QCheckBox,QRadioButton,QComboBox,QLineEdit,QTextEdit,QPlainTextEdit,QAbstractSpinBox,QSlider,QScrollBar,QSplitterHandle,QProgressBar,QTabBar,QTableView,QListWidget,QScrollArea,QAbstractScrollArea,QFrame,QGroupBox,QApplication,QStyle,QStyleOptionButton,QStyleOptionComboBox,QStyleOptionFrame)
 from PySide6.QtCore import Qt,QPoint,QRect,QSize,QBuffer,QByteArray,QIODevice,QTimer
 from PySide6.QtGui import QPalette,QPainter,QFontMetricsF,QRegion
 from PySide6.QtSvg import QSvgGenerator
+from PySide6.QtWidgets import QToolButton,QStyleOption
 
 def color(c):
     return c.name() if c.alpha()==255 else f'rgba({c.red()},{c.green()},{c.blue()},{round(c.alphaF(),3)})'
+
+def caption(text):
+    # Qt's && displays a literal ampersand; only a single & is a mnemonic.
+    return text.replace('&&','\0').replace('&','').replace('\0','&')
 
 @lru_cache(maxsize=100000)
 def matches(w,selector):
@@ -104,11 +109,26 @@ def vector(w):
 
 def icon_vector(w):
     """Vectorize only the existing native icon alpha, never application imagery."""
-    from PIL import Image
-    from PySide6.QtGui import QImage,QIcon
+    from PySide6.QtGui import QIcon
     size=w.iconSize();scale=4
     pix=w.icon().pixmap(size*scale,QIcon.Normal if w.isEnabled() else QIcon.Disabled)
     if pix.isNull():return None
+    return pixmap_vector(pix,size)
+
+def arrow_vector(w):
+    from PySide6.QtGui import QPixmap
+    size=w.iconSize();pix=QPixmap(size*4);pix.setDevicePixelRatio(4);pix.fill(Qt.transparent)
+    option=QStyleOption();option.initFrom(w);option.rect=QRect(QPoint(),size)
+    primitive={Qt.RightArrow:QStyle.PE_IndicatorArrowRight,Qt.LeftArrow:QStyle.PE_IndicatorArrowLeft,
+               Qt.UpArrow:QStyle.PE_IndicatorArrowUp,Qt.DownArrow:QStyle.PE_IndicatorArrowDown}[w.arrowType()]
+    painter=QPainter(pix)
+    try:w.style().drawPrimitive(primitive,option,painter,w)
+    finally:painter.end()
+    return pixmap_vector(pix,size)
+
+def pixmap_vector(pix,size):
+    from PIL import Image
+    from PySide6.QtGui import QImage
     im=pix.toImage().convertToFormat(QImage.Format_RGBA8888)
     image=Image.frombytes('RGBA',(im.width(),im.height()),bytes(im.bits()))
     # Subpixel spans retain the icon's actual colour/coverage in vector markup.
@@ -134,10 +154,11 @@ def export_tree(root):
             node.update(kind='label',text=w.text(),rich=w.textFormat()==Qt.RichText or bool(re.search(r'<(?:p|b|span|br|html|div)\b',w.text())))
             if not w.text() and not w.pixmap().isNull():unsupported.append({'class':type(w).__name__,'name':w.objectName(),'reason':'raster label omitted'})
         elif isinstance(w,(QCheckBox,QRadioButton)):
-            node.update(kind='check',radio=isinstance(w,QRadioButton),text=w.text().replace('&',''),checked=w.isChecked())
+            node.update(kind='check',radio=isinstance(w,QRadioButton),text=caption(w.text()),checked=w.isChecked())
         elif isinstance(w,QAbstractButton):
-            node.update(kind='button',text=w.text().replace('&',''),checked=w.isChecked(),checkable=w.isCheckable(),tip=w.toolTip(),accessible=w.accessibleName())
+            node.update(kind='button',text=caption(w.text()),checked=w.isChecked(),checkable=w.isCheckable(),tip=w.toolTip(),accessible=w.accessibleName())
             if not w.icon().isNull():node['icon']=icon_vector(w)
+            elif isinstance(w,QToolButton) and w.arrowType()!=Qt.NoArrow:node['icon']=arrow_vector(w)
         elif isinstance(w,QComboBox):node.update(kind='select',options=[w.itemText(i) for i in range(w.count())],value=w.currentIndex(),text=w.currentText())
         elif isinstance(w,QLineEdit):node.update(kind='input',text=w.text(),placeholder=w.placeholderText(),readonly=w.isReadOnly(),alignment=int(w.alignment()))
         elif isinstance(w,(QTextEdit,QPlainTextEdit)):node.update(kind='textarea',text=w.toPlainText(),placeholder=w.placeholderText(),readonly=w.isReadOnly(),html=w.toHtml() if isinstance(w,QTextEdit) else '')
@@ -154,7 +175,20 @@ def export_tree(root):
         if node['kind'] in ('button','select','check','slider','progress'):
             # Preserve a custom command/palette's native vector chrome. Its text
             # stays actual HTML, not outlined glyphs or an image of the control.
-            paint=vector(w)
+            # A raster-backed QIcon must not discard the native button frame.
+            # Export it separately while keeping the real style, size and state.
+            arrow=w.arrowType() if isinstance(w,QToolButton) else Qt.NoArrow
+            if node['kind']=='button' and (not w.icon().isNull() or arrow!=Qt.NoArrow):
+                from PySide6.QtGui import QIcon
+                icon=w.icon()
+                try:
+                    w.setIcon(QIcon())
+                    if arrow!=Qt.NoArrow:w.setArrowType(Qt.NoArrow)
+                    paint=vector(w)
+                finally:
+                    w.setIcon(icon)
+                    if arrow!=Qt.NoArrow:w.setArrowType(arrow)
+            else:paint=vector(w)
             if paint:
                 node['chrome']=re.sub(r'<text\b[^>]*>.*?</text>','',paint,flags=re.S)
                 node['style'].update(background='transparent',border='none')
@@ -186,7 +220,7 @@ def export_tree(root):
             else:unsupported.append({'class':type(w).__name__,'name':w.objectName(),'reason':'non-vector custom paint'})
         if node['kind']=='box':
             node['children']=[n for c in children if (n:=visit(c))]
-            if w.objectName()=='qt_scrollarea_viewport' and isinstance(w.parentWidget(),QScrollArea):node['scroll']=True
+            if isinstance(w.parentWidget(),QScrollArea) and w.parentWidget().viewport() is w:node['scroll']=True
         return node
     tree=visit(root)
     return tree,unsupported
@@ -213,6 +247,11 @@ def run(window,app,root,out):
             for appearance,theme in [('original','imprimatura'),('void','tenebrismo'),('pentimento','pentimento')]:
                 window._set_global_appearance(appearance,persist=False);QTest.qWait(80);app.processEvents()
                 tree,unsupported=export_tree(target)
+                if os.environ.get('ARTIFACTS_BUTTON_EVIDENCE') and size=='closed':
+                    evidence=Path(os.environ['ARTIFACTS_BUTTON_EVIDENCE']);evidence.mkdir(parents=True,exist_ok=True)
+                    for button in target.findChildren(QAbstractButton):
+                        if button.objectName() in ('plesseySpcPrimary','compile') and button.isVisibleTo(target):
+                            button.grab().save(str(evidence/f'{item["id"]}-{theme}-{button.objectName()}.png'))
                 variants[theme]={'availableWidth':1159-delta,'width':target.width(),'height':target.height(),'tree':tree,'unsupported':unsupported}
             sizes[size]=variants
         import inspect

@@ -1,5 +1,13 @@
 # Start here — ARTIFACTS public website
 
+## Desktop control fidelity — 25 October 2026
+
+Scrollbar normal/hover/pressed colours and geometry now come from the desktop's shared theme rules. The exporter identifies scroll viewports by Qt ownership, including MET Compiler's `dashboardViewport` and Telemetry's `telemetryViewport`. All 180 exported scroll areas have one functioning browser scroll owner; the MET footer remains outside its scroller.
+
+Native button artwork retains rounded clipping and caption alignment. Icons/arrows are exported separately so they cannot discard the native frame, and literal ampersands survive Qt mnemonic removal. All 1,656 button instances have native artwork. All 19 applications were re-exported and compared: no widget position, size, class or hierarchy changes. Home gutters reserve the full desktop rail without artificial horizontal overflow.
+
+44 website tests, 27 module syntax checks and the native build pass. Native Qt captures confirm Metria Plot's original shape in all three themes. Browser access is disabled, so final composed browser appearance and input interactions are not claimed visually verified. This supersedes the scrollbar limitations described below; physical browser verification remains pending.
+
 ## Single functional scrollbar — 25 October 2026
 
 Qt scroll areas now use one browser scrolling container in the space allocated by the desktop. Their exported static scrollbar images are hidden; the inner viewport no longer adds another browser rail. Decorative surfaces fit the client area, preventing a spurious horizontal scrollbar. Content dimensions, real overflow and keyboard scrolling are preserved. This covers 156 scroll areas across the 228 variants, including Data Lens.

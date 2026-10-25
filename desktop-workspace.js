@@ -4,8 +4,9 @@ const kebab=key=>key.replace(/[A-Z]/g,c=>'-'+c.toLowerCase());
 function css(node){
  // Exported native paint already contains its surface and outline. Drawing
  // those declarations again produces a second frame around custom widgets.
- const style=node.chrome||node.vector?Object.fromEntries(Object.entries(node.style).filter(([k])=>!/^border|^background/.test(k))):node.style;
+ const style=node.chrome||node.vector?Object.fromEntries(Object.entries(node.style).filter(([k])=>!/^(?:border|background)/.test(k)||/radius/i.test(k))):node.style;
  const properties={left:node.x+'px',top:node.y+'px',width:node.width+'px',height:node.height+'px',...style};
+ if(node.kind==='button'&&style['text-align'])properties.justifyContent=({'left':'flex-start','right':'flex-end','center':'center'})[style['text-align']]||'center';
  if(typeof properties.fontSize==='number')properties.fontSize+='px';
  return Object.entries(properties).map(([k,v])=>`${kebab(k)}:${v}`).join(';');
 }
@@ -79,7 +80,7 @@ export function desktopWorkspace(shell,model){
   container.hidden=false;container.innerHTML='';shell.querySelector('.app-home').classList.add('workspace-open');shell.querySelector('[data-home]').removeAttribute('aria-current');
   shell.querySelectorAll('[data-locate-app]').forEach(b=>{if(b.dataset.locateApp===id)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
   if(!cache.has(id)){
-   try{const response=await fetch(`content/desktop-layouts/${id}.json?v=20261024-preview`);if(!response.ok)throw Error('Layout unavailable');cache.set(id,await response.json());}
+   try{const response=await fetch(`content/desktop-layouts/${id}.json?v=20261025-controls`);if(!response.ok)throw Error('Layout unavailable');cache.set(id,await response.json());}
    catch{if(active===id&&request===token){const status=document.createElement('p');status.className='desktop-load-error';status.textContent='The desktop layout could not load. Select the application again to retry.';container.append(status);}return;}
   }
   if(active===id&&request===token)draw();

@@ -35,15 +35,15 @@ test('Every exported scroll area has one browser scroll owner and hides only its
   }
   for(const node of nodes)if(!railIds.has(node.id))assert.doesNotMatch(tagFor(node.id),/desktop-scroll-chrome/);
  }
- assert.equal(areas,156);assert.ok(rails>0);
+ assert.equal(areas,180);assert.ok(rails>0);
  const css=await fs.readFile('desktop-workspace.css','utf8');
  assert.match(css,/\.desktop-scroll-chrome\{display:none\}/);
  assert.match(css,/\.desktop-scroll-viewport\{overflow:visible\}/);
  // Decorative surfaces must not extend under the real scrollbar and create
  // horizontal overflow. Content widths and genuine horizontal scrolling stay.
  assert.match(css,/\.desktop-scroll>\.desktop-container-surface\{width:100%!important;height:100%!important\}/);
- assert.match(css,/\.desktop-scroll\{overflow:auto;/);
- assert.match(css,/@supports selector\(::-webkit-scrollbar\)\{\.desktop-scroll\{scrollbar-width:auto;scrollbar-color:auto\}\}/);
+ assert.match(css,/\.desktop-scroll\{overflow:auto\}/);
+ assert.match(css,/@supports selector\(::-webkit-scrollbar\)[\s\S]*?scrollbar-width:auto;scrollbar-color:auto/);
 });
 
 test('Data Lens content fits the desktop scrollbar allocation in all twelve variants',()=>{
@@ -57,6 +57,59 @@ test('Data Lens content fits the desktop scrollbar allocation in all twelve vari
  }
 });
 
+test('MET Compiler scrolls its renamed viewport while keeping its footer fixed',()=>{
+ for(const variants of Object.values(layouts['gan-met-compiler'].states.initial))for(const variant of Object.values(variants)){
+  const nodes=flatten(variant.tree),area=nodes.find(n=>n.name==='dashboardScroll');
+  const viewport=area.children.find(n=>n.name==='dashboardViewport');
+  assert.equal(viewport.scroll,true);
+  assert.ok(viewport.children.some(n=>n.height>viewport.height));
+  assert.match(nodeMarkup(area),/desktop-box desktop-scroll"/);
+  assert.ok(!flatten(area).some(n=>n.name==='compile'));
+  assert.equal(nodes.find(n=>n.name==='compile').text,'Compile & Save');
+ }
+});
+
+test('Metria Plot and every painted button retain native rounded clipping',()=>{
+ let buttons=0;
+ for(const data of Object.values(layouts))for(const variants of Object.values(data.states.initial))for(const variant of Object.values(variants)){
+  for(const button of flatten(variant.tree).filter(n=>n.kind==='button')){
+   const html=nodeMarkup(button);buttons++;
+   assert.ok(button.chrome,`${data.id}/${button.name||button.text}: missing native button artwork`);
+   assert.ok(html.includes(`width:${button.width}px;height:${button.height}px`));
+   assert.ok(html.includes(`font-size:${button.style.fontSize}px`));
+   if(button.style['border-radius'])assert.ok(html.includes(`border-radius:${button.style['border-radius']}`));
+   if(button.style['text-align']==='left')assert.ok(html.includes('justify-content:flex-start'));
+   if(button.name==='plesseySpcPrimary'){
+    assert.equal(button.text,'Plot');assert.equal(button.width,108);assert.equal(button.height,34);
+    assert.ok(button.chrome);assert.equal(button.style['border-radius'],'4px');
+   }
+  }
+ }
+ assert.ok(buttons>1000);
+});
+
+test('Scrollbar colours and geometry match the shared desktop theme rules',async()=>{
+ const css=await fs.readFile('desktop-workspace.css','utf8');
+ for(const color of ['#4F605E','#71847F','#93AAA5','#444D51','#A3ADB1','#BCC9CD','#5A555E','#81777F','#BDA98E'])assert.ok(css.includes(color));
+ assert.match(css,/width:var\(--native-scroll-width,22px\)/);
+ assert.match(css,/scrollbar-track:vertical\{margin:5px 0\}/);
+ assert.match(css,/border-width:1px 6px;border-radius:11px \/ 6px;min-height:42px/);
+ assert.match(css,/scrollbar-thumb:hover\{background-color:var\(--scroll-hover\)\}/);
+ assert.match(css,/scrollbar-thumb:active\{background-color:var\(--scroll-pressed\)\}/);
+ assert.match(css,/scrollbar-button\{display:none;width:0;height:0\}/);
+});
+
+test('Expanded home pages reserve the native scrollbar without moving their content',async()=>{
+ const {homeMarkup}=await import('../native-home.js');
+ const home=JSON.parse(await fs.readFile('content/home-layouts.json','utf8'));
+ for(const[key,ref]of Object.entries(home)){
+  const right=ref.contentHeight>722?4:26;
+  assert.match(homeMarkup(model,home,key),new RegExp(`class="home-scroll" style="right:${right}px"`));
+  const contentWidth=ref.width-18-right-(ref.contentHeight>722?22:0);
+  assert.equal(contentWidth,ref.contentWidth,key);
+ }
+});
+
 test('Native-painted surfaces do not receive a second CSS frame',()=>{
  let painted=0,ordinary=0;
  for(const data of Object.values(layouts))for(const variants of Object.values(data.states.initial))for(const variant of Object.values(variants)){
@@ -65,7 +118,8 @@ test('Native-painted surfaces do not receive a second CSS frame',()=>{
    if(node.chrome||node.vector){
     painted++;
     const ownStyle=markup.match(/data-native-id="[^"]+" style="([^"]*)"/)[1];
-    assert.doesNotMatch(ownStyle,/(?:^|;)(?:border|background)[^:;]*:/);
+    assert.doesNotMatch(ownStyle,/(?:^|;)(?:border(?![^:;]*radius)|background)[^:;]*:/);
+    if(node.kind!=='box')for(const [property,value] of Object.entries(node.style).filter(([k])=>/radius/i.test(k)))assert.ok(ownStyle.includes(`${property}:${value}`));
     if(node.kind==='box')assert.doesNotMatch(markup,/desktop-container-surface/);
    }else if(node.kind==='box'&&node.style.border&&node.style.border!=='none'){
     ordinary++;assert.match(markup,/desktop-container-surface/);
