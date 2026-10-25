@@ -1,5 +1,11 @@
 # Start here — ARTIFACTS public website
 
+## Metria Plot outline — 25 October 2026
+
+The Plot button now uses one continuous SVG outline instead of Qt's independently drawn border strips/corner arcs, removing visible joins at scaled hero sizes. Native colours, 4px outer rounding, 108 × 34 geometry, text and surrounding layout are retained across all twelve variants. The exporter derives this outline from the desktop button stylesheet; desktop files are unchanged.
+
+Validation: 55 website tests, 32 JavaScript syntax checks and the native build pass. A structural comparison confirms only the twelve Plot chrome fields changed in the layout manifest. Before/after SVG renders were inspected at 100%, 125%, 150% and 200%, alongside native Qt button captures. Evidence: `../outputs/metria-border-20261025/`. Browser control remains disabled, so composed live browser rendering is unverified.
+
 ## Hero hover movie playback — 25 October 2026
 
 All 81 mapped panels are audited. The 69 continuous native schematic movies now sample 112 frames at 16 ms (62.5 fps), preserving their 1792 ms loops, 668 x 208 pixels, native drawing and quality-88 encoding. Twelve intentionally discrete/static assets retain their original bytes. See `content/panel-motion-manifest.json`; `scripts/export-panel-motion.py` reads the desktop painter without editing desktop source. Source captures and static panel surfaces are unchanged.

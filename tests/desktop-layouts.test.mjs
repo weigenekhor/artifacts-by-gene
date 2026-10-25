@@ -88,6 +88,19 @@ test('Metria Plot and every painted button retain native rounded clipping',()=>{
  assert.ok(buttons>1000);
 });
 
+test('Metria Plot has one continuous native outline in every theme and panel arrangement',()=>{
+ const palettes={imprimatura:['#365872','#d2af79'],tenebrismo:['#202426','#a5b6bc'],pentimento:['#453744','#a78c9c']};
+ let count=0;
+ for(const variants of Object.values(layouts['metria-spc'].states.initial))for(const [theme,variant] of Object.entries(variants)){
+  const button=flatten(variant.tree).find(n=>n.name==='plesseySpcPrimary');
+  const [fill,stroke]=palettes[theme];count++;
+  assert.equal(button.width,108);assert.equal(button.height,34);
+  assert.equal(button.chrome,`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 34"><rect x="0.5" y="0.5" width="107" height="33" rx="3.5" fill="${fill}" stroke="${stroke}" stroke-width="1"/></svg>`);
+  assert.match(nodeMarkup(button),/desktop-chrome/);
+ }
+ assert.equal(count,12);
+});
+
 test('Scrollbar colours and geometry match the shared desktop theme rules',async()=>{
  const css=await fs.readFile('desktop-workspace.css','utf8');
  for(const color of ['#4F605E','#71847F','#93AAA5','#444D51','#A3ADB1','#BCC9CD','#5A555E','#81777F','#BDA98E'])assert.ok(css.includes(color));

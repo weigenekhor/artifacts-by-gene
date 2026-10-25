@@ -1,5 +1,11 @@
 # Implementation status
 
+## Metria Plot outline — 25 October 2026
+
+The Plot button now uses one continuous SVG outline instead of Qt's independently drawn border strips/corner arcs, removing visible joins at scaled hero sizes. Native colours, 4px outer rounding, 108 × 34 geometry, text and surrounding layout are retained across all twelve variants. The exporter derives this outline from the desktop button stylesheet; desktop files are unchanged.
+
+Validation: 55 website tests, 32 JavaScript syntax checks and the native build pass. A structural comparison confirms only the twelve Plot chrome fields changed in the layout manifest. Before/after SVG renders were inspected at 100%, 125%, 150% and 200%, alongside native Qt button captures. Evidence: `../outputs/metria-border-20261025/`. Browser control remains disabled, so composed live browser rendering is unverified.
+
 ## Hero hover movies — 25 October 2026
 
 Replaced 69 continuously animated hover strips with denser samples of the same desktop painter: 112 frames at 16 ms, unchanged 1792 ms loops and 2x pixel dimensions. Preserved all 12 intentionally discrete/static mapped strips. Four shared phases per asset are compared with the baseline; continuous samples have less than 2/255 channel RMS difference (lossy re-encoding), preserved assets are byte-identical. No motion interpolation, artwork redesign, CSS geometry or loop-speed changes.

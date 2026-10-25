@@ -26,6 +26,27 @@ def caption(text):
     # Qt's && displays a literal ampersand; only a single & is a mnemonic.
     return text.replace('&&','\0').replace('&','').replace('\0','&')
 
+def continuous_plot_frame(w):
+    # Qt exports this uniform rounded border as four strips and eight arcs.
+    # Their independently antialiased joins show seams when the hero is scaled.
+    # Keep the native QSS dimensions/palette but paint one continuous outline.
+    if w.objectName() != 'plesseySpcPrimary' or not w.isEnabled():
+        return None
+    base = re.search(r'QPushButton\s*\{([^}]+)\}', w.styleSheet())
+    if not base:
+        return None
+    rules = dict(re.findall(r'([\w-]+)\s*:\s*([^;]+)', base.group(1)))
+    edge = re.fullmatch(r'([\d.]+)px solid (#[\da-fA-F]{6})', rules.get('border', ''))
+    radius = re.fullmatch(r'([\d.]+)px', rules.get('border-radius', ''))
+    fill = rules.get('background', '')
+    if not edge or not radius or not re.fullmatch(r'#[\da-fA-F]{6}', fill):
+        return None
+    stroke = float(edge.group(1)); inset = stroke / 2
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w.width()} {w.height()}">'
+            f'<rect x="{inset:g}" y="{inset:g}" width="{w.width()-stroke:g}" '
+            f'height="{w.height()-stroke:g}" rx="{max(0,float(radius.group(1))-inset):g}" '
+            f'fill="{fill.lower()}" stroke="{edge.group(2).lower()}" stroke-width="{stroke:g}"/></svg>')
+
 @lru_cache(maxsize=100000)
 def matches(w,selector):
     selector=selector.strip()
@@ -189,6 +210,7 @@ def export_tree(root):
                     w.setIcon(icon)
                     if arrow!=Qt.NoArrow:w.setArrowType(arrow)
             else:paint=vector(w)
+            if node['kind']=='button':paint=continuous_plot_frame(w) or paint
             if paint:
                 node['chrome']=re.sub(r'<text\b[^>]*>.*?</text>','',paint,flags=re.S)
                 node['style'].update(background='transparent',border='none')

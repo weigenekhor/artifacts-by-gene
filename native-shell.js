@@ -1,4 +1,4 @@
-import {desktopWorkspace} from './desktop-workspace.js?v=20261025-panel-motion';
+import {desktopWorkspace} from './desktop-workspace.js?v=20261025-plot-outline';
 import {model,state,themes,setEdition,setTheme} from './state.js?v=20261017-tenebrismo-load';
 import {appearanceMenu} from './appearance-menu.js';
 import {maintainApplicationAge} from './application-age.js';
