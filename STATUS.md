@@ -1,5 +1,11 @@
 # Implementation status
 
+## Desktop notification panel parity — 25 October 2026
+
+Website notification centre now follows the current desktop header, 512px panel geometry, 20px centred new-count chip, bell/bell-off vectors, compact On/Off control before read-all, divider/tabs, notification-specific theme materials, card spacing and bottom-right read/delete actions. Removed the old checkbox, demonstration row and reset/status footer. Sample content remains explicitly identified in the accessible description; the website does not monitor equipment. Card action menus support read/dismiss/delete and keyboard navigation. Reminder actions are stacked as in desktop. Off preference and reminder mutes persist; Off hides unread badges, and muted reminders are retired from the list.
+
+Validation: 59 automated tests, 33 JavaScript syntax checks and the native build pass. Browser checks cover all three theme palettes, normal/Off icons and badges, preference persistence across reload, read/unread filtering, reminder mute, long export-path wrapping, menus with arrow keys/Escape, delete-all/empty state and Legacy mode. Export-path content measured 59px tall without horizontal overflow. Navigation/info CSS remains equal to the prior baseline after excluding notification rules; desktop source and gallery assets were not modified. Physical multi-monitor/DPI testing was not performed.
+
 ## Metria Plot outline — 25 October 2026
 
 The Plot button now uses one continuous SVG outline instead of Qt's independently drawn border strips/corner arcs, removing visible joins at scaled hero sizes. Native colours, 4px outer rounding, 108 × 34 geometry, text and surrounding layout are retained across all twelve variants. The exporter derives this outline from the desktop button stylesheet; desktop files are unchanged.

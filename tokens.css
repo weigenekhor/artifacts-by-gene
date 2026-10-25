@@ -43,3 +43,8 @@
 .app-shell[data-theme="imprimatura"]{--notice-accent:#A1C4C2;--notice-critical:#D19A9F;--notice-success:#98BBA8;--notice-alert-bg:#252126;--notice-alert-edge:#4D3D45}
 .app-shell[data-theme="pentimento"]{--notice-accent:#C3A7C7;--notice-critical:#D39A9E;--notice-success:#9BB8A6;--notice-alert-bg:#221D24;--notice-alert-edge:#493845}
 .app-shell[data-theme="tenebrismo"]{--notice-accent:var(--accent);--notice-critical:#DE9598;--notice-success:#92B6A1;--notice-alert-bg:var(--panel);--notice-alert-edge:#444D51}
+
+/* Notification-specific desktop materials (not the general shell borders). */
+.app-shell[data-theme="imprimatura"]{--notice-bg:#181c22;--notice-raised:#202a32;--notice-edge:#343b48;--notice-badge:#2b4648}
+.app-shell[data-theme="tenebrismo"]{--notice-bg:#171a1c;--notice-raised:#202426;--notice-edge:#444d51;--notice-badge:#343c40}
+.app-shell[data-theme="pentimento"]{--notice-bg:#151319;--notice-raised:#1f1b22;--notice-edge:#433b48;--notice-badge:#473348}

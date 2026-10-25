@@ -92,44 +92,57 @@
 .settings-drawer [data-close-info]{position:absolute;right:14px;top:11px;width:21px;height:22px;padding:0;border:0;background:none;color:var(--text);display:grid;place-items:center;border-radius:3px}
 .settings-drawer [data-close-info]:hover{background:var(--raised)}
 
-/* Native notification centre, populated with a resettable local demonstration. */
+/* Notification geometry and materials mirror widgets/notifications/ui.py. */
 .notification-control-wrap{position:relative;flex:none}
 .notification-control{position:relative}
-[data-notification-badge]{position:absolute;right:10px;top:1px;min-width:11px;height:11px;border-radius:6px;padding:0 3px;background:var(--notice-accent);color:var(--panel);font:700 8px/11px "Segoe UI",sans-serif}
-.notification-centre{position:absolute;right:0;top:calc(100% + 12px);width:512px;max-height:720px;padding:18px 16px 14px;border:1px solid var(--border);border-radius:14px;background:var(--panel);color:var(--text);box-shadow:0 12px 30px #0006;display:flex;flex-direction:column;gap:16px;text-align:left}
-.notification-centre header{display:flex;align-items:center;gap:8px}
-.notification-centre h3{font:600 18px/1.4 "Segoe UI",sans-serif;margin:0}
-.notification-centre [data-notification-count]{padding:2px 9px;border-radius:9px;background:var(--selection);font-size:11px;white-space:nowrap;margin-right:auto}
-.notification-centre button{color:var(--muted);background:none;border:0;padding:5px;border-radius:4px;font:13px/1.4 "Segoe UI",sans-serif}
-.notification-centre button:hover{background:var(--raised);color:var(--text)}
+.notification-control [data-notification-bell]{display:flex}
+.notification-control:not(:disabled):hover{border-color:transparent}
+[data-notification-badge]{position:absolute;right:2px;top:1px;min-width:11px;height:11px;border-radius:5.5px;padding:0 2px;background:#BBD1C7;color:#193A32;font:700 8px/11px "Segoe UI",sans-serif}
+.notification-centre{position:absolute;right:0;top:calc(100% + 12px);width:512px;max-height:720px;padding:18px 16px 14px;border:1px solid var(--notice-edge);border-radius:14px;background:var(--notice-bg);color:var(--text);display:flex;flex-direction:column;gap:16px;text-align:left}
+.notification-centre header{display:flex;align-items:center;gap:8px;flex:none}
+.notification-header-icon{width:24px;height:24px;display:grid;place-items:center;flex:none;color:var(--muted)}
+.notification-centre h3{font:600 18px/1.4 "Segoe UI",sans-serif;margin:0;white-space:nowrap}
+.notification-header-spacer{flex:1}
+.notification-centre [data-notification-count]{height:20px;display:flex;align-items:center;padding:0 9px;border-radius:9px;background:var(--notice-badge);font-size:11px;font-weight:600;white-space:nowrap;flex:none}
+.notification-centre button{color:var(--muted);background:none;border:0;padding:5px 0;border-radius:4px;font:14px/1.4 "Segoe UI",sans-serif;cursor:pointer}
+.notification-centre button:hover{color:var(--text)}
 .notification-centre button:focus-visible{outline:1px solid var(--focus);outline-offset:2px}
-.notification-centre button:disabled{opacity:.45;cursor:default}
-.notification-centre header button,.notification-entry-heading>button{width:28px;height:28px;display:grid;place-items:center;padding:0;flex:none}
-.notification-demo{margin:0;padding-bottom:16px;border-bottom:1px solid var(--border);font-size:14px;color:var(--text)}
-.notification-demo span{float:right;color:var(--muted);font-size:12px;padding-top:2px}
-.notification-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.notification-centre button:disabled{opacity:.55;cursor:default}
+.notification-centre .notification-icon-button{width:28px;height:28px;display:grid;place-items:center;padding:0;flex:none;color:var(--text)}
+.notification-centre .notification-icon-button:hover,.notification-centre .notification-icon-button:focus-visible{background:var(--notice-raised)}
+.notification-centre [data-notifications-enabled]{height:28px;min-width:54px;border:1px solid var(--notice-edge);padding:4px 8px;display:flex;align-items:center;justify-content:center;gap:4px;flex:none}
+.notification-centre [data-notifications-enabled][aria-pressed=true]{background:var(--notice-badge);color:var(--text)}
+.notification-divider{height:1px;background:var(--notice-edge);flex:none}
+.notification-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex:none}
 .notification-toolbar>div{display:flex;gap:5px}
-.notification-toolbar [data-notification-filter]{padding:7px 5px 9px;border-bottom:2px solid transparent;border-radius:0;font-size:14px}
+.notification-toolbar [data-notification-filter]{min-width:34px;padding:7px 5px 9px;border-bottom:2px solid transparent;border-radius:0;font-size:14px}
 .notification-toolbar [aria-pressed=true]{border-bottom-color:var(--notice-accent);color:var(--text);font-weight:600}
-.notification-centre ul{list-style:none;margin:0;padding:1px 2px;display:flex;flex-direction:column;gap:10px;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--border-hover) transparent}
-.notification-entry{flex:none;border:1px solid var(--border);border-radius:10px;padding:14px 16px;background:var(--raised)}
+.notification-centre ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;min-height:0;overflow:auto;overscroll-behavior:contain}
+.notification-entry{flex:none;min-width:0;border:1px solid var(--notice-edge);border-radius:10px;padding:15px 16px 14px;background:var(--notice-raised);display:flex;flex-direction:column;gap:15px;overflow-wrap:anywhere}
 .notification-entry[data-tone=alert]{background:var(--notice-alert-bg);border-color:var(--notice-alert-edge)}
-.notification-entry[data-unread=false]{background:var(--panel);border-color:var(--border)}
-.notification-entry-heading{display:flex;align-items:center;gap:7px;margin-bottom:10px}
-.notification-category{display:flex;align-items:center;gap:7px;color:var(--notice-success);font-weight:600;font-size:14px}
+.notification-entry[data-unread=false]{background:var(--notice-bg);border-color:var(--notice-edge)}
+.notification-entry-heading{display:flex;align-items:center;gap:7px;min-width:0}
+.notification-category{display:flex;align-items:center;gap:7px;color:var(--notice-accent);font-weight:600;font-size:14px;min-width:0}
+.notification-category svg{flex:none}
 [data-tone=alert] .notification-category{color:var(--notice-critical)}
-.notification-category i{width:5px;height:5px;border-radius:50%;background:var(--notice-accent)}
-.notification-time{margin-left:auto;font-size:12px;color:var(--muted);white-space:nowrap}
-.notification-entry h4{font:600 16px/1.4 "Segoe UI",sans-serif;margin:0 0 7px}
-.notification-entry p{margin:0;font-size:14px;line-height:1.5}
-.notification-entry dl{display:flex;gap:32px;margin:12px 0 0}
-.notification-entry dt{font-size:11px;color:var(--muted);margin-bottom:3px}
-.notification-entry dd{margin:0;font-size:14px;font-variant-numeric:tabular-nums}
-.notification-centre .notification-read{margin-top:9px;padding-left:0;color:var(--notice-accent)}
-.notification-empty{text-align:center;padding:32px 12px;color:var(--muted);font-size:14px}
-.notification-empty strong{color:var(--text);font-weight:600}.notification-empty p{margin:5px 0 0}
-.notification-centre footer{display:flex;align-items:center;justify-content:flex-end;gap:10px;font-size:11px;color:var(--muted)}
-.notification-centre [data-reset-notifications]{color:var(--notice-accent);font-size:12px}
+[data-tone=success] .notification-category{color:var(--notice-success)}
+.notification-time{margin-left:auto;font-size:12px;color:var(--muted);white-space:nowrap;flex:none}
+.notification-entry h4{font:600 16px/1.4 "Segoe UI",sans-serif;margin:0}
+.notification-entry p{margin:0;font-size:14px;line-height:1.4;white-space:pre-wrap}
+.notification-measurement strong{color:var(--notice-critical);font-weight:600}
+.notification-measurement span,.notification-entry-actions>span{color:var(--muted)}
+.notification-entry-actions{display:flex;align-items:center;justify-content:flex-end;gap:12px}
+.notification-snooze{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.notification-snooze button{text-align:left}
+.notification-menu-wrap{position:relative;flex:none}
+.notification-entry-heading .notification-icon-button{width:22px;height:22px}
+.notification-entry-menu{position:absolute;right:0;top:100%;z-index:2;min-width:176px;padding:5px;border:1px solid var(--notice-edge);background:var(--notice-bg);display:flex;flex-direction:column;box-shadow:0 4px 12px #0004}
+.notification-entry-menu button{padding:7px 16px;text-align:left;font-size:13px;white-space:nowrap}
+.notification-entry-menu button:hover{background:var(--notice-raised)}
+.notification-empty{text-align:center;padding:18px 12px;color:var(--muted);font-size:12px;display:flex;flex-direction:column;align-items:center;gap:5px}
+.notification-empty strong{color:var(--text);font-size:14px;font-weight:600}.notification-empty p{margin:0}
+@media(prefers-reduced-motion:no-preference){.notification-centre:not([hidden]){animation:notification-open 150ms ease-out}}
+@keyframes notification-open{from{opacity:0}to{opacity:1}}
 
 /* Live typography stays sharp at the browser's display density. */
 .app-shell[data-theme=imprimatura]{--info-top:#181b1b;--info-bottom:#161919;--info-copy:#b6c1bc;--info-label:#9baea4;--info-link:#d7e1db}
@@ -179,9 +192,3 @@
 
 .info-wordmark svg{display:block;width:170px;height:36px;overflow:visible;flex:none}
 .info-wordmark text{font:300 23px "Segoe UI Light","Segoe UI",sans-serif;letter-spacing:5.7px;fill:currentColor}
-
-.notification-global{display:flex;align-items:center;gap:10px;padding:10px 16px;font-size:13px;color:var(--text)}
-.notification-global input{accent-color:var(--notice-accent)}
-.notification-snooze{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.notification-snooze button{padding:6px 9px;border:1px solid var(--border);border-radius:4px;font-size:12px}
-.notification-snooze span{width:100%;font-size:12px;color:var(--muted)}

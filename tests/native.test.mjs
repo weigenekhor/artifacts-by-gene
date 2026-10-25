@@ -276,10 +276,10 @@ test('Notification centre opens, stays open internally, dismisses outside and re
  const {notificationCentre}=await import('../notification-centre.js');
  const listeners={};let focused;
  const node=()=>({hidden:true,attrs:{},handlers:{},dataset:{},setAttribute(k,v){this.attrs[k]=v;},addEventListener(k,v){this.handlers[k]=v;},contains(target){return this===target;},focus(){focused=this;}});
- const trigger=node(),panel=node(),list=node(),close=node(),clear=node(),read=node(),reset=node(),badge=node(),count=node(),status=node();
+ const trigger=node(),panel=node(),list=node(),close=node(),clear=node(),read=node(),enabled=node(),bell=node(),headerIcon=node(),badge=node(),count=node(),status=node();
  const tabs=['all','unread'].map(filter=>Object.assign(node(),{dataset:{notificationFilter:filter}}));
- const nodes={'[data-notification-list]':list,'[data-close-notifications]':close,'[data-delete-notifications]':clear,'[data-read-notifications]':read,'[data-reset-notifications]':reset,'[data-notification-count]':count,'[data-notification-status]':status};
- panel.querySelector=selector=>nodes[selector];panel.querySelectorAll=()=>tabs;trigger.querySelector=()=>badge;
+ const nodes={'[data-notification-list]':list,'[data-close-notifications]':close,'[data-delete-notifications]':clear,'[data-read-notifications]':read,'[data-notifications-enabled]':enabled,'[data-notification-header-icon]':headerIcon,'[data-notification-count]':count,'[data-notification-status]':status};
+ panel.querySelector=selector=>nodes[selector];panel.querySelectorAll=()=>tabs;trigger.querySelector=selector=>selector==='[data-notification-badge]'?badge:bell;
  const shell={querySelector:selector=>selector==='[data-notifications]'?trigger:panel};
  const previous=globalThis.document;globalThis.document={addEventListener:(key,fn)=>listeners[key]=fn};
  try{
@@ -289,9 +289,10 @@ test('Notification centre opens, stays open internally, dismisses outside and re
   panel.handlers.keydown({key:'Escape',preventDefault(){},stopPropagation(){}});assert.equal(panel.hidden,true);assert.equal(focused,trigger);
   trigger.handlers.click();listeners.pointerdown({target:{}});assert.equal(panel.hidden,true);
   trigger.handlers.click();listeners.focusin({target:{}});assert.equal(panel.hidden,true);
-  trigger.handlers.click();clear.handlers.click();assert.equal(badge.hidden,true);assert.match(list.innerHTML,/All caught up/);
-  reset.handlers.click();assert.equal(badge.textContent,2);assert.equal(badge.hidden,false);
+  trigger.handlers.click();enabled.handlers.click();assert.equal(enabled.attrs['aria-pressed'],'false');assert.equal(badge.hidden,true);assert.equal(count.hidden,true);assert.match(bell.innerHTML,/M5.4 8/);
+  enabled.handlers.click();assert.equal(badge.hidden,false);assert.equal(count.hidden,false);assert.equal(count.textContent,'2 new');
   read.handlers.click();assert.equal(read.disabled,true);assert.equal(badge.hidden,true);
+  clear.handlers.click();assert.equal(badge.hidden,true);assert.match(list.innerHTML,/All Caught Up/);
  }finally{globalThis.document=previous;}
  assert.match(html,/data-notification-panel role="dialog"/);
  assert.match(html,/Sample notifications/);

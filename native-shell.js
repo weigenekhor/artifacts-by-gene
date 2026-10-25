@@ -2,7 +2,7 @@ import {desktopWorkspace} from './desktop-workspace.js?v=20261025-plot-outline';
 import {model,state,themes,setEdition,setTheme} from './state.js?v=20261017-tenebrismo-load';
 import {appearanceMenu} from './appearance-menu.js';
 import {maintainApplicationAge} from './application-age.js';
-import {notificationCentre} from './notification-centre.js?v=20261024-preview';
+import {notificationCentre} from './notification-centre.js?v=20261025-desktop-panel';
 import {homeMarkup,homeMaterialMarkup,panelPosition} from './native-home.js?v=20261025-panel-motion';
 import {createPanelCache} from './panel-cache.js';
 import {createPanelMovies} from './panel-movies.js?v=20261025-fluid-movies';
