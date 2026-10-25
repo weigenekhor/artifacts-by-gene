@@ -1,4 +1,5 @@
 // Actual desktop QWidget geometry and styling, exported without sample data.
+import {createWorkspaceViewCache} from './workspace-view-cache.js';
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const kebab=key=>key.replace(/[A-Z]/g,c=>'-'+c.toLowerCase());
 function css(node){
@@ -66,16 +67,42 @@ export function desktopWorkspace(shell,model){
  const container=document.createElement('section');container.className='desktop-workspace';container.hidden=true;
  const parent=shell.querySelector('.app-content');parent.append(container);
  const cache=new Map();let active=null,request=0,lastVariant=null;
+ let warmScope='',warmHandle=null;
+ const views=createWorkspaceViewCache((variant,key)=>{
+  const template=document.createElement('template');
+  template.innerHTML=nodeMarkup(variant.tree,key);
+  return template.content.firstElementChild;
+ });
+ function stopWarming(){
+  if(warmHandle!==null)cancelIdleCallback(warmHandle);
+  warmHandle=null;warmScope='';
+ }
+ function warmArrangements(theme){
+  if(typeof requestIdleCallback==='undefined')return;
+  const scope=active+'-'+theme;
+  if(warmScope===scope)return;
+  stopWarming();warmScope=scope;
+  const variants=Object.values(cache.get(active).states.initial).map(size=>size[theme]).filter(v=>v!==lastVariant);
+  function next(deadline){
+   warmHandle=null;
+   if(warmScope!==scope||!active||active+'-'+(shell.dataset.theme||'tenebrismo')!==scope)return;
+   if(deadline.timeRemaining()>=8&&!shell.classList?.contains('panels-moving'))views.get(scope,variants.shift());
+   if(variants.length)warmHandle=requestIdleCallback(next);
+  }
+  if(variants.length)warmHandle=requestIdleCallback(next);
+ }
  function draw(){
   if(!active||!cache.has(active))return;
   const theme=shell.dataset.theme||'tenebrismo',variant=layoutVariant(cache.get(active),theme,parent.clientWidth);
   if(lastVariant===variant)return;
-  lastVariant=variant;container.innerHTML=nodeMarkup(variant.tree,active+'-'+theme);
+  lastVariant=variant;container.replaceChildren(views.get(active+'-'+theme,variant));
   container.setAttribute('aria-label',model.apps.find(a=>a.id===active).name+' — desktop layout');
+  warmArrangements(theme);
  }
- function close(){request++;active=null;lastVariant=null;container.hidden=true;shell.querySelector('.app-home').classList.remove('workspace-open');shell.querySelectorAll('[data-locate-app]').forEach(b=>b.removeAttribute('aria-current'));shell.querySelector('[data-home]').setAttribute('aria-current','page');}
+ function close(){request++;stopWarming();active=null;lastVariant=null;views.clear();container.replaceChildren();container.hidden=true;shell.querySelector('.app-home').classList.remove('workspace-open');shell.querySelectorAll('[data-locate-app]').forEach(b=>b.removeAttribute('aria-current'));shell.querySelector('[data-home]').setAttribute('aria-current','page');}
  async function open(id){
   if(!model.apps.some(a=>a.id===id))return;
+  stopWarming();views.clear();
   active=id;lastVariant=null;const token=++request;
   container.hidden=false;container.innerHTML='';shell.querySelector('.app-home').classList.add('workspace-open');shell.querySelector('[data-home]').removeAttribute('aria-current');
   shell.querySelectorAll('[data-locate-app]').forEach(b=>{if(b.dataset.locateApp===id)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});

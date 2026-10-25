@@ -1,5 +1,11 @@
 # Start here — ARTIFACTS public website
 
+## Panel transition efficiency — 25 October 2026
+
+Navigation and Application Info keep their original geometry, colours, artwork and 220/240ms motion. Each open app retains at most four prepared layout nodes for its current theme; idle preparation pauses during panel motion. Theme/app changes and closing release these nodes. Repeated toggles reuse them rather than reconstructing the widgets. Hidden homepage cards are no longer rebuilt behind an app; its visible background still updates. Temporary compositor hints end with the transition.
+
+48 tests pass, 30 modules pass syntax checking, and the native build succeeds. All 24 homepage markup outputs and existing CSS appearance rules match the pre-change baseline. The reproducible `node scripts/benchmark-panel-layouts.mjs` comparison covers all 19 apps: 80 repeated arrangements become four initial builds and zero repeat builds per app. This measures serialization/cache work, not browser FPS. Browser access remains disabled in Work settings, so rendered motion and GPU/memory behaviour remain unverified. Evidence: `../outputs/website-panel-motion-20261025/`.
+
 ## Desktop control fidelity — 25 October 2026
 
 Scrollbar normal/hover/pressed colours and geometry now come from the desktop's shared theme rules. The exporter identifies scroll viewports by Qt ownership, including MET Compiler's `dashboardViewport` and Telemetry's `telemetryViewport`. All 180 exported scroll areas have one functioning browser scroll owner; the MET footer remains outside its scroller.

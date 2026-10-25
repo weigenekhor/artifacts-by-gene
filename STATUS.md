@@ -1,5 +1,11 @@
 # Implementation status
 
+## Panel transition efficiency — 25 October 2026
+
+Preserved all visual rules, transition durations and exported layout assets. Workspace DOM nodes are reused across the four panel arrangements, with a bounded current-app/current-theme cache, cancellable idle preparation and a lazy fallback. Hidden home cards are not rebuilt while an app is displayed; home navigation restores the correct full layout. Temporary compositor hints are removed after motion.
+
+Validation: 48 tests pass; 30 JavaScript modules pass syntax checking; native build succeeds. Tests cover cache identity/bounds, theme/app changes, cancellation, stale fetches, low idle budgets, skipping preparation during motion, no-idle fallback, and byte-identical homepage markup for all 24 variants. Existing CSS appearance is checked against the pre-change baseline. Benchmark: all 19 apps, 80 arrangements each, four initial builds and zero repeated builds. `scripts/benchmark-panel-layouts.mjs` reproduces the serialization/cache comparison; this is not DOM/layout/paint/FPS profiling. Browser access remains disabled in Work settings, preventing physical animation and GPU/memory verification. Desktop source is untouched.
+
 ## Desktop control fidelity — 25 October 2026
 
 Refreshed all native layouts from the current desktop in the isolated export harness. Retained rounded button clipping, native frames for icon/arrow buttons, left/right caption alignment and escaped ampersands. All 1,656 button instances retain native artwork; geometry comparison across all 228 variants found no changes to widget bounds, class or hierarchy.

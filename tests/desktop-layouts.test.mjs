@@ -189,20 +189,34 @@ test('Only the native layout renderer is connected to the product shell',async()
 });
 
 test('Application navigation, theme refresh and stale fetches preserve the selected native layout',async()=>{
- const previous={document:globalThis.document,fetch:globalThis.fetch,ResizeObserver:globalThis.ResizeObserver};
- const element=()=>({hidden:false,innerHTML:'',clientWidth:1161,attrs:{},handlers:{},classList:{add(){},remove(){}},setAttribute(k,v){this.attrs[k]=v;},removeAttribute(k){delete this.attrs[k];},append(){},addEventListener(k,v){this.handlers[k]=v;}});
+ const previous={document:globalThis.document,fetch:globalThis.fetch,ResizeObserver:globalThis.ResizeObserver,requestIdleCallback:globalThis.requestIdleCallback,cancelIdleCallback:globalThis.cancelIdleCallback};
+ const element=()=>({hidden:false,innerHTML:'',clientWidth:1161,attrs:{},handlers:{},classList:{add(){},remove(){}},setAttribute(k,v){this.attrs[k]=v;},removeAttribute(k){delete this.attrs[k];},append(){},replaceChildren(node){this.innerHTML=node?.html||'';},addEventListener(k,v){this.handlers[k]=v;}});
  const container=element(),parent=element(),home=element(),homeButton=element();
  const nav=model.apps.map(a=>({...element(),dataset:{locateApp:a.id}}));
  const shell={dataset:{theme:'tenebrismo'},querySelector:s=>s==='.app-content'?parent:s==='.app-home'?home:homeButton,querySelectorAll:()=>nav};
  let wait=false;const pending=[];
- globalThis.document={createElement:()=>container};globalThis.ResizeObserver=undefined;
+ let builds=0,idleId=0,moving=false;const idle=new Map();
+ shell.classList={contains:()=>moving};
+ globalThis.requestIdleCallback=callback=>{idle.set(++idleId,callback);return idleId;};
+ globalThis.cancelIdleCallback=id=>idle.delete(id);
+ const idleStep=(time=50)=>{const [id,callback]=idle.entries().next().value;idle.delete(id);callback({timeRemaining:()=>time});};
+ globalThis.document={createElement:tag=>tag==='template'?{content:{firstElementChild:null},set innerHTML(html){builds++;this.content.firstElementChild={html};}}:container};globalThis.ResizeObserver=undefined;
  globalThis.fetch=async url=>{const id=url.match(/desktop-layouts\/(.*?)\.json/)[1];if(wait)await new Promise(resolve=>pending.push({id,resolve}));return {ok:true,json:async()=>layouts[id]};};
  try{
   const controller=desktopWorkspace(shell,model);await controller.open('topotracer');assert.match(container.innerHTML,/Measurement Values/);assert.equal(container.hidden,false);
+  assert.equal(builds,1);moving=true;idleStep();assert.equal(builds,1);
+  moving=false;idleStep(2);assert.equal(builds,1);
+  while(idle.size)idleStep();assert.equal(builds,4);
+  for(const width of [981,763,943,1161]){parent.clientWidth=width;controller.refresh();}
+  assert.equal(builds,4,'visited arrangements must reuse prepared DOM nodes');
   shell.dataset.theme='pentimento';controller.refresh();assert.match(container.innerHTML,/#736c78|#736C78/);
   parent.clientWidth=763;controller.refresh();assert.ok(container.innerHTML.includes('width:761px;height:743px'));
   wait=true;const a=controller.open('data-lens'),b=controller.open('aix-dt-assistant');pending.find(p=>p.id==='aix-dt-assistant').resolve();await b;pending.find(p=>p.id==='data-lens').resolve();await a;
   assert.equal(controller.active,'aix-dt-assistant');assert.match(container.innerHTML,/Weight Mapping/);
-  controller.close();assert.equal(container.hidden,true);assert.equal(controller.active,null);assert.equal(homeButton.attrs['aria-current'],'page');
+  controller.close();assert.equal(container.hidden,true);assert.equal(controller.active,null);assert.equal(homeButton.attrs['aria-current'],'page');assert.equal(idle.size,0);
+  globalThis.requestIdleCallback=undefined;globalThis.cancelIdleCallback=undefined;wait=false;
+  await controller.open('topotracer');const lazyBuilds=builds;
+  controller.refresh();assert.equal(builds,lazyBuilds,'browsers without idle callbacks reuse the current layout');
+  controller.close();assert.equal(container.innerHTML,'');
  }finally{Object.assign(globalThis,previous);}
 });

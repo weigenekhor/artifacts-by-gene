@@ -171,6 +171,10 @@
 .info-live{height:100%;min-height:760px;padding-top:22px}
 .app-status{left:calc(60px + var(--panel-shift));transition:left 240ms cubic-bezier(.215,.61,.355,1)}
 .app-status>span:first-child{transform:none}
+/* Promote only while the existing transition runs, then release the layers. */
+.panels-moving .app-sidebar{will-change:clip-path}
+.panels-moving .settings-drawer{will-change:transform,clip-path}
+.panels-moving .app-content{will-change:transform}
 @media(prefers-reduced-motion:reduce){.app-titlebar,.app-status{transition:none}}
 
 .info-wordmark svg{display:block;width:170px;height:36px;overflow:visible;flex:none}

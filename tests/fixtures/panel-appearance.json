@@ -1,0 +1,30 @@
+{
+  "source": "6240288191be4e785b5a3c4e86f1db0e92d1dfef; unchanged home markup and normalized pre-optimization CSS",
+  "css": "e1f9b3325c4630672f5c52794d60a17f2f2378de9f1d512268b814043bc5f2e4",
+  "home": {
+    "imprimatura-legacy-closed": "30da3edd7648ae4a285599a419dce443d92b64c07a2648491fa1d1c946972b7a",
+    "imprimatura-legacy-navigation": "458b20f4149ea9d32f0b7cc4b3e109b71abc53e7b3fc780d84a2adc426c5d202",
+    "imprimatura-legacy-information": "392ce77c441dd4c9473c844580b5d23db1696505172ef9a6f57cb4d752919659",
+    "imprimatura-legacy-both": "8a089aad33da3c87fedd5b41f1e97e73147b39438391956777a3b3b4729d2fa8",
+    "imprimatura-pentimento-closed": "87470fd7818da07038fa472bd6c597f1646191dad6b1dfb7c4029a3b065af6b2",
+    "imprimatura-pentimento-navigation": "56d4247fa6544e0781df1f566152c49f73f5275ac7918055a559c5eb0ebdec1a",
+    "imprimatura-pentimento-information": "9de38409df352afdef1d667d65b53384e124d6f7c91c0cf5a4555661fc6d69ba",
+    "imprimatura-pentimento-both": "185d298bdcd4ce945cafa87f67d769ee109866a6235e405ff98b9766a1771334",
+    "tenebrismo-legacy-closed": "705057de07c0a1f66ad73405c62f194b4e35a43aab792b487f6623053acd6b58",
+    "tenebrismo-legacy-navigation": "bcd4ca45dcc106122a2d72b108ccee454fb0571932db6df64b0931a255f516ac",
+    "tenebrismo-legacy-information": "36723240439796f43c1fbce2f66425ec75c667d007e6608809d1a2d5b1ec9041",
+    "tenebrismo-legacy-both": "8443da39cfca6c0d29e11caca2c8cab94b56d285ae531ab35b8e0e9897451c8b",
+    "tenebrismo-pentimento-closed": "7f6550016918578814b767f8434858296ffd1fa83fcca623664e26fe2ae00fca",
+    "tenebrismo-pentimento-navigation": "a144618a7b6276342409b05f020b5da79b2f765077e6160060d8e021f22af19d",
+    "tenebrismo-pentimento-information": "fe4afabd658cbcd27c9e41b6daa97864a764deb4ef5971c8fad6f318151c2b9b",
+    "tenebrismo-pentimento-both": "e326a0026441333c5860ac4bde78df0c63fdce05196ebec8d6947a97cfee6f03",
+    "pentimento-legacy-closed": "90fa682d294c7d2ca5994fb4ddf60c55143bc61c4ca69ea7994c9433b8740174",
+    "pentimento-legacy-navigation": "9488e2c580642ae95d43c201cd293ffa3b8a1015bdc5399b6d3b55afe765fa83",
+    "pentimento-legacy-information": "aa6b49cca46a022b37f5b30b45f58315cb18776ff338d84c86a348da5ad8861d",
+    "pentimento-legacy-both": "c328b098810981e1f8bd97446e309e5f91e394434e65f174948049e55ea2b883",
+    "pentimento-pentimento-closed": "88d5ee8fb32f00c2efbda01494d7654d62c0f9402fcdb7c638bc2507afe23aa8",
+    "pentimento-pentimento-navigation": "939cd2ca210285d1b3a50b1c04c82ec1f4fdd97e984fdf664866ca3e53856fd4",
+    "pentimento-pentimento-information": "fdcb9984269ba4aeab0d8dcec202109a3d43893886483b44cf1738d1a2f8174a",
+    "pentimento-pentimento-both": "260ce9a5e58a104163839923f9187e2a8cc1476f34ed1f4c7df6a4f4775218ac"
+  }
+}

@@ -1,9 +1,9 @@
-import {desktopWorkspace} from './desktop-workspace.js?v=20261024-preview';
+import {desktopWorkspace} from './desktop-workspace.js?v=20261025-panel-motion';
 import {model,state,themes,setEdition,setTheme} from './state.js?v=20261017-tenebrismo-load';
 import {appearanceMenu} from './appearance-menu.js';
 import {maintainApplicationAge} from './application-age.js';
 import {notificationCentre} from './notification-centre.js?v=20261024-preview';
-import {homeMarkup,panelPosition} from './native-home.js?v=20261024-preview';
+import {homeMarkup,homeMaterialMarkup,panelPosition} from './native-home.js?v=20261025-panel-motion';
 import {createPanelCache} from './panel-cache.js';
 
 const stage=document.querySelector('.product-stage');
@@ -41,7 +41,7 @@ function warmHoverImage(source){
 }
 let trigger=null,activeKey='',request=0,timer,placementFrame=0;
 const controller={product:shell,theme:shell.dataset.theme,mode:shell.dataset.mode,reference:()=>layouts[`${controller.theme}-${controller.mode}-${expanded?(info?'both':'navigation'):(info?'information':'closed')}`]};
-let expanded=false,info=false,layoutTimer,lastScale=0,bounds=null,lastWarmed='';
+let expanded=false,info=false,layoutTimer,lastScale=0,bounds=null,lastWarmed='',homeKey='';
 function closeDetails(){clearTimeout(timer);request++;details.hidden=true;const motion=details.querySelector('.native-panel-motion');motion.hidden=true;motion.removeAttribute('src');trigger?.removeAttribute('aria-describedby');trigger=null;activeKey='';}
 function placeDetails(target){const rect=target.getBoundingClientRect(),viewWidth=document.documentElement.clientWidth,scale=Math.min(1,(viewWidth-32)/372),width=372*scale,height=Math.min(565*scale,innerHeight-32),position=panelPosition(rect,{left:0,top:0,right:viewWidth,bottom:innerHeight},width,height);details.querySelector('.module-details-body').style.height=`${565*scale}px`;Object.assign(details.style,{width:`${width}px`,height:`${height}px`,left:`${position.x}px`,top:`${position.y}px`});}
 function panelKey(app){const mode=model.expeditions.some(e=>e.mode===controller.mode&&e.apps.includes(app.id))?controller.mode:model.expeditions.find(e=>e.apps.includes(app.id)).mode;return `${controller.theme}-${mode}-${app.sourceKey}`;}
@@ -66,7 +66,24 @@ function trackPanel(){if(!trigger||placementFrame)return;placementFrame=requestA
 function clearLocate(){shell.querySelectorAll('.app-tile.is-located').forEach(tile=>tile.classList.remove('is-located'));}
 function locate(id){clearLocate();const tile=home.querySelector(`[data-inspect-app="${CSS.escape(id)}"]`);tile?.classList.add('is-located');}
 function bindHomeScroll(){home.querySelector('.home-scroll')?.addEventListener('scroll',()=>{if(trigger){if(trigger===document.activeElement)trackPanel();else closeDetails();}},{passive:true});}
-function renderHome(){const focus=home.contains(document.activeElement)?document.activeElement.dataset.inspectApp:null;const wafer=home.querySelector('.home-wafer'),waferTime=wafer?.getAnimations()[0]?.currentTime;home.innerHTML=homeMarkup(model,layouts,`${controller.theme}-${controller.mode}-${expanded?(info?'both':'navigation'):(info?'information':'closed')}`);bindHomeScroll();const rotation=home.querySelector('.home-wafer')?.getAnimations()[0];if(rotation&&waferTime!=null)rotation.currentTime=waferTime;if(focus)home.querySelector(`[data-inspect-app="${CSS.escape(focus)}"]`)?.focus({preventScroll:true});}
+function renderHome(){
+ const key=`${controller.theme}-${controller.mode}-${expanded?(info?'both':'navigation'):(info?'information':'closed')}`;
+ if(homeKey===key&&home.dataset.materialKey===key)return;
+ const focus=home.contains(document.activeElement)?document.activeElement.dataset.inspectApp:null;
+ const wafer=home.querySelector('.home-wafer'),waferTime=wafer?.getAnimations()[0]?.currentTime;
+ if(workspaces.active){
+  // The material remains visible behind transparent apps; update it without
+  // rebuilding the hidden home cards, labels and their image elements.
+  if(home.dataset.materialKey===key)return;
+  home.querySelector('.home-material').outerHTML=homeMaterialMarkup(layouts,key);
+ }else{
+  home.innerHTML=homeMarkup(model,layouts,key);homeKey=key;bindHomeScroll();
+ }
+ home.dataset.materialKey=key;
+ const rotation=home.querySelector('.home-wafer')?.getAnimations()[0];
+ if(rotation&&waferTime!=null)rotation.currentTime=waferTime;
+ if(focus)home.querySelector(`[data-inspect-app="${CSS.escape(focus)}"]`)?.focus({preventScroll:true});
+}
 function warmActiveAssets(){
  const cards=controller.reference().cards||[];
  cards.forEach(card=>cache.warm(`${controller.theme}-${controller.mode}-${card.key}`));
@@ -76,7 +93,7 @@ function warmActiveAssets(){
   if(match)warmHoverImage(match[1]);
  });
 }
-function updatePanels(){closeDetails();clearTimeout(layoutTimer);bounds=null;controller.product.style.setProperty('--nav-shift',`${expanded?180:0}px`);controller.product.style.setProperty('--panel-shift',`${(expanded?180:0)+(info?218:0)}px`);controller.product.style.setProperty('--info-width',`${info?218:0}px`);controller.product.classList.toggle('nav-expanded',expanded);controller.product.classList.toggle('info-expanded',info);const expand=controller.product.querySelector('[data-expand-nav]');expand.setAttribute('aria-expanded',String(expanded));expand.setAttribute('aria-label',expanded?'Collapse application navigation':'Expand application navigation');controller.product.querySelector('[data-settings]').setAttribute('aria-expanded',String(info));drawer.inert=!info;drawer.setAttribute('aria-hidden',String(!info));if(reduced.matches)renderHome();else layoutTimer=setTimeout(renderHome,240);}
+function updatePanels(){closeDetails();clearTimeout(layoutTimer);shell.classList.toggle('panels-moving',!reduced.matches);bounds=null;controller.product.style.setProperty('--nav-shift',`${expanded?180:0}px`);controller.product.style.setProperty('--panel-shift',`${(expanded?180:0)+(info?218:0)}px`);controller.product.style.setProperty('--info-width',`${info?218:0}px`);controller.product.classList.toggle('nav-expanded',expanded);controller.product.classList.toggle('info-expanded',info);const expand=controller.product.querySelector('[data-expand-nav]');expand.setAttribute('aria-expanded',String(expanded));expand.setAttribute('aria-label',expanded?'Collapse application navigation':'Expand application navigation');controller.product.querySelector('[data-settings]').setAttribute('aria-expanded',String(info));drawer.inert=!info;drawer.setAttribute('aria-hidden',String(!info));if(reduced.matches)renderHome();else layoutTimer=setTimeout(()=>{shell.classList.remove('panels-moving');renderHome();},240);}
 function applyEdition(){
  if(controller.mode!==state.mode)workspaces.close();
  closeDetails();controller.theme=state.theme;controller.mode=state.mode;
@@ -102,7 +119,7 @@ shell.addEventListener('pointerover',e=>{const locateButton=e.target.closest('[d
 shell.addEventListener('pointerout',e=>{if(e.target.closest('[data-locate-app]')){clearLocate();return;}if(e.target.closest('[data-inspect-app]')&&!e.relatedTarget?.closest('[data-inspect-app],.module-details'))scheduleClose();});
 shell.addEventListener('focusin',e=>{if(e.target.matches('[data-locate-app]'))locate(e.target.dataset.locateApp);if(e.target.matches('[data-inspect-app]'))showDetails(e.target);});
 shell.addEventListener('focusout',e=>{if(e.target.matches('[data-locate-app]'))clearLocate();if(!e.relatedTarget?.closest('[data-inspect-app],.module-details'))scheduleClose();});
-shell.addEventListener('click',e=>{const button=e.target.closest('button');if(!button)return;if(button.hasAttribute('data-expand-nav')){expanded=!expanded;updatePanels();}if(button.hasAttribute('data-settings')){info=!info;updatePanels();}if(button.hasAttribute('data-home')){workspaces.close();closeDetails();home.querySelector('.home-scroll')?.scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'});}if(button.hasAttribute('data-cycle-mode'))setEdition(controller.mode==='legacy'?'pentimento':'legacy');const appId=button.dataset.inspectApp||button.dataset.locateApp;if(appId){closeDetails();workspaces.open(appId);}});
+shell.addEventListener('click',e=>{const button=e.target.closest('button');if(!button)return;if(button.hasAttribute('data-expand-nav')){expanded=!expanded;updatePanels();}if(button.hasAttribute('data-settings')){info=!info;updatePanels();}if(button.hasAttribute('data-home')){workspaces.close();renderHome();closeDetails();home.querySelector('.home-scroll')?.scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'});}if(button.hasAttribute('data-cycle-mode'))setEdition(controller.mode==='legacy'?'pentimento':'legacy');const appId=button.dataset.inspectApp||button.dataset.locateApp;if(appId){closeDetails();workspaces.open(appId);}});
 shell.querySelectorAll('button:not(.desktop-only)').forEach(button=>button.disabled=false);
 controller.warm=warmActiveAssets;
 const preloadObserver=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){controller.warm();preloadObserver.disconnect();}},{rootMargin:'350px'});preloadObserver.observe(stage);
