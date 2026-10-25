@@ -1,5 +1,11 @@
 # Implementation status
 
+## Hero hover movies — 25 October 2026
+
+Replaced 69 continuously animated hover strips with denser samples of the same desktop painter: 112 frames at 16 ms, unchanged 1792 ms loops and 2x pixel dimensions. Preserved all 12 intentionally discrete/static mapped strips. Four shared phases per asset are compared with the baseline; continuous samples have less than 2/255 channel RMS difference (lossy re-encoding), preserved assets are byte-identical. No motion interpolation, artwork redesign, CSS geometry or loop-speed changes.
+
+Playback now attaches the prepared image itself, with a two-entry cache, cancellation of evicted pending loads, stale-hover protection, retryable failures and cleanup on hidden-document, theme and reduced-motion changes. Nearby cards warm on demand. All 54 tests pass; 32 JavaScript module syntax checks and native build pass. Native comparison contact sheets were inspected. Browser control is disabled in Work settings; encoded 62.5 fps is verified, actual browser delivery is not. The mapped movie payload grows from 16.69 MB to approximately 25.16 MB across the catalogue, loaded on demand rather than all at once. Desktop source, static panel screenshots and gallery assets are untouched.
+
 ## Panel transition efficiency — 25 October 2026
 
 Preserved all visual rules, transition durations and exported layout assets. Workspace DOM nodes are reused across the four panel arrangements, with a bounded current-app/current-theme cache, cancellable idle preparation and a lazy fallback. Hidden home cards are not rebuilt while an app is displayed; home navigation restores the correct full layout. Temporary compositor hints are removed after motion.

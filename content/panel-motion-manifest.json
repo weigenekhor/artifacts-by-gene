@@ -1,0 +1,1298 @@
+{
+  "imprimatura-legacy-parser_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 399174,
+    "sha256": "52911649cd17980ded27766e3ce7a96920809f15f7fbdb68673536c4c890b8c1",
+    "baseline_phase_rmse": [
+      1.3845488594138162,
+      1.5463467193781453,
+      1.4752261681641552,
+      1.3777210994240634
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-legacy-altusanko_tab": {
+    "frames": 14,
+    "duration_ms": 1792,
+    "frame_ms": null,
+    "width": 668,
+    "height": 208,
+    "bytes": 81540,
+    "sha256": "3232eca334ed7edde78294987433f399e6c190644855972b1ed24b3e0302b36a",
+    "baseline_phase_rmse": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "preserved_discrete_or_static": true
+  },
+  "imprimatura-legacy-wafercount_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 555074,
+    "sha256": "b683d51a5b94ebb4a88bd48b3715b7b233edd67eb03c86147e0193b33750d220",
+    "baseline_phase_rmse": [
+      1.4061439580776653,
+      1.5553550364781437,
+      1.6134523974620676,
+      1.6605178395982791
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-legacy-topotracer_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 645078,
+    "sha256": "2acbf8a2c6f2b3dffe7fc3da16e90bf907155ef2761e8a16728e8473233fefc2",
+    "baseline_phase_rmse": [
+      1.337669384488239,
+      1.3833657663486172,
+      1.5197200962312076,
+      1.5054533192923658
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-legacy-xml_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 144356,
+    "sha256": "596853c02fa4c56af0cb4819e47bca4a2f25cf6b1ea300dbe9023c60d807a951",
+    "baseline_phase_rmse": [
+      1.3697918354209873,
+      1.4042527336154347,
+      1.3933764794872232,
+      1.4090520154825121
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-legacy-path_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 172500,
+    "sha256": "67fa6146d1c4f3fee669df063086f81184cca9e157d24de17afd06d72dedaabe",
+    "baseline_phase_rmse": [
+      1.292653768627095,
+      1.316794125868465,
+      1.2933613723363884,
+      1.302757291417268
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-legacy-metro_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 221986,
+    "sha256": "c8e2ea46dee2d0154b7afa4237f87095173a6cf1e7fdd4a9708ac9add6a6e9b7",
+    "baseline_phase_rmse": [
+      1.3379229099748116,
+      1.425220543835966,
+      1.4028432235489499,
+      1.3835907619221366
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-legacy-pyra_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 747920,
+    "sha256": "7628e2257368b519c4ea6920db4b188509000439880c6277378e9e5730020f97",
+    "baseline_phase_rmse": [
+      1.6019939633367788,
+      1.5775923570727728,
+      1.6709970205605538,
+      1.4997000890105832
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-legacy-dt_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 419158,
+    "sha256": "e39cdb70ddfc2ee723b679e655b2101952baadaf9d70c7ee5acfd6607a3a7030",
+    "baseline_phase_rmse": [
+      1.3201962013782569,
+      1.5124729718055105,
+      1.4861571930456319,
+      1.3751275798188483
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-legacy-laytec_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 337498,
+    "sha256": "fb5d694d444a50192aa64434738e4c89057d7545761dcbed92bfb2bd04625e8b",
+    "baseline_phase_rmse": [
+      1.515440571234129,
+      1.6114069803253812,
+      1.5573978189194122,
+      1.4938415966608791
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-legacy-xmlll_tab": {
+    "frames": 1,
+    "duration_ms": 1792,
+    "frame_ms": null,
+    "width": 668,
+    "height": 208,
+    "bytes": 17984,
+    "sha256": "4c16bf342f3aeda06ff9eeb34a94b924790bcd1031b1db495963c955d4c1a3d9",
+    "baseline_phase_rmse": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "preserved_discrete_or_static": true
+  },
+  "imprimatura-legacy-dnd_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 355140,
+    "sha256": "4bd347357ccf5cf71c57e5b0680d063aa86ad48a8e70953d70f85c7a0d2a6242",
+    "baseline_phase_rmse": [
+      1.2608187107572881,
+      1.4033862993259847,
+      1.3257268208510085,
+      1.3742192153184096
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-legacy-dnd2_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 383608,
+    "sha256": "6ae6455c3308d1ca100c473f432b99e07c55874e7bc0ff79447bf24fac0de048",
+    "baseline_phase_rmse": [
+      1.3348187911060514,
+      1.3714072025983215,
+      1.3806408048902696,
+      1.360300758684072
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-legacy-ankohelper_tab": {
+    "frames": 7,
+    "duration_ms": 1792,
+    "frame_ms": null,
+    "width": 668,
+    "height": 208,
+    "bytes": 47360,
+    "sha256": "0c8125eaa8bf16bd1118eebeea71e6e2e8f17ccf88bc249d274749b3400bcc1f",
+    "baseline_phase_rmse": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "preserved_discrete_or_static": true
+  },
+  "imprimatura-legacy-sap_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 127262,
+    "sha256": "180f9f1c75034fed27b26b2e52f7546de22682bc60dd189805e042eea916b182",
+    "baseline_phase_rmse": [
+      1.3844169491296001,
+      1.4423464604032774,
+      1.3818216736339575,
+      1.394629781370057
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-pentimento-topotracer_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 645078,
+    "sha256": "2acbf8a2c6f2b3dffe7fc3da16e90bf907155ef2761e8a16728e8473233fefc2",
+    "baseline_phase_rmse": [
+      1.337669384488239,
+      1.3833657663486172,
+      1.5197200962312076,
+      1.5054533192923658
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-pentimento-xml_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 144356,
+    "sha256": "596853c02fa4c56af0cb4819e47bca4a2f25cf6b1ea300dbe9023c60d807a951",
+    "baseline_phase_rmse": [
+      1.3697918354209873,
+      1.4042527336154347,
+      1.3933764794872232,
+      1.4090520154825121
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-pentimento-pyra_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 747920,
+    "sha256": "7628e2257368b519c4ea6920db4b188509000439880c6277378e9e5730020f97",
+    "baseline_phase_rmse": [
+      1.6017973993150088,
+      1.5775923570727728,
+      1.6711972885121478,
+      1.4997000890105832
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-pentimento-dt_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 419158,
+    "sha256": "e39cdb70ddfc2ee723b679e655b2101952baadaf9d70c7ee5acfd6607a3a7030",
+    "baseline_phase_rmse": [
+      1.3201962013782569,
+      1.5124729718055105,
+      1.4861571930456319,
+      1.3751275798188483
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-pentimento-laytec_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 337498,
+    "sha256": "fb5d694d444a50192aa64434738e4c89057d7545761dcbed92bfb2bd04625e8b",
+    "baseline_phase_rmse": [
+      1.515440571234129,
+      1.6114069803253812,
+      1.5573978189194122,
+      1.4938415966608791
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-pentimento-xmlll_tab": {
+    "frames": 1,
+    "duration_ms": 1792,
+    "frame_ms": null,
+    "width": 668,
+    "height": 208,
+    "bytes": 17984,
+    "sha256": "4c16bf342f3aeda06ff9eeb34a94b924790bcd1031b1db495963c955d4c1a3d9",
+    "baseline_phase_rmse": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "preserved_discrete_or_static": true
+  },
+  "imprimatura-pentimento-sap_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 127262,
+    "sha256": "180f9f1c75034fed27b26b2e52f7546de22682bc60dd189805e042eea916b182",
+    "baseline_phase_rmse": [
+      1.3844169491296001,
+      1.4423464604032774,
+      1.3818216736339575,
+      1.394629781370057
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-pentimento-metro_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 221986,
+    "sha256": "c8e2ea46dee2d0154b7afa4237f87095173a6cf1e7fdd4a9708ac9add6a6e9b7",
+    "baseline_phase_rmse": [
+      1.3379229099748116,
+      1.425220543835966,
+      1.4028432235489499,
+      1.3835907619221366
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-pentimento-plessey_spc_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 512964,
+    "sha256": "74a75f549feca80d2c8f60cdba6bab263acf1095e3f5b54213bd6d80d4f33d9d",
+    "baseline_phase_rmse": [
+      1.3082282263575418,
+      1.360177079496036,
+      1.3335153486811187,
+      1.3722092559699148
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-pentimento-aperture_spc_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 295786,
+    "sha256": "c1a16a0f67335d87f6b428f68a0c1436c1499877f8fbc7832af4172afa3a757e",
+    "baseline_phase_rmse": [
+      1.413217010248672,
+      1.4452657080795608,
+      1.4915682381168505,
+      1.4481977077197934
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-pentimento-datalens_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 374678,
+    "sha256": "f92cd2a51ac8650ea7017f5e00b606834040f693025728d7905d21a21965a0db",
+    "baseline_phase_rmse": [
+      1.3602610767473517,
+      1.5330985502523355,
+      1.4083974276250824,
+      1.3801591791319052
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "imprimatura-pentimento-sentry_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 301114,
+    "sha256": "d268bca60b9e1989737eb98fc6d19ae95d58da7d1ef45097d8dcfc7f160a7dcd",
+    "baseline_phase_rmse": [
+      1.3578707504808827,
+      1.443948571441912,
+      1.3796806455793578,
+      1.4080486156242291
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-legacy-parser_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 355582,
+    "sha256": "54a5be7015a6f368c13b9f0e22008c3f6e368913d80bd60eea9fde244a96e747",
+    "baseline_phase_rmse": [
+      1.1155778667820477,
+      1.2937995167950649,
+      1.234083663486625,
+      1.2317756884796913
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-legacy-altusanko_tab": {
+    "frames": 14,
+    "duration_ms": 1792,
+    "frame_ms": null,
+    "width": 668,
+    "height": 208,
+    "bytes": 72642,
+    "sha256": "bb55618a7d8b7479ef8f241ef09497b0b78323ae331bd4516a7e9230511bad04",
+    "baseline_phase_rmse": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "preserved_discrete_or_static": true
+  },
+  "tenebrismo-legacy-wafercount_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 500588,
+    "sha256": "29b0cc73ce79e1e6702f0de49070282b9ba353fde6379baa13e2b71cab8ed996",
+    "baseline_phase_rmse": [
+      1.2486404398185467,
+      1.4032946259541117,
+      1.4176978820120478,
+      1.5008052642352203
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-legacy-topotracer_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 632192,
+    "sha256": "0ac9ee2af46e1cdca03b924924abd0c5290da49825396b6528f6dbf093ba2b20",
+    "baseline_phase_rmse": [
+      1.2657254450448538,
+      1.3179304920585695,
+      1.4179675529538214,
+      1.4742147167141253
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-legacy-xml_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 138584,
+    "sha256": "25cf74f58f1d03db981b3dcf83ee6884d6e7ff82bba7e99df1d3dcf41833c406",
+    "baseline_phase_rmse": [
+      1.175668807178787,
+      1.2117046698958636,
+      1.1884239054196206,
+      1.1854633556916474
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-legacy-path_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 156776,
+    "sha256": "b9dd63e7a730b2a767fc4bc21f46960079f8895de6b1827ef0e7381ca48873eb",
+    "baseline_phase_rmse": [
+      1.2067258946611252,
+      1.2356063274016778,
+      1.2341798873107133,
+      1.239339473327384
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-legacy-metro_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 204606,
+    "sha256": "fe4ebfffd1d2bb14736cc06ac85263abad17c58a7685ba502f88ff5d5808d03d",
+    "baseline_phase_rmse": [
+      1.0925066549500224,
+      1.2042317762328776,
+      1.1537132389283262,
+      1.1535299759686846
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-legacy-pyra_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 614046,
+    "sha256": "852d2dd523eb7027f03b9797b54ef94281aceee283424f240b4039e68c25c0dc",
+    "baseline_phase_rmse": [
+      1.2551110387069777,
+      1.496508921104136,
+      1.3407843493940095,
+      1.3482784116290132
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-legacy-dt_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 363628,
+    "sha256": "5aaa790a9b26574f5ea38709eb890121fbac432f1db564d5d6f7becfae68c11f",
+    "baseline_phase_rmse": [
+      1.0951936169525196,
+      1.2706557127069924,
+      1.2472303493940333,
+      1.2054697786127944
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-legacy-laytec_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 301464,
+    "sha256": "6c87103cde71f4e6050f86344ecf8b76ef56739f852cb420ea4a7f8ad29d3667",
+    "baseline_phase_rmse": [
+      1.33902589274163,
+      1.4323740039912745,
+      1.389377353137156,
+      1.3490181924225013
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-legacy-xmlll_tab": {
+    "frames": 1,
+    "duration_ms": 1792,
+    "frame_ms": null,
+    "width": 668,
+    "height": 208,
+    "bytes": 17424,
+    "sha256": "d4b22886d9c9589bc63545324578cadfdde5b41b36013247a9e20b19b706cbe0",
+    "baseline_phase_rmse": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "preserved_discrete_or_static": true
+  },
+  "tenebrismo-legacy-dnd_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 321542,
+    "sha256": "53115b5802c35ee3dfb808f5f24e57c79e205bab6604c1a8ef679dc9c520e34e",
+    "baseline_phase_rmse": [
+      1.0897750944340034,
+      1.1814412153097638,
+      1.1714187561880456,
+      1.2029049996413421
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-legacy-dnd2_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 373488,
+    "sha256": "3198feaf28a98e12b30a0692b5c1f702df9fcd840d8b85e62d1de3270215514a",
+    "baseline_phase_rmse": [
+      1.1343795621475046,
+      1.2076298765831417,
+      1.2328196647407657,
+      1.1820441530581265
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-legacy-ankohelper_tab": {
+    "frames": 9,
+    "duration_ms": 1792,
+    "frame_ms": null,
+    "width": 668,
+    "height": 208,
+    "bytes": 44528,
+    "sha256": "769e512449e4affdea5849b5218dcead054b8aa45b815e86aa90484547052bd5",
+    "baseline_phase_rmse": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "preserved_discrete_or_static": true
+  },
+  "tenebrismo-legacy-sap_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 113072,
+    "sha256": "296d8667721ebb6859e6bdd6b0f5b3344c7f152aaf2ffcf4314a97d8286d1a4b",
+    "baseline_phase_rmse": [
+      1.1111522340322415,
+      1.1445778124877508,
+      1.2194955068491404,
+      1.123305796053033
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-pentimento-topotracer_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 632192,
+    "sha256": "0ac9ee2af46e1cdca03b924924abd0c5290da49825396b6528f6dbf093ba2b20",
+    "baseline_phase_rmse": [
+      1.2657254450448538,
+      1.3179304920585695,
+      1.4179675529538214,
+      1.4742147167141253
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-pentimento-xml_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 138584,
+    "sha256": "25cf74f58f1d03db981b3dcf83ee6884d6e7ff82bba7e99df1d3dcf41833c406",
+    "baseline_phase_rmse": [
+      1.175668807178787,
+      1.2117046698958636,
+      1.1884239054196206,
+      1.1854633556916474
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-pentimento-pyra_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 614046,
+    "sha256": "852d2dd523eb7027f03b9797b54ef94281aceee283424f240b4039e68c25c0dc",
+    "baseline_phase_rmse": [
+      1.2551110387069777,
+      1.496508921104136,
+      1.3407843493940095,
+      1.3482784116290132
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-pentimento-dt_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 363628,
+    "sha256": "5aaa790a9b26574f5ea38709eb890121fbac432f1db564d5d6f7becfae68c11f",
+    "baseline_phase_rmse": [
+      1.0951936169525196,
+      1.2706557127069924,
+      1.2472303493940333,
+      1.2054697786127944
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-pentimento-laytec_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 301464,
+    "sha256": "6c87103cde71f4e6050f86344ecf8b76ef56739f852cb420ea4a7f8ad29d3667",
+    "baseline_phase_rmse": [
+      1.33902589274163,
+      1.4323740039912745,
+      1.389377353137156,
+      1.3490181924225013
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-pentimento-xmlll_tab": {
+    "frames": 1,
+    "duration_ms": 1792,
+    "frame_ms": null,
+    "width": 668,
+    "height": 208,
+    "bytes": 17424,
+    "sha256": "d4b22886d9c9589bc63545324578cadfdde5b41b36013247a9e20b19b706cbe0",
+    "baseline_phase_rmse": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "preserved_discrete_or_static": true
+  },
+  "tenebrismo-pentimento-sap_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 113072,
+    "sha256": "296d8667721ebb6859e6bdd6b0f5b3344c7f152aaf2ffcf4314a97d8286d1a4b",
+    "baseline_phase_rmse": [
+      1.1111522340322415,
+      1.1445778124877508,
+      1.2194955068491404,
+      1.123305796053033
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-pentimento-metro_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 204606,
+    "sha256": "fe4ebfffd1d2bb14736cc06ac85263abad17c58a7685ba502f88ff5d5808d03d",
+    "baseline_phase_rmse": [
+      1.0925066549500224,
+      1.2042317762328776,
+      1.1537132389283262,
+      1.1535299759686846
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-pentimento-plessey_spc_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 460622,
+    "sha256": "19b2f5272a094711e5abc598f42de2111e81fbee89b127f91c49efc0f90f758a",
+    "baseline_phase_rmse": [
+      1.1828977887879764,
+      1.2956644910621558,
+      1.2497574327058065,
+      1.2154268477661843
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-pentimento-aperture_spc_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 276456,
+    "sha256": "dd38c771617e08b1f609e07c6b6814660d46d23edaab76c0130a5c0b22d8953d",
+    "baseline_phase_rmse": [
+      1.2454365975961872,
+      1.3085232080292557,
+      1.284472549994925,
+      1.276303738203051
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-pentimento-datalens_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 319672,
+    "sha256": "1f1b78b3e4bb88e4f78de779c7069138b79a7ef43249e6e2b17d314e5859bc20",
+    "baseline_phase_rmse": [
+      1.203339446437826,
+      1.3377326022360427,
+      1.2053488718249854,
+      1.2360802285973387
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-pentimento-sentry_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 276654,
+    "sha256": "73c21076989d3c17297699f4d5b344e9aa37a2c49c35c4f5fd0c35f27813ea10",
+    "baseline_phase_rmse": [
+      1.235396617258843,
+      1.2665013709401483,
+      1.2335528396647824,
+      1.2601906402118561
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-legacy-parser_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 376306,
+    "sha256": "6b43e5a4e55491ba91ab4e851ba45e676a13b973cb6ade38e371902e21da33bd",
+    "baseline_phase_rmse": [
+      1.3169860930548438,
+      1.4155964987044058,
+      1.4636438616921756,
+      1.4145691219937622
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-legacy-altusanko_tab": {
+    "frames": 14,
+    "duration_ms": 1792,
+    "frame_ms": null,
+    "width": 668,
+    "height": 208,
+    "bytes": 71420,
+    "sha256": "be57aa622e43e2a1008f94417c6103e66d3890865a7f788dc069aa483699f4dd",
+    "baseline_phase_rmse": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "preserved_discrete_or_static": true
+  },
+  "pentimento-legacy-wafercount_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 520400,
+    "sha256": "73b6d2ac69f257f3f2c2a2001402f8b520d986c88392dd66beaadbd97c6a9e45",
+    "baseline_phase_rmse": [
+      1.3396485657046988,
+      1.4777170664850896,
+      1.5155907575303358,
+      1.5203042676430685
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-legacy-topotracer_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 674088,
+    "sha256": "c24c4012378a8b0979af77a051e005c6019dec8680758076d9b5ee4d886f0d13",
+    "baseline_phase_rmse": [
+      1.4287838056503883,
+      1.4637372869978296,
+      1.5926467616495839,
+      1.6250160550884585
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-legacy-xml_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 145394,
+    "sha256": "3864619d9dfdc5b0d010ea76643fc295a8aeaccfc9441b194824cb4978ab1acd",
+    "baseline_phase_rmse": [
+      1.3370242581500238,
+      1.352598626812715,
+      1.3750124313746486,
+      1.3505158567103768
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-legacy-path_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 169382,
+    "sha256": "af5bc376c1a660f5cc4d3a51020e1d997d6e757c43c6ba88d690c0696888d985",
+    "baseline_phase_rmse": [
+      1.3213160244198816,
+      1.3617860146938479,
+      1.3504099350735237,
+      1.3565178333502086
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-legacy-metro_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 218366,
+    "sha256": "5ed94f1cfbd1b84e0f0d257311b9ba4490c80dc4ca4bcf740f1b6967d2f80c5f",
+    "baseline_phase_rmse": [
+      1.247192840572504,
+      1.369652592355017,
+      1.3795013157385414,
+      1.3222423623124808
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-legacy-pyra_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 656314,
+    "sha256": "63ad86816cc9107cc2741b80b35bdbc93be316786a03647306af1e55702a6956",
+    "baseline_phase_rmse": [
+      1.4867987239862588,
+      1.733371680769635,
+      1.6709049538525056,
+      1.4734553672027686
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-legacy-dt_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 392642,
+    "sha256": "089aecc985d0614f4a049dbfa9625a84ae52de9398428f601e8b09406a68f6b4",
+    "baseline_phase_rmse": [
+      1.3385749962170466,
+      1.4443341839858046,
+      1.4752109222362795,
+      1.4041335665321757
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-legacy-laytec_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 320954,
+    "sha256": "265ee408402a9e0fbeaa95ce0ad10d83af871c8d56027994f57c4c97be64d7af",
+    "baseline_phase_rmse": [
+      1.5106332769015645,
+      1.5724653425655473,
+      1.4922140745588004,
+      1.4830339450511958
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-legacy-xmlll_tab": {
+    "frames": 1,
+    "duration_ms": 1792,
+    "frame_ms": null,
+    "width": 668,
+    "height": 208,
+    "bytes": 17988,
+    "sha256": "2a3e976328fe49f168ef9abf1cb55b12235f0bf7e59c1688171126d52997de7f",
+    "baseline_phase_rmse": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "preserved_discrete_or_static": true
+  },
+  "pentimento-legacy-dnd_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 343512,
+    "sha256": "04a6a281c1cf11aa917800c16cbe86294ea32a6e2293742b98b048380b3e9f0a",
+    "baseline_phase_rmse": [
+      1.2947281706261702,
+      1.3638482758045398,
+      1.3305916262650566,
+      1.4051500060894144
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-legacy-dnd2_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 396492,
+    "sha256": "bbe6ebcc0b616ce7acf8bdc7a5a09048c4b1abc66273774046715678b28914ac",
+    "baseline_phase_rmse": [
+      1.3669378082678234,
+      1.3860477251134,
+      1.4441566530358125,
+      1.3434475185246129
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-legacy-ankohelper_tab": {
+    "frames": 7,
+    "duration_ms": 1792,
+    "frame_ms": null,
+    "width": 668,
+    "height": 208,
+    "bytes": 44502,
+    "sha256": "617419bf443948612b63650b6f2ea11665ba3b3ca4f7f12aaeaf0b9442febc8a",
+    "baseline_phase_rmse": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "preserved_discrete_or_static": true
+  },
+  "pentimento-legacy-sap_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 123780,
+    "sha256": "12e2cfbf1825670275aaf2de6583224194e8f1576dda526ec13626de83cc2769",
+    "baseline_phase_rmse": [
+      1.4039182713220237,
+      1.423490552866261,
+      1.4427936096098108,
+      1.3795397921049328
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-pentimento-topotracer_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 674088,
+    "sha256": "c24c4012378a8b0979af77a051e005c6019dec8680758076d9b5ee4d886f0d13",
+    "baseline_phase_rmse": [
+      1.4287838056503883,
+      1.4637372869978296,
+      1.5926467616495839,
+      1.6250160550884585
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-pentimento-xml_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 145394,
+    "sha256": "3864619d9dfdc5b0d010ea76643fc295a8aeaccfc9441b194824cb4978ab1acd",
+    "baseline_phase_rmse": [
+      1.3370242581500238,
+      1.352598626812715,
+      1.3750124313746486,
+      1.3505158567103768
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-pentimento-pyra_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 656314,
+    "sha256": "63ad86816cc9107cc2741b80b35bdbc93be316786a03647306af1e55702a6956",
+    "baseline_phase_rmse": [
+      1.4867987239862588,
+      1.733371680769635,
+      1.6709049538525056,
+      1.4734553672027686
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-pentimento-dt_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 392642,
+    "sha256": "089aecc985d0614f4a049dbfa9625a84ae52de9398428f601e8b09406a68f6b4",
+    "baseline_phase_rmse": [
+      1.3385749962170466,
+      1.4443341839858046,
+      1.4752109222362795,
+      1.4041335665321757
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-pentimento-laytec_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 320954,
+    "sha256": "265ee408402a9e0fbeaa95ce0ad10d83af871c8d56027994f57c4c97be64d7af",
+    "baseline_phase_rmse": [
+      1.5106332769015645,
+      1.5724653425655473,
+      1.4922140745588004,
+      1.4830339450511958
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-pentimento-xmlll_tab": {
+    "frames": 1,
+    "duration_ms": 1792,
+    "frame_ms": null,
+    "width": 668,
+    "height": 208,
+    "bytes": 17988,
+    "sha256": "2a3e976328fe49f168ef9abf1cb55b12235f0bf7e59c1688171126d52997de7f",
+    "baseline_phase_rmse": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "preserved_discrete_or_static": true
+  },
+  "pentimento-pentimento-sap_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 123780,
+    "sha256": "12e2cfbf1825670275aaf2de6583224194e8f1576dda526ec13626de83cc2769",
+    "baseline_phase_rmse": [
+      1.4039182713220237,
+      1.423490552866261,
+      1.4427936096098108,
+      1.3795397921049328
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-pentimento-metro_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 218366,
+    "sha256": "5ed94f1cfbd1b84e0f0d257311b9ba4490c80dc4ca4bcf740f1b6967d2f80c5f",
+    "baseline_phase_rmse": [
+      1.247192840572504,
+      1.369652592355017,
+      1.3795013157385414,
+      1.3222423623124808
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-pentimento-plessey_spc_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 491836,
+    "sha256": "d7b7c64bce32dfbbe549b77d567fce7e9a016e0c972e0f9c54424b8b20387351",
+    "baseline_phase_rmse": [
+      1.2885054188097793,
+      1.4229658979341548,
+      1.4087269947506829,
+      1.4351236039978326
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-pentimento-aperture_spc_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 289812,
+    "sha256": "3fc0823ee00dd018d9b2ff6f42639e33b973b80c5561bd357a6a0d62a08cdd03",
+    "baseline_phase_rmse": [
+      1.462450935568502,
+      1.4201946602842703,
+      1.4788277200574507,
+      1.4384284446882487
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-pentimento-datalens_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 330694,
+    "sha256": "e75baeb0d9f75f6159f80213d8927cd70e43004c4fe8ffaa497306a05b6fd8c3",
+    "baseline_phase_rmse": [
+      1.3678516659295268,
+      1.4783482635049832,
+      1.386095106467515,
+      1.3706073054131054
+    ],
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-pentimento-sentry_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 297520,
+    "sha256": "8480afa7c4d76222779fccacb728d58ae99d50fd807a09eb1a98dcbc5b1b9d66",
+    "baseline_phase_rmse": [
+      1.431083978340581,
+      1.5022863496201988,
+      1.3836661857750592,
+      1.4202662399785635
+    ],
+    "preserved_discrete_or_static": false
+  }
+}

@@ -1,5 +1,11 @@
 # Start here — ARTIFACTS public website
 
+## Hero hover movie playback — 25 October 2026
+
+All 81 mapped panels are audited. The 69 continuous native schematic movies now sample 112 frames at 16 ms (62.5 fps), preserving their 1792 ms loops, 668 x 208 pixels, native drawing and quality-88 encoding. Twelve intentionally discrete/static assets retain their original bytes. See `content/panel-motion-manifest.json`; `scripts/export-panel-motion.py` reads the desktop painter without editing desktop source. Source captures and static panel surfaces are unchanged.
+
+`panel-movies.js` reuses the actual decoded image, bounds residency to two entries, cancels evicted pending loads, blocks stale completions and releases resources on theme/visibility/reduced-motion changes. Nearby pointer movement warms the next movie without loading the entire catalogue. Failures preserve the static panel and allow retry. 54 tests and 32 module syntax checks pass; native build succeeds. Encoded timing and native scene comparisons are verified; browser access remains disabled, so actual browser frame delivery/visual playback is unverified. Evidence: `../outputs/website-hover-motion-20261025/`.
+
 ## Panel transition efficiency — 25 October 2026
 
 Navigation and Application Info keep their original geometry, colours, artwork and 220/240ms motion. Each open app retains at most four prepared layout nodes for its current theme; idle preparation pauses during panel motion. Theme/app changes and closing release these nodes. Repeated toggles reuse them rather than reconstructing the widgets. Hidden homepage cards are no longer rebuilt behind an app; its visible background still updates. Temporary compositor hints end with the transition.

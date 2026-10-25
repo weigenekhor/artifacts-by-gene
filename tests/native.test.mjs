@@ -158,7 +158,11 @@ test('Native details assets match all available tools and retain readable, bound
    const meta=await sharp(`assets/native/panels/${key}.webp`).metadata();
    assert.equal(meta.width,744);assert.equal(meta.height,1130);
    const motion=await sharp(`assets/native/panels/${key}-motion.webp`,{animated:true}).metadata();
-   assert.ok((motion.pages||1)<=32);
+   const motionManifest=JSON.parse(await fs.readFile('content/panel-motion-manifest.json','utf8'));
+   assert.equal(motion.pages||1,motionManifest[key].frames);
+   if(!motionManifest[key].preserved_discrete_or_static){
+    assert.equal(motion.pages,112);assert.ok(motion.delay.every(delay=>delay===16));
+   }
    if(motion.delay)assert.equal(motion.delay.reduce((sum,time)=>sum+time,0),1792);
    assert.equal(motion.width,ref.motion.width*2);
    assert.ok(ref.motion.x>=0&&ref.motion.y>=0&&ref.motion.x+ref.motion.width<=372&&ref.motion.y+ref.motion.height<=565,key);
