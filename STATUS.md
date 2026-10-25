@@ -1,5 +1,11 @@
 # Implementation status
 
+## Single functional scrollbar — 25 October 2026
+
+The renderer assigns scrolling to each Qt scroll area, makes its inner viewport transparent to overflow and hides only that area's exported static rails. A desktop-sized browser rail occupies the existing gutter. The surface layer fits the client box so it cannot manufacture horizontal overflow. Genuine horizontal overflow remains accessible.
+
+40 tests pass, including 156 exported scroll areas and Data Lens gutter geometry in every theme/sidebar variant. 27 syntax checks and the native build pass. Initial browser inspection verified the duplicate rails; final browser validation is limited because local browser access was disabled mid-task. Desktop source and preview captures are unchanged.
+
 ## Native hero border correction — 25 October 2026
 
 The preview refresh is published at commit `3b24be7`. This follow-up removes duplicate borders/backgrounds from the HTML renderer where Qt SVG chrome already owns them. All current gallery and hero assets are preserved. Ordinary controls without exported paint keep their CSS borders.

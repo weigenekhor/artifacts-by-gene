@@ -20,7 +20,18 @@
 .desktop-check input[type=radio]{border-radius:50%}.desktop-check input:checked{box-shadow:inset 0 0 0 3px var(--panel);background:var(--accent)}
 .desktop-input{white-space:nowrap;cursor:default}.desktop-input::placeholder,.desktop-textarea::placeholder{color:var(--muted);opacity:1}
 .desktop-textarea{resize:none;white-space:pre-wrap;overflow:auto;scrollbar-width:thin;cursor:default}
-.desktop-scroll{overflow:auto;scrollbar-width:thin}.desktop-scroll>.desktop-node{overflow:visible}
+.desktop-scroll{overflow:auto;scrollbar-width:thin;scrollbar-color:var(--border-hover) transparent}
+.desktop-scroll-viewport{overflow:visible}
+.desktop-scroll-chrome{display:none}
+.desktop-scroll>.desktop-container-surface{width:100%!important;height:100%!important}
+/* One functional rail occupies the original Qt scrollbar allocation. */
+@supports selector(::-webkit-scrollbar){.desktop-scroll{scrollbar-width:auto;scrollbar-color:auto}}
+.desktop-scroll::-webkit-scrollbar{width:var(--native-scroll-width,22px);height:var(--native-scroll-height,22px)}
+.desktop-scroll::-webkit-scrollbar-track{background:transparent;margin:5px}
+.desktop-scroll::-webkit-scrollbar-thumb{background:var(--border-hover);background-clip:padding-box;border:6px solid transparent;border-radius:11px;min-height:42px}
+.desktop-scroll::-webkit-scrollbar-thumb:horizontal{min-width:42px}
+.desktop-scroll::-webkit-scrollbar-button{display:none;width:0;height:0}
+.desktop-scroll::-webkit-scrollbar-corner{background:transparent}
 .desktop-slider{display:flex;align-items:center}.desktop-slider input{width:100%;margin:0;accent-color:var(--accent);opacity:1}
 .desktop-progress{display:flex;align-items:center;justify-content:center}.desktop-progress progress{position:absolute;inset:0;width:100%;height:100%;accent-color:var(--accent)}.desktop-progress span{z-index:1}
 .desktop-tabs{overflow:hidden}.desktop-tabs button{position:absolute;border:1px solid var(--border);background:var(--panel);border-radius:4px 4px 0 0;padding:0}.desktop-tabs button[aria-selected=true]{background:var(--raised)}

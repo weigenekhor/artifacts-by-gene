@@ -6,6 +6,57 @@ const model=JSON.parse(await fs.readFile('content/apps.json','utf8'));
 const layouts=Object.fromEntries(await Promise.all(model.apps.map(async app=>[app.id,JSON.parse(await fs.readFile(`content/desktop-layouts/${app.id}.json`,'utf8'))])));
 const flatten=node=>[node,...(node.children||[]).flatMap(flatten)];
 
+test('Every exported scroll area has one browser scroll owner and hides only its duplicate Qt rails',async()=>{
+ let areas=0,rails=0;
+ for(const data of Object.values(layouts))for(const variants of Object.values(data.states.initial))for(const variant of Object.values(variants)){
+  const nodes=flatten(variant.tree),html=nodeMarkup(variant.tree);
+  const tags=[...html.matchAll(/<[^>]+data-native-id="([^"]+)"[^>]*>/g)];
+  const tagFor=id=>tags.find(tag=>tag[1]===id)?.[0];
+  const railIds=new Set();
+  for(const node of nodes){
+   if(!(node.children||[]).some(child=>child.scroll))continue;
+   areas++;
+   assert.match(tagFor(node.id),/class="[^"]*\bdesktop-scroll(?: |")/);
+   assert.match(tagFor(node.id),/tabindex="0"/);
+   for(const child of node.children){
+    if(child.scroll){
+     assert.match(tagFor(child.id),/desktop-scroll-viewport/);
+     assert.doesNotMatch(tagFor(child.id),/\bdesktop-scroll(?: |")/);
+    }
+    const bars=(child.children||[]).filter(n=>n.class==='QScrollBar');
+    if(!bars.length)continue;
+    rails+=bars.length;railIds.add(child.id);
+    assert.match(tagFor(child.id),/desktop-scroll-chrome/);
+    for(const bar of bars){
+     const property=bar.height>bar.width?'width':'height';
+     assert.ok(tagFor(node.id).includes(`--native-scroll-${property}:${bar[property]}px`));
+    }
+   }
+  }
+  for(const node of nodes)if(!railIds.has(node.id))assert.doesNotMatch(tagFor(node.id),/desktop-scroll-chrome/);
+ }
+ assert.equal(areas,156);assert.ok(rails>0);
+ const css=await fs.readFile('desktop-workspace.css','utf8');
+ assert.match(css,/\.desktop-scroll-chrome\{display:none\}/);
+ assert.match(css,/\.desktop-scroll-viewport\{overflow:visible\}/);
+ // Decorative surfaces must not extend under the real scrollbar and create
+ // horizontal overflow. Content widths and genuine horizontal scrolling stay.
+ assert.match(css,/\.desktop-scroll>\.desktop-container-surface\{width:100%!important;height:100%!important\}/);
+ assert.match(css,/\.desktop-scroll\{overflow:auto;/);
+ assert.match(css,/@supports selector\(::-webkit-scrollbar\)\{\.desktop-scroll\{scrollbar-width:auto;scrollbar-color:auto\}\}/);
+});
+
+test('Data Lens content fits the desktop scrollbar allocation in all twelve variants',()=>{
+ for(const variants of Object.values(layouts['data-lens'].states.initial))for(const variant of Object.values(variants)){
+  const area=flatten(variant.tree).find(n=>(n.children||[]).some(c=>c.scroll));
+  const viewport=area.children.find(n=>n.scroll);
+  const vertical=area.children.flatMap(n=>n.children||[]).find(n=>n.class==='QScrollBar'&&n.height>n.width);
+  assert.equal(viewport.x+viewport.width+vertical.width,area.width);
+  assert.equal(viewport.height,area.height);
+  for(const content of viewport.children)assert.ok(content.x+content.width<=viewport.width);
+ }
+});
+
 test('Native-painted surfaces do not receive a second CSS frame',()=>{
  let painted=0,ordinary=0;
  for(const data of Object.values(layouts))for(const variants of Object.values(data.states.initial))for(const variant of Object.values(variants)){

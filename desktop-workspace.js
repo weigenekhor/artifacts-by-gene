@@ -27,7 +27,15 @@ function rich(text){
  return text.replace(/<(script|iframe|object|style)\b[^>]*>[\s\S]*?<\/\1>/gi,'').replace(/<img\b[^>]*>/gi,'').replace(/\son\w+\s*=\s*(["']).*?\1/gi,'').replace(/(?:href|src)\s*=\s*(["']).*?\1/gi,'');
 }
 export function nodeMarkup(node,prefix='desktop'){
- const id=prefix+'-'+node.id,attrs=`class="desktop-node desktop-${node.kind}${node.scroll?' desktop-scroll':''}" data-native-class="${escape(node.class)}" data-native-id="${escape(node.id)}" style="${escape(node.kind==='box'?containerStyle(node):css(node))}"`;
+ // Qt exports a viewport and separate scrollbar widgets. The containing
+ // scroll area must own browser scrolling, or both native and browser rails
+ // appear and the extra gutter forces horizontal overflow.
+ const scrollArea=(node.children||[]).some(child=>child.scroll);
+ const railContainers=scrollArea?(node.children||[]).filter(child=>(child.children||[]).some(n=>n.class==='QScrollBar')):[];
+ const rails=railContainers.flatMap(child=>child.children.filter(n=>n.class==='QScrollBar'));
+ const vertical=rails.find(n=>n.height>n.width),horizontal=rails.find(n=>n.width>n.height);
+ const railStyle=scrollArea?`;--native-scroll-width:${vertical?.width||22}px;--native-scroll-height:${horizontal?.height||22}px`:'';
+ const id=prefix+'-'+node.id,attrs=`class="desktop-node desktop-${node.kind}${scrollArea?' desktop-scroll':''}${node.scroll?' desktop-scroll-viewport':''}${node.scrollChrome?' desktop-scroll-chrome':''}" data-native-class="${escape(node.class)}" data-native-id="${escape(node.id)}" style="${escape((node.kind==='box'?containerStyle(node):css(node))+railStyle)}"${scrollArea?' tabindex="0" role="region" aria-label="Scrollable application content"':''}`;
  const label=escape(node.text),chrome=node.chrome?`<span class="desktop-chrome" aria-hidden="true">${vector(node.chrome,id+'-chrome')}</span>`:'';
  const icon=node.icon?`<span class="desktop-icon" style="width:${node.icon.width}px;height:${node.icon.height}px" aria-hidden="true">${vector(node.icon.svg,id+'-icon')}</span>`:'';
  const nativeText=node.textRect?` style="position:absolute;left:${node.textRect[0]}px;top:${node.textRect[1]}px;width:${node.textRect[2]}px;height:${node.textRect[3]}px;display:flex;align-items:center"`:'';
@@ -45,7 +53,7 @@ export function nodeMarkup(node,prefix='desktop'){
   case 'tabs':return `<div ${attrs} role="tablist">${node.tabs.map(t=>`<button type="button" role="tab" aria-selected="${t.selected}"${inactive} style="left:${t.x}px;top:${t.y}px;width:${t.width}px;height:${t.height}px">${escape(t.text)}</button>`).join('')}</div>`;
   case 'table':return `<div ${attrs}><table>${node.headerVisible?`<thead><tr style="height:${node.headerHeight}px">${node.headers.map((h,i)=>`<th style="width:${node.columnWidths[i]}px">${escape(h)}</th>`).join('')}</tr></thead>`:''}<tbody>${node.rows.map(row=>`<tr>${row.map(c=>`<td>${escape(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   case 'list':return `<div ${attrs}>${node.items.map(i=>`<div class="desktop-list-item"${i.selected?' aria-current="true"':''} style="min-height:${i.height}px">${escape(i.text)}</div>`).join('')}</div>`;
-  default:return `<div ${attrs}>${node.chrome?'':`<span class="desktop-container-surface" aria-hidden="true" style="${escape(css({...node,x:0,y:0}))}"></span>`}${chrome}${node.title?`<span class="desktop-group-title">${escape(node.title)}</span>`:''}${(node.children||[]).map(child=>nodeMarkup(child,prefix)).join('')}</div>`;
+  default:return `<div ${attrs}>${node.chrome?'':`<span class="desktop-container-surface" aria-hidden="true" style="${escape(css({...node,x:0,y:0}))}"></span>`}${chrome}${node.title?`<span class="desktop-group-title">${escape(node.title)}</span>`:''}${(node.children||[]).map(child=>nodeMarkup(railContainers.includes(child)?{...child,scrollChrome:true}:child,prefix)).join('')}</div>`;
  }
 }
 export function layoutVariant(data,theme,width){

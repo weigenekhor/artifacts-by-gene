@@ -1,5 +1,11 @@
 # Start here — ARTIFACTS public website
 
+## Single functional scrollbar — 25 October 2026
+
+Qt scroll areas now use one browser scrolling container in the space allocated by the desktop. Their exported static scrollbar images are hidden; the inner viewport no longer adds another browser rail. Decorative surfaces fit the client area, preventing a spurious horizontal scrollbar. Content dimensions, real overflow and keyboard scrolling are preserved. This covers 156 scroll areas across the 228 variants, including Data Lens.
+
+Validation: 40 website tests and 27 syntax checks pass. The initial browser inspection confirmed the duplicate-rail cause and removal. Browser access was then disabled in Work settings, so the final gutter/surface correction has static regression coverage but no final browser visual confirmation.
+
 ## Native hero border correction — 25 October 2026
 
 The 24 October preview refresh was published in commit `3b24be7`. Its gallery and hero assets remain in place. The current correction removes duplicate CSS surface/border paint only where an exported Qt vector already paints that widget. Native borders and ordinary CSS-only containers remain unchanged.
