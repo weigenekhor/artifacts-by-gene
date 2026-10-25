@@ -1050,7 +1050,7 @@
       "name": "Met Compiler",
       "legacyName": "Met Compiler",
       "purpose": "Metrology report compiler.",
-      "description": "Compiles metrology and Growth Plan inputs into a structured master workbook, with validation, safe append and conflict checking.",
+      "description": "Compiles metrology and Growth Plan inputs into a structured master workbook, with validation, safe append, and conflict checking.",
       "metadata": {
         "version": "v8.0.2",
         "release": "2025-03-15",
@@ -3578,7 +3578,7 @@
     {
       "id": "aperture-spc",
       "sourceKey": "aperture_spc_tab",
-      "purpose": "Context-aware metrology SPC, analysis and distributions.",
+      "purpose": "Context-aware metrology SPC, analysis, and distributions.",
       "featured": false,
       "name": "Aperture SPC",
       "description": "Connects to fab metrology data, applies context-aware limits, and plots one parameter per SPC chart by time or lot/run.",
@@ -3936,7 +3936,7 @@
       "name": "Data Lens",
       "legacyName": "Data Lens",
       "purpose": "Engineering data exploration and wafer maps.",
-      "description": "Explores engineering data through Smart Plot, wafer maps, run comparisons, distributions and wafer-level correlations.",
+      "description": "Explores engineering data through Smart Plot, wafer maps, run comparisons, distributions, and wafer-level correlations.",
       "metadata": {
         "version": "v1.0.0",
         "release": "2026-09-28",
@@ -4379,10 +4379,10 @@
     {
       "id": "telemetry",
       "sourceKey": "sentry_tab",
-      "purpose": "Production-tool signals, equipment history and sensor analysis.",
+      "purpose": "Production-tool signals, equipment history, and sensor analysis.",
       "featured": false,
       "name": "Telemetry",
-      "description": "Traces production-tool signals over time, examines sensor behaviour and supports equipment planning.",
+      "description": "Traces production-tool signals over time, examines sensor behaviour, and supports equipment planning.",
       "metadata": {
         "version": "v1.2.6",
         "release": "2026-10-06",

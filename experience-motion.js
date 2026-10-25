@@ -58,7 +58,7 @@ reduced.addEventListener('change',syncProductMotion,options);
 const home=product.querySelector('.app-home');let waferDrag=null;
 home.addEventListener('pointerdown',event=>{
  if(event.pointerType==='touch'||event.button!==0||reduced.matches||event.target.closest('button,a'))return;
- const rotation=home.querySelector('.home-wafer')?.getAnimations().find(a=>a.animationName==='native-wafer-rotation');
+ const rotation=product.querySelector('.home-wafer')?.getAnimations().find(a=>a.animationName==='native-wafer-rotation');
  if(!rotation)return;
  waferDrag={pointer:event.pointerId,x:event.clientX,time:rotation.currentTime||0,rotation};
  product.dataset.waferDragging='true';home.setPointerCapture(event.pointerId);event.preventDefault();

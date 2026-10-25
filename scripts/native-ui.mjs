@@ -1,5 +1,5 @@
 import {notificationGlyph} from '../notification-centre.js';
-import {homeMarkup} from '../native-home.js';
+import {homeMarkup,homeMaterialMarkup} from '../native-home.js';
 import {calendarAge} from '../application-age.js';
 export const esc=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 export const icon=(name,size=20)=>{
@@ -21,7 +21,7 @@ function nativeWindow(model,layouts,mode,theme='pentimento'){
  <nav class="app-sidebar" aria-label="Application navigation"><div class="sidebar-brand"><a href="#top" class="title-logo" aria-label="ARTIFACTS"><img src="assets/brand/artifacts-symbol.svg" alt="" width="28" height="28"></a><span>ARTIFACTS</span></div><div class="sidebar-scroll"><button type="button" data-expand-nav aria-label="Expand application navigation" aria-expanded="false">${navIcon('menu')}<span>Hide</span></button><button type="button" data-home aria-label="Home" aria-current="page">${navIcon('home')}<span>Home</span></button><div class="sidebar-apps">${sidebar}</div><button class="sidebar-settings" type="button" data-settings aria-label="Application Info" aria-expanded="false"> ${navIcon('application-info')}<span>Application Info</span></button></div></nav>
  <aside class="settings-drawer" id="application-info-${mode}" aria-label="Application Info" aria-hidden="true" inert><header class="info-header"><span>Application Info</span><button type="button" data-close-info aria-label="Close Application Info">${icon('close',14)}</button></header><div class="info-scroll">${information(model)}</div></aside>
  <header class="app-titlebar"><div class="window-controls"><button class="mode-control" type="button" data-cycle-mode aria-label="Focus ${mode==='legacy'?'Pentimento':'Legacy'}"><span data-mode-range>${range}</span><span data-mode-name>${label}</span></button>${themes(model,theme)}${notifications()}<i class="control-divider" aria-hidden="true"></i><a class="window-control website-control" href="#principle" aria-label="Explore the ARTIFACTS website">${icon('external')}</a><i class="control-divider" aria-hidden="true"></i>${['minus','max','close'].map((n,i)=>`<button type="button" class="window-control desktop-only" disabled aria-label="${['Minimize','Maximize','Close'][i]} (desktop only)">${icon(n)}</button>`).join('')}</div></header>
- <div class="app-content"><div class="app-home">${homeMarkup(model,layouts,`${theme}-${mode}-closed`)}</div></div><footer class="app-status"><span>ARTIFACTS</span><span data-product-status>Pentimento</span></footer></div></div>
+ ${homeMaterialMarkup(layouts,`${theme}-${mode}-closed`)}<div class="app-content"><div class="app-home">${homeMarkup(model,layouts,`${theme}-${mode}-closed`)}</div></div><footer class="app-status"><span>ARTIFACTS</span><span data-product-status>Pentimento</span></footer></div></div>
  </div></div>`;
 }
 export function nativeShell(model,layouts){

@@ -1,5 +1,13 @@
 # Implementation status
 
+## Fixed hero wafer and serial commas — 25 October 2026
+
+The native desktop wafer geometry explicitly preserves physical scale during panel expansion. The website material is now attached to the fixed application window outside the translated/resized content area. All panel states use the existing closed-state material geometry and images; panel toggles retain the wafer element and rotation playhead. Theme changes still update the material, and background dragging finds the same wafer at its new parent. Home card markup remains byte-identical for all 24 variants. No artwork, desktop source, or screenshot assets changed.
+
+Added serial commas to website app summaries, hover descriptions, metadata, and the relevant exported control tooltips. Compared JSON against the prior revision: 137 comma-only string changes, no hierarchy, geometry, or numerical changes. Two-item conjunctions remain intact. Catalogue synchronization preserves the editorial description changes.
+
+Validation: 61 automated tests, 34 JavaScript syntax checks, and the native build pass. Browser measurements confirmed the wafer width/height at 922.58 CSS pixels and left/top at 523.503/-73.7554 throughout closed, navigation-opening, navigation-open, and both-opening states; the material position and width stayed constant. Browser access was subsequently disabled, preventing additional final browser interaction checks. Rotation/drag routing and all 24 state geometries have regression coverage; physical mixed-DPI testing was not performed.
+
 ## Desktop notification panel parity — 25 October 2026
 
 Website notification centre now follows the current desktop header, 512px panel geometry, 20px centred new-count chip, bell/bell-off vectors, compact On/Off control before read-all, divider/tabs, notification-specific theme materials, card spacing and bottom-right read/delete actions. Removed the old checkbox, demonstration row and reset/status footer. Sample content remains explicitly identified in the accessible description; the website does not monitor equipment. Card action menus support read/dismiss/delete and keyboard navigation. Reminder actions are stacked as in desktop. Off preference and reminder mutes persist; Off hides unread badges, and muted reminders are retired from the list.

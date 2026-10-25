@@ -24,12 +24,14 @@ test('View cache releases other apps and themes and remains bounded',()=>{
  assert.equal(cache.size,4);cache.clear();assert.equal(cache.size,0);
 });
 
-test('Separating home material preserves byte-identical markup for every theme and sidebar arrangement',async()=>{
+test('Fixed material preserves byte-identical home content for every theme and sidebar arrangement',async()=>{
  const model=JSON.parse(await fs.readFile('content/apps.json','utf8'));
  const layouts=JSON.parse(await fs.readFile('content/home-layouts.json','utf8'));
  for(const key of Object.keys(layouts)){
   const after=homeMarkup(model,layouts,key);
-  assert.equal(digest(after),baseline.home[key],key);assert.ok(after.startsWith(homeMaterialMarkup(layouts,key)));
+  assert.equal(digest(after),baseline.homeContent[key],key);assert.doesNotMatch(after,/home-material|home-wafer/);
+  const closed=key.replace(/-(closed|navigation|information|both)$/,'-closed');
+  assert.equal(homeMaterialMarkup(layouts,key),homeMaterialMarkup(layouts,closed));
   assert.doesNotMatch(homeMaterialMarkup(layouts,key),/app-tile|home-sheet|home-scroll/);
  }
 });
@@ -38,11 +40,14 @@ test('Panel motion keeps navigation and info appearance rules and animation timi
  const after=await fs.readFile('shell.css','utf8');
  // Notifications have their own fidelity checks; this baseline guards the navigation/info panels.
  const strip=s=>s.split('\n').filter(line=>!line.includes('notification')).join('\n').replace(/\/\*[\s\S]*?\*\//g,'').replace(/\.panels-moving[^{}]+\{[^{}]*\}/g,'').replace(/\s+/g,'');
- assert.equal(digest(strip(after)),baseline.cssWithoutNotifications);
+ // Only the background anchoring changes; retain the previous CSS baseline for every other rule.
+ const priorAnchor=after.replace('.home-material{position:absolute;left:66px;top:49px;width:1161px;height:750px;overflow:hidden;pointer-events:none}', '.home-material{position:absolute;inset:0;overflow:hidden;pointer-events:none}');
+ assert.equal(digest(strip(priorAnchor)),baseline.cssWithoutNotifications);
  const shell=await fs.readFile('native-shell.js','utf8');
  assert.match(shell,/clearTimeout\(layoutTimer\)/);
  assert.match(shell,/classList\.toggle\('panels-moving',!reduced\.matches\)/);
  assert.match(shell,/classList\.remove\('panels-moving'\);renderHome\(\);\},240/);
- assert.match(shell,/if\(workspaces\.active\)[\s\S]*?homeMaterialMarkup\(layouts,key\)/);
+ assert.match(shell,/if\(workspaces\.active\|\|homeKey===key\)return/);
+ assert.match(shell,/if\(shell\.dataset\.materialKey!==materialKey\)/);
  assert.match(shell,/workspaces\.close\(\);renderHome\(\)/);
 });

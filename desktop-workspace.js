@@ -107,7 +107,7 @@ export function desktopWorkspace(shell,model){
   container.hidden=false;container.innerHTML='';shell.querySelector('.app-home').classList.add('workspace-open');shell.querySelector('[data-home]').removeAttribute('aria-current');
   shell.querySelectorAll('[data-locate-app]').forEach(b=>{if(b.dataset.locateApp===id)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
   if(!cache.has(id)){
-   try{const response=await fetch(`content/desktop-layouts/${id}.json?v=20261025-plot-outline`);if(!response.ok)throw Error('Layout unavailable');cache.set(id,await response.json());}
+   try{const response=await fetch(`content/desktop-layouts/${id}.json?v=20261025-serial-commas`);if(!response.ok)throw Error('Layout unavailable');cache.set(id,await response.json());}
    catch{if(active===id&&request===token){const status=document.createElement('p');status.className='desktop-load-error';status.textContent='The desktop layout could not load. Select the application again to retry.';container.append(status);}return;}
   }
   if(active===id&&request===token)draw();

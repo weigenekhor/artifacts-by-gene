@@ -13,8 +13,8 @@ for node in tree.body:
             if isinstance(target,ast.Name) and target.id in names:registry[target.id]=ast.literal_eval(node.value)
 assert len(registry['TITLES'])==19
 existing={a['sourceKey']:a for a in model['apps']}
-existing['aperture_spc_tab']={'id':'aperture-spc','sourceKey':'aperture_spc_tab','purpose':'Context-aware metrology SPC, analysis and distributions.','featured':False}
-existing['sentry_tab']={'id':'telemetry','sourceKey':'sentry_tab','purpose':'Production-tool signals, equipment history and sensor analysis.','featured':False}
+existing['aperture_spc_tab']={'id':'aperture-spc','sourceKey':'aperture_spc_tab','purpose':'Context-aware metrology SPC, analysis, and distributions.','featured':False}
+existing['sentry_tab']={'id':'telemetry','sourceKey':'sentry_tab','purpose':'Production-tool signals, equipment history, and sensor analysis.','featured':False}
 captions={
  'parser_tab':['Lot history and reactor results'],
  'altusanko_tab':['ANKO schedule and due dates'],
@@ -48,6 +48,8 @@ for mode,group_name in [('legacy','LEGACY_HOME_GROUPS'),('pentimento','DEFAULT_H
             if key not in keys:keys.append(key)
 for order,key in enumerate(keys,1):
     entry=existing[key];entry.update(name=registry['TITLES'][key],description=registry['BASE_DESCRIPTIONS'][key],metadata=registry['APP_METADATA'][key],order=order)
+    for before,after in [('safe append and conflict checking','safe append, and conflict checking'),('distributions and wafer-level correlations','distributions, and wafer-level correlations'),('examines sensor behaviour and supports equipment planning','examines sensor behaviour, and supports equipment planning')]:
+        entry['description']=entry['description'].replace(before,after)
     entry['navigationIcon']=f'assets/native/navigation/{key}.svg'
     entry.setdefault('icon',entry['navigationIcon'])
     entry.pop('standalone',None)

@@ -1,9 +1,9 @@
-import {desktopWorkspace} from './desktop-workspace.js?v=20261025-plot-outline';
+import {desktopWorkspace} from './desktop-workspace.js?v=20261025-serial-commas';
 import {model,state,themes,setEdition,setTheme} from './state.js?v=20261017-tenebrismo-load';
 import {appearanceMenu} from './appearance-menu.js';
 import {maintainApplicationAge} from './application-age.js';
 import {notificationCentre} from './notification-centre.js?v=20261025-desktop-panel';
-import {homeMarkup,homeMaterialMarkup,panelPosition} from './native-home.js?v=20261025-panel-motion';
+import {homeMarkup,homeMaterialMarkup,panelPosition} from './native-home.js?v=20261025-fixed-wafer';
 import {createPanelCache} from './panel-cache.js';
 import {createPanelMovies} from './panel-movies.js?v=20261025-fluid-movies';
 
@@ -71,20 +71,18 @@ function locate(id){clearLocate();const tile=home.querySelector(`[data-inspect-a
 function bindHomeScroll(){home.querySelector('.home-scroll')?.addEventListener('scroll',()=>{if(trigger){if(trigger===document.activeElement)trackPanel();else closeDetails();}},{passive:true});}
 function renderHome(){
  const key=`${controller.theme}-${controller.mode}-${expanded?(info?'both':'navigation'):(info?'information':'closed')}`;
- if(homeKey===key&&home.dataset.materialKey===key)return;
- const focus=home.contains(document.activeElement)?document.activeElement.dataset.inspectApp:null;
- const wafer=home.querySelector('.home-wafer'),waferTime=wafer?.getAnimations()[0]?.currentTime;
- if(workspaces.active){
-  // The material remains visible behind transparent apps; update it without
-  // rebuilding the hidden home cards, labels and their image elements.
-  if(home.dataset.materialKey===key)return;
-  home.querySelector('.home-material').outerHTML=homeMaterialMarkup(layouts,key);
- }else{
-  home.innerHTML=homeMarkup(model,layouts,key);homeKey=key;bindHomeScroll();
+ const materialKey=`${controller.theme}-${controller.mode}-closed`;
+ if(shell.dataset.materialKey!==materialKey){
+  const wafer=shell.querySelector('.home-wafer'),waferTime=wafer?.getAnimations()[0]?.currentTime;
+  shell.querySelector('.home-material').outerHTML=homeMaterialMarkup(layouts,materialKey);
+  shell.dataset.materialKey=materialKey;
+  const rotation=shell.querySelector('.home-wafer')?.getAnimations()[0];
+  if(rotation&&waferTime!=null)rotation.currentTime=waferTime;
  }
- home.dataset.materialKey=key;
- const rotation=home.querySelector('.home-wafer')?.getAnimations()[0];
- if(rotation&&waferTime!=null)rotation.currentTime=waferTime;
+ // Keep the material's element and rotation playhead intact during panel motion.
+ if(workspaces.active||homeKey===key)return;
+ const focus=home.contains(document.activeElement)?document.activeElement.dataset.inspectApp:null;
+ home.innerHTML=homeMarkup(model,layouts,key);homeKey=key;bindHomeScroll();
  if(focus)home.querySelector(`[data-inspect-app="${CSS.escape(focus)}"]`)?.focus({preventScroll:true});
 }
 function warmActiveAssets(){
