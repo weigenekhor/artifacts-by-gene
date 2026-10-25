@@ -1,5 +1,11 @@
 # Implementation status
 
+## Native hero border correction — 25 October 2026
+
+The preview refresh is published at commit `3b24be7`. This follow-up removes duplicate borders/backgrounds from the HTML renderer where Qt SVG chrome already owns them. All current gallery and hero assets are preserved. Ordinary controls without exported paint keep their CSS borders.
+
+Validation: 38 website tests pass; all 228 app/theme/sidebar variants are covered by the new paint-ownership regression. Native build and 27 module syntax checks pass. Browser review confirms the corrected MET Compiler outline in Tenebrismo and Pentimento. Evidence: `../outputs/notification-border-arrow-20261025/website-met-borders.png`. This release follows the existing GitHub Pages deployment.
+
 ## Current preview refresh — 24 October 2026
 
 Completed locally: all 114 identified stale captures replaced, nine additional MET Compiler frames added, 24 reusable report captures preserved; total 147 captures in all three themes. The 732 mapped gallery files decode successfully and match current provenance. Native high-DPI lossless masters are archived on Desktop. All 24 home layouts, 324 card images, 81 hover panels, two mobile hero sizes and 228 empty-state HTML layouts were refreshed. The notification showcase includes persistent global enable and bubbler mute controls; title dots are removed.

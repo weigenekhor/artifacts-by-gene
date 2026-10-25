@@ -1,5 +1,11 @@
 # Start here — ARTIFACTS public website
 
+## Native hero border correction — 25 October 2026
+
+The 24 October preview refresh was published in commit `3b24be7`. Its gallery and hero assets remain in place. The current correction removes duplicate CSS surface/border paint only where an exported Qt vector already paints that widget. Native borders and ordinary CSS-only containers remain unchanged.
+
+Validation: 38 tests pass, including coverage of all 228 application/theme/sidebar variants; 27 modules pass syntax checking and the native build succeeds. Browser checks confirm MET Compiler cards retain their native outlines without a second CSS frame in Tenebrismo and Pentimento. See `STATUS.md` for the current release record. This supersedes the earlier refresh's local-only and browser-unavailable status below.
+
 ## Current preview refresh — 24 October 2026
 
 The local gallery now has 147 captures: 114 refreshed existing views, nine additional MET Compiler views across the three themes, and 24 retained report-only images audited as reusable. Current Plessey inputs, completed compilation and populated XRD search results precede the supported HV example. All 19 apps retain complete theme sequences.

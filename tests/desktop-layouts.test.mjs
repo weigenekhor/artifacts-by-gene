@@ -6,6 +6,25 @@ const model=JSON.parse(await fs.readFile('content/apps.json','utf8'));
 const layouts=Object.fromEntries(await Promise.all(model.apps.map(async app=>[app.id,JSON.parse(await fs.readFile(`content/desktop-layouts/${app.id}.json`,'utf8'))])));
 const flatten=node=>[node,...(node.children||[]).flatMap(flatten)];
 
+test('Native-painted surfaces do not receive a second CSS frame',()=>{
+ let painted=0,ordinary=0;
+ for(const data of Object.values(layouts))for(const variants of Object.values(data.states.initial))for(const variant of Object.values(variants)){
+  for(const node of flatten(variant.tree)){
+   const markup=nodeMarkup({...node,children:[]});
+   if(node.chrome||node.vector){
+    painted++;
+    const ownStyle=markup.match(/data-native-id="[^"]+" style="([^"]*)"/)[1];
+    assert.doesNotMatch(ownStyle,/(?:^|;)(?:border|background)[^:;]*:/);
+    if(node.kind==='box')assert.doesNotMatch(markup,/desktop-container-surface/);
+   }else if(node.kind==='box'&&node.style.border&&node.style.border!=='none'){
+    ordinary++;assert.match(markup,/desktop-container-surface/);
+    assert.ok(markup.includes('border:'+node.style.border));
+   }
+  }
+ }
+ assert.ok(painted>100);assert.ok(ordinary>100);
+});
+
 test('Every registered app has source-provenanced layouts for all themes and sidebar widths',()=>{
  for(const app of model.apps){
   const data=layouts[app.id];assert.equal(data.sourceKey,app.sourceKey);assert.match(data.sourceSHA256,/^[a-f0-9]{64}$/);assert.ok(data.source.endsWith('.py'));

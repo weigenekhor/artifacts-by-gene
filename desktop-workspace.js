@@ -2,7 +2,10 @@
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const kebab=key=>key.replace(/[A-Z]/g,c=>'-'+c.toLowerCase());
 function css(node){
- const properties={left:node.x+'px',top:node.y+'px',width:node.width+'px',height:node.height+'px',...node.style};
+ // Exported native paint already contains its surface and outline. Drawing
+ // those declarations again produces a second frame around custom widgets.
+ const style=node.chrome||node.vector?Object.fromEntries(Object.entries(node.style).filter(([k])=>!/^border|^background/.test(k))):node.style;
+ const properties={left:node.x+'px',top:node.y+'px',width:node.width+'px',height:node.height+'px',...style};
  if(typeof properties.fontSize==='number')properties.fontSize+='px';
  return Object.entries(properties).map(([k,v])=>`${kebab(k)}:${v}`).join(';');
 }
@@ -42,7 +45,7 @@ export function nodeMarkup(node,prefix='desktop'){
   case 'tabs':return `<div ${attrs} role="tablist">${node.tabs.map(t=>`<button type="button" role="tab" aria-selected="${t.selected}"${inactive} style="left:${t.x}px;top:${t.y}px;width:${t.width}px;height:${t.height}px">${escape(t.text)}</button>`).join('')}</div>`;
   case 'table':return `<div ${attrs}><table>${node.headerVisible?`<thead><tr style="height:${node.headerHeight}px">${node.headers.map((h,i)=>`<th style="width:${node.columnWidths[i]}px">${escape(h)}</th>`).join('')}</tr></thead>`:''}<tbody>${node.rows.map(row=>`<tr>${row.map(c=>`<td>${escape(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   case 'list':return `<div ${attrs}>${node.items.map(i=>`<div class="desktop-list-item"${i.selected?' aria-current="true"':''} style="min-height:${i.height}px">${escape(i.text)}</div>`).join('')}</div>`;
-  default:return `<div ${attrs}><span class="desktop-container-surface" aria-hidden="true" style="${escape(css({...node,x:0,y:0}))}"></span>${chrome}${node.title?`<span class="desktop-group-title">${escape(node.title)}</span>`:''}${(node.children||[]).map(child=>nodeMarkup(child,prefix)).join('')}</div>`;
+  default:return `<div ${attrs}>${node.chrome?'':`<span class="desktop-container-surface" aria-hidden="true" style="${escape(css({...node,x:0,y:0}))}"></span>`}${chrome}${node.title?`<span class="desktop-group-title">${escape(node.title)}</span>`:''}${(node.children||[]).map(child=>nodeMarkup(child,prefix)).join('')}</div>`;
  }
 }
 export function layoutVariant(data,theme,width){
