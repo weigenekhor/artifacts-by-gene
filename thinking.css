@@ -5,7 +5,7 @@
 .thesis-primary{display:block;color:var(--text)}
 .thesis-continuation{color:#969a9e}
 .thinking-context{max-width:650px;margin-top:32px;font-size:16px;line-height:1.7;color:#c0c1c3;text-wrap:pretty}
-.thinking-context span{display:block;margin-top:10px;color:#a5a6a9}
+.thinking-context span{display:block;margin-top:10px}
 .principle-cycle{position:relative;margin-top:64px}
 .principle-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .principle-figure{min-width:0;padding:24px 26px 28px;--attention:.2;display:grid;grid-template-rows:auto 284px 1fr;border:1px solid #25262a;border-radius:7px;background:#0b0c0e;overflow:hidden}
