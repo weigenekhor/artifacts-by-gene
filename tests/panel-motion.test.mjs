@@ -29,7 +29,7 @@ test('Fixed material preserves byte-identical home content for every theme and s
  const layouts=JSON.parse(await fs.readFile('content/home-layouts.json','utf8'));
  for(const key of Object.keys(layouts)){
   const after=homeMarkup(model,layouts,key);
-  assert.equal(digest(after),baseline.homeContent[key],key);assert.doesNotMatch(after,/home-material|home-wafer/);
+  assert.equal(digest(after.replace(/ data-home-overflow="(?:true|false)"/,'')),baseline.homeContent[key],key);assert.doesNotMatch(after,/home-material|home-wafer/);
   const closed=key.replace(/-(closed|navigation|information|both)$/,'-closed');
   assert.equal(homeMaterialMarkup(layouts,key),homeMaterialMarkup(layouts,closed));
   assert.doesNotMatch(homeMaterialMarkup(layouts,key),/app-tile|home-sheet|home-scroll/);
@@ -41,7 +41,7 @@ test('Panel motion keeps navigation and info appearance rules and animation timi
  // Notifications have their own fidelity checks; this baseline guards the navigation/info panels.
  const strip=s=>s.split('\n').filter(line=>!line.includes('notification')).join('\n').replace(/\/\*[\s\S]*?\*\//g,'').replace(/\.panels-moving[^{}]+\{[^{}]*\}/g,'').replace(/\s+/g,'');
  // Only the background anchoring changes; retain the previous CSS baseline for every other rule.
- const priorAnchor=after.replace('.home-material{position:absolute;left:66px;top:49px;width:1161px;height:750px;overflow:hidden;pointer-events:none}', '.home-material{position:absolute;inset:0;overflow:hidden;pointer-events:none}');
+ const priorAnchor=after.replace(/\n\.home-scroll\[data-home-overflow=true\]\{[^}]+\}/,'').replace(/\n\.panels-moving \.home-scroll\[data-home-overflow\]\{[^}]+\}/,'').replace('.home-scroll{position:absolute;inset:14px 26px 14px 18px;overflow:hidden;', '.home-scroll{position:absolute;inset:14px 26px 14px 18px;overflow:auto;').replace('.home-material{position:absolute;left:66px;top:49px;width:1161px;height:750px;overflow:hidden;pointer-events:none}', '.home-material{position:absolute;inset:0;overflow:hidden;pointer-events:none}');
  assert.equal(digest(strip(priorAnchor)),baseline.cssWithoutNotifications);
  const shell=await fs.readFile('native-shell.js','utf8');
  assert.match(shell,/clearTimeout\(layoutTimer\)/);

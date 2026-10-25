@@ -1,5 +1,11 @@
 # Implementation status
 
+## Homepage scrollbar parity — 25 October 2026
+
+Confirmed current native Qt homepage behaviour at the hero's 1161 × 750 content geometry: Pentimento has no scrollbar in all four panel arrangements; Legacy has none with panels closed, but needs vertical scrolling with navigation, information, or both open. Native horizontal scrolling is always disabled. The website now enables vertical overflow only for these genuine overflowing layouts and suppresses temporary rails during panel transitions. Home card geometry, artwork, fixed wafer background, and other application scroll areas are unchanged.
+
+Validation: 62 automated tests, 34 JavaScript syntax checks, and native build pass. An isolated Qt probe exercised all eight edition/panel combinations: vertical maximum 0 for fitting states, 86 for Legacy navigation/information, and 178 for Legacy both. Website tests cover the same policy across all 24 theme variants and confirm all cards fit in non-scrolling layouts. Browser access is disabled in Work settings, so final browser rendering is unverified. Probe and test evidence: `../outputs/website-home-scroll-20261025/`.
+
 ## Fixed hero wafer and serial commas — 25 October 2026
 
 The native desktop wafer geometry explicitly preserves physical scale during panel expansion. The website material is now attached to the fixed application window outside the translated/resized content area. All panel states use the existing closed-state material geometry and images; panel toggles retain the wafer element and rotation playhead. Theme changes still update the material, and background dragging finds the same wafer at its new parent. Home card markup remains byte-identical for all 24 variants. No artwork, desktop source, or screenshot assets changed.

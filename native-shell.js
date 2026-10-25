@@ -3,7 +3,7 @@ import {model,state,themes,setEdition,setTheme} from './state.js?v=20261017-tene
 import {appearanceMenu} from './appearance-menu.js';
 import {maintainApplicationAge} from './application-age.js';
 import {notificationCentre} from './notification-centre.js?v=20261025-desktop-panel';
-import {homeMarkup,homeMaterialMarkup,panelPosition} from './native-home.js?v=20261025-fixed-wafer';
+import {homeMarkup,homeMaterialMarkup,panelPosition} from './native-home.js?v=20261025-home-scroll';
 import {createPanelCache} from './panel-cache.js';
 import {createPanelMovies} from './panel-movies.js?v=20261025-fluid-movies';
 

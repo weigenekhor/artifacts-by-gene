@@ -117,10 +117,28 @@ test('Expanded home pages reserve the native scrollbar without moving their cont
  const home=JSON.parse(await fs.readFile('content/home-layouts.json','utf8'));
  for(const[key,ref]of Object.entries(home)){
   const right=ref.contentHeight>722?4:26;
-  assert.match(homeMarkup(model,home,key),new RegExp(`class="home-scroll" style="right:${right}px"`));
+  assert.match(homeMarkup(model,home,key),new RegExp(`class="home-scroll" data-home-overflow="${ref.contentHeight>722}" style="right:${right}px"`));
   const contentWidth=ref.width-18-right-(ref.contentHeight>722?22:0);
   assert.equal(contentWidth,ref.contentWidth,key);
  }
+});
+
+test('Home scrollbar visibility matches native Qt across editions and panel arrangements',async()=>{
+ const {homeMarkup}=await import('../native-home.js');
+ const home=JSON.parse(await fs.readFile('content/home-layouts.json','utf8'));
+ let overflowing=0;
+ for(const [key,ref]of Object.entries(home)){
+  const needed=key.includes('-legacy-')&&!key.endsWith('-closed');
+  assert.equal(ref.contentHeight>ref.height-28,needed,key);
+  assert.ok(homeMarkup(model,home,key).includes(`data-home-overflow="${needed}"`),key);
+  if(needed)overflowing++;
+  else for(const card of ref.cards)assert.ok(card.y+card.height<=ref.height-28,key);
+ }
+ assert.equal(overflowing,9);
+ const css=await fs.readFile('shell.css','utf8');
+ assert.match(css,/\.home-scroll\{[^}]*overflow:hidden/);
+ assert.match(css,/\.home-scroll\[data-home-overflow=true\]\{overflow-y:auto\}/);
+ assert.match(css,/\.panels-moving \.home-scroll\[data-home-overflow\]\{overflow:hidden\}/);
 });
 
 test('Native-painted surfaces do not receive a second CSS frame',()=>{
