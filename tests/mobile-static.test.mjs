@@ -23,7 +23,11 @@ test('Browser icon variants share the packaged desktop icon source and stable UR
   assert.deepEqual(await fs.readFile(`assets/brand/${name}`),ico.subarray(start,start+length));
  }
  const html=await fs.readFile('index.html','utf8');
- assert.match(html,/href="favicon.ico"/);assert.match(html,/sizes="48x48" href="assets\/brand\/favicon-48.png"/);
+ assert.match(html,/href="favicon.ico"/);assert.match(html,/sizes="96x96" href="favicon.png"/);
+ const primary=await sharp('favicon.png').metadata();
+ assert.equal(primary.width,96);assert.equal(primary.height,96);
+ assert.deepEqual(await sharp('favicon.png').raw().toBuffer(),await sharp('assets/brand/artifacts-app-icon.png').resize(96,96).raw().toBuffer());
+ assert.equal((html.match(/rel="icon" type="image\/png"/g)||[]).length,1);
  const fallback=await fs.readFile('assets/favicon.svg','utf8');
  assert.ok(fallback.includes((await fs.readFile('assets/brand/artifacts-app-icon.png')).toString('base64')));
 });
