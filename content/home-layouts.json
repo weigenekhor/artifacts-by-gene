@@ -268,7 +268,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "imprimatura-legacy-navigation": {
     "width": 981,
@@ -539,7 +540,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "imprimatura-legacy-information": {
     "width": 943,
@@ -810,7 +812,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "imprimatura-legacy-both": {
     "width": 763,
@@ -1081,7 +1084,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "imprimatura-pentimento-closed": {
     "width": 1161,
@@ -1293,7 +1297,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "imprimatura-pentimento-navigation": {
     "width": 981,
@@ -1505,7 +1510,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "imprimatura-pentimento-information": {
     "width": 943,
@@ -1717,7 +1723,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "imprimatura-pentimento-both": {
     "width": 763,
@@ -1929,7 +1936,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "tenebrismo-legacy-closed": {
     "width": 1161,
@@ -2200,7 +2208,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "tenebrismo-legacy-navigation": {
     "width": 981,
@@ -2471,7 +2480,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "tenebrismo-legacy-information": {
     "width": 943,
@@ -2742,7 +2752,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "tenebrismo-legacy-both": {
     "width": 763,
@@ -3013,7 +3024,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "tenebrismo-pentimento-closed": {
     "width": 1161,
@@ -3225,7 +3237,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "tenebrismo-pentimento-navigation": {
     "width": 981,
@@ -3437,7 +3450,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "tenebrismo-pentimento-information": {
     "width": 943,
@@ -3649,7 +3663,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "tenebrismo-pentimento-both": {
     "width": 763,
@@ -3861,7 +3876,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "pentimento-legacy-closed": {
     "width": 1161,
@@ -4132,7 +4148,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "pentimento-legacy-navigation": {
     "width": 981,
@@ -4403,7 +4420,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "pentimento-legacy-information": {
     "width": 943,
@@ -4674,7 +4692,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "pentimento-legacy-both": {
     "width": 763,
@@ -4945,7 +4964,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "pentimento-pentimento-closed": {
     "width": 1161,
@@ -5157,7 +5177,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "pentimento-pentimento-navigation": {
     "width": 981,
@@ -5369,7 +5390,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "pentimento-pentimento-information": {
     "width": 943,
@@ -5581,7 +5603,8 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   },
   "pentimento-pentimento-both": {
     "width": 763,
@@ -5793,6 +5816,7 @@
       "size": 922.5864464971797,
       "originX": 49.920255183413076,
       "originY": 49.20255183413078
-    }
+    },
+    "materialDensity": 2
   }
 }

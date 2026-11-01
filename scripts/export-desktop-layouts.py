@@ -10,7 +10,7 @@ os.environ['PYTHONDONTWRITEBYTECODE']='1'
 sys.dont_write_bytecode=True
 SITE=Path(__file__).resolve().parents[1]
 ROOT=Path(sys.argv[1]).resolve()
-HARNESS=Path('C:/Users/Gene/Desktop/ARTIFACTS Preview Refresh/capture-tools')
+HARNESS=Path(os.environ['ARTIFACTS_CAPTURE_HARNESS']).resolve()
 OUT=Path(os.environ.get('ARTIFACTS_LAYOUT_OUTPUT',SITE/'content/desktop-layouts'))
 OUT.mkdir(parents=True,exist_ok=True)
 from PySide6.QtWidgets import (QWidget,QLabel,QAbstractButton,QCheckBox,QRadioButton,QComboBox,QLineEdit,QTextEdit,QPlainTextEdit,QAbstractSpinBox,QSlider,QScrollBar,QSplitterHandle,QProgressBar,QTabBar,QTableView,QListWidget,QScrollArea,QAbstractScrollArea,QFrame,QGroupBox,QApplication,QStyle,QStyleOptionButton,QStyleOptionComboBox,QStyleOptionFrame)
@@ -279,7 +279,10 @@ def run(window,app,root,out):
         import inspect
         source=Path(inspect.getfile(type(target)))
         payload={'id':item['id'],'sourceKey':key,'source':str(source.relative_to(ROOT)),'sourceSHA256':hashlib.sha256(source.read_bytes()).hexdigest(),'states':{'initial':sizes}}
-        (OUT/(item['id']+'.json')).write_text(json.dumps(payload,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
+        encoded=json.dumps(payload,ensure_ascii=False,separators=(',',':'))
+        # Preserve the website's existing editorial punctuation in live copy.
+        for before,after in [('Choose runs, wafers or measurement ranges', 'Choose runs, wafers, or measurement ranges'), ('Plot appearance, fits, axes and linked views', 'Plot appearance, fits, axes, and linked views'), ('Files, sessions and workspace', 'Files, sessions, and workspace'), ('Choose the search period, drives and folders.', 'Choose the search period, drives, and folders.'), ('Global calculation defaults, SPC detection rules and data source', 'Global calculation defaults, SPC detection rules, and data source'), ('reset chart exploration and plot again', 'reset chart exploration, and plot again')]:encoded=encoded.replace(before,after)
+        (OUT/(item['id']+'.json')).write_text(encoded,encoding='utf-8')
         print('LAYOUT',item['id'],sum(len(v['unsupported']) for variants in sizes.values() for v in variants.values()),flush=True)
         window.setFixedSize(1229,820)
     print('LAYOUT EXPORT COMPLETE',flush=True)
@@ -290,5 +293,5 @@ def run(window,app,root,out):
 
 module=types.ModuleType('scenes');module.run=run;sys.modules['scenes']=module
 sys.path.insert(0,str(HARNESS))
-runtime=(HARNESS/'capture.py').read_text(encoding='utf-8').replace('window.setFixedSize(1536,1024)','window.setFixedSize(1229,820)')
-exec(compile(runtime,str(HARNESS/'capture.py'),'exec'))
+runtime=(HARNESS/'capture_native.py').read_text(encoding='utf-8').replace('window.setFixedSize(1536,1024)','window.setFixedSize(1229,820)')
+exec(compile(runtime,str(HARNESS/'capture_native.py'),'exec'))

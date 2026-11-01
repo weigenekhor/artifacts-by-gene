@@ -7,7 +7,7 @@ import sharp from 'sharp';
 const source = process.argv[2];
 if (!source) throw new Error('Usage: node scripts/import-native-captures.mjs <source-image-folder>');
 const model = JSON.parse(await fs.readFile('content/apps.json','utf8'));
-const encoding = 'webp-q100-v1';
+const encoding = 'webp-lossless-native-v2';
 sharp.cache(false);
 sharp.concurrency(2);
 for (const app of model.apps) {
@@ -19,9 +19,9 @@ for (const app of model.apps) {
   if (capture.sha256===hash && capture.encoding===encoding && await fs.access(`${capture.base}/full.webp`).then(()=>true,()=>false)) continue;
   const meta = await sharp(input).metadata();
   await fs.mkdir(capture.base,{recursive:true});
-  // Preserve source dimensions: current native high-DPI captures and retained
-  // report masters. The lossless source remains in the Desktop archive.
-  await sharp(input).webp({quality:100,smartSubsample:true,effort:3}).toFile(`${capture.base}/full.webp`);
+  // The HD viewer serves the exact validated lossless master, with no second
+  // compression pass. Normal browsing uses the responsive derivatives below.
+  await fs.copyFile(inputPath,`${capture.base}/full.webp`);
   capture.width=meta.width; capture.height=meta.height; capture.sha256=hash; capture.encoding=encoding;
   capture.sources=[];
   for (const width of [768,1280,1920,2560]) {

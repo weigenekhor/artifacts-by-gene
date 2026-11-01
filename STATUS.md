@@ -1,5 +1,15 @@
 # Implementation status
 
+## Current HD preview refresh — 1 November 2026
+
+All 147 gallery frames were freshly captured from `C:/Users/Gene/Desktop/Artifacts`, covering all 19 apps and all three appearances. This includes the 24 report frames previously retained from older captures. Aperture's second view now shows the current Analysis Builder; all other screenshot ownership and sequence positions remain intact. Desktop previews use these same verified masters. The website's full-resolution files are byte-identical lossless masters; responsive versions remain quality 94 and never enlarge their source.
+
+The desktop hero's 24 native Home layouts, 81 information panels, three information drawers and all 228 source-exported empty application layout variants were refreshed. Native card surfaces remain 4×, information panels 2×, and tonal/lighting layers are now 2×. Mobile hero outputs are 1229×820 and 2458×1640, derived from the current 3073×2050 native window capture. Home geometry, typography, motion and website styling are preserved. The obsolete product-window footer wordmark is removed to match the current desktop. Existing painting animation movies and the branded social card remain unchanged.
+
+Verification: 62 website tests, 34 JavaScript syntax checks, website build, 147 source/full-image hash checks, and 11 desktop preview/packaging checks pass. All 147 captures were reviewed on contact sheets; TopoTracer was recaptured after appearance changes cleared the initial capture surface. Browser review covered desktop 1440px, tablet 768px and phone 390px, all three appearances, current native hover information, an application layout, gallery switching and HD viewer. No horizontal page overflow or broken visible images was observed; browser console review was clean. All 301 baseline desktop Python source files remain hash-identical. No desktop executable or installer was built.
+
+Evidence and recoverable desktop preview snapshot: `C:/Users/Gene/Desktop/Artifacts/outputs/preview_refresh_20261101/`. Website recovery tag: `preview-before-refresh-20261101`. Current provenance: `content/capture-source-manifest.json`. This is preview-asset verification, not a new scientific or production-connectivity release audit.
+
 ## Homepage scrollbar parity — 25 October 2026
 
 Confirmed current native Qt homepage behaviour at the hero's 1161 × 750 content geometry: Pentimento has no scrollbar in all four panel arrangements; Legacy has none with panels closed, but needs vertical scrolling with navigation, information, or both open. Native horizontal scrolling is always disabled. The website now enables vertical overflow only for these genuine overflowing layouts and suppresses temporary rails during panel transitions. Home card geometry, artwork, fixed wafer background, and other application scroll areas are unchanged.

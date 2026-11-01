@@ -22,6 +22,7 @@ for font in ('segoeui.ttf','seguisb.ttf','segoeuib.ttf','seguisym.ttf'):QFontDat
 app.setFont(QFont('Segoe UI',9))
 out=site/'assets/native/panels';out.mkdir(parents=True,exist_ok=True)
 refs={};info_refs={}
+descriptions={app['sourceKey']:app['description'] for app in json.loads((site/'content/apps.json').read_text(encoding='utf-8'))['apps']}
 def raster(widget):
     for child in [widget,*widget.findChildren(QWidget)]:child.setAttribute(Qt.WA_UnderMouse,False)
     image=QImage(widget.width()*2,widget.height()*2,QImage.Format_RGBA8888)
@@ -72,7 +73,7 @@ for theme,appearance in (('imprimatura','original'),('tenebrismo','void'),('pent
             for label in panel.findChildren(QLabel):
                 if not label.text() or not label.isVisible():continue
                 box=bounds(label,panel);font=QFontInfo(label.font());alignment=label.alignment()
-                refs[key]['text'].append({**box,'text':label.text(),'size':font.pixelSize(),'weight':int(label.font().weight()),'color':label.palette().color(QPalette.WindowText).name(),'align':'right' if alignment&Qt.AlignRight else 'center' if alignment&Qt.AlignHCenter else 'left','top':bool(alignment&Qt.AlignTop)})
+                refs[key]['text'].append({**box,'text':descriptions.get(card.tab_key,label.text()) if label is panel.description_label else label.text(),'size':font.pixelSize(),'weight':int(label.font().weight()),'color':label.palette().color(QPalette.WindowText).name(),'align':'right' if alignment&Qt.AlignRight else 'center' if alignment&Qt.AlignHCenter else 'left','top':bool(alignment&Qt.AlignTop)})
                 css=label.styleSheet();styles.append((label,css))
                 original_style(label,css+(f'\nQLabel#{label.objectName()} {{color:transparent;}}' if '{' in css else ';color:transparent;'))
             # The category's stylesheet is reapplied by native polish. Blank

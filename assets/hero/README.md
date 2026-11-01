@@ -1,5 +1,5 @@
 # Mobile hero assets
 
-Actual current ARTIFACTS desktop window captured on 24 October 2026 in Tenebrismo, Pentimento edition, with drawers closed. Native ratio: 1229 / 820. Qt rendered at 2x density (2458x1640); the 1229x820 version is its downsample. Both are packaged with the website; no Desktop-folder dependency exists. Source: the dated Desktop preview archive, mobile-hero-native.png. This is a native Qt capture, not a browser screenshot.
+Current ARTIFACTS desktop window captured on 1 November 2026 from `C:/Users/Gene/Desktop/Artifacts`: Tenebrismo appearance, Pentimento edition, drawers closed. Native capture: 3073×2050 pixels. The exported 2458×1640 and 1229×820 versions preserve the exact logical window ratio 1229/820, without enlargement. Both are packaged with the website, with no Desktop-folder runtime dependency. Source master: `C:/Users/Gene/Desktop/Artifacts/outputs/preview_refresh_20261101/mobile-hero-native.png`.
 
-These images serve the mobile/tablet hero only. Keep the interactive desktop hero and application gallery unchanged. Regenerate both from a fresh full window capture when the desktop appearance changes; do not crop or reflow the window.
+These images serve the mobile/tablet hero. The interactive desktop hero uses freshly exported native Home layers with live text. Regenerate both mobile resolutions from a fresh full-window capture when the desktop appearance changes; do not crop or reflow the window.

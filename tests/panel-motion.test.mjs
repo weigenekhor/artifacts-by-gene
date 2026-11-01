@@ -29,7 +29,7 @@ test('Fixed material preserves byte-identical home content for every theme and s
  const layouts=JSON.parse(await fs.readFile('content/home-layouts.json','utf8'));
  for(const key of Object.keys(layouts)){
   const after=homeMarkup(model,layouts,key);
-  assert.equal(digest(after.replace(/ data-home-overflow="(?:true|false)"/,'')),baseline.homeContent[key],key);assert.doesNotMatch(after,/home-material|home-wafer/);
+  assert.equal(digest(after.replace(/ data-home-overflow="(?:true|false)"/,'').replaceAll('20261101-preview','20261024-preview')),baseline.homeContent[key],key);assert.doesNotMatch(after,/home-material|home-wafer/);
   const closed=key.replace(/-(closed|navigation|information|both)$/,'-closed');
   assert.equal(homeMaterialMarkup(layouts,key),homeMaterialMarkup(layouts,closed));
   assert.doesNotMatch(homeMaterialMarkup(layouts,key),/app-tile|home-sheet|home-scroll/);

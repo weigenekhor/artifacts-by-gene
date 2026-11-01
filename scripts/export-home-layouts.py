@@ -37,7 +37,7 @@ for theme,appearance in (('imprimatura','original'),('tenebrismo','void'),('pent
    # Current AnimatedIconLabel paints native paths at the target device scale.
    # Preserve its logical optical-reference pixmap; replacing it with a 4x
    # bitmap changes the reference used for glyph bounds and hover alignment.
-   refs[key]={'width':home.width(),'height':750,'contentWidth':area.width(),'contentHeight':area.height(),'renderDensity':RENDER_DENSITY,'cards':[],'headings':[]}
+   refs[key]={'width':home.width(),'height':750,'contentWidth':area.width(),'contentHeight':area.height(),'renderDensity':RENDER_DENSITY,'materialDensity':2,'cards':[],'headings':[]}
    # Text is drawn by the browser at the actual display density. Preserve all
    # measured Qt geometry and rasterize only the native card surfaces/glyphs.
    labels=[]
@@ -55,6 +55,7 @@ for theme,appearance in (('imprimatura','original'),('tenebrismo','void'),('pent
    for label,text in labels:label.setText(text)
    scroll.hide();app.processEvents()
    layer=home._wafer_layer
+   layer.devicePixelRatioF=lambda:2.0
    if not layer._compatible:raise RuntimeError('Native rotating wafer source is unavailable')
    # Use the native material and rim. Only the wafer rotates; illumination stays fixed.
    home._panel_animation_paused=False;layer._timer.stop();layer._angle=0

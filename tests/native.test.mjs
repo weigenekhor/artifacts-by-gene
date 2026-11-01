@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import vm from 'node:vm';
 import sharp from 'sharp';
+import {createHash} from 'node:crypto';
 
 const model=JSON.parse(await fs.readFile('content/apps.json','utf8'));
 const html=await fs.readFile('index.html','utf8');
@@ -35,6 +36,7 @@ test('All explicitly mapped captures decode, preserve composition and have no mi
    assert.match(capture.sourceFilename,/^(original|void|pentimento)\/[a-z0-9_]+\.webp$/);
    assert.ok(!/empty|homepage/i.test(capture.sourceFilename));
    assert.match(capture.sha256,/^[a-f0-9]{64}$/);
+   assert.equal(createHash('sha256').update(await fs.readFile(`${capture.base}/full.webp`)).digest('hex'),capture.sha256,`HD master identity: ${capture.sourceFilename}`);
    for(const {src,width} of [...capture.sources,{src:`${capture.base}/full.webp`,width:capture.width}]){
     const meta=await sharp(src).metadata();
     assert.equal(meta.width,width,src);
@@ -132,8 +134,8 @@ test('Every native panel geometry keeps its source cards accessible and aligned'
   const [,mode]=key.split('-');
   const expected=model.expeditions.filter(e=>e.mode===mode).flatMap(e=>e.apps).map(id=>model.apps.find(a=>a.id===id).sourceKey);
   assert.deepEqual(ref.cards.map(card=>card.key),expected);
-  assert.equal(ref.renderDensity,4);
-  for(const [suffix,width,height,density] of [['field',ref.width,ref.height,1],['light',ref.width,ref.height,1],['content',ref.contentWidth,ref.contentHeight,ref.renderDensity]]){
+  assert.equal(ref.renderDensity,4);assert.equal(ref.materialDensity,2);
+  for(const [suffix,width,height,density] of [['field',ref.width,ref.height,ref.materialDensity],['light',ref.width,ref.height,ref.materialDensity],['content',ref.contentWidth,ref.contentHeight,ref.renderDensity]]){
    const meta=await sharp(`assets/native/layouts/${key}-${suffix}.webp`).metadata();
    assert.equal(meta.width,width*density);assert.equal(meta.height,height*density);
   }

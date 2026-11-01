@@ -89,7 +89,7 @@ test('Metria Plot and every painted button retain native rounded clipping',()=>{
 });
 
 test('Metria Plot has one continuous native outline in every theme and panel arrangement',()=>{
- const palettes={imprimatura:['#365872','#d2af79'],tenebrismo:['#202426','#a5b6bc'],pentimento:['#453744','#a78c9c']};
+ const palettes={imprimatura:['#2b4153','#526272'],tenebrismo:['#2f4152','#566170'],pentimento:['#393144','#51495e']};
  let count=0;
  for(const variants of Object.values(layouts['metria-spc'].states.initial))for(const [theme,variant] of Object.entries(variants)){
   const button=flatten(variant.tree).find(n=>n.name==='plesseySpcPrimary');

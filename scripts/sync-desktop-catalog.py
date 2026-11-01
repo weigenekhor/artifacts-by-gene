@@ -22,7 +22,7 @@ captions={
  'topotracer_tab':['Interpolated 3D surface','Interpolated contour and surface','Measured points and contours'],
  'xml_tab':['Exhaustive XML comparison','Recipe sequence comparison'],
  'path_tab':['Equipment and parameter chart index'],
- 'metro_tab':['Compiled metrology inputs'],
+ 'metro_tab':['Plessey input validation and XRD readiness','Completed Plessey compilation and activity log','Accepted XRD measurements in Search Results','HV metrology compilation'],
  'pyra_tab':['Temperature drift diagnosis','Alternative temperature drift case'],
  'dt_tab':['Weight-based assignment','Temperature-based assignment'],
  'laytec_tab':['Inner and outer measurement zones'],
@@ -32,7 +32,7 @@ captions={
  'ankohelper_tab':['ANKO status and next service'],
  'sap_tab':['Compiled LayTec analysis reports'],
  'plessey_spc_tab':['Multi-parameter trends','Equipment comparison','Run-type comparison'],
- 'aperture_spc_tab':['Metrology trends','Measurement scatter','Measurement distributions','Lot distributions'],
+ 'aperture_spc_tab':['Metrology trends','Analysis Builder and query scope','Measurement distributions','Lot distributions'],
  'datalens_tab':['Parameter relationships','Wafer maps','Run comparison','Measurement distributions','Wafer profiles'],
  'sentry_tab':['Equipment overview','Bubbler weight history','Twelve-hour analysis overview','Twelve-hour sensor trends'],
 }
