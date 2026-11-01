@@ -59,7 +59,7 @@ test('Illustrations have no detached decoration and the wafer belongs to the top
 
 test('Hero title wordmark matches the current desktop typography without moving its logo',async()=>{
  const css=await fs.readFile('shell.css','utf8');
- assert.match(css,/\.sidebar-brand>span\{font:600 14pt "Segoe UI",sans-serif;letter-spacing:\.7px;color:#E8E4DA;white-space:nowrap\}/);
+ assert.match(css,/\.sidebar-brand>span\{font:600 12\.5pt "Segoe UI",sans-serif;letter-spacing:\.7px;color:#E8E4DA;white-space:nowrap\}/);
  assert.match(css,/\.title-logo\{width:60px;height:44px;display:grid;place-items:center;flex:none\}/);
  const source=await fs.readFile('scripts/native-ui.mjs','utf8');
  assert.match(source,/class="title-logo"[^>]*><img[^>]*width="28" height="28"/);

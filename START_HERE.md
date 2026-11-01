@@ -1,5 +1,9 @@
 # Start here — ARTIFACTS public website
 
+## Balanced title wordmark — 1 November 2026
+
+Reduced the title wordmark from 14pt to 12.5pt in both current ARTIFACTS desktop source and the interactive website hero, at the user's request. Semibold weight, 0.7px spacing, #E8E4DA, logo dimensions and all title/navigation geometry are preserved. The desktop uses QFont.setPointSizeF to retain the fractional size. The native label probe confirms its text fits, and nine targeted website checks pass. No desktop executable was built. Evidence: `C:/Users/Gene/Desktop/Artifacts/outputs/wordmark_125pt_20261101/`.
+
 ## Hero wordmark parity — 1 November 2026
 
 The expanded hero navigation title now matches current desktop label_title: Segoe UI 14pt, semibold, 0.7px letter spacing and soft ivory #E8E4DA. Its previous 16px regular-weight text was stale. Logo size/alignment, navigation geometry, footer and all preview assets are preserved. Nine targeted checks and a rendered browser inspection pass. Evidence: `C:/Users/Gene/Desktop/Artifacts/outputs/hero_wordmark_20261101/`; recovery tag `hero-wordmark-before-20261101`.
