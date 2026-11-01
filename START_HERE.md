@@ -1,5 +1,9 @@
 # Start here — ARTIFACTS public website
 
+## Hero wordmark parity — 1 November 2026
+
+The expanded hero navigation title now matches current desktop label_title: Segoe UI 14pt, semibold, 0.7px letter spacing and soft ivory #E8E4DA. Its previous 16px regular-weight text was stale. Logo size/alignment, navigation geometry, footer and all preview assets are preserved. Nine targeted checks and a rendered browser inspection pass. Evidence: `C:/Users/Gene/Desktop/Artifacts/outputs/hero_wordmark_20261101/`; recovery tag `hero-wordmark-before-20261101`.
+
 ## Current HD preview refresh — 1 November 2026
 
 All 147 gallery frames were freshly captured from `C:/Users/Gene/Desktop/Artifacts`, covering all 19 apps and all three appearances. This includes the 24 report frames previously retained from older captures. Aperture's second view now shows the current Analysis Builder; all other screenshot ownership and sequence positions remain intact. Desktop previews use these same verified masters. The website's full-resolution files are byte-identical lossless masters; responsive versions remain quality 94 and never enlarge their source.
