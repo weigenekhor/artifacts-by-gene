@@ -64,3 +64,16 @@ test('Hero title wordmark matches the current desktop typography without moving 
  const source=await fs.readFile('scripts/native-ui.mjs','utf8');
  assert.match(source,/class="title-logo"[^>]*><img[^>]*width="28" height="28"/);
 });
+
+
+test('Info dates show month and year while the age anchor remains unchanged',async()=>{
+ const model=JSON.parse(await fs.readFile('content/apps.json','utf8'));
+ assert.equal(model.softwareInfo.details.Started,'August 2022');
+ assert.equal(model.softwareInfo.details.Updated,'November 2026');
+ assert.equal(model.softwareInfo.started,'2022-08-28');
+ const source=await fs.readFile('scripts/native-ui.mjs','utf8');
+ assert.ok(source.includes("['STARTED','August 2022']"));
+ assert.ok(source.includes("['UPDATED','November 2026']"));
+ const age=await fs.readFile('application-age.js','utf8');
+ assert.match(age,/getDate\(\)<28/);
+});

@@ -62,6 +62,6 @@ for order,key in enumerate(keys,1):
             images.append(dict(sourceFilename=filename,theme=theme,caption=caption,base=f'assets/screens/{entry["id"]}/{theme}-{index}'))
     entry['images']=images
 model['apps']=[existing[key] for key in keys]
-model['softwareInfo']={'description':'A collection of engineering applications purpose-built for real workflows, real data, and real decisions. Each application is designed to reduce repetition, surface what matters, and make complex engineering work clearer, faster, and more reliable.','details':{'Version':'Pentimento','Applications':'19','Started':'28 August 2022','Updated':'October 2026'},'started':'2022-08-28'}
+model['softwareInfo']={'description':'A collection of engineering applications purpose-built for real workflows, real data, and real decisions. Each application is designed to reduce repetition, surface what matters, and make complex engineering work clearer, faster, and more reliable.','details':{'Version':'Pentimento','Applications':'19','Started':'August 2022','Updated':'November 2026'},'started':'2022-08-28'}
 path.write_text(json.dumps(model,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
 print('Synchronized',len(keys),'apps and',sum(len(a['images']) for a in model['apps']),'explicit captures.')

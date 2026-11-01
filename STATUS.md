@@ -1,5 +1,9 @@
 # Implementation status
 
+## Info date labels — 1 November 2026
+
+Application Info now displays Started as August 2022 and Updated as November 2026 in both desktop source and website. Only the display labels changed; the original 28 August 2022 founding date and age calculation remain intact. Two focused native content/layout checks and six website refinement checks pass. No other appearance, application behavior or preview assets changed. Native snapshot/evidence: `C:/Users/Gene/Desktop/ARTIFACTS Cleanup Archive 2026-11-01/info-date-update/`.
+
 ## Balanced title wordmark — 1 November 2026
 
 Reduced the title wordmark from 14pt to 12.5pt in both current ARTIFACTS desktop source and the interactive website hero, at the user's request. Semibold weight, 0.7px spacing, #E8E4DA, logo dimensions and all title/navigation geometry are preserved. The desktop uses QFont.setPointSizeF to retain the fractional size. The native label probe confirms its text fits, and nine targeted website checks pass. No desktop executable was built. Evidence: `C:/Users/Gene/Desktop/Artifacts/outputs/wordmark_125pt_20261101/`.
