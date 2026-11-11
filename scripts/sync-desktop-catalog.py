@@ -36,7 +36,7 @@ captions={
  'datalens_tab':['E-Test wafer comparison','Measured E-Test site maps','Run comparison','Measurement distributions','Wafer profiles'],
  'sentry_tab':['Equipment overview','Bubbler weight history','Twelve-hour analysis overview','Twelve-hour sensor trends'],
  'manufacts_tab':['Checkpoint performance and wafer outcomes','Recorded losses by reason and wafer progress by product',
-                  'Hold duration and hold activity','Held lots and recorded hold reasons',
+                  'Hold duration and hold activity','Held lots, recorded reasons, and relative age',
                   'Material distribution by last recorded step','Recorded process history for a selected lot'],
 }
 themes=[('imprimatura','Imprimatura','original'),('tenebrismo','Tenebrismo','void'),('pentimento','Pentimento','pentimento')]

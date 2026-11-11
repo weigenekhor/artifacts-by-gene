@@ -4834,7 +4834,7 @@
         {
           "sourceFilename": "original/manufacts4.webp",
           "theme": "imprimatura",
-          "caption": "Held lots and recorded hold reasons",
+          "caption": "Held lots, recorded reasons, and relative age",
           "base": "assets/screens/manufacts/imprimatura-4",
           "width": 3840,
           "height": 2560,
@@ -5002,7 +5002,7 @@
         {
           "sourceFilename": "void/manufacts4.webp",
           "theme": "tenebrismo",
-          "caption": "Held lots and recorded hold reasons",
+          "caption": "Held lots, recorded reasons, and relative age",
           "base": "assets/screens/manufacts/tenebrismo-4",
           "width": 3840,
           "height": 2560,
@@ -5170,7 +5170,7 @@
         {
           "sourceFilename": "pentimento/manufacts4.webp",
           "theme": "pentimento",
-          "caption": "Held lots and recorded hold reasons",
+          "caption": "Held lots, recorded reasons, and relative age",
           "base": "assets/screens/manufacts/pentimento-4",
           "width": 3840,
           "height": 2560,
