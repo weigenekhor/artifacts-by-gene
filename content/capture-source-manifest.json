@@ -17,7 +17,7 @@
   ],
   "captures": 165,
   "encoding": "Full-size lossless native WebP masters; responsive WebP quality 94; full-size masters served directly by the gallery",
-  "bytes": 145035836,
+  "bytes": 145043706,
   "records": [
     {
       "app": "altus-lotviewer",
@@ -1373,7 +1373,7 @@
       "app": "manufacts",
       "theme": "imprimatura",
       "source": "original/manufacts4.webp",
-      "sourceSha256": "74700ead63d3271e2794020fe3c8080142663d64b14418e9d5576089d9436a4a",
+      "sourceSha256": "ed049df828b4b27615a32f717bbcbd88cb1b40346fc83437fdf78624a7da1232",
       "width": 3840,
       "height": 2560,
       "full": "assets/screens/manufacts/imprimatura-4/full.webp"
@@ -1427,7 +1427,7 @@
       "app": "manufacts",
       "theme": "tenebrismo",
       "source": "void/manufacts4.webp",
-      "sourceSha256": "af4fffec0767461e873d99b714e4edce8eb560135ad697675c23577286441aad",
+      "sourceSha256": "3ff992062c94481d5f1b1ac2fdb8fc11492e76f14486856ff2b0288e8118b964",
       "width": 3840,
       "height": 2560,
       "full": "assets/screens/manufacts/tenebrismo-4/full.webp"
@@ -1481,7 +1481,7 @@
       "app": "manufacts",
       "theme": "pentimento",
       "source": "pentimento/manufacts4.webp",
-      "sourceSha256": "5bf4e61ce758315d1536940320565827daa9b22146c3bbce048743402a00b6c3",
+      "sourceSha256": "625d4e1fe22250308fcc9e85f10f423a1b3371520e06beedcfa9c70b4cccd323",
       "width": 3840,
       "height": 2560,
       "full": "assets/screens/manufacts/pentimento-4/full.webp"
