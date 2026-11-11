@@ -1,4 +1,5 @@
 // A local showcase only: no monitoring, system notifications or server writes.
+import {nativeText} from './native-text.js?v=20261111-native-type';
 export const sampleNotifications=Object.freeze([
  {id:'pressure',category:'Limit exceeded',equipment:'AIX-04 · DEMO-1042',message:'Chamber pressure above upper limit',value:'154 mbar',limit:'150 mbar',time:'14:28',tone:'alert',unread:true},
  {id:'temperature',category:'Bubbler change due soon',equipment:'GAN4 · TMGa 1',message:'Estimated replacement in 5 days',value:'5 days',limit:'7-day reminder window',time:'14:25',tone:'alert',unread:true,bubbler:true},
@@ -62,7 +63,7 @@ export function notificationCentre(shell){
  function render(){
   menuId=null;
   if(enabled){enabled.setAttribute('aria-pressed',String(state.enabled));enabled.innerHTML=notificationGlyph(state.enabled?'bell':'bell_off',16)+`<span>${state.enabled?'On':'Off'}</span>`;}
-  const badge=trigger.querySelector('[data-notification-badge]');badge.textContent=state.unread;badge.hidden=!state.enabled||!state.unread;
+ const badge=trigger.querySelector('[data-notification-badge]');badge.innerHTML=nativeText(String(state.unread),{width:Math.max(7,String(state.unread).length*5),height:11,size:8,weight:700,align:'center',lineHeight:1});badge.hidden=!state.enabled||!state.unread;
   trigger.querySelector('[data-notification-bell]').innerHTML=notificationGlyph(state.enabled?'bell':'bell_off',22);
   panel.querySelector('[data-notification-header-icon]').innerHTML=notificationGlyph(state.enabled?'bell':'bell_off',22);
   trigger.setAttribute('aria-label',state.enabled?`Notifications, ${state.unread} new`:'Notifications off');

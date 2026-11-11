@@ -1,11 +1,13 @@
 import {desktopWorkspace} from './desktop-workspace.js?v=20261111-parity';
 import {model,state,themes,setEdition,setTheme} from './state.js?v=20261017-tenebrismo-load';
 import {appearanceMenu} from './appearance-menu.js';
-import {maintainApplicationAge} from './application-age.js';
-import {notificationCentre} from './notification-centre.js?v=20261025-desktop-panel';
-import {homeMarkup,homeMaterialMarkup,panelPosition} from './native-home.js?v=20261111-preview';
+import {maintainApplicationAge} from './application-age.js?v=20261111-native-type';
+import {notificationCentre} from './notification-centre.js?v=20261111-native-type';
+import {homeMarkup,homeMaterialMarkup,panelPosition} from './native-home.js?v=20261111-native-type';
 import {createPanelCache} from './panel-cache.js';
 import {createPanelMovies} from './panel-movies.js?v=20261025-fluid-movies';
+import {layoutPanelText} from './panel-presentation.js?v=20261111-edge-zoom';
+import {nativeText} from './native-text.js?v=20261111-native-type';
 
 const stage=document.querySelector('.product-stage');
 const shell=document.querySelector('.app-shell');
@@ -18,7 +20,7 @@ const panels=JSON.parse(document.querySelector('#native-panel-data').textContent
 const workspaces=desktopWorkspace(shell,model);
 appearanceMenu(shell,setTheme);
 notificationCentre(shell);
-maintainApplicationAge(drawer.querySelector('[data-info-age]'));
+maintainApplicationAge(drawer.querySelector('[data-info-age]'),value=>{drawer.querySelector('[data-info-age]').innerHTML=nativeText(value,{width:110,height:17,size:11.5});});
 drawer.querySelector('[data-close-info]').addEventListener('click',()=>{info=false;updatePanels();shell.querySelector('[data-settings]').focus({preventScroll:true});});
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const coarse=matchMedia('(hover: none), (pointer: coarse), (max-width:1100px)');
@@ -47,7 +49,7 @@ let trigger=null,activeKey='',request=0,timer,placementFrame=0;
 const controller={product:shell,theme:shell.dataset.theme,mode:shell.dataset.mode,reference:()=>layouts[`${controller.theme}-${controller.mode}-${expanded?(info?'both':'navigation'):(info?'information':'closed')}`]};
 let expanded=false,info=false,layoutTimer,lastScale=0,bounds=null,lastWarmed='',homeKey='';
 function closeDetails(){clearTimeout(timer);request++;details.hidden=true;movies.hide();trigger?.removeAttribute('aria-describedby');trigger=null;activeKey='';}
-function placeDetails(target){const rect=target.getBoundingClientRect(),viewWidth=document.documentElement.clientWidth,scale=Math.min(1,(viewWidth-32)/372),width=372*scale,height=Math.min(565*scale,innerHeight-32),position=panelPosition(rect,{left:0,top:0,right:viewWidth,bottom:innerHeight},width,height);details.querySelector('.module-details-body').style.height=`${565*scale}px`;Object.assign(details.style,{width:`${width}px`,height:`${height}px`,left:`${position.x}px`,top:`${position.y}px`});}
+function placeDetails(target){const rect=target.getBoundingClientRect(),viewWidth=document.documentElement.clientWidth,scale=Math.min(1,(viewWidth-32)/372),width=372*scale,height=Math.min(565*scale,innerHeight-32),position=panelPosition(rect,{left:0,top:0,right:viewWidth,bottom:innerHeight},width,height);details.querySelector('.module-details-body').style.height=`${565*scale}px`;Object.assign(details.style,{width:`${width}px`,height:`${height}px`,left:`${position.x}px`,top:`${position.y}px`});const ref=panels[activeKey];if(ref)layoutPanelText(details.querySelector('[data-panel-live]'),ref,scale);}
 function panelKey(app){const mode=model.expeditions.some(e=>e.mode===controller.mode&&e.apps.includes(app.id))?controller.mode:model.expeditions.find(e=>e.apps.includes(app.id)).mode;return `${controller.theme}-${mode}-${app.sourceKey}`;}
 async function showDetails(target,id){
  const app=appFor(id||target.dataset.inspectApp);if(!app)return;
@@ -59,8 +61,8 @@ async function showDetails(target,id){
  if(token!==request)return;
  const current=details.querySelector('.native-panel');if(current!==entry.image)current.replaceWith(entry.image);
  details.querySelector('.module-details-scroll').scrollTop=0;details.querySelector('[data-panel-text]').textContent=`${app.name}. ${app.description} Version ${app.metadata.version}. Release ${app.metadata.release}.`;details.setAttribute('aria-label',`${app.name} information`);trigger.setAttribute('aria-describedby','module-details');
- const live=details.querySelector('[data-panel-live]');live.replaceChildren(...(ref?.text||[]).map(t=>{const span=document.createElement('span');span.textContent=t.text;Object.assign(span.style,{left:`${t.x/372*100}%`,top:`${t.y/565*100}%`,width:`${t.width/372*100}%`,height:`${t.height/565*100}%`,fontSize:`${t.size/372*100}cqw`,fontWeight:t.weight,color:t.color,textAlign:t.align,justifyContent:t.align==='right'?'flex-end':t.align==='center'?'center':'flex-start',alignItems:t.top?'flex-start':'center'});return span;}));
- const entering=details.hidden;placeDetails(target);details.hidden=false;if(entering&&!reduced.matches)details.animate([{opacity:0},{opacity:1}],{duration:140,easing:'cubic-bezier(.215,.61,.355,1)'});
+ const live=details.querySelector('[data-panel-live]');live.replaceChildren(...(ref?.text||[]).map(t=>{const span=document.createElement('span');span.innerHTML=nativeText(t.text,{...t,wrap:t.top||t.size>=17,lineHeight:1.2});return span;}));
+ placeDetails(target);details.hidden=false;
  if(ref?.motion)movies.show(key,{left:`${ref.motion.x/372*100}%`,top:`${ref.motion.y/565*100}%`,width:`${ref.motion.width/372*100}%`,height:`${ref.motion.height/565*100}%`});
  const members=controller.reference().cards||[],index=members.findIndex(card=>card.key===app.sourceKey);for(const adjacent of [members[index-1],members[index+1]])if(adjacent)cache.warm(`${controller.theme}-${controller.mode}-${adjacent.key}`);
 }
@@ -102,9 +104,9 @@ function applyEdition(){
  shell.dataset.theme=state.theme;shell.dataset.mode=state.mode;
  shell.setAttribute('aria-label',`${modeName}, ${themeName} theme, ARTIFACTS application`);
  stateBox.dataset.edition=state.mode;
- stateBox.querySelector('[data-mode-label]').textContent=modeName;
- shell.querySelector('[data-mode-range]').textContent=state.mode==='legacy'?'I–IV':'V–VI';
- shell.querySelector('[data-mode-name]').textContent=modeName;
+ stateBox.querySelector('[data-mode-label]').innerHTML=nativeText(modeName,{width:state.mode==='legacy'?50:84,height:24,size:11,weight:500,letterSpacing:.66,family:'Geist'});
+ shell.querySelector('[data-mode-range]').innerHTML=nativeText(state.mode==='legacy'?'I–IV':'V–VI',{width:42,height:23,size:11,weight:600,align:'center'});
+ shell.querySelector('[data-mode-name]').innerHTML=nativeText(modeName,{width:65,height:30,size:11,weight:600,align:'center'});
  shell.querySelector('[data-cycle-mode]').setAttribute('aria-label',`Switch to ${state.mode==='legacy'?'Pentimento':'Legacy'} mode`);
 
  shell.querySelectorAll('[data-theme-choice]').forEach(button=>button.setAttribute('aria-checked',String(button.dataset.themeChoice===state.theme)));

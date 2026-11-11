@@ -1,0 +1,12 @@
+/* One opaque, ordered surface; the native image supplies the actual material.
+   Keep these rules separate from the application navigation/Info styles. */
+.module-details{container-type:normal;background:#101213}
+.native-panel{position:absolute;inset:0;z-index:0;object-fit:fill}
+.native-panel-motion{z-index:1}
+.native-panel-text{z-index:2}
+.native-panel-text .native-text{width:100%!important;height:100%!important;max-width:none!important}
+.module-details [data-close-details]{z-index:3}
+/* Native text wrappers have their own geometry, not the sidebar glyph size. */
+.app-shell .native-text{max-height:100%;pointer-events:none}
+.app-shell .mode-control [data-mode-name]{height:30px}
+.app-shell .mode-control .native-text{margin-inline:auto}

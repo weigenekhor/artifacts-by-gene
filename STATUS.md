@@ -260,3 +260,12 @@ Pointer proximity subtly emphasizes local relationships without moving text. Mea
 Review branch: `rebuild/contained-product`. The previous version is preserved at `60b50b8` and tag `review/two-states-60b50b8`. Older versions remain in Git. Production is not promoted by this pass.
 
 Gallery image navigation is now separate from expansion: clicking a multi-image capture advances and wraps per app; only the explicit expand control opens the viewer, and each app retains its own position. Unrelated creator copy, footer and source metadata are preserved. Desktop source and original screenshots were not changed. No source asset was missing. GitHub Pages remains a static deployment with unchanged CNAME and relative asset paths.
+
+
+## Edge native-preview typography — 11 November 2026
+
+Reproduced oversized Home labels and a wrapped hover-panel expedition in Microsoft Edge. The local Edge profile has a 16px minimum font; the fixed-coordinate product preview previously mixed smaller HTML type with unchanged native artwork. This also enlarged the greeting and edition-switch labels. The earlier browser-zoom-only diagnosis was incomplete.
+
+The preview now keeps live HTML typography inside SVG viewports using the native logical dimensions. This covers Home cards/headings, title-bar greeting, edition switch, notification badge, navigation, Application Info, status and the hover panel. Browser minimum-font preferences remain unchanged; ordinary website reading text retains its normal browser behavior. Hover artwork, animation and type have explicit layer ordering and an opaque underlying surface; container-relative font sizing and the transparent entry fade are removed. The build now hashes the hover styles instead of reusing a fixed stylesheet query. Native desktop files, capture assets and manufacturing data are unchanged.
+
+Verification: all 72 website tests and 39 JavaScript syntax checks pass. Inspected the rendered local preview in native Edge at 100% and 80% zoom with its 16px minimum retained, including the AIX hover panel and top bar. The expedition stays on one line and the panel no longer exposes underlying content. Chrome's supplied screenshot is the design reference; a fresh native Chrome run could not be completed while that window was minimized/in use. No claim of cross-browser pixel identity is made.

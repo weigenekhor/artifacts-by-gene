@@ -28,7 +28,7 @@ test('Fixed material stays separate from home cards for every theme and sidebar 
  const model=JSON.parse(await fs.readFile('content/apps.json','utf8'));
  const layouts=JSON.parse(await fs.readFile('content/home-layouts.json','utf8'));
  for(const key of Object.keys(layouts)){
-  const after=homeMarkup(model,layouts,key);
+  const after=homeMarkup(model,layouts,key).replace(/<svg class="native-text" data-native-copy="([^"]*)"[\s\S]*?<\/svg>/g,'$1');
   if(key.includes('-legacy-')){
    assert.equal(digest(after.replace(/ data-home-overflow="(?:true|false)"/,'').replaceAll('20261111-preview','20261024-preview')),baseline.homeContent[key],key);
   }else{

@@ -6,7 +6,7 @@ import {principles} from '../scripts/principles.mjs';
 
 test('Every thinking figure has a closing sentence and the requested hero introduction',async()=>{
  for(const principle of principles)assert.ok(principle.handoff?.endsWith('.'));
- const html=await fs.readFile('index.html','utf8');
+ const html=await fs.readFile('index.html','utf8').then(value=>value.replace(/<svg class="native-text" data-native-copy="([^"]*)"[\s\S]*?<\/svg>/g,'$1'));
  assert.match(html,/ARTIFACTS \/ 20 APPLICATIONS BUILT AGAINST INEFFICIENCY/);
  assert.equal((html.match(/class="reasoning-handoff"/g)||[]).length,3);
  assert.match(html,/class="info-header"><span>Application Info<\/span>/);

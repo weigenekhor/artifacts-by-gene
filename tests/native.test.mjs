@@ -6,7 +6,7 @@ import sharp from 'sharp';
 import {createHash} from 'node:crypto';
 
 const model=JSON.parse(await fs.readFile('content/apps.json','utf8'));
-const html=await fs.readFile('index.html','utf8');
+const html=await fs.readFile('index.html','utf8').then(value=>value.replace(/<svg class="native-text" data-native-copy="([^"]*)"[\s\S]*?<\/svg>/g,'$1'));
 
 test('Canonical collection is unique, ordered and complete within one product window',()=>{
  const ids=new Set(model.apps.map(a=>a.id));
@@ -293,7 +293,7 @@ test('Notification centre opens, stays open internally, dismisses outside and re
  const shell={querySelector:selector=>selector==='[data-notifications]'?trigger:panel};
  const previous=globalThis.document;globalThis.document={addEventListener:(key,fn)=>listeners[key]=fn};
  try{
-  notificationCentre(shell);assert.equal(badge.textContent,2);
+  notificationCentre(shell);assert.match(badge.innerHTML,/data-native-copy="2"/);assert.match(badge.innerHTML,/font:700 64px/);
   trigger.handlers.click();assert.equal(panel.hidden,false);assert.equal(focused,close);assert.equal(trigger.attrs['aria-expanded'],'true');
   listeners.pointerdown({target:panel});assert.equal(panel.hidden,false);
   panel.handlers.keydown({key:'Escape',preventDefault(){},stopPropagation(){}});assert.equal(panel.hidden,true);assert.equal(focused,trigger);

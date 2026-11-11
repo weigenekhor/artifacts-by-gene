@@ -5,11 +5,11 @@ export function calendarAge(date=new Date()){
  months=Math.max(0,months);
  return `${Math.floor(months/12)}y ${months%12}m`;
 }
-export function maintainApplicationAge(element){
+export function maintainApplicationAge(element,render=value=>{element.textContent=value;}){
  let timer;
  function update(){
   clearTimeout(timer);const now=new Date(),value=calendarAge(now);
-  if(element.textContent!==value)element.textContent=value;
+  if(element.textContent!==value)render(value);
   const midnight=new Date(now.getFullYear(),now.getMonth(),now.getDate()+1);
   timer=setTimeout(update,Math.max(25,Math.min(60000,midnight-now+25)));
  }
