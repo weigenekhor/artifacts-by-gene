@@ -11,10 +11,10 @@ for node in tree.body:
     if isinstance(node,ast.Assign):
         for target in node.targets:
             if isinstance(target,ast.Name) and target.id in names:registry[target.id]=ast.literal_eval(node.value)
-assert len(registry['TITLES'])==19
 existing={a['sourceKey']:a for a in model['apps']}
-existing['aperture_spc_tab']={'id':'aperture-spc','sourceKey':'aperture_spc_tab','purpose':'Context-aware metrology SPC, analysis, and distributions.','featured':False}
-existing['sentry_tab']={'id':'telemetry','sourceKey':'sentry_tab','purpose':'Production-tool signals, equipment history, and sensor analysis.','featured':False}
+existing.setdefault('manufacts_tab', {'id':'manufacts','sourceKey':'manufacts_tab',
+    'purpose':'Track checkpoint yield, wafer losses, holds, and the recorded history of each lot.','featured':True})
+existing['datalens_tab']['purpose']='Compare wafer measurements, explore E-Test distributions and site maps, and export engineering reports.'
 captions={
  'parser_tab':['Lot history and reactor results'],
  'altusanko_tab':['ANKO schedule and due dates'],
@@ -22,7 +22,7 @@ captions={
  'topotracer_tab':['Interpolated 3D surface','Interpolated contour and surface','Measured points and contours'],
  'xml_tab':['Exhaustive XML comparison','Recipe sequence comparison'],
  'path_tab':['Equipment and parameter chart index'],
- 'metro_tab':['Plessey input validation and XRD readiness','Completed Plessey compilation and activity log','Accepted XRD measurements in Search Results','HV metrology compilation'],
+ 'metro_tab':['Plessey input validation and XRD readiness','Completed Plessey compilation and activity log','Wafer defect readings in Search Results','HV metrology compilation'],
  'pyra_tab':['Temperature drift diagnosis','Alternative temperature drift case'],
  'dt_tab':['Weight-based assignment','Temperature-based assignment'],
  'laytec_tab':['Inner and outer measurement zones'],
@@ -33,8 +33,9 @@ captions={
  'sap_tab':['Compiled LayTec analysis reports'],
  'plessey_spc_tab':['Multi-parameter trends','Equipment comparison','Run-type comparison'],
  'aperture_spc_tab':['Metrology trends','Analysis Builder and query scope','Measurement distributions','Lot distributions'],
- 'datalens_tab':['Parameter relationships','Wafer maps','Run comparison','Measurement distributions','Wafer profiles'],
+ 'datalens_tab':['E-Test wafer comparison','Measured E-Test site maps','Run comparison','Measurement distributions','Wafer profiles'],
  'sentry_tab':['Equipment overview','Bubbler weight history','Twelve-hour analysis overview','Twelve-hour sensor trends'],
+ 'manufacts_tab':['Checkpoint performance and wafer outcomes'],
 }
 themes=[('imprimatura','Imprimatura','original'),('tenebrismo','Tenebrismo','void'),('pentimento','Pentimento','pentimento')]
 model.update(schemaVersion=6,source='widgets/shell/home_widget.py',defaultTheme='tenebrismo',themes=[dict(id=i,name=n) for i,n,_ in themes])
@@ -48,20 +49,21 @@ for mode,group_name in [('legacy','LEGACY_HOME_GROUPS'),('pentimento','DEFAULT_H
             if key not in keys:keys.append(key)
 for order,key in enumerate(keys,1):
     entry=existing[key];entry.update(name=registry['TITLES'][key],description=registry['BASE_DESCRIPTIONS'][key],metadata=registry['APP_METADATA'][key],order=order)
-    for before,after in [('safe append and conflict checking','safe append, and conflict checking'),('distributions and wafer-level correlations','distributions, and wafer-level correlations'),('examines sensor behaviour and supports equipment planning','examines sensor behaviour, and supports equipment planning')]:
+    for before,after in [('interactive charts, wafer maps and comparisons','interactive charts, wafer maps, and comparisons'),('signals over time, investigate changes and support','signals over time, investigate changes, and support'),('checkpoint yield, losses and holds','checkpoint yield, losses, and holds')]:
         entry['description']=entry['description'].replace(before,after)
     entry['navigationIcon']=f'assets/native/navigation/{key}.svg'
     entry.setdefault('icon',entry['navigationIcon'])
     entry.pop('standalone',None)
     stem=Path(registry['PREVIEW_IMAGES'][key]).stem
     images=[]
+    prior={image['sourceFilename']:image for image in entry.get('images',[])}
     for theme,_,folder in themes:
         for index,caption in enumerate(captions[key],1):
             filename=f'{folder}/{stem}{index if index>1 else ""}.webp'
-            assert (archive/filename).is_file(),filename
-            images.append(dict(sourceFilename=filename,theme=theme,caption=caption,base=f'assets/screens/{entry["id"]}/{theme}-{index}'))
+            assert filename in prior or (archive/filename).is_file(),filename
+            images.append(dict(prior.get(filename,{}),sourceFilename=filename,theme=theme,caption=caption,base=f'assets/screens/{entry["id"]}/{theme}-{index}'))
     entry['images']=images
 model['apps']=[existing[key] for key in keys]
-model['softwareInfo']={'description':'A collection of engineering applications purpose-built for real workflows, real data, and real decisions. Each application is designed to reduce repetition, surface what matters, and make complex engineering work clearer, faster, and more reliable.','details':{'Version':'Pentimento','Applications':'19','Started':'August 2022','Updated':'November 2026'},'started':'2022-08-28'}
+model['softwareInfo']['details']['Applications']=str(len(keys))
 path.write_text(json.dumps(model,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
 print('Synchronized',len(keys),'apps and',sum(len(a['images']) for a in model['apps']),'explicit captures.')

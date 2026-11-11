@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "source": "Artifacts/widgets/shell/home_widget.py",
+  "source": "widgets/shell/home_widget.py",
   "defaultMode": "pentimento",
   "defaultTheme": "tenebrismo",
   "modes": [
@@ -118,7 +118,8 @@
         "metria-spc",
         "aperture-spc",
         "data-lens",
-        "telemetry"
+        "telemetry",
+        "manufacts"
       ]
     }
   ],
@@ -130,7 +131,7 @@
       "name": "Altus Lot Viewer",
       "legacyName": "Altus Lot Viewer",
       "purpose": "Lot history analysis.",
-      "description": "Demo lot-history view with generated Reactor results.",
+      "description": "Explore a demonstration of lot histories and reactor results in a clear chronological view.",
       "metadata": {
         "version": "v6.0.3",
         "release": "2023-08-02",
@@ -241,7 +242,7 @@
       "name": "Altus ANKO Viewer",
       "legacyName": "Altus ANKO Viewer",
       "purpose": "ANKO schedule retrieval.",
-      "description": "Demo ANKO schedule view with generated Reactor due dates.",
+      "description": "Review a demonstration of reactor ANKO schedules and upcoming due dates.",
       "metadata": {
         "version": "v2.0.1",
         "release": "2023-09-20",
@@ -352,7 +353,7 @@
       "name": "Altus WaferCount",
       "legacyName": "Altus Wafer Counter",
       "purpose": "Reactor wafer counts against loading limits.",
-      "description": "Demo wafer-count view with generated Reactor loading values.",
+      "description": "Explore a demonstration of wafer counts and loading across reactors.",
       "metadata": {
         "version": "v1.0.3",
         "release": "2023-09-28",
@@ -463,7 +464,7 @@
       "name": "TopoTracer",
       "legacyName": "Topo Tracer",
       "purpose": "Contour and topography plots.",
-      "description": "Enable effortless topography and contour plotting with precision.",
+      "description": "Turn surface measurements into readable topography maps and contours.",
       "metadata": {
         "version": "v7.0.0",
         "release": "2023-11-15",
@@ -743,7 +744,7 @@
       "name": "Papyrus Reader",
       "legacyName": "Papyrus Reader",
       "purpose": "XML, EPI, and text reader.",
-      "description": "Purpose-built for Aixtron tools, it deciphers XML and EPI recipe files with precision while supporting standard documents.",
+      "description": "Read Aixtron XML and EPI recipes, explore their structure and inspect supporting documents.",
       "metadata": {
         "version": "v6.0.3",
         "release": "2024-06-06",
@@ -939,7 +940,7 @@
       "name": "SPC Pathfinder",
       "legacyName": "SPC Pathfinder",
       "purpose": "SPC chart finder.",
-      "description": "Index and navigate SPC charts with one-click shortcuts for direct chart access.",
+      "description": "Organize SPC chart locations and open the right chart in one click.",
       "metadata": {
         "version": "v1.0.2",
         "release": "2024-10-28",
@@ -1050,7 +1051,7 @@
       "name": "Met Compiler",
       "legacyName": "Met Compiler",
       "purpose": "Metrology report compiler.",
-      "description": "Compiles metrology and Growth Plan inputs into a structured master workbook, with validation, safe append, and conflict checking.",
+      "description": "Bring metrology and Growth Plan data into a validated master workbook, with controlled updates and clear conflict checks.",
       "metadata": {
         "version": "v8.0.2",
         "release": "2025-03-15",
@@ -1125,10 +1126,10 @@
         {
           "sourceFilename": "original/met_compiler3.webp",
           "theme": "imprimatura",
-          "caption": "Accepted XRD measurements in Search Results",
+          "caption": "Wafer defect readings in Search Results",
           "base": "assets/screens/gan-met-compiler/imprimatura-3",
           "width": 2440,
-          "height": 1235,
+          "height": 1300,
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -1144,7 +1145,7 @@
               "width": 1920
             }
           ],
-          "sha256": "f51aa2e37f4f4cd1b93f0219d17e1b0c27aa60e539b47b3eef858493ed81d02e"
+          "sha256": "4621b3335d1853ac63101e955f8d93aa2657e43bccee55eaaf0c320a938fcbc9"
         },
         {
           "sourceFilename": "original/met_compiler4.webp",
@@ -1233,10 +1234,10 @@
         {
           "sourceFilename": "void/met_compiler3.webp",
           "theme": "tenebrismo",
-          "caption": "Accepted XRD measurements in Search Results",
+          "caption": "Wafer defect readings in Search Results",
           "base": "assets/screens/gan-met-compiler/tenebrismo-3",
           "width": 2440,
-          "height": 1235,
+          "height": 1300,
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -1252,7 +1253,7 @@
               "width": 1920
             }
           ],
-          "sha256": "3df4ea33e9683e270f1aa6689aba18440d99cdbd46ebc96ea7ce92a40397cf26"
+          "sha256": "172f43d54aef7b0d25a3206f4317e98a7a8167f248b6726eff583d13af033745"
         },
         {
           "sourceFilename": "void/met_compiler4.webp",
@@ -1341,10 +1342,10 @@
         {
           "sourceFilename": "pentimento/met_compiler3.webp",
           "theme": "pentimento",
-          "caption": "Accepted XRD measurements in Search Results",
+          "caption": "Wafer defect readings in Search Results",
           "base": "assets/screens/gan-met-compiler/pentimento-3",
           "width": 2440,
-          "height": 1235,
+          "height": 1300,
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -1360,7 +1361,7 @@
               "width": 1920
             }
           ],
-          "sha256": "dda1f27042f07ed700fdd20b2ac237dedf1ee0c73aa3014008a5bf392c7129f1"
+          "sha256": "e96673e1452d11fff6acc036f7b9760a43742f3a92a034c299ac07bc762f8791"
         },
         {
           "sourceFilename": "pentimento/met_compiler4.webp",
@@ -1402,7 +1403,7 @@
       "name": "AIX Temp Diagnoser",
       "legacyName": "AIX Temp Diagnoser",
       "purpose": "Temperature drift diagnosis.",
-      "description": "Simplifies troubleshooting temperature drifting issues by analyzing user-provided inputs to deliver actionable insights.",
+      "description": "Investigate temperature drift and compare the inputs that may explain it.",
       "metadata": {
         "version": "v5.0.2",
         "release": "2025-07-07",
@@ -1598,7 +1599,7 @@
       "name": "AIX ΔT Assistant",
       "legacyName": "AIX ΔT Assistant",
       "purpose": "Baseplate assignment from weights and temperature differences.",
-      "description": "Simplifies troubleshooting wafer-to-wafer temperature issues by analyzing user-provided inputs to deliver actionable insights.",
+      "description": "Investigate wafer-to-wafer temperature differences with focused diagnostic calculations.",
       "metadata": {
         "version": "v2.0.1",
         "release": "2025-08-28",
@@ -1794,7 +1795,7 @@
       "name": "LT Zone Assistant",
       "legacyName": "LT Zone Assistant",
       "purpose": "LayTec zone mapping.",
-      "description": "Helps users imagine where LayTec measures temperatures on wafers.",
+      "description": "Visualize where LayTec temperature measurements fall on the wafer.",
       "metadata": {
         "version": "v1.0.2",
         "release": "2025-12-25",
@@ -1906,7 +1907,7 @@
       "name": "AIX XML Assistant",
       "legacyName": "AIX XML Assistant",
       "purpose": "Devices.XML comparison.",
-      "description": "Automates node-level comparison of Devices.XML for device constants and settings.",
+      "description": "Compare Devices.XML files and pinpoint changes in device constants and settings.",
       "metadata": {
         "version": "v2.0.2",
         "release": "2026-01-03",
@@ -2186,7 +2187,7 @@
       "name": "Magus SPC (GaN)",
       "legacyName": "Magus SPC (GaN)",
       "purpose": "GaN SPC release review.",
-      "description": "Displays SPC data with clear pass/fail status and translates them into production-release recommendations for GaN processes.",
+      "description": "Review GaN SPC results against process limits and assess production-release readiness.",
       "metadata": {
         "version": "v4.0.1",
         "release": "2026-01-22",
@@ -2633,7 +2634,7 @@
       "name": "Magus SPC (Legacy)",
       "legacyName": "Magus SPC (Legacy)",
       "purpose": "Legacy SPC release review.",
-      "description": "Displays SPC data with clear pass/fail status and translates them into production-release recommendations for non-GaN processes.",
+      "description": "Review non-GaN SPC results against process limits and assess production-release readiness.",
       "metadata": {
         "version": "v4.0.1",
         "release": "2026-01-24",
@@ -3080,7 +3081,7 @@
       "name": "ANKO Helper",
       "legacyName": "ANKO Helper",
       "purpose": "ANKO status and due dates.",
-      "description": "Computes the latest ANKO status and indicates when each process reactor is due for its next ANKO.",
+      "description": "Check each reactor’s ANKO status and see when its next ANKO is due.",
       "metadata": {
         "version": "v1.0.1",
         "release": "2026-02-01",
@@ -3191,7 +3192,7 @@
       "name": "LT Report Compiler",
       "legacyName": "LT Report Compiler",
       "purpose": "LayTec report compilation.",
-      "description": "Convert LayTec analysis reports to configurable, schema-based Excel compilation.",
+      "description": "Bring LayTec analysis reports into a consistent Excel workbook with configurable output fields.",
       "metadata": {
         "version": "v1.0.0",
         "release": "2026-03-06",
@@ -3303,7 +3304,7 @@
       "name": "Metria SPC",
       "legacyName": "Metria SPC",
       "purpose": "Interactive multi-parameter equipment SPC.",
-      "description": "Plots multi-parameter SPC across reactors and Run Type families on one aligned canvas for fast process review and troubleshooting.",
+      "description": "Compare process parameters across reactors and run types using aligned SPC charts.",
       "metadata": {
         "version": "v1.0.0",
         "release": "2026-09-10",
@@ -3581,7 +3582,7 @@
       "purpose": "Context-aware metrology SPC, analysis, and distributions.",
       "featured": false,
       "name": "Aperture SPC",
-      "description": "Connects to fab metrology data, applies context-aware limits, and plots one parameter per SPC chart by time or lot/run.",
+      "description": "Explore fab metrology by time, lot or run, with process limits tailored to the selected context.",
       "metadata": {
         "version": "v1.0.0",
         "release": "2026-10-05",
@@ -3935,8 +3936,8 @@
       "index": 17,
       "name": "Data Lens",
       "legacyName": "Data Lens",
-      "purpose": "Engineering data exploration and wafer maps.",
-      "description": "Explores engineering data through Smart Plot, wafer maps, run comparisons, distributions, and wafer-level correlations.",
+      "purpose": "Compare wafer measurements, explore E-Test distributions and site maps, and export engineering reports.",
+      "description": "Explore engineering measurements through interactive charts, wafer maps, and comparisons, then share clear reports.",
       "metadata": {
         "version": "v1.0.0",
         "release": "2026-09-28",
@@ -3954,11 +3955,11 @@
         {
           "sourceFilename": "original/data_lens.webp",
           "theme": "imprimatura",
-          "caption": "Parameter relationships",
+          "caption": "E-Test wafer comparison",
           "base": "assets/screens/data-lens/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "3560e4bb9b1a872e4b5dc23f8c07abfbd1f83dab34883d8013c24e25baec7098",
+          "sha256": "f07d19b6129f2d718db79118930683c40e4303ee092baabfa44896f267d5aac7",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3982,11 +3983,11 @@
         {
           "sourceFilename": "original/data_lens2.webp",
           "theme": "imprimatura",
-          "caption": "Wafer maps",
+          "caption": "Measured E-Test site maps",
           "base": "assets/screens/data-lens/imprimatura-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "2bae9a78c86de5e3470181d72c0613529cfa48700ca5330182a91e12b0f418f0",
+          "sha256": "3b9593625a39bfbc2d5289520a5fa1b2c7322461b2298071cf5008144eec5a1c",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4014,7 +4015,7 @@
           "base": "assets/screens/data-lens/imprimatura-3",
           "width": 3840,
           "height": 2560,
-          "sha256": "17b28d63b2cfe9566c5d9df71ec4bee21138dc7bfabce7d7427dba9e3e1b448b",
+          "sha256": "db4c0085efc179917ee7ff1729e39e171d156fdd3cb9a0dfdfb415e4ee40254c",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4042,7 +4043,7 @@
           "base": "assets/screens/data-lens/imprimatura-4",
           "width": 3840,
           "height": 2560,
-          "sha256": "f3be66e1ed90a1995f153eaaf102b4cdf95fcbe9e28ba4a1ac014e810e0b6943",
+          "sha256": "fcbb8eb3cbe245183b52d81bdd39b55bd17cf232f1fa1bb0c27bf73489b3b999",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4070,7 +4071,7 @@
           "base": "assets/screens/data-lens/imprimatura-5",
           "width": 3840,
           "height": 2560,
-          "sha256": "61d0e36d9961a7c66bce31df8970d66016f31d72c2f10312595c3c723b7336af",
+          "sha256": "b2dbc5c043f5958a584d1e263d613521e8612343bf5fe681aad05b2d3da93d99",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4094,11 +4095,11 @@
         {
           "sourceFilename": "void/data_lens.webp",
           "theme": "tenebrismo",
-          "caption": "Parameter relationships",
+          "caption": "E-Test wafer comparison",
           "base": "assets/screens/data-lens/tenebrismo-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "6f4395773b408957f3940b5072ff28a938136282548ac7cc8042c5e7f3574772",
+          "sha256": "75bbd06ac1f83e9da0e10c2f26978be16f354458543a93be8b359c994700f4de",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4122,11 +4123,11 @@
         {
           "sourceFilename": "void/data_lens2.webp",
           "theme": "tenebrismo",
-          "caption": "Wafer maps",
+          "caption": "Measured E-Test site maps",
           "base": "assets/screens/data-lens/tenebrismo-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "97bcaae3887ec5233d71e3a63da594b0d369c4fbfbcb211095da604cacd9b0ea",
+          "sha256": "56ec588324dab6792ec8905d3a3b628410e2ff4a627b7d51a2a0ac8f5f0b2b78",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4154,7 +4155,7 @@
           "base": "assets/screens/data-lens/tenebrismo-3",
           "width": 3840,
           "height": 2560,
-          "sha256": "46e10944c61f2bd3e70c6519ed93f6108d6342f7ba8aa7646fc8552c2ad2f9bd",
+          "sha256": "0d41758705047fa0eecee34624e0b8a912f62f72abca0030f2246296428bf870",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4182,7 +4183,7 @@
           "base": "assets/screens/data-lens/tenebrismo-4",
           "width": 3840,
           "height": 2560,
-          "sha256": "de253fd9d8197446b39f2475b5c5e684c91172bc1870336fafd3b04d2209e162",
+          "sha256": "672228554e5ce948f691383dd3f3b0302d9fcb66d6ca359e9963fce38c50e273",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4210,7 +4211,7 @@
           "base": "assets/screens/data-lens/tenebrismo-5",
           "width": 3840,
           "height": 2560,
-          "sha256": "4e3de2d66a82f4576c8887eba07f4dcd119602ef8ab6f69b4475c6fd9afec142",
+          "sha256": "924655efbd1a3a9ca7c3613446cdfd3237525d4670357b54e3fbfefca54e16eb",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4234,11 +4235,11 @@
         {
           "sourceFilename": "pentimento/data_lens.webp",
           "theme": "pentimento",
-          "caption": "Parameter relationships",
+          "caption": "E-Test wafer comparison",
           "base": "assets/screens/data-lens/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "1e6456e4daa6857740de1fdd49792ab1a95ddf8542b4a50696957f2fcfddc9ea",
+          "sha256": "3a08d33feb2adc81c3c9b5341e551e0c6cac4594884197be6a9d97d212ddffd0",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4262,11 +4263,11 @@
         {
           "sourceFilename": "pentimento/data_lens2.webp",
           "theme": "pentimento",
-          "caption": "Wafer maps",
+          "caption": "Measured E-Test site maps",
           "base": "assets/screens/data-lens/pentimento-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "ef0a4cded3589c773497b99b69a0f84ea2c035f824c951ed7c291a79dda1888f",
+          "sha256": "75296951a9e0143dd38843c42bedaf0851ff4a84ed8d9e9374d737002788f6da",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4294,7 +4295,7 @@
           "base": "assets/screens/data-lens/pentimento-3",
           "width": 3840,
           "height": 2560,
-          "sha256": "32d8c0f5ac5b4f193130f149877c0275fb873847c7e3dcfb32847fa2e8ab510c",
+          "sha256": "e1d7638288d7d0534502950075838431888e1a72bdb72d9e0b609283a8c283f9",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4322,7 +4323,7 @@
           "base": "assets/screens/data-lens/pentimento-4",
           "width": 3840,
           "height": 2560,
-          "sha256": "4213ae438e67258ec51845ba22bc3faf30e26dc0e8a1c3a6fb6576a7324792c6",
+          "sha256": "d10a6dd831559c1211f2477688da96b2d2684baf0737a5c81c189c0c9e0cc726",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4350,7 +4351,7 @@
           "base": "assets/screens/data-lens/pentimento-5",
           "width": 3840,
           "height": 2560,
-          "sha256": "bee2ff170f2bc4e0cdb37b8be460e21b986366e5202b3918cdee401e79a0d10d",
+          "sha256": "e236cbe628884c9aec2d88fff3771753b91e193a63f8c8cffc925aa913353ece",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4382,7 +4383,7 @@
       "purpose": "Production-tool signals, equipment history, and sensor analysis.",
       "featured": false,
       "name": "Telemetry",
-      "description": "Traces production-tool signals over time, examines sensor behaviour, and supports equipment planning.",
+      "description": "Follow equipment signals over time, investigate changes, and support maintenance planning.",
       "metadata": {
         "version": "v1.2.6",
         "release": "2026-10-06",
@@ -4399,7 +4400,7 @@
           "base": "assets/screens/telemetry/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "bf98ade07b97f84dc831bc457f8e405d953075af0ec29eb90bf006597fb1068d",
+          "sha256": "e39a74ec16a2b11ace1008e9df284a1957009af278c49273456e6165ca4f7f64",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4427,7 +4428,7 @@
           "base": "assets/screens/telemetry/imprimatura-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "586dc452c10e230760774e5577820abb109e738bdf42954ea2da41ed7cc91289",
+          "sha256": "1700198d7034eb79b013fbed2f09bf78d62d2fd5c449de0cddd0f14c2af546d1",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4455,7 +4456,7 @@
           "base": "assets/screens/telemetry/imprimatura-3",
           "width": 3840,
           "height": 2560,
-          "sha256": "cc9c0abcdd76d9dda00e29570bbec459fd53b6143a8c50ded1b9c166d9565ee2",
+          "sha256": "c0e15add09c764550ae5ad2ff6cba43d40f4dffee48ae861fb67668396136583",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4483,7 +4484,7 @@
           "base": "assets/screens/telemetry/imprimatura-4",
           "width": 3840,
           "height": 2560,
-          "sha256": "379a5fe2722da05de9227e45bbf091e16d322119ddb0ca05007673502a9a55e8",
+          "sha256": "3d1d2523d35c48529eb79372af558731e6ceadf068b86904641006f7ffcce4a0",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4511,7 +4512,7 @@
           "base": "assets/screens/telemetry/tenebrismo-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "8f117da73c93fd4486039f9b505d5f7f55c14eb7147079610dc06c35fc02cab7",
+          "sha256": "e445ea983b2d0253319993d8cf56577eb2672700aad32d86ccb9cbfbb0168540",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4539,7 +4540,7 @@
           "base": "assets/screens/telemetry/tenebrismo-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "848d5087def60a7452144c00a4650a85150c64094ddea60303af9370147a8ab5",
+          "sha256": "641577a2a5455e0b079afe740804448906b057326d9f0b69fcb0b0582a31ad33",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4567,7 +4568,7 @@
           "base": "assets/screens/telemetry/tenebrismo-3",
           "width": 3840,
           "height": 2560,
-          "sha256": "a883bbb4fcb4b26b31bb9ad55da1b24283c6b55e5556e3c1c533b8e6b3265373",
+          "sha256": "15d15654e0c0f9a5da8d7c75988bfdea225790cccb3058d5c447b92cd91f38ed",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4595,7 +4596,7 @@
           "base": "assets/screens/telemetry/tenebrismo-4",
           "width": 3840,
           "height": 2560,
-          "sha256": "1e5b3fb0b783438c27dfb1f12482bfa7348d6f7afdf4d073087843d065c04182",
+          "sha256": "ea723cfcbb5dc6bc47d41ac607de47a42dedf9859e8ad781edd2c51d9a7c4aeb",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4623,7 +4624,7 @@
           "base": "assets/screens/telemetry/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "8538adaebcf37faa63a3b7b814fa2c26441d7623e2fd47604bd813a31dfdded1",
+          "sha256": "ae93e6a21ea5bfae2e990e5d98f8e30ba4b40f5dcfdd1488f8444c6510d27328",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4651,7 +4652,7 @@
           "base": "assets/screens/telemetry/pentimento-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "95aa0232ff46d3d20bf829e5574f44c7b02ef52ca2f8100eeb4bc161554017be",
+          "sha256": "c54a08c26c42c4422ab763e4dfa41d99d8a27a37290c4e4d08c4e3f20753b52e",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4679,7 +4680,7 @@
           "base": "assets/screens/telemetry/pentimento-3",
           "width": 3840,
           "height": 2560,
-          "sha256": "3ce6dd9dcfd9303bf6037f1d5c5670355108c26bde6046f16a34d6964f918c88",
+          "sha256": "4648be83afb1e60da8456156cfdd57479c609a09ea8985eb2ac3f3ae7b15fe31",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4707,7 +4708,7 @@
           "base": "assets/screens/telemetry/pentimento-4",
           "width": 3840,
           "height": 2560,
-          "sha256": "ada04516cb59c333044acdb60820eb52482b1a13e81ca869107cb9a42f45e587",
+          "sha256": "5eb7ca24911c5c35f248f2ba2e1d0f54a966927938d364d5c282602ade9c41f2",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4729,13 +4730,115 @@
           ]
         }
       ]
+    },
+    {
+      "id": "manufacts",
+      "sourceKey": "manufacts_tab",
+      "purpose": "Track checkpoint yield, wafer losses, holds, and the recorded history of each lot.",
+      "featured": true,
+      "name": "ManuFacts",
+      "description": "Understand wafer progression, checkpoint yield, losses, and holds, then follow the evidence into each lot’s manufacturing history.",
+      "metadata": {
+        "version": "v1.0.0",
+        "release": "2026-11-05",
+        "status": "Offline manufacturing intelligence"
+      },
+      "order": 20,
+      "navigationIcon": "assets/native/navigation/manufacts_tab.svg",
+      "icon": "assets/native/navigation/manufacts_tab.svg",
+      "images": [
+        {
+          "sourceFilename": "original/manufacts.webp",
+          "theme": "imprimatura",
+          "caption": "Checkpoint performance and wafer outcomes",
+          "base": "assets/screens/manufacts/imprimatura-1",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "b3ca2ef4c1c45b21e48b67c8b1bc7227ff057ec4709076cf9b2bb2bb22cb977f",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/imprimatura-1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-1/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
+          "sourceFilename": "void/manufacts.webp",
+          "theme": "tenebrismo",
+          "caption": "Checkpoint performance and wafer outcomes",
+          "base": "assets/screens/manufacts/tenebrismo-1",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "badbb24b23f0337cd57834094cdeba560433b2f8f3e22a09b8e007c90659e3b2",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/tenebrismo-1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-1/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
+          "sourceFilename": "pentimento/manufacts.webp",
+          "theme": "pentimento",
+          "caption": "Checkpoint performance and wafer outcomes",
+          "base": "assets/screens/manufacts/pentimento-1",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "29274352aa8a15b87ddcde9a7b7929d71c9e6a14e4b8e8596b65b53ab0017f53",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/pentimento-1/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-1/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-1/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-1/2560.webp",
+              "width": 2560
+            }
+          ]
+        }
+      ]
     }
   ],
   "softwareInfo": {
     "description": "A collection of engineering applications purpose-built for real workflows, real data, and real decisions. Each application is designed to reduce repetition, surface what matters, and make complex engineering work clearer, faster, and more reliable.",
     "details": {
       "Version": "Pentimento",
-      "Applications": "19",
+      "Applications": "20",
       "Started": "August 2022",
       "Updated": "November 2026"
     },

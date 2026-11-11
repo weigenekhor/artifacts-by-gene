@@ -1294,5 +1294,38 @@
       1.4202662399785635
     ],
     "preserved_discrete_or_static": false
+  },
+  "imprimatura-pentimento-manufacts_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 1288778,
+    "sha256": "5fa34a0e04e122338de08abd58e87a8432031354aaa3d073baf95531082bb08c",
+    "baseline_phase_rmse": null,
+    "preserved_discrete_or_static": false
+  },
+  "tenebrismo-pentimento-manufacts_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 1295708,
+    "sha256": "6acd281ef84ed4da410a9c87d1978bff120e0a3b0b6b2febe0281c3f3bbcb789",
+    "baseline_phase_rmse": null,
+    "preserved_discrete_or_static": false
+  },
+  "pentimento-pentimento-manufacts_tab": {
+    "frames": 112,
+    "duration_ms": 1792,
+    "frame_ms": 16,
+    "width": 668,
+    "height": 208,
+    "bytes": 1274656,
+    "sha256": "93e5713c8b5988f320e082cad7dd2899fd9e89aebe87a8bd71c43b38533b7ed9",
+    "baseline_phase_rmse": null,
+    "preserved_discrete_or_static": false
   }
 }

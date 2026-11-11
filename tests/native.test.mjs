@@ -220,17 +220,17 @@ test('Thinking graphics use one coordinated motion controller and native windows
 });
 
 test('Requested gallery emphasis, exact supporting copy and theme-free captions survive the build',()=>{
- assert.deepEqual(model.apps.filter(app=>app.featured).map(app=>app.id),['topotracer','gan-met-compiler','gan-temp-diagnoser','aix-dt-assistant','metria-spc','data-lens']);
+ assert.deepEqual(model.apps.filter(app=>app.featured).map(app=>app.id),['topotracer','gan-met-compiler','gan-temp-diagnoser','aix-dt-assistant','metria-spc','data-lens','manufacts']);
  assert.match(html,/A coherent system of tools for analysis, diagnosis, automation, and engineering workflows\./);
  for(const caption of html.matchAll(/<span data-slide-caption>(.*?)<\/span>/g))assert.doesNotMatch(caption[1],/Origin|Pentimento/);
  assert.doesNotMatch(html,/data-shell=|app-workspace|shellPath/);
 });
 
-test('All nineteen apps have complete, separate sequences for all three appearances',()=>{
- assert.equal(model.apps.length,19);
+test('All twenty apps have complete, separate sequences for all three appearances',()=>{
+ assert.equal(model.apps.length,20);
  assert.deepEqual(model.themes.map(t=>t.name),['Imprimatura','Tenebrismo','Pentimento']);
  assert.equal(model.defaultTheme,'tenebrismo');
- assert.equal(model.apps.reduce((n,a)=>n+a.images.length,0),147);
+ assert.equal(model.apps.reduce((n,a)=>n+a.images.length,0),150);
  for(const app of model.apps){
   const counts=model.themes.map(t=>app.images.filter(image=>image.theme===t.id).length);
   assert.ok(counts[0]>0,app.name);assert.ok(counts.every(n=>n===counts[0]),app.name);
@@ -238,6 +238,9 @@ test('All nineteen apps have complete, separate sequences for all three appearan
  }
  assert.ok(model.apps.find(a=>a.id==='aperture-spc'));
  assert.ok(model.apps.find(a=>a.id==='telemetry'));
+ assert.ok(model.apps.find(a=>a.id==='manufacts'));
+ assert.match(html,/data-inspect-app="manufacts"/);
+ assert.match(html,/id="app-manufacts"/);
 });
 
 test('Every new page load starts in Tenebrismo regardless of old saved appearance',async()=>{

@@ -4,13 +4,15 @@ import crypto from 'node:crypto';
 import sharp from 'sharp';
 
 // Explicit ownership (including theme-relative paths) is in the manifest.
-const source = process.argv[2];
-if (!source) throw new Error('Usage: node scripts/import-native-captures.mjs <source-image-folder>');
+const [source,...ids] = process.argv.slice(2);
+if (!source) throw new Error('Usage: node scripts/import-native-captures.mjs <source-image-folder> [app-id ...]');
 const model = JSON.parse(await fs.readFile('content/apps.json','utf8'));
+for (const id of ids) if (!model.apps.some(app => app.id===id)) throw new Error(`Unknown application: ${id}`);
 const encoding = 'webp-lossless-native-v2';
 sharp.cache(false);
 sharp.concurrency(2);
 for (const app of model.apps) {
+ if (ids.length && !ids.includes(app.id)) continue;
  for (const capture of app.images) {
   const sourceRoot=path.resolve(source),inputPath=path.resolve(sourceRoot,capture.sourceFilename);
   if(!inputPath.startsWith(sourceRoot+path.sep))throw new Error('Capture path must stay inside the approved source folder');

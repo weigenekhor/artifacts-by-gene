@@ -28,11 +28,11 @@ test('Website lists use serial commas in app summaries, hover copy, metadata and
  const byId=Object.fromEntries(model.apps.map(app=>[app.id,app]));
  assert.equal(byId['aperture-spc'].purpose,'Context-aware metrology SPC, analysis, and distributions.');
  assert.equal(byId.telemetry.purpose,'Production-tool signals, equipment history, and sensor analysis.');
- for(const [id,phrase]of [['gan-met-compiler','validation, safe append, and conflict checking'],['data-lens','run comparisons, distributions, and wafer-level correlations'],['telemetry','examines sensor behaviour, and supports equipment planning']])assert.ok(byId[id].description.includes(phrase));
+ for(const [id,phrase]of [['data-lens','interactive charts, wafer maps, and comparisons'],['telemetry','signals over time, investigate changes, and support'],['manufacts','checkpoint yield, losses, and holds']])assert.ok(byId[id].description.includes(phrase));
  const panels=JSON.parse(await fs.readFile('content/panel-reference.json','utf8'));
  for(const [key,panel]of Object.entries(panels)){
   const app=model.apps.find(app=>key.endsWith('-'+app.sourceKey));
-  if(['gan-met-compiler','data-lens','telemetry'].includes(app?.id))assert.ok(panel.text.some(item=>item.text===app.description));
+  if(app)assert.ok(panel.text.some(item=>item.text===app.description));
  }
  assert.match(await fs.readFile('index.html','utf8'),/analysis, diagnosis, comparison, and reporting/);
  const old=['Choose runs, wafers or measurement ranges','Plot appearance, fits, axes and linked views','Files, sessions and workspace','Choose the search period, drives and folders.','Global calculation defaults, SPC detection rules and data source','reset chart exploration and plot again'];

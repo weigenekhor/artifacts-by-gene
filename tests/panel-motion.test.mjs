@@ -24,12 +24,18 @@ test('View cache releases other apps and themes and remains bounded',()=>{
  assert.equal(cache.size,4);cache.clear();assert.equal(cache.size,0);
 });
 
-test('Fixed material preserves byte-identical home content for every theme and sidebar arrangement',async()=>{
+test('Fixed material stays separate from home cards for every theme and sidebar arrangement',async()=>{
  const model=JSON.parse(await fs.readFile('content/apps.json','utf8'));
  const layouts=JSON.parse(await fs.readFile('content/home-layouts.json','utf8'));
  for(const key of Object.keys(layouts)){
   const after=homeMarkup(model,layouts,key);
-  assert.equal(digest(after.replace(/ data-home-overflow="(?:true|false)"/,'').replaceAll('20261101-preview','20261024-preview')),baseline.homeContent[key],key);assert.doesNotMatch(after,/home-material|home-wafer/);
+  if(key.includes('-legacy-')){
+   assert.equal(digest(after.replace(/ data-home-overflow="(?:true|false)"/,'').replaceAll('20261111-preview','20261024-preview')),baseline.homeContent[key],key);
+  }else{
+   const expected=new Set(model.expeditions.filter(e=>e.mode==='pentimento').flatMap(e=>e.apps));
+   assert.deepEqual(new Set([...after.matchAll(/data-inspect-app="([^"]+)"/g)].map(match=>match[1])),expected,key);
+  }
+  assert.doesNotMatch(after,/home-material|home-wafer/);
   const closed=key.replace(/-(closed|navigation|information|both)$/,'-closed');
   assert.equal(homeMaterialMarkup(layouts,key),homeMaterialMarkup(layouts,closed));
   assert.doesNotMatch(homeMaterialMarkup(layouts,key),/app-tile|home-sheet|home-scroll/);

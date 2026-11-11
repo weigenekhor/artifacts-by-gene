@@ -173,7 +173,12 @@ def export_tree(root):
         node={'id':str(count[0]),'class':type(w).__name__,'name':w.objectName(),'x':w.x() if w is not root else 0,'y':w.y() if w is not root else 0,'width':w.width(),'height':w.height(),'enabled':w.isEnabled(),'kind':'box'}
         if isinstance(w,QLabel):
             node.update(kind='label',text=w.text(),rich=w.textFormat()==Qt.RichText or bool(re.search(r'<(?:p|b|span|br|html|div)\b',w.text())))
-            if not w.text() and not w.pixmap().isNull():unsupported.append({'class':type(w).__name__,'name':w.objectName(),'reason':'raster label omitted'})
+            if not w.text() and not w.pixmap().isNull():
+                parent=w.parentWidget()
+                if getattr(parent,'_command_arrow',None) is w or w.objectName()=='dlDrawerFilterArrow':
+                    node.update(kind='vector',vector=pixmap_vector(w.pixmap(),w.size())['svg'])
+                else:
+                    unsupported.append({'class':type(w).__name__,'name':w.objectName(),'reason':'raster label omitted'})
         elif isinstance(w,(QCheckBox,QRadioButton)):
             node.update(kind='check',radio=isinstance(w,QRadioButton),text=caption(w.text()),checked=w.isChecked())
         elif isinstance(w,QAbstractButton):

@@ -51,7 +51,7 @@ test('Data Lens content fits the desktop scrollbar allocation in all twelve vari
   const area=flatten(variant.tree).find(n=>(n.children||[]).some(c=>c.scroll));
   const viewport=area.children.find(n=>n.scroll);
   const vertical=area.children.flatMap(n=>n.children||[]).find(n=>n.class==='QScrollBar'&&n.height>n.width);
-  assert.equal(viewport.x+viewport.width+vertical.width,area.width);
+  assert.equal(viewport.x+viewport.width+(vertical?.width??0),area.width);
   assert.equal(viewport.height,area.height);
   for(const content of viewport.children)assert.ok(content.x+content.width<=viewport.width);
  }

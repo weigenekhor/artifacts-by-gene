@@ -88,9 +88,9 @@ for theme,appearance in (('imprimatura','original'),('tenebrismo','void'),('pent
             # approved frames while refreshing screenshot/glyph panel surfaces.
             if not (out/f'{key}-motion.webp').exists():
                 frames=[]
-                for frame in range(32):
-                    motion._phase=frame/32;frames.append(raster(motion))
-                frames[0].save(out/f'{key}-motion.webp',save_all=True,append_images=frames[1:],duration=56,loop=0,quality=88)
+                for frame in range(112):
+                    motion._phase=frame/112;frames.append(raster(motion))
+                frames[0].save(out/f'{key}-motion.webp',save_all=True,append_images=frames[1:],duration=16,loop=0,quality=88)
             panel.hide()
         home.hide();home.deleteLater();parent.deleteLater();app.processEvents()
     host.deleteLater();app.processEvents()

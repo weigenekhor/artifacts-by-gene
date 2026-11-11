@@ -72,10 +72,15 @@ test('Every mapped movie has audited bytes, retained dimensions and matching nat
   assert.equal(createHash('sha256').update(bytes).digest('hex'),entry.sha256,key);
   assert.equal(bytes.length,entry.bytes);assert.equal(entry.width,refs[key].motion.width*2);
   assert.equal(entry.height,refs[key].motion.height*2);
-  assert.equal(entry.baseline_phase_rmse.length,4);
-  assert.ok(entry.baseline_phase_rmse.every(value=>value<2),key);
+  if(key.endsWith('-manufacts_tab')){
+   assert.equal(entry.baseline_phase_rmse,null);
+   assert.equal(entry.duration_ms,1792);
+  }else{
+   assert.equal(entry.baseline_phase_rmse.length,4);
+   assert.ok(entry.baseline_phase_rmse.every(value=>value<2),key);
+  }
   if(entry.preserved_discrete_or_static){preserved++;assert.ok(entry.baseline_phase_rmse.every(value=>value===0));}
   else{dense++;assert.equal(entry.frames,112);assert.equal(entry.frame_ms,16);}
  }
- assert.equal(dense,69);assert.equal(preserved,12);
+ assert.equal(dense,72);assert.equal(preserved,12);
 });
