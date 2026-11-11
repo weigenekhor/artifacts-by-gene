@@ -4838,7 +4838,7 @@
           "base": "assets/screens/manufacts/imprimatura-4",
           "width": 3840,
           "height": 2560,
-          "sha256": "99e2bfda2ea9cd237b19b79dd34289d4efd1e3fd976e5ae5e425287a5195e3c6",
+          "sha256": "d83a4976b8632638ca9380c52bee7186f65ef257ace59533d064acb6f6b59526",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5006,7 +5006,7 @@
           "base": "assets/screens/manufacts/tenebrismo-4",
           "width": 3840,
           "height": 2560,
-          "sha256": "28333be1ea99adf01fcf2c5abe671cc9d616cd239ef8f6437b5fbd484ac452b0",
+          "sha256": "18ceb0d37a1bc1a702cf03ba7d301fb33a89fc99b52455d8ee68dc5aff32d876",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5174,7 +5174,7 @@
           "base": "assets/screens/manufacts/pentimento-4",
           "width": 3840,
           "height": 2560,
-          "sha256": "a5316c536697b43e715d0b4ed781bcd14fb81b33fc75de50ad2a0fc2d3b625cc",
+          "sha256": "c0ac226a404186d3b2f11b9badd3c27dc35b3d9f9d1fb6af22e1a21545cb2e37",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
