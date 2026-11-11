@@ -15,9 +15,9 @@
       "name": "Pentimento"
     }
   ],
-  "captures": 150,
+  "captures": 165,
   "encoding": "Full-size lossless native WebP masters; responsive WebP quality 94; full-size masters served directly by the gallery",
-  "bytes": 135137266,
+  "bytes": 145011730,
   "records": [
     {
       "app": "altus-lotviewer",
@@ -1346,28 +1346,163 @@
       "app": "manufacts",
       "theme": "imprimatura",
       "source": "original/manufacts.webp",
-      "sourceSha256": "b3ca2ef4c1c45b21e48b67c8b1bc7227ff057ec4709076cf9b2bb2bb22cb977f",
+      "sourceSha256": "119bd0063aeecbfdd5564f983bffb6db1a00a2d2398f36acc3c298c1dc19ec1d",
       "width": 3840,
       "height": 2560,
       "full": "assets/screens/manufacts/imprimatura-1/full.webp"
     },
     {
       "app": "manufacts",
+      "theme": "imprimatura",
+      "source": "original/manufacts2.webp",
+      "sourceSha256": "622caa7b1e0b432632a8bac7a24e6575e5d7f1bde6f0b02d072faa7d6c12822a",
+      "width": 3840,
+      "height": 2560,
+      "full": "assets/screens/manufacts/imprimatura-2/full.webp"
+    },
+    {
+      "app": "manufacts",
+      "theme": "imprimatura",
+      "source": "original/manufacts3.webp",
+      "sourceSha256": "6a48d40f7d596dccb6396188347f24a6c30421b8be3704b6f739556927cb6787",
+      "width": 3840,
+      "height": 2560,
+      "full": "assets/screens/manufacts/imprimatura-3/full.webp"
+    },
+    {
+      "app": "manufacts",
+      "theme": "imprimatura",
+      "source": "original/manufacts4.webp",
+      "sourceSha256": "99e2bfda2ea9cd237b19b79dd34289d4efd1e3fd976e5ae5e425287a5195e3c6",
+      "width": 3840,
+      "height": 2560,
+      "full": "assets/screens/manufacts/imprimatura-4/full.webp"
+    },
+    {
+      "app": "manufacts",
+      "theme": "imprimatura",
+      "source": "original/manufacts5.webp",
+      "sourceSha256": "ee60b406f7b8b2c3259f921f380fbf64e0a9b48849152c80b06900df28841b04",
+      "width": 3840,
+      "height": 2560,
+      "full": "assets/screens/manufacts/imprimatura-5/full.webp"
+    },
+    {
+      "app": "manufacts",
+      "theme": "imprimatura",
+      "source": "original/manufacts6.webp",
+      "sourceSha256": "8d110a52902bbb866247501d16dfe0b274c7c3a4340f08e2aae24ac09cc31df3",
+      "width": 3840,
+      "height": 2560,
+      "full": "assets/screens/manufacts/imprimatura-6/full.webp"
+    },
+    {
+      "app": "manufacts",
       "theme": "tenebrismo",
       "source": "void/manufacts.webp",
-      "sourceSha256": "badbb24b23f0337cd57834094cdeba560433b2f8f3e22a09b8e007c90659e3b2",
+      "sourceSha256": "81234386de76264ec7f5d40c6b57ab6cb38e1565ad2c1aa3c110eed57828b5eb",
       "width": 3840,
       "height": 2560,
       "full": "assets/screens/manufacts/tenebrismo-1/full.webp"
     },
     {
       "app": "manufacts",
+      "theme": "tenebrismo",
+      "source": "void/manufacts2.webp",
+      "sourceSha256": "6be48b0ec575d5860b06e678a830dd86e3461e9e13cf81a80252757409f0dfd6",
+      "width": 3840,
+      "height": 2560,
+      "full": "assets/screens/manufacts/tenebrismo-2/full.webp"
+    },
+    {
+      "app": "manufacts",
+      "theme": "tenebrismo",
+      "source": "void/manufacts3.webp",
+      "sourceSha256": "c5f6cdcd2fa774c1bd6ef27265956a47bb692802f1a8020b8178130746aa8f9c",
+      "width": 3840,
+      "height": 2560,
+      "full": "assets/screens/manufacts/tenebrismo-3/full.webp"
+    },
+    {
+      "app": "manufacts",
+      "theme": "tenebrismo",
+      "source": "void/manufacts4.webp",
+      "sourceSha256": "28333be1ea99adf01fcf2c5abe671cc9d616cd239ef8f6437b5fbd484ac452b0",
+      "width": 3840,
+      "height": 2560,
+      "full": "assets/screens/manufacts/tenebrismo-4/full.webp"
+    },
+    {
+      "app": "manufacts",
+      "theme": "tenebrismo",
+      "source": "void/manufacts5.webp",
+      "sourceSha256": "e0f83848da54cdbd2fa4d08afb76b0dbc505da1d04eb7b6cf05aed78407da2fe",
+      "width": 3840,
+      "height": 2560,
+      "full": "assets/screens/manufacts/tenebrismo-5/full.webp"
+    },
+    {
+      "app": "manufacts",
+      "theme": "tenebrismo",
+      "source": "void/manufacts6.webp",
+      "sourceSha256": "84af9dc36d7b68feb3a781c6cdd53d6aa37b24dd94edae479af37d44627e7582",
+      "width": 3840,
+      "height": 2560,
+      "full": "assets/screens/manufacts/tenebrismo-6/full.webp"
+    },
+    {
+      "app": "manufacts",
       "theme": "pentimento",
       "source": "pentimento/manufacts.webp",
-      "sourceSha256": "29274352aa8a15b87ddcde9a7b7929d71c9e6a14e4b8e8596b65b53ab0017f53",
+      "sourceSha256": "854f241d50afc520935f76fdac9ca56e915aef48450fc74f257bc240ff8424a8",
       "width": 3840,
       "height": 2560,
       "full": "assets/screens/manufacts/pentimento-1/full.webp"
+    },
+    {
+      "app": "manufacts",
+      "theme": "pentimento",
+      "source": "pentimento/manufacts2.webp",
+      "sourceSha256": "b76a055530cb8b4e24f50fbc3888ed3b556b5300bf0d65887946ab5a77edeb06",
+      "width": 3840,
+      "height": 2560,
+      "full": "assets/screens/manufacts/pentimento-2/full.webp"
+    },
+    {
+      "app": "manufacts",
+      "theme": "pentimento",
+      "source": "pentimento/manufacts3.webp",
+      "sourceSha256": "372dad369f9524b67ff30fe81c69a75da50046888b0083680ca0be7fa54733fa",
+      "width": 3840,
+      "height": 2560,
+      "full": "assets/screens/manufacts/pentimento-3/full.webp"
+    },
+    {
+      "app": "manufacts",
+      "theme": "pentimento",
+      "source": "pentimento/manufacts4.webp",
+      "sourceSha256": "a5316c536697b43e715d0b4ed781bcd14fb81b33fc75de50ad2a0fc2d3b625cc",
+      "width": 3840,
+      "height": 2560,
+      "full": "assets/screens/manufacts/pentimento-4/full.webp"
+    },
+    {
+      "app": "manufacts",
+      "theme": "pentimento",
+      "source": "pentimento/manufacts5.webp",
+      "sourceSha256": "2e8c73d0b56f87635794dcac5bec8c3c8d131f36d0b86b30ad9e40bb3d0dff9b",
+      "width": 3840,
+      "height": 2560,
+      "full": "assets/screens/manufacts/pentimento-5/full.webp"
+    },
+    {
+      "app": "manufacts",
+      "theme": "pentimento",
+      "source": "pentimento/manufacts6.webp",
+      "sourceSha256": "e686294d498c04f9524c4071498c3c913bdaf6609a28da94ec873ad9f0e30e43",
+      "width": 3840,
+      "height": 2560,
+      "full": "assets/screens/manufacts/pentimento-6/full.webp"
     }
   ]
 }

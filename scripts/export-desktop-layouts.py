@@ -6,6 +6,7 @@ source files are changed. Custom painted diagrams remain inline vector geometry.
 import os, sys, json, re, types, hashlib
 from functools import lru_cache
 from pathlib import Path
+from unittest.mock import patch
 os.environ['PYTHONDONTWRITEBYTECODE']='1'
 sys.dont_write_bytecode=True
 SITE=Path(__file__).resolve().parents[1]
@@ -260,7 +261,16 @@ def run(window,app,root,out):
         key=item['sourceKey']
         if keys and key not in keys:continue
         window._set_legacy_mode(key in ('parser_tab','altusanko_tab','wafercount_tab','path_tab','dnd_tab','dnd2_tab','ankohelper_tab'),persist=False)
-        window.go_to_tab(key);QTest.qWait(150);app.processEvents()
+        if key == 'manufacts_tab':
+            from widgets.manufacts.widget import ManufactsWidget
+            # Show the initial desktop layout. The public preview has no SQL
+            # connection, so a background choice scan would only paint an error.
+            with patch.object(ManufactsWidget, 'scan_catalogue', lambda self: None):
+                window.go_to_tab(key, _completing_first_open=True)
+                QTest.qWait(150)
+        else:
+            window.go_to_tab(key);QTest.qWait(150)
+        app.processEvents()
         target=getattr(window,key.replace('_tab','_widget'))
         if key=='pyra_tab':
             # This bundled master defines the application's observation controls;

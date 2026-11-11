@@ -55,7 +55,8 @@
 .app-tile:before{inset:2px;clip-path:inset(0 round 5px)}
 
 /* Current desktop chrome: edition and Suture picker share the same material. */
-.app-titlebar{z-index:5}
+.app-titlebar{z-index:5;background:#0e1214}
+.app-greeting{min-width:0;margin:0 12px 0 14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#e2e7eb;font-size:12px;font-weight:600}
 .window-controls{gap:0}
 .mode-control,.theme-trigger{height:32px;border:.85px solid var(--control-border);border-radius:7px;background:linear-gradient(var(--switch-top),var(--switch-bottom));color:var(--text);transition:background 120ms}
 .mode-control{width:132px;gap:11px;margin-right:10px;padding:0 5px 0 4px;justify-content:flex-start}

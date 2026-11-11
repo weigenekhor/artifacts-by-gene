@@ -198,6 +198,12 @@ test('Starting layouts contain actual desktop prompts and no loaded engineering 
  assert.ok(nodes('altus-lotviewer').some(n=>n.kind==='table'&&!n.rows.length));
  assert.match(texts('gan-temp-diagnoser'),/Roller Coaster/);assert.match(texts('gan-temp-diagnoser'),/Select one observation/);
  assert.equal(nodes('gan-temp-diagnoser').find(n=>n.kind==='select').value,-1);
+ for(const variants of Object.values(layouts.manufacts.states.initial))for(const {tree} of Object.values(variants)){
+  const controls=flatten(tree);
+  assert.ok(controls.some(node=>node.text==='Retrieve'));
+  assert.doesNotMatch(controls.map(node=>[node.text,node.tip].join(' ')).join('\n'),
+   /Choices unavailable|Manufacturing data unavailable|External operation forbidden/i);
+ }
 });
 
 test('Theme selection uses the matching native colours and drawer geometry without scaling controls',()=>{

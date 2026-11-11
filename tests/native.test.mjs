@@ -230,7 +230,7 @@ test('All twenty apps have complete, separate sequences for all three appearance
  assert.equal(model.apps.length,20);
  assert.deepEqual(model.themes.map(t=>t.name),['Imprimatura','Tenebrismo','Pentimento']);
  assert.equal(model.defaultTheme,'tenebrismo');
- assert.equal(model.apps.reduce((n,a)=>n+a.images.length,0),150);
+ assert.equal(model.apps.reduce((n,a)=>n+a.images.length,0),165);
  for(const app of model.apps){
   const counts=model.themes.map(t=>app.images.filter(image=>image.theme===t.id).length);
   assert.ok(counts[0]>0,app.name);assert.ok(counts.every(n=>n===counts[0]),app.name);
@@ -238,7 +238,12 @@ test('All twenty apps have complete, separate sequences for all three appearance
  }
  assert.ok(model.apps.find(a=>a.id==='aperture-spc'));
  assert.ok(model.apps.find(a=>a.id==='telemetry'));
- assert.ok(model.apps.find(a=>a.id==='manufacts'));
+ const manufacts=model.apps.find(a=>a.id==='manufacts');
+ for(const theme of model.themes){
+  const captures=manufacts.images.filter(image=>image.theme===theme.id);
+  assert.equal(captures.length,6);
+  assert.equal(new Set(captures.map(image=>image.sha256)).size,6);
+ }
  assert.match(html,/data-inspect-app="manufacts"/);
  assert.match(html,/id="app-manufacts"/);
 });

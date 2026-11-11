@@ -15,19 +15,35 @@ test('Mobile hero has the exact desktop aspect ratio at both source resolutions'
  assert.doesNotMatch(await fs.readFile('site.js','utf8'),/product-viewer/);
 });
 
-test('Browser icon variants share the packaged desktop icon source and stable URLs',async()=>{
+test('Every public favicon keeps the ARTIFACTS mark legible on light pages',async()=>{
  const ico=await fs.readFile('favicon.ico');
- for(const [size,name] of [[32,'favicon-32.png'],[48,'favicon-48.png'],[256,'artifacts-app-icon.png']]){
-  const offset=Array.from({length:ico.readUInt16LE(4)},(_,i)=>6+i*16).find(p=>(ico[p]||256)===size);
-  const start=ico.readUInt32LE(offset+12),length=ico.readUInt32LE(offset+8);
-  assert.deepEqual(await fs.readFile(`assets/brand/${name}`),ico.subarray(start,start+length));
+ const frames=[];
+ for(let index=0;index<ico.readUInt16LE(4);index++){
+  const entry=6+16*index,size=ico[entry]||256;
+  const start=ico.readUInt32LE(entry+12),length=ico.readUInt32LE(entry+8);
+  frames.push([ico.subarray(start,start+length),size]);
  }
+ assert.deepEqual(frames.map(([,size])=>size),[16,24,32,48,64,128,256]);
  const html=await fs.readFile('index.html','utf8');
  assert.match(html,/href="favicon.ico"/);assert.match(html,/sizes="96x96" href="favicon.png"/);
- const primary=await sharp('favicon.png').metadata();
- assert.equal(primary.width,96);assert.equal(primary.height,96);
- assert.deepEqual(await sharp('favicon.png').raw().toBuffer(),await sharp('assets/brand/artifacts-app-icon.png').resize(96,96).raw().toBuffer());
  assert.equal((html.match(/rel="icon" type="image\/png"/g)||[]).length,1);
- const fallback=await fs.readFile('assets/favicon.svg','utf8');
- assert.ok(fallback.includes((await fs.readFile('assets/brand/artifacts-app-icon.png')).toString('base64')));
+ const luminance=rgb=>rgb.reduce((total,v,i)=>{
+  const s=v/255;
+  return total+[.2126,.7152,.0722][i]*(s<=.04045?s/12.92:((s+.055)/1.055)**2.4);
+ },0);
+ for(const [asset,size] of [
+  ...frames,['favicon.png',96],['apple-touch-icon.png',180],['assets/favicon.svg',80],
+  ['assets/brand/favicon-32.png',32],['assets/brand/favicon-48.png',48],
+ ]){
+  const {data,info}=await sharp(asset).ensureAlpha().raw().toBuffer({resolveWithObject:true});
+  assert.equal(info.width,size);assert.equal(info.height,size);
+  const background=luminance([...data.subarray(0,3)]);
+  let readable=0;
+  for(let i=0;i<data.length;i+=4){
+   assert.equal(data[i+3],255,'Favicon must have an opaque background');
+   if((luminance([...data.subarray(i,i+3)])+.05)/(background+.05)>=7)readable++;
+  }
+  assert.ok((1.05/(background+.05))>=7,'Background must stand out on a white search page');
+  assert.ok(readable>=size*size*.16,'The mark must retain contrast at the actual icon size');
+ }
 });

@@ -44,10 +44,10 @@ test('Fixed material stays separate from home cards for every theme and sidebar 
 
 test('Panel motion keeps navigation and info appearance rules and animation timing',async()=>{
  const after=await fs.readFile('shell.css','utf8');
- // Notifications have their own fidelity checks; this baseline guards the navigation/info panels.
+ // The greeting and notifications are title bar details. This baseline guards the navigation and info panels.
  const strip=s=>s.split('\n').filter(line=>!line.includes('notification')).join('\n').replace(/\/\*[\s\S]*?\*\//g,'').replace(/\.panels-moving[^{}]+\{[^{}]*\}/g,'').replace(/\s+/g,'');
  // Only the background anchoring changes; retain the previous CSS baseline for every other rule.
- const priorAnchor=after.replace('.sidebar-brand>span{font:600 12.5pt \"Segoe UI\",sans-serif;letter-spacing:.7px;color:#E8E4DA;white-space:nowrap}', '.sidebar-brand>span{font-size:16px;white-space:nowrap}').replace(/\n\.home-scroll\[data-home-overflow=true\]\{[^}]+\}/,'').replace(/\n\.panels-moving \.home-scroll\[data-home-overflow\]\{[^}]+\}/,'').replace('.home-scroll{position:absolute;inset:14px 26px 14px 18px;overflow:hidden;', '.home-scroll{position:absolute;inset:14px 26px 14px 18px;overflow:auto;').replace('.home-material{position:absolute;left:66px;top:49px;width:1161px;height:750px;overflow:hidden;pointer-events:none}', '.home-material{position:absolute;inset:0;overflow:hidden;pointer-events:none}');
+ const priorAnchor=after.replace(/\n\.app-greeting\{[^}]+\}/,'').replace('.app-titlebar{z-index:5;background:#0e1214}', '.app-titlebar{z-index:5}').replace('.sidebar-brand>span{font:600 12.5pt \"Segoe UI\",sans-serif;letter-spacing:.7px;color:#E8E4DA;white-space:nowrap}', '.sidebar-brand>span{font-size:16px;white-space:nowrap}').replace(/\n\.home-scroll\[data-home-overflow=true\]\{[^}]+\}/,'').replace(/\n\.panels-moving \.home-scroll\[data-home-overflow\]\{[^}]+\}/,'').replace('.home-scroll{position:absolute;inset:14px 26px 14px 18px;overflow:hidden;', '.home-scroll{position:absolute;inset:14px 26px 14px 18px;overflow:auto;').replace('.home-material{position:absolute;left:66px;top:49px;width:1161px;height:750px;overflow:hidden;pointer-events:none}', '.home-material{position:absolute;inset:0;overflow:hidden;pointer-events:none}');
  assert.equal(digest(strip(priorAnchor)),baseline.cssWithoutNotifications);
  const shell=await fs.readFile('native-shell.js','utf8');
  assert.match(shell,/clearTimeout\(layoutTimer\)/);

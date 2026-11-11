@@ -4754,7 +4754,7 @@
           "base": "assets/screens/manufacts/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "b3ca2ef4c1c45b21e48b67c8b1bc7227ff057ec4709076cf9b2bb2bb22cb977f",
+          "sha256": "119bd0063aeecbfdd5564f983bffb6db1a00a2d2398f36acc3c298c1dc19ec1d",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4776,13 +4776,153 @@
           ]
         },
         {
+          "sourceFilename": "original/manufacts2.webp",
+          "theme": "imprimatura",
+          "caption": "Recorded losses by reason and wafer progress by product",
+          "base": "assets/screens/manufacts/imprimatura-2",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "622caa7b1e0b432632a8bac7a24e6575e5d7f1bde6f0b02d072faa7d6c12822a",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/imprimatura-2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-2/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
+          "sourceFilename": "original/manufacts3.webp",
+          "theme": "imprimatura",
+          "caption": "Hold duration and hold activity",
+          "base": "assets/screens/manufacts/imprimatura-3",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "6a48d40f7d596dccb6396188347f24a6c30421b8be3704b6f739556927cb6787",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/imprimatura-3/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-3/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-3/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-3/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
+          "sourceFilename": "original/manufacts4.webp",
+          "theme": "imprimatura",
+          "caption": "Held lots and recorded hold reasons",
+          "base": "assets/screens/manufacts/imprimatura-4",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "99e2bfda2ea9cd237b19b79dd34289d4efd1e3fd976e5ae5e425287a5195e3c6",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/imprimatura-4/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-4/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-4/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-4/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
+          "sourceFilename": "original/manufacts5.webp",
+          "theme": "imprimatura",
+          "caption": "Material distribution by last recorded step",
+          "base": "assets/screens/manufacts/imprimatura-5",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "ee60b406f7b8b2c3259f921f380fbf64e0a9b48849152c80b06900df28841b04",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/imprimatura-5/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-5/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-5/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-5/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
+          "sourceFilename": "original/manufacts6.webp",
+          "theme": "imprimatura",
+          "caption": "Recorded process history for a selected lot",
+          "base": "assets/screens/manufacts/imprimatura-6",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "8d110a52902bbb866247501d16dfe0b274c7c3a4340f08e2aae24ac09cc31df3",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/imprimatura-6/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-6/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-6/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-6/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
           "sourceFilename": "void/manufacts.webp",
           "theme": "tenebrismo",
           "caption": "Checkpoint performance and wafer outcomes",
           "base": "assets/screens/manufacts/tenebrismo-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "badbb24b23f0337cd57834094cdeba560433b2f8f3e22a09b8e007c90659e3b2",
+          "sha256": "81234386de76264ec7f5d40c6b57ab6cb38e1565ad2c1aa3c110eed57828b5eb",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4804,13 +4944,153 @@
           ]
         },
         {
+          "sourceFilename": "void/manufacts2.webp",
+          "theme": "tenebrismo",
+          "caption": "Recorded losses by reason and wafer progress by product",
+          "base": "assets/screens/manufacts/tenebrismo-2",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "6be48b0ec575d5860b06e678a830dd86e3461e9e13cf81a80252757409f0dfd6",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/tenebrismo-2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-2/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
+          "sourceFilename": "void/manufacts3.webp",
+          "theme": "tenebrismo",
+          "caption": "Hold duration and hold activity",
+          "base": "assets/screens/manufacts/tenebrismo-3",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "c5f6cdcd2fa774c1bd6ef27265956a47bb692802f1a8020b8178130746aa8f9c",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/tenebrismo-3/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-3/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-3/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-3/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
+          "sourceFilename": "void/manufacts4.webp",
+          "theme": "tenebrismo",
+          "caption": "Held lots and recorded hold reasons",
+          "base": "assets/screens/manufacts/tenebrismo-4",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "28333be1ea99adf01fcf2c5abe671cc9d616cd239ef8f6437b5fbd484ac452b0",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/tenebrismo-4/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-4/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-4/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-4/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
+          "sourceFilename": "void/manufacts5.webp",
+          "theme": "tenebrismo",
+          "caption": "Material distribution by last recorded step",
+          "base": "assets/screens/manufacts/tenebrismo-5",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "e0f83848da54cdbd2fa4d08afb76b0dbc505da1d04eb7b6cf05aed78407da2fe",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/tenebrismo-5/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-5/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-5/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-5/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
+          "sourceFilename": "void/manufacts6.webp",
+          "theme": "tenebrismo",
+          "caption": "Recorded process history for a selected lot",
+          "base": "assets/screens/manufacts/tenebrismo-6",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "84af9dc36d7b68feb3a781c6cdd53d6aa37b24dd94edae479af37d44627e7582",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/tenebrismo-6/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-6/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-6/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-6/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
           "sourceFilename": "pentimento/manufacts.webp",
           "theme": "pentimento",
           "caption": "Checkpoint performance and wafer outcomes",
           "base": "assets/screens/manufacts/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "29274352aa8a15b87ddcde9a7b7929d71c9e6a14e4b8e8596b65b53ab0017f53",
+          "sha256": "854f241d50afc520935f76fdac9ca56e915aef48450fc74f257bc240ff8424a8",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4827,6 +5107,146 @@
             },
             {
               "src": "assets/screens/manufacts/pentimento-1/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
+          "sourceFilename": "pentimento/manufacts2.webp",
+          "theme": "pentimento",
+          "caption": "Recorded losses by reason and wafer progress by product",
+          "base": "assets/screens/manufacts/pentimento-2",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "b76a055530cb8b4e24f50fbc3888ed3b556b5300bf0d65887946ab5a77edeb06",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/pentimento-2/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-2/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-2/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-2/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
+          "sourceFilename": "pentimento/manufacts3.webp",
+          "theme": "pentimento",
+          "caption": "Hold duration and hold activity",
+          "base": "assets/screens/manufacts/pentimento-3",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "372dad369f9524b67ff30fe81c69a75da50046888b0083680ca0be7fa54733fa",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/pentimento-3/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-3/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-3/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-3/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
+          "sourceFilename": "pentimento/manufacts4.webp",
+          "theme": "pentimento",
+          "caption": "Held lots and recorded hold reasons",
+          "base": "assets/screens/manufacts/pentimento-4",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "a5316c536697b43e715d0b4ed781bcd14fb81b33fc75de50ad2a0fc2d3b625cc",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/pentimento-4/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-4/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-4/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-4/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
+          "sourceFilename": "pentimento/manufacts5.webp",
+          "theme": "pentimento",
+          "caption": "Material distribution by last recorded step",
+          "base": "assets/screens/manufacts/pentimento-5",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "2e8c73d0b56f87635794dcac5bec8c3c8d131f36d0b86b30ad9e40bb3d0dff9b",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/pentimento-5/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-5/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-5/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-5/2560.webp",
+              "width": 2560
+            }
+          ]
+        },
+        {
+          "sourceFilename": "pentimento/manufacts6.webp",
+          "theme": "pentimento",
+          "caption": "Recorded process history for a selected lot",
+          "base": "assets/screens/manufacts/pentimento-6",
+          "width": 3840,
+          "height": 2560,
+          "sha256": "e686294d498c04f9524c4071498c3c913bdaf6609a28da94ec873ad9f0e30e43",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/pentimento-6/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-6/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-6/1920.webp",
+              "width": 1920
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-6/2560.webp",
               "width": 2560
             }
           ]
