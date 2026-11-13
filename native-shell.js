@@ -25,7 +25,7 @@ drawer.querySelector('[data-close-info]').addEventListener('click',()=>{info=fal
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const coarse=matchMedia('(hover: none), (pointer: coarse), (max-width:1100px)');
 const appFor=id=>model.apps.find(app=>app.id===id);
-const cache=createPanelCache(async key=>{const image=new Image();image.className='native-panel';image.alt='';image.src=`assets/native/panels/${key}.webp?v=20261111-parity`;await image.decode();return image;});
+const cache=createPanelCache(async key=>{const image=new Image();image.className='native-panel';image.alt='';image.src=`assets/native/panels/${key}.webp?v=20261113-previews`;await image.decode();return image;});
 details.querySelector('.native-panel-motion').remove();
 const movies=createPanelMovies({
  allowed:()=>!reduced.matches&&!document.hidden,

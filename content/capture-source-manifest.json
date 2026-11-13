@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-11",
+  "date": "2026-11-13",
   "applications": 20,
   "themes": [
     {
@@ -16,8 +16,8 @@
     }
   ],
   "captures": 165,
-  "encoding": "Full-size lossless native WebP masters; responsive WebP quality 94; full-size masters served directly by the gallery",
-  "bytes": 144991316,
+  "encoding": "Native WebP masters preserved byte-for-byte; responsive WebP quality 94; full-size masters served directly by the gallery",
+  "bytes": 135684870,
   "records": [
     {
       "app": "altus-lotviewer",
@@ -1103,9 +1103,9 @@
       "app": "data-lens",
       "theme": "imprimatura",
       "source": "original/data_lens.webp",
-      "sourceSha256": "f07d19b6129f2d718db79118930683c40e4303ee092baabfa44896f267d5aac7",
-      "width": 3840,
-      "height": 2560,
+      "sourceSha256": "22e029f60c437bb2881f48fb75b0ab7d55b81686bef6b9831d97993d000e47cb",
+      "width": 1600,
+      "height": 1067,
       "full": "assets/screens/data-lens/imprimatura-1/full.webp"
     },
     {
@@ -1121,9 +1121,9 @@
       "app": "data-lens",
       "theme": "imprimatura",
       "source": "original/data_lens3.webp",
-      "sourceSha256": "db4c0085efc179917ee7ff1729e39e171d156fdd3cb9a0dfdfb415e4ee40254c",
-      "width": 3840,
-      "height": 2560,
+      "sourceSha256": "9aabdbbc061dbbd18fc64da056a5de3cdcc15a9e2d9c99801746761ebb958e72",
+      "width": 1600,
+      "height": 1067,
       "full": "assets/screens/data-lens/imprimatura-3/full.webp"
     },
     {
@@ -1148,9 +1148,9 @@
       "app": "data-lens",
       "theme": "tenebrismo",
       "source": "void/data_lens.webp",
-      "sourceSha256": "75bbd06ac1f83e9da0e10c2f26978be16f354458543a93be8b359c994700f4de",
-      "width": 3840,
-      "height": 2560,
+      "sourceSha256": "fb8f7dd93627c411770be164d0303aa348731ce459af421e9c4fa22e0e1b8863",
+      "width": 1600,
+      "height": 1067,
       "full": "assets/screens/data-lens/tenebrismo-1/full.webp"
     },
     {
@@ -1166,9 +1166,9 @@
       "app": "data-lens",
       "theme": "tenebrismo",
       "source": "void/data_lens3.webp",
-      "sourceSha256": "0d41758705047fa0eecee34624e0b8a912f62f72abca0030f2246296428bf870",
-      "width": 3840,
-      "height": 2560,
+      "sourceSha256": "6ea91333408bfe759c7eaa136c05dac4a45f9d28be4a645425c54f1a8d92ac1c",
+      "width": 1600,
+      "height": 1067,
       "full": "assets/screens/data-lens/tenebrismo-3/full.webp"
     },
     {
@@ -1193,9 +1193,9 @@
       "app": "data-lens",
       "theme": "pentimento",
       "source": "pentimento/data_lens.webp",
-      "sourceSha256": "3a08d33feb2adc81c3c9b5341e551e0c6cac4594884197be6a9d97d212ddffd0",
-      "width": 3840,
-      "height": 2560,
+      "sourceSha256": "37fddd8724641bbacba36815aa35c4e02396c2c46b9c50bac95ca941c3deea1d",
+      "width": 1600,
+      "height": 1067,
       "full": "assets/screens/data-lens/pentimento-1/full.webp"
     },
     {
@@ -1211,9 +1211,9 @@
       "app": "data-lens",
       "theme": "pentimento",
       "source": "pentimento/data_lens3.webp",
-      "sourceSha256": "e1d7638288d7d0534502950075838431888e1a72bdb72d9e0b609283a8c283f9",
-      "width": 3840,
-      "height": 2560,
+      "sourceSha256": "a09f64e77fd6e5ff07efbd46f0b25ae53cd53b8331d3146268ed9b19333b5168",
+      "width": 1600,
+      "height": 1067,
       "full": "assets/screens/data-lens/pentimento-3/full.webp"
     },
     {
@@ -1238,9 +1238,9 @@
       "app": "telemetry",
       "theme": "imprimatura",
       "source": "original/telemetry.webp",
-      "sourceSha256": "e39a74ec16a2b11ace1008e9df284a1957009af278c49273456e6165ca4f7f64",
-      "width": 3840,
-      "height": 2560,
+      "sourceSha256": "333f7cfdbc6882a3096b6fb4da6287a9f20fc2a7f9b3ee83cd5ddfa1dfe71be2",
+      "width": 1600,
+      "height": 1067,
       "full": "assets/screens/telemetry/imprimatura-1/full.webp"
     },
     {
@@ -1274,9 +1274,9 @@
       "app": "telemetry",
       "theme": "tenebrismo",
       "source": "void/telemetry.webp",
-      "sourceSha256": "e445ea983b2d0253319993d8cf56577eb2672700aad32d86ccb9cbfbb0168540",
-      "width": 3840,
-      "height": 2560,
+      "sourceSha256": "d42a7102b85690a48df6b1b34fd695f1c8e55b213634ba125f7249624632f0af",
+      "width": 1600,
+      "height": 1067,
       "full": "assets/screens/telemetry/tenebrismo-1/full.webp"
     },
     {
@@ -1310,9 +1310,9 @@
       "app": "telemetry",
       "theme": "pentimento",
       "source": "pentimento/telemetry.webp",
-      "sourceSha256": "ae93e6a21ea5bfae2e990e5d98f8e30ba4b40f5dcfdd1488f8444c6510d27328",
-      "width": 3840,
-      "height": 2560,
+      "sourceSha256": "6d06f1685688b6d5754bb5863326aaef42c818b3e639617b55c946fead233870",
+      "width": 1600,
+      "height": 1067,
       "full": "assets/screens/telemetry/pentimento-1/full.webp"
     },
     {
@@ -1346,18 +1346,18 @@
       "app": "manufacts",
       "theme": "imprimatura",
       "source": "original/manufacts.webp",
-      "sourceSha256": "119bd0063aeecbfdd5564f983bffb6db1a00a2d2398f36acc3c298c1dc19ec1d",
-      "width": 3840,
-      "height": 2560,
+      "sourceSha256": "01b10bd30ff928a7d80c5eefd292629cedfc78c6dcfe26f87ec874bdf635eee1",
+      "width": 1600,
+      "height": 1067,
       "full": "assets/screens/manufacts/imprimatura-1/full.webp"
     },
     {
       "app": "manufacts",
       "theme": "imprimatura",
       "source": "original/manufacts2.webp",
-      "sourceSha256": "622caa7b1e0b432632a8bac7a24e6575e5d7f1bde6f0b02d072faa7d6c12822a",
-      "width": 3840,
-      "height": 2560,
+      "sourceSha256": "53506f93a47bfc0c4bea1c8134d4dec56ed9fb33ae4924d73632266bb045aa56",
+      "width": 1600,
+      "height": 1067,
       "full": "assets/screens/manufacts/imprimatura-2/full.webp"
     },
     {
@@ -1400,18 +1400,18 @@
       "app": "manufacts",
       "theme": "tenebrismo",
       "source": "void/manufacts.webp",
-      "sourceSha256": "81234386de76264ec7f5d40c6b57ab6cb38e1565ad2c1aa3c110eed57828b5eb",
-      "width": 3840,
-      "height": 2560,
+      "sourceSha256": "9adb38efec2714d6fa15401102aa3627d8cd1b075ad768e8e5afbdf2cb73c477",
+      "width": 1600,
+      "height": 1067,
       "full": "assets/screens/manufacts/tenebrismo-1/full.webp"
     },
     {
       "app": "manufacts",
       "theme": "tenebrismo",
       "source": "void/manufacts2.webp",
-      "sourceSha256": "6be48b0ec575d5860b06e678a830dd86e3461e9e13cf81a80252757409f0dfd6",
-      "width": 3840,
-      "height": 2560,
+      "sourceSha256": "cbd107243afca9b6d30b97d148bb0d2613513480a7f5313b65d31a2dff4c2a8d",
+      "width": 1600,
+      "height": 1067,
       "full": "assets/screens/manufacts/tenebrismo-2/full.webp"
     },
     {
@@ -1454,18 +1454,18 @@
       "app": "manufacts",
       "theme": "pentimento",
       "source": "pentimento/manufacts.webp",
-      "sourceSha256": "854f241d50afc520935f76fdac9ca56e915aef48450fc74f257bc240ff8424a8",
-      "width": 3840,
-      "height": 2560,
+      "sourceSha256": "2c726d8ea1fc0658f36bb9e8bbada94fb19b9f1d0b32b8b9a6bd58f91f00e8a3",
+      "width": 1600,
+      "height": 1067,
       "full": "assets/screens/manufacts/pentimento-1/full.webp"
     },
     {
       "app": "manufacts",
       "theme": "pentimento",
       "source": "pentimento/manufacts2.webp",
-      "sourceSha256": "b76a055530cb8b4e24f50fbc3888ed3b556b5300bf0d65887946ab5a77edeb06",
-      "width": 3840,
-      "height": 2560,
+      "sourceSha256": "d77f8d1afc729121dbfbc9146311cd68d492d558b72360b7bc09654bbceebc33",
+      "width": 1600,
+      "height": 1067,
       "full": "assets/screens/manufacts/pentimento-2/full.webp"
     },
     {
