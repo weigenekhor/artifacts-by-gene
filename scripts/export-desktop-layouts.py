@@ -176,7 +176,13 @@ def export_tree(root):
             node.update(kind='label',text=w.text(),rich=w.textFormat()==Qt.RichText or bool(re.search(r'<(?:p|b|span|br|html|div)\b',w.text())))
             if not w.text() and not w.pixmap().isNull():
                 parent=w.parentWidget()
-                if getattr(parent,'_command_arrow',None) is w or w.objectName()=='dlDrawerFilterArrow':
+                # MET validation marks are small SVG-derived status icons.
+                dashboard=w
+                while dashboard is not None and dashboard.objectName()!='plesseyDashboard':
+                    dashboard=dashboard.parentWidget()
+                is_validation_mark=dashboard is not None and any(
+                    w is mark for mark,_ in getattr(dashboard,'checks',{}).values())
+                if getattr(parent,'_command_arrow',None) is w or w.objectName()=='dlDrawerFilterArrow' or is_validation_mark:
                     node.update(kind='vector',vector=pixmap_vector(w.pixmap(),w.size())['svg'])
                 else:
                     unsupported.append({'class':type(w).__name__,'name':w.objectName(),'reason':'raster label omitted'})
@@ -269,9 +275,12 @@ def run(window,app,root,out):
                 window.go_to_tab(key, _completing_first_open=True)
                 QTest.qWait(150)
         else:
-            window.go_to_tab(key);QTest.qWait(150)
+            window.go_to_tab(key, _completing_first_open=True);QTest.qWait(150)
         app.processEvents()
         target=getattr(window,key.replace('_tab','_widget'))
+        if key=='metro_tab':
+            # The captured field represents the visitor's local destination.
+            target.plessey.dashboard.output.setText('Downloads')
         if key=='pyra_tab':
             # This bundled master defines the application's observation controls;
             # loading its vocabulary is normal startup, not loading an example.

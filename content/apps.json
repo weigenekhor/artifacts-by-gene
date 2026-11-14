@@ -1070,10 +1070,10 @@
         {
           "sourceFilename": "original/met_compiler.webp",
           "theme": "imprimatura",
-          "caption": "Plessey input validation and XRD readiness",
+          "caption": "Production Master input validation",
           "base": "assets/screens/gan-met-compiler/imprimatura-1",
-          "width": 3840,
-          "height": 2560,
+          "width": 2460,
+          "height": 1640,
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -1087,21 +1087,17 @@
             {
               "src": "assets/screens/gan-met-compiler/imprimatura-1/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/gan-met-compiler/imprimatura-1/2560.webp",
-              "width": 2560
             }
           ],
-          "sha256": "4eb648ff8741d54384629ff657f332c16d30007f0d76813be38e0ac9fe446256"
+          "sha256": "e828473b71852e3e45fce30d8d55364fb466417627b9ecb0f1e9eb25cd7b4e13"
         },
         {
           "sourceFilename": "original/met_compiler2.webp",
           "theme": "imprimatura",
-          "caption": "Completed Plessey compilation and activity log",
+          "caption": "Completed Production Master compilation and activity log",
           "base": "assets/screens/gan-met-compiler/imprimatura-2",
-          "width": 3840,
-          "height": 2560,
+          "width": 2460,
+          "height": 1640,
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -1115,21 +1111,17 @@
             {
               "src": "assets/screens/gan-met-compiler/imprimatura-2/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/gan-met-compiler/imprimatura-2/2560.webp",
-              "width": 2560
             }
           ],
-          "sha256": "5a4fb91c161eac4f648177692c4569e83480d247d173f31e8b82edd7316aad51"
+          "sha256": "b5d8e4b55a0108f3e2e5b1ccb1907f5068014a7bae7b856d255a5875a107f60d"
         },
         {
           "sourceFilename": "original/met_compiler3.webp",
           "theme": "imprimatura",
-          "caption": "Wafer defect readings in Search Results",
+          "caption": "Parameter Studio measurement selection",
           "base": "assets/screens/gan-met-compiler/imprimatura-3",
-          "width": 2440,
-          "height": 1300,
+          "width": 2460,
+          "height": 1640,
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -1145,15 +1137,15 @@
               "width": 1920
             }
           ],
-          "sha256": "4621b3335d1853ac63101e955f8d93aa2657e43bccee55eaaf0c320a938fcbc9"
+          "sha256": "d2548070c73aeb97e37c71a51bc4dfa7b1bae2f242fc4eb62f1080e55cee8a6c"
         },
         {
           "sourceFilename": "original/met_compiler4.webp",
           "theme": "imprimatura",
-          "caption": "HV metrology compilation",
+          "caption": "Parameter Studio after saving selected measurements",
           "base": "assets/screens/gan-met-compiler/imprimatura-4",
-          "width": 3840,
-          "height": 2560,
+          "width": 2460,
+          "height": 1640,
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -1167,21 +1159,17 @@
             {
               "src": "assets/screens/gan-met-compiler/imprimatura-4/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/gan-met-compiler/imprimatura-4/2560.webp",
-              "width": 2560
             }
           ],
-          "sha256": "b2d5fccc246ef449c8540008b13b5796f2550afb0deab00a37bb5a2b03f981c2"
+          "sha256": "d034cb167c9a9677fbbc2dfa6911ebf0cda3cf73aee8cbe5b1a47772f8fbc4ea"
         },
         {
           "sourceFilename": "void/met_compiler.webp",
           "theme": "tenebrismo",
-          "caption": "Plessey input validation and XRD readiness",
+          "caption": "Production Master input validation",
           "base": "assets/screens/gan-met-compiler/tenebrismo-1",
-          "width": 3840,
-          "height": 2560,
+          "width": 2460,
+          "height": 1640,
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -1195,21 +1183,17 @@
             {
               "src": "assets/screens/gan-met-compiler/tenebrismo-1/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/gan-met-compiler/tenebrismo-1/2560.webp",
-              "width": 2560
             }
           ],
-          "sha256": "89198bae6fd875b116bad4f62aa9ca7d2694cb19e0dcbeef56d385ac1f2eb418"
+          "sha256": "869fba3941d2cb3bdc2deadc5c4eceaed24b2aacb1219a1f2891aa269539efa6"
         },
         {
           "sourceFilename": "void/met_compiler2.webp",
           "theme": "tenebrismo",
-          "caption": "Completed Plessey compilation and activity log",
+          "caption": "Completed Production Master compilation and activity log",
           "base": "assets/screens/gan-met-compiler/tenebrismo-2",
-          "width": 3840,
-          "height": 2560,
+          "width": 2460,
+          "height": 1640,
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -1223,21 +1207,17 @@
             {
               "src": "assets/screens/gan-met-compiler/tenebrismo-2/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/gan-met-compiler/tenebrismo-2/2560.webp",
-              "width": 2560
             }
           ],
-          "sha256": "01e2e0b25c5c0331d7bd5b4ac5a4d191eede38ce887ec44a09c48776a0aff603"
+          "sha256": "8e5bd707d85a997822122ee11ae6ba1f34aa157b877fe030b0e7196815a1a0f5"
         },
         {
           "sourceFilename": "void/met_compiler3.webp",
           "theme": "tenebrismo",
-          "caption": "Wafer defect readings in Search Results",
+          "caption": "Parameter Studio measurement selection",
           "base": "assets/screens/gan-met-compiler/tenebrismo-3",
-          "width": 2440,
-          "height": 1300,
+          "width": 2460,
+          "height": 1640,
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -1253,15 +1233,15 @@
               "width": 1920
             }
           ],
-          "sha256": "172f43d54aef7b0d25a3206f4317e98a7a8167f248b6726eff583d13af033745"
+          "sha256": "f735ff6b1ce554c08c7bb218ebb57e900920aaeaee40d053b8844ee9c284564e"
         },
         {
           "sourceFilename": "void/met_compiler4.webp",
           "theme": "tenebrismo",
-          "caption": "HV metrology compilation",
+          "caption": "Parameter Studio after saving selected measurements",
           "base": "assets/screens/gan-met-compiler/tenebrismo-4",
-          "width": 3840,
-          "height": 2560,
+          "width": 2460,
+          "height": 1640,
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -1275,21 +1255,17 @@
             {
               "src": "assets/screens/gan-met-compiler/tenebrismo-4/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/gan-met-compiler/tenebrismo-4/2560.webp",
-              "width": 2560
             }
           ],
-          "sha256": "581f75e27a65af12a5ab2ee0efaf8211fae732a2b23cbfd1a6ef156736621523"
+          "sha256": "e64255be29c19145857362a69f5e9eb80bb268ecb58b1280ed6263d58eec6e78"
         },
         {
           "sourceFilename": "pentimento/met_compiler.webp",
           "theme": "pentimento",
-          "caption": "Plessey input validation and XRD readiness",
+          "caption": "Production Master input validation",
           "base": "assets/screens/gan-met-compiler/pentimento-1",
-          "width": 3840,
-          "height": 2560,
+          "width": 2460,
+          "height": 1640,
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -1303,21 +1279,17 @@
             {
               "src": "assets/screens/gan-met-compiler/pentimento-1/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/gan-met-compiler/pentimento-1/2560.webp",
-              "width": 2560
             }
           ],
-          "sha256": "d6d9c54d2740a1c3bbeec778d0053c9d320a26f6c4a13ee03da5761431ab6918"
+          "sha256": "455e659bfc60af1a47336c6e41fc10a64b0bc206d5d91816fe60632e48533a89"
         },
         {
           "sourceFilename": "pentimento/met_compiler2.webp",
           "theme": "pentimento",
-          "caption": "Completed Plessey compilation and activity log",
+          "caption": "Completed Production Master compilation and activity log",
           "base": "assets/screens/gan-met-compiler/pentimento-2",
-          "width": 3840,
-          "height": 2560,
+          "width": 2460,
+          "height": 1640,
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -1331,21 +1303,17 @@
             {
               "src": "assets/screens/gan-met-compiler/pentimento-2/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/gan-met-compiler/pentimento-2/2560.webp",
-              "width": 2560
             }
           ],
-          "sha256": "c3ee00c2d81cda1808d5f319276ef017347b76c9e30f45d6167aecb191a9de7c"
+          "sha256": "46ff86739718c0b29d9a5c6ec4946fb915bd12bcc57cdc5827f308d53ee3a748"
         },
         {
           "sourceFilename": "pentimento/met_compiler3.webp",
           "theme": "pentimento",
-          "caption": "Wafer defect readings in Search Results",
+          "caption": "Parameter Studio measurement selection",
           "base": "assets/screens/gan-met-compiler/pentimento-3",
-          "width": 2440,
-          "height": 1300,
+          "width": 2460,
+          "height": 1640,
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -1361,15 +1329,15 @@
               "width": 1920
             }
           ],
-          "sha256": "e96673e1452d11fff6acc036f7b9760a43742f3a92a034c299ac07bc762f8791"
+          "sha256": "8e863f3f6a1625503c8bde582ea8e1b5f1ec82244bd324e23788957b25077a0e"
         },
         {
           "sourceFilename": "pentimento/met_compiler4.webp",
           "theme": "pentimento",
-          "caption": "HV metrology compilation",
+          "caption": "Parameter Studio after saving selected measurements",
           "base": "assets/screens/gan-met-compiler/pentimento-4",
-          "width": 3840,
-          "height": 2560,
+          "width": 2460,
+          "height": 1640,
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -1383,13 +1351,9 @@
             {
               "src": "assets/screens/gan-met-compiler/pentimento-4/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/gan-met-compiler/pentimento-4/2560.webp",
-              "width": 2560
             }
           ],
-          "sha256": "5f4a755f23a1694bcf55481da77dc804d7f01ed2b1632fd31903444ebd604ab2"
+          "sha256": "6d18599463fc6d4f6672eae53f70f9145eca20e4389bb99b4c8f8543577c4f52"
         }
       ],
       "navigationIcon": "assets/native/navigation/metro_tab.svg",
@@ -3322,11 +3286,11 @@
         {
           "sourceFilename": "original/metria_spc.webp",
           "theme": "imprimatura",
-          "caption": "Multi-parameter trends",
+          "caption": "Run-to-run trends (Moonstone)",
           "base": "assets/screens/metria-spc/imprimatura-1",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "6c245a755e5ca06efd30719c8de3c05f1e77ae0c43b94859d0b66ab52363000c",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "ca1e447969d12c74c4e1306cb5de73a2fbbd2ccb139072462560017c61695a78",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3340,10 +3304,30 @@
             {
               "src": "assets/screens/metria-spc/imprimatura-1/1920.webp",
               "width": 1920
+            }
+          ]
+        },
+        {
+          "sourceFilename": "original/metria_spc4.webp",
+          "theme": "imprimatura",
+          "caption": "Run-to-run trends (Nocturne)",
+          "base": "assets/screens/metria-spc/imprimatura-4",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "d0cece921cff424550730a178be7eff2599480e6d235133c9f28c8f22509c336",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/metria-spc/imprimatura-4/768.webp",
+              "width": 768
             },
             {
-              "src": "assets/screens/metria-spc/imprimatura-1/2560.webp",
-              "width": 2560
+              "src": "assets/screens/metria-spc/imprimatura-4/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/metria-spc/imprimatura-4/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -3406,11 +3390,11 @@
         {
           "sourceFilename": "void/metria_spc.webp",
           "theme": "tenebrismo",
-          "caption": "Multi-parameter trends",
+          "caption": "Run-to-run trends (Moonstone)",
           "base": "assets/screens/metria-spc/tenebrismo-1",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "15e4359bb24a9176a877db8bcbf913f9b9d1ae39bdd12f0e2932044564cbacf0",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "39be9896365abbca57313e92c29ad405c8d9959261de073e72bb15773faff5f5",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3424,10 +3408,30 @@
             {
               "src": "assets/screens/metria-spc/tenebrismo-1/1920.webp",
               "width": 1920
+            }
+          ]
+        },
+        {
+          "sourceFilename": "void/metria_spc4.webp",
+          "theme": "tenebrismo",
+          "caption": "Run-to-run trends (Nocturne)",
+          "base": "assets/screens/metria-spc/tenebrismo-4",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "5c9a59f13bb9e811b1ff6b6b2dc6eebfe457d0e7c8ff3c167bb45c2c46cdf30b",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/metria-spc/tenebrismo-4/768.webp",
+              "width": 768
             },
             {
-              "src": "assets/screens/metria-spc/tenebrismo-1/2560.webp",
-              "width": 2560
+              "src": "assets/screens/metria-spc/tenebrismo-4/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/metria-spc/tenebrismo-4/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -3490,11 +3494,11 @@
         {
           "sourceFilename": "pentimento/metria_spc.webp",
           "theme": "pentimento",
-          "caption": "Multi-parameter trends",
+          "caption": "Run-to-run trends (Moonstone)",
           "base": "assets/screens/metria-spc/pentimento-1",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "0656728d9a870f108c70bd370c5931a8020d387f43e643c1ba2d977e8d2f95b8",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "d92183ac0d5dc699b470a0f04e4444385908050fdcb0409d005a6e60aed9b456",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3508,10 +3512,30 @@
             {
               "src": "assets/screens/metria-spc/pentimento-1/1920.webp",
               "width": 1920
+            }
+          ]
+        },
+        {
+          "sourceFilename": "pentimento/metria_spc4.webp",
+          "theme": "pentimento",
+          "caption": "Run-to-run trends (Nocturne)",
+          "base": "assets/screens/metria-spc/pentimento-4",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "2eae08535beb30ef1cba9c50f56e3381a2484e6a7e4de4bef9b95d7dd80a0f10",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/metria-spc/pentimento-4/768.webp",
+              "width": 768
             },
             {
-              "src": "assets/screens/metria-spc/pentimento-1/2560.webp",
-              "width": 2560
+              "src": "assets/screens/metria-spc/pentimento-4/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/metria-spc/pentimento-4/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -3595,11 +3619,11 @@
         {
           "sourceFilename": "original/aperture_spc.webp",
           "theme": "imprimatura",
-          "caption": "Metrology trends",
+          "caption": "Metrology trends (Moonstone)",
           "base": "assets/screens/aperture-spc/imprimatura-1",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "a3699e95abe08f7c5e935d403a2cd7381b7d922efd4081026e46c016bfe1549b",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "2ff38a2dee1b738f16b0282b02c0f79f051f10053b1c877e00349e6f2ce42467",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3613,10 +3637,30 @@
             {
               "src": "assets/screens/aperture-spc/imprimatura-1/1920.webp",
               "width": 1920
+            }
+          ]
+        },
+        {
+          "sourceFilename": "original/aperture_spc5.webp",
+          "theme": "imprimatura",
+          "caption": "Metrology trends (Nocturne)",
+          "base": "assets/screens/aperture-spc/imprimatura-5",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "3e245179b40107960d44f2d521fb2d09b419a517efa777dc0cb7c4715efb95ce",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/aperture-spc/imprimatura-5/768.webp",
+              "width": 768
             },
             {
-              "src": "assets/screens/aperture-spc/imprimatura-1/2560.webp",
-              "width": 2560
+              "src": "assets/screens/aperture-spc/imprimatura-5/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/aperture-spc/imprimatura-5/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -3707,11 +3751,11 @@
         {
           "sourceFilename": "void/aperture_spc.webp",
           "theme": "tenebrismo",
-          "caption": "Metrology trends",
+          "caption": "Metrology trends (Moonstone)",
           "base": "assets/screens/aperture-spc/tenebrismo-1",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "73ddae8648edcc16a87d90ca5fb37d1fa338cd4e1a6cea35124d673bb5ebf7cf",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "193f6d6a8337e0b12198477820f9a0b7f5998ef78e847086948599b2da9198bc",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3725,10 +3769,30 @@
             {
               "src": "assets/screens/aperture-spc/tenebrismo-1/1920.webp",
               "width": 1920
+            }
+          ]
+        },
+        {
+          "sourceFilename": "void/aperture_spc5.webp",
+          "theme": "tenebrismo",
+          "caption": "Metrology trends (Nocturne)",
+          "base": "assets/screens/aperture-spc/tenebrismo-5",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "6ca25bf15d8e5aa07a3c1431571ea0698d9ba483289be73c6b91d63a456d9acb",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/aperture-spc/tenebrismo-5/768.webp",
+              "width": 768
             },
             {
-              "src": "assets/screens/aperture-spc/tenebrismo-1/2560.webp",
-              "width": 2560
+              "src": "assets/screens/aperture-spc/tenebrismo-5/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/aperture-spc/tenebrismo-5/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -3819,11 +3883,11 @@
         {
           "sourceFilename": "pentimento/aperture_spc.webp",
           "theme": "pentimento",
-          "caption": "Metrology trends",
+          "caption": "Metrology trends (Moonstone)",
           "base": "assets/screens/aperture-spc/pentimento-1",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "5654d2634e27741e4327c546ed979ec66c9ab5745f3f1af7e3030d709a7fa2a3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "7d59cb3492591bd805701092a2bca35c23428608c206d44819667fa6b47b9183",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3837,10 +3901,30 @@
             {
               "src": "assets/screens/aperture-spc/pentimento-1/1920.webp",
               "width": 1920
+            }
+          ]
+        },
+        {
+          "sourceFilename": "pentimento/aperture_spc5.webp",
+          "theme": "pentimento",
+          "caption": "Metrology trends (Nocturne)",
+          "base": "assets/screens/aperture-spc/pentimento-5",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "ad988aba732d466fdd91164aa7880333d91e88925a5d8e99709789dfac77b3b2",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/aperture-spc/pentimento-5/768.webp",
+              "width": 768
             },
             {
-              "src": "assets/screens/aperture-spc/pentimento-1/2560.webp",
-              "width": 2560
+              "src": "assets/screens/aperture-spc/pentimento-5/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/aperture-spc/pentimento-5/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -3957,10 +4041,10 @@
           "theme": "imprimatura",
           "caption": "E-Test wafer comparison",
           "base": "assets/screens/data-lens/imprimatura-1",
-          "width": 1600,
-          "height": 1067,
-          "sha256": "22e029f60c437bb2881f48fb75b0ab7d55b81686bef6b9831d97993d000e47cb",
-          "encoding": "webp-native-preserved-v3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "e4e4bdf7d2a3d91ac3549cb6fb3b6f7835e4023d807cea9ada268bbdd58da15e",
+          "encoding": "webp-lossless-native-v2",
           "sources": [
             {
               "src": "assets/screens/data-lens/imprimatura-1/768.webp",
@@ -3969,6 +4053,10 @@
             {
               "src": "assets/screens/data-lens/imprimatura-1/1280.webp",
               "width": 1280
+            },
+            {
+              "src": "assets/screens/data-lens/imprimatura-1/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -4003,12 +4091,12 @@
         {
           "sourceFilename": "original/data_lens3.webp",
           "theme": "imprimatura",
-          "caption": "Power and wavelength compared by wafer",
+          "caption": "Power and wavelength compared by wafer (Moonstone)",
           "base": "assets/screens/data-lens/imprimatura-3",
-          "width": 1600,
-          "height": 1067,
-          "sha256": "9aabdbbc061dbbd18fc64da056a5de3cdcc15a9e2d9c99801746761ebb958e72",
-          "encoding": "webp-native-preserved-v3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "a747e0e10f2f6ea5d3650ae761f8b366959d939fd63d09b2231e152c6eea1c0a",
+          "encoding": "webp-lossless-native-v2",
           "sources": [
             {
               "src": "assets/screens/data-lens/imprimatura-3/768.webp",
@@ -4017,6 +4105,34 @@
             {
               "src": "assets/screens/data-lens/imprimatura-3/1280.webp",
               "width": 1280
+            },
+            {
+              "src": "assets/screens/data-lens/imprimatura-3/1920.webp",
+              "width": 1920
+            }
+          ]
+        },
+        {
+          "sourceFilename": "original/data_lens6.webp",
+          "theme": "imprimatura",
+          "caption": "Power and wavelength compared by wafer (Nocturne)",
+          "base": "assets/screens/data-lens/imprimatura-6",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "a8aece8f27e661433e89325b7b0eacaa0aad3aa9c6045228321886ef66845d4b",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/data-lens/imprimatura-6/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/data-lens/imprimatura-6/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/data-lens/imprimatura-6/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -4081,10 +4197,10 @@
           "theme": "tenebrismo",
           "caption": "E-Test wafer comparison",
           "base": "assets/screens/data-lens/tenebrismo-1",
-          "width": 1600,
-          "height": 1067,
-          "sha256": "fb8f7dd93627c411770be164d0303aa348731ce459af421e9c4fa22e0e1b8863",
-          "encoding": "webp-native-preserved-v3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "270cdb8a66fafbf67f456710af51acbc435ad2436a48690a5f691f980d4c5469",
+          "encoding": "webp-lossless-native-v2",
           "sources": [
             {
               "src": "assets/screens/data-lens/tenebrismo-1/768.webp",
@@ -4093,6 +4209,10 @@
             {
               "src": "assets/screens/data-lens/tenebrismo-1/1280.webp",
               "width": 1280
+            },
+            {
+              "src": "assets/screens/data-lens/tenebrismo-1/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -4127,12 +4247,12 @@
         {
           "sourceFilename": "void/data_lens3.webp",
           "theme": "tenebrismo",
-          "caption": "Power and wavelength compared by wafer",
+          "caption": "Power and wavelength compared by wafer (Moonstone)",
           "base": "assets/screens/data-lens/tenebrismo-3",
-          "width": 1600,
-          "height": 1067,
-          "sha256": "6ea91333408bfe759c7eaa136c05dac4a45f9d28be4a645425c54f1a8d92ac1c",
-          "encoding": "webp-native-preserved-v3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "bafe567144272b89136cc30c2e9e2adb2fb5cf4979b9379559fb8b01f6d01307",
+          "encoding": "webp-lossless-native-v2",
           "sources": [
             {
               "src": "assets/screens/data-lens/tenebrismo-3/768.webp",
@@ -4141,6 +4261,34 @@
             {
               "src": "assets/screens/data-lens/tenebrismo-3/1280.webp",
               "width": 1280
+            },
+            {
+              "src": "assets/screens/data-lens/tenebrismo-3/1920.webp",
+              "width": 1920
+            }
+          ]
+        },
+        {
+          "sourceFilename": "void/data_lens6.webp",
+          "theme": "tenebrismo",
+          "caption": "Power and wavelength compared by wafer (Nocturne)",
+          "base": "assets/screens/data-lens/tenebrismo-6",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "9c44f4d7fd17d5bf3981077433cb634bbc8cdb3f8eba1c97235f000a710e721c",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/data-lens/tenebrismo-6/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/data-lens/tenebrismo-6/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/data-lens/tenebrismo-6/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -4205,10 +4353,10 @@
           "theme": "pentimento",
           "caption": "E-Test wafer comparison",
           "base": "assets/screens/data-lens/pentimento-1",
-          "width": 1600,
-          "height": 1067,
-          "sha256": "37fddd8724641bbacba36815aa35c4e02396c2c46b9c50bac95ca941c3deea1d",
-          "encoding": "webp-native-preserved-v3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "e1c7bb57ab50611dd42859cd5872d98675faa4339fc18c903a0a328ff81eff58",
+          "encoding": "webp-lossless-native-v2",
           "sources": [
             {
               "src": "assets/screens/data-lens/pentimento-1/768.webp",
@@ -4217,6 +4365,10 @@
             {
               "src": "assets/screens/data-lens/pentimento-1/1280.webp",
               "width": 1280
+            },
+            {
+              "src": "assets/screens/data-lens/pentimento-1/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -4251,12 +4403,12 @@
         {
           "sourceFilename": "pentimento/data_lens3.webp",
           "theme": "pentimento",
-          "caption": "Power and wavelength compared by wafer",
+          "caption": "Power and wavelength compared by wafer (Moonstone)",
           "base": "assets/screens/data-lens/pentimento-3",
-          "width": 1600,
-          "height": 1067,
-          "sha256": "a09f64e77fd6e5ff07efbd46f0b25ae53cd53b8331d3146268ed9b19333b5168",
-          "encoding": "webp-native-preserved-v3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "1d208dd0a8d1f15a2844004ae25d12393c2f73bd2c44db5ea4ea0d6d970e274a",
+          "encoding": "webp-lossless-native-v2",
           "sources": [
             {
               "src": "assets/screens/data-lens/pentimento-3/768.webp",
@@ -4265,6 +4417,34 @@
             {
               "src": "assets/screens/data-lens/pentimento-3/1280.webp",
               "width": 1280
+            },
+            {
+              "src": "assets/screens/data-lens/pentimento-3/1920.webp",
+              "width": 1920
+            }
+          ]
+        },
+        {
+          "sourceFilename": "pentimento/data_lens6.webp",
+          "theme": "pentimento",
+          "caption": "Power and wavelength compared by wafer (Nocturne)",
+          "base": "assets/screens/data-lens/pentimento-6",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "7c0ee5f34718487b7f265413b97a3ec5ad091aeea504872be203cb3298a319fd",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/data-lens/pentimento-6/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/data-lens/pentimento-6/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/data-lens/pentimento-6/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -4348,12 +4528,12 @@
         {
           "sourceFilename": "original/telemetry.webp",
           "theme": "imprimatura",
-          "caption": "Reactor run counters and state history",
+          "caption": "Reactor run counters and state history (Moonstone)",
           "base": "assets/screens/telemetry/imprimatura-1",
-          "width": 1600,
-          "height": 1067,
-          "sha256": "333f7cfdbc6882a3096b6fb4da6287a9f20fc2a7f9b3ee83cd5ddfa1dfe71be2",
-          "encoding": "webp-native-preserved-v3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "b5f88a075661c2f264f6f001260c1d75798fd441beb453cbd52749d28b8bae30",
+          "encoding": "webp-lossless-native-v2",
           "sources": [
             {
               "src": "assets/screens/telemetry/imprimatura-1/768.webp",
@@ -4362,6 +4542,34 @@
             {
               "src": "assets/screens/telemetry/imprimatura-1/1280.webp",
               "width": 1280
+            },
+            {
+              "src": "assets/screens/telemetry/imprimatura-1/1920.webp",
+              "width": 1920
+            }
+          ]
+        },
+        {
+          "sourceFilename": "original/telemetry5.webp",
+          "theme": "imprimatura",
+          "caption": "Reactor run counters and state history (Nocturne)",
+          "base": "assets/screens/telemetry/imprimatura-5",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "e3a1d55653151704e98c938289c72b720f8d5a2a3e2efa9eee019f88c220a4aa",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/telemetry/imprimatura-5/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/telemetry/imprimatura-5/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/telemetry/imprimatura-5/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -4452,12 +4660,12 @@
         {
           "sourceFilename": "void/telemetry.webp",
           "theme": "tenebrismo",
-          "caption": "Reactor run counters and state history",
+          "caption": "Reactor run counters and state history (Moonstone)",
           "base": "assets/screens/telemetry/tenebrismo-1",
-          "width": 1600,
-          "height": 1067,
-          "sha256": "d42a7102b85690a48df6b1b34fd695f1c8e55b213634ba125f7249624632f0af",
-          "encoding": "webp-native-preserved-v3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "b66f5790350cd3bd83c7911e680a997061a6d37c8ab8050ba3b0e80ffaadf78d",
+          "encoding": "webp-lossless-native-v2",
           "sources": [
             {
               "src": "assets/screens/telemetry/tenebrismo-1/768.webp",
@@ -4466,6 +4674,34 @@
             {
               "src": "assets/screens/telemetry/tenebrismo-1/1280.webp",
               "width": 1280
+            },
+            {
+              "src": "assets/screens/telemetry/tenebrismo-1/1920.webp",
+              "width": 1920
+            }
+          ]
+        },
+        {
+          "sourceFilename": "void/telemetry5.webp",
+          "theme": "tenebrismo",
+          "caption": "Reactor run counters and state history (Nocturne)",
+          "base": "assets/screens/telemetry/tenebrismo-5",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "3cf8e7c5db574f76ae6df3424cfd4a1eb692ba2fa5f96f21777cff2439987e1e",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/telemetry/tenebrismo-5/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/telemetry/tenebrismo-5/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/telemetry/tenebrismo-5/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -4556,12 +4792,12 @@
         {
           "sourceFilename": "pentimento/telemetry.webp",
           "theme": "pentimento",
-          "caption": "Reactor run counters and state history",
+          "caption": "Reactor run counters and state history (Moonstone)",
           "base": "assets/screens/telemetry/pentimento-1",
-          "width": 1600,
-          "height": 1067,
-          "sha256": "6d06f1685688b6d5754bb5863326aaef42c818b3e639617b55c946fead233870",
-          "encoding": "webp-native-preserved-v3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "55c1b0adb81ba617f97013d7fb0cfb7b8782a2a673cb16cc039234288e22cf6e",
+          "encoding": "webp-lossless-native-v2",
           "sources": [
             {
               "src": "assets/screens/telemetry/pentimento-1/768.webp",
@@ -4570,6 +4806,34 @@
             {
               "src": "assets/screens/telemetry/pentimento-1/1280.webp",
               "width": 1280
+            },
+            {
+              "src": "assets/screens/telemetry/pentimento-1/1920.webp",
+              "width": 1920
+            }
+          ]
+        },
+        {
+          "sourceFilename": "pentimento/telemetry5.webp",
+          "theme": "pentimento",
+          "caption": "Reactor run counters and state history (Nocturne)",
+          "base": "assets/screens/telemetry/pentimento-5",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "40a6f1f6047b2fd5cc8988bb49bf21486c1a2b86151883bc070a84ff80c3d46f",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/telemetry/pentimento-5/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/telemetry/pentimento-5/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/telemetry/pentimento-5/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -4678,12 +4942,12 @@
         {
           "sourceFilename": "original/manufacts.webp",
           "theme": "imprimatura",
-          "caption": "Checkpoint performance and wafer outcomes",
+          "caption": "Checkpoint performance and wafer outcomes (Moonstone)",
           "base": "assets/screens/manufacts/imprimatura-1",
-          "width": 1600,
-          "height": 1067,
-          "sha256": "01b10bd30ff928a7d80c5eefd292629cedfc78c6dcfe26f87ec874bdf635eee1",
-          "encoding": "webp-native-preserved-v3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "dbcc5875152140365b62a486c22c289a7debd47563b9a64c18864146d9286349",
+          "encoding": "webp-lossless-native-v2",
           "sources": [
             {
               "src": "assets/screens/manufacts/imprimatura-1/768.webp",
@@ -4692,6 +4956,34 @@
             {
               "src": "assets/screens/manufacts/imprimatura-1/1280.webp",
               "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-1/1920.webp",
+              "width": 1920
+            }
+          ]
+        },
+        {
+          "sourceFilename": "original/manufacts7.webp",
+          "theme": "imprimatura",
+          "caption": "Checkpoint performance and wafer outcomes (Nocturne)",
+          "base": "assets/screens/manufacts/imprimatura-7",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "fa13914b6890056926c127b4d838d31b04d797cacff7343bbcbf9d3230f1b4ea",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/imprimatura-7/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-7/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-7/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -4700,10 +4992,10 @@
           "theme": "imprimatura",
           "caption": "Realized and unrealized yield by structure",
           "base": "assets/screens/manufacts/imprimatura-2",
-          "width": 1600,
-          "height": 1067,
-          "sha256": "53506f93a47bfc0c4bea1c8134d4dec56ed9fb33ae4924d73632266bb045aa56",
-          "encoding": "webp-native-preserved-v3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "8b4721f90a2d2ef621aaa810bb49a1a24ef15c9c8f9bd814f48dc2c2b5f98e02",
+          "encoding": "webp-lossless-native-v2",
           "sources": [
             {
               "src": "assets/screens/manufacts/imprimatura-2/768.webp",
@@ -4712,6 +5004,10 @@
             {
               "src": "assets/screens/manufacts/imprimatura-2/1280.webp",
               "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/imprimatura-2/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -4830,12 +5126,12 @@
         {
           "sourceFilename": "void/manufacts.webp",
           "theme": "tenebrismo",
-          "caption": "Checkpoint performance and wafer outcomes",
+          "caption": "Checkpoint performance and wafer outcomes (Moonstone)",
           "base": "assets/screens/manufacts/tenebrismo-1",
-          "width": 1600,
-          "height": 1067,
-          "sha256": "9adb38efec2714d6fa15401102aa3627d8cd1b075ad768e8e5afbdf2cb73c477",
-          "encoding": "webp-native-preserved-v3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "4870841bb93db80c7310bb3b3527f391c625d5a8d6fc8b973058779e5ce4637e",
+          "encoding": "webp-lossless-native-v2",
           "sources": [
             {
               "src": "assets/screens/manufacts/tenebrismo-1/768.webp",
@@ -4844,6 +5140,34 @@
             {
               "src": "assets/screens/manufacts/tenebrismo-1/1280.webp",
               "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-1/1920.webp",
+              "width": 1920
+            }
+          ]
+        },
+        {
+          "sourceFilename": "void/manufacts7.webp",
+          "theme": "tenebrismo",
+          "caption": "Checkpoint performance and wafer outcomes (Nocturne)",
+          "base": "assets/screens/manufacts/tenebrismo-7",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "a6761fd9038c10fe33ed09c9119383b86ee4266d127122635a29b752d7ebc512",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/tenebrismo-7/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-7/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-7/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -4852,10 +5176,10 @@
           "theme": "tenebrismo",
           "caption": "Realized and unrealized yield by structure",
           "base": "assets/screens/manufacts/tenebrismo-2",
-          "width": 1600,
-          "height": 1067,
-          "sha256": "cbd107243afca9b6d30b97d148bb0d2613513480a7f5313b65d31a2dff4c2a8d",
-          "encoding": "webp-native-preserved-v3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "dc5ec972123aa428bc2328e6a6e927a4d77a4ffbafcf64fc759296b8efd8d7cf",
+          "encoding": "webp-lossless-native-v2",
           "sources": [
             {
               "src": "assets/screens/manufacts/tenebrismo-2/768.webp",
@@ -4864,6 +5188,10 @@
             {
               "src": "assets/screens/manufacts/tenebrismo-2/1280.webp",
               "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/tenebrismo-2/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -4982,12 +5310,12 @@
         {
           "sourceFilename": "pentimento/manufacts.webp",
           "theme": "pentimento",
-          "caption": "Checkpoint performance and wafer outcomes",
+          "caption": "Checkpoint performance and wafer outcomes (Moonstone)",
           "base": "assets/screens/manufacts/pentimento-1",
-          "width": 1600,
-          "height": 1067,
-          "sha256": "2c726d8ea1fc0658f36bb9e8bbada94fb19b9f1d0b32b8b9a6bd58f91f00e8a3",
-          "encoding": "webp-native-preserved-v3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "fa5175745d949c7e3edce5239f852e64e5c7f321c81a696b95db640d00913a6f",
+          "encoding": "webp-lossless-native-v2",
           "sources": [
             {
               "src": "assets/screens/manufacts/pentimento-1/768.webp",
@@ -4996,6 +5324,34 @@
             {
               "src": "assets/screens/manufacts/pentimento-1/1280.webp",
               "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-1/1920.webp",
+              "width": 1920
+            }
+          ]
+        },
+        {
+          "sourceFilename": "pentimento/manufacts7.webp",
+          "theme": "pentimento",
+          "caption": "Checkpoint performance and wafer outcomes (Nocturne)",
+          "base": "assets/screens/manufacts/pentimento-7",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "74708b2592fbcdcbaf78c67c5e8093ccbc56dba546a0be8013da45c789d49939",
+          "encoding": "webp-lossless-native-v2",
+          "sources": [
+            {
+              "src": "assets/screens/manufacts/pentimento-7/768.webp",
+              "width": 768
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-7/1280.webp",
+              "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-7/1920.webp",
+              "width": 1920
             }
           ]
         },
@@ -5004,10 +5360,10 @@
           "theme": "pentimento",
           "caption": "Realized and unrealized yield by structure",
           "base": "assets/screens/manufacts/pentimento-2",
-          "width": 1600,
-          "height": 1067,
-          "sha256": "d77f8d1afc729121dbfbc9146311cd68d492d558b72360b7bc09654bbceebc33",
-          "encoding": "webp-native-preserved-v3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "0333686669a867c745c8629f4198c8160c3cfa8a06c324cd6778c2e92246f8f0",
+          "encoding": "webp-lossless-native-v2",
           "sources": [
             {
               "src": "assets/screens/manufacts/pentimento-2/768.webp",
@@ -5016,6 +5372,10 @@
             {
               "src": "assets/screens/manufacts/pentimento-2/1280.webp",
               "width": 1280
+            },
+            {
+              "src": "assets/screens/manufacts/pentimento-2/1920.webp",
+              "width": 1920
             }
           ]
         },

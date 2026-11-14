@@ -31,7 +31,7 @@ test('All native Home variants keep their existing labels, button names, coordin
 
 test('The title bar and navigation use bounded native typography without replacing accessible control labels',async()=>{
  const html=await fs.readFile('index.html','utf8');
- assert.match(html,/class="app-greeting"><svg class="native-text"[^>]*data-native-copy="Hello, Gene\. Welcome to ARTIFACTS\."/);
+ assert.match(html,/class="app-greeting"><svg class="native-text"[^>]*data-native-copy="Welcome to ARTIFACTS\."/);
  for(const attribute of ['data-mode-range','data-mode-name','data-product-status'])assert.match(html,new RegExp(`${attribute}><svg class="native-text"`));
  assert.match(html,/data-cycle-mode aria-label=/);
  assert.match(html,/data-home aria-label="Home"/);
