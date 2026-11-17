@@ -1089,7 +1089,7 @@
               "width": 1920
             }
           ],
-          "sha256": "e828473b71852e3e45fce30d8d55364fb466417627b9ecb0f1e9eb25cd7b4e13"
+          "sha256": "336df56ac482c21e610605ac26411c7c1cc207645f88fe6c292cc1e1e646e2f6"
         },
         {
           "sourceFilename": "original/met_compiler2.webp",
@@ -1113,7 +1113,7 @@
               "width": 1920
             }
           ],
-          "sha256": "b5d8e4b55a0108f3e2e5b1ccb1907f5068014a7bae7b856d255a5875a107f60d"
+          "sha256": "5ff253be8e0a8529a76b661520d78e6d33f46be40828f42280af2edd431de561"
         },
         {
           "sourceFilename": "original/met_compiler3.webp",
@@ -1137,7 +1137,7 @@
               "width": 1920
             }
           ],
-          "sha256": "d2548070c73aeb97e37c71a51bc4dfa7b1bae2f242fc4eb62f1080e55cee8a6c"
+          "sha256": "78da7d297ab8c85b71523106c935c3e9b6bd7cce4198cdf367c488c422e148a9"
         },
         {
           "sourceFilename": "original/met_compiler4.webp",
@@ -1161,7 +1161,7 @@
               "width": 1920
             }
           ],
-          "sha256": "d034cb167c9a9677fbbc2dfa6911ebf0cda3cf73aee8cbe5b1a47772f8fbc4ea"
+          "sha256": "8fb03fe1a1d3f9bb6901954423df1a986a07fe099e636d2d1f0b13132dda9793"
         },
         {
           "sourceFilename": "void/met_compiler.webp",
@@ -1185,7 +1185,7 @@
               "width": 1920
             }
           ],
-          "sha256": "869fba3941d2cb3bdc2deadc5c4eceaed24b2aacb1219a1f2891aa269539efa6"
+          "sha256": "c1fb57df4ab3a55fa90867f35ae16873094f520079344af1b58299042bdaa452"
         },
         {
           "sourceFilename": "void/met_compiler2.webp",
@@ -1209,7 +1209,7 @@
               "width": 1920
             }
           ],
-          "sha256": "8e5bd707d85a997822122ee11ae6ba1f34aa157b877fe030b0e7196815a1a0f5"
+          "sha256": "a941a52448683c7e9ee4315cffaf6c60cbd4aa6f9630ee79447d882b5699b52d"
         },
         {
           "sourceFilename": "void/met_compiler3.webp",
@@ -1233,7 +1233,7 @@
               "width": 1920
             }
           ],
-          "sha256": "f735ff6b1ce554c08c7bb218ebb57e900920aaeaee40d053b8844ee9c284564e"
+          "sha256": "c747e03d8c4d17469ed9df6f9d8ede6689dd9d3327e12a1a842c00add4056ae0"
         },
         {
           "sourceFilename": "void/met_compiler4.webp",
@@ -1257,7 +1257,7 @@
               "width": 1920
             }
           ],
-          "sha256": "e64255be29c19145857362a69f5e9eb80bb268ecb58b1280ed6263d58eec6e78"
+          "sha256": "036bfe5b0029698f9b72ba45bb01386a26a48db122fca8c51a984174b6612a63"
         },
         {
           "sourceFilename": "pentimento/met_compiler.webp",
@@ -1281,7 +1281,7 @@
               "width": 1920
             }
           ],
-          "sha256": "455e659bfc60af1a47336c6e41fc10a64b0bc206d5d91816fe60632e48533a89"
+          "sha256": "60d3f2722a7c841e4b4f6d441227dcc4c0d27cedf27414891a750f5aa6dd9120"
         },
         {
           "sourceFilename": "pentimento/met_compiler2.webp",
@@ -1305,7 +1305,7 @@
               "width": 1920
             }
           ],
-          "sha256": "46ff86739718c0b29d9a5c6ec4946fb915bd12bcc57cdc5827f308d53ee3a748"
+          "sha256": "13b63c1dee6bb84c346d3ecc5172530cd9ef5884dc40426bbf017b04a5211867"
         },
         {
           "sourceFilename": "pentimento/met_compiler3.webp",
@@ -1329,7 +1329,7 @@
               "width": 1920
             }
           ],
-          "sha256": "8e863f3f6a1625503c8bde582ea8e1b5f1ec82244bd324e23788957b25077a0e"
+          "sha256": "6844e4f1e82a35a0487f709c4af65c0f0dfd7dc5d91177725592ce3a0b1a1306"
         },
         {
           "sourceFilename": "pentimento/met_compiler4.webp",
@@ -1353,7 +1353,7 @@
               "width": 1920
             }
           ],
-          "sha256": "6d18599463fc6d4f6672eae53f70f9145eca20e4389bb99b4c8f8543577c4f52"
+          "sha256": "5133895cb64d3d99b98fc6b9b6f09bb20fb16c9466424177f20215dd1d689efc"
         }
       ],
       "navigationIcon": "assets/native/navigation/metro_tab.svg",
@@ -3290,7 +3290,7 @@
           "base": "assets/screens/metria-spc/imprimatura-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "ca1e447969d12c74c4e1306cb5de73a2fbbd2ccb139072462560017c61695a78",
+          "sha256": "1f6eabd1ae13acf7fb95613cfe8bbfa3ddc5491e90f735aa9da5f5679cd903bf",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3314,7 +3314,7 @@
           "base": "assets/screens/metria-spc/imprimatura-4",
           "width": 2460,
           "height": 1640,
-          "sha256": "d0cece921cff424550730a178be7eff2599480e6d235133c9f28c8f22509c336",
+          "sha256": "95e3e54879f1aa3ed6d70c072b74a1ea57d11c0bc3b3593f27972c6e101d3f0a",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3336,9 +3336,9 @@
           "theme": "imprimatura",
           "caption": "Equipment comparison",
           "base": "assets/screens/metria-spc/imprimatura-2",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "5422ecac222d3fa7b4f4672686dc401a6af112f4465bf00449b44a56d785a3f1",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "3f8f0354858b7226c436c6c8afd13efcfb07012cdf23a91f0461e160a91595e7",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3352,10 +3352,6 @@
             {
               "src": "assets/screens/metria-spc/imprimatura-2/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/metria-spc/imprimatura-2/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -3364,9 +3360,9 @@
           "theme": "imprimatura",
           "caption": "Run-type comparison",
           "base": "assets/screens/metria-spc/imprimatura-3",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "eaf0febb157f75750dd188822fdd52a49682a4b0bdc560bb55f6cad0650cad57",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "25871600ea467b5f57eacb2269465e8e36b93f46ae65810719fad540431afa38",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3380,10 +3376,6 @@
             {
               "src": "assets/screens/metria-spc/imprimatura-3/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/metria-spc/imprimatura-3/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -3394,7 +3386,7 @@
           "base": "assets/screens/metria-spc/tenebrismo-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "39be9896365abbca57313e92c29ad405c8d9959261de073e72bb15773faff5f5",
+          "sha256": "1fab86f91c897f99fb6287c02fe953bac5e33fc0cb6d61160f925eceff39d604",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3418,7 +3410,7 @@
           "base": "assets/screens/metria-spc/tenebrismo-4",
           "width": 2460,
           "height": 1640,
-          "sha256": "5c9a59f13bb9e811b1ff6b6b2dc6eebfe457d0e7c8ff3c167bb45c2c46cdf30b",
+          "sha256": "86997e886348973bf221c36ae0a11a91d91233316f9da8dbfab3af8962a1776d",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3440,9 +3432,9 @@
           "theme": "tenebrismo",
           "caption": "Equipment comparison",
           "base": "assets/screens/metria-spc/tenebrismo-2",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "e19b8d6614477b78a07dfa6b516a5dad1f997ab8676d53ada4d4c7019398b26a",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "7a09cd374376e92f5b736a485f33fcc283a1c85425bf77d54eec9e7f9d56bafd",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3456,10 +3448,6 @@
             {
               "src": "assets/screens/metria-spc/tenebrismo-2/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/metria-spc/tenebrismo-2/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -3468,9 +3456,9 @@
           "theme": "tenebrismo",
           "caption": "Run-type comparison",
           "base": "assets/screens/metria-spc/tenebrismo-3",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "f040c53e56aa0101d9a33b1ddd9f461b0448504b897f582a934bce0609cb2700",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "ef0afee6593820dea34662af080a31e653cb90e14a57293f31689676b77dcf07",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3484,10 +3472,6 @@
             {
               "src": "assets/screens/metria-spc/tenebrismo-3/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/metria-spc/tenebrismo-3/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -3498,7 +3482,7 @@
           "base": "assets/screens/metria-spc/pentimento-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "d92183ac0d5dc699b470a0f04e4444385908050fdcb0409d005a6e60aed9b456",
+          "sha256": "3135c9f42b0c905aee5485462fee506672d9a9b5039aa675747df8de6ca2a68a",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3522,7 +3506,7 @@
           "base": "assets/screens/metria-spc/pentimento-4",
           "width": 2460,
           "height": 1640,
-          "sha256": "2eae08535beb30ef1cba9c50f56e3381a2484e6a7e4de4bef9b95d7dd80a0f10",
+          "sha256": "3ce7c513cb440d665656008889aa7bb966c36d0599bd4cefd5afaf200befbade",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3544,9 +3528,9 @@
           "theme": "pentimento",
           "caption": "Equipment comparison",
           "base": "assets/screens/metria-spc/pentimento-2",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "6256b8533aec438bd854b9e055c43d1ba4eef8a283142eb055371d144411719e",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "25a8c5929fd30f4812e4ae79afd67fedc606820fe9c77309f5b2533fec7d71e2",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3560,10 +3544,6 @@
             {
               "src": "assets/screens/metria-spc/pentimento-2/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/metria-spc/pentimento-2/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -3572,9 +3552,9 @@
           "theme": "pentimento",
           "caption": "Run-type comparison",
           "base": "assets/screens/metria-spc/pentimento-3",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "e40eb6010be7049de5a09bb670fea3aee86167efe4bf1abd618ff6214d89a5dd",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "f701ba22d649642dc72df978ccb95f6a442f7e0010243a5e62e7642467735535",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3588,10 +3568,6 @@
             {
               "src": "assets/screens/metria-spc/pentimento-3/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/metria-spc/pentimento-3/2560.webp",
-              "width": 2560
             }
           ]
         }
@@ -3623,7 +3599,7 @@
           "base": "assets/screens/aperture-spc/imprimatura-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "2ff38a2dee1b738f16b0282b02c0f79f051f10053b1c877e00349e6f2ce42467",
+          "sha256": "12e333e4e3fb37f1e566cc6c2a94d4d3e7ad5f31e7d0c221b37286dab8fa136f",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3647,7 +3623,7 @@
           "base": "assets/screens/aperture-spc/imprimatura-5",
           "width": 2460,
           "height": 1640,
-          "sha256": "3e245179b40107960d44f2d521fb2d09b419a517efa777dc0cb7c4715efb95ce",
+          "sha256": "b7ace2f0db39745c8bc847544d584c76829308b5c876d1d23c3a5d882e4540dc",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3669,9 +3645,9 @@
           "theme": "imprimatura",
           "caption": "Analysis Builder and query scope",
           "base": "assets/screens/aperture-spc/imprimatura-2",
-          "width": 2560,
-          "height": 1550,
-          "sha256": "e9f0c18f6b52e0d945adacf21d6acbe6c35c1e83dfc61a515a00ada2ba38c09b",
+          "width": 2320,
+          "height": 1540,
+          "sha256": "7145cbb960affb4a3e03192e044d334338092061a897fad2cd1b0b9f3f26a634",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3685,10 +3661,6 @@
             {
               "src": "assets/screens/aperture-spc/imprimatura-2/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/aperture-spc/imprimatura-2/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -3697,9 +3669,9 @@
           "theme": "imprimatura",
           "caption": "Measurement distributions",
           "base": "assets/screens/aperture-spc/imprimatura-3",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "026a57c3f16accff00e400ac58e13f9170f78de2e80709b544763ddf28fe27bd",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "6b580031a1fe4647cfc98b6d92f6db053e5cf0c793a570b820966e39fe0bf484",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3713,10 +3685,6 @@
             {
               "src": "assets/screens/aperture-spc/imprimatura-3/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/aperture-spc/imprimatura-3/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -3725,9 +3693,9 @@
           "theme": "imprimatura",
           "caption": "Lot distributions",
           "base": "assets/screens/aperture-spc/imprimatura-4",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "3b2611d4e4ec72bf3a67d622de465a3260712cb7bd3a5afcc7820bcc414dc4cf",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "99f3516fbf4182e3175579657706069499035c712a2e1ea0be6077fc7a0effcf",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3741,10 +3709,6 @@
             {
               "src": "assets/screens/aperture-spc/imprimatura-4/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/aperture-spc/imprimatura-4/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -3755,7 +3719,7 @@
           "base": "assets/screens/aperture-spc/tenebrismo-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "193f6d6a8337e0b12198477820f9a0b7f5998ef78e847086948599b2da9198bc",
+          "sha256": "7e4621b772a9f85ce4abc9455d01a91df4ac43792f4fb33792eac9447b910d51",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3779,7 +3743,7 @@
           "base": "assets/screens/aperture-spc/tenebrismo-5",
           "width": 2460,
           "height": 1640,
-          "sha256": "6ca25bf15d8e5aa07a3c1431571ea0698d9ba483289be73c6b91d63a456d9acb",
+          "sha256": "4fc4f731730286702d660c257fc2d6cb18a128ef87e605404b13049bc4c35b5f",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3801,9 +3765,9 @@
           "theme": "tenebrismo",
           "caption": "Analysis Builder and query scope",
           "base": "assets/screens/aperture-spc/tenebrismo-2",
-          "width": 2560,
-          "height": 1550,
-          "sha256": "179ad4ca248c8c66feb3c5c59f86cef5bd794a12430548d9eeccd6533195d0dd",
+          "width": 2320,
+          "height": 1540,
+          "sha256": "80b9406ecf94836ca51726bda0b959608f1f80f3cb00030046b7cc93349b99e0",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3817,10 +3781,6 @@
             {
               "src": "assets/screens/aperture-spc/tenebrismo-2/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/aperture-spc/tenebrismo-2/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -3829,9 +3789,9 @@
           "theme": "tenebrismo",
           "caption": "Measurement distributions",
           "base": "assets/screens/aperture-spc/tenebrismo-3",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "2dc5609bb6475722e53bd905b8752721f05ae8a5120851372f35e7f65c693776",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "f26ae4fb2612ebd30b4e25c28c682356804ea1ea495442295f829a9e1b493685",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3845,10 +3805,6 @@
             {
               "src": "assets/screens/aperture-spc/tenebrismo-3/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/aperture-spc/tenebrismo-3/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -3857,9 +3813,9 @@
           "theme": "tenebrismo",
           "caption": "Lot distributions",
           "base": "assets/screens/aperture-spc/tenebrismo-4",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "ae55ab5e25682326a66b8cde02f6186f34979feb719cbf5853f10dc7e61c8c0c",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "7d06f4ae7d4045e38f44acd2114fd4fd7db0896f1746f5c863f67a313cf5ab4c",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3873,10 +3829,6 @@
             {
               "src": "assets/screens/aperture-spc/tenebrismo-4/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/aperture-spc/tenebrismo-4/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -3887,7 +3839,7 @@
           "base": "assets/screens/aperture-spc/pentimento-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "7d59cb3492591bd805701092a2bca35c23428608c206d44819667fa6b47b9183",
+          "sha256": "3e3b8abb9019850d1a2a76abc7b733f020b1c83ca6d3271a3e078a9e55279012",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3911,7 +3863,7 @@
           "base": "assets/screens/aperture-spc/pentimento-5",
           "width": 2460,
           "height": 1640,
-          "sha256": "ad988aba732d466fdd91164aa7880333d91e88925a5d8e99709789dfac77b3b2",
+          "sha256": "67a9feee92b491a95cb1fc9fd542b016ae01e77f123908e21563cc8933360991",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3933,9 +3885,9 @@
           "theme": "pentimento",
           "caption": "Analysis Builder and query scope",
           "base": "assets/screens/aperture-spc/pentimento-2",
-          "width": 2560,
-          "height": 1550,
-          "sha256": "4fa94f986c008325d7c839ee474754f26bce14e5e49189599750b20673a19e91",
+          "width": 2320,
+          "height": 1540,
+          "sha256": "43b7e705ad4aadeb8691f6a7091ca518790516a28e351e04b2bd37d7cdaead99",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3949,10 +3901,6 @@
             {
               "src": "assets/screens/aperture-spc/pentimento-2/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/aperture-spc/pentimento-2/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -3961,9 +3909,9 @@
           "theme": "pentimento",
           "caption": "Measurement distributions",
           "base": "assets/screens/aperture-spc/pentimento-3",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "ec3c251e5f404ecee92cae588dc37962afd6e7f2b3c54fea0c460c383d10a060",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "f2cd7904f0738673b1fa35100ca28ecf37f19c9d422e65c6d6a4e94ba5d563a1",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -3977,10 +3925,6 @@
             {
               "src": "assets/screens/aperture-spc/pentimento-3/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/aperture-spc/pentimento-3/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -3989,9 +3933,9 @@
           "theme": "pentimento",
           "caption": "Lot distributions",
           "base": "assets/screens/aperture-spc/pentimento-4",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "dbd67a947ee6958c0f664cc4c41560c03f87f4f62fa21928d4735a52426e52e8",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "c103a6841b19d6e87c95a2c3b5ed086db3818393677568e8ec71b13289ad50a5",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4005,10 +3949,6 @@
             {
               "src": "assets/screens/aperture-spc/pentimento-4/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/aperture-spc/pentimento-4/2560.webp",
-              "width": 2560
             }
           ]
         }
@@ -4043,7 +3983,7 @@
           "base": "assets/screens/data-lens/imprimatura-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "e4e4bdf7d2a3d91ac3549cb6fb3b6f7835e4023d807cea9ada268bbdd58da15e",
+          "sha256": "717e116119d2064e8605fa5a3f8e2672bc7e43991bf1d711e1df558064efd42f",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4065,9 +4005,9 @@
           "theme": "imprimatura",
           "caption": "Measured E-Test site maps",
           "base": "assets/screens/data-lens/imprimatura-2",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "3b9593625a39bfbc2d5289520a5fa1b2c7322461b2298071cf5008144eec5a1c",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "abd9de18077534b5d92f7cbce8f79255ad52f9119e914027b3aadfae537c4aa3",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4081,10 +4021,6 @@
             {
               "src": "assets/screens/data-lens/imprimatura-2/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/data-lens/imprimatura-2/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -4093,9 +4029,9 @@
           "theme": "imprimatura",
           "caption": "Power and wavelength compared by wafer (Moonstone)",
           "base": "assets/screens/data-lens/imprimatura-3",
-          "width": 2460,
-          "height": 1640,
-          "sha256": "a747e0e10f2f6ea5d3650ae761f8b366959d939fd63d09b2231e152c6eea1c0a",
+          "width": 2400,
+          "height": 1600,
+          "sha256": "7623ea86aebc6ee1e06170e4d1ba822d087ee1cf7a7ad31e121859ced51f1e53",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4117,9 +4053,9 @@
           "theme": "imprimatura",
           "caption": "Power and wavelength compared by wafer (Nocturne)",
           "base": "assets/screens/data-lens/imprimatura-6",
-          "width": 2460,
-          "height": 1640,
-          "sha256": "a8aece8f27e661433e89325b7b0eacaa0aad3aa9c6045228321886ef66845d4b",
+          "width": 2400,
+          "height": 1600,
+          "sha256": "2bf91fb1e630558d5f2213907d7b78c2afb80abcdd18da91823f5b2e3001b2df",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4141,9 +4077,9 @@
           "theme": "imprimatura",
           "caption": "Measurement distributions",
           "base": "assets/screens/data-lens/imprimatura-4",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "fcbb8eb3cbe245183b52d81bdd39b55bd17cf232f1fa1bb0c27bf73489b3b999",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "b9e82be23c3d54e408f0efb77a02804b84c5feca2a237120bb0503bf3ce3dda6",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4157,10 +4093,6 @@
             {
               "src": "assets/screens/data-lens/imprimatura-4/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/data-lens/imprimatura-4/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -4169,9 +4101,9 @@
           "theme": "imprimatura",
           "caption": "Wafer profiles",
           "base": "assets/screens/data-lens/imprimatura-5",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "b2dbc5c043f5958a584d1e263d613521e8612343bf5fe681aad05b2d3da93d99",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "98d73f75b0df70117e03dc1d7fa6e14dab4948af6858dff36e0b8827be7fdb12",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4185,10 +4117,6 @@
             {
               "src": "assets/screens/data-lens/imprimatura-5/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/data-lens/imprimatura-5/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -4199,7 +4127,7 @@
           "base": "assets/screens/data-lens/tenebrismo-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "270cdb8a66fafbf67f456710af51acbc435ad2436a48690a5f691f980d4c5469",
+          "sha256": "82798e47c7ea6ddd2dc11721579385525f72dd796d4507fa4becefac0a19edba",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4221,9 +4149,9 @@
           "theme": "tenebrismo",
           "caption": "Measured E-Test site maps",
           "base": "assets/screens/data-lens/tenebrismo-2",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "56ec588324dab6792ec8905d3a3b628410e2ff4a627b7d51a2a0ac8f5f0b2b78",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "48f52a250fc760c5495ef9bc9a9765288d892f6600ee5b6b5bdc3ec147624f42",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4237,10 +4165,6 @@
             {
               "src": "assets/screens/data-lens/tenebrismo-2/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/data-lens/tenebrismo-2/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -4249,9 +4173,9 @@
           "theme": "tenebrismo",
           "caption": "Power and wavelength compared by wafer (Moonstone)",
           "base": "assets/screens/data-lens/tenebrismo-3",
-          "width": 2460,
-          "height": 1640,
-          "sha256": "bafe567144272b89136cc30c2e9e2adb2fb5cf4979b9379559fb8b01f6d01307",
+          "width": 2400,
+          "height": 1600,
+          "sha256": "6a3bf853f5641467bc9e93a86d3c29531585e25637608c7f9b703ff2e13a2b27",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4273,9 +4197,9 @@
           "theme": "tenebrismo",
           "caption": "Power and wavelength compared by wafer (Nocturne)",
           "base": "assets/screens/data-lens/tenebrismo-6",
-          "width": 2460,
-          "height": 1640,
-          "sha256": "9c44f4d7fd17d5bf3981077433cb634bbc8cdb3f8eba1c97235f000a710e721c",
+          "width": 2400,
+          "height": 1600,
+          "sha256": "0226369f5a31f6d9576fa1b541baf21f3e718b3f6d5645211cd633b69c56457c",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4297,9 +4221,9 @@
           "theme": "tenebrismo",
           "caption": "Measurement distributions",
           "base": "assets/screens/data-lens/tenebrismo-4",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "672228554e5ce948f691383dd3f3b0302d9fcb66d6ca359e9963fce38c50e273",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "f229c6855efc251e9ef8b2a87f9367ff39bba74438b54295cd1e626fbba86e54",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4313,10 +4237,6 @@
             {
               "src": "assets/screens/data-lens/tenebrismo-4/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/data-lens/tenebrismo-4/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -4325,9 +4245,9 @@
           "theme": "tenebrismo",
           "caption": "Wafer profiles",
           "base": "assets/screens/data-lens/tenebrismo-5",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "924655efbd1a3a9ca7c3613446cdfd3237525d4670357b54e3fbfefca54e16eb",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "0979e295c8242940b1a521b6182c2e55d8a70b74b45043962ad0b873f3de108b",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4341,10 +4261,6 @@
             {
               "src": "assets/screens/data-lens/tenebrismo-5/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/data-lens/tenebrismo-5/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -4355,7 +4271,7 @@
           "base": "assets/screens/data-lens/pentimento-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "e1c7bb57ab50611dd42859cd5872d98675faa4339fc18c903a0a328ff81eff58",
+          "sha256": "9b3ec480c1f910b4d5f8f630ae5ffed8b854db7371fe41c76bcac1e7edffc158",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4377,9 +4293,9 @@
           "theme": "pentimento",
           "caption": "Measured E-Test site maps",
           "base": "assets/screens/data-lens/pentimento-2",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "75296951a9e0143dd38843c42bedaf0851ff4a84ed8d9e9374d737002788f6da",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "07781891e473f9f3bb715154b035a862a43fd2878ff006fffae3f7ea25541c6d",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4393,10 +4309,6 @@
             {
               "src": "assets/screens/data-lens/pentimento-2/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/data-lens/pentimento-2/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -4405,9 +4317,9 @@
           "theme": "pentimento",
           "caption": "Power and wavelength compared by wafer (Moonstone)",
           "base": "assets/screens/data-lens/pentimento-3",
-          "width": 2460,
-          "height": 1640,
-          "sha256": "1d208dd0a8d1f15a2844004ae25d12393c2f73bd2c44db5ea4ea0d6d970e274a",
+          "width": 2400,
+          "height": 1600,
+          "sha256": "b7109016cd51f48737ec3181f8e5f7ee479a43fbf27f356b064aeeec8e2169f5",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4429,9 +4341,9 @@
           "theme": "pentimento",
           "caption": "Power and wavelength compared by wafer (Nocturne)",
           "base": "assets/screens/data-lens/pentimento-6",
-          "width": 2460,
-          "height": 1640,
-          "sha256": "7c0ee5f34718487b7f265413b97a3ec5ad091aeea504872be203cb3298a319fd",
+          "width": 2400,
+          "height": 1600,
+          "sha256": "1dfda6c07c63d02c14e2daa54eff46370997e813acdb1cda5c47e43b2ba302bd",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4453,9 +4365,9 @@
           "theme": "pentimento",
           "caption": "Measurement distributions",
           "base": "assets/screens/data-lens/pentimento-4",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "d10a6dd831559c1211f2477688da96b2d2684baf0737a5c81c189c0c9e0cc726",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "14b07b184cd4a216f39534851dbcd2222f4f91bbbaf33d9fadf30cf5c4471a42",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4469,10 +4381,6 @@
             {
               "src": "assets/screens/data-lens/pentimento-4/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/data-lens/pentimento-4/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -4481,9 +4389,9 @@
           "theme": "pentimento",
           "caption": "Wafer profiles",
           "base": "assets/screens/data-lens/pentimento-5",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "e236cbe628884c9aec2d88fff3771753b91e193a63f8c8cffc925aa913353ece",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "4ee08447a92c6ac35fd9a9cda07295d4425ef3a76724044c740ba21c3d12123a",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4497,10 +4405,6 @@
             {
               "src": "assets/screens/data-lens/pentimento-5/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/data-lens/pentimento-5/2560.webp",
-              "width": 2560
             }
           ]
         }
@@ -4532,7 +4436,7 @@
           "base": "assets/screens/telemetry/imprimatura-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "b5f88a075661c2f264f6f001260c1d75798fd441beb453cbd52749d28b8bae30",
+          "sha256": "390ef9df24d40368ff29b49c54737c9b9d8bfbf35273838655730ebcf9dfbef9",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4556,7 +4460,7 @@
           "base": "assets/screens/telemetry/imprimatura-5",
           "width": 2460,
           "height": 1640,
-          "sha256": "e3a1d55653151704e98c938289c72b720f8d5a2a3e2efa9eee019f88c220a4aa",
+          "sha256": "24856a8160654b6c936f3bfd9f82a4844df0676831ba2c081cb629d13fff7799",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4578,9 +4482,9 @@
           "theme": "imprimatura",
           "caption": "Bubbler weight history",
           "base": "assets/screens/telemetry/imprimatura-2",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "1700198d7034eb79b013fbed2f09bf78d62d2fd5c449de0cddd0f14c2af546d1",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "8c059b0f9fc7931d94e39c0c86e756762a92df4a707af79e43bd2168eee71b36",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4594,10 +4498,6 @@
             {
               "src": "assets/screens/telemetry/imprimatura-2/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/telemetry/imprimatura-2/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -4606,9 +4506,9 @@
           "theme": "imprimatura",
           "caption": "Twelve-hour analysis overview",
           "base": "assets/screens/telemetry/imprimatura-3",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "c0e15add09c764550ae5ad2ff6cba43d40f4dffee48ae861fb67668396136583",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "7414161c7a944acc5db44ee1540b0ea7bc109ba96669acd1671ef8865b2f7080",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4622,10 +4522,6 @@
             {
               "src": "assets/screens/telemetry/imprimatura-3/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/telemetry/imprimatura-3/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -4634,9 +4530,9 @@
           "theme": "imprimatura",
           "caption": "Twelve-hour sensor trends",
           "base": "assets/screens/telemetry/imprimatura-4",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "3d1d2523d35c48529eb79372af558731e6ceadf068b86904641006f7ffcce4a0",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "dfb6757932ce0d65b396ffa6d6a133d85ee472929b7646bd1c4d1e9fb950f564",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4650,10 +4546,6 @@
             {
               "src": "assets/screens/telemetry/imprimatura-4/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/telemetry/imprimatura-4/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -4664,7 +4556,7 @@
           "base": "assets/screens/telemetry/tenebrismo-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "b66f5790350cd3bd83c7911e680a997061a6d37c8ab8050ba3b0e80ffaadf78d",
+          "sha256": "f18892aea0713efb7cfc91724f65083616019e70006085e53e970f5b4ab6d24e",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4688,7 +4580,7 @@
           "base": "assets/screens/telemetry/tenebrismo-5",
           "width": 2460,
           "height": 1640,
-          "sha256": "3cf8e7c5db574f76ae6df3424cfd4a1eb692ba2fa5f96f21777cff2439987e1e",
+          "sha256": "792965eb232a7c34a838d13540dc2f994d0a18bf462bba9225078c42ce1d58dd",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4710,9 +4602,9 @@
           "theme": "tenebrismo",
           "caption": "Bubbler weight history",
           "base": "assets/screens/telemetry/tenebrismo-2",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "641577a2a5455e0b079afe740804448906b057326d9f0b69fcb0b0582a31ad33",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "76a57aedf886422aea9517865a22bd6bc08b8ccf46a851892b08824afb5e4244",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4726,10 +4618,6 @@
             {
               "src": "assets/screens/telemetry/tenebrismo-2/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/telemetry/tenebrismo-2/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -4738,9 +4626,9 @@
           "theme": "tenebrismo",
           "caption": "Twelve-hour analysis overview",
           "base": "assets/screens/telemetry/tenebrismo-3",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "15d15654e0c0f9a5da8d7c75988bfdea225790cccb3058d5c447b92cd91f38ed",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "130a8896ac032ccce2f4f951f39c7fdadc011caf2383acb27a9d19bbddb3cd45",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4754,10 +4642,6 @@
             {
               "src": "assets/screens/telemetry/tenebrismo-3/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/telemetry/tenebrismo-3/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -4766,9 +4650,9 @@
           "theme": "tenebrismo",
           "caption": "Twelve-hour sensor trends",
           "base": "assets/screens/telemetry/tenebrismo-4",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "ea723cfcbb5dc6bc47d41ac607de47a42dedf9859e8ad781edd2c51d9a7c4aeb",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "fd484bdc0e3b0dd7f4366e3f680d7b2961b38036092eb452eee37db1531bffd8",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4782,10 +4666,6 @@
             {
               "src": "assets/screens/telemetry/tenebrismo-4/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/telemetry/tenebrismo-4/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -4796,7 +4676,7 @@
           "base": "assets/screens/telemetry/pentimento-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "55c1b0adb81ba617f97013d7fb0cfb7b8782a2a673cb16cc039234288e22cf6e",
+          "sha256": "17718061ca53c231c0b4438c25838cf00f4526f6d35f810552ffa14de0354f3a",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4820,7 +4700,7 @@
           "base": "assets/screens/telemetry/pentimento-5",
           "width": 2460,
           "height": 1640,
-          "sha256": "40a6f1f6047b2fd5cc8988bb49bf21486c1a2b86151883bc070a84ff80c3d46f",
+          "sha256": "f010532e2ada481d4f276099383299741cc1927577aa29629aa27b20d41d097e",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4842,9 +4722,9 @@
           "theme": "pentimento",
           "caption": "Bubbler weight history",
           "base": "assets/screens/telemetry/pentimento-2",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "c54a08c26c42c4422ab763e4dfa41d99d8a27a37290c4e4d08c4e3f20753b52e",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "f659936243bbc9acefc2608ed80122393b79fe64efeb7d42332cff5b754af76e",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4858,10 +4738,6 @@
             {
               "src": "assets/screens/telemetry/pentimento-2/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/telemetry/pentimento-2/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -4870,9 +4746,9 @@
           "theme": "pentimento",
           "caption": "Twelve-hour analysis overview",
           "base": "assets/screens/telemetry/pentimento-3",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "4648be83afb1e60da8456156cfdd57479c609a09ea8985eb2ac3f3ae7b15fe31",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "525c8cf6e161007ebf3021e2bd9e534f86f288e2ba7ce82e2eb964b82dc40c4f",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4886,10 +4762,6 @@
             {
               "src": "assets/screens/telemetry/pentimento-3/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/telemetry/pentimento-3/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -4898,9 +4770,9 @@
           "theme": "pentimento",
           "caption": "Twelve-hour sensor trends",
           "base": "assets/screens/telemetry/pentimento-4",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "5eb7ca24911c5c35f248f2ba2e1d0f54a966927938d364d5c282602ade9c41f2",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "87a1d31aceb3d391d25ae2a2b5f8e1fda99f1c4b65bef6f3a4bd82e96e51355d",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4914,10 +4786,6 @@
             {
               "src": "assets/screens/telemetry/pentimento-4/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/telemetry/pentimento-4/2560.webp",
-              "width": 2560
             }
           ]
         }
@@ -4946,7 +4814,7 @@
           "base": "assets/screens/manufacts/imprimatura-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "dbcc5875152140365b62a486c22c289a7debd47563b9a64c18864146d9286349",
+          "sha256": "faf409525048a07d326ab2899e0d15861258bfb50e90b57900be0f9cadcd94dd",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4970,7 +4838,7 @@
           "base": "assets/screens/manufacts/imprimatura-7",
           "width": 2460,
           "height": 1640,
-          "sha256": "fa13914b6890056926c127b4d838d31b04d797cacff7343bbcbf9d3230f1b4ea",
+          "sha256": "d772364cb5639b800cba27ed469014015895718b82419083103488d4165ec010",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -4994,7 +4862,7 @@
           "base": "assets/screens/manufacts/imprimatura-2",
           "width": 2460,
           "height": 1640,
-          "sha256": "8b4721f90a2d2ef621aaa810bb49a1a24ef15c9c8f9bd814f48dc2c2b5f98e02",
+          "sha256": "84db7680f69f0c6c851513a2a7bc1521fc99e82417dc87c06a94472b9ca4aa88",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5016,9 +4884,9 @@
           "theme": "imprimatura",
           "caption": "Hold duration and hold activity",
           "base": "assets/screens/manufacts/imprimatura-3",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "6a48d40f7d596dccb6396188347f24a6c30421b8be3704b6f739556927cb6787",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "1d72934d6ffe209401d0096d842c309179ed13a5630b8cc29ec3dadef452b6d0",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5032,10 +4900,6 @@
             {
               "src": "assets/screens/manufacts/imprimatura-3/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/manufacts/imprimatura-3/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -5044,9 +4908,9 @@
           "theme": "imprimatura",
           "caption": "Held lots, recorded reasons, and relative age",
           "base": "assets/screens/manufacts/imprimatura-4",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "e499efa3eaeed1045af6522b5be45641fca1808474e946a280610f2b7fe29304",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "bbcf0856917cabc8275e42a024406c8a70d198a12cf919b78605c1a42e64457c",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5060,10 +4924,6 @@
             {
               "src": "assets/screens/manufacts/imprimatura-4/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/manufacts/imprimatura-4/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -5072,9 +4932,9 @@
           "theme": "imprimatura",
           "caption": "Material distribution by last recorded step",
           "base": "assets/screens/manufacts/imprimatura-5",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "ee60b406f7b8b2c3259f921f380fbf64e0a9b48849152c80b06900df28841b04",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "ff104c54e1df91e2708517d85bdbae4ee6bce8dfd8738c0d6ebe48df02aaaa02",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5088,10 +4948,6 @@
             {
               "src": "assets/screens/manufacts/imprimatura-5/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/manufacts/imprimatura-5/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -5100,9 +4956,9 @@
           "theme": "imprimatura",
           "caption": "Recorded process history for a selected lot",
           "base": "assets/screens/manufacts/imprimatura-6",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "8d110a52902bbb866247501d16dfe0b274c7c3a4340f08e2aae24ac09cc31df3",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "98713498c2fabf9e2ec3c5844d18485b4505c2b2be2893a47b91e4dce4197313",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5116,10 +4972,6 @@
             {
               "src": "assets/screens/manufacts/imprimatura-6/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/manufacts/imprimatura-6/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -5130,7 +4982,7 @@
           "base": "assets/screens/manufacts/tenebrismo-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "4870841bb93db80c7310bb3b3527f391c625d5a8d6fc8b973058779e5ce4637e",
+          "sha256": "64409f47247d5bd79b2bdf55a171766f9891b40d530a1998d353e70edd3e49fc",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5154,7 +5006,7 @@
           "base": "assets/screens/manufacts/tenebrismo-7",
           "width": 2460,
           "height": 1640,
-          "sha256": "a6761fd9038c10fe33ed09c9119383b86ee4266d127122635a29b752d7ebc512",
+          "sha256": "efaf0004c8a04c529f72a55811292b881e83bfa130e8e45bd725eab1ad72dfbc",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5178,7 +5030,7 @@
           "base": "assets/screens/manufacts/tenebrismo-2",
           "width": 2460,
           "height": 1640,
-          "sha256": "dc5ec972123aa428bc2328e6a6e927a4d77a4ffbafcf64fc759296b8efd8d7cf",
+          "sha256": "4256de3e4c402dd4a747c8d6481e7dc7988864084ab7d1ea86f9ac532cb15149",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5200,9 +5052,9 @@
           "theme": "tenebrismo",
           "caption": "Hold duration and hold activity",
           "base": "assets/screens/manufacts/tenebrismo-3",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "c5f6cdcd2fa774c1bd6ef27265956a47bb692802f1a8020b8178130746aa8f9c",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "aa12c174baf91de8acd9dfc517924c20785ffd613fa86a185fb781e81fc7a5b2",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5216,10 +5068,6 @@
             {
               "src": "assets/screens/manufacts/tenebrismo-3/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/manufacts/tenebrismo-3/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -5228,9 +5076,9 @@
           "theme": "tenebrismo",
           "caption": "Held lots, recorded reasons, and relative age",
           "base": "assets/screens/manufacts/tenebrismo-4",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "8e18ced72fc90b61f03a209ccb1e29fcb08f9e2695f87111a8842e4ce8adeaf6",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "014b7c2dae2e587370050f289654599494b8d02505210aeb21bc9b42006ff9ce",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5244,10 +5092,6 @@
             {
               "src": "assets/screens/manufacts/tenebrismo-4/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/manufacts/tenebrismo-4/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -5256,9 +5100,9 @@
           "theme": "tenebrismo",
           "caption": "Material distribution by last recorded step",
           "base": "assets/screens/manufacts/tenebrismo-5",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "e0f83848da54cdbd2fa4d08afb76b0dbc505da1d04eb7b6cf05aed78407da2fe",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "4ef8626840f5fa8daa521183c62dc97de1b536e694d82efad3b615afe6240664",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5272,10 +5116,6 @@
             {
               "src": "assets/screens/manufacts/tenebrismo-5/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/manufacts/tenebrismo-5/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -5284,9 +5124,9 @@
           "theme": "tenebrismo",
           "caption": "Recorded process history for a selected lot",
           "base": "assets/screens/manufacts/tenebrismo-6",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "84af9dc36d7b68feb3a781c6cdd53d6aa37b24dd94edae479af37d44627e7582",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "e93d8f8a4207db0a2c2d808e9b05a46789043186f8105cc743526f6926e7fafd",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5300,10 +5140,6 @@
             {
               "src": "assets/screens/manufacts/tenebrismo-6/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/manufacts/tenebrismo-6/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -5314,7 +5150,7 @@
           "base": "assets/screens/manufacts/pentimento-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "fa5175745d949c7e3edce5239f852e64e5c7f321c81a696b95db640d00913a6f",
+          "sha256": "98de8add3596a5104701a06fd3277987bc7337f5496a45fd62d9c80c048e7687",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5338,7 +5174,7 @@
           "base": "assets/screens/manufacts/pentimento-7",
           "width": 2460,
           "height": 1640,
-          "sha256": "74708b2592fbcdcbaf78c67c5e8093ccbc56dba546a0be8013da45c789d49939",
+          "sha256": "1ff78c62c3927f9f6cdc82bdcea9353d112ec84cd304c3b0974d5b05740a81e5",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5362,7 +5198,7 @@
           "base": "assets/screens/manufacts/pentimento-2",
           "width": 2460,
           "height": 1640,
-          "sha256": "0333686669a867c745c8629f4198c8160c3cfa8a06c324cd6778c2e92246f8f0",
+          "sha256": "b8ddd46ba8b094afd806ff690b7c3c92d3ba8afdfe829ed32e38c3f1c8693b9e",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5384,9 +5220,9 @@
           "theme": "pentimento",
           "caption": "Hold duration and hold activity",
           "base": "assets/screens/manufacts/pentimento-3",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "372dad369f9524b67ff30fe81c69a75da50046888b0083680ca0be7fa54733fa",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "685c38dbe7af75a47cfb800e0ea05eaa3af337dbf87ace23b8b501cca5fe466a",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5400,10 +5236,6 @@
             {
               "src": "assets/screens/manufacts/pentimento-3/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/manufacts/pentimento-3/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -5412,9 +5244,9 @@
           "theme": "pentimento",
           "caption": "Held lots, recorded reasons, and relative age",
           "base": "assets/screens/manufacts/pentimento-4",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "d37e12b53da702177de246d68548d5bfb7237f69f2a341ab6b8fdce1807ffb6a",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "a3b97eba4d1b0eebcff80e1971439dc8431978061c91632e51a68786f445b230",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5428,10 +5260,6 @@
             {
               "src": "assets/screens/manufacts/pentimento-4/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/manufacts/pentimento-4/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -5440,9 +5268,9 @@
           "theme": "pentimento",
           "caption": "Material distribution by last recorded step",
           "base": "assets/screens/manufacts/pentimento-5",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "2e8c73d0b56f87635794dcac5bec8c3c8d131f36d0b86b30ad9e40bb3d0dff9b",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "3501068bdddb827d5d786e43f256e27703e1cd7a3921a30cbec1be0efbfeb04f",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5456,10 +5284,6 @@
             {
               "src": "assets/screens/manufacts/pentimento-5/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/manufacts/pentimento-5/2560.webp",
-              "width": 2560
             }
           ]
         },
@@ -5468,9 +5292,9 @@
           "theme": "pentimento",
           "caption": "Recorded process history for a selected lot",
           "base": "assets/screens/manufacts/pentimento-6",
-          "width": 3840,
-          "height": 2560,
-          "sha256": "e686294d498c04f9524c4071498c3c913bdaf6609a28da94ec873ad9f0e30e43",
+          "width": 2460,
+          "height": 1640,
+          "sha256": "722d6d5b3a1d545c8a31288ee9f72a94cc3f8bf14d5df4c7b38e46a83eddf998",
           "encoding": "webp-lossless-native-v2",
           "sources": [
             {
@@ -5484,10 +5308,6 @@
             {
               "src": "assets/screens/manufacts/pentimento-6/1920.webp",
               "width": 1920
-            },
-            {
-              "src": "assets/screens/manufacts/pentimento-6/2560.webp",
-              "width": 2560
             }
           ]
         }

@@ -71,7 +71,7 @@ test('MET Compiler scrolls its renamed viewport while keeping its footer fixed',
 
 test('Metria Plot and every painted button retain native rounded clipping',()=>{
  let buttons=0;
- for(const data of Object.values(layouts))for(const variants of Object.values(data.states.initial))for(const variant of Object.values(variants)){
+ for(const data of Object.values(layouts))for(const variants of Object.values(data.states.initial))for(const [theme,variant] of Object.entries(variants)){
   for(const button of flatten(variant.tree).filter(n=>n.kind==='button')){
    const html=nodeMarkup(button);buttons++;
    assert.ok(button.chrome,`${data.id}/${button.name||button.text}: missing native button artwork`);
@@ -81,21 +81,30 @@ test('Metria Plot and every painted button retain native rounded clipping',()=>{
    if(button.style['text-align']==='left')assert.ok(html.includes('justify-content:flex-start'));
    if(button.name==='plesseySpcPrimary'){
     assert.equal(button.text,'Plot');assert.equal(button.width,108);assert.equal(button.height,34);
-    assert.ok(button.chrome);assert.equal(button.style['border-radius'],'4px');
+    assert.ok(button.chrome);
+    // Match the current native disabled frame, not the old enabled frame.
+    assert.equal(button.enabled,false);
+    assert.equal(button.style['border-radius'],theme==='imprimatura'?'4px':'5px');
    }
   }
  }
  assert.ok(buttons>1000);
 });
 
-test('Metria Plot has one continuous native outline in every theme and panel arrangement',()=>{
- const palettes={imprimatura:['#2b4153','#526272'],tenebrismo:['#2f4152','#566170'],pentimento:['#393144','#51495e']};
+test('Metria empty-state Plot retains current native disabled paint in every theme and panel arrangement',()=>{
+ // Native Windows captures: 2026-11-17. The previous oracle expected an
+ // enabled 4px frame even though the current source disables Plot until loaded.
+ const palettes={imprimatura:['#3d4a58','#717d84','4px'],tenebrismo:['#313941','#a3b6bf','5px'],pentimento:['#3e3848','#9690a1','5px']};
  let count=0;
  for(const variants of Object.values(layouts['metria-spc'].states.initial))for(const [theme,variant] of Object.entries(variants)){
   const button=flatten(variant.tree).find(n=>n.name==='plesseySpcPrimary');
-  const [fill,stroke]=palettes[theme];count++;
+  const [fill,stroke,radius]=palettes[theme];count++;
   assert.equal(button.width,108);assert.equal(button.height,34);
-  assert.equal(button.chrome,`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 34"><rect x="0.5" y="0.5" width="107" height="33" rx="3.5" fill="${fill}" stroke="${stroke}" stroke-width="1"/></svg>`);
+  assert.equal(button.enabled,false);assert.equal(button.style['border-radius'],radius);
+  assert.ok(button.chrome.includes(`fill="${fill}"`));
+  assert.ok(button.chrome.includes(`stroke="${stroke}"`));
+  assert.match(button.chrome,/viewBox="0 0 108 34"/);
+  assert.doesNotMatch(button.chrome,/<image|<text/);
   assert.match(nodeMarkup(button),/desktop-chrome/);
  }
  assert.equal(count,12);

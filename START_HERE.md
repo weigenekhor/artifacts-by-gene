@@ -1,5 +1,15 @@
 # Start here — ARTIFACTS public website
 
+## Current preview refresh — 17 November 2026
+
+The current gallery contains 180 frames across 20 applications and three global appearances. Ninety-three frames for Met Compiler, Metria SPC, Aperture SPC, Data Lens, Telemetry and ManuFacts were recaptured from the latest native widgets using synthetic demonstration data. Moonstone and Nocturne chart views remain included. All other screenshot sequences are retained. Data Lens relationship captures use the existing enlarged-plot window to show complete axes.
+
+Desktop previews use lossless display derivatives of the same fresh masters. Website HD images are byte-identical lossless masters, with quality-94 responsive derivatives for normal browsing. All 240 initial application layout variants (20 apps × three appearances × four panel widths) were re-exported from current desktop source. Website layout, colours and interactions are unchanged.
+
+Capture review also reproduced an existing Met Compiler Parameter Studio checkbox-paint defect. Its delegate now recognises both integer and enum Qt check states; five regression cases protect painting and keyboard toggling. No calculations, data mappings or desktop layouts changed.
+
+Current image provenance is in `content/capture-source-manifest.json`. Reproduction scripts, backups, source comparisons, capture logs and focused desktop-test results are preserved in `C:/Users/Gene/AppData/Local/ARTIFACTS Preview Refresh 20261117/`. This refresh does not constitute a scientific-data or production-connectivity release audit. No executable was built.
+
 ## Info date labels — 1 November 2026
 
 Application Info now displays Started as August 2022 and Updated as November 2026 in both desktop source and website. Only the display labels changed; the original 28 August 2022 founding date and age calculation remain intact. Two focused native content/layout checks and six website refinement checks pass. No other appearance, application behavior or preview assets changed. Native snapshot/evidence: `C:/Users/Gene/Desktop/ARTIFACTS Cleanup Archive 2026-11-01/info-date-update/`.
