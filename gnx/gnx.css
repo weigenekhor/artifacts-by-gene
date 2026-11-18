@@ -7,6 +7,7 @@
 
 .gnx-page .site-link { display: inline-flex; align-items: center; gap: .55rem; }
 .gnx-page .site-link > span { color: var(--ink); }
+.gnx-page .website-brand img { transform: translateY(-2px); }
 .gnx-page .hero h1 {
   font-size: clamp(42px, 6.75vw, 108px);
   line-height: .99;
