@@ -41,6 +41,12 @@ if (preview) {
   }
 
   function setInfo(open) {
+    if (open) {
+      const now = new Date();
+      const months = Math.max(0, (now.getFullYear() - 2025) * 12 + now.getMonth() - 7);
+      const years = Math.floor(months / 12);
+      info.querySelector('[data-info-age]').textContent = years ? `${years}y ${months % 12}m` : `${months}m`;
+    }
     preview.toggleAttribute('data-info-open', open);
     infoToggle.setAttribute('aria-expanded', String(open));
     info.setAttribute('aria-hidden', String(!open));

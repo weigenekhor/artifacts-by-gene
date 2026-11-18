@@ -96,21 +96,31 @@
 .product-rail svg { justify-self: center; width: 19px; height: 19px; display: block; }
 .product-rail .rail-info { margin-top: auto; border-radius: 0; box-shadow: none; }
 .rail-info-icon { display: block; justify-self: center; width: 18px; height: 18px; background: currentColor; mask: url("../assets/native/navigation/application-info.svg") center / contain no-repeat; }
-.workspace-info { grid-area: 1 / 2 / 3; min-width: 0; min-height: min-content; overflow: clip; background: #181b1d; box-shadow: inset -1px 0 #262c30; }
+.workspace-info { grid-area: 1 / 2 / 3; min-width: 0; min-height: min-content; overflow: clip; background: linear-gradient(#17191b, #151719); box-shadow: inset -1px 0 #303438; }
 .workspace-info[aria-hidden="true"] { contain: size; }
-.workspace-info-body { display: flex; flex-direction: column; gap: 16px; width: 219px; min-height: 100%; padding: 0 20px 16px; color: #bfc7ca; font-size: 12px; }
-.workspace-info header { display: flex; align-items: center; justify-content: space-between; min-height: 40px; color: #e1e6e7; }
-.workspace-info header button { display: grid; place-items: center; min-width: 32px; min-height: 32px; border: 0; border-radius: 4px; background: transparent; color: var(--shell-muted); }
-.workspace-info header button:hover { background: #2a3033; color: var(--shell-text); }
-.workspace-info-brand { display: grid; justify-items: center; gap: 10px; padding-block: 3px 16px; border-bottom: 1px solid #343a3e; text-align: center; color: var(--shell-text); }
-.workspace-info-brand p { font-size: 17px; letter-spacing: .045em; }
-.workspace-info dl { display: grid; gap: 5px; margin: auto 0 0; }
-.workspace-info dl div { display: grid; grid-template-columns: 86px 1fr; }
-.workspace-info dt { color: #a0adb3; font-size: 10px; letter-spacing: .055em; text-transform: uppercase; }
-.workspace-info dd { margin: 0; }
-.workspace-info a { border-top: 1px solid #343a3e; padding-top: 12px; color: var(--shell-text); }
-.workspace-info a span { float: right; }
-.workspace-info a:hover { text-decoration: underline; }
+.workspace-info-body { display: flex; flex-direction: column; width: 219px; min-height: 100%; padding: 0 24px 30px; color: #b7bec2; font-size: 12px; line-height: 1.4; }
+.workspace-info header { display: flex; align-items: center; justify-content: space-between; min-height: 44px; color: #e0e3e5; }
+.workspace-info header button { display: grid; place-items: center; width: 21px; height: 22px; flex: none; padding: 0; border: 0; border-radius: 3px; background: transparent; color: #abb5bc; }
+.workspace-info header button:hover { background: #252a2e; color: #e0e3e5; }
+.workspace-info-brand { display: grid; justify-items: center; padding-block: 22px 16px; border-bottom: 1px solid #303438; text-align: center; color: #e0e3e5; }
+.workspace-info-mark { display: grid; place-items: center; width: 62px; height: 62px; }
+.workspace-info-brand p { display: grid; place-items: center; height: 36px; white-space: nowrap; font-size: 15px; font-weight: 300; letter-spacing: 1.6px; }
+.workspace-info-version { display: grid; place-items: center; height: 21px; margin-top: 4px; color: #abb5bc; font-size: 10px; letter-spacing: 2.6px; }
+.workspace-info-copy { padding-top: 16px; }
+.workspace-info-copy p + p { margin-top: 16px; }
+.workspace-info-footer { margin-top: auto; padding-top: 28px; }
+.workspace-info dl { display: grid; gap: 3px; margin: 0; }
+.workspace-info dl div { display: grid; grid-template-columns: 67px minmax(0, 1fr); gap: 4px; min-height: 17px; align-items: center; }
+.workspace-info dt { color: #98a3ab; font-size: 9px; text-transform: uppercase; }
+.workspace-info dd { margin: 0; color: #d8dee2; font-size: 11.5px; }
+.workspace-info-links { display: grid; gap: 5px; margin-top: 14px; padding-top: 10px; border-top: 1px solid #303438; }
+.workspace-info-links a { display: grid; grid-template-columns: 20px minmax(0, 1fr) 17px; align-items: center; gap: 9px; height: 27px; border-radius: 3px; color: #d8dee2; font-size: 9.7px; white-space: nowrap; }
+.workspace-info-links a:hover { background: #252a2e; }
+.workspace-info-links a > span:nth-child(2) { overflow: hidden; text-overflow: ellipsis; }
+.info-link-icon { width: 20px; height: 20px; background: currentColor; mask: var(--info-icon) center / contain no-repeat; }
+.info-link-website { --info-icon: url("assets/application-info-icon-globe.png"); }
+.info-link-mail { --info-icon: url("assets/application-info-icon-mail.png"); }
+.info-link-external { width: 17px; height: 17px; background: #abb5bc; mask: url("assets/application-info-icon-external.png") center / contain no-repeat; }
 
 .window-canvas {
   grid-area: 1 / 3;
