@@ -153,8 +153,8 @@
           "base": "assets/screens/altus-lotviewer/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "8c3a4f508b480221e407e5bf2487b2f4afd03e21000a164dc289491eaeda242a",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "d64de026d8e2c1f780c7e39754c41e531998d4f9278ee82764d2207abb4f8a65",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/altus-lotviewer/imprimatura-1/768.webp",
@@ -172,7 +172,8 @@
               "src": "assets/screens/altus-lotviewer/imprimatura-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "8c3a4f508b480221e407e5bf2487b2f4afd03e21000a164dc289491eaeda242a"
         },
         {
           "sourceFilename": "void/altus_lotviewer.webp",
@@ -209,8 +210,8 @@
           "base": "assets/screens/altus-lotviewer/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "ffdc5e374f09ce5fe9a1c2fee99af81bc6573537d42b7615edbbceeb196df047",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "47bffe4275970e96c5182b1f6d94e2499644a25ab5b410e794266718154f8b82",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/altus-lotviewer/pentimento-1/768.webp",
@@ -228,7 +229,8 @@
               "src": "assets/screens/altus-lotviewer/pentimento-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "ffdc5e374f09ce5fe9a1c2fee99af81bc6573537d42b7615edbbceeb196df047"
         }
       ],
       "navigationIcon": "assets/native/navigation/parser_tab.svg",
@@ -264,8 +266,8 @@
           "base": "assets/screens/altus-anko-viewer/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "5f733d31c415c2a3cb93a21ea19fc7fbfbc453b81ef753a7929c6fb6b7f99fa1",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "9d256fdcb15a644a299c4f6957cdaeaaefa8ce11d83f9ee822800601849df7ff",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/altus-anko-viewer/imprimatura-1/768.webp",
@@ -283,7 +285,8 @@
               "src": "assets/screens/altus-anko-viewer/imprimatura-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "5f733d31c415c2a3cb93a21ea19fc7fbfbc453b81ef753a7929c6fb6b7f99fa1"
         },
         {
           "sourceFilename": "void/altus_anko_viewer.webp",
@@ -320,8 +323,8 @@
           "base": "assets/screens/altus-anko-viewer/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "a1fb153ca0531077e85290c51ba4142a2ecc51b0a0263289ff45faf2a8f87092",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "da04b926517901f4531abe30eddee36e52fcac71b1cae13749cd8c961228bdb7",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/altus-anko-viewer/pentimento-1/768.webp",
@@ -339,7 +342,8 @@
               "src": "assets/screens/altus-anko-viewer/pentimento-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "a1fb153ca0531077e85290c51ba4142a2ecc51b0a0263289ff45faf2a8f87092"
         }
       ],
       "navigationIcon": "assets/native/navigation/altusanko_tab.svg",
@@ -375,8 +379,8 @@
           "base": "assets/screens/altus-wafercount/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "c1f328dbbb05a226372a2862306f911e1196d09af98f3fae5ba4b1c543e6aa82",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "ac0167c2da4b2f93f61b8e544d543bebb770b8d1b50947cefa8a26d15d9a2e15",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/altus-wafercount/imprimatura-1/768.webp",
@@ -394,7 +398,8 @@
               "src": "assets/screens/altus-wafercount/imprimatura-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "c1f328dbbb05a226372a2862306f911e1196d09af98f3fae5ba4b1c543e6aa82"
         },
         {
           "sourceFilename": "void/altus_wafercount.webp",
@@ -431,8 +436,8 @@
           "base": "assets/screens/altus-wafercount/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "e592370371aaf2a39c9a5d38410f79792f4b87862a4259455dcf6da061913668",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "74eab2bb02bc641b71c024f670f0e7da4d5fce31d8d00a4a5614c9b9a4050121",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/altus-wafercount/pentimento-1/768.webp",
@@ -450,7 +455,8 @@
               "src": "assets/screens/altus-wafercount/pentimento-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "e592370371aaf2a39c9a5d38410f79792f4b87862a4259455dcf6da061913668"
         }
       ],
       "navigationIcon": "assets/native/navigation/wafercount_tab.svg",
@@ -487,8 +493,8 @@
           "base": "assets/screens/topotracer/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "8c643273a7f5383f15718d2a162cc1d9a496cdcba6b7f0b70955466c0a199725",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "51e0bb15e7667f6943ab199e003c42739b0db2ca3e54ba524cd1c8a583bba442",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/topotracer/imprimatura-1/768.webp",
@@ -506,7 +512,8 @@
               "src": "assets/screens/topotracer/imprimatura-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "8c643273a7f5383f15718d2a162cc1d9a496cdcba6b7f0b70955466c0a199725"
         },
         {
           "sourceFilename": "original/topotracer2.webp",
@@ -515,8 +522,8 @@
           "base": "assets/screens/topotracer/imprimatura-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "d546049b2ae615c596032d0ea6133e6e9111ab0de32ffa6104d8d4c3883ef865",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "ce3292264a14b095e2603eb33723ee713ce505efbd045950f39c4571db1b5ab9",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/topotracer/imprimatura-2/768.webp",
@@ -534,7 +541,8 @@
               "src": "assets/screens/topotracer/imprimatura-2/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "d546049b2ae615c596032d0ea6133e6e9111ab0de32ffa6104d8d4c3883ef865"
         },
         {
           "sourceFilename": "original/topotracer3.webp",
@@ -543,8 +551,8 @@
           "base": "assets/screens/topotracer/imprimatura-3",
           "width": 3840,
           "height": 2560,
-          "sha256": "8a0e03e9387565b675d121452a63b84d4a6a6a25417109a5731c1f8eebfab788",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "d23813fb2ef6843cad77d700be1f31b2f0a38e18bb4ae7bd771748619f880122",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/topotracer/imprimatura-3/768.webp",
@@ -562,7 +570,8 @@
               "src": "assets/screens/topotracer/imprimatura-3/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "8a0e03e9387565b675d121452a63b84d4a6a6a25417109a5731c1f8eebfab788"
         },
         {
           "sourceFilename": "void/topotracer.webp",
@@ -655,8 +664,8 @@
           "base": "assets/screens/topotracer/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "038662ba0d2a240c0f5fcfd43bc3b968ce33d4e2413fb704a117205e4565b600",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "3773acfd432adb1e79f04505498cee2ff8d6b2dc0568d511c53c204f2d84f15c",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/topotracer/pentimento-1/768.webp",
@@ -674,7 +683,8 @@
               "src": "assets/screens/topotracer/pentimento-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "038662ba0d2a240c0f5fcfd43bc3b968ce33d4e2413fb704a117205e4565b600"
         },
         {
           "sourceFilename": "pentimento/topotracer2.webp",
@@ -683,8 +693,8 @@
           "base": "assets/screens/topotracer/pentimento-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "c10d609b45367fe1701170a05682b67ceb7160a0b0c5d759010c13f30079a4ba",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "663f3d2e8e9d8ab9b0cb72001ddc4fb8d5016a1a091cd05b8e6c8c09dc513f88",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/topotracer/pentimento-2/768.webp",
@@ -702,7 +712,8 @@
               "src": "assets/screens/topotracer/pentimento-2/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "c10d609b45367fe1701170a05682b67ceb7160a0b0c5d759010c13f30079a4ba"
         },
         {
           "sourceFilename": "pentimento/topotracer3.webp",
@@ -711,8 +722,8 @@
           "base": "assets/screens/topotracer/pentimento-3",
           "width": 3840,
           "height": 2560,
-          "sha256": "1f1e6c66bba13d248dc0ac75b7180ff3a605227e4f753676aa40808bb27bb03b",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "25bdf091e7ba6db6ef5e54dd5db7215bb8b92f443f8091b3190e24e479025162",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/topotracer/pentimento-3/768.webp",
@@ -730,7 +741,8 @@
               "src": "assets/screens/topotracer/pentimento-3/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "1f1e6c66bba13d248dc0ac75b7180ff3a605227e4f753676aa40808bb27bb03b"
         }
       ],
       "navigationIcon": "assets/native/navigation/topotracer_tab.svg",
@@ -767,8 +779,8 @@
           "base": "assets/screens/papyrus-reader/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "ef2e73884bd72418b65fe90476789ad33f4eb0b315a7e728f53637a1d991ecae",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "7b0bc635ea0d7a5a57bfa6829e2f199fb999c1eaf1f9d6b2128afe2e18650caa",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/papyrus-reader/imprimatura-1/768.webp",
@@ -786,7 +798,8 @@
               "src": "assets/screens/papyrus-reader/imprimatura-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "ef2e73884bd72418b65fe90476789ad33f4eb0b315a7e728f53637a1d991ecae"
         },
         {
           "sourceFilename": "original/papyrus_reader2.webp",
@@ -795,8 +808,8 @@
           "base": "assets/screens/papyrus-reader/imprimatura-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "f5baa3fcddefd82832b6aaf28fe5195cb177000412af97059a9281b241446df1",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "f2f4aa91f4032ffd909bfc1784d4bd3dfd3cda5ff4a8e7fd6d1d5a0e6bf6b197",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/papyrus-reader/imprimatura-2/768.webp",
@@ -814,7 +827,8 @@
               "src": "assets/screens/papyrus-reader/imprimatura-2/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "f5baa3fcddefd82832b6aaf28fe5195cb177000412af97059a9281b241446df1"
         },
         {
           "sourceFilename": "void/papyrus_reader.webp",
@@ -879,8 +893,8 @@
           "base": "assets/screens/papyrus-reader/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "03165e9811d6775c3f33016c32103a9140d536115eb7876162ef401cafd1a9b6",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "d9671ad758f06b395da6985cc13d5a4278c8b3147eb541eecb23d534ef29a631",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/papyrus-reader/pentimento-1/768.webp",
@@ -898,7 +912,8 @@
               "src": "assets/screens/papyrus-reader/pentimento-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "03165e9811d6775c3f33016c32103a9140d536115eb7876162ef401cafd1a9b6"
         },
         {
           "sourceFilename": "pentimento/papyrus_reader2.webp",
@@ -907,8 +922,8 @@
           "base": "assets/screens/papyrus-reader/pentimento-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "26d24ca4e31ea45d3c4a1faa0a47fd9bbbbd0e4a35d3005ade27ba45707d1879",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "f6a3a76f5a3a1836b7c43b4a57e76479a68fb9618f29bda63be50b39f11db1f0",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/papyrus-reader/pentimento-2/768.webp",
@@ -926,7 +941,8 @@
               "src": "assets/screens/papyrus-reader/pentimento-2/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "26d24ca4e31ea45d3c4a1faa0a47fd9bbbbd0e4a35d3005ade27ba45707d1879"
         }
       ],
       "navigationIcon": "assets/native/navigation/xml_tab.svg",
@@ -962,8 +978,8 @@
           "base": "assets/screens/spc-pathfinder/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "b48a6fe11c5bf1305b3aeff28e2ae20f34308a975572661fc071c85911252b45",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "e9fefb886ff4d04426f6b48bc4b5faf1d39c403549e8738afa78a35c48b5cc70",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/spc-pathfinder/imprimatura-1/768.webp",
@@ -981,7 +997,8 @@
               "src": "assets/screens/spc-pathfinder/imprimatura-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "b48a6fe11c5bf1305b3aeff28e2ae20f34308a975572661fc071c85911252b45"
         },
         {
           "sourceFilename": "void/spc_pathfinder.webp",
@@ -1018,8 +1035,8 @@
           "base": "assets/screens/spc-pathfinder/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "5deb5df727391c091f6b700111d0a59e3faf30db46b8ac2309f50ea8481509bb",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "73a6e78efa29a5b67ce39ea499de8c4b06af32a645ab2446159cf0a9e4c018a1",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/spc-pathfinder/pentimento-1/768.webp",
@@ -1037,7 +1054,8 @@
               "src": "assets/screens/spc-pathfinder/pentimento-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "5deb5df727391c091f6b700111d0a59e3faf30db46b8ac2309f50ea8481509bb"
         }
       ],
       "navigationIcon": "assets/native/navigation/path_tab.svg",
@@ -1074,7 +1092,7 @@
           "base": "assets/screens/gan-met-compiler/imprimatura-1",
           "width": 2460,
           "height": 1640,
-          "encoding": "webp-lossless-native-v2",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/gan-met-compiler/imprimatura-1/768.webp",
@@ -1089,7 +1107,8 @@
               "width": 1920
             }
           ],
-          "sha256": "336df56ac482c21e610605ac26411c7c1cc207645f88fe6c292cc1e1e646e2f6"
+          "sha256": "9c3975abc03432471ad9f73fade556077bee817ffb93e4ff445d879e789b388a",
+          "sourceSha256": "336df56ac482c21e610605ac26411c7c1cc207645f88fe6c292cc1e1e646e2f6"
         },
         {
           "sourceFilename": "original/met_compiler2.webp",
@@ -1098,7 +1117,7 @@
           "base": "assets/screens/gan-met-compiler/imprimatura-2",
           "width": 2460,
           "height": 1640,
-          "encoding": "webp-lossless-native-v2",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/gan-met-compiler/imprimatura-2/768.webp",
@@ -1113,7 +1132,8 @@
               "width": 1920
             }
           ],
-          "sha256": "5ff253be8e0a8529a76b661520d78e6d33f46be40828f42280af2edd431de561"
+          "sha256": "17f15b0154b6091c3584647fc70074b55fc54f1513beec8124f8522efb8dd136",
+          "sourceSha256": "5ff253be8e0a8529a76b661520d78e6d33f46be40828f42280af2edd431de561"
         },
         {
           "sourceFilename": "original/met_compiler3.webp",
@@ -1122,7 +1142,7 @@
           "base": "assets/screens/gan-met-compiler/imprimatura-3",
           "width": 2460,
           "height": 1640,
-          "encoding": "webp-lossless-native-v2",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/gan-met-compiler/imprimatura-3/768.webp",
@@ -1137,7 +1157,8 @@
               "width": 1920
             }
           ],
-          "sha256": "78da7d297ab8c85b71523106c935c3e9b6bd7cce4198cdf367c488c422e148a9"
+          "sha256": "23604ef714180f3c3a02f3374e6ce9fa7118027f104576ee17362371ca38a350",
+          "sourceSha256": "78da7d297ab8c85b71523106c935c3e9b6bd7cce4198cdf367c488c422e148a9"
         },
         {
           "sourceFilename": "original/met_compiler4.webp",
@@ -1146,7 +1167,7 @@
           "base": "assets/screens/gan-met-compiler/imprimatura-4",
           "width": 2460,
           "height": 1640,
-          "encoding": "webp-lossless-native-v2",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/gan-met-compiler/imprimatura-4/768.webp",
@@ -1161,7 +1182,8 @@
               "width": 1920
             }
           ],
-          "sha256": "8fb03fe1a1d3f9bb6901954423df1a986a07fe099e636d2d1f0b13132dda9793"
+          "sha256": "428f4a549577f173733930e9ea89daaa635c2d20463e0081001bed506d3c13ab",
+          "sourceSha256": "8fb03fe1a1d3f9bb6901954423df1a986a07fe099e636d2d1f0b13132dda9793"
         },
         {
           "sourceFilename": "void/met_compiler.webp",
@@ -1266,7 +1288,7 @@
           "base": "assets/screens/gan-met-compiler/pentimento-1",
           "width": 2460,
           "height": 1640,
-          "encoding": "webp-lossless-native-v2",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/gan-met-compiler/pentimento-1/768.webp",
@@ -1281,7 +1303,8 @@
               "width": 1920
             }
           ],
-          "sha256": "60d3f2722a7c841e4b4f6d441227dcc4c0d27cedf27414891a750f5aa6dd9120"
+          "sha256": "96347e0b5ca8e8637e15d0eeaea7a2d36f1cb5936c434680f2fdf1d206b7bd31",
+          "sourceSha256": "60d3f2722a7c841e4b4f6d441227dcc4c0d27cedf27414891a750f5aa6dd9120"
         },
         {
           "sourceFilename": "pentimento/met_compiler2.webp",
@@ -1290,7 +1313,7 @@
           "base": "assets/screens/gan-met-compiler/pentimento-2",
           "width": 2460,
           "height": 1640,
-          "encoding": "webp-lossless-native-v2",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/gan-met-compiler/pentimento-2/768.webp",
@@ -1305,7 +1328,8 @@
               "width": 1920
             }
           ],
-          "sha256": "13b63c1dee6bb84c346d3ecc5172530cd9ef5884dc40426bbf017b04a5211867"
+          "sha256": "38b1388d04f0be34d003f90480c0abcaaa181ef1918b74b329fb0c270f759a0e",
+          "sourceSha256": "13b63c1dee6bb84c346d3ecc5172530cd9ef5884dc40426bbf017b04a5211867"
         },
         {
           "sourceFilename": "pentimento/met_compiler3.webp",
@@ -1314,7 +1338,7 @@
           "base": "assets/screens/gan-met-compiler/pentimento-3",
           "width": 2460,
           "height": 1640,
-          "encoding": "webp-lossless-native-v2",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/gan-met-compiler/pentimento-3/768.webp",
@@ -1329,7 +1353,8 @@
               "width": 1920
             }
           ],
-          "sha256": "6844e4f1e82a35a0487f709c4af65c0f0dfd7dc5d91177725592ce3a0b1a1306"
+          "sha256": "b2f9ed235f8c32daaf28d510af178fef1c2c9b3249d3732814de4ef9cd086e7d",
+          "sourceSha256": "6844e4f1e82a35a0487f709c4af65c0f0dfd7dc5d91177725592ce3a0b1a1306"
         },
         {
           "sourceFilename": "pentimento/met_compiler4.webp",
@@ -1338,7 +1363,7 @@
           "base": "assets/screens/gan-met-compiler/pentimento-4",
           "width": 2460,
           "height": 1640,
-          "encoding": "webp-lossless-native-v2",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/gan-met-compiler/pentimento-4/768.webp",
@@ -1353,7 +1378,8 @@
               "width": 1920
             }
           ],
-          "sha256": "5133895cb64d3d99b98fc6b9b6f09bb20fb16c9466424177f20215dd1d689efc"
+          "sha256": "a33df35dca6806b870ba2d14838c3282504476ae816e78b1ddc973802a0bae25",
+          "sourceSha256": "5133895cb64d3d99b98fc6b9b6f09bb20fb16c9466424177f20215dd1d689efc"
         }
       ],
       "navigationIcon": "assets/native/navigation/metro_tab.svg",
@@ -1390,8 +1416,8 @@
           "base": "assets/screens/gan-temp-diagnoser/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "0dc1d4c840b6713383aecbf62184a0ce8c1ac96329b142af37402b7789984a96",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "a014894f4922d2dcaa2fca85010ebefe8e863fa80fefca8ece1f121e40cf569a",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/gan-temp-diagnoser/imprimatura-1/768.webp",
@@ -1409,7 +1435,8 @@
               "src": "assets/screens/gan-temp-diagnoser/imprimatura-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "0dc1d4c840b6713383aecbf62184a0ce8c1ac96329b142af37402b7789984a96"
         },
         {
           "sourceFilename": "original/aix_temp_diagnoser2.webp",
@@ -1418,8 +1445,8 @@
           "base": "assets/screens/gan-temp-diagnoser/imprimatura-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "3ed1b3531776d7675166753aebb27c4f463bf9672c211929a5cebe6f2720722d",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "9813e3edd4b6d4932f2ad2caeb7ff4585c7667e2b288fee9a690110b9f575f3d",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/gan-temp-diagnoser/imprimatura-2/768.webp",
@@ -1437,7 +1464,8 @@
               "src": "assets/screens/gan-temp-diagnoser/imprimatura-2/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "3ed1b3531776d7675166753aebb27c4f463bf9672c211929a5cebe6f2720722d"
         },
         {
           "sourceFilename": "void/aix_temp_diagnoser.webp",
@@ -1502,8 +1530,8 @@
           "base": "assets/screens/gan-temp-diagnoser/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "12ddc44e10da4da050bc50b38a3d64ede4e91ba509ca5bf1b21aa36640ceb5aa",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "63dea6390a8f7e8a77544b92f8b0894fa427d9678c4920be055188681caee86e",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/gan-temp-diagnoser/pentimento-1/768.webp",
@@ -1521,7 +1549,8 @@
               "src": "assets/screens/gan-temp-diagnoser/pentimento-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "12ddc44e10da4da050bc50b38a3d64ede4e91ba509ca5bf1b21aa36640ceb5aa"
         },
         {
           "sourceFilename": "pentimento/aix_temp_diagnoser2.webp",
@@ -1530,8 +1559,8 @@
           "base": "assets/screens/gan-temp-diagnoser/pentimento-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "11e4f335b833b2c92bd030d7989b4f6b39b9ae03551abb298d782e223df1ad47",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "bf40d2042ae91f7edb39b08a4b7ed66888911aa37501a4ef5bccdd687edcf36f",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/gan-temp-diagnoser/pentimento-2/768.webp",
@@ -1549,7 +1578,8 @@
               "src": "assets/screens/gan-temp-diagnoser/pentimento-2/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "11e4f335b833b2c92bd030d7989b4f6b39b9ae03551abb298d782e223df1ad47"
         }
       ],
       "navigationIcon": "assets/native/navigation/pyra_tab.svg",
@@ -1586,8 +1616,8 @@
           "base": "assets/screens/aix-dt-assistant/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "6b6a3b49f1248092c8136bec5164208cac36d816bdbded6bdf6781b635691c1b",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "826110d0f87d0b06b2014503c6f47d13c09b7ed3ea982544bbb8b5e1e0071b06",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/aix-dt-assistant/imprimatura-1/768.webp",
@@ -1605,7 +1635,8 @@
               "src": "assets/screens/aix-dt-assistant/imprimatura-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "6b6a3b49f1248092c8136bec5164208cac36d816bdbded6bdf6781b635691c1b"
         },
         {
           "sourceFilename": "original/aix_dt_assistant2.webp",
@@ -1614,8 +1645,8 @@
           "base": "assets/screens/aix-dt-assistant/imprimatura-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "8cb2880096d511245066c12aa7984355641eb0df37a3ee7bebdb094cb1d762ac",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "4fbdb52cd9fa00dc8f75e8d9f584ebf8fead0222d473ca7759efe9fd774d5b90",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/aix-dt-assistant/imprimatura-2/768.webp",
@@ -1633,7 +1664,8 @@
               "src": "assets/screens/aix-dt-assistant/imprimatura-2/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "8cb2880096d511245066c12aa7984355641eb0df37a3ee7bebdb094cb1d762ac"
         },
         {
           "sourceFilename": "void/aix_dt_assistant.webp",
@@ -1698,8 +1730,8 @@
           "base": "assets/screens/aix-dt-assistant/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "f353ba552c97e0ec19d620ad410c85477aaec5f17c2eb55569a006438ff9f1e1",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "731efe91bba74bb85d9f24213f8522fdaf2dae65d10a6a4af5916db9c1d0bc67",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/aix-dt-assistant/pentimento-1/768.webp",
@@ -1717,7 +1749,8 @@
               "src": "assets/screens/aix-dt-assistant/pentimento-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "f353ba552c97e0ec19d620ad410c85477aaec5f17c2eb55569a006438ff9f1e1"
         },
         {
           "sourceFilename": "pentimento/aix_dt_assistant2.webp",
@@ -1726,8 +1759,8 @@
           "base": "assets/screens/aix-dt-assistant/pentimento-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "e85e227e7e70bff35c63d5c08b3dbd584a55c33c5293867f5ec7b860693b0b65",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "1494deb1159fc56fd3466543ca7d417e473d3b0969adb47cb15b6201f0bb9cf7",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/aix-dt-assistant/pentimento-2/768.webp",
@@ -1745,7 +1778,8 @@
               "src": "assets/screens/aix-dt-assistant/pentimento-2/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "e85e227e7e70bff35c63d5c08b3dbd584a55c33c5293867f5ec7b860693b0b65"
         }
       ],
       "navigationIcon": "assets/native/navigation/dt_tab.svg",
@@ -1782,8 +1816,8 @@
           "base": "assets/screens/lt-zone-assistant/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "9ddeb28f3a5e73872246101da433c99fae34293c1a817aa422b3b56212575fc5",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "6fa61af496631a43e0c72a5dfd8da207c2ea1e08d41b6334c6af6383b542a76c",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/lt-zone-assistant/imprimatura-1/768.webp",
@@ -1801,7 +1835,8 @@
               "src": "assets/screens/lt-zone-assistant/imprimatura-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "9ddeb28f3a5e73872246101da433c99fae34293c1a817aa422b3b56212575fc5"
         },
         {
           "sourceFilename": "void/lt_zone_assistant.webp",
@@ -1838,8 +1873,8 @@
           "base": "assets/screens/lt-zone-assistant/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "36e86beff475a93a8bcc03f062f43d30565b88770037d3fb6b13a7e21cd5e039",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "f350f4933cdcf0b0d202c7065d098fe8ef481587e900ecd2d9881c146b0bbbb9",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/lt-zone-assistant/pentimento-1/768.webp",
@@ -1857,7 +1892,8 @@
               "src": "assets/screens/lt-zone-assistant/pentimento-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "36e86beff475a93a8bcc03f062f43d30565b88770037d3fb6b13a7e21cd5e039"
         }
       ],
       "navigationIcon": "assets/native/navigation/laytec_tab.svg",
@@ -1894,8 +1930,8 @@
           "base": "assets/screens/gan-xml-assistant/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "aa620137894f61b2afb89bea70ed3886bf20c09095c76de31ca552fc8cd54b1e",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "cc400dc97f804f9a6c867a2b1a5d9954ca7d4af97a17b76f8c80547c04d434c0",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/gan-xml-assistant/imprimatura-1/768.webp",
@@ -1913,7 +1949,8 @@
               "src": "assets/screens/gan-xml-assistant/imprimatura-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "aa620137894f61b2afb89bea70ed3886bf20c09095c76de31ca552fc8cd54b1e"
         },
         {
           "sourceFilename": "original/aix_xml_assistant2.webp",
@@ -2062,8 +2099,8 @@
           "base": "assets/screens/gan-xml-assistant/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "8bf1f3cc5b2509293a7cd17dbd194074eabc429ffb7bc3d4505f871a8d5f6759",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "c1c3ddc45c968f4da12ab68d35290433e6876d866bcf3e7cbe2c87e30c1ab8e1",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/gan-xml-assistant/pentimento-1/768.webp",
@@ -2081,7 +2118,8 @@
               "src": "assets/screens/gan-xml-assistant/pentimento-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "8bf1f3cc5b2509293a7cd17dbd194074eabc429ffb7bc3d4505f871a8d5f6759"
         },
         {
           "sourceFilename": "pentimento/aix_xml_assistant2.webp",
@@ -2173,8 +2211,8 @@
           "base": "assets/screens/magus-spc-gan/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "74d9792d82323221845fc70b0451fa8b99f3196cb4f3d474391a90fcc4a2e78a",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "9547187478ea1618318aea864e83405d5469242bed616a75002f8156689cd57d",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/magus-spc-gan/imprimatura-1/768.webp",
@@ -2192,7 +2230,8 @@
               "src": "assets/screens/magus-spc-gan/imprimatura-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "74d9792d82323221845fc70b0451fa8b99f3196cb4f3d474391a90fcc4a2e78a"
         },
         {
           "sourceFilename": "original/magus_spc_epi2.webp",
@@ -2201,8 +2240,8 @@
           "base": "assets/screens/magus-spc-gan/imprimatura-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "8de55d601b2bc65a424acab5ef25edd58d95cfb3434c1d7dc9675955b3481b3f",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "172a4ee40c578ece633aed8c397091f0155d4f1720bdfe384c957f3c7fb7c9c4",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/magus-spc-gan/imprimatura-2/768.webp",
@@ -2220,7 +2259,8 @@
               "src": "assets/screens/magus-spc-gan/imprimatura-2/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "8de55d601b2bc65a424acab5ef25edd58d95cfb3434c1d7dc9675955b3481b3f"
         },
         {
           "sourceFilename": "original/magus_spc_epi3.webp",
@@ -2453,8 +2493,8 @@
           "base": "assets/screens/magus-spc-gan/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "594531913b5ee4cac9184dac17684220e6a87dc4f57606faafb86d73e4c2c58b",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "7e3a7f9200de29a415f9b6ae2b48ddaea0b773b2e39459285cbcced36b5d7d3a",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/magus-spc-gan/pentimento-1/768.webp",
@@ -2472,7 +2512,8 @@
               "src": "assets/screens/magus-spc-gan/pentimento-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "594531913b5ee4cac9184dac17684220e6a87dc4f57606faafb86d73e4c2c58b"
         },
         {
           "sourceFilename": "pentimento/magus_spc_epi2.webp",
@@ -2481,8 +2522,8 @@
           "base": "assets/screens/magus-spc-gan/pentimento-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "a70273d1cf79e7306871b5d677dcd26eb30d6a9b083fc28c38867d9805c08839",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "e06d4558f850641238e6f58668b60313c9e5d3fbac5ac62ef8751607e6f24f45",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/magus-spc-gan/pentimento-2/768.webp",
@@ -2500,7 +2541,8 @@
               "src": "assets/screens/magus-spc-gan/pentimento-2/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "a70273d1cf79e7306871b5d677dcd26eb30d6a9b083fc28c38867d9805c08839"
         },
         {
           "sourceFilename": "pentimento/magus_spc_epi3.webp",
@@ -2620,8 +2662,8 @@
           "base": "assets/screens/magus-spc-legacy/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "442a56978a233fa6623c1855db84ba81d0075a16090f8f504ddee65d921f4b31",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "c35813ce0fdae65a5f5a726e16afb50025bbb48d65b94c7c5cac913881c28de0",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/magus-spc-legacy/imprimatura-1/768.webp",
@@ -2639,7 +2681,8 @@
               "src": "assets/screens/magus-spc-legacy/imprimatura-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "442a56978a233fa6623c1855db84ba81d0075a16090f8f504ddee65d921f4b31"
         },
         {
           "sourceFilename": "original/magus_spc_legacy2.webp",
@@ -2648,8 +2691,8 @@
           "base": "assets/screens/magus-spc-legacy/imprimatura-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "9d16de3d1eaf5fd152eebd55968c349e16950311d37f0d1e92c4f33aba782a3d",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "53be61ef58bbeb852b6bef448ae92bf6bb9aee14043bb9c81e14f7ffe8f802b3",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/magus-spc-legacy/imprimatura-2/768.webp",
@@ -2667,7 +2710,8 @@
               "src": "assets/screens/magus-spc-legacy/imprimatura-2/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "9d16de3d1eaf5fd152eebd55968c349e16950311d37f0d1e92c4f33aba782a3d"
         },
         {
           "sourceFilename": "original/magus_spc_legacy3.webp",
@@ -2900,8 +2944,8 @@
           "base": "assets/screens/magus-spc-legacy/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "f11eea3f155380e5291fcbeb2bca3155616bb96ee03a370afb09673dba52a580",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "e1bb19fa0b5270dc712fea6e92357392709312102e72dd27a0421be0e61b8338",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/magus-spc-legacy/pentimento-1/768.webp",
@@ -2919,7 +2963,8 @@
               "src": "assets/screens/magus-spc-legacy/pentimento-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "f11eea3f155380e5291fcbeb2bca3155616bb96ee03a370afb09673dba52a580"
         },
         {
           "sourceFilename": "pentimento/magus_spc_legacy2.webp",
@@ -2928,8 +2973,8 @@
           "base": "assets/screens/magus-spc-legacy/pentimento-2",
           "width": 3840,
           "height": 2560,
-          "sha256": "0d262c58f4605f60192ce85a42783ec7016c43231aac1529a3d965624a0b8f12",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "4febdd7faa0bb21935a065118ee4649006fef2c57bfb55ba58efd041a5797598",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/magus-spc-legacy/pentimento-2/768.webp",
@@ -2947,7 +2992,8 @@
               "src": "assets/screens/magus-spc-legacy/pentimento-2/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "0d262c58f4605f60192ce85a42783ec7016c43231aac1529a3d965624a0b8f12"
         },
         {
           "sourceFilename": "pentimento/magus_spc_legacy3.webp",
@@ -3067,8 +3113,8 @@
           "base": "assets/screens/anko-helper/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "620f4ba260953fc50ceb9b7118a0d98960e3214875ee6ac474eebd428b142ab6",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "2b3ca87c8af6729088c45ea29708e82cd4bfeda9577c6ffb76edbad72fa1dc1f",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/anko-helper/imprimatura-1/768.webp",
@@ -3086,7 +3132,8 @@
               "src": "assets/screens/anko-helper/imprimatura-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "620f4ba260953fc50ceb9b7118a0d98960e3214875ee6ac474eebd428b142ab6"
         },
         {
           "sourceFilename": "void/anko_helper.webp",
@@ -3123,8 +3170,8 @@
           "base": "assets/screens/anko-helper/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "8eb4337feab934e8e5c18608a5e44795f0b3fd85586acd11f1fc46e02f682d02",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "36f13b5db1c0cbf9903d1301fd03a2567af4f553b43e09ce74f88b239f261ed3",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/anko-helper/pentimento-1/768.webp",
@@ -3142,7 +3189,8 @@
               "src": "assets/screens/anko-helper/pentimento-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "8eb4337feab934e8e5c18608a5e44795f0b3fd85586acd11f1fc46e02f682d02"
         }
       ],
       "navigationIcon": "assets/native/navigation/ankohelper_tab.svg",
@@ -3179,8 +3227,8 @@
           "base": "assets/screens/lt-report-compiler/imprimatura-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "04aa634e49a65ddafdb546243ba32b135019f3ae98df686f52ac94aab775c0e2",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "bb51bcced951321415b4cf34a0d121e94ac75cf418cc46d6e226a76adc8a45e5",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/lt-report-compiler/imprimatura-1/768.webp",
@@ -3198,7 +3246,8 @@
               "src": "assets/screens/lt-report-compiler/imprimatura-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "04aa634e49a65ddafdb546243ba32b135019f3ae98df686f52ac94aab775c0e2"
         },
         {
           "sourceFilename": "void/lt_report_compiler.webp",
@@ -3235,8 +3284,8 @@
           "base": "assets/screens/lt-report-compiler/pentimento-1",
           "width": 3840,
           "height": 2560,
-          "sha256": "279a223229d1af8ecc34fcde72b78f3a302ec37c64537c6d9000df5548c81a49",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "af367f87deef518d66accdbda78c1ae7d7fe3d23f44eb592c71a35488778f8c6",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/lt-report-compiler/pentimento-1/768.webp",
@@ -3254,7 +3303,8 @@
               "src": "assets/screens/lt-report-compiler/pentimento-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "279a223229d1af8ecc34fcde72b78f3a302ec37c64537c6d9000df5548c81a49"
         }
       ],
       "navigationIcon": "assets/native/navigation/sap_tab.svg",
@@ -3290,8 +3340,8 @@
           "base": "assets/screens/metria-spc/imprimatura-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "1f6eabd1ae13acf7fb95613cfe8bbfa3ddc5491e90f735aa9da5f5679cd903bf",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "db4a0fd9718438e7d7dea67d8902101bc6ed03721a02720f203cd50327a85a03",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/metria-spc/imprimatura-1/768.webp",
@@ -3305,7 +3355,8 @@
               "src": "assets/screens/metria-spc/imprimatura-1/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "1f6eabd1ae13acf7fb95613cfe8bbfa3ddc5491e90f735aa9da5f5679cd903bf"
         },
         {
           "sourceFilename": "original/metria_spc4.webp",
@@ -3314,8 +3365,8 @@
           "base": "assets/screens/metria-spc/imprimatura-4",
           "width": 2460,
           "height": 1640,
-          "sha256": "95e3e54879f1aa3ed6d70c072b74a1ea57d11c0bc3b3593f27972c6e101d3f0a",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "7c0be24fcc725277d639c9ab2e443a7a6b80cdd4325014caab89a3f57d13c480",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/metria-spc/imprimatura-4/768.webp",
@@ -3329,7 +3380,8 @@
               "src": "assets/screens/metria-spc/imprimatura-4/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "95e3e54879f1aa3ed6d70c072b74a1ea57d11c0bc3b3593f27972c6e101d3f0a"
         },
         {
           "sourceFilename": "original/metria_spc2.webp",
@@ -3338,8 +3390,8 @@
           "base": "assets/screens/metria-spc/imprimatura-2",
           "width": 2460,
           "height": 1640,
-          "sha256": "3f8f0354858b7226c436c6c8afd13efcfb07012cdf23a91f0461e160a91595e7",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "967964d6cc9fe02d781cc8138d4332092678e498b56a20e0d38ce7df36db29d8",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/metria-spc/imprimatura-2/768.webp",
@@ -3353,7 +3405,8 @@
               "src": "assets/screens/metria-spc/imprimatura-2/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "3f8f0354858b7226c436c6c8afd13efcfb07012cdf23a91f0461e160a91595e7"
         },
         {
           "sourceFilename": "original/metria_spc3.webp",
@@ -3362,8 +3415,8 @@
           "base": "assets/screens/metria-spc/imprimatura-3",
           "width": 2460,
           "height": 1640,
-          "sha256": "25871600ea467b5f57eacb2269465e8e36b93f46ae65810719fad540431afa38",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "b42dcabe41c608a963caab92b583baea366107c4a2371495e7b0db4d80dcfd0e",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/metria-spc/imprimatura-3/768.webp",
@@ -3377,7 +3430,8 @@
               "src": "assets/screens/metria-spc/imprimatura-3/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "25871600ea467b5f57eacb2269465e8e36b93f46ae65810719fad540431afa38"
         },
         {
           "sourceFilename": "void/metria_spc.webp",
@@ -3482,8 +3536,8 @@
           "base": "assets/screens/metria-spc/pentimento-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "3135c9f42b0c905aee5485462fee506672d9a9b5039aa675747df8de6ca2a68a",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "6f8803100bd3a023816bfa89f9e04a54f8826ab836b1ce2ac6d967e88d645977",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/metria-spc/pentimento-1/768.webp",
@@ -3497,7 +3551,8 @@
               "src": "assets/screens/metria-spc/pentimento-1/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "3135c9f42b0c905aee5485462fee506672d9a9b5039aa675747df8de6ca2a68a"
         },
         {
           "sourceFilename": "pentimento/metria_spc4.webp",
@@ -3506,8 +3561,8 @@
           "base": "assets/screens/metria-spc/pentimento-4",
           "width": 2460,
           "height": 1640,
-          "sha256": "3ce7c513cb440d665656008889aa7bb966c36d0599bd4cefd5afaf200befbade",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "1ba4133f98728a1544a92bcd76902aee38d65842e37a9d3a818bc76664d6ec60",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/metria-spc/pentimento-4/768.webp",
@@ -3521,7 +3576,8 @@
               "src": "assets/screens/metria-spc/pentimento-4/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "3ce7c513cb440d665656008889aa7bb966c36d0599bd4cefd5afaf200befbade"
         },
         {
           "sourceFilename": "pentimento/metria_spc2.webp",
@@ -3530,8 +3586,8 @@
           "base": "assets/screens/metria-spc/pentimento-2",
           "width": 2460,
           "height": 1640,
-          "sha256": "25a8c5929fd30f4812e4ae79afd67fedc606820fe9c77309f5b2533fec7d71e2",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "48ea3823b149888e3b737b1a9f1f98bf4aef1d386bbef0140a9c55e6e1da49c1",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/metria-spc/pentimento-2/768.webp",
@@ -3545,7 +3601,8 @@
               "src": "assets/screens/metria-spc/pentimento-2/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "25a8c5929fd30f4812e4ae79afd67fedc606820fe9c77309f5b2533fec7d71e2"
         },
         {
           "sourceFilename": "pentimento/metria_spc3.webp",
@@ -3554,8 +3611,8 @@
           "base": "assets/screens/metria-spc/pentimento-3",
           "width": 2460,
           "height": 1640,
-          "sha256": "f701ba22d649642dc72df978ccb95f6a442f7e0010243a5e62e7642467735535",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "327a6000d33fecf9b2b31ffd7bb4f7abb89d2831a4d392b8831356fef250422d",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/metria-spc/pentimento-3/768.webp",
@@ -3569,7 +3626,8 @@
               "src": "assets/screens/metria-spc/pentimento-3/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "f701ba22d649642dc72df978ccb95f6a442f7e0010243a5e62e7642467735535"
         }
       ],
       "navigationIcon": "assets/native/navigation/plessey_spc_tab.svg",
@@ -3599,8 +3657,8 @@
           "base": "assets/screens/aperture-spc/imprimatura-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "12e333e4e3fb37f1e566cc6c2a94d4d3e7ad5f31e7d0c221b37286dab8fa136f",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "5729e6e837fafed852aff0f6b0791975b7f3c09d6c8f88410ff2e852440e50db",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/aperture-spc/imprimatura-1/768.webp",
@@ -3614,7 +3672,8 @@
               "src": "assets/screens/aperture-spc/imprimatura-1/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "12e333e4e3fb37f1e566cc6c2a94d4d3e7ad5f31e7d0c221b37286dab8fa136f"
         },
         {
           "sourceFilename": "original/aperture_spc5.webp",
@@ -3623,8 +3682,8 @@
           "base": "assets/screens/aperture-spc/imprimatura-5",
           "width": 2460,
           "height": 1640,
-          "sha256": "b7ace2f0db39745c8bc847544d584c76829308b5c876d1d23c3a5d882e4540dc",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "34514c89ca18946fd3ae8c03c5b2647575fe4478881ecd21cf69cb8759ed159e",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/aperture-spc/imprimatura-5/768.webp",
@@ -3638,7 +3697,8 @@
               "src": "assets/screens/aperture-spc/imprimatura-5/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "b7ace2f0db39745c8bc847544d584c76829308b5c876d1d23c3a5d882e4540dc"
         },
         {
           "sourceFilename": "original/aperture_spc2.webp",
@@ -3671,8 +3731,8 @@
           "base": "assets/screens/aperture-spc/imprimatura-3",
           "width": 2460,
           "height": 1640,
-          "sha256": "6b580031a1fe4647cfc98b6d92f6db053e5cf0c793a570b820966e39fe0bf484",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "ef300c6b0515a434a11bf7a6b2617b23f2edd85a23e297c32130059d1e3c7d0c",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/aperture-spc/imprimatura-3/768.webp",
@@ -3686,7 +3746,8 @@
               "src": "assets/screens/aperture-spc/imprimatura-3/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "6b580031a1fe4647cfc98b6d92f6db053e5cf0c793a570b820966e39fe0bf484"
         },
         {
           "sourceFilename": "original/aperture_spc4.webp",
@@ -3695,8 +3756,8 @@
           "base": "assets/screens/aperture-spc/imprimatura-4",
           "width": 2460,
           "height": 1640,
-          "sha256": "99f3516fbf4182e3175579657706069499035c712a2e1ea0be6077fc7a0effcf",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "b86e0341f9063b27def38a101488f0067019c330f8d8d96979659252d30e041f",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/aperture-spc/imprimatura-4/768.webp",
@@ -3710,7 +3771,8 @@
               "src": "assets/screens/aperture-spc/imprimatura-4/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "99f3516fbf4182e3175579657706069499035c712a2e1ea0be6077fc7a0effcf"
         },
         {
           "sourceFilename": "void/aperture_spc.webp",
@@ -3839,8 +3901,8 @@
           "base": "assets/screens/aperture-spc/pentimento-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "3e3b8abb9019850d1a2a76abc7b733f020b1c83ca6d3271a3e078a9e55279012",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "86f8238ae612e241556b68c96996483ed085bcad2f52b6dcf4ddacf49462c93f",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/aperture-spc/pentimento-1/768.webp",
@@ -3854,7 +3916,8 @@
               "src": "assets/screens/aperture-spc/pentimento-1/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "3e3b8abb9019850d1a2a76abc7b733f020b1c83ca6d3271a3e078a9e55279012"
         },
         {
           "sourceFilename": "pentimento/aperture_spc5.webp",
@@ -3863,8 +3926,8 @@
           "base": "assets/screens/aperture-spc/pentimento-5",
           "width": 2460,
           "height": 1640,
-          "sha256": "67a9feee92b491a95cb1fc9fd542b016ae01e77f123908e21563cc8933360991",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "8a3dd472a808c10720bc7ac1ebfe2b5d3028e1fc925e47d87c8746b2983766be",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/aperture-spc/pentimento-5/768.webp",
@@ -3878,7 +3941,8 @@
               "src": "assets/screens/aperture-spc/pentimento-5/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "67a9feee92b491a95cb1fc9fd542b016ae01e77f123908e21563cc8933360991"
         },
         {
           "sourceFilename": "pentimento/aperture_spc2.webp",
@@ -3911,8 +3975,8 @@
           "base": "assets/screens/aperture-spc/pentimento-3",
           "width": 2460,
           "height": 1640,
-          "sha256": "f2cd7904f0738673b1fa35100ca28ecf37f19c9d422e65c6d6a4e94ba5d563a1",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "5be0b5772aa60b6b38fa64e2524319ea9369e8c053dcd7ee0e5b0b9ee456b887",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/aperture-spc/pentimento-3/768.webp",
@@ -3926,7 +3990,8 @@
               "src": "assets/screens/aperture-spc/pentimento-3/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "f2cd7904f0738673b1fa35100ca28ecf37f19c9d422e65c6d6a4e94ba5d563a1"
         },
         {
           "sourceFilename": "pentimento/aperture_spc4.webp",
@@ -3935,8 +4000,8 @@
           "base": "assets/screens/aperture-spc/pentimento-4",
           "width": 2460,
           "height": 1640,
-          "sha256": "c103a6841b19d6e87c95a2c3b5ed086db3818393677568e8ec71b13289ad50a5",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "fcfe62232d7e4b040803599d6097c026224cfad6e823b71d5480ebcc1f6ed494",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/aperture-spc/pentimento-4/768.webp",
@@ -3950,7 +4015,8 @@
               "src": "assets/screens/aperture-spc/pentimento-4/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "c103a6841b19d6e87c95a2c3b5ed086db3818393677568e8ec71b13289ad50a5"
         }
       ]
     },
@@ -3983,8 +4049,8 @@
           "base": "assets/screens/data-lens/imprimatura-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "717e116119d2064e8605fa5a3f8e2672bc7e43991bf1d711e1df558064efd42f",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "412908b9d1dd1dcdc3d34ba4335c74700704de0b4d78597edde41e938dd84a15",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/data-lens/imprimatura-1/768.webp",
@@ -3998,7 +4064,8 @@
               "src": "assets/screens/data-lens/imprimatura-1/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "717e116119d2064e8605fa5a3f8e2672bc7e43991bf1d711e1df558064efd42f"
         },
         {
           "sourceFilename": "original/data_lens2.webp",
@@ -4007,8 +4074,8 @@
           "base": "assets/screens/data-lens/imprimatura-2",
           "width": 2460,
           "height": 1640,
-          "sha256": "abd9de18077534b5d92f7cbce8f79255ad52f9119e914027b3aadfae537c4aa3",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "3e2deab08ac19b19e0b4e8c8f1e754e0f836bbc4289aefe8bf82baddd39143c9",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/data-lens/imprimatura-2/768.webp",
@@ -4022,7 +4089,8 @@
               "src": "assets/screens/data-lens/imprimatura-2/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "abd9de18077534b5d92f7cbce8f79255ad52f9119e914027b3aadfae537c4aa3"
         },
         {
           "sourceFilename": "original/data_lens3.webp",
@@ -4079,8 +4147,8 @@
           "base": "assets/screens/data-lens/imprimatura-4",
           "width": 2460,
           "height": 1640,
-          "sha256": "b9e82be23c3d54e408f0efb77a02804b84c5feca2a237120bb0503bf3ce3dda6",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "aded0d2d48334035c04b2b511d960a08ab22d1cb43b54ff0d880eb02de572c0c",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/data-lens/imprimatura-4/768.webp",
@@ -4094,7 +4162,8 @@
               "src": "assets/screens/data-lens/imprimatura-4/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "b9e82be23c3d54e408f0efb77a02804b84c5feca2a237120bb0503bf3ce3dda6"
         },
         {
           "sourceFilename": "original/data_lens5.webp",
@@ -4103,8 +4172,8 @@
           "base": "assets/screens/data-lens/imprimatura-5",
           "width": 2460,
           "height": 1640,
-          "sha256": "98d73f75b0df70117e03dc1d7fa6e14dab4948af6858dff36e0b8827be7fdb12",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "7134aa86d708390e206f76e26c042800d9ec5ef4f8fb6796544525ca7d45d94f",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/data-lens/imprimatura-5/768.webp",
@@ -4118,7 +4187,8 @@
               "src": "assets/screens/data-lens/imprimatura-5/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "98d73f75b0df70117e03dc1d7fa6e14dab4948af6858dff36e0b8827be7fdb12"
         },
         {
           "sourceFilename": "void/data_lens.webp",
@@ -4271,8 +4341,8 @@
           "base": "assets/screens/data-lens/pentimento-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "9b3ec480c1f910b4d5f8f630ae5ffed8b854db7371fe41c76bcac1e7edffc158",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "913ec3bbf48a039f7153e8222981ba7c5555a6a19180facff270072c073d7198",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/data-lens/pentimento-1/768.webp",
@@ -4286,7 +4356,8 @@
               "src": "assets/screens/data-lens/pentimento-1/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "9b3ec480c1f910b4d5f8f630ae5ffed8b854db7371fe41c76bcac1e7edffc158"
         },
         {
           "sourceFilename": "pentimento/data_lens2.webp",
@@ -4295,8 +4366,8 @@
           "base": "assets/screens/data-lens/pentimento-2",
           "width": 2460,
           "height": 1640,
-          "sha256": "07781891e473f9f3bb715154b035a862a43fd2878ff006fffae3f7ea25541c6d",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "3426e3c02d3d2107bea47fc9d2391571ba9fba50c9738f9dadf14ca93855e32f",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/data-lens/pentimento-2/768.webp",
@@ -4310,7 +4381,8 @@
               "src": "assets/screens/data-lens/pentimento-2/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "07781891e473f9f3bb715154b035a862a43fd2878ff006fffae3f7ea25541c6d"
         },
         {
           "sourceFilename": "pentimento/data_lens3.webp",
@@ -4367,8 +4439,8 @@
           "base": "assets/screens/data-lens/pentimento-4",
           "width": 2460,
           "height": 1640,
-          "sha256": "14b07b184cd4a216f39534851dbcd2222f4f91bbbaf33d9fadf30cf5c4471a42",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "e48ebc5a52703d64922be5f75a3b2f2432330af78e87a4d810f5f49e91301ef0",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/data-lens/pentimento-4/768.webp",
@@ -4382,7 +4454,8 @@
               "src": "assets/screens/data-lens/pentimento-4/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "14b07b184cd4a216f39534851dbcd2222f4f91bbbaf33d9fadf30cf5c4471a42"
         },
         {
           "sourceFilename": "pentimento/data_lens5.webp",
@@ -4391,8 +4464,8 @@
           "base": "assets/screens/data-lens/pentimento-5",
           "width": 2460,
           "height": 1640,
-          "sha256": "4ee08447a92c6ac35fd9a9cda07295d4425ef3a76724044c740ba21c3d12123a",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "e331af2b15d0a3a722b99649d71f34c752ddc23a2ef2e717b41e0bfac8b5146f",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/data-lens/pentimento-5/768.webp",
@@ -4406,7 +4479,8 @@
               "src": "assets/screens/data-lens/pentimento-5/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "4ee08447a92c6ac35fd9a9cda07295d4425ef3a76724044c740ba21c3d12123a"
         }
       ],
       "navigationIcon": "assets/native/navigation/datalens_tab.svg",
@@ -4436,8 +4510,8 @@
           "base": "assets/screens/telemetry/imprimatura-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "390ef9df24d40368ff29b49c54737c9b9d8bfbf35273838655730ebcf9dfbef9",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "6ea7a51ee565bce8cc3f1f1ba3fb4ac3abe8fc9f779d826ce4bf5a0d99875fb8",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/telemetry/imprimatura-1/768.webp",
@@ -4451,7 +4525,8 @@
               "src": "assets/screens/telemetry/imprimatura-1/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "390ef9df24d40368ff29b49c54737c9b9d8bfbf35273838655730ebcf9dfbef9"
         },
         {
           "sourceFilename": "original/telemetry5.webp",
@@ -4460,8 +4535,8 @@
           "base": "assets/screens/telemetry/imprimatura-5",
           "width": 2460,
           "height": 1640,
-          "sha256": "24856a8160654b6c936f3bfd9f82a4844df0676831ba2c081cb629d13fff7799",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "600466834bb1a1d534a5807fb9abaad1fa35806f3192b8e380c3151fab8949b6",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/telemetry/imprimatura-5/768.webp",
@@ -4475,7 +4550,8 @@
               "src": "assets/screens/telemetry/imprimatura-5/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "24856a8160654b6c936f3bfd9f82a4844df0676831ba2c081cb629d13fff7799"
         },
         {
           "sourceFilename": "original/telemetry2.webp",
@@ -4484,8 +4560,8 @@
           "base": "assets/screens/telemetry/imprimatura-2",
           "width": 2460,
           "height": 1640,
-          "sha256": "8c059b0f9fc7931d94e39c0c86e756762a92df4a707af79e43bd2168eee71b36",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "dab108e8171b03fccff2b5c898c14c5567506f4561dbb7c6506c455644b06bf3",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/telemetry/imprimatura-2/768.webp",
@@ -4499,7 +4575,8 @@
               "src": "assets/screens/telemetry/imprimatura-2/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "8c059b0f9fc7931d94e39c0c86e756762a92df4a707af79e43bd2168eee71b36"
         },
         {
           "sourceFilename": "original/telemetry3.webp",
@@ -4508,8 +4585,8 @@
           "base": "assets/screens/telemetry/imprimatura-3",
           "width": 2460,
           "height": 1640,
-          "sha256": "7414161c7a944acc5db44ee1540b0ea7bc109ba96669acd1671ef8865b2f7080",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "44dab3d025648d97e6c5f090020ce3ec375d42351b98887c392c9c420ab40cb7",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/telemetry/imprimatura-3/768.webp",
@@ -4523,7 +4600,8 @@
               "src": "assets/screens/telemetry/imprimatura-3/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "7414161c7a944acc5db44ee1540b0ea7bc109ba96669acd1671ef8865b2f7080"
         },
         {
           "sourceFilename": "original/telemetry4.webp",
@@ -4532,8 +4610,8 @@
           "base": "assets/screens/telemetry/imprimatura-4",
           "width": 2460,
           "height": 1640,
-          "sha256": "dfb6757932ce0d65b396ffa6d6a133d85ee472929b7646bd1c4d1e9fb950f564",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "7c4547188b8f6218a594a55bb6dcd2c00e4cecdb011365f73f20afacbeb50b60",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/telemetry/imprimatura-4/768.webp",
@@ -4547,7 +4625,8 @@
               "src": "assets/screens/telemetry/imprimatura-4/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "dfb6757932ce0d65b396ffa6d6a133d85ee472929b7646bd1c4d1e9fb950f564"
         },
         {
           "sourceFilename": "void/telemetry.webp",
@@ -4676,8 +4755,8 @@
           "base": "assets/screens/telemetry/pentimento-1",
           "width": 2460,
           "height": 1640,
-          "sha256": "17718061ca53c231c0b4438c25838cf00f4526f6d35f810552ffa14de0354f3a",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "b4753bfc9dae0115ff0113f5ec9d4bf94d63e60210b37d77efe9e202cc909c7b",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/telemetry/pentimento-1/768.webp",
@@ -4691,7 +4770,8 @@
               "src": "assets/screens/telemetry/pentimento-1/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "17718061ca53c231c0b4438c25838cf00f4526f6d35f810552ffa14de0354f3a"
         },
         {
           "sourceFilename": "pentimento/telemetry5.webp",
@@ -4700,8 +4780,8 @@
           "base": "assets/screens/telemetry/pentimento-5",
           "width": 2460,
           "height": 1640,
-          "sha256": "f010532e2ada481d4f276099383299741cc1927577aa29629aa27b20d41d097e",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "cb8ffd894363185a42f2b9dac87d8df956daabb713eabc0bab2b0c56eaa64858",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/telemetry/pentimento-5/768.webp",
@@ -4715,7 +4795,8 @@
               "src": "assets/screens/telemetry/pentimento-5/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "f010532e2ada481d4f276099383299741cc1927577aa29629aa27b20d41d097e"
         },
         {
           "sourceFilename": "pentimento/telemetry2.webp",
@@ -4724,8 +4805,8 @@
           "base": "assets/screens/telemetry/pentimento-2",
           "width": 2460,
           "height": 1640,
-          "sha256": "f659936243bbc9acefc2608ed80122393b79fe64efeb7d42332cff5b754af76e",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "6ce28d34130f877142d8008ee765a138a0079c2a29928c659219e38e72f4a0aa",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/telemetry/pentimento-2/768.webp",
@@ -4739,7 +4820,8 @@
               "src": "assets/screens/telemetry/pentimento-2/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "f659936243bbc9acefc2608ed80122393b79fe64efeb7d42332cff5b754af76e"
         },
         {
           "sourceFilename": "pentimento/telemetry3.webp",
@@ -4748,8 +4830,8 @@
           "base": "assets/screens/telemetry/pentimento-3",
           "width": 2460,
           "height": 1640,
-          "sha256": "525c8cf6e161007ebf3021e2bd9e534f86f288e2ba7ce82e2eb964b82dc40c4f",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "2a25dcdb6d7d0732e6d22374525248bc9b15c87c532c9933f62ee14fc015d7a6",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/telemetry/pentimento-3/768.webp",
@@ -4763,7 +4845,8 @@
               "src": "assets/screens/telemetry/pentimento-3/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "525c8cf6e161007ebf3021e2bd9e534f86f288e2ba7ce82e2eb964b82dc40c4f"
         },
         {
           "sourceFilename": "pentimento/telemetry4.webp",
@@ -4772,8 +4855,8 @@
           "base": "assets/screens/telemetry/pentimento-4",
           "width": 2460,
           "height": 1640,
-          "sha256": "87a1d31aceb3d391d25ae2a2b5f8e1fda99f1c4b65bef6f3a4bd82e96e51355d",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "a04cbfb6bc389e3d7b59373c594d2dba6c6609b5f51b56528f4ff6301ea7e230",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/telemetry/pentimento-4/768.webp",
@@ -4787,7 +4870,8 @@
               "src": "assets/screens/telemetry/pentimento-4/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "87a1d31aceb3d391d25ae2a2b5f8e1fda99f1c4b65bef6f3a4bd82e96e51355d"
         }
       ]
     },
@@ -4814,8 +4898,8 @@
           "base": "assets/screens/manufacts/imprimatura-1",
           "width": 3200,
           "height": 1920,
-          "sha256": "97921c6cec3bdc0fa0b9fac8a2e097ade9b1a893f6d9e409d1b70a372980e5d7",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "1877b8f6a41bdf96bc2f009a32736f9d88595f11f4c8282966f43193d922c37a",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/manufacts/imprimatura-1/768.webp",
@@ -4833,7 +4917,8 @@
               "src": "assets/screens/manufacts/imprimatura-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "97921c6cec3bdc0fa0b9fac8a2e097ade9b1a893f6d9e409d1b70a372980e5d7"
         },
         {
           "sourceFilename": "original/manufacts7.webp",
@@ -4842,8 +4927,8 @@
           "base": "assets/screens/manufacts/imprimatura-7",
           "width": 3200,
           "height": 1920,
-          "sha256": "0d9bcf0eebc51dddff299439eb66c1d372db5b086995a8081db264af1bebe94b",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "a08effda60b4a0c73c82d0ada231dcf6973981439bfe2e79dd72c55dfa8c6618",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/manufacts/imprimatura-7/768.webp",
@@ -4861,7 +4946,8 @@
               "src": "assets/screens/manufacts/imprimatura-7/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "0d9bcf0eebc51dddff299439eb66c1d372db5b086995a8081db264af1bebe94b"
         },
         {
           "sourceFilename": "original/manufacts2.webp",
@@ -4870,8 +4956,8 @@
           "base": "assets/screens/manufacts/imprimatura-2",
           "width": 2460,
           "height": 1640,
-          "sha256": "84db7680f69f0c6c851513a2a7bc1521fc99e82417dc87c06a94472b9ca4aa88",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "9b6a6b1feb35be00e6d0e2567e04402d0f2afe7dc7f52147646558d6b2678b9d",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/manufacts/imprimatura-2/768.webp",
@@ -4885,7 +4971,8 @@
               "src": "assets/screens/manufacts/imprimatura-2/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "84db7680f69f0c6c851513a2a7bc1521fc99e82417dc87c06a94472b9ca4aa88"
         },
         {
           "sourceFilename": "original/manufacts3.webp",
@@ -4894,8 +4981,8 @@
           "base": "assets/screens/manufacts/imprimatura-3",
           "width": 2460,
           "height": 1640,
-          "sha256": "1d72934d6ffe209401d0096d842c309179ed13a5630b8cc29ec3dadef452b6d0",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "56c35cde4d69e781cc27ad9e79579bbee701a65c88e3b3efe1b60ddccb3ecafc",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/manufacts/imprimatura-3/768.webp",
@@ -4909,7 +4996,8 @@
               "src": "assets/screens/manufacts/imprimatura-3/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "1d72934d6ffe209401d0096d842c309179ed13a5630b8cc29ec3dadef452b6d0"
         },
         {
           "sourceFilename": "original/manufacts4.webp",
@@ -4918,8 +5006,8 @@
           "base": "assets/screens/manufacts/imprimatura-4",
           "width": 2460,
           "height": 1640,
-          "sha256": "bbcf0856917cabc8275e42a024406c8a70d198a12cf919b78605c1a42e64457c",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "b48d8fd3e34b4a4b1e440e204feb1cfcd8c33e82a3d21dd22af64a9aa8ed777b",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/manufacts/imprimatura-4/768.webp",
@@ -4933,7 +5021,8 @@
               "src": "assets/screens/manufacts/imprimatura-4/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "bbcf0856917cabc8275e42a024406c8a70d198a12cf919b78605c1a42e64457c"
         },
         {
           "sourceFilename": "original/manufacts5.webp",
@@ -4942,8 +5031,8 @@
           "base": "assets/screens/manufacts/imprimatura-5",
           "width": 2460,
           "height": 1640,
-          "sha256": "ff104c54e1df91e2708517d85bdbae4ee6bce8dfd8738c0d6ebe48df02aaaa02",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "4d292b054fdd547accc8e2c9a22b15d9034ad575d7dc96f2674295bff1337798",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/manufacts/imprimatura-5/768.webp",
@@ -4957,7 +5046,8 @@
               "src": "assets/screens/manufacts/imprimatura-5/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "ff104c54e1df91e2708517d85bdbae4ee6bce8dfd8738c0d6ebe48df02aaaa02"
         },
         {
           "sourceFilename": "original/manufacts6.webp",
@@ -4966,8 +5056,8 @@
           "base": "assets/screens/manufacts/imprimatura-6",
           "width": 2460,
           "height": 1640,
-          "sha256": "98713498c2fabf9e2ec3c5844d18485b4505c2b2be2893a47b91e4dce4197313",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "58aa9c2c4f16f19521d7e173ae6bb84810f879994fbd8ed6d3ea22ed505889a4",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/manufacts/imprimatura-6/768.webp",
@@ -4981,7 +5071,8 @@
               "src": "assets/screens/manufacts/imprimatura-6/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "98713498c2fabf9e2ec3c5844d18485b4505c2b2be2893a47b91e4dce4197313"
         },
         {
           "sourceFilename": "void/manufacts.webp",
@@ -5166,8 +5257,8 @@
           "base": "assets/screens/manufacts/pentimento-1",
           "width": 3200,
           "height": 1920,
-          "sha256": "f7625dccb752279feeba1536845e172ae3f060494e7358e983629563fce0e2e0",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "0e60a23953c2863eba4d61ee2d4078fbebe2d42d25366df2296a2aa2fd21616b",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/manufacts/pentimento-1/768.webp",
@@ -5185,7 +5276,8 @@
               "src": "assets/screens/manufacts/pentimento-1/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "f7625dccb752279feeba1536845e172ae3f060494e7358e983629563fce0e2e0"
         },
         {
           "sourceFilename": "pentimento/manufacts7.webp",
@@ -5194,8 +5286,8 @@
           "base": "assets/screens/manufacts/pentimento-7",
           "width": 3200,
           "height": 1920,
-          "sha256": "c37f8d3cbd44ed85c4330210b22ce90f6d98a45051fb6bb442d6fe13e396f996",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "4b62d1b4bb3dc7e1de1a4d46b9419f897049e44246d2e055256992b5cee2e648",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/manufacts/pentimento-7/768.webp",
@@ -5213,7 +5305,8 @@
               "src": "assets/screens/manufacts/pentimento-7/2560.webp",
               "width": 2560
             }
-          ]
+          ],
+          "sourceSha256": "c37f8d3cbd44ed85c4330210b22ce90f6d98a45051fb6bb442d6fe13e396f996"
         },
         {
           "sourceFilename": "pentimento/manufacts2.webp",
@@ -5222,8 +5315,8 @@
           "base": "assets/screens/manufacts/pentimento-2",
           "width": 2460,
           "height": 1640,
-          "sha256": "b8ddd46ba8b094afd806ff690b7c3c92d3ba8afdfe829ed32e38c3f1c8693b9e",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "733ed1a0af7555eaa1bd98b37f8a442b3aa8c8538b0ae79d86a891f04bea49bf",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/manufacts/pentimento-2/768.webp",
@@ -5237,7 +5330,8 @@
               "src": "assets/screens/manufacts/pentimento-2/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "b8ddd46ba8b094afd806ff690b7c3c92d3ba8afdfe829ed32e38c3f1c8693b9e"
         },
         {
           "sourceFilename": "pentimento/manufacts3.webp",
@@ -5246,8 +5340,8 @@
           "base": "assets/screens/manufacts/pentimento-3",
           "width": 2460,
           "height": 1640,
-          "sha256": "685c38dbe7af75a47cfb800e0ea05eaa3af337dbf87ace23b8b501cca5fe466a",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "2c3919307fbdb950b46dbff55b740dd551013d52bf5453e472940c7d2ee74ee0",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/manufacts/pentimento-3/768.webp",
@@ -5261,7 +5355,8 @@
               "src": "assets/screens/manufacts/pentimento-3/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "685c38dbe7af75a47cfb800e0ea05eaa3af337dbf87ace23b8b501cca5fe466a"
         },
         {
           "sourceFilename": "pentimento/manufacts4.webp",
@@ -5270,8 +5365,8 @@
           "base": "assets/screens/manufacts/pentimento-4",
           "width": 2460,
           "height": 1640,
-          "sha256": "a3b97eba4d1b0eebcff80e1971439dc8431978061c91632e51a68786f445b230",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "dff65bd4c576322d29b67d2fa498f7b992f97747547ed5695efab2339bff8c56",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/manufacts/pentimento-4/768.webp",
@@ -5285,7 +5380,8 @@
               "src": "assets/screens/manufacts/pentimento-4/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "a3b97eba4d1b0eebcff80e1971439dc8431978061c91632e51a68786f445b230"
         },
         {
           "sourceFilename": "pentimento/manufacts5.webp",
@@ -5294,8 +5390,8 @@
           "base": "assets/screens/manufacts/pentimento-5",
           "width": 2460,
           "height": 1640,
-          "sha256": "3501068bdddb827d5d786e43f256e27703e1cd7a3921a30cbec1be0efbfeb04f",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "0346910f963dc0ef1b35d97cd4c6dc3564402f6f930b5a995aff8e9868b2058e",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/manufacts/pentimento-5/768.webp",
@@ -5309,7 +5405,8 @@
               "src": "assets/screens/manufacts/pentimento-5/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "3501068bdddb827d5d786e43f256e27703e1cd7a3921a30cbec1be0efbfeb04f"
         },
         {
           "sourceFilename": "pentimento/manufacts6.webp",
@@ -5318,8 +5415,8 @@
           "base": "assets/screens/manufacts/pentimento-6",
           "width": 2460,
           "height": 1640,
-          "sha256": "722d6d5b3a1d545c8a31288ee9f72a94cc3f8bf14d5df4c7b38e46a83eddf998",
-          "encoding": "webp-lossless-native-v2",
+          "sha256": "aa0be4cf85c7b26372563f7a18aa4f6c0d02290bfc8baeb9b025a5522aadf63b",
+          "encoding": "webp-lossless-neutral-title-v1",
           "sources": [
             {
               "src": "assets/screens/manufacts/pentimento-6/768.webp",
@@ -5333,7 +5430,8 @@
               "src": "assets/screens/manufacts/pentimento-6/1920.webp",
               "width": 1920
             }
-          ]
+          ],
+          "sourceSha256": "722d6d5b3a1d545c8a31288ee9f72a94cc3f8bf14d5df4c7b38e46a83eddf998"
         }
       ]
     }

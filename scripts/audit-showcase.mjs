@@ -14,7 +14,7 @@ for(const app of model.apps)for(const capture of app.images){
  if(fullDigest!==capture.sha256)throw Error('Full-resolution asset differs from manifest: '+file);
  if(source){
   const digest=crypto.createHash('sha256').update(await fs.readFile(path.join(source,capture.sourceFilename))).digest('hex');
-  if(digest!==capture.sha256)throw Error('Source hash mismatch: '+capture.sourceFilename);
+  if(digest!==(capture.sourceSha256 || capture.sha256))throw Error('Source hash mismatch: '+capture.sourceFilename);
  }
  bytes+=(await fs.stat(file)).size;
  for(const variant of capture.sources){
@@ -23,7 +23,7 @@ for(const app of model.apps)for(const capture of app.images){
   if(format!=='webp'||width!==variant.width||Math.abs(height-meta.height*width/meta.width)>0.501)throw Error('Incorrect responsive asset: '+variant.src);
   bytes+=(await fs.stat(variant.src)).size;
  }
- records.push({app:app.id,theme:capture.theme,source:capture.sourceFilename,sourceSha256:capture.sha256,width:meta.width,height:meta.height,full:file});
+ records.push({app:app.id,theme:capture.theme,source:capture.sourceFilename,sourceSha256:capture.sourceSha256 || capture.sha256,...(capture.sourceSha256 ? {displaySha256: fullDigest} : {}),width:meta.width,height:meta.height,full:file});
 }
-await fs.writeFile('content/capture-source-manifest.json',JSON.stringify({date:new Date().toISOString().slice(0,10),applications:model.apps.length,themes:model.themes,captures:records.length,encoding:'Full-size lossless native WebP masters; responsive WebP quality 94; full-size masters served directly by the gallery',bytes,records},null,2)+'\n');
+await fs.writeFile('content/capture-source-manifest.json',JSON.stringify({date:new Date().toISOString().slice(0,10),applications:model.apps.length,themes:model.themes,captures:records.length,encoding:'Lossless native WebP with neutral title-mark background where displaySha256 is recorded. Responsive WebP quality 94.',bytes,records},null,2)+'\n');
 console.log(`${records.length} source hashes and full-size assets verified; ${(bytes/1e6).toFixed(1)} MB active screenshot assets.`);
