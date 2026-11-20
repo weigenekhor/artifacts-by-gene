@@ -1,31 +1,21 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Yvenne has moved</title>
-  <link rel="canonical" href="https://yvennebygene.com/">
-  <script>
-const target = new URL('https://yvennebygene.com');
-target.pathname = location.pathname;
-target.search = location.search;
-target.hash = location.hash;
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Lattices by Gene</title>
+<script>
+const destination = new URL('https://latticesbygene.com');
+destination.pathname = location.pathname;
+destination.search = location.search;
+destination.hash = location.hash;
 try {
-  const saved = localStorage.getItem('artifacts-mode') || localStorage.getItem('artifacts-edition');
-  const mode = ['legacy', 'pentimento'].includes(saved) ? saved : '';
-  const preferences = JSON.parse(localStorage.getItem('artifacts-showcase-notifications') || 'null');
-  const notices = preferences ? (preferences.enabled === false ? 'off' : 'on') : '';
-  const mute = preferences?.mutes?.temperature;
-  const until = Number.isSafeInteger(mute) && mute > Date.now() && mute <= 9999999999999 ? mute : '';
-  if ((mode || notices) && ['/', '/index.html', '/gnx/', '/gnx/index.html'].includes(location.pathname)) {
-    target.hash = '#yvenne-move=' + [mode, notices, until].join(',') + location.hash;
+  if (location.pathname === '/' || location.pathname === '/index.html') {
+    const prefix = 'artifacts';
+    const mode = localStorage.getItem(prefix + '-mode') || localStorage.getItem(prefix + '-edition');
+    const saved = JSON.parse(localStorage.getItem(prefix + '-showcase-notifications') || 'null');
+    const choice = ['legacy', 'pentimento'].includes(mode) ? mode : '';
+    const enabled = typeof saved?.enabled === 'boolean' ? saved.enabled ? 'on' : 'off' : '';
+    const mute = Number(saved?.mutes?.temperature);
+    const until = Number.isSafeInteger(mute) && mute > 0 && mute < 10000000000000 ? String(mute) : '';
+    if (choice || enabled || until) destination.hash = '#lattices-move=' + [choice, enabled, until].join(',') + location.hash;
   }
-} catch {
-  // Continue to the matching page if this browser blocks local storage.
-}
-location.replace(target.href);
-  </script>
-  <noscript><meta http-equiv="refresh" content="0;url=https://yvennebygene.com/"></noscript>
-</head>
-<body><p><a href="https://yvennebygene.com/">Continue to Yvenne</a></p></body>
-</html>
+} catch {}
+location.replace(destination.href);
+</script></head><body><p>This page has moved to <a href="https://latticesbygene.com/">Lattices by Gene</a>.</p></body></html>
